@@ -16418,6 +16418,27 @@
     height: 1px;
     background: rgba(255, 255, 255, 0.4);
   }
+  .tm-founder-mark-photo .tm-founder-tag,
+  .tm-founder-mark-photo .tm-founder-stamp { position: relative; z-index: 2; }
+  .tm-founder-mark-photo::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(180deg, rgba(15, 17, 22, 0.55) 0%, rgba(15, 17, 22, 0) 25%, rgba(15, 17, 22, 0) 60%, rgba(15, 17, 22, 0.65) 100%);
+    z-index: 1;
+  }
+  .tm-founder-photo {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: left top;
+    display: block;
+    z-index: 0;
+    filter: saturate(0.95);
+  }
   .tm-founder-tag {
     font-size: 10.5px;
     font-weight: 700;
