@@ -1,0 +1,208 @@
+import { useEffect, useRef, useState } from 'react';
+import type { CSSProperties } from 'react';
+
+interface Testimonial {
+  initials: string;
+  text: string;
+  name: string;
+  title: string;
+}
+
+const TESTIMONIALS: Testimonial[] = [
+  {
+    initials: 'SC',
+    text: 'TheNextGen rebuilt our entire patient pipeline. In 90 days, consults tripled and our cost per lead dropped by half.',
+    name: 'Dr. Sarah Chen',
+    title: 'Owner, Beverly Hills MedSpa',
+  },
+  {
+    initials: 'MR',
+    text: 'Their HIPAA-aware paid media let us scale with confidence. We’ve seen consistent month-over-month growth for over a year.',
+    name: 'Mark Reynolds',
+    title: 'Practice Director, Premier Dental',
+  },
+  {
+    initials: 'ER',
+    text: 'Every decision is backed by clear reporting. The weekly optimization keeps our funnel sharp and our team aligned.',
+    name: 'Dr. Emily Rodriguez',
+    title: 'Founder, Wellness Collective',
+  },
+  {
+    initials: 'JP',
+    text: 'They understand healthcare. Compliance was seamless and ROI showed up in our very first quarter.',
+    name: 'James Park',
+    title: 'CEO, Urgent Care Network',
+  },
+];
+
+const QuoteMark = () => (
+  <span className="testi-mark" aria-hidden="true">
+    <svg
+      width={56}
+      height={44}
+      viewBox="0 0 56 44"
+      fill="currentColor"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path d="M0 44V25.6C0 18.6 1.5 12.7 4.6 7.8 7.7 2.9 12.6 0 19.4 0v8.4c-3.4 1-5.9 2.8-7.4 5.4-1.5 2.6-2.3 5.6-2.3 9v3.2H19.4V44H0zm32 0V25.6c0-7 1.5-12.9 4.6-17.8C39.7 2.9 44.6 0 51.4 0v8.4c-3.4 1-5.9 2.8-7.4 5.4-1.5 2.6-2.3 5.6-2.3 9v3.2H51.4V44H32z" />
+    </svg>
+  </span>
+);
+
+const ChevronLeft = () => (
+  <svg
+    width={18}
+    height={18}
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth={2}
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    aria-hidden="true"
+  >
+    <polyline points="15 18 9 12 15 6" />
+  </svg>
+);
+
+const ChevronRight = () => (
+  <svg
+    width={18}
+    height={18}
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth={2}
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    aria-hidden="true"
+  >
+    <polyline points="9 18 15 12 9 6" />
+  </svg>
+);
+
+const Testimonials = () => {
+  const trackRef = useRef<HTMLDivElement>(null);
+  const barRef = useRef<HTMLDivElement>(null);
+  const [prevDisabled, setPrevDisabled] = useState(true);
+  const [nextDisabled, setNextDisabled] = useState(false);
+  const [fillStyle, setFillStyle] = useState<CSSProperties>({});
+
+  const update = () => {
+    const track = trackRef.current;
+    const bar = barRef.current;
+    if (!track || !bar) return;
+    const max = track.scrollWidth - track.clientWidth;
+    setPrevDisabled(track.scrollLeft <= 1);
+    setNextDisabled(track.scrollLeft >= max - 1);
+    const barW = bar.clientWidth;
+    const segW = Math.max(40, (track.clientWidth / track.scrollWidth) * barW);
+    const pct = max > 0 ? track.scrollLeft / max : 0;
+    setFillStyle({
+      width: `${segW}px`,
+      transform: `translateX(${pct * (barW - segW)}px)`,
+    });
+  };
+
+  const step = () => {
+    const track = trackRef.current;
+    if (!track) return 400;
+    const card = track.querySelector<HTMLElement>('.testi-card');
+    if (!card) return 400;
+    const styles = getComputedStyle(track);
+    const gap = parseFloat(styles.columnGap || styles.gap || '0') || 0;
+    return card.getBoundingClientRect().width + gap;
+  };
+
+  const handlePrev = () =>
+    trackRef.current?.scrollBy({ left: -step(), behavior: 'smooth' });
+  const handleNext = () =>
+    trackRef.current?.scrollBy({ left: step(), behavior: 'smooth' });
+
+  useEffect(() => {
+    const track = trackRef.current;
+    if (!track) return;
+    update();
+    track.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+    const t = window.setTimeout(update, 250);
+    return () => {
+      track.removeEventListener('scroll', update);
+      window.removeEventListener('resize', update);
+      window.clearTimeout(t);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  return (
+    <section
+      className="testi-section"
+      id="testimonials"
+      aria-labelledby="testi-title"
+    >
+      <div className="container-shell">
+        <div className="testi-head">
+          <span className="testi-eyebrow">Testimonials</span>
+          <h2 id="testi-title" className="testi-h2">
+            Trusted by healthcare leaders.
+          </h2>
+          <p className="testi-sub">
+            Join the practices that have transformed their patient acquisition
+            with TheNextGen.
+          </p>
+        </div>
+
+        <div className="testi-track-wrap">
+          <div className="testi-track" ref={trackRef}>
+            {TESTIMONIALS.map(({ initials, text, name, title }) => (
+              <article key={name} className="testi-card">
+                <QuoteMark />
+                <p className="testi-text">{text}</p>
+                <div className="testi-author">
+                  <span className="testi-line" aria-hidden="true" />
+                  <div className="testi-avatar" aria-hidden="true">
+                    {initials}
+                  </div>
+                  <div className="testi-meta">
+                    <p className="testi-name">{name}</p>
+                    <p className="testi-title">{title}</p>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+
+        <div
+          className="testi-nav"
+          role="group"
+          aria-label="Testimonial slider navigation"
+        >
+          <button
+            type="button"
+            className="nav-chev prev"
+            onClick={handlePrev}
+            disabled={prevDisabled}
+            aria-label="Previous testimonial"
+          >
+            <ChevronLeft />
+          </button>
+          <div className="nav-bar" ref={barRef} aria-hidden="true">
+            <span className="nav-bar-fill" style={fillStyle} />
+          </div>
+          <button
+            type="button"
+            className="nav-chev next"
+            onClick={handleNext}
+            disabled={nextDisabled}
+            aria-label="Next testimonial"
+          >
+            <ChevronRight />
+          </button>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Testimonials;

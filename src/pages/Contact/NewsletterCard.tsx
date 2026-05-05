@@ -1,0 +1,63 @@
+import { useState } from 'react';
+import type { FormEvent } from 'react';
+
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+const NewsletterCard = () => {
+  const [email, setEmail] = useState('');
+
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (!EMAIL_RE.test(email.trim())) {
+      alert('Please enter a valid email.');
+      return;
+    }
+    alert('Subscribed! Check your inbox for the next issue.');
+    setEmail('');
+  };
+
+  return (
+    <aside className="ct-newsletter" aria-labelledby="news-title">
+      <span className="ct-form-eyebrow">Our Newsletter</span>
+      <h3 id="news-title" className="ct-form-title">
+        Healthcare growth, weekly.
+      </h3>
+      <p className="ct-form-text">
+        Field-tested patient acquisition tactics, HIPAA updates, and case
+        studies from 200+ Texas practices &mdash; delivered every Tuesday
+        morning. No fluff, no spam.
+      </p>
+
+      <form className="ct-news-form" onSubmit={handleSubmit} noValidate>
+        <input
+          type="email"
+          className="ct-news-input"
+          placeholder="Enter your work email"
+          autoComplete="email"
+          required
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <button type="submit" className="ct-news-btn">
+          Subscribe
+          <svg
+            width={14}
+            height={14}
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth={2.4}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            aria-hidden="true"
+          >
+            <line x1="5" y1="12" x2="19" y2="12" />
+            <polyline points="12 5 19 12 12 19" />
+          </svg>
+        </button>
+      </form>
+    </aside>
+  );
+};
+
+export default NewsletterCard;
