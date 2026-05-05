@@ -23,7 +23,10 @@ const Founder = () => {
 
           <div className="tm-founder-body">
             <div className="tm-founder-eyebrow">President &amp; Founder</div>
-            <h2 className="tm-founder-name">Jay Dahal</h2>
+            <div className="tm-founder-name-glass">
+              <h2 className="tm-founder-name">Jay Dahal</h2>
+              <span className="tm-founder-name-rule" aria-hidden="true" />
+            </div>
             <div className="tm-founder-creds">
               <span className="tm-founder-cred">CPA</span>
               <span className="tm-founder-cred">CTC</span>
