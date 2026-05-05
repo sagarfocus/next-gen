@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import type { ReactElement } from 'react';
+import { Link } from 'react-router-dom';
 
 interface ServiceItem {
   href: string;
@@ -201,18 +202,18 @@ const AnalyticsCard = (
 );
 
 const SERVICES: ServiceItem[] = [
-  { href: 'https://thenextgenhealth.com/services/seo-local-search', ariaId: 'svc-1', illustration: SeoCard, meta: 'Search', title: 'SEO & Local Search', sub: 'Rank for the searches that bring patients to your door.' },
-  { href: 'https://thenextgenhealth.com/services/google-ads', ariaId: 'svc-2', illustration: AdsCard, meta: 'Paid Media', title: 'Google Ads & Paid Search', sub: 'High-intent traffic with weekly ROI optimization.' },
+  { href: '/services/seo-local-search', ariaId: 'svc-1', illustration: SeoCard, meta: 'Search', title: 'SEO & Local Search', sub: 'Rank for the searches that bring patients to your door.' },
+  { href: '/services/google-ads', ariaId: 'svc-2', illustration: AdsCard, meta: 'Paid Media', title: 'Google Ads & Paid Search', sub: 'High-intent traffic with weekly ROI optimization.' },
   { href: 'https://thenextgenhealth.com/services/meta-ads', ariaId: 'svc-3', illustration: MetaCard, meta: 'Social Ads', title: 'Meta Ads', sub: 'Conversion-focused campaigns on Facebook & Instagram.' },
-  { href: 'https://thenextgenhealth.com/services/social-media-marketing', ariaId: 'svc-4', illustration: SocialCard, meta: 'Social', title: 'Social Media Marketing', sub: 'Show up where your patients spend their time.' },
-  { href: 'https://thenextgenhealth.com/services/content-copywriting', ariaId: 'svc-5', illustration: ContentCard, meta: 'Content', title: 'Content & Copywriting', sub: 'Healthcare content that ranks & converts.' },
-  { href: 'https://thenextgenhealth.com/services/google-business-profile', ariaId: 'svc-6', illustration: GbpCard, meta: 'Local', title: 'Google Business Profile', sub: 'Dominate the Local Pack with weekly GBP optimization.' },
-  { href: 'https://thenextgenhealth.com/services/website-design-dev', ariaId: 'svc-7', illustration: WebCard, meta: 'Web', title: 'Website Design & Development', sub: 'Fast, accessible sites built to convert.', extra: true },
-  { href: 'https://thenextgenhealth.com/services/brand-identity-design', ariaId: 'svc-8', illustration: BrandCard, meta: 'Identity', title: 'Brand Identity Design', sub: 'Memorable visual systems for healthcare brands.', extra: true },
+  { href: '/services/social-media-marketing', ariaId: 'svc-4', illustration: SocialCard, meta: 'Social', title: 'Social Media Marketing', sub: 'Show up where your patients spend their time.' },
+  { href: '/services/content-copywriting', ariaId: 'svc-5', illustration: ContentCard, meta: 'Content', title: 'Content & Copywriting', sub: 'Healthcare content that ranks & converts.' },
+  { href: '/services/google-business-profile', ariaId: 'svc-6', illustration: GbpCard, meta: 'Local', title: 'Google Business Profile', sub: 'Dominate the Local Pack with weekly GBP optimization.' },
+  { href: '/services/website-design-dev', ariaId: 'svc-7', illustration: WebCard, meta: 'Web', title: 'Website Design & Development', sub: 'Fast, accessible sites built to convert.', extra: true },
+  { href: '/services/brand-identity-design', ariaId: 'svc-8', illustration: BrandCard, meta: 'Identity', title: 'Brand Identity Design', sub: 'Memorable visual systems for healthcare brands.', extra: true },
   { href: 'https://thenextgenhealth.com/services/brochure-print-design', ariaId: 'svc-9', illustration: PrintCard, meta: 'Print', title: 'Brochure & Print Design', sub: 'Patient-facing print collateral that builds trust.', extra: true },
   { href: 'https://thenextgenhealth.com/services/strategy-planning', ariaId: 'svc-10', illustration: StrategyCard, meta: 'Strategy', title: 'Strategy & Planning', sub: 'Roadmaps grounded in data & clinical reality.', extra: true },
   { href: 'https://thenextgenhealth.com/services/onsite-field-marketing', ariaId: 'svc-11', illustration: FieldCard, meta: 'Field', title: 'Onsite Field Marketing', sub: 'Community presence that drives walk-in volume.', extra: true },
-  { href: 'https://thenextgenhealth.com/services/analytics-reporting', ariaId: 'svc-12', illustration: AnalyticsCard, meta: 'Insights', title: 'Analytics & Reporting', sub: 'Real-time dashboards tied to revenue.', extra: true },
+  { href: '/services/analytics-reporting', ariaId: 'svc-12', illustration: AnalyticsCard, meta: 'Insights', title: 'Analytics & Reporting', sub: 'Real-time dashboards tied to revenue.', extra: true },
 ];
 
 const CardArrow = () => (
@@ -261,26 +262,43 @@ const ServicesList = () => {
         </div>
 
         <div className="svc-cards">
-          {SERVICES.map(({ href, ariaId, illustration, meta, title, sub, extra }) => (
-            <a
-              key={ariaId}
-              href={href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`svc-card${extra ? ' is-extra' : ''}`}
-              aria-labelledby={ariaId}
-            >
-              <div className="svc-card-img">
-                {illustration}
-                <CardArrow />
-              </div>
-              <span className="svc-card-meta">{meta}</span>
-              <h3 id={ariaId} className="svc-card-title">
-                {title}
-              </h3>
-              <p className="svc-card-sub">{sub}</p>
-            </a>
-          ))}
+          {SERVICES.map(({ href, ariaId, illustration, meta, title, sub, extra }) => {
+            const isInternal = href.startsWith('/');
+            const cardBody = (
+              <>
+                <div className="svc-card-img">
+                  {illustration}
+                  <CardArrow />
+                </div>
+                <span className="svc-card-meta">{meta}</span>
+                <h3 id={ariaId} className="svc-card-title">
+                  {title}
+                </h3>
+                <p className="svc-card-sub">{sub}</p>
+              </>
+            );
+            return isInternal ? (
+              <Link
+                key={ariaId}
+                to={href}
+                className={`svc-card${extra ? ' is-extra' : ''}`}
+                aria-labelledby={ariaId}
+              >
+                {cardBody}
+              </Link>
+            ) : (
+              <a
+                key={ariaId}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`svc-card${extra ? ' is-extra' : ''}`}
+                aria-labelledby={ariaId}
+              >
+                {cardBody}
+              </a>
+            );
+          })}
         </div>
 
         <div className="svc-more-row">

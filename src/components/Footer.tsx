@@ -104,15 +104,15 @@ const Footer = () => {
           <div className="flex flex-col gap-[18px]">
             <h4 className="ft-h">Services</h4>
             <ul className="list-none m-0 p-0 flex flex-col gap-[11px]">
-              <li><Link to="/services" className="ft-list-link">SEO &amp; Local Search</Link></li>
-              <li><Link to="/services" className="ft-list-link">Google Ads</Link></li>
-              <li><Link to="/services" className="ft-list-link">Social Media</Link></li>
-              <li><Link to="/services" className="ft-list-link">Website Design</Link></li>
-              <li><Link to="/services" className="ft-list-link">Email Campaigns</Link></li>
-              <li><Link to="/services" className="ft-list-link">Content Marketing</Link></li>
-              <li><Link to="/services" className="ft-list-link">Google Business Profile</Link></li>
-              <li><Link to="/services" className="ft-list-link">Analytics</Link></li>
-              <li><Link to="/services" className="ft-list-link">Branding</Link></li>
+              <li><Link to="/services/seo-local-search" className="ft-list-link">SEO &amp; Local Search</Link></li>
+              <li><Link to="/services/google-ads" className="ft-list-link">Google Ads</Link></li>
+              <li><Link to="/services/social-media-marketing" className="ft-list-link">Social Media</Link></li>
+              <li><Link to="/services/website-design-dev" className="ft-list-link">Website Design</Link></li>
+              <li><Link to="/services/email-drip-campaigns" className="ft-list-link">Email Campaigns</Link></li>
+              <li><Link to="/services/content-copywriting" className="ft-list-link">Content Marketing</Link></li>
+              <li><Link to="/services/google-business-profile" className="ft-list-link">Google Business Profile</Link></li>
+              <li><Link to="/services/analytics-reporting" className="ft-list-link">Analytics</Link></li>
+              <li><Link to="/services/brand-identity-design" className="ft-list-link">Branding</Link></li>
             </ul>
           </div>
 
@@ -121,12 +121,12 @@ const Footer = () => {
             <h4 className="ft-h">Company</h4>
             <ul className="list-none m-0 p-0 flex flex-col gap-[11px]">
               <li><Link to="/about" className="ft-list-link">About</Link></li>
-              <li><Link to="/#faq" className="ft-list-link">FAQ</Link></li>
+              <li><Link to="/faq" className="ft-list-link">FAQ</Link></li>
               <li><Link to="/#seo-guide" className="ft-list-link">SEO Guide</Link></li>
               <li><Link to="/pricing" className="ft-list-link">Pricing</Link></li>
               <li><Link to="/blog" className="ft-list-link">Blog</Link></li>
-              <li><Link to="/#industries" className="ft-list-link">Industries</Link></li>
-              <li><Link to="/#team" className="ft-list-link">Team</Link></li>
+              <li><Link to="/industries" className="ft-list-link">Industries</Link></li>
+              <li><Link to="/team" className="ft-list-link">Team</Link></li>
             </ul>
           </div>
 
