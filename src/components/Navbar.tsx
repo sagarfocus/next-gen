@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { LOGO_DATA_URL } from '../assets/logo';
+import logoSrc from '../assets/the-nextgen-logo.png';
 
 interface ResourceLink {
   to: string;
@@ -51,13 +51,15 @@ const Navbar = () => {
           {/* Logo */}
           <Link
             to="/"
-            className="flex items-center h-10"
+            className="flex items-center"
             aria-label="TheNextGen Healthcare Marketing — Home"
           >
             <img
-              src={LOGO_DATA_URL}
+              src={logoSrc}
               alt="TheNextGen Healthcare Marketing"
-              className="h-[30px] sm:h-[38px] w-auto block"
+              className="h-16 sm:h-[88px] w-auto block select-none"
+              style={{ mixBlendMode: 'multiply' }}
+              draggable={false}
             />
           </Link>
 

@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import type { FormEvent } from 'react';
-import { LOGO_DATA_URL } from '../assets/logo';
+import logoSrc from '../assets/the-nextgen-logo.png';
 
 const Footer = () => {
   const handleNewsletterSubmit = (e: FormEvent<HTMLFormElement>) => {
@@ -20,9 +20,11 @@ const Footer = () => {
               aria-label="TheNextGen Healthcare Marketing — Home"
             >
               <img
-                src={LOGO_DATA_URL}
+                src={logoSrc}
                 alt="TheNextGen Healthcare Marketing"
-                className="h-[38px] w-auto block"
+                className="h-[48px] w-auto block select-none"
+                style={{ mixBlendMode: 'multiply' }}
+                draggable={false}
               />
             </Link>
             <p className="text-[14px] leading-[1.65] text-body m-0 max-w-[38ch]">
