@@ -22,8 +22,7 @@ const Footer = () => {
               <img
                 src={logoSrc}
                 alt="TheNextGen Healthcare Marketing"
-                className="h-[48px] w-auto block select-none"
-                style={{ mixBlendMode: 'multiply' }}
+                className="h-[80px] w-auto block select-none"
                 draggable={false}
               />
             </Link>

@@ -57,8 +57,7 @@ const Navbar = () => {
             <img
               src={logoSrc}
               alt="TheNextGen Healthcare Marketing"
-              className="h-16 sm:h-[88px] w-auto block select-none"
-              style={{ mixBlendMode: 'multiply' }}
+              className="h-14 sm:h-[88px] w-auto block select-none"
               draggable={false}
             />
           </Link>
