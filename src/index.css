@@ -9165,11 +9165,20 @@
   .nav-dropdown {
     position: relative;
   }
-  .nav-chev {
-    transition: transform 0.25s ease;
+  .nav-drop-chev {
+    width: 18px !important;
+    height: 18px !important;
+    padding: 0 !important;
+    color: #2D3748;
+    transition: transform 0.25s ease, color 0.2s ease;
+    flex-shrink: 0;
+    display: inline-block;
+    vertical-align: middle;
   }
-  .nav-chev.is-open {
+  .nav-link:hover .nav-drop-chev { color: #B38B6D; }
+  .nav-drop-chev.is-open {
     transform: rotate(180deg);
+    color: #B38B6D;
   }
   .nav-link.is-open {
     color: #2D3748;
