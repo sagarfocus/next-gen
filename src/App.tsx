@@ -2,6 +2,7 @@ import { Routes, Route } from 'react-router-dom';
 import ScrollToTop from './components/ScrollToTop';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import { PageTransition, useAutoReveal } from './lib/motion';
 import Home from './pages/Home';
 import About from './pages/About';
 import Services from './pages/Services';
@@ -18,7 +19,20 @@ import Team from './pages/Team';
 import Industries from './pages/Industries';
 import CaseStudies from './pages/CaseStudies';
 import HealthcareNews from './pages/HealthcareNews';
+import HealthcareContent from './pages/HealthcareContent';
+import GrowthPlan from './pages/GrowthPlan';
+import MetaAds from './pages/MetaAds';
+import HipaaCompliance from './pages/HipaaCompliance';
+import ReviewsReputation from './pages/ReviewsReputation';
+import PatientExperience from './pages/PatientExperience';
+import CitationBuilding from './pages/CitationBuilding';
+import HyperLocalContent from './pages/HyperLocalContent';
+import AeoSchema from './pages/AeoSchema';
 import Automation from './pages/Automation';
+import OnsiteFieldMarketing from './pages/OnsiteFieldMarketing';
+import MedicalAutomation from './pages/MedicalAutomation';
+import FreeGrowthAudit from './pages/FreeGrowthAudit';
+import OurWork from './pages/OurWork';
 import Pricing from './pages/Pricing';
 import Blog from './pages/Blog';
 import FAQ from './pages/FAQ';
@@ -26,11 +40,16 @@ import Contact from './pages/Contact';
 import NotFound from './pages/NotFound';
 
 const App = () => {
+  // Auto-attach scroll-reveal observers to known structural patterns
+  // (sections, headers, card grids) on every route mount.
+  useAutoReveal();
+
   return (
     <div className="shell">
       <div className="grid-overlay" aria-hidden="true" />
       <ScrollToTop />
       <Navbar />
+      <PageTransition>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
@@ -48,13 +67,27 @@ const App = () => {
         <Route path="/industries" element={<Industries />} />
         <Route path="/case-studies" element={<CaseStudies />} />
         <Route path="/healthcare-news" element={<HealthcareNews />} />
+        <Route path="/healthcare-content" element={<HealthcareContent />} />
+        <Route path="/growth-plan" element={<GrowthPlan />} />
+        <Route path="/meta-ads" element={<MetaAds />} />
+        <Route path="/hipaa-compliance" element={<HipaaCompliance />} />
+        <Route path="/reviews-reputation" element={<ReviewsReputation />} />
+        <Route path="/patient-experience" element={<PatientExperience />} />
+        <Route path="/citation-building" element={<CitationBuilding />} />
+        <Route path="/hyper-local-content" element={<HyperLocalContent />} />
+        <Route path="/aeo-schema" element={<AeoSchema />} />
         <Route path="/automation" element={<Automation />} />
+        <Route path="/onsite-field-marketing" element={<OnsiteFieldMarketing />} />
+        <Route path="/medical-automation" element={<MedicalAutomation />} />
+        <Route path="/free-growth-audit" element={<FreeGrowthAudit />} />
+        <Route path="/our-work" element={<OurWork />} />
         <Route path="/pricing" element={<Pricing />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/faq" element={<FAQ />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
+      </PageTransition>
       <Footer />
     </div>
   );
