@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import logoSrc from '../assets/the-nextgen-logo.png';
 
 interface ResourceLink {
@@ -16,9 +16,18 @@ const RESOURCES: ResourceLink[] = [
   { to: '/pricing', label: 'Pricing', desc: 'Transparent engagement plans' },
 ];
 
+const PRIMARY_LINKS: { to: string; label: string }[] = [
+  { to: '/services', label: 'Services' },
+  { to: '/industries', label: 'Industries' },
+  { to: '/about', label: 'About' },
+  { to: '/contact', label: 'Contact Us' },
+];
+
 const Navbar = () => {
   const [resourcesOpen, setResourcesOpen] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
   const resourcesRef = useRef<HTMLDivElement>(null);
+  const location = useLocation();
 
   useEffect(() => {
     if (!resourcesOpen) return;
@@ -40,6 +49,26 @@ const Navbar = () => {
       document.removeEventListener('keydown', onKey);
     };
   }, [resourcesOpen]);
+
+  // Close mobile menu on route change
+  useEffect(() => {
+    setMobileOpen(false);
+  }, [location.pathname]);
+
+  // Lock body scroll while mobile menu is open + close on Escape
+  useEffect(() => {
+    if (!mobileOpen) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setMobileOpen(false);
+    };
+    document.addEventListener('keydown', onKey);
+    return () => {
+      document.body.style.overflow = prev;
+      document.removeEventListener('keydown', onKey);
+    };
+  }, [mobileOpen]);
 
   return (
     <header className="nav-wrap">
@@ -163,7 +192,7 @@ const Navbar = () => {
               </svg>
             </button>
 
-            <button type="button" className="nav-icon-btn" aria-label="Account">
+            <button type="button" className="nav-icon-btn hidden sm:grid" aria-label="Account">
               <svg
                 width={18}
                 height={18}
@@ -179,9 +208,84 @@ const Navbar = () => {
                 <circle cx="12" cy="7" r="4" />
               </svg>
             </button>
+
+            {/* Hamburger — shown below lg */}
+            <button
+              type="button"
+              className="nav-icon-btn lg:hidden"
+              aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
+              aria-expanded={mobileOpen}
+              aria-controls="mobile-menu"
+              onClick={() => setMobileOpen((o) => !o)}
+            >
+              {mobileOpen ? (
+                <svg width={20} height={20} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <line x1="18" y1="6" x2="6" y2="18" />
+                  <line x1="6" y1="6" x2="18" y2="18" />
+                </svg>
+              ) : (
+                <svg width={20} height={20} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <line x1="3" y1="7" x2="21" y2="7" />
+                  <line x1="3" y1="12" x2="21" y2="12" />
+                  <line x1="3" y1="17" x2="21" y2="17" />
+                </svg>
+              )}
+            </button>
           </div>
         </nav>
       </div>
+
+      {/* Mobile menu drawer */}
+      {mobileOpen && (
+        <div
+          id="mobile-menu"
+          className="lg:hidden fixed inset-x-0 top-16 sm:top-[78px] bottom-0 z-40 overflow-y-auto"
+          style={{
+            background: 'linear-gradient(180deg, rgba(255,255,255,0.96), rgba(250,250,248,0.96))',
+            backdropFilter: 'blur(24px) saturate(180%)',
+            WebkitBackdropFilter: 'blur(24px) saturate(180%)',
+          }}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Main menu"
+        >
+          <div className="container-shell py-8 flex flex-col gap-8">
+            <ul className="flex flex-col gap-1 list-none m-0 p-0">
+              {PRIMARY_LINKS.map((link) => (
+                <li key={link.to}>
+                  <Link
+                    to={link.to}
+                    className="flex items-center justify-between py-4 border-b border-line-faint text-heading text-[20px] font-bold tracking-[-0.015em] hover:text-cta transition-colors"
+                  >
+                    {link.label}
+                    <svg width={16} height={16} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                      <line x1="7" y1="17" x2="17" y2="7" />
+                      <polyline points="7 7 17 7 17 17" />
+                    </svg>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+
+            <div>
+              <div className="text-[11px] uppercase tracking-[0.22em] font-bold text-muted mb-3">Resources</div>
+              <ul className="flex flex-col gap-1 list-none m-0 p-0">
+                {RESOURCES.map((r) => (
+                  <li key={r.to}>
+                    <Link
+                      to={r.to}
+                      className="flex flex-col gap-1 py-3 border-b border-line-faint hover:bg-bg-soft transition-colors"
+                    >
+                      <span className="text-heading text-[16px] font-semibold tracking-[-0.01em]">{r.label}</span>
+                      <span className="text-muted text-[13px]">{r.desc}</span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      )}
     </header>
   );
 };

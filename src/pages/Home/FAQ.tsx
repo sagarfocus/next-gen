@@ -1,10 +1,13 @@
 import type { ReactNode } from 'react';
-import { Link } from 'react-router-dom';
 
 interface FAQItem {
   q: string;
   a: ReactNode;
   defaultOpen?: boolean;
+}
+
+interface FAQProps {
+  onBook: () => void;
 }
 
 const FAQS: FAQItem[] = [
@@ -93,7 +96,7 @@ const ArrowIcon = () => (
   </svg>
 );
 
-const FAQ = () => {
+const FAQ = ({ onBook }: FAQProps) => {
   return (
     <section
       className="faq-section"
@@ -127,10 +130,16 @@ const FAQ = () => {
                 Reach out anytime &mdash; we&rsquo;ll walk you through every
                 detail to make sure you get the most out of our platform.
               </p>
-              <Link to="/#book" className="btn-primary">
+              <button
+                type="button"
+                className="btn-primary"
+                onClick={onBook}
+                aria-haspopup="dialog"
+                aria-controls="bookingModal"
+              >
                 Book a Demo
                 <ArrowIcon />
-              </Link>
+              </button>
             </div>
           </div>
 
@@ -140,6 +149,7 @@ const FAQ = () => {
               <details
                 key={q}
                 className="faq-item"
+                name="home-faq"
                 {...(defaultOpen ? { open: true } : {})}
               >
                 <summary>

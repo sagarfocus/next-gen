@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import Hero from './Hero';
 import CertStrip from './CertStrip';
 import Process from './Process';
@@ -8,6 +9,7 @@ import FAQ from './FAQ';
 import Testimonials from './Testimonials';
 import Industries from './Industries';
 import ContactSection from './ContactSection';
+import BookingModal from '../../components/BookingModal';
 
 const FAQ_SCHEMA = {
   '@context': 'https://schema.org',
@@ -93,6 +95,10 @@ const LOCAL_BUSINESS_SCHEMA = {
 };
 
 const Home = () => {
+  const [bookingOpen, setBookingOpen] = useState(false);
+  const openBooking = () => setBookingOpen(true);
+  const closeBooking = () => setBookingOpen(false);
+
   return (
     <>
       <Hero>
@@ -102,10 +108,12 @@ const Home = () => {
       <Results />
       <Methodology />
       <Services />
-      <FAQ />
-      <Testimonials />
       <Industries />
+      <Testimonials />
+      <FAQ onBook={openBooking} />
       <ContactSection />
+
+      <BookingModal open={bookingOpen} onClose={closeBooking} />
 
       {/* SEO: structured data */}
       <script

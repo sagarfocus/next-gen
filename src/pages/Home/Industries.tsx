@@ -1,4 +1,5 @@
 import type { ReactElement } from 'react';
+import { Parallax } from '../../lib/motion';
 
 interface IndustryTag {
   slot: 't1' | 't2' | 't3' | 't4' | 't5' | 't6';
@@ -115,8 +116,10 @@ const Industries = () => {
         <span className="ind-eyebrow">Industries</span>
 
         <div className="ind-grid">
-          {/* LEFT — visual with floating glass tags */}
-          <div className="ind-visual" aria-hidden="true">
+          {/* LEFT — visual with floating glass tags. Subtle Parallax wraps the
+              whole visual column so the figure drifts as the section enters
+              view; floating .ind-tag items keep their own roam animations. */}
+          <Parallax as="div" speed={0.05} className="ind-visual" aria-hidden="true">
             <svg
               className="ind-bg"
               viewBox="0 0 600 700"
@@ -173,7 +176,7 @@ const Industries = () => {
                 {name}
               </span>
             ))}
-          </div>
+          </Parallax>
 
           {/* RIGHT — dark panel */}
           <div className="ind-panel">
@@ -204,41 +207,15 @@ const Industries = () => {
             <div className="ind-body">
               <p>
                 Our team has deep operational experience across the full
-                spectrum of healthcare facilities. We serve{' '}
-                <a href="https://thenextgenhealth.com/industries/freestanding-emergency-rooms">
-                  Freestanding Emergency Rooms
-                </a>{' '}
-                that require high-acuity, 24/7 patient acquisition campaigns.
-                We help{' '}
-                <a href="https://thenextgenhealth.com/industries/urgent-care-centers">
-                  Urgent Care Centers
-                </a>{' '}
-                compete with large health systems for walk-in volume. We grow{' '}
-                <a href="https://thenextgenhealth.com/industries/medspas-aesthetics">
-                  MedSpas &amp; Aesthetics Clinics
-                </a>{' '}
-                through social media and targeted Meta campaigns. We support{' '}
-                <a href="https://thenextgenhealth.com/industries/dental-practices">
-                  Dental Practices
-                </a>
-                ,{' '}
-                <a href="https://thenextgenhealth.com/industries/chiropractic-clinics">
-                  Chiropractic Clinics
-                </a>
-                ,{' '}
-                <a href="https://thenextgenhealth.com/industries/mental-health-practices">
-                  Mental Health Practices
-                </a>
-                ,{' '}
-                <a href="https://thenextgenhealth.com/industries/primary-care-clinics">
-                  Primary Care
-                </a>
-                , and{' '}
-                <a href="https://thenextgenhealth.com/industries/pediatric-clinics">
-                  Pediatric Clinics
-                </a>{' '}
-                with locally-optimized growth strategies tailored to their
-                unique patient demographics and service areas.
+                spectrum of healthcare facilities. We serve Freestanding
+                Emergency Rooms that require high-acuity, 24/7 patient
+                acquisition campaigns. We help Urgent Care Centers compete
+                with large health systems for walk-in volume. We grow MedSpas
+                &amp; Aesthetics Clinics through social media and targeted
+                Meta campaigns. We support Dental Practices, Chiropractic
+                Clinics, Mental Health Practices, Primary Care, and Pediatric
+                Clinics with locally-optimized growth strategies tailored to
+                their unique patient demographics and service areas.
               </p>
               <p className="foot">
                 Each vertical has different patient acquisition costs,

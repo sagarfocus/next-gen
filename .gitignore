@@ -1,3 +1,6 @@
+# Large local assets — kept out of git
+src/assets/mp_.mp4
+
 # Logs
 logs
 *.log

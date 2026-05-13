@@ -42,6 +42,57 @@ const HipaaIcon = () => (
   </svg>
 );
 
+const SeoIcon = () => (
+  <svg
+    width={12}
+    height={12}
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth={2.2}
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    aria-hidden="true"
+  >
+    <circle cx="11" cy="11" r="7" />
+    <line x1="21" y1="21" x2="16.65" y2="16.65" />
+  </svg>
+);
+
+const PaidAdsIcon = () => (
+  <svg
+    width={12}
+    height={12}
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth={2.2}
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    aria-hidden="true"
+  >
+    <polyline points="3 17 9 11 13 15 21 7" />
+    <polyline points="15 7 21 7 21 13" />
+  </svg>
+);
+
+const WebDesignIcon = () => (
+  <svg
+    width={12}
+    height={12}
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth={2.2}
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    aria-hidden="true"
+  >
+    <rect x="3" y="4" width="18" height="14" rx="2" />
+    <line x1="3" y1="9" x2="21" y2="9" />
+  </svg>
+);
+
 const SeparatorIcon = () => (
   <svg
     width={14}
@@ -59,15 +110,18 @@ const SeparatorIcon = () => (
 
 interface CertDefinition {
   name: string;
-  /** Tone class — `g` = Google blue, `m` = Meta tan, `h` = HIPAA sage. */
-  tone: 'g' | 'm' | 'h';
+  /** Tone class — `g` Google blue, `m` Meta tan, `h` HIPAA sage, `b` navy, `o` gold. */
+  tone: 'g' | 'm' | 'h' | 'b' | 'o';
   Icon: () => ReactElement;
 }
 
 const CERTS: CertDefinition[] = [
+  { name: 'HIPAA Aware', tone: 'h', Icon: HipaaIcon },
   { name: 'Google Certified', tone: 'g', Icon: GoogleIcon },
   { name: 'Meta Certified', tone: 'm', Icon: MetaIcon },
-  { name: 'HIPAA Aware', tone: 'h', Icon: HipaaIcon },
+  { name: 'SEO', tone: 'b', Icon: SeoIcon },
+  { name: 'Paid Ads', tone: 'o', Icon: PaidAdsIcon },
+  { name: 'Website Design', tone: 'g', Icon: WebDesignIcon },
 ];
 
 const TrackBlock = ({ keyPrefix }: { keyPrefix: string }) => (
@@ -90,10 +144,10 @@ const TrackBlock = ({ keyPrefix }: { keyPrefix: string }) => (
 
 const CertStrip = () => {
   return (
-    <div className="certs reveal d5" aria-label="Certifications and compliance">
+    <div className="certs reveal d5" aria-label="Capabilities and compliance">
       <div className="certs-label">
         <span className="dot" aria-hidden="true" />
-        Certified &amp; Compliant
+        Trusted &amp; Certified
       </div>
       <div className="certs-pill">
         <div className="certs-track animate-marquee" aria-hidden="true">

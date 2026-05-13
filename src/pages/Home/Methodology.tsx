@@ -16,14 +16,7 @@ const PHASES: Phase[] = [
     body: (
       <>
         We conduct a comprehensive audit of your existing digital infrastructure
-        &mdash; website performance,{' '}
-        <a href="https://thenextgenhealth.com/services/seo-local-search">
-          SEO health
-        </a>
-        ,{' '}
-        <a href="https://thenextgenhealth.com/services/google-business-profile">
-          Google Business Profile
-        </a>{' '}
+        &mdash; website performance, SEO health, Google Business Profile
         optimization, paid media efficiency, and front-desk call handling
         capacity. This reveals exactly where patients are being lost in your
         funnel.
@@ -40,11 +33,8 @@ const PHASES: Phase[] = [
         We design your custom growth strategy mapping service-specific keywords,
         competitive positioning, and patient journey touchpoints. Simultaneously,
         our development team deploys the automation infrastructure &mdash; AI
-        chatbots, digital intake forms, call tracking, and{' '}
-        <a href="https://thenextgenhealth.com/services/analytics-reporting">
-          real-time analytics dashboards
-        </a>
-        .
+        chatbots, digital intake forms, call tracking, and real-time analytics
+        dashboards.
       </>
     ),
     foot: 'Build — Week 3–4',
@@ -56,19 +46,10 @@ const PHASES: Phase[] = [
     body: (
       <>
         Within the first 30 days, we launch SEO optimizations, paid media
-        campaigns across{' '}
-        <a href="https://thenextgenhealth.com/services/google-ads">Google</a>{' '}
-        and{' '}
-        <a href="https://thenextgenhealth.com/services/meta-ads">Meta</a>,{' '}
-        <a href="https://thenextgenhealth.com/services/social-media-marketing">
-          social media content calendars
-        </a>
-        , and{' '}
-        <a href="https://thenextgenhealth.com/services/content-copywriting">
-          healthcare content publishing
-        </a>
-        . You will see tangible operational changes in patient inquiry volume
-        and front-desk efficiency from week one.
+        campaigns across Google and Meta, social media content calendars, and
+        healthcare content publishing. You will see tangible operational
+        changes in patient inquiry volume and front-desk efficiency from week
+        one.
       </>
     ),
     foot: 'Launch — Day 1–30',

@@ -8,6 +8,7 @@ interface ServiceCardData {
   sub: string;
   ariaLabel: string;
   illustration: ReactNode;
+  to: string;
 }
 
 /* ---- Card illustrations (kept inline as JSX per the design) ---- */
@@ -271,6 +272,7 @@ const SERVICES: ServiceCardData[] = [
     sub: 'Rank for the searches that bring patients to your door.',
     ariaLabel: 'SEO and Local Search',
     illustration: SeoIllustration,
+    to: '/services/seo-local-search',
   },
   {
     tag: 'Social',
@@ -278,6 +280,7 @@ const SERVICES: ServiceCardData[] = [
     sub: 'Show up where your patients spend their time — consistently.',
     ariaLabel: 'Social Media Marketing',
     illustration: SocialIllustration,
+    to: '/services/social-media-marketing',
   },
   {
     tag: 'Paid Media',
@@ -285,6 +288,7 @@ const SERVICES: ServiceCardData[] = [
     sub: 'High-intent traffic, tightly tracked, ROI-optimized weekly.',
     ariaLabel: 'Google Ads and Paid Search',
     illustration: AdsIllustration,
+    to: '/services/google-ads',
   },
   {
     tag: 'Field',
@@ -292,6 +296,7 @@ const SERVICES: ServiceCardData[] = [
     sub: 'In-clinic activations and community presence that convert locally.',
     ariaLabel: 'Onsite Field Marketing',
     illustration: FieldIllustration,
+    to: '/onsite-field-marketing',
   },
   {
     tag: 'Automation',
@@ -299,6 +304,7 @@ const SERVICES: ServiceCardData[] = [
     sub: 'n8n & custom workflows that handle intake, follow-up, and reporting.',
     ariaLabel: 'Medical Automation',
     illustration: AutomationIllustration,
+    to: '/medical-automation',
   },
   {
     tag: 'Lifecycle',
@@ -306,6 +312,7 @@ const SERVICES: ServiceCardData[] = [
     sub: 'Nurture leads, recover no-shows, and re-engage past patients.',
     ariaLabel: 'Email and Drip Campaigns',
     illustration: EmailIllustration,
+    to: '/services/email-drip-campaigns',
   },
 ];
 
@@ -450,10 +457,10 @@ const Services = () => {
 
         <div className="services-track-wrap">
           <div className="services-grid" ref={trackRef}>
-            {SERVICES.map(({ tag, title, sub, ariaLabel, illustration }) => (
+            {SERVICES.map(({ tag, title, sub, ariaLabel, illustration, to }) => (
               <Link
                 key={title}
-                to="/services"
+                to={to}
                 className="service-card"
                 aria-label={ariaLabel}
               >

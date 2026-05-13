@@ -58,7 +58,25 @@ const Process = () => {
           </p>
         </div>
 
-        <ol className="process-steps">
+        <ol className="process-steps process-steps--curved">
+          {/* Decorative wave connector — replaces the old straight dashed line */}
+          <svg
+            className="process-curve"
+            viewBox="0 0 1200 200"
+            preserveAspectRatio="none"
+            aria-hidden="true"
+          >
+            <path
+              d="M 100 60 C 200 60, 200 140, 300 140 S 400 60, 500 60 S 600 140, 700 140 S 800 60, 900 60 S 1000 140, 1100 140"
+              fill="none"
+              stroke="#B38B6D"
+              strokeWidth="1.4"
+              strokeDasharray="6 6"
+              strokeLinecap="round"
+              opacity="0.55"
+            />
+          </svg>
+
           {STEPS.map(({ num, title, desc, active }) => (
             <li key={num} className={`step${active ? ' is-active' : ''}`}>
               <div className="step-circle" aria-hidden="true">
