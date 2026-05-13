@@ -115,12 +115,12 @@ const STATS: ResultStat[] = [
 ];
 
 const CASES: CaseCard[] = [
-  { href: 'https://thenextgenhealth.com/case-studies/email-drip-campaigns-case-1', emoji: '🏥', num: '+38%', numLbl: 'Recall rate', sector: 'Emergency Room', name: 'Freestanding ER · Dallas', problem: 'No follow-up after first visit.', result: '90-day recall sequence + segmentation.' },
-  { href: 'https://thenextgenhealth.com/case-studies/email-drip-campaigns-case-2', emoji: '⚡', num: '+54%', numLbl: 'Repeat visits', sector: 'Urgent Care', name: 'Multi-location · Houston', problem: 'Patients only came when sick.', result: 'Wellness + seasonal-care flows.' },
-  { href: 'https://thenextgenhealth.com/case-studies/email-drip-campaigns-case-3', emoji: '✨', num: '4.2×', numLbl: 'LTV', sector: 'Cosmetic Surgery', name: 'Aesthetic clinic · Austin', problem: 'No upsell or maintenance schedule.', result: 'Treatment-aware nurture flows.' },
-  { href: 'https://thenextgenhealth.com/case-studies/email-drip-campaigns-case-4', emoji: '👨‍⚕️', num: '+62%', numLbl: 'Annuals booked', sector: 'Primary Care', name: 'Family medicine · San Antonio', problem: 'Annual reminders went unread.', result: 'Personalized birthday-month sends.' },
-  { href: 'https://thenextgenhealth.com/case-studies/email-drip-campaigns-case-5', emoji: '🧠', num: '+28%', numLbl: 'Retention', sector: 'Mental Health', name: 'Therapy practice · Dallas', problem: 'Patients dropped off after 4 sessions.', result: 'Empathetic check-in cadence.' },
-  { href: 'https://thenextgenhealth.com/case-studies/email-drip-campaigns-case-6', emoji: '🦷', num: '8.2%', numLbl: 'CTR', sector: 'Dental Practice', name: 'General dentistry · Irving', problem: 'Generic recall blasts ignored.', result: 'Per-procedure follow-ups.' },
+  { emoji: '🏥', num: '+38%', numLbl: 'Recall rate', sector: 'Emergency Room', name: 'Freestanding ER · Dallas', problem: 'No follow-up after first visit.', result: '90-day recall sequence + segmentation.' },
+  { emoji: '⚡', num: '+54%', numLbl: 'Repeat visits', sector: 'Urgent Care', name: 'Multi-location · Houston', problem: 'Patients only came when sick.', result: 'Wellness + seasonal-care flows.' },
+  { emoji: '✨', num: '4.2×', numLbl: 'LTV', sector: 'Cosmetic Surgery', name: 'Aesthetic clinic · Austin', problem: 'No upsell or maintenance schedule.', result: 'Treatment-aware nurture flows.' },
+  { emoji: '👨‍⚕️', num: '+62%', numLbl: 'Annuals booked', sector: 'Primary Care', name: 'Family medicine · San Antonio', problem: 'Annual reminders went unread.', result: 'Personalized birthday-month sends.' },
+  { emoji: '🧠', num: '+28%', numLbl: 'Retention', sector: 'Mental Health', name: 'Therapy practice · Dallas', problem: 'Patients dropped off after 4 sessions.', result: 'Empathetic check-in cadence.' },
+  { emoji: '🦷', num: '8.2%', numLbl: 'CTR', sector: 'Dental Practice', name: 'General dentistry · Irving', problem: 'Generic recall blasts ignored.', result: 'Per-procedure follow-ups.' },
 ];
 
 const SERVICE_SCHEMA = {

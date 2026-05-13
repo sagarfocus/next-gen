@@ -1,32 +1,13 @@
 import type { ReactElement } from 'react';
 
 interface IndustryRow {
-  href: string;
   label: string;
   meta: string;
   illustration: ReactElement;
 }
 
-const ArrowIcon = () => (
-  <svg
-    width={11}
-    height={11}
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth={2.6}
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    aria-hidden="true"
-  >
-    <line x1="5" y1="12" x2="19" y2="12" />
-    <polyline points="12 5 19 12 12 19" />
-  </svg>
-);
-
 const ROWS: IndustryRow[] = [
   {
-    href: 'https://thenextgenhealth.com/industries/dental',
     label: 'Dental',
     meta: 'New patient acquisition & recall',
     illustration: (
@@ -43,7 +24,6 @@ const ROWS: IndustryRow[] = [
     ),
   },
   {
-    href: 'https://thenextgenhealth.com/industries/urgent-care',
     label: 'Urgent Care',
     meta: 'Walk-in volume & reputation',
     illustration: (
@@ -56,7 +36,6 @@ const ROWS: IndustryRow[] = [
     ),
   },
   {
-    href: 'https://thenextgenhealth.com/industries/medspa',
     label: 'MedSpa',
     meta: 'Aesthetic conversions & LTV',
     illustration: (
@@ -73,7 +52,6 @@ const ROWS: IndustryRow[] = [
     ),
   },
   {
-    href: 'https://thenextgenhealth.com/industries/freestanding-ers',
     label: 'Freestanding ER',
     meta: 'High-acuity trauma keywords',
     illustration: (
@@ -92,7 +70,6 @@ const ROWS: IndustryRow[] = [
     ),
   },
   {
-    href: 'https://thenextgenhealth.com/industries/mental-health',
     label: 'Mental Health',
     meta: 'Compliant, sensitive lead-gen',
     illustration: (
@@ -116,7 +93,6 @@ const ROWS: IndustryRow[] = [
     ),
   },
   {
-    href: 'https://thenextgenhealth.com/industries/primary-care',
     label: 'Primary Care',
     meta: 'Annual visits & insurance match',
     illustration: (
@@ -135,7 +111,6 @@ const ROWS: IndustryRow[] = [
     ),
   },
   {
-    href: 'https://thenextgenhealth.com/industries/chiropractic',
     label: 'Chiropractic',
     meta: 'Pain-point & injury leads',
     illustration: (
@@ -151,7 +126,6 @@ const ROWS: IndustryRow[] = [
     ),
   },
   {
-    href: 'https://thenextgenhealth.com/industries/plastic-surgery',
     label: 'Plastic Surgery',
     meta: 'High-ticket consult acquisition',
     illustration: (
@@ -168,7 +142,6 @@ const ROWS: IndustryRow[] = [
     ),
   },
   {
-    href: 'https://thenextgenhealth.com/industries/ophthalmology',
     label: 'Ophthalmology',
     meta: 'LASIK & specialty leads',
     illustration: (
@@ -187,7 +160,6 @@ const ROWS: IndustryRow[] = [
     ),
   },
   {
-    href: 'https://thenextgenhealth.com/industries/dermatology',
     label: 'Dermatology',
     meta: 'Cosmetic + medical hybrid',
     illustration: (
@@ -226,11 +198,8 @@ const AllIndustries = () => {
 
         <div className="all-ind-list">
           {ROWS.map((row) => (
-            <a
+            <article
               key={row.label}
-              href={row.href}
-              target="_blank"
-              rel="noopener noreferrer"
               className="all-ind-row"
             >
               <div className="all-ind-img">{row.illustration}</div>
@@ -239,12 +208,8 @@ const AllIndustries = () => {
                   <span className="label">{row.label}</span>
                   <span className="meta">{row.meta}</span>
                 </div>
-                <span className="read-more">
-                  Read more
-                  <ArrowIcon />
-                </span>
               </div>
-            </a>
+            </article>
           ))}
         </div>
       </div>

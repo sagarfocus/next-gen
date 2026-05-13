@@ -115,12 +115,12 @@ const STATS: ResultStat[] = [
 ];
 
 const CASES: CaseCard[] = [
-  { href: 'https://thenextgenhealth.com/case-studies/brand-identity-design-case-1', emoji: '🏥', num: '+72%', numLbl: 'Recall', sector: 'Emergency Room', name: 'Freestanding ER · Dallas', problem: 'Mistaken for hospital ER repeatedly.', result: 'Distinct color system + voice.' },
-  { href: 'https://thenextgenhealth.com/case-studies/brand-identity-design-case-2', emoji: '⚡', num: 'A+', numLbl: 'Trust score', sector: 'Urgent Care', name: 'Multi-location · Houston', problem: 'Inconsistent across 8 locations.', result: 'Brand system + per-location applications.' },
-  { href: 'https://thenextgenhealth.com/case-studies/brand-identity-design-case-3', emoji: '✨', num: '+180%', numLbl: 'Premium leads', sector: 'Cosmetic Surgery', name: 'Aesthetic clinic · Austin', problem: 'Looked like a budget med-spa.', result: 'Editorial-grade rebrand.' },
-  { href: 'https://thenextgenhealth.com/case-studies/brand-identity-design-case-4', emoji: '👨‍⚕️', num: '+44%', numLbl: 'Recall', sector: 'Primary Care', name: 'Family medicine · San Antonio', problem: 'Generic, forgettable identity.', result: 'Warm, distinctive visual system.' },
-  { href: 'https://thenextgenhealth.com/case-studies/brand-identity-design-case-5', emoji: '🧠', num: '+58%', numLbl: 'Inquiries', sector: 'Mental Health', name: 'Therapy practice · Dallas', problem: 'Cold, clinical brand felt unwelcoming.', result: 'Warm, accessible identity.' },
-  { href: 'https://thenextgenhealth.com/case-studies/brand-identity-design-case-6', emoji: '🦷', num: '+34%', numLbl: 'Conversion', sector: 'Dental Practice', name: 'General dentistry · Irving', problem: 'No premium positioning.', result: 'Modern, confident rebrand.' },
+  { emoji: '🏥', num: '+72%', numLbl: 'Recall', sector: 'Emergency Room', name: 'Freestanding ER · Dallas', problem: 'Mistaken for hospital ER repeatedly.', result: 'Distinct color system + voice.' },
+  { emoji: '⚡', num: 'A+', numLbl: 'Trust score', sector: 'Urgent Care', name: 'Multi-location · Houston', problem: 'Inconsistent across 8 locations.', result: 'Brand system + per-location applications.' },
+  { emoji: '✨', num: '+180%', numLbl: 'Premium leads', sector: 'Cosmetic Surgery', name: 'Aesthetic clinic · Austin', problem: 'Looked like a budget med-spa.', result: 'Editorial-grade rebrand.' },
+  { emoji: '👨‍⚕️', num: '+44%', numLbl: 'Recall', sector: 'Primary Care', name: 'Family medicine · San Antonio', problem: 'Generic, forgettable identity.', result: 'Warm, distinctive visual system.' },
+  { emoji: '🧠', num: '+58%', numLbl: 'Inquiries', sector: 'Mental Health', name: 'Therapy practice · Dallas', problem: 'Cold, clinical brand felt unwelcoming.', result: 'Warm, accessible identity.' },
+  { emoji: '🦷', num: '+34%', numLbl: 'Conversion', sector: 'Dental Practice', name: 'General dentistry · Irving', problem: 'No premium positioning.', result: 'Modern, confident rebrand.' },
 ];
 
 const SERVICE_SCHEMA = {

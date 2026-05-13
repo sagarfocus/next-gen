@@ -15,7 +15,7 @@ const Services = () => {
 
   return (
     <>
-      <ServicesHero onBook={openBooking} />
+      <ServicesHero />
       <WhoWeServe />
       <ServicesList />
       <TrustInfrastructure />

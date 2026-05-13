@@ -1,9 +1,9 @@
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react';
 import type { CSSProperties } from 'react';
+import { Link } from 'react-router-dom';
 import SectionHead from './SectionHead';
 
 export interface CaseCard {
-  href: string;
   emoji: string;
   num: string;
   numLbl: string;
@@ -113,11 +113,8 @@ const CaseStudies = ({ cases }: CaseStudiesProps) => {
               onTouchEnd={onTouchEnd}
             >
               {cases.map((c) => (
-                <a
-                  key={c.href}
-                  href={c.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <article
+                  key={c.name}
                   className="sv-cs-card"
                 >
                   <div className="sv-cs-top">
@@ -137,7 +134,7 @@ const CaseStudies = ({ cases }: CaseStudiesProps) => {
                     <strong>Result</strong>
                     {c.result}
                   </div>
-                </a>
+                </article>
               ))}
             </div>
           </div>
@@ -188,6 +185,24 @@ const CaseStudies = ({ cases }: CaseStudiesProps) => {
                 <polyline points="12 5 19 12 12 19" />
               </svg>
             </button>
+          </div>
+
+          <div className="sv-cs-cta-row">
+            <Link to="/case-studies" className="sv-cs-cta">
+              View all case studies
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth={2.4}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+              >
+                <line x1="5" y1="12" x2="19" y2="12" />
+                <polyline points="12 5 19 12 12 19" />
+              </svg>
+            </Link>
           </div>
         </div>
       </div>

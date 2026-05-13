@@ -8,43 +8,20 @@ interface IncludeCard {
   icon: ReactElement;
 }
 
-const Link = ({ href, children }: { href: string; children: ReactNode }) => (
-  <a href={href} target="_blank" rel="noopener noreferrer">
-    {children}
-  </a>
-);
-
 const CARDS: IncludeCard[] = [
   {
     tag: 'Full-Stack Team',
     title: 'An entire growth department.',
     text: (
       <>
-        Dedicated{' '}
-        <Link href="https://thenextgenhealth.com/services/google-ads">
-          Ads Manager
-        </Link>
-        ,{' '}
-        <Link href="https://thenextgenhealth.com/services/seo-local-search">
-          SEO Strategist
-        </Link>
-        , Medical{' '}
-        <Link href="https://thenextgenhealth.com/services/content-copywriting">
-          Content Writer
-        </Link>
-        , and Social Media Manager &mdash; not isolated freelancers.
+        Dedicated Ads Manager, SEO Strategist, Medical Content Writer, and
+        Social Media Manager &mdash; not isolated freelancers.
       </>
     ),
     bullets: [
       'Senior practitioners only',
       'Healthcare-fluent from day one',
-      <>
-        Real{' '}
-        <Link href="https://thenextgenhealth.com/services/analytics-reporting">
-          analytics
-        </Link>{' '}
-        infrastructure
-      </>,
+      'Real analytics infrastructure',
     ],
     icon: (
       <svg
@@ -69,15 +46,9 @@ const CARDS: IncludeCard[] = [
     title: 'Tangible results in month one.',
     text: (
       <>
-        Technical audit, CRM/EHR integration, HIPAA-compliant{' '}
-        <Link href="https://thenextgenhealth.com/automation/call-tracking">
-          call tracking
-        </Link>
-        ,{' '}
-        <Link href="https://thenextgenhealth.com/automation/ai-chatbots">
-          AI chatbot
-        </Link>{' '}
-        deployment, and first campaign launches &mdash; all in 30 days.
+        Technical audit, CRM/EHR integration, HIPAA-compliant call tracking,
+        AI chatbot deployment, and first campaign launches &mdash; all in 30
+        days.
       </>
     ),
     bullets: [
@@ -106,20 +77,13 @@ const CARDS: IncludeCard[] = [
     text: (
       <>
         BAAs signed at signup, encrypted servers, secure data routing &mdash;
-        full{' '}
-        <Link href="https://thenextgenhealth.com/hipaa">HIPAA compliance</Link>{' '}
-        with zero hidden fees.
+        full HIPAA compliance with zero hidden fees.
       </>
     ),
     bullets: [
       'BAAs included by default',
       'Encrypted data infrastructure',
-      <>
-        See{' '}
-        <Link href="https://thenextgenhealth.com/case-studies">
-          case studies
-        </Link>
-      </>,
+      'See case studies',
     ],
     icon: (
       <svg

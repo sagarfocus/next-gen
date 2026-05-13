@@ -115,12 +115,12 @@ const STATS: ResultStat[] = [
 ];
 
 const CASES: CaseCard[] = [
-  { href: 'https://thenextgenhealth.com/case-studies/social-media-marketing-case-1', emoji: '🏥', num: '8.2K', numLbl: 'Followers', sector: 'Emergency Room', name: 'Freestanding ER · Dallas', problem: 'Zero social presence pre-engagement.', result: 'Reels + paid amplification.' },
-  { href: 'https://thenextgenhealth.com/case-studies/social-media-marketing-case-2', emoji: '⚡', num: '+520%', numLbl: 'Reach', sector: 'Urgent Care', name: 'Multi-location · Houston', problem: 'Inconsistent posting, low engagement.', result: 'Daily editorial + community management.' },
-  { href: 'https://thenextgenhealth.com/case-studies/social-media-marketing-case-3', emoji: '✨', num: '+340%', numLbl: 'Bookings', sector: 'Cosmetic Surgery', name: 'Aesthetic clinic · Austin', problem: 'Before/after content compliance fears.', result: 'Compliance framework + premium creative.' },
-  { href: 'https://thenextgenhealth.com/case-studies/social-media-marketing-case-4', emoji: '👨‍⚕️', num: '4.6%', numLbl: 'Eng. rate', sector: 'Primary Care', name: 'Family medicine · San Antonio', problem: 'Stiff, corporate tone, no traction.', result: 'Patient-story content + paid boost.' },
-  { href: 'https://thenextgenhealth.com/case-studies/social-media-marketing-case-5', emoji: '🧠', num: '+182%', numLbl: 'New leads', sector: 'Mental Health', name: 'Therapy practice · Dallas', problem: 'Sensitive vertical, hard to share content.', result: 'Educational reels + careful tone.' },
-  { href: 'https://thenextgenhealth.com/case-studies/social-media-marketing-case-6', emoji: '🦷', num: '92K', numLbl: 'Impressions', sector: 'Dental Practice', name: 'General dentistry · Irving', problem: 'Posting once a month, no plan.', result: 'Daily TikTok + Instagram cadence.' },
+  { emoji: '🏥', num: '8.2K', numLbl: 'Followers', sector: 'Emergency Room', name: 'Freestanding ER · Dallas', problem: 'Zero social presence pre-engagement.', result: 'Reels + paid amplification.' },
+  { emoji: '⚡', num: '+520%', numLbl: 'Reach', sector: 'Urgent Care', name: 'Multi-location · Houston', problem: 'Inconsistent posting, low engagement.', result: 'Daily editorial + community management.' },
+  { emoji: '✨', num: '+340%', numLbl: 'Bookings', sector: 'Cosmetic Surgery', name: 'Aesthetic clinic · Austin', problem: 'Before/after content compliance fears.', result: 'Compliance framework + premium creative.' },
+  { emoji: '👨‍⚕️', num: '4.6%', numLbl: 'Eng. rate', sector: 'Primary Care', name: 'Family medicine · San Antonio', problem: 'Stiff, corporate tone, no traction.', result: 'Patient-story content + paid boost.' },
+  { emoji: '🧠', num: '+182%', numLbl: 'New leads', sector: 'Mental Health', name: 'Therapy practice · Dallas', problem: 'Sensitive vertical, hard to share content.', result: 'Educational reels + careful tone.' },
+  { emoji: '🦷', num: '92K', numLbl: 'Impressions', sector: 'Dental Practice', name: 'General dentistry · Irving', problem: 'Posting once a month, no plan.', result: 'Daily TikTok + Instagram cadence.' },
 ];
 
 const SERVICE_SCHEMA = {

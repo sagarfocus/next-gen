@@ -115,12 +115,12 @@ const STATS: ResultStat[] = [
 ];
 
 const CASES: CaseCard[] = [
-  { href: 'https://thenextgenhealth.com/case-studies/website-design-dev-case-1', emoji: '🏥', num: '+62%', numLbl: 'Bookings', sector: 'Emergency Room', name: 'Freestanding ER · Dallas', problem: '8s mobile load, 2014 design.', result: 'Sub-2s rebuild on Webflow.' },
-  { href: 'https://thenextgenhealth.com/case-studies/website-design-dev-case-2', emoji: '⚡', num: '8.4%', numLbl: 'CVR', sector: 'Urgent Care', name: 'Multi-location · Houston', problem: 'No location pages, broken booking.', result: 'Per-location pages + 2-tap flow.' },
-  { href: 'https://thenextgenhealth.com/case-studies/website-design-dev-case-3', emoji: '✨', num: '+150%', numLbl: 'Leads', sector: 'Cosmetic Surgery', name: 'Aesthetic clinic · Austin', problem: 'Outdated look hurt premium positioning.', result: 'Editorial-style brand redesign.' },
-  { href: 'https://thenextgenhealth.com/case-studies/website-design-dev-case-4', emoji: '👨‍⚕️', num: '6.8%', numLbl: 'CVR', sector: 'Primary Care', name: 'Family medicine · San Antonio', problem: 'Weak mobile UX, cluttered nav.', result: 'Mobile-first rebuild + clean IA.' },
-  { href: 'https://thenextgenhealth.com/case-studies/website-design-dev-case-5', emoji: '🧠', num: '+88%', numLbl: 'Form fills', sector: 'Mental Health', name: 'Therapy practice · Dallas', problem: 'Cold tone, hard to find a path forward.', result: 'Empathetic copy + clear booking.' },
-  { href: 'https://thenextgenhealth.com/case-studies/website-design-dev-case-6', emoji: '🦷', num: '4.2s', numLbl: '→ 1.6s', sector: 'Dental Practice', name: 'General dentistry · Irving', problem: 'Slow, image-heavy pages.', result: 'Speed pipeline + WebP everywhere.' },
+  { emoji: '🏥', num: '+62%', numLbl: 'Bookings', sector: 'Emergency Room', name: 'Freestanding ER · Dallas', problem: '8s mobile load, 2014 design.', result: 'Sub-2s rebuild on Webflow.' },
+  { emoji: '⚡', num: '8.4%', numLbl: 'CVR', sector: 'Urgent Care', name: 'Multi-location · Houston', problem: 'No location pages, broken booking.', result: 'Per-location pages + 2-tap flow.' },
+  { emoji: '✨', num: '+150%', numLbl: 'Leads', sector: 'Cosmetic Surgery', name: 'Aesthetic clinic · Austin', problem: 'Outdated look hurt premium positioning.', result: 'Editorial-style brand redesign.' },
+  { emoji: '👨‍⚕️', num: '6.8%', numLbl: 'CVR', sector: 'Primary Care', name: 'Family medicine · San Antonio', problem: 'Weak mobile UX, cluttered nav.', result: 'Mobile-first rebuild + clean IA.' },
+  { emoji: '🧠', num: '+88%', numLbl: 'Form fills', sector: 'Mental Health', name: 'Therapy practice · Dallas', problem: 'Cold tone, hard to find a path forward.', result: 'Empathetic copy + clear booking.' },
+  { emoji: '🦷', num: '4.2s', numLbl: '→ 1.6s', sector: 'Dental Practice', name: 'General dentistry · Irving', problem: 'Slow, image-heavy pages.', result: 'Speed pipeline + WebP everywhere.' },
 ];
 
 const SERVICE_SCHEMA = {

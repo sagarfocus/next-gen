@@ -108,12 +108,12 @@ const STATS: ResultStat[] = [
 ];
 
 const CASES: CaseCard[] = [
-  { href: 'https://thenextgenhealth.com/case-studies/content-copywriting-case-1', emoji: '🏥', num: '+220%', numLbl: 'Organic', sector: 'Emergency Room', name: 'Freestanding ER · Dallas', problem: 'Thin site, no condition content.', result: '40 condition pages over 6 months.' },
-  { href: 'https://thenextgenhealth.com/case-studies/content-copywriting-case-2', emoji: '⚡', num: '#1', numLbl: 'Featured snip.', sector: 'Urgent Care', name: 'Multi-location · Houston', problem: 'Outranked by hospital networks.', result: 'Question-led content cluster.' },
-  { href: 'https://thenextgenhealth.com/case-studies/content-copywriting-case-3', emoji: '✨', num: '+340%', numLbl: 'Procedure traffic', sector: 'Cosmetic Surgery', name: 'Aesthetic clinic · Austin', problem: 'No procedure pages, only homepage.', result: 'Treatment deep-dives + before/after.' },
-  { href: 'https://thenextgenhealth.com/case-studies/content-copywriting-case-4', emoji: '👨‍⚕️', num: '$300K', numLbl: 'Organic rev.', sector: 'Primary Care', name: 'Family medicine · San Antonio', problem: 'Invisible for "doctor near me".', result: 'Local + condition content engine.' },
-  { href: 'https://thenextgenhealth.com/case-studies/content-copywriting-case-5', emoji: '🧠', num: '+148%', numLbl: 'Form fills', sector: 'Mental Health', name: 'Therapy practice · Dallas', problem: 'Stigma-heavy queries hard to rank.', result: 'Empathetic, well-researched content.' },
-  { href: 'https://thenextgenhealth.com/case-studies/content-copywriting-case-6', emoji: '🦷', num: '92', numLbl: 'Backlinks', sector: 'Dental Practice', name: 'General dentistry · Irving', problem: 'No site authority.', result: 'Editorial pieces + outreach.' },
+  { emoji: '🏥', num: '+220%', numLbl: 'Organic', sector: 'Emergency Room', name: 'Freestanding ER · Dallas', problem: 'Thin site, no condition content.', result: '40 condition pages over 6 months.' },
+  { emoji: '⚡', num: '#1', numLbl: 'Featured snip.', sector: 'Urgent Care', name: 'Multi-location · Houston', problem: 'Outranked by hospital networks.', result: 'Question-led content cluster.' },
+  { emoji: '✨', num: '+340%', numLbl: 'Procedure traffic', sector: 'Cosmetic Surgery', name: 'Aesthetic clinic · Austin', problem: 'No procedure pages, only homepage.', result: 'Treatment deep-dives + before/after.' },
+  { emoji: '👨‍⚕️', num: '$300K', numLbl: 'Organic rev.', sector: 'Primary Care', name: 'Family medicine · San Antonio', problem: 'Invisible for "doctor near me".', result: 'Local + condition content engine.' },
+  { emoji: '🧠', num: '+148%', numLbl: 'Form fills', sector: 'Mental Health', name: 'Therapy practice · Dallas', problem: 'Stigma-heavy queries hard to rank.', result: 'Empathetic, well-researched content.' },
+  { emoji: '🦷', num: '92', numLbl: 'Backlinks', sector: 'Dental Practice', name: 'General dentistry · Irving', problem: 'No site authority.', result: 'Editorial pieces + outreach.' },
 ];
 
 const SERVICE_SCHEMA = {

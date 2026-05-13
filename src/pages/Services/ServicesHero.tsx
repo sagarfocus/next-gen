@@ -1,10 +1,6 @@
 import { Link } from 'react-router-dom';
 import type { ReactElement } from 'react';
 
-interface ServicesHeroProps {
-  onBook: () => void;
-}
-
 interface FloatingPill {
   slot: 'f1' | 'f2' | 'f3' | 'f4' | 'f5' | 'f6';
   label: string;
@@ -135,7 +131,7 @@ const CAPABILITIES = [
   'Analytics & Reporting',
 ];
 
-const ServicesHero = ({ onBook }: ServicesHeroProps) => {
+const ServicesHero = () => {
   return (
     <section className="svc-hero" aria-labelledby="svc-title">
       <div className="container-shell">
@@ -151,13 +147,7 @@ const ServicesHero = ({ onBook }: ServicesHeroProps) => {
             </h1>
 
             <div className="svc-stage-cta reveal d3">
-              <button
-                type="button"
-                className="svc-cta-primary"
-                onClick={onBook}
-                aria-haspopup="dialog"
-                aria-controls="bookingModal"
-              >
+              <Link to="/growth-plan" className="svc-cta-primary">
                 Get Your Growth Plan
                 <span className="ico" aria-hidden="true">
                   <svg
@@ -174,9 +164,9 @@ const ServicesHero = ({ onBook }: ServicesHeroProps) => {
                     <polyline points="12 5 19 12 12 19" />
                   </svg>
                 </span>
-              </button>
+              </Link>
 
-              <Link to="/services#case-studies" className="svc-cta-link">
+              <Link to="/case-studies" className="svc-cta-link">
                 View Case Studies
                 <span className="ico" aria-hidden="true">
                   <svg

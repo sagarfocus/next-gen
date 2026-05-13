@@ -115,12 +115,12 @@ const STATS: ResultStat[] = [
 ];
 
 const CASES: CaseCard[] = [
-  { href: 'https://thenextgenhealth.com/case-studies/analytics-reporting-case-1', emoji: '🏥', num: '$2M', numLbl: 'Tracked', sector: 'Emergency Room', name: 'Freestanding ER · Dallas', problem: 'No idea which channel drove revenue.', result: 'End-to-end attribution model.' },
-  { href: 'https://thenextgenhealth.com/case-studies/analytics-reporting-case-2', emoji: '⚡', num: '−92%', numLbl: 'Report time', sector: 'Urgent Care', name: 'Multi-location · Houston', problem: '12 hours / week pulling reports.', result: 'Live multi-location dashboard.' },
-  { href: 'https://thenextgenhealth.com/case-studies/analytics-reporting-case-3', emoji: '✨', num: '+38%', numLbl: 'Spend efficiency', sector: 'Cosmetic Surgery', name: 'Aesthetic clinic · Austin', problem: 'Ad spend allocated by gut feel.', result: 'ROAS-led budget reallocation.' },
-  { href: 'https://thenextgenhealth.com/case-studies/analytics-reporting-case-4', emoji: '👨‍⚕️', num: '5×', numLbl: 'Decision speed', sector: 'Primary Care', name: 'Family medicine · San Antonio', problem: 'Monthly retros took 8 hours to prep.', result: 'Auto-refreshing dashboards.' },
-  { href: 'https://thenextgenhealth.com/case-studies/analytics-reporting-case-5', emoji: '🧠', num: '+24%', numLbl: 'Patient LTV', sector: 'Mental Health', name: 'Therapy practice · Dallas', problem: "Couldn't track retention drivers.", result: 'Cohort + LTV analysis.' },
-  { href: 'https://thenextgenhealth.com/case-studies/analytics-reporting-case-6', emoji: '🦷', num: '100%', numLbl: 'Coverage', sector: 'Dental Practice', name: 'General dentistry · Irving', problem: 'GBP, ads, organic — all separate.', result: 'Unified marketing dashboard.' },
+  { emoji: '🏥', num: '$2M', numLbl: 'Tracked', sector: 'Emergency Room', name: 'Freestanding ER · Dallas', problem: 'No idea which channel drove revenue.', result: 'End-to-end attribution model.' },
+  { emoji: '⚡', num: '−92%', numLbl: 'Report time', sector: 'Urgent Care', name: 'Multi-location · Houston', problem: '12 hours / week pulling reports.', result: 'Live multi-location dashboard.' },
+  { emoji: '✨', num: '+38%', numLbl: 'Spend efficiency', sector: 'Cosmetic Surgery', name: 'Aesthetic clinic · Austin', problem: 'Ad spend allocated by gut feel.', result: 'ROAS-led budget reallocation.' },
+  { emoji: '👨‍⚕️', num: '5×', numLbl: 'Decision speed', sector: 'Primary Care', name: 'Family medicine · San Antonio', problem: 'Monthly retros took 8 hours to prep.', result: 'Auto-refreshing dashboards.' },
+  { emoji: '🧠', num: '+24%', numLbl: 'Patient LTV', sector: 'Mental Health', name: 'Therapy practice · Dallas', problem: "Couldn't track retention drivers.", result: 'Cohort + LTV analysis.' },
+  { emoji: '🦷', num: '100%', numLbl: 'Coverage', sector: 'Dental Practice', name: 'General dentistry · Irving', problem: 'GBP, ads, organic — all separate.', result: 'Unified marketing dashboard.' },
 ];
 
 const SERVICE_SCHEMA = {

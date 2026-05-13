@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom';
 import type { ReactElement } from 'react';
 
 interface TrustCardData {
-  href: string;
   featured?: boolean;
   ariaId: string;
   icon: ReactElement;
@@ -64,7 +63,6 @@ const ArrowIcon = () => (
 
 const TRUST_CARDS: TrustCardData[] = [
   {
-    href: 'https://thenextgenhealth.com/services/reputation-management',
     featured: true,
     ariaId: 'trust-1',
     icon: <StarShieldIcon />,
@@ -79,7 +77,6 @@ const TRUST_CARDS: TrustCardData[] = [
     ],
   },
   {
-    href: 'https://thenextgenhealth.com/services/hipaa-web-design',
     ariaId: 'trust-2',
     icon: <ShieldCheckIcon />,
     tag: 'Compliance',
@@ -136,12 +133,9 @@ const TrustInfrastructure = () => {
 
           {/* RIGHT — 2 cards */}
           <div className="trust-cards">
-            {TRUST_CARDS.map(({ href, featured, ariaId, icon, tag, title, text, bullets }) => (
-              <a
+            {TRUST_CARDS.map(({ featured, ariaId, icon, tag, title, text, bullets }) => (
+              <article
                 key={ariaId}
-                href={href}
-                target="_blank"
-                rel="noopener noreferrer"
                 className={`trust-card${featured ? ' is-featured' : ''}`}
                 aria-labelledby={ariaId}
               >
@@ -163,7 +157,7 @@ const TrustInfrastructure = () => {
                     <li key={b}>{b}</li>
                   ))}
                 </ul>
-              </a>
+              </article>
             ))}
           </div>
         </div>

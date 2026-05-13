@@ -13,7 +13,7 @@ interface CaseBlock {
 }
 
 interface CaseCard {
-  href: string;
+  id: string;
   emoji: string;
   metricNum: string;
   metricLbl: string;
@@ -24,7 +24,7 @@ interface CaseCard {
 
 const CARDS: CaseCard[] = [
   {
-    href: 'https://thenextgenhealth.com/case-studies/er-network-patient-growth',
+    id: 'er-network-patient-growth',
     emoji: '🏥',
     metricNum: '+45%',
     metricLbl: 'Patient Visits',
@@ -46,7 +46,7 @@ const CARDS: CaseCard[] = [
     ],
   },
   {
-    href: 'https://thenextgenhealth.com/case-studies/urgent-care-patient-acquisition',
+    id: 'urgent-care-patient-acquisition',
     emoji: '⚡',
     metricNum: '3×',
     metricLbl: 'Acquisitions',
@@ -68,7 +68,7 @@ const CARDS: CaseCard[] = [
     ],
   },
   {
-    href: 'https://thenextgenhealth.com/case-studies/cosmetic-surgery-lead-growth',
+    id: 'cosmetic-surgery-lead-growth',
     emoji: '✨',
     metricNum: '+120%',
     metricLbl: 'Lead Growth',
@@ -90,7 +90,7 @@ const CARDS: CaseCard[] = [
     ],
   },
   {
-    href: 'https://thenextgenhealth.com/case-studies/primary-care-seo-roi',
+    id: 'primary-care-seo-roi',
     emoji: '👨‍⚕️',
     metricNum: '500%',
     metricLbl: 'SEO ROI',
@@ -112,7 +112,7 @@ const CARDS: CaseCard[] = [
     ],
   },
   {
-    href: 'https://thenextgenhealth.com/case-studies/mental-health-patient-retention',
+    id: 'mental-health-patient-retention',
     emoji: '🧠',
     metricNum: '2×',
     metricLbl: 'Retention',
@@ -134,7 +134,7 @@ const CARDS: CaseCard[] = [
     ],
   },
   {
-    href: 'https://thenextgenhealth.com/case-studies/dental-practice-local-pack',
+    id: 'dental-practice-local-pack',
     emoji: '🦷',
     metricNum: '#1',
     metricLbl: 'Local Pack',
@@ -211,7 +211,7 @@ const CaseStudiesCarousel = () => {
     typeof window === 'undefined' ? 3 : visibleForWidth(window.innerWidth),
   );
   const trackRef = useRef<HTMLDivElement>(null);
-  const cardRef = useRef<HTMLAnchorElement>(null);
+  const cardRef = useRef<HTMLElement>(null);
   const touchStartX = useRef<number | null>(null);
 
   const total = CARDS.length;
@@ -305,13 +305,10 @@ const CaseStudiesCarousel = () => {
           >
             <div className="cs-track" ref={trackRef}>
               {CARDS.map((card, i) => (
-                <a
-                  key={card.href}
+                <article
+                  key={card.id}
                   ref={i === 0 ? cardRef : undefined}
                   className="cs-card"
-                  href={card.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
                 >
                   <div className="cs-card-top">
                     <span className="cs-emoji" aria-hidden="true">
@@ -336,7 +333,7 @@ const CaseStudiesCarousel = () => {
                     Read full case study
                     <ArrowOut />
                   </div>
-                </a>
+                </article>
               ))}
             </div>
           </div>

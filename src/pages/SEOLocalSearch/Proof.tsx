@@ -2,7 +2,6 @@ import { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react
 import type { CSSProperties } from 'react';
 
 interface Result {
-  href: string;
   emoji: string;
   num: string;
   numLbl: string;
@@ -13,7 +12,6 @@ interface Result {
 
 const RESULTS: Result[] = [
   {
-    href: 'https://thenextgenhealth.com/case-studies/er-network-patient-growth',
     emoji: '🏥',
     num: '+45%',
     numLbl: 'Patient Visits',
@@ -23,7 +21,6 @@ const RESULTS: Result[] = [
       'Local Pack dominance closed 45% more visits in 6 months — added $800K+ annual revenue.',
   },
   {
-    href: 'https://thenextgenhealth.com/case-studies/urgent-care-patient-acquisition',
     emoji: '⚡',
     num: '3×',
     numLbl: 'Acquisitions',
@@ -33,7 +30,6 @@ const RESULTS: Result[] = [
       'Per-location SEO tripled appointments and dropped CPA by 60% within two quarters.',
   },
   {
-    href: 'https://thenextgenhealth.com/case-studies/cosmetic-surgery-lead-growth',
     emoji: '✨',
     num: '+120%',
     numLbl: 'Lead Growth',
@@ -43,7 +39,6 @@ const RESULTS: Result[] = [
       'Procedure-intent SEO doubled qualified leads and lifted average transaction value 25%.',
   },
   {
-    href: 'https://thenextgenhealth.com/case-studies/primary-care-seo-roi',
     emoji: '👨‍⚕️',
     num: '500%',
     numLbl: 'SEO ROI',
@@ -53,7 +48,6 @@ const RESULTS: Result[] = [
       'Local SEO + condition content lifted ROI past 500% — $300K+ in added organic revenue.',
   },
   {
-    href: 'https://thenextgenhealth.com/case-studies/mental-health-patient-retention',
     emoji: '🧠',
     num: '2×',
     numLbl: 'Retention',
@@ -63,7 +57,6 @@ const RESULTS: Result[] = [
       'Email automation + condition content doubled retention while cutting marketing spend 40%.',
   },
   {
-    href: 'https://thenextgenhealth.com/case-studies/dental-practice-local-pack',
     emoji: '🦷',
     num: '#1',
     numLbl: 'Local Pack',
@@ -73,20 +66,6 @@ const RESULTS: Result[] = [
       'GBP optimisation + citation cleanup landed #1 local pack and 70% more bookings.',
   },
 ];
-
-const ArrowExternal = () => (
-  <svg
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth={2.2}
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
-    <line x1="7" y1="17" x2="17" y2="7" />
-    <polyline points="7 7 17 7 17 17" />
-  </svg>
-);
 
 const Proof = () => {
   const [index, setIndex] = useState(0);
@@ -188,11 +167,8 @@ const Proof = () => {
               onTouchEnd={onTouchEnd}
             >
               {RESULTS.map((r) => (
-                <a
-                  key={r.href}
-                  href={r.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <article
+                  key={r.name}
                   className="sl-res-card"
                 >
                   <div className="sl-res-top">
@@ -205,10 +181,7 @@ const Proof = () => {
                   <span className="sl-res-sector">{r.sector}</span>
                   <h3 className="sl-res-name">{r.name}</h3>
                   <p className="sl-res-summary">{r.summary}</p>
-                  <span className="sl-res-foot">
-                    Case study <ArrowExternal />
-                  </span>
-                </a>
+                </article>
               ))}
             </div>
           </div>

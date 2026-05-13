@@ -115,12 +115,12 @@ const STATS: ResultStat[] = [
 ];
 
 const CASES: CaseCard[] = [
-  { href: 'https://thenextgenhealth.com/case-studies/google-ads-case-1', emoji: '🏥', num: '4.6×', numLbl: 'ROAS', sector: 'Emergency Room', name: 'Freestanding ER · Dallas', problem: 'CPA over $180, ROAS under 2×.', result: 'Restructured campaigns + negative keyword cleanup.' },
-  { href: 'https://thenextgenhealth.com/case-studies/google-ads-case-2', emoji: '⚡', num: '−54%', numLbl: 'CPA', sector: 'Urgent Care', name: 'Multi-location · Houston', problem: 'Spending across 8 sites, no per-location attribution.', result: 'Per-location campaigns + booking conversions.' },
-  { href: 'https://thenextgenhealth.com/case-studies/google-ads-case-3', emoji: '✨', num: '+180%', numLbl: 'Leads', sector: 'Cosmetic Surgery', name: 'Aesthetic clinic · Austin', problem: 'Lead form spam from broad targeting.', result: 'Tightened audiences + premium creative.' },
-  { href: 'https://thenextgenhealth.com/case-studies/google-ads-case-4', emoji: '👨‍⚕️', num: '3.8×', numLbl: 'ROAS', sector: 'Primary Care', name: 'Family medicine · San Antonio', problem: 'Wasting budget on awareness, no booking lift.', result: 'Bottom-funnel intent keywords + conversion tracking.' },
-  { href: 'https://thenextgenhealth.com/case-studies/google-ads-case-5', emoji: '🧠', num: '−42%', numLbl: 'Cost / lead', sector: 'Mental Health', name: 'Therapy practice · Dallas', problem: 'High CPL for a sensitive vertical.', result: 'Audience layering + landing page optimization.' },
-  { href: 'https://thenextgenhealth.com/case-studies/google-ads-case-6', emoji: '🦷', num: '5.2×', numLbl: 'ROAS', sector: 'Dental Practice', name: 'General dentistry · Irving', problem: 'Local ads underperforming.', result: 'Geo-targeting + service-page landing flows.' },
+  { emoji: '🏥', num: '4.6×', numLbl: 'ROAS', sector: 'Emergency Room', name: 'Freestanding ER · Dallas', problem: 'CPA over $180, ROAS under 2×.', result: 'Restructured campaigns + negative keyword cleanup.' },
+  { emoji: '⚡', num: '−54%', numLbl: 'CPA', sector: 'Urgent Care', name: 'Multi-location · Houston', problem: 'Spending across 8 sites, no per-location attribution.', result: 'Per-location campaigns + booking conversions.' },
+  { emoji: '✨', num: '+180%', numLbl: 'Leads', sector: 'Cosmetic Surgery', name: 'Aesthetic clinic · Austin', problem: 'Lead form spam from broad targeting.', result: 'Tightened audiences + premium creative.' },
+  { emoji: '👨‍⚕️', num: '3.8×', numLbl: 'ROAS', sector: 'Primary Care', name: 'Family medicine · San Antonio', problem: 'Wasting budget on awareness, no booking lift.', result: 'Bottom-funnel intent keywords + conversion tracking.' },
+  { emoji: '🧠', num: '−42%', numLbl: 'Cost / lead', sector: 'Mental Health', name: 'Therapy practice · Dallas', problem: 'High CPL for a sensitive vertical.', result: 'Audience layering + landing page optimization.' },
+  { emoji: '🦷', num: '5.2×', numLbl: 'ROAS', sector: 'Dental Practice', name: 'General dentistry · Irving', problem: 'Local ads underperforming.', result: 'Geo-targeting + service-page landing flows.' },
 ];
 
 const SERVICE_SCHEMA = {

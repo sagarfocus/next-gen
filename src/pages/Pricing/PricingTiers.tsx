@@ -26,7 +26,7 @@ const TIERS: Tier[] = [
     bestFor:
       'Single-location clinics ready to build their digital foundation.',
     ctaLabel: 'Get Started',
-    ctaHref: 'https://thenextgenhealth.com/signup',
+    ctaHref: '/contact',
     includesLabel: 'Package Includes',
     includes: [
       'Advanced SEO & Local Search Optimization',
@@ -53,7 +53,7 @@ const TIERS: Tier[] = [
       'High-acuity, rapid-response systems for immediate-need facilities.',
     bestFor: 'Clinics ready to scale acquisition fast.',
     ctaLabel: 'Get Started',
-    ctaHref: 'https://thenextgenhealth.com/signup',
+    ctaHref: '/contact',
     includesLabel: 'Everything in Starter, plus',
     includes: [
       'High-Budget Google Ads Management',
@@ -76,7 +76,7 @@ const TIERS: Tier[] = [
     tagline: 'Comprehensive growth engine for large healthcare networks.',
     bestFor: 'Multi-location teams needing advanced automation.',
     ctaLabel: 'Get Started',
-    ctaHref: 'https://thenextgenhealth.com/signup',
+    ctaHref: '/contact',
     includesLabel: 'Everything in Pro, plus',
     includes: [
       'Custom Software Development',

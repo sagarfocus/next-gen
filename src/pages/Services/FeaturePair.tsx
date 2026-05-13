@@ -1,12 +1,13 @@
 import type { ReactElement } from 'react';
+import { Link } from 'react-router-dom';
 
 interface PairCard {
-  href: string;
   ariaId: string;
   bg: ReactElement;
   tag: string;
   title: string;
   desc: string;
+  to: string;
 }
 
 const GbpBg = (
@@ -207,13 +208,13 @@ const AeoBg = (
 );
 
 const ROW_1: PairCard[] = [
-  { href: 'https://thenextgenhealth.com/services/google-business-profile', ariaId: 'card-gbp', bg: GbpBg, tag: 'Local Pack', title: 'Google Business Profile', desc: 'Complete optimization and weekly management of your GBP to secure Local Pack rankings.' },
-  { href: 'https://thenextgenhealth.com/services/citation-building', ariaId: 'card-citation', bg: CitationBg, tag: 'Authority', title: 'Citation Building', desc: 'Establishing authoritative backlinks and consistent NAP data across healthcare directories.' },
+  { ariaId: 'card-gbp', bg: GbpBg, tag: 'Local Pack', title: 'Google Business Profile', desc: 'Complete optimization and weekly management of your GBP to secure Local Pack rankings.', to: '/services/google-business-profile' },
+  { ariaId: 'card-citation', bg: CitationBg, tag: 'Authority', title: 'Citation Building', desc: 'Establishing authoritative backlinks and consistent NAP data across healthcare directories.', to: '/citation-building' },
 ];
 
 const ROW_2: PairCard[] = [
-  { href: 'https://thenextgenhealth.com/services/hyper-local-content', ariaId: 'card-hl', bg: HyperLocalBg, tag: 'Geo-Targeted', title: 'Hyper-Local Content', desc: 'Creating programmatic landing pages for surrounding Texas municipalities and suburbs.' },
-  { href: 'https://thenextgenhealth.com/services/aeo-schema', ariaId: 'card-aeo', bg: AeoBg, tag: 'AI Search', title: 'AEO & Schema', desc: 'Structuring data for AI Overviews and voice search dominance in the medical sector.' },
+  { ariaId: 'card-hl', bg: HyperLocalBg, tag: 'Geo-Targeted', title: 'Hyper-Local Content', desc: 'Creating programmatic landing pages for surrounding Texas municipalities and suburbs.', to: '/hyper-local-content' },
+  { ariaId: 'card-aeo', bg: AeoBg, tag: 'AI Search', title: 'AEO & Schema', desc: 'Structuring data for AI Overviews and voice search dominance in the medical sector.', to: '/aeo-schema' },
 ];
 
 const PairArrow = () => (
@@ -233,12 +234,10 @@ const PairArrow = () => (
   </svg>
 );
 
-const renderCard = ({ href, ariaId, bg, tag, title, desc }: PairCard) => (
-  <a
+const renderCard = ({ ariaId, bg, tag, title, desc, to }: PairCard) => (
+  <Link
     key={ariaId}
-    href={href}
-    target="_blank"
-    rel="noopener noreferrer"
+    to={to}
     className="pair-card"
     aria-labelledby={ariaId}
   >
@@ -259,7 +258,7 @@ const renderCard = ({ href, ariaId, bg, tag, title, desc }: PairCard) => (
         </span>
       </div>
     </div>
-  </a>
+  </Link>
 );
 
 const FeaturePair = () => {

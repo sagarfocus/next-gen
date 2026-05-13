@@ -1,3 +1,6 @@
+import { Link } from 'react-router-dom';
+import { Parallax } from '../../lib/motion';
+
 interface IndustriesHeroProps {
   onBook: () => void;
 }
@@ -21,13 +24,7 @@ const IndustriesHero = ({ onBook }: IndustriesHeroProps) => {
             </p>
 
             <div className="ind-hero-cta">
-              <button
-                type="button"
-                className="svc-cta-primary"
-                onClick={onBook}
-                aria-haspopup="dialog"
-                aria-controls="bookingModal"
-              >
+              <Link to="/pricing" className="svc-cta-primary">
                 Get an Estimated Quote
                 <span className="ico" aria-hidden="true">
                   <svg
@@ -44,8 +41,14 @@ const IndustriesHero = ({ onBook }: IndustriesHeroProps) => {
                     <polyline points="12 5 19 12 12 19" />
                   </svg>
                 </span>
-              </button>
-              <a href="#book" className="svc-cta-link">
+              </Link>
+              <button
+                type="button"
+                className="svc-cta-link"
+                onClick={onBook}
+                aria-haspopup="dialog"
+                aria-controls="bookingModal"
+              >
                 Schedule a Call
                 <span className="ico" aria-hidden="true">
                   <svg
@@ -62,7 +65,7 @@ const IndustriesHero = ({ onBook }: IndustriesHeroProps) => {
                     <polyline points="7 7 17 7 17 17" />
                   </svg>
                 </span>
-              </a>
+              </button>
             </div>
 
             <div className="ind-trust">
@@ -90,7 +93,7 @@ const IndustriesHero = ({ onBook }: IndustriesHeroProps) => {
             </div>
           </div>
 
-          <div className="ind-visual" aria-hidden="true">
+          <Parallax as="div" speed={0.06} className="ind-visual" aria-hidden="true">
             <div className="ind-visual-frame">
               <div className="ind-visual-svg">
                 <svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg">
@@ -192,7 +195,7 @@ const IndustriesHero = ({ onBook }: IndustriesHeroProps) => {
                 <small>Across all verticals</small>
               </div>
             </div>
-          </div>
+          </Parallax>
         </div>
       </div>
     </section>

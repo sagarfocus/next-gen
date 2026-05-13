@@ -1,7 +1,6 @@
 import type { ReactElement } from 'react';
 
 interface ServeCard {
-  href: string;
   ariaId: string;
   illustration: ReactElement;
   tag: string;
@@ -207,7 +206,6 @@ const SpecialtyIllustration = (
 
 const CARDS: ServeCard[] = [
   {
-    href: 'https://thenextgenhealth.com/who-we-serve/clinics',
     ariaId: 'serve-1',
     illustration: ClinicsIllustration,
     tag: 'Clinical',
@@ -216,7 +214,6 @@ const CARDS: ServeCard[] = [
     points: ['Family Practice', 'Cardiology', 'Dental', 'Pediatrics'],
   },
   {
-    href: 'https://thenextgenhealth.com/who-we-serve/medspas',
     ariaId: 'serve-2',
     illustration: MedSpaIllustration,
     tag: 'Aesthetic',
@@ -225,7 +222,6 @@ const CARDS: ServeCard[] = [
     points: ['MedSpa', 'Aesthetics', 'IV Therapy', 'Wellness'],
   },
   {
-    href: 'https://thenextgenhealth.com/who-we-serve/specialty',
     ariaId: 'serve-3',
     illustration: SpecialtyIllustration,
     tag: 'Acuity',
@@ -273,12 +269,9 @@ const WhoWeServe = () => {
         </div>
 
         <div className="serve-grid">
-          {CARDS.map(({ href, ariaId, illustration, tag, title, desc, points }) => (
-            <a
+          {CARDS.map(({ ariaId, illustration, tag, title, desc, points }) => (
+            <article
               key={ariaId}
-              href={href}
-              target="_blank"
-              rel="noopener noreferrer"
               className="serve-card"
               aria-labelledby={ariaId}
             >
@@ -297,7 +290,7 @@ const WhoWeServe = () => {
                   ))}
                 </ul>
               </div>
-            </a>
+            </article>
           ))}
         </div>
       </div>

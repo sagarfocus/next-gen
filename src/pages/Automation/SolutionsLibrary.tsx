@@ -1,7 +1,6 @@
 import type { ReactElement } from 'react';
 
 interface Solution {
-  href: string;
   title: string;
   desc: string;
   icon: ReactElement;
@@ -9,7 +8,6 @@ interface Solution {
 
 const SOLUTIONS: Solution[] = [
   {
-    href: 'https://thenextgenhealth.com/automation/ai-chatbot',
     title: 'AI Chatbot',
     desc: 'GPT-powered patient qualification and lead capture, 24/7.',
     icon: (
@@ -24,7 +22,6 @@ const SOLUTIONS: Solution[] = [
     ),
   },
   {
-    href: 'https://thenextgenhealth.com/automation/patient-intake',
     title: 'Patient Intake',
     desc: 'From form to EHR record in seconds, with insurance pre-checked.',
     icon: (
@@ -36,7 +33,6 @@ const SOLUTIONS: Solution[] = [
     ),
   },
   {
-    href: 'https://thenextgenhealth.com/automation/review-collection',
     title: 'Review Collection',
     desc: 'Sentiment-routed Google review requests that protect your reputation.',
     icon: (
@@ -46,7 +42,6 @@ const SOLUTIONS: Solution[] = [
     ),
   },
   {
-    href: 'https://thenextgenhealth.com/automation/appointment-reminders',
     title: 'Appointment Reminders',
     desc: '24h and 2h SMS + email reminders that cut no-shows by up to 40%.',
     icon: (
@@ -58,7 +53,6 @@ const SOLUTIONS: Solution[] = [
     ),
   },
   {
-    href: 'https://thenextgenhealth.com/automation/insurance-verification',
     title: 'Insurance Verification',
     desc: 'Real-time eligibility, copay lookup, and pre-auth submission.',
     icon: (
@@ -69,7 +63,6 @@ const SOLUTIONS: Solution[] = [
     ),
   },
   {
-    href: 'https://thenextgenhealth.com/automation/recall-campaigns',
     title: 'Patient Recall Campaigns',
     desc: 'Automated win-back sequences for lapsed and overdue patients.',
     icon: (
@@ -81,7 +74,6 @@ const SOLUTIONS: Solution[] = [
     ),
   },
   {
-    href: 'https://thenextgenhealth.com/automation/social-media-scheduling',
     title: 'Social Media Posting',
     desc: 'AI-generated captions auto-posted to Facebook and Instagram daily.',
     icon: (
@@ -92,7 +84,6 @@ const SOLUTIONS: Solution[] = [
     ),
   },
   {
-    href: 'https://thenextgenhealth.com/automation/reporting-dashboards',
     title: 'Reporting Dashboards',
     desc: 'Live dashboards that pull from Ads, GA4, and your CRM in one place.',
     icon: (
@@ -105,20 +96,6 @@ const SOLUTIONS: Solution[] = [
     ),
   },
 ];
-
-const ArrowOut = () => (
-  <svg
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth={2}
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
-    <line x1="7" y1="17" x2="17" y2="7" />
-    <polyline points="7 7 17 7 17 17" />
-  </svg>
-);
 
 const SolutionsLibrary = () => {
   return (
@@ -139,18 +116,15 @@ const SolutionsLibrary = () => {
 
         <div className="sol-grid reveal d2">
           {SOLUTIONS.map((sol) => (
-            <a key={sol.href} className="sol-card" href={sol.href} target="_blank" rel="noopener noreferrer">
+            <article key={sol.title} className="sol-card">
               <div className="sol-card-top">
                 <span className="sol-icon" aria-hidden="true">
                   {sol.icon}
                 </span>
-                <span className="sol-arrow" aria-hidden="true">
-                  <ArrowOut />
-                </span>
               </div>
               <h3 className="sol-title">{sol.title}</h3>
               <p className="sol-desc">{sol.desc}</p>
-            </a>
+            </article>
           ))}
         </div>
       </div>

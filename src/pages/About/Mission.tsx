@@ -30,21 +30,7 @@ const VALUES: Value[] = [
   {
     num: '/02',
     title: 'Revenue-Accountable Results',
-    text: (
-      <>
-        We track actual patient registrations and revenue impact &mdash; not
-        vanity metrics like impressions or reach. Our{' '}
-        <a
-          href="https://thenextgenhealth.com/services/analytics-reporting"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          analytics dashboards
-        </a>{' '}
-        show Cost Per Acquisition, appointment-to-show ratios, and real ROI tied
-        to your bottom line.
-      </>
-    ),
+    text: 'We track actual patient registrations and revenue impact — not vanity metrics like impressions or reach. Our analytics dashboards show Cost Per Acquisition, appointment-to-show ratios, and real ROI tied to your bottom line.',
     icon: (
       <svg
         width={26}
@@ -65,21 +51,7 @@ const VALUES: Value[] = [
   {
     num: '/03',
     title: 'Compliance Without Compromise',
-    text: (
-      <>
-        We sign{' '}
-        <a
-          href="https://thenextgenhealth.com/hipaa"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Business Associate Agreements (BAAs)
-        </a>{' '}
-        with every client. Our infrastructure &mdash; from encrypted forms to
-        secure hosting &mdash; is designed to protect patient data at every
-        touchpoint. Compliance is not a feature; it is the foundation.
-      </>
-    ),
+    text: 'We sign Business Associate Agreements (BAAs) with every client. Our infrastructure — from encrypted forms to secure hosting — is designed to protect patient data at every touchpoint. Compliance is not a feature; it is the foundation.',
     icon: (
       <svg
         width={26}

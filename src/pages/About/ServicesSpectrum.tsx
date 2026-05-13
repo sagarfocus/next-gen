@@ -1,7 +1,6 @@
 import type { ReactElement } from 'react';
 
 interface PillarLink {
-  href: string;
   label: string;
 }
 
@@ -52,11 +51,11 @@ const PILLARS: Pillar[] = [
       </svg>
     ),
     links: [
-      { href: 'https://thenextgenhealth.com/services/seo-local-search', label: 'SEO & Local Search' },
-      { href: 'https://thenextgenhealth.com/services/google-ads', label: 'Google Ads Management' },
-      { href: 'https://thenextgenhealth.com/services/meta-ads', label: 'Meta & Facebook Ads' },
-      { href: 'https://thenextgenhealth.com/services/social-media-marketing', label: 'Social Media Marketing' },
-      { href: 'https://thenextgenhealth.com/services/email-drip-campaigns', label: 'Email & Drip Campaigns' },
+      { label: 'SEO & Local Search' },
+      { label: 'Google Ads Management' },
+      { label: 'Meta & Facebook Ads' },
+      { label: 'Social Media Marketing' },
+      { label: 'Email & Drip Campaigns' },
     ],
   },
   {
@@ -80,11 +79,11 @@ const PILLARS: Pillar[] = [
       </svg>
     ),
     links: [
-      { href: 'https://thenextgenhealth.com/services/website-design-dev', label: 'HIPAA-Compliant Website Design' },
-      { href: 'https://thenextgenhealth.com/services/brand-identity-design', label: 'Healthcare Brand Identity' },
-      { href: 'https://thenextgenhealth.com/services/content-copywriting', label: 'Medical Content & Copywriting' },
-      { href: 'https://thenextgenhealth.com/services/analytics-reporting', label: 'Real-Time Analytics Dashboards' },
-      { href: 'https://thenextgenhealth.com/services/strategy-planning', label: 'Strategy & Planning' },
+      { label: 'HIPAA-Compliant Website Design' },
+      { label: 'Healthcare Brand Identity' },
+      { label: 'Medical Content & Copywriting' },
+      { label: 'Real-Time Analytics Dashboards' },
+      { label: 'Strategy & Planning' },
     ],
   },
 ];
@@ -119,11 +118,11 @@ const ServicesSpectrum = () => {
               <p className="ab-spec-pillar-text">{pillar.text}</p>
               <ul className="ab-spec-list">
                 {pillar.links.map((link) => (
-                  <li key={link.href}>
-                    <a href={link.href} target="_blank" rel="noopener noreferrer">
+                  <li key={link.label}>
+                    <span>
                       {link.label}
                       <ArrowMini />
-                    </a>
+                    </span>
                   </li>
                 ))}
               </ul>
@@ -132,40 +131,9 @@ const ServicesSpectrum = () => {
         </div>
 
         <div className="ab-spec-closing">
-          We also provide offline channels including{' '}
-          <a
-            href="https://thenextgenhealth.com/services/brochure-print-design"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            print design
-          </a>{' '}
-          and{' '}
-          <a
-            href="https://thenextgenhealth.com/services/on-site-field-marketing"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            field marketing
-          </a>
-          . Explore{' '}
-          <a
-            href="https://thenextgenhealth.com/proven-results"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            our proven results
-          </a>{' '}
-          or view detailed{' '}
-          <a
-            href="https://thenextgenhealth.com/case-studies"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            case studies
-          </a>{' '}
-          to see how this integrated approach delivers measurable patient
-          acquisition growth.
+          We also provide offline channels including print design and field
+          marketing. Our proven results and detailed case studies show how this
+          integrated approach delivers measurable patient acquisition growth.
         </div>
       </div>
     </section>

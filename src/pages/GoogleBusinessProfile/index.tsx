@@ -108,12 +108,12 @@ const STATS: ResultStat[] = [
 ];
 
 const CASES: CaseCard[] = [
-  { href: 'https://thenextgenhealth.com/case-studies/google-business-profile-case-1', emoji: '🏥', num: '#1', numLbl: 'Map Pack', sector: 'Emergency Room', name: 'Freestanding ER · Dallas', problem: 'Outranked by hospital network.', result: 'Profile rebuild + citation cleanup.' },
-  { href: 'https://thenextgenhealth.com/case-studies/google-business-profile-case-2', emoji: '⚡', num: '+312%', numLbl: 'Profile views', sector: 'Urgent Care', name: 'Multi-location · Houston', problem: 'Listings inconsistent across 8 sites.', result: 'Per-location GBP optimization.' },
-  { href: 'https://thenextgenhealth.com/case-studies/google-business-profile-case-3', emoji: '✨', num: '8.2K', numLbl: 'Direction reqs', sector: 'Cosmetic Surgery', name: 'Aesthetic clinic · Austin', problem: 'Premium positioning vs price-led competitors.', result: 'Photo-rich profile + reviews.' },
-  { href: 'https://thenextgenhealth.com/case-studies/google-business-profile-case-4', emoji: '👨‍⚕️', num: '+72', numLbl: 'Reviews / qtr', sector: 'Primary Care', name: 'Family medicine · San Antonio', problem: 'No review system, 4.0 stuck.', result: 'Sentiment-routed review automation.' },
-  { href: 'https://thenextgenhealth.com/case-studies/google-business-profile-case-5', emoji: '🧠', num: '★4.9', numLbl: 'Rating', sector: 'Mental Health', name: 'Therapy practice · Dallas', problem: 'Sensitive vertical, hard to ask for reviews.', result: 'Empathetic request flow.' },
-  { href: 'https://thenextgenhealth.com/case-studies/google-business-profile-case-6', emoji: '🦷', num: '#1', numLbl: 'Local Pack', sector: 'Dental Practice', name: 'General dentistry · Irving', problem: 'Not appearing top-3.', result: 'GBP + citations + reviews.' },
+  { emoji: '🏥', num: '#1', numLbl: 'Map Pack', sector: 'Emergency Room', name: 'Freestanding ER · Dallas', problem: 'Outranked by hospital network.', result: 'Profile rebuild + citation cleanup.' },
+  { emoji: '⚡', num: '+312%', numLbl: 'Profile views', sector: 'Urgent Care', name: 'Multi-location · Houston', problem: 'Listings inconsistent across 8 sites.', result: 'Per-location GBP optimization.' },
+  { emoji: '✨', num: '8.2K', numLbl: 'Direction reqs', sector: 'Cosmetic Surgery', name: 'Aesthetic clinic · Austin', problem: 'Premium positioning vs price-led competitors.', result: 'Photo-rich profile + reviews.' },
+  { emoji: '👨‍⚕️', num: '+72', numLbl: 'Reviews / qtr', sector: 'Primary Care', name: 'Family medicine · San Antonio', problem: 'No review system, 4.0 stuck.', result: 'Sentiment-routed review automation.' },
+  { emoji: '🧠', num: '★4.9', numLbl: 'Rating', sector: 'Mental Health', name: 'Therapy practice · Dallas', problem: 'Sensitive vertical, hard to ask for reviews.', result: 'Empathetic request flow.' },
+  { emoji: '🦷', num: '#1', numLbl: 'Local Pack', sector: 'Dental Practice', name: 'General dentistry · Irving', problem: 'Not appearing top-3.', result: 'GBP + citations + reviews.' },
 ];
 
 const SERVICE_SCHEMA = {

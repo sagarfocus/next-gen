@@ -232,25 +232,10 @@ const Genesis = () => {
             </p>
             <p>
               So we became <strong>operational integrators</strong>. We
-              don&rsquo;t just run{' '}
-              <a
-                href="https://thenextgenhealth.com/services/google-ads"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Google Ads
-              </a>{' '}
-              &mdash; we build the AI chatbots that answer them. We don&rsquo;t
-              just do{' '}
-              <a
-                href="https://thenextgenhealth.com/services/seo-local-search"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Local SEO
-              </a>{' '}
-              &mdash; we build the digital intake forms that process the
-              patients who find you.
+              don&rsquo;t just run Google Ads &mdash; we build the AI chatbots
+              that answer them. We don&rsquo;t just do Local SEO &mdash; we
+              build the digital intake forms that process the patients who
+              find you.
             </p>
 
             <div className="ab-gen-principles">

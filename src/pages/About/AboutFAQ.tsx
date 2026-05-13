@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import type { ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 
@@ -94,6 +95,9 @@ const ArrowIcon = () => (
 );
 
 const AboutFAQ = () => {
+  const defaultIndex = FAQS.findIndex((f) => f.defaultOpen);
+  const [openIndex, setOpenIndex] = useState<number | null>(defaultIndex >= 0 ? defaultIndex : null);
+
   return (
     <section className="faq-section" id="faq" aria-labelledby="ab-faq-title">
       <div className="container-shell">
@@ -130,13 +134,23 @@ const AboutFAQ = () => {
           </div>
 
           <div className="faq-right">
-            {FAQS.map(({ q, a, defaultOpen }) => (
+            {FAQS.map(({ q, a }, i) => (
               <details
                 key={q}
                 className="faq-item"
-                {...(defaultOpen ? { open: true } : {})}
+                open={openIndex === i}
+                onToggle={(e) => {
+                  const isOpen = (e.currentTarget as HTMLDetailsElement).open;
+                  if (isOpen && openIndex !== i) setOpenIndex(i);
+                  else if (!isOpen && openIndex === i) setOpenIndex(null);
+                }}
               >
-                <summary>
+                <summary
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setOpenIndex(openIndex === i ? null : i);
+                  }}
+                >
                   <span className="faq-q">{q}</span>
                   <FAQChevron />
                 </summary>
