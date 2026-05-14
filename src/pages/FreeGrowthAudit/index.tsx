@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import type { ReactNode } from 'react';
-import { Parallax } from '../../lib/motion';
+import { Parallax, AnimatedBackground, MotionButton, MotionCard } from '../../lib/motion';
 
 /* ============================================================
    FREE GROWTH AUDIT — bespoke design
@@ -59,6 +59,7 @@ const DocumentVisual = () => (
 
 const Hero = () => (
   <section className="fga-hero" aria-labelledby="fga-h1">
+    <AnimatedBackground variant="aurora" intensity="subtle" />
     <div className="container-shell">
       <nav className="fga-crumbs" aria-label="Breadcrumb">
         <Link to="/">Home</Link>
@@ -83,13 +84,13 @@ const Hero = () => (
             ninety-day fix as a PDF. Yours to keep.
           </p>
           <div className="fga-cta-row">
-            <Link to="/contact" className="fga-cta">
+            <MotionButton to="/contact" className="fga-cta">
               Start my audit
               <svg width={16} height={16} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.4} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <line x1="5" y1="12" x2="19" y2="12" />
                 <polyline points="12 5 19 12 12 19" />
               </svg>
-            </Link>
+            </MotionButton>
             <div className="fga-cta-meta">
               <span className="fga-cta-meta-num">87</span> audits delivered this quarter
             </div>
@@ -140,7 +141,7 @@ const Bento = () => (
       </header>
 
       <div className="fga-bento">
-        <article className="fga-tile fga-tile-a">
+        <MotionCard naked tilt={5} className="fga-tile fga-tile-a">
           <div className="fga-tile-eyebrow">01 · Score</div>
           <h3 className="fga-tile-h">Visibility Score</h3>
           <p className="fga-tile-p">
@@ -155,9 +156,9 @@ const Bento = () => (
               <span className="fga-ring-core">64</span>
             </div>
           </div>
-        </article>
+        </MotionCard>
 
-        <article className="fga-tile fga-tile-b">
+        <MotionCard naked tilt={5} className="fga-tile fga-tile-b">
           <div className="fga-tile-eyebrow">02 · Map</div>
           <h3 className="fga-tile-h">Funnel Leak Map</h3>
           <p className="fga-tile-p">
@@ -172,17 +173,17 @@ const Bento = () => (
               </div>
             ))}
           </div>
-        </article>
+        </MotionCard>
 
-        <article className="fga-tile fga-tile-c">
+        <MotionCard naked tilt={4} className="fga-tile fga-tile-c">
           <div className="fga-tile-eyebrow">03 · Spend</div>
           <h3 className="fga-tile-h">Paid Media Review</h3>
           <p className="fga-tile-p">
             Wasted spend flagged. Audiences to cut. Campaigns to scale — with the CAC math.
           </p>
-        </article>
+        </MotionCard>
 
-        <article className="fga-tile fga-tile-d">
+        <MotionCard naked tilt={4} className="fga-tile fga-tile-d">
           <div className="fga-tile-eyebrow">04 · Plan</div>
           <h3 className="fga-tile-h">90-Day Plan</h3>
           <p className="fga-tile-p">
@@ -194,7 +195,7 @@ const Bento = () => (
             <li><span /> Paid restructure</li>
             <li><span /> Review cadence</li>
           </ul>
-        </article>
+        </MotionCard>
       </div>
     </div>
   </section>
@@ -284,13 +285,13 @@ const Closing = () => (
         <p className="fga-close-p">
           One booking, no card. Five business days. A PDF you keep, agency or not.
         </p>
-        <Link to="/contact" className="fga-close-cta">
+        <MotionButton to="/contact" className="fga-close-cta">
           Claim my audit
           <svg width={18} height={18} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.4} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
             <line x1="5" y1="12" x2="19" y2="12" />
             <polyline points="12 5 19 12 12 19" />
           </svg>
-        </Link>
+        </MotionButton>
         <div className="fga-close-trust">
           <span>Trusted by 200+ Texas practices</span>
           <span aria-hidden="true">·</span>

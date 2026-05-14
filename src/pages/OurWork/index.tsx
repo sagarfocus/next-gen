@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import type { ReactNode } from 'react';
-import { Parallax } from '../../lib/motion';
+import { Parallax, AnimatedBackground, MotionButton, MotionCard } from '../../lib/motion';
 
 /* ============================================================
    OUR WORK — bespoke gallery page.
@@ -286,6 +286,7 @@ const BrandArt = () => (
 
 const Hero = () => (
   <section className="ow-hero" aria-labelledby="ow-h1">
+    <AnimatedBackground variant="aurora" intensity="medium" />
     <div className="container-shell">
       <nav className="ow-crumbs" aria-label="Breadcrumb">
         <Link to="/">Home</Link>
@@ -312,13 +313,13 @@ const Hero = () => (
             multi-location healthcare brands.
           </p>
           <div className="ow-hero-cta">
-            <Link to="/contact" className="ow-cta-primary">
+            <MotionButton to="/contact" className="ow-cta-primary">
               Start a project
               <svg width={16} height={16} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.4} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <line x1="5" y1="12" x2="19" y2="12" />
                 <polyline points="12 5 19 12 12 19" />
               </svg>
-            </Link>
+            </MotionButton>
             <Link to="/case-studies" className="ow-cta-link">
               Read full case studies
             </Link>
@@ -387,7 +388,7 @@ const Capabilities = () => (
 
       <div className="ow-bento">
         {/* Tile A — Hero capability with full image */}
-        <article className="ow-tile ow-tile-a">
+        <MotionCard naked tilt={5} className="ow-tile ow-tile-a">
           <div className="ow-tile-art ow-tile-art-img">
             <img src={IMG.search} alt="" loading="lazy" />
           </div>
@@ -396,30 +397,30 @@ const Capabilities = () => (
             <h3 className="ow-tile-title">{CAPABILITIES[0].title}</h3>
             <p className="ow-tile-copy">{CAPABILITIES[0].copy}</p>
           </div>
-        </article>
+        </MotionCard>
 
         {/* Tile B — Paid media (chart art) */}
-        <article className="ow-tile ow-tile-b">
+        <MotionCard naked tilt={5} className="ow-tile ow-tile-b">
           <div className="ow-tile-art"><ChartArt /></div>
           <div className="ow-tile-body">
             <span className="ow-tile-tag">{CAPABILITIES[1].tag}</span>
             <h3 className="ow-tile-title">{CAPABILITIES[1].title}</h3>
             <p className="ow-tile-copy">{CAPABILITIES[1].copy}</p>
           </div>
-        </article>
+        </MotionCard>
 
         {/* Tile C — Brand (abstract art) */}
-        <article className="ow-tile ow-tile-c">
+        <MotionCard naked tilt={5} className="ow-tile ow-tile-c">
           <div className="ow-tile-art"><BrandArt /></div>
           <div className="ow-tile-body">
             <span className="ow-tile-tag">{CAPABILITIES[2].tag}</span>
             <h3 className="ow-tile-title">{CAPABILITIES[2].title}</h3>
             <p className="ow-tile-copy">{CAPABILITIES[2].copy}</p>
           </div>
-        </article>
+        </MotionCard>
 
         {/* Tile D — Web (image) */}
-        <article className="ow-tile ow-tile-d">
+        <MotionCard naked tilt={5} className="ow-tile ow-tile-d">
           <div className="ow-tile-art ow-tile-art-img">
             <img src={IMG.web} alt="" loading="lazy" />
           </div>
@@ -428,27 +429,27 @@ const Capabilities = () => (
             <h3 className="ow-tile-title">{CAPABILITIES[3].title}</h3>
             <p className="ow-tile-copy">{CAPABILITIES[3].copy}</p>
           </div>
-        </article>
+        </MotionCard>
 
         {/* Tile E — Lifecycle (funnel art) */}
-        <article className="ow-tile ow-tile-e">
+        <MotionCard naked tilt={5} className="ow-tile ow-tile-e">
           <div className="ow-tile-art"><FunnelArt /></div>
           <div className="ow-tile-body">
             <span className="ow-tile-tag">{CAPABILITIES[4].tag}</span>
             <h3 className="ow-tile-title">{CAPABILITIES[4].title}</h3>
             <p className="ow-tile-copy">{CAPABILITIES[4].copy}</p>
           </div>
-        </article>
+        </MotionCard>
 
         {/* Tile F — Automation (network art, dark) */}
-        <article className="ow-tile ow-tile-f">
+        <MotionCard naked tilt={5} className="ow-tile ow-tile-f">
           <div className="ow-tile-art"><NetworkArt /></div>
           <div className="ow-tile-body">
             <span className="ow-tile-tag">{CAPABILITIES[5].tag}</span>
             <h3 className="ow-tile-title">{CAPABILITIES[5].title}</h3>
             <p className="ow-tile-copy">{CAPABILITIES[5].copy}</p>
           </div>
-        </article>
+        </MotionCard>
       </div>
     </div>
   </section>
@@ -491,24 +492,26 @@ const Featured = () => (
 
       <div className="ow-feat-grid">
         {ENGAGEMENTS.map((e) => (
-          <Link key={e.name} to={e.to} className="ow-feat-card">
-            <div className="ow-feat-art" aria-hidden="true">
-              <MeshArt />
-              <span className="ow-feat-delta">{e.delta}<small>%</small></span>
-            </div>
-            <div className="ow-feat-body">
-              <span className="ow-feat-sector">{e.sector}</span>
-              <h3 className="ow-feat-name">{e.name}</h3>
-              <p className="ow-feat-headline">{e.headline}</p>
-              <div className="ow-feat-foot">
-                <div>
-                  <strong>{e.metric.v}</strong>
-                  <span>{e.metric.l}</span>
-                </div>
-                <span className="ow-feat-arrow" aria-hidden="true">↗</span>
+          <MotionCard key={e.name} naked tilt={7} className="ow-feat-card-wrap">
+            <Link to={e.to} className="ow-feat-card">
+              <div className="ow-feat-art" aria-hidden="true">
+                <MeshArt />
+                <span className="ow-feat-delta">{e.delta}<small>%</small></span>
               </div>
-            </div>
-          </Link>
+              <div className="ow-feat-body">
+                <span className="ow-feat-sector">{e.sector}</span>
+                <h3 className="ow-feat-name">{e.name}</h3>
+                <p className="ow-feat-headline">{e.headline}</p>
+                <div className="ow-feat-foot">
+                  <div>
+                    <strong>{e.metric.v}</strong>
+                    <span>{e.metric.l}</span>
+                  </div>
+                  <span className="ow-feat-arrow" aria-hidden="true">↗</span>
+                </div>
+              </div>
+            </Link>
+          </MotionCard>
         ))}
       </div>
     </div>
@@ -535,13 +538,13 @@ const Closing = () => (
             practice is ready, the audit gets you a real plan in five days.
           </p>
           <div className="ow-close-cta">
-            <Link to="/free-growth-audit" className="ow-cta-primary ow-cta-primary--light">
+            <MotionButton to="/free-growth-audit" className="ow-cta-primary ow-cta-primary--light">
               Get my growth audit
               <svg width={16} height={16} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.4} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <line x1="5" y1="12" x2="19" y2="12" />
                 <polyline points="12 5 19 12 12 19" />
               </svg>
-            </Link>
+            </MotionButton>
             <Link to="/case-studies" className="ow-cta-link ow-cta-link--light">
               Read full case studies
             </Link>

@@ -71,6 +71,7 @@ const Navbar = () => {
   }, [mobileOpen]);
 
   return (
+    <>
     <header className="nav-wrap">
       <div className="container-shell">
         <nav
@@ -235,30 +236,53 @@ const Navbar = () => {
         </nav>
       </div>
 
-      {/* Mobile menu drawer */}
+    </header>
+
+      {/* Mobile menu drawer — rendered as a SIBLING of <header> (not inside).
+          The header has a backdrop-filter which would otherwise scope our
+          `position: fixed` drawer to the header's bounding box, hiding the
+          menu items entirely. */}
       {mobileOpen && (
         <div
           id="mobile-menu"
-          className="lg:hidden fixed inset-x-0 top-16 sm:top-[78px] bottom-0 z-40 overflow-y-auto"
+          className="lg:hidden fixed inset-0 z-40 overflow-y-auto pt-[72px] sm:pt-[96px]"
           style={{
-            background: 'linear-gradient(180deg, rgba(255,255,255,0.96), rgba(250,250,248,0.96))',
-            backdropFilter: 'blur(24px) saturate(180%)',
-            WebkitBackdropFilter: 'blur(24px) saturate(180%)',
+            background:
+              'linear-gradient(180deg, #F1F2F4 0%, #FAFAF8 100%)',
           }}
           role="dialog"
           aria-modal="true"
           aria-label="Main menu"
         >
-          <div className="container-shell py-8 flex flex-col gap-8">
-            <ul className="flex flex-col gap-1 list-none m-0 p-0">
+          {/* Hairline divider that sits exactly under the navbar so the bar reads as separate */}
+          <div
+            aria-hidden="true"
+            className="absolute left-0 right-0 top-[72px] sm:top-[96px] h-px"
+            style={{
+              background:
+                'linear-gradient(90deg, transparent, rgba(179,139,109,0.45), transparent)',
+            }}
+          />
+          <div className="container-shell py-6 flex flex-col gap-7 relative">
+            <ul className="flex flex-col list-none m-0 p-0">
               {PRIMARY_LINKS.map((link) => (
                 <li key={link.to}>
                   <Link
                     to={link.to}
-                    className="flex items-center justify-between py-4 border-b border-line-faint text-heading text-[20px] font-bold tracking-[-0.015em] hover:text-cta transition-colors"
+                    className="flex items-center justify-between py-4 text-heading text-[18px] font-bold tracking-[-0.015em] border-b border-line-faint hover:text-cta transition-colors"
                   >
                     {link.label}
-                    <svg width={16} height={16} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <svg
+                      width={16}
+                      height={16}
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth={2}
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      aria-hidden="true"
+                    >
                       <line x1="7" y1="17" x2="17" y2="7" />
                       <polyline points="7 7 17 7 17 17" />
                     </svg>
@@ -268,16 +292,20 @@ const Navbar = () => {
             </ul>
 
             <div>
-              <div className="text-[11px] uppercase tracking-[0.22em] font-bold text-muted mb-3">Resources</div>
-              <ul className="flex flex-col gap-1 list-none m-0 p-0">
+              <div className="text-[11px] uppercase tracking-[0.22em] font-bold text-muted mb-2">
+                Resources
+              </div>
+              <ul className="flex flex-col list-none m-0 p-0">
                 {RESOURCES.map((r) => (
                   <li key={r.to}>
                     <Link
                       to={r.to}
-                      className="flex flex-col gap-1 py-3 border-b border-line-faint hover:bg-bg-soft transition-colors"
+                      className="flex flex-col gap-0.5 py-3 border-b border-line-faint hover:bg-bg-soft transition-colors"
                     >
-                      <span className="text-heading text-[16px] font-semibold tracking-[-0.01em]">{r.label}</span>
-                      <span className="text-muted text-[13px]">{r.desc}</span>
+                      <span className="text-heading text-[15px] font-semibold tracking-[-0.01em]">
+                        {r.label}
+                      </span>
+                      <span className="text-muted text-[12.5px]">{r.desc}</span>
                     </Link>
                   </li>
                 ))}
@@ -286,7 +314,7 @@ const Navbar = () => {
           </div>
         </div>
       )}
-    </header>
+    </>
   );
 };
 

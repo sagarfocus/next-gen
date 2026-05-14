@@ -20,17 +20,17 @@ export const useReveal = <T extends HTMLElement = HTMLElement>(
 ) => {
   const { threshold = 0.15, rootMargin = '0px 0px -10% 0px', once = true } = opts;
   const ref = useRef<T | null>(null);
-  const [inView, setInView] = useState(false);
+  // If IntersectionObserver isn't available (very old browser / SSR fallback),
+  // start in the "revealed" state so content is visible.
+  const [inView, setInView] = useState<boolean>(
+    () => typeof IntersectionObserver === 'undefined',
+  );
 
   useEffect(() => {
     const node = ref.current;
     if (!node) return;
 
-    // SSR / older browser guard
-    if (typeof IntersectionObserver === 'undefined') {
-      setInView(true);
-      return;
-    }
+    if (typeof IntersectionObserver === 'undefined') return;
 
     const observer = new IntersectionObserver(
       (entries) => {

@@ -2,7 +2,7 @@ import { Routes, Route } from 'react-router-dom';
 import ScrollToTop from './components/ScrollToTop';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import { PageTransition, useAutoReveal } from './lib/motion';
+import { PageTransition, SmoothScroll, useAutoReveal } from './lib/motion';
 import Home from './pages/Home';
 import About from './pages/About';
 import Services from './pages/Services';
@@ -48,6 +48,7 @@ const App = () => {
     <div className="shell">
       <div className="grid-overlay" aria-hidden="true" />
       <ScrollToTop />
+      <SmoothScroll />
       <Navbar />
       <PageTransition>
       <Routes>

@@ -1,6 +1,9 @@
+import { AnimatedBackground } from '../../lib/motion';
+
 const TeamHero = () => {
   return (
     <section className="tm-hero">
+      <AnimatedBackground variant="mesh" intensity="subtle" />
       <div className="container-shell">
         <div className="tm-hero-grid">
           <div>

@@ -1,3 +1,5 @@
+import { AnimatedBackground } from '../../lib/motion';
+
 const ORBIT_PILLS: { cls: string; label: string }[] = [
   { cls: 'p1', label: 'Patient Acquisition' },
   { cls: 'p2', label: 'HIPAA Compliance' },
@@ -10,6 +12,7 @@ const ORBIT_PILLS: { cls: string; label: string }[] = [
 const AboutHero = () => {
   return (
     <section className="ab-hero" aria-labelledby="ab-title">
+      <AnimatedBackground variant="aurora" intensity="subtle" />
       <div className="container-shell">
         <div className="ab-hero-grid">
           <div className="ab-hero-text">

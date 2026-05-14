@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import type { ReactElement } from 'react';
+import { Link } from 'react-router-dom';
 
 interface ServiceItem {
   ariaId: string;
@@ -7,6 +8,7 @@ interface ServiceItem {
   meta: string;
   title: string;
   sub: string;
+  to: string;
   extra?: boolean;
 }
 
@@ -200,18 +202,18 @@ const AnalyticsCard = (
 );
 
 const SERVICES: ServiceItem[] = [
-  { ariaId: 'svc-1', illustration: SeoCard, meta: 'Search', title: 'SEO & Local Search', sub: 'Rank for the searches that bring patients to your door.' },
-  { ariaId: 'svc-2', illustration: AdsCard, meta: 'Paid Media', title: 'Google Ads & Paid Search', sub: 'High-intent traffic with weekly ROI optimization.' },
-  { ariaId: 'svc-3', illustration: MetaCard, meta: 'Social Ads', title: 'Meta Ads', sub: 'Conversion-focused campaigns on Facebook & Instagram.' },
-  { ariaId: 'svc-4', illustration: SocialCard, meta: 'Social', title: 'Social Media Marketing', sub: 'Show up where your patients spend their time.' },
-  { ariaId: 'svc-5', illustration: ContentCard, meta: 'Content', title: 'Content & Copywriting', sub: 'Healthcare content that ranks & converts.' },
-  { ariaId: 'svc-6', illustration: GbpCard, meta: 'Local', title: 'Google Business Profile', sub: 'Dominate the Local Pack with weekly GBP optimization.' },
-  { ariaId: 'svc-7', illustration: WebCard, meta: 'Web', title: 'Website Design & Development', sub: 'Fast, accessible sites built to convert.', extra: true },
-  { ariaId: 'svc-8', illustration: BrandCard, meta: 'Identity', title: 'Brand Identity Design', sub: 'Memorable visual systems for healthcare brands.', extra: true },
-  { ariaId: 'svc-9', illustration: PrintCard, meta: 'Print', title: 'Brochure & Print Design', sub: 'Patient-facing print collateral that builds trust.', extra: true },
-  { ariaId: 'svc-10', illustration: StrategyCard, meta: 'Strategy', title: 'Strategy & Planning', sub: 'Roadmaps grounded in data & clinical reality.', extra: true },
-  { ariaId: 'svc-11', illustration: FieldCard, meta: 'Field', title: 'Onsite Field Marketing', sub: 'Community presence that drives walk-in volume.', extra: true },
-  { ariaId: 'svc-12', illustration: AnalyticsCard, meta: 'Insights', title: 'Analytics & Reporting', sub: 'Real-time dashboards tied to revenue.', extra: true },
+  { ariaId: 'svc-1',  illustration: SeoCard,       meta: 'Search',     title: 'SEO & Local Search',          sub: 'Rank for the searches that bring patients to your door.',           to: '/services/seo-local-search' },
+  { ariaId: 'svc-2',  illustration: AdsCard,       meta: 'Paid Media', title: 'Google Ads & Paid Search',    sub: 'High-intent traffic with weekly ROI optimization.',                 to: '/services/google-ads' },
+  { ariaId: 'svc-3',  illustration: MetaCard,      meta: 'Social Ads', title: 'Meta Ads',                    sub: 'Conversion-focused campaigns on Facebook & Instagram.',             to: '/meta-ads' },
+  { ariaId: 'svc-4',  illustration: SocialCard,    meta: 'Social',     title: 'Social Media Marketing',      sub: 'Show up where your patients spend their time.',                     to: '/services/social-media-marketing' },
+  { ariaId: 'svc-5',  illustration: ContentCard,   meta: 'Content',    title: 'Content & Copywriting',       sub: 'Healthcare content that ranks & converts.',                         to: '/services/content-copywriting' },
+  { ariaId: 'svc-6',  illustration: GbpCard,       meta: 'Local',      title: 'Google Business Profile',     sub: 'Dominate the Local Pack with weekly GBP optimization.',             to: '/services/google-business-profile' },
+  { ariaId: 'svc-7',  illustration: WebCard,       meta: 'Web',        title: 'Website Design & Development',sub: 'Fast, accessible sites built to convert.',                          to: '/services/website-design-dev',  extra: true },
+  { ariaId: 'svc-8',  illustration: BrandCard,     meta: 'Identity',   title: 'Brand Identity Design',       sub: 'Memorable visual systems for healthcare brands.',                   to: '/services/brand-identity-design', extra: true },
+  { ariaId: 'svc-9',  illustration: PrintCard,     meta: 'Print',      title: 'Brochure & Print Design',     sub: 'Patient-facing print collateral that builds trust.',                to: '/contact',                       extra: true },
+  { ariaId: 'svc-10', illustration: StrategyCard,  meta: 'Strategy',   title: 'Strategy & Planning',         sub: 'Roadmaps grounded in data & clinical reality.',                     to: '/growth-plan',                   extra: true },
+  { ariaId: 'svc-11', illustration: FieldCard,     meta: 'Field',      title: 'Onsite Field Marketing',      sub: 'Community presence that drives walk-in volume.',                    to: '/onsite-field-marketing',        extra: true },
+  { ariaId: 'svc-12', illustration: AnalyticsCard, meta: 'Insights',   title: 'Analytics & Reporting',       sub: 'Real-time dashboards tied to revenue.',                             to: '/services/analytics-reporting',  extra: true },
 ];
 
 const CardArrow = () => (
@@ -260,9 +262,10 @@ const ServicesList = () => {
         </div>
 
         <div className="svc-cards">
-          {SERVICES.map(({ ariaId, illustration, meta, title, sub, extra }) => (
-            <article
+          {SERVICES.map(({ ariaId, illustration, meta, title, sub, to, extra }) => (
+            <Link
               key={ariaId}
+              to={to}
               className={`svc-card${extra ? ' is-extra' : ''}`}
               aria-labelledby={ariaId}
             >
@@ -275,7 +278,7 @@ const ServicesList = () => {
                 {title}
               </h3>
               <p className="svc-card-sub">{sub}</p>
-            </article>
+            </Link>
           ))}
         </div>
 

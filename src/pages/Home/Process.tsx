@@ -1,3 +1,16 @@
+import { useEffect, useRef } from 'react';
+import { useReducedMotion } from '../../lib/motion';
+
+/*
+ * GSAP is lazy-loaded inside useEffect below, ONLY when:
+ *   - the Process section actually mounts (route hit)
+ *   - viewport > 900px (desktop)
+ *   - prefers-reduced-motion is NOT set
+ *
+ * Result: GSAP + ScrollTrigger (~120 KB minified) are split into a
+ * separate chunk and never fetched on mobile or under reduced motion.
+ */
+
 interface ProcessStep {
   num: string;
   title: string;
@@ -40,8 +53,77 @@ const STEPS: ProcessStep[] = [
 ];
 
 const Process = () => {
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const pathRef = useRef<SVGPathElement | null>(null);
+  const reduced = useReducedMotion();
+
+  useEffect(() => {
+    if (reduced) return;
+    if (typeof window === 'undefined') return;
+    // Skip GSAP entirely on small / touch viewports — keep page light
+    if (window.matchMedia('(max-width: 900px)').matches) return;
+    if (window.matchMedia('(pointer: coarse)').matches) return;
+
+    const section = sectionRef.current;
+    const path = pathRef.current;
+    if (!section || !path) return;
+
+    let cleanup: (() => void) | undefined;
+    let cancelled = false;
+
+    (async () => {
+      // Dynamic imports — Vite splits these into a separate chunk that
+      // never reaches mobile / reduced-motion users.
+      const [{ default: gsap }, { ScrollTrigger }] = await Promise.all([
+        import('gsap'),
+        import('gsap/ScrollTrigger'),
+      ]);
+      if (cancelled) return;
+
+      gsap.registerPlugin(ScrollTrigger);
+
+      const length = path.getTotalLength();
+      path.style.strokeDasharray = `${length}`;
+      path.style.strokeDashoffset = `${length}`;
+
+      const steps = section.querySelectorAll<HTMLElement>('.step-circle');
+      steps.forEach((s) => {
+        gsap.set(s, { opacity: 0.55, scale: 0.96 });
+      });
+
+      const ctx = gsap.context(() => {
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: section,
+            start: 'top 78%',
+            end: 'bottom 40%',
+            scrub: 0.6,
+          },
+        });
+
+        tl.to(path, { strokeDashoffset: 0, ease: 'none' }, 0);
+
+        steps.forEach((s, i) => {
+          tl.to(
+            s,
+            { opacity: 1, scale: 1, duration: 0.6, ease: 'power2.out' },
+            i / steps.length,
+          );
+        });
+      }, section);
+
+      cleanup = () => ctx.revert();
+    })();
+
+    return () => {
+      cancelled = true;
+      cleanup?.();
+    };
+  }, [reduced]);
+
   return (
     <section
+      ref={sectionRef}
       className="process-section"
       id="process"
       aria-labelledby="process-title"
@@ -59,7 +141,7 @@ const Process = () => {
         </div>
 
         <ol className="process-steps process-steps--curved">
-          {/* Decorative wave connector — replaces the old straight dashed line */}
+          {/* Decorative wave connector — GSAP scrubs strokeDashoffset to draw it on scroll */}
           <svg
             className="process-curve"
             viewBox="0 0 1200 200"
@@ -67,13 +149,13 @@ const Process = () => {
             aria-hidden="true"
           >
             <path
+              ref={pathRef}
               d="M 100 60 C 200 60, 200 140, 300 140 S 400 60, 500 60 S 600 140, 700 140 S 800 60, 900 60 S 1000 140, 1100 140"
               fill="none"
               stroke="#B38B6D"
-              strokeWidth="1.4"
-              strokeDasharray="6 6"
+              strokeWidth="1.6"
               strokeLinecap="round"
-              opacity="0.55"
+              opacity="0.75"
             />
           </svg>
 

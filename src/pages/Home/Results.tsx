@@ -1,6 +1,11 @@
+import { CountUp } from '../../lib/motion';
+
 interface SmallStat {
   tag: string;
-  num: string;
+  value: number;
+  prefix?: string;
+  suffix: string;
+  decimals?: number;
   label: string;
   ariaLabel: string;
 }
@@ -8,19 +13,25 @@ interface SmallStat {
 const SMALL_STATS: SmallStat[] = [
   {
     tag: 'Emergency Room',
-    num: '47%',
+    value: 47,
+    suffix: '%',
     label: 'Increase in walk-in patients in six months.',
     ariaLabel: '47% increase in walk-in patients — Emergency Room',
   },
   {
     tag: 'Urgent Care',
-    num: '2.8×',
+    value: 2.8,
+    suffix: '×',
+    decimals: 1,
     label: 'Return on ad spend in the first quarter.',
     ariaLabel: '2.8x return on ad spend — Urgent Care',
   },
   {
     tag: 'MedSpa Network',
-    num: '$1.2M',
+    value: 1.2,
+    prefix: '$',
+    suffix: 'M',
+    decimals: 1,
     label: 'Revenue generated from Facebook ads in 12 months.',
     ariaLabel: '$1.2M revenue generated — MedSpa Network',
   },
@@ -69,7 +80,9 @@ const Results = () => {
             aria-label="312% increase in Instagram leads — MedSpa"
           >
             <span className="stat-tag">MedSpa</span>
-            <p className="stat-num">312%</p>
+            <p className="stat-num">
+              <CountUp to={312} suffix="%" duration={2.0} />
+            </p>
             <p className="stat-label">
               Increase in Instagram leads in 90&nbsp;days &mdash; from a single
               optimized funnel and creative refresh.
@@ -81,14 +94,22 @@ const Results = () => {
 
           {/* Right column — 3 stacked cards */}
           <div className="stats-right">
-            {SMALL_STATS.map(({ tag, num, label, ariaLabel }) => (
+            {SMALL_STATS.map(({ tag, value, prefix, suffix, decimals, label, ariaLabel }) => (
               <article
                 key={tag}
                 className="stat-card"
                 aria-label={ariaLabel}
               >
                 <span className="stat-tag">{tag}</span>
-                <p className="stat-num">{num}</p>
+                <p className="stat-num">
+                  <CountUp
+                    to={value}
+                    prefix={prefix}
+                    suffix={suffix}
+                    decimals={decimals ?? 0}
+                    duration={1.8}
+                  />
+                </p>
                 <p className="stat-label">{label}</p>
                 <span className="stat-card-arrow">
                   <ArrowIcon />

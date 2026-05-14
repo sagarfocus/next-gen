@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import type { ReactElement } from 'react';
+import { AnimatedBackground } from '../../lib/motion';
 
 interface FloatingPill {
   slot: 'f1' | 'f2' | 'f3' | 'f4' | 'f5' | 'f6';
@@ -134,6 +135,7 @@ const CAPABILITIES = [
 const ServicesHero = () => {
   return (
     <section className="svc-hero" aria-labelledby="svc-title">
+      <AnimatedBackground variant="aurora" intensity="subtle" />
       <div className="container-shell">
         <div className="svc-grid">
           {/* CENTER stage — title + CTAs */}

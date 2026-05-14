@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Parallax } from '../../lib/motion';
+import { Parallax, AnimatedBackground } from '../../lib/motion';
 
 interface IndustriesHeroProps {
   onBook: () => void;
@@ -8,6 +8,7 @@ interface IndustriesHeroProps {
 const IndustriesHero = ({ onBook }: IndustriesHeroProps) => {
   return (
     <section className="ind-hero" aria-labelledby="ind-title">
+      <AnimatedBackground variant="aurora" intensity="subtle" />
       <div className="container-shell">
         <div className="ind-hero-grid">
           <div className="ind-hero-text">

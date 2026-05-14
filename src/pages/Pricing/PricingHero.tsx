@@ -1,8 +1,10 @@
 import Breadcrumb from '../../components/Breadcrumb';
+import { AnimatedBackground } from '../../lib/motion';
 
 const PricingHero = () => {
   return (
     <section className="pr-hero" aria-label="Pricing intro">
+      <AnimatedBackground variant="mesh" intensity="medium" />
       <div className="container-shell">
         <div className="pr-trail reveal d1">
           <Breadcrumb current="Pricing" />

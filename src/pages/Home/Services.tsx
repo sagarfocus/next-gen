@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import type { CSSProperties, ReactNode } from 'react';
 import { Link } from 'react-router-dom';
+import { MotionCard } from '../../lib/motion';
 
 interface ServiceCardData {
   tag: string;
@@ -458,20 +459,26 @@ const Services = () => {
         <div className="services-track-wrap">
           <div className="services-grid" ref={trackRef}>
             {SERVICES.map(({ tag, title, sub, ariaLabel, illustration, to }) => (
-              <Link
+              <MotionCard
                 key={title}
-                to={to}
-                className="service-card"
-                aria-label={ariaLabel}
+                naked
+                tilt={4}
+                className="service-card-tilt"
               >
-                <div className="card-img">
-                  <CardArrow />
-                  {illustration}
-                </div>
-                <span className="card-tag">{tag}</span>
-                <h3 className="card-title">{title}</h3>
-                <p className="card-sub">{sub}</p>
-              </Link>
+                <Link
+                  to={to}
+                  className="service-card"
+                  aria-label={ariaLabel}
+                >
+                  <div className="card-img">
+                    <CardArrow />
+                    {illustration}
+                  </div>
+                  <span className="card-tag">{tag}</span>
+                  <h3 className="card-title">{title}</h3>
+                  <p className="card-sub">{sub}</p>
+                </Link>
+              </MotionCard>
             ))}
           </div>
         </div>

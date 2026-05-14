@@ -1,5 +1,6 @@
 import type { ReactElement } from 'react';
 import Breadcrumb from '../../components/Breadcrumb';
+import { AnimatedBackground } from '../../lib/motion';
 
 const ArrowRight = () => (
   <svg
@@ -245,6 +246,7 @@ const renderSideCard = (card: SideCard) => (
 const BlogHero = () => {
   return (
     <section className="bl-hero" aria-labelledby="bl-title">
+      <AnimatedBackground variant="aurora" intensity="subtle" />
       <span className="bl-hero-reg tr" aria-hidden="true" />
       <span className="bl-hero-reg bl" aria-hidden="true" />
 

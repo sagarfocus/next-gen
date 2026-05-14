@@ -1,6 +1,9 @@
+import { AnimatedBackground } from '../../lib/motion';
+
 const ContactHero = () => {
   return (
     <section className="ct-hero" aria-labelledby="ct-title">
+      <AnimatedBackground variant="aurora" intensity="subtle" />
       <div className="container-shell">
         <span className="ct-hero-eyebrow reveal d1">Get Your Custom Quote</span>
         <h1 id="ct-title" className="ct-hero-h1 reveal d2">
