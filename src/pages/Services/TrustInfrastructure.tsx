@@ -1,5 +1,6 @@
-import { Link } from 'react-router-dom';
+import { useState } from 'react';
 import type { ReactElement } from 'react';
+import BookingModal from '../../components/BookingModal';
 
 interface TrustCardData {
   featured?: boolean;
@@ -92,6 +93,8 @@ const TRUST_CARDS: TrustCardData[] = [
 ];
 
 const TrustInfrastructure = () => {
+  const [bookingOpen, setBookingOpen] = useState(false);
+
   return (
     <section
       className="trust-section"
@@ -111,7 +114,14 @@ const TrustInfrastructure = () => {
               excellence and security as your physical facility &mdash;
               engineered for trust, accessibility, and compliance from day one.
             </p>
-            <Link to="/services#book" className="trust-cta">
+            <button
+              type="button"
+              className="trust-cta"
+              onClick={() => setBookingOpen(true)}
+              aria-haspopup="dialog"
+              aria-expanded={bookingOpen}
+              aria-controls="bookingModal"
+            >
               Talk to a specialist
               <span className="ico" aria-hidden="true">
                 <svg
@@ -128,7 +138,7 @@ const TrustInfrastructure = () => {
                   <polyline points="7 7 17 7 17 17" />
                 </svg>
               </span>
-            </Link>
+            </button>
           </div>
 
           {/* RIGHT — 2 cards */}
@@ -162,6 +172,8 @@ const TrustInfrastructure = () => {
           </div>
         </div>
       </div>
+
+      <BookingModal open={bookingOpen} onClose={() => setBookingOpen(false)} />
     </section>
   );
 };
