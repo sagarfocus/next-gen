@@ -1494,17 +1494,47 @@
     scroll-behavior: smooth;
     scrollbar-width: none;
     -ms-overflow-style: none;
-    padding-bottom: 4px;
+    /* Breathing room so hover lift + drop shadow on cards isn't clipped
+       by the section's overflow:hidden (which the pin-scroll requires). */
+    padding-top: 16px;
+    padding-bottom: 36px;
   }
   .services-grid::-webkit-scrollbar { display: none; }
 
+  /* === Scroll-pinned horizontal mode ============================
+     When GSAP pins the section and drives the track via transform,
+     native overflow + snap would fight the JS. Switch the track to a
+     transform-only flex row and let the wrapper clip the off-screen
+     cards. The section centers content vertically so the slider sits
+     in the middle of the viewport while pinned. */
+  .services-section.is-pinned {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .services-section.is-pinned .services-track-wrap {
+    overflow: hidden;
+  }
+  .services-section.is-pinned .services-grid {
+    /* In pinned mode the grid stays at its container's width (NOT
+       max-content) so that the flex children's `calc(100%/4)` resolves
+       to "1/4 of the visible window" and overflow gives us a real
+       scrollWidth − clientWidth distance for GSAP to translate over.
+       The wrap's overflow: hidden clips the off-screen cards. */
+    overflow: visible;
+    scroll-snap-type: none;
+    scroll-behavior: auto;
+    will-change: transform;
+  }
+
   .service-card {
-    flex: 0 0 calc((100% - 0px) / 3);
-    min-width: 320px;
+    flex: 0 0 calc(100% / 4);
+    min-width: 240px;
     scroll-snap-align: start;
     display: flex;
     flex-direction: column;
-    padding: 0 28px;
+    padding: 0 14px;
     border-right: 1px solid rgba(45, 55, 72, 0.08);
     transition: background 0.3s ease;
     text-decoration: none;
@@ -1512,8 +1542,8 @@
   /* MotionCard naked wrapper around a .service-card — match the flex
      sizing so the slider continues to scroll-snap correctly. */
   .service-card-tilt {
-    flex: 0 0 calc((100% - 0px) / 3);
-    min-width: 320px;
+    flex: 0 0 calc(100% / 4);
+    min-width: 240px;
     scroll-snap-align: start;
     display: flex;
   }
@@ -1528,11 +1558,11 @@
   .card-img {
     position: relative;
     aspect-ratio: 4 / 3;
-    border-radius: 14px;
+    border-radius: 10px;
     overflow: hidden;
     background: #FAFAF8;
     border: 1px solid rgba(45, 55, 72, 0.08);
-    margin-bottom: 24px;
+    margin-bottom: 12px;
     transition: border-color 0.35s ease, transform 0.35s ease, box-shadow 0.35s ease;
   }
   .card-img svg {
@@ -1542,10 +1572,10 @@
   }
   .card-arrow {
     position: absolute;
-    top: 14px;
-    right: 14px;
-    width: 36px;
-    height: 36px;
+    top: 10px;
+    right: 10px;
+    width: 28px;
+    height: 28px;
     border-radius: 50%;
     display: grid;
     place-items: center;
@@ -1569,15 +1599,15 @@
     transform: rotate(-15deg);
   }
   .card-tag {
-    font-size: 11px;
+    font-size: 10px;
     font-weight: 700;
-    letter-spacing: 0.22em;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
     color: #718096;
-    margin-bottom: 10px;
+    margin-bottom: 6px;
     display: inline-flex;
     align-items: center;
-    gap: 8px;
+    gap: 6px;
   }
   .card-tag::before {
     content: "";
@@ -1587,18 +1617,18 @@
     background: #B38B6D;
   }
   .card-title {
-    font-size: clamp(19px, 1.7vw, 22px);
+    font-size: clamp(14px, 1.05vw, 15.5px);
     font-weight: 700;
     line-height: 1.25;
-    letter-spacing: -0.018em;
+    letter-spacing: -0.012em;
     color: #2D3748;
-    margin: 0 0 8px;
+    margin: 0 0 4px;
     transition: color 0.3s;
   }
   .service-card:hover .card-title { color: #576DB5; }
   .card-sub {
-    font-size: 13.5px;
-    line-height: 1.55;
+    font-size: 11.5px;
+    line-height: 1.45;
     color: #4A5568;
     margin: 0;
     font-weight: 500;

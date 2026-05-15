@@ -1,7 +1,19 @@
 import { useEffect, useRef, useState } from 'react';
-import type { CSSProperties, ReactNode } from 'react';
+import type { ReactNode } from 'react';
 import { Link } from 'react-router-dom';
-import { MotionCard } from '../../lib/motion';
+import { MotionCard, useReducedMotion } from '../../lib/motion';
+
+/*
+ * Premium scroll-pinned horizontal slider.
+ *
+ * On desktop (>900px, non-touch, non-reduced-motion) we lazy-load GSAP
+ * ScrollTrigger and pin the section while translating the card track on
+ * vertical wheel input. Once the user has scrolled past the last card the
+ * page resumes vertical flow normally.
+ *
+ * Mobile / touch / reduced motion fall back to the original native
+ * `overflow-x: auto` snap-scroll behavior — no scroll hijacking.
+ */
 
 interface ServiceCardData {
   tag: string;
@@ -317,38 +329,6 @@ const SERVICES: ServiceCardData[] = [
   },
 ];
 
-const ChevronLeft = () => (
-  <svg
-    width={18}
-    height={18}
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth={2}
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    aria-hidden="true"
-  >
-    <polyline points="15 18 9 12 15 6" />
-  </svg>
-);
-
-const ChevronRight = () => (
-  <svg
-    width={18}
-    height={18}
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth={2}
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    aria-hidden="true"
-  >
-    <polyline points="9 18 15 12 9 6" />
-  </svg>
-);
-
 const CardArrow = () => (
   <span className="card-arrow" aria-hidden="true">
     <svg
@@ -368,59 +348,83 @@ const CardArrow = () => (
 );
 
 const Services = () => {
+  const sectionRef = useRef<HTMLElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
-  const barRef = useRef<HTMLDivElement>(null);
-  const [prevDisabled, setPrevDisabled] = useState(true);
-  const [nextDisabled, setNextDisabled] = useState(false);
-  const [fillStyle, setFillStyle] = useState<CSSProperties>({});
+  const [pinActive, setPinActive] = useState(false);
+  const reduced = useReducedMotion();
 
-  const update = () => {
-    const track = trackRef.current;
-    const bar = barRef.current;
-    if (!track || !bar) return;
-    const max = track.scrollWidth - track.clientWidth;
-    setPrevDisabled(track.scrollLeft <= 1);
-    setNextDisabled(track.scrollLeft >= max - 1);
-    const barW = bar.clientWidth;
-    const segW = Math.max(40, (track.clientWidth / track.scrollWidth) * barW);
-    const pct = max > 0 ? track.scrollLeft / max : 0;
-    setFillStyle({
-      width: `${segW}px`,
-      transform: `translateX(${pct * (barW - segW)}px)`,
-    });
-  };
-
-  const step = () => {
-    const track = trackRef.current;
-    if (!track) return 320;
-    const card = track.querySelector<HTMLElement>('.service-card');
-    return card ? card.getBoundingClientRect().width : 320;
-  };
-
-  const handlePrev = () =>
-    trackRef.current?.scrollBy({ left: -step(), behavior: 'smooth' });
-  const handleNext = () =>
-    trackRef.current?.scrollBy({ left: step(), behavior: 'smooth' });
-
+  // GSAP pin + horizontal scroll — desktop, non-touch, non-reduced-motion only.
+  // On mobile / reduced motion the native `overflow-x: auto` + scroll-snap on
+  // .services-grid takes over (the user can swipe / drag).
   useEffect(() => {
+    if (reduced) return;
+    if (typeof window === 'undefined') return;
+    if (window.matchMedia('(max-width: 900px)').matches) return;
+    if (window.matchMedia('(pointer: coarse)').matches) return;
+
+    const section = sectionRef.current;
     const track = trackRef.current;
-    if (!track) return;
-    update();
-    track.addEventListener('scroll', update, { passive: true });
-    window.addEventListener('resize', update);
-    // Re-measure after fonts/images settle
-    const t = window.setTimeout(update, 250);
+    if (!section || !track) return;
+
+    let cleanup: (() => void) | undefined;
+    let cancelled = false;
+
+    (async () => {
+      const [{ default: gsap }, { ScrollTrigger }] = await Promise.all([
+        import('gsap'),
+        import('gsap/ScrollTrigger'),
+      ]);
+      if (cancelled) return;
+      gsap.registerPlugin(ScrollTrigger);
+
+      // Switch CSS to pinned mode before GSAP measures. Wait two frames
+      // so React flushes + the browser applies the new layout (cards
+      // overflow the wrap → scrollWidth > clientWidth = real distance).
+      setPinActive(true);
+      await new Promise((r) => requestAnimationFrame(r));
+      await new Promise((r) => requestAnimationFrame(r));
+      if (cancelled) return;
+
+      const getDistance = () =>
+        Math.max(0, track.scrollWidth - track.clientWidth);
+
+      const ctx = gsap.context(() => {
+        const tween = gsap.to(track, {
+          x: () => -getDistance(),
+          ease: 'none',
+        });
+
+        ScrollTrigger.create({
+          trigger: section,
+          start: 'top top',
+          end: () => `+=${getDistance()}`,
+          pin: true,
+          pinSpacing: true,
+          scrub: 0.6,
+          animation: tween,
+          invalidateOnRefresh: true,
+        });
+
+        // Recompute now that the pinned-mode CSS is settled.
+        ScrollTrigger.refresh();
+      }, section);
+
+      cleanup = () => {
+        ctx.revert();
+        setPinActive(false);
+      };
+    })();
+
     return () => {
-      track.removeEventListener('scroll', update);
-      window.removeEventListener('resize', update);
-      window.clearTimeout(t);
+      cancelled = true;
+      cleanup?.();
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [reduced]);
 
   return (
     <section
-      className="services-section"
+      ref={sectionRef}
+      className={`services-section${pinActive ? ' is-pinned' : ''}`}
       id="services"
       aria-labelledby="services-title"
     >
@@ -483,29 +487,6 @@ const Services = () => {
           </div>
         </div>
 
-        <div className="slider-nav" role="group" aria-label="Services slider navigation">
-          <button
-            type="button"
-            className="nav-chev prev"
-            onClick={handlePrev}
-            disabled={prevDisabled}
-            aria-label="Previous service"
-          >
-            <ChevronLeft />
-          </button>
-          <div className="nav-bar" ref={barRef} aria-hidden="true">
-            <span className="nav-bar-fill" style={fillStyle} />
-          </div>
-          <button
-            type="button"
-            className="nav-chev next"
-            onClick={handleNext}
-            disabled={nextDisabled}
-            aria-label="Next service"
-          >
-            <ChevronRight />
-          </button>
-        </div>
       </div>
     </section>
   );
