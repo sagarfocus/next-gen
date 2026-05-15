@@ -1,10 +1,12 @@
 import { Link } from 'react-router-dom';
 import type { ReactElement } from 'react';
 import { AnimatedBackground } from '../../lib/motion';
+import logoSrc from '../../assets/the-nextgen-logo.png';
 
-interface FloatingPill {
-  slot: 'f1' | 'f2' | 'f3' | 'f4' | 'f5' | 'f6';
+interface OrbitPill {
+  slot: 'o1' | 'o2' | 'o3' | 'o4' | 'o5' | 'o6';
   label: string;
+  sub: string;
   icon: ReactElement;
 }
 
@@ -108,13 +110,13 @@ const ChatIcon = () => (
   </svg>
 );
 
-const FLOATING_PILLS: FloatingPill[] = [
-  { slot: 'f1', label: 'SEO & Local', icon: <SearchIcon /> },
-  { slot: 'f2', label: 'Paid Media', icon: <ChartIcon /> },
-  { slot: 'f3', label: 'Branding', icon: <StarIcon /> },
-  { slot: 'f4', label: 'Automation', icon: <SettingsIcon /> },
-  { slot: 'f5', label: 'Web Design', icon: <LayoutIcon /> },
-  { slot: 'f6', label: 'Content', icon: <ChatIcon /> },
+const ORBIT_PILLS: OrbitPill[] = [
+  { slot: 'o1', label: 'SEO & Local', sub: 'Rank higher. Get found locally.', icon: <SearchIcon /> },
+  { slot: 'o2', label: 'Paid Media',  sub: 'Targeted campaigns. Measurable.', icon: <ChartIcon /> },
+  { slot: 'o3', label: 'Branding',    sub: 'A memorable brand that converts.', icon: <StarIcon /> },
+  { slot: 'o4', label: 'Automation',  sub: 'Streamline. Nurture. Scale.',     icon: <SettingsIcon /> },
+  { slot: 'o5', label: 'Web Design',  sub: 'High-performance sites that convert.', icon: <LayoutIcon /> },
+  { slot: 'o6', label: 'Content',     sub: 'Editorial that educates patients.', icon: <ChatIcon /> },
 ];
 
 const CAPABILITIES = [
@@ -189,22 +191,51 @@ const ServicesHero = () => {
             </div>
           </div>
 
-          {/* ORBIT — central hub + 6 floating pills */}
+          {/* ORBIT — premium 3D platform card + revolving pills (moved
+              here from Home). Uses the same .ho-* classes as Home so all
+              styling is shared. The outer .svc-orbit wrapper just gives
+              it the right grid-column placement on this page. */}
           <div className="svc-orbit" aria-hidden="true">
-            <div className="svc-orbit-hub">
-              <div className="svc-orbit-hub-inner">
-                <div className="svc-orbit-hub-mark">N+</div>
-                <span className="svc-orbit-hub-name">TheNextGen</span>
-                <span className="svc-orbit-hub-tag">Healthcare</span>
-              </div>
-            </div>
+            <div className="ho-stage">
+              <div className="ho-ring ho-ring-1" />
+              <div className="ho-ring ho-ring-2" />
+              <div className="ho-ring ho-ring-3" />
+              <div className="ho-ring-glow" />
 
-            {FLOATING_PILLS.map(({ slot, label, icon }) => (
-              <span key={slot} className={`svc-float ${slot}`}>
-                <span className="tag-ico">{icon}</span>
-                {label}
-              </span>
-            ))}
+              <span className="ho-mark m-tl" />
+              <span className="ho-mark m-tr" />
+              <span className="ho-mark m-bl" />
+              <span className="ho-mark m-br" />
+
+              {/* Central 3D platform card */}
+              <div className="ho-core">
+                <div className="ho-core-inner">
+                  <div className="ho-core-mark">
+                    <img src={logoSrc} alt="" />
+                  </div>
+                  <div className="ho-core-divider" />
+                  <div className="ho-core-tag">Healthcare<br />Growth OS</div>
+                </div>
+              </div>
+
+              {/* Ambient orbs */}
+              <span className="ho-orb ho-orb-1" />
+              <span className="ho-orb ho-orb-2" />
+              <span className="ho-orb ho-orb-3" />
+              <span className="ho-orb ho-orb-4" />
+              <span className="ho-orb ho-orb-5" />
+
+              {/* Revolving 3D pills */}
+              {ORBIT_PILLS.map(({ slot, label, sub, icon }) => (
+                <span key={slot} className={`ho-pill ${slot}`}>
+                  <span className="ho-pill-ico">{icon}</span>
+                  <span className="ho-pill-text">
+                    <strong className="ho-pill-label">{label}</strong>
+                    <span className="ho-pill-sub">{sub}</span>
+                  </span>
+                </span>
+              ))}
+            </div>
           </div>
 
           {/* BOTTOM — meta strip + sub paragraph */}

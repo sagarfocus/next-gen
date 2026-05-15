@@ -1,75 +1,64 @@
 import type { ReactNode, ReactElement } from 'react';
 import { Link } from 'react-router-dom';
 import { MotionButton, Parallax } from '../../lib/motion';
-import logoSrc from '../../assets/the-nextgen-logo.png';
 
 interface HeroProps {
-  /**
-   * Rendered after the hero grid, inside the same hero section container.
-   * Used for the cert strip so it shares the hero's bottom padding.
-   */
   children?: ReactNode;
 }
 
-interface OrbitPill {
-  slot: 'o1' | 'o2' | 'o3' | 'o4' | 'o5' | 'o6';
+interface FloatingPill {
+  slot: 'f1' | 'f2' | 'f3' | 'f4' | 'f5' | 'f6';
   label: string;
-  sub: string;
   icon: ReactElement;
 }
 
 const SearchIcon = () => (
-  <svg width={12} height={12} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+  <svg width={11} height={11} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
     <circle cx="11" cy="11" r="8" />
     <line x1="21" y1="21" x2="16.65" y2="16.65" />
   </svg>
 );
 const ChartIcon = () => (
-  <svg width={12} height={12} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-    <polyline points="4 17 10 11 14 15 20 9" />
-    <polyline points="14 9 20 9 20 15" />
+  <svg width={11} height={11} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
   </svg>
 );
 const StarIcon = () => (
-  <svg width={12} height={12} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+  <svg width={11} height={11} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
     <polygon points="12 2 15 8.5 22 9.3 17 14.1 18.2 21 12 17.8 5.8 21 7 14.1 2 9.3 9 8.5 12 2" />
   </svg>
 );
-const BotIcon = () => (
-  <svg width={12} height={12} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-    <rect x="4" y="8" width="16" height="12" rx="2" />
-    <line x1="12" y1="4" x2="12" y2="8" />
-    <circle cx="9" cy="14" r="1.5" />
-    <circle cx="15" cy="14" r="1.5" />
+const SettingsIcon = () => (
+  <svg width={11} height={11} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <circle cx="12" cy="12" r="3" />
+    <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z" />
   </svg>
 );
 const LayoutIcon = () => (
-  <svg width={12} height={12} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+  <svg width={11} height={11} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
     <rect x="3" y="3" width="18" height="18" rx="2" />
-    <line x1="3" y1="9" x2="21" y2="9" />
+    <path d="M3 9h18" />
+    <path d="M9 21V9" />
   </svg>
 );
 const ChatIcon = () => (
-  <svg width={12} height={12} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+  <svg width={11} height={11} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
     <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
   </svg>
 );
 
-const ORBIT_PILLS: OrbitPill[] = [
-  { slot: 'o1', label: 'SEO & Local', sub: 'Rank higher. Get found locally.', icon: <SearchIcon /> },
-  { slot: 'o2', label: 'Paid Media',  sub: 'Targeted campaigns. Measurable.', icon: <ChartIcon /> },
-  { slot: 'o3', label: 'Branding',    sub: 'A memorable brand that converts.', icon: <StarIcon /> },
-  { slot: 'o4', label: 'Automation',  sub: 'Streamline. Nurture. Scale.',     icon: <BotIcon /> },
-  { slot: 'o5', label: 'Web Design',  sub: 'High-performance sites that convert.', icon: <LayoutIcon /> },
-  { slot: 'o6', label: 'Content',     sub: 'Editorial that educates patients.', icon: <ChatIcon /> },
+const FLOATING_PILLS: FloatingPill[] = [
+  { slot: 'f1', label: 'SEO & Local', icon: <SearchIcon /> },
+  { slot: 'f2', label: 'Paid Media', icon: <ChartIcon /> },
+  { slot: 'f3', label: 'Branding', icon: <StarIcon /> },
+  { slot: 'f4', label: 'Automation', icon: <SettingsIcon /> },
+  { slot: 'f5', label: 'Web Design', icon: <LayoutIcon /> },
+  { slot: 'f6', label: 'Content', icon: <ChatIcon /> },
 ];
 
 const Hero = ({ children }: HeroProps) => {
   return (
     <section className="hero-section" aria-labelledby="hero-title">
-      {/* Solid brand backdrop — pure navy, no gradient. A faint tech
-          grid stays for editorial texture but it's a 1px line pattern,
-          not a color gradient. */}
       <div className="hero-bg-stack" aria-hidden="true">
         <div className="hero-grid-pattern" />
       </div>
@@ -98,17 +87,7 @@ const Hero = ({ children }: HeroProps) => {
             <div className="hero-cta-row reveal d4">
               <MotionButton to="/free-growth-audit" className="m-btn-cta hero-mbtn">
                 Get a Free Growth Audit
-                <svg
-                  width={16}
-                  height={16}
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
+                <svg width={16} height={16} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                   <line x1="5" y1="12" x2="19" y2="12" />
                   <polyline points="12 5 19 12 12 19" />
                 </svg>
@@ -116,17 +95,7 @@ const Hero = ({ children }: HeroProps) => {
 
               <Link to="/our-work" className="link-secondary">
                 See Our Work
-                <svg
-                  width={14}
-                  height={14}
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
+                <svg width={14} height={14} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                   <line x1="5" y1="12" x2="19" y2="12" />
                   <polyline points="12 5 19 12 12 19" />
                 </svg>
@@ -134,51 +103,24 @@ const Hero = ({ children }: HeroProps) => {
             </div>
           </div>
 
-          {/* RIGHT — 3D orbit stage. Capabilities rotate around the brand
-              mark; subtle parallax drift on scroll. */}
-          <Parallax as="div" speed={0.04} className="hero-visual hero-orbit reveal d3" aria-hidden="true">
-            <div className="ho-stage">
-              {/* Concentric dashed orbit rings — animated rotation */}
-              <div className="ho-ring ho-ring-1" />
-              <div className="ho-ring ho-ring-2" />
-              <div className="ho-ring ho-ring-3" />
-              <div className="ho-ring-glow" />
-
-              {/* Soft anchor markers on outermost ring */}
-              <span className="ho-mark m-tl" />
-              <span className="ho-mark m-tr" />
-              <span className="ho-mark m-bl" />
-              <span className="ho-mark m-br" />
-
-              {/* Central brand card */}
-              <div className="ho-core">
-                <div className="ho-core-inner">
-                  <div className="ho-core-mark">
-                    <img src={logoSrc} alt="" />
-                  </div>
-                  <div className="ho-core-divider" />
-                  <div className="ho-core-tag">Healthcare<br />Growth OS</div>
+          {/* RIGHT — simpler N+ orbit (moved here from Services). The
+              warm cream gradient backdrop + dashed rings come from
+              .hero-svc-orbit-wrap so the page keeps the same warm
+              feel the orbital area had on the Services hero. */}
+          <Parallax as="div" speed={0.04} className="hero-visual hero-svc-orbit-wrap reveal d3" aria-hidden="true">
+            <div className="svc-orbit" aria-hidden="true">
+              <div className="svc-orbit-hub">
+                <div className="svc-orbit-hub-inner">
+                  <div className="svc-orbit-hub-mark">N+</div>
+                  <span className="svc-orbit-hub-name">TheNextGen</span>
+                  <span className="svc-orbit-hub-tag">Healthcare</span>
                 </div>
               </div>
 
-              {/* Ambient floating orbs — pure decoration, sit behind pills */}
-              <span className="ho-orb ho-orb-1" aria-hidden="true" />
-              <span className="ho-orb ho-orb-2" aria-hidden="true" />
-              <span className="ho-orb ho-orb-3" aria-hidden="true" />
-              <span className="ho-orb ho-orb-4" aria-hidden="true" />
-              <span className="ho-orb ho-orb-5" aria-hidden="true" />
-
-              {/* Service pills — orbit around the central platform.
-                  Each pill carries its sphere icon, label, and a one-line
-                  tagline. They revolve continuously, counter-rotating to
-                  stay upright. Staggered delays distribute them 60° apart. */}
-              {ORBIT_PILLS.map(({ slot, label, sub, icon }) => (
-                <span key={slot} className={`ho-pill ${slot}`}>
-                  <span className="ho-pill-ico">{icon}</span>
-                  <span className="ho-pill-text">
-                    <strong className="ho-pill-label">{label}</strong>
-                    <span className="ho-pill-sub">{sub}</span>
-                  </span>
+              {FLOATING_PILLS.map(({ slot, label, icon }) => (
+                <span key={slot} className={`svc-float ${slot}`}>
+                  <span className="tag-ico">{icon}</span>
+                  {label}
                 </span>
               ))}
             </div>
