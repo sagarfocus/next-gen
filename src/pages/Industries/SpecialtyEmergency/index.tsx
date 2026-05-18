@@ -1,109 +1,92 @@
-import ServiceHero from '../../../components/service/ServiceHero';
-import WhatWeDo from '../../../components/service/WhatWeDo';
-import HowItWorks from '../../../components/service/HowItWorks';
-import Results from '../../../components/service/Results';
-import ServiceCTA from '../../../components/service/ServiceCTA';
-import type { DoCard } from '../../../components/service/WhatWeDo';
-import type { HowStep } from '../../../components/service/HowItWorks';
-import type { ResultStat } from '../../../components/service/Results';
+import IndustryHero from '../../../components/industry/IndustryHero';
+import Specialties from '../../../components/industry/Specialties';
+import Playbook from '../../../components/industry/Playbook';
+import Numbers from '../../../components/industry/Numbers';
+import IndustryCTA from '../../../components/industry/IndustryCTA';
+import type { QuickStat } from '../../../components/industry/IndustryHero';
+import type { SpecialtyRow } from '../../../components/industry/Specialties';
+import type { PlayStep } from '../../../components/industry/Playbook';
+import type { BigNumber } from '../../../components/industry/Numbers';
 
-const PulseIcon = () => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.2} strokeLinecap="round" strokeLinejoin="round">
-    <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
-  </svg>
-);
-const ChartIcon = () => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
-    <line x1="4" y1="20" x2="4" y2="11" />
-    <line x1="10" y1="20" x2="10" y2="4" />
-    <line x1="16" y1="20" x2="16" y2="14" />
-    <line x1="2" y1="20" x2="22" y2="20" />
-  </svg>
-);
-const ShieldIcon = () => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.7} strokeLinecap="round" strokeLinejoin="round">
-    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-  </svg>
-);
-const ClockIcon = () => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.7} strokeLinecap="round" strokeLinejoin="round">
-    <circle cx="12" cy="12" r="10" />
-    <polyline points="12 6 12 12 16 14" />
-  </svg>
-);
-const PinIcon = () => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.7} strokeLinecap="round" strokeLinejoin="round">
-    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-    <circle cx="12" cy="10" r="3" />
-  </svg>
-);
-const FileIcon = () => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.7} strokeLinecap="round" strokeLinejoin="round">
-    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-    <polyline points="14 2 14 8 20 8" />
-  </svg>
-);
-const NetworkIcon = () => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.7} strokeLinecap="round" strokeLinejoin="round">
-    <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
-    <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+const Illustration = (
+  <svg viewBox="0 0 600 750" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+    <defs>
+      <linearGradient id="spBg" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stopColor="#3F4F66" />
+        <stop offset="60%" stopColor="#2D3748" />
+        <stop offset="100%" stopColor="#1F2837" />
+      </linearGradient>
+      <radialGradient id="spHalo" cx="50%" cy="40%" r="60%">
+        <stop offset="0%" stopColor="#576DB5" stopOpacity=".30" />
+        <stop offset="100%" stopColor="#576DB5" stopOpacity="0" />
+      </radialGradient>
+    </defs>
+    <rect width="600" height="750" fill="url(#spBg)" />
+    <rect width="600" height="750" fill="url(#spHalo)" />
+    <g stroke="rgba(255,255,255,.05)" strokeWidth="1">
+      <line x1="0" y1="180" x2="600" y2="180" />
+      <line x1="0" y1="380" x2="600" y2="380" />
+      <line x1="0" y1="580" x2="600" y2="580" />
+      <line x1="200" y1="0" x2="200" y2="750" />
+      <line x1="400" y1="0" x2="400" y2="750" />
+    </g>
+    <path
+      d="M 20 380 L 100 380 L 130 380 L 150 320 L 175 440 L 200 280 L 220 380 L 280 380 L 310 380 L 330 330 L 355 430 L 380 380 L 580 380"
+      fill="none"
+      stroke="#576DB5"
+      strokeWidth="2.4"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+    <g transform="translate(300, 540)">
+      <circle r="55" fill="none" stroke="#fff" strokeOpacity=".4" strokeWidth="2" />
+      <circle r="80" fill="none" stroke="#576DB5" strokeWidth="2" strokeDasharray="3 5" />
+      <circle r="22" fill="rgba(255,255,255,.18)" stroke="#fff" strokeWidth="1.5" />
+      <circle r="6" fill="#fff" />
+      <path d="M -50 -30 Q -100 -120 -150 -160" fill="none" stroke="rgba(255,255,255,.5)" strokeWidth="1.5" strokeLinecap="round" />
+      <path d="M 50 -30 Q 100 -120 150 -160" fill="none" stroke="rgba(255,255,255,.5)" strokeWidth="1.5" strokeLinecap="round" />
+      <circle cx="-150" cy="-160" r="6" fill="#B38B6D" />
+      <circle cx="150" cy="-160" r="6" fill="#B38B6D" />
+    </g>
+    <g fill="#576DB5" opacity=".7">
+      <path d="M50 80 h10 v3 h-10 z M54 76 h2 v11 h-2 z" />
+      <path d="M540 220 h10 v3 h-10 z M544 216 h2 v11 h-2 z" />
+      <path d="M30 620 h10 v3 h-10 z M34 616 h2 v11 h-2 z" />
+    </g>
+    <text x="36" y="36" fontFamily="Plus Jakarta Sans, sans-serif" fontSize="10" fontWeight="700" fill="rgba(255,255,255,.55)" letterSpacing="3">FIG. C · ACUITY</text>
   </svg>
 );
 
-const DO_CARDS: DoCard[] = [
-  { name: 'Emergency Visibility', desc: 'Top-3 Map Pack and high-intent search visibility for trauma and acute conditions.', icon: <PulseIcon /> },
-  { name: 'HIPAA-Compliant Campaigns', desc: 'Privacy-preserving conversion tracking and audience modeling, end to end.', icon: <ShieldIcon /> },
-  { name: 'Specialist Referral Programs', desc: 'PCP-to-specialist referral pages and partner directory placement.', icon: <NetworkIcon /> },
-  { name: 'Geo-Targeted Acquisition', desc: 'Hyper-local campaigns built around catchment area and competitor overflow.', icon: <PinIcon /> },
-  { name: 'Crisis Response', desc: 'Rapid-deploy creative for surge events, closures, and community advisories.', icon: <ClockIcon /> },
-  { name: 'Compliance Reporting', desc: 'Audit-ready dashboards built around HIPAA, marketing rule, and clinical governance.', icon: <FileIcon /> },
-];
-
-const STEPS: HowStep[] = [
-  { num: '01', name: 'Audit', desc: 'Specialty volume, payer mix, compliance posture, and visibility reviewed.' },
-  { num: '02', name: 'Compliance Framework', desc: 'HIPAA-safe tracking, ad copy review, and consent flows shipped first.' },
-  { num: '03', name: 'Visibility & Capture', desc: 'Local pack dominance, ER landing pages, and specialty SEO live.' },
-  { num: '04', name: 'Optimization', desc: 'Weekly bid tuning, monthly retro, quarterly clinical governance review.' },
-];
-
-const STATS: ResultStat[] = [
-  { num: (<>+120<em>%</em></>), label: 'Emergency room visits' },
-  { num: (<>4.2<em>×</em></>), label: 'Emergency lead growth' },
-  { num: (<>−35<em>%</em></>), label: 'Cost per acquisition' },
+const QUICK_STATS: QuickStat[] = [
+  { num: (<>+120<em>%</em></>), label: 'ER visits' },
+  { num: (<>4.2<em>×</em></>), label: 'Emergency leads' },
   { num: (<>99.8<em>%</em></>), label: 'Compliance posture' },
 ];
 
-const MainCard = () => (
-  <>
-    <div className="sv-h3d-bar">
-      <PulseIcon />
-      Live Acquisition · Q4 2026
-    </div>
-    <div className="sv-h3d-pack-tag">Surge response</div>
-    <div className="sv-h3d-bars">
-      <div className="sv-h3d-bar-col" style={{ height: '32%' }} />
-      <div className="sv-h3d-bar-col tan" style={{ height: '50%' }} />
-      <div className="sv-h3d-bar-col" style={{ height: '68%' }} />
-      <div className="sv-h3d-bar-col sage" style={{ height: '78%' }} />
-      <div className="sv-h3d-bar-col" style={{ height: '85%' }} />
-      <div className="sv-h3d-bar-col" style={{ height: '94%' }} />
-    </div>
-    <div className="sv-h3d-stat">
-      <span className="sv-h3d-stat-label">ER visits</span>
-      <span className="sv-h3d-stat-val up">+247</span>
-    </div>
-    <div className="sv-h3d-stat">
-      <span className="sv-h3d-stat-label">CPA</span>
-      <span className="sv-h3d-stat-val">$31.80</span>
-    </div>
-    <div className="sv-h3d-stat">
-      <span className="sv-h3d-stat-label">Compliance</span>
-      <span className="sv-h3d-stat-val up">99.8%</span>
-    </div>
-  </>
-);
+const SPECIALTIES: SpecialtyRow[] = [
+  { name: 'Freestanding ERs', desc: 'Trauma-search dominance, surge response, and competitor overflow capture.' },
+  { name: 'Urgent care', desc: 'Volume-driven acquisition with wait-time pages and reputation systems.' },
+  { name: 'Orthopedics', desc: 'Condition-page SEO, referral programs, and high-LTV elective campaigns.' },
+  { name: 'Oncology', desc: 'HIPAA-safe nurturing flows, second-opinion funnels, and trial recruitment.' },
+  { name: 'Cardiology specialty', desc: 'Procedure pages, physician directories, and primary-care referral hubs.' },
+  { name: 'Radiology / imaging', desc: 'Service-line pages, payer & referral content, and walk-in acquisition.' },
+];
 
-const INDUSTRY_SCHEMA = {
+const STEPS: PlayStep[] = [
+  { name: 'Volume, payer & compliance audit', body: 'Specialty volume, payer mix, compliance posture, and current visibility reviewed end to end.' },
+  { name: 'Compliance framework', body: 'HIPAA-safe tracking, ad-copy review, and consent flows shipped before anything goes live.' },
+  { name: 'Visibility & capture', body: 'Local Pack dominance, ER landing pages, and specialty SEO running across the catchment area.' },
+  { name: 'Optimization & governance', body: 'Weekly bid tuning, monthly retro, quarterly clinical-governance review.' },
+];
+
+const STATS: BigNumber[] = [
+  { num: (<>+120<em>%</em></>), label: 'ER VISITS', caption: 'Lift in qualified ER visits from organic + paid combined.' },
+  { num: (<>4.2<em>×</em></>), label: 'EMERGENCY LEADS', caption: 'Year-over-year growth in qualified high-acuity inquiries.' },
+  { num: (<>−35<em>%</em></>), label: 'COST PER ACQUISITION', caption: 'Reduction through audience layering and landing-page optimization.' },
+  { num: (<>99.8<em>%</em></>), label: 'COMPLIANCE POSTURE', caption: 'HIPAA + marketing-rule conformance across active campaigns.' },
+];
+
+const SCHEMA = {
   '@context': 'https://schema.org',
   '@type': 'Service',
   name: 'Specialty & Emergency Care — Marketing',
@@ -114,25 +97,23 @@ const INDUSTRY_SCHEMA = {
 const SpecialtyEmergency = () => {
   return (
     <>
-      <ServiceHero
-        crumbRoot={{ label: 'Industries', href: '/industries' }}
-        crumb="Specialty & Emergency"
+      <IndustryHero
+        tag="Acuity"
         title={<>High-acuity acquisition for <em>specialty care.</em></>}
         lede="Compliance-aware, urgency-first marketing built for ERs, urgent care, and specialty practices that need scale and speed."
-        metric={{ icon: <PulseIcon />, num: (<>+120<em>%</em></>), label: 'ER visits' }}
-        keyword={<>"emergency room near me" · CTR 22%</>}
-        rankBadge={{ num: (<>4.2<em>×</em></>), label: 'Emergency leads' }}
-        mainCard={<MainCard />}
+        illustration={Illustration}
+        quickStats={QUICK_STATS}
       />
-      <WhatWeDo cards={DO_CARDS} />
-      <HowItWorks steps={STEPS} />
-      <Results stats={STATS} />
-      <ServiceCTA />
+      <Specialties rows={SPECIALTIES} />
+      <Playbook steps={STEPS} />
+      <Numbers stats={STATS} />
+      <IndustryCTA
+        tag="Talk to us"
+        title={<>Ready to capture every search that matters?</>}
+        body="A 30-minute call. We'll audit your compliance posture and current visibility, and share the closest case study — whether you sign with us or not."
+      />
 
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(INDUSTRY_SCHEMA) }}
-      />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(SCHEMA) }} />
     </>
   );
 };

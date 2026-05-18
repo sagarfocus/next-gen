@@ -1,116 +1,105 @@
-import ServiceHero from '../../../components/service/ServiceHero';
-import WhatWeDo from '../../../components/service/WhatWeDo';
-import HowItWorks from '../../../components/service/HowItWorks';
-import Results from '../../../components/service/Results';
-import ServiceCTA from '../../../components/service/ServiceCTA';
-import type { DoCard } from '../../../components/service/WhatWeDo';
-import type { HowStep } from '../../../components/service/HowItWorks';
-import type { ResultStat } from '../../../components/service/Results';
+import IndustryHero from '../../../components/industry/IndustryHero';
+import Specialties from '../../../components/industry/Specialties';
+import Playbook from '../../../components/industry/Playbook';
+import Numbers from '../../../components/industry/Numbers';
+import IndustryCTA from '../../../components/industry/IndustryCTA';
+import type { QuickStat } from '../../../components/industry/IndustryHero';
+import type { SpecialtyRow } from '../../../components/industry/Specialties';
+import type { PlayStep } from '../../../components/industry/Playbook';
+import type { BigNumber } from '../../../components/industry/Numbers';
 
-const TrendingUp = () => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.2} strokeLinecap="round" strokeLinejoin="round">
-    <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
-    <polyline points="17 6 23 6 23 12" />
-  </svg>
-);
-const ChartIcon = () => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
-    <line x1="4" y1="20" x2="4" y2="11" />
-    <line x1="10" y1="20" x2="10" y2="4" />
-    <line x1="16" y1="20" x2="16" y2="14" />
-    <line x1="2" y1="20" x2="22" y2="20" />
-  </svg>
-);
-const PinIcon = () => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.7} strokeLinecap="round" strokeLinejoin="round">
-    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-    <circle cx="12" cy="10" r="3" />
-  </svg>
-);
-const StethoscopeIcon = () => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.7} strokeLinecap="round" strokeLinejoin="round">
-    <path d="M6 3v6a4 4 0 0 0 8 0V3" />
-    <path d="M10 13v3a4 4 0 0 0 8 0v-2" />
-    <circle cx="18" cy="11" r="2" />
-  </svg>
-);
-const StarIcon = () => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.7} strokeLinecap="round" strokeLinejoin="round">
-    <polygon points="12 2 14.5 9 21 9.5 16 14 17.5 21 12 17.5 6.5 21 8 14 3 9.5 9.5 9" />
-  </svg>
-);
-const NetworkIcon = () => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.7} strokeLinecap="round" strokeLinejoin="round">
-    <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
-    <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
-  </svg>
-);
-const FileIcon = () => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.7} strokeLinecap="round" strokeLinejoin="round">
-    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-    <polyline points="14 2 14 8 20 8" />
-  </svg>
-);
-const HeartIcon = () => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.7} strokeLinecap="round" strokeLinejoin="round">
-    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+const Illustration = (
+  <svg viewBox="0 0 600 750" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+    <defs>
+      <linearGradient id="cliBg" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stopColor="#576DB5" />
+        <stop offset="60%" stopColor="#3A4DA0" />
+        <stop offset="100%" stopColor="#2D3748" />
+      </linearGradient>
+      <radialGradient id="cliHalo" cx="50%" cy="35%" r="60%">
+        <stop offset="0%" stopColor="#8FBC8F" stopOpacity=".30" />
+        <stop offset="100%" stopColor="#8FBC8F" stopOpacity="0" />
+      </radialGradient>
+      <linearGradient id="cliGlass" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stopColor="#fff" stopOpacity=".25" />
+        <stop offset="100%" stopColor="#fff" stopOpacity=".05" />
+      </linearGradient>
+    </defs>
+    <rect width="600" height="750" fill="url(#cliBg)" />
+    <rect width="600" height="750" fill="url(#cliHalo)" />
+    <g stroke="rgba(255,255,255,.05)" strokeWidth="1">
+      <line x1="0" y1="120" x2="600" y2="120" />
+      <line x1="0" y1="240" x2="600" y2="240" />
+      <line x1="0" y1="360" x2="600" y2="360" />
+      <line x1="0" y1="480" x2="600" y2="480" />
+      <line x1="0" y1="600" x2="600" y2="600" />
+      <line x1="120" y1="0" x2="120" y2="750" />
+      <line x1="240" y1="0" x2="240" y2="750" />
+      <line x1="360" y1="0" x2="360" y2="750" />
+      <line x1="480" y1="0" x2="480" y2="750" />
+    </g>
+    <g transform="translate(300, 380)">
+      <polygon points="-20,-100 60,-70 60,160 -20,130" fill="url(#cliGlass)" stroke="rgba(143,188,143,.45)" strokeWidth="1.2" />
+      <polygon points="-20,-100 -100,-130 -100,100 -20,130" fill="rgba(255,255,255,.10)" stroke="rgba(143,188,143,.35)" strokeWidth="1" />
+      <g fill="rgba(143,188,143,.35)">
+        <rect x="-90" y="-118" width="60" height="6" rx="1" />
+        <rect x="-90" y="-100" width="60" height="6" rx="1" />
+        <rect x="-90" y="-82" width="60" height="6" rx="1" />
+        <rect x="-90" y="-64" width="60" height="6" rx="1" />
+        <rect x="-90" y="-46" width="60" height="6" rx="1" />
+        <rect x="-90" y="-28" width="60" height="6" rx="1" />
+        <rect x="-90" y="-10" width="60" height="6" rx="1" />
+        <rect x="-90" y="8" width="60" height="6" rx="1" />
+        <rect x="-90" y="26" width="60" height="6" rx="1" />
+        <rect x="-90" y="44" width="60" height="6" rx="1" />
+        <rect x="-90" y="62" width="60" height="6" rx="1" />
+        <rect x="-90" y="80" width="60" height="6" rx="1" />
+      </g>
+      <g transform="translate(0, 0)">
+        <rect x="14" y="-40" width="22" height="80" rx="2" fill="#8FBC8F" />
+        <rect x="-8" y="-18" width="66" height="22" rx="2" fill="#8FBC8F" />
+      </g>
+      <polygon points="-50,80 -20,90 -20,130 -50,118" fill="rgba(143,188,143,.25)" stroke="rgba(143,188,143,.55)" strokeWidth="1" />
+    </g>
+    <g fill="#B38B6D" opacity=".55">
+      <path d="M50 80 h10 v3 h-10 z M54 76 h2 v11 h-2 z" />
+      <path d="M520 100 h10 v3 h-10 z M524 96 h2 v11 h-2 z" />
+      <path d="M40 660 h10 v3 h-10 z M44 656 h2 v11 h-2 z" />
+    </g>
+    <text x="36" y="36" fontFamily="Plus Jakarta Sans, sans-serif" fontSize="10" fontWeight="700" fill="rgba(255,255,255,.55)" letterSpacing="3">FIG. A · CLINICAL</text>
   </svg>
 );
 
-const DO_CARDS: DoCard[] = [
-  { name: 'Patient Acquisition Funnel', desc: 'Search-to-booking funnels built around real intent across every clinical specialty.', icon: <PinIcon /> },
-  { name: 'Multi-Location SEO', desc: 'Local landing pages, GBP optimization, and citation programs for every site.', icon: <NetworkIcon /> },
-  { name: 'Provider Branding', desc: 'Bio pages, headshots, and reputation systems that build trust before the first visit.', icon: <StarIcon /> },
-  { name: 'Insurance & Service Pages', desc: 'Plain-language, schema-rich pages that rank for the searches that actually convert.', icon: <FileIcon /> },
-  { name: 'Patient Retention', desc: 'Email + SMS journeys for recall, referrals, and review collection on autopilot.', icon: <HeartIcon /> },
-  { name: 'Live Reporting', desc: 'Booked appointments, source attribution, and ROI in a single dashboard.', icon: <ChartIcon /> },
-];
-
-const STEPS: HowStep[] = [
-  { num: '01', name: 'Audit', desc: 'Provider listings, GBP, and clinical SEO posture reviewed across every location.' },
-  { num: '02', name: 'Foundation', desc: 'Local pages, provider bios, schema, and reputation systems shipped.' },
-  { num: '03', name: 'Acquisition', desc: 'Search + paid layered against intent for each specialty and location.' },
-  { num: '04', name: 'Retention', desc: 'Recall, referral, and review programs running every month.' },
-];
-
-const STATS: ResultStat[] = [
+const QUICK_STATS: QuickStat[] = [
   { num: (<>+85<em>%</em></>), label: 'New patient inquiries' },
   { num: (<>4<em>×</em></>), label: 'Provider listings ranked' },
-  { num: (<>$1.2M<em>+</em></>), label: 'Added annual revenue' },
-  { num: (<>92<em>%</em></>), label: 'Recall + retention rate' },
+  { num: (<>92<em>%</em></>), label: 'Retention rate' },
 ];
 
-const MainCard = () => (
-  <>
-    <div className="sv-h3d-bar">
-      <ChartIcon />
-      Patient Volume · Q4 2026
-    </div>
-    <div className="sv-h3d-pack-tag">Live performance</div>
-    <div className="sv-h3d-bars">
-      <div className="sv-h3d-bar-col" style={{ height: '30%' }} />
-      <div className="sv-h3d-bar-col tan" style={{ height: '48%' }} />
-      <div className="sv-h3d-bar-col" style={{ height: '55%' }} />
-      <div className="sv-h3d-bar-col sage" style={{ height: '70%' }} />
-      <div className="sv-h3d-bar-col" style={{ height: '78%' }} />
-      <div className="sv-h3d-bar-col" style={{ height: '92%' }} />
-    </div>
-    <div className="sv-h3d-stat">
-      <span className="sv-h3d-stat-label">New patients</span>
-      <span className="sv-h3d-stat-val up">+312</span>
-    </div>
-    <div className="sv-h3d-stat">
-      <span className="sv-h3d-stat-label">Cost / booking</span>
-      <span className="sv-h3d-stat-val">$24.10</span>
-    </div>
-    <div className="sv-h3d-stat">
-      <span className="sv-h3d-stat-label">Retention</span>
-      <span className="sv-h3d-stat-val up">92%</span>
-    </div>
-  </>
-);
+const SPECIALTIES: SpecialtyRow[] = [
+  { name: 'Family practice', desc: 'Local search and recall systems for general primary-care offices.' },
+  { name: 'Cardiology', desc: 'Specialist-referral pages, condition deep-dives, and reputation systems.' },
+  { name: 'Dental', desc: 'Multi-location GBP, treatment SEO, and review automation.' },
+  { name: 'Pediatrics', desc: 'Family-tailored content, vaccine schedules, and parent-targeted ads.' },
+  { name: 'Dermatology', desc: 'Procedure-page SEO, before/after libraries, and elective lead capture.' },
+  { name: 'Multi-specialty groups', desc: 'Provider directories, hub-and-spoke SEO, and unified analytics.' },
+];
 
-const INDUSTRY_SCHEMA = {
+const STEPS: PlayStep[] = [
+  { name: 'Provider & location audit', body: 'Every site, every listing, every clinician page reviewed against demand in the catchment area.' },
+  { name: 'Foundation reset', body: 'GBP rebuild, schema, provider bios, and insurance/service pages shipped first.' },
+  { name: 'Acquisition stack', body: 'Search + paid layered by intent, with per-location attribution to the booking.' },
+  { name: 'Retention engine', body: 'Recall, referral, and review programs running quietly in the background every month.' },
+];
+
+const STATS: BigNumber[] = [
+  { num: (<>+85<em>%</em></>), label: 'NEW INQUIRIES', caption: 'YoY lift across the first six months of engagement.' },
+  { num: (<>$1.2M<em>+</em></>), label: 'ADDED REVENUE', caption: 'Average added annual revenue per multi-location group.' },
+  { num: (<>4<em>×</em></>), label: 'LISTINGS RANKED', caption: 'Top-3 Map Pack across the four largest local terms.' },
+  { num: (<>92<em>%</em></>), label: 'RECALL RATE', caption: 'Automated recall/referral programs running month over month.' },
+];
+
+const SCHEMA = {
   '@context': 'https://schema.org',
   '@type': 'Service',
   name: 'Clinics & Multi-Specialty Practices — Marketing',
@@ -121,25 +110,23 @@ const INDUSTRY_SCHEMA = {
 const Clinics = () => {
   return (
     <>
-      <ServiceHero
-        crumbRoot={{ label: 'Industries', href: '/industries' }}
-        crumb="Clinics & Multi-Specialty"
+      <IndustryHero
+        tag="Clinical"
         title={<>Patient flow for clinics, <em>engineered.</em></>}
-        lede="From single-location family practices to multi-location specialty networks — search, paid, and patient-retention systems built for clinical reality."
-        metric={{ icon: <StethoscopeIcon />, num: (<>+85<em>%</em></>), label: 'New patient inquiries' }}
-        keyword={<>"family doctor near me" · CTR 18%</>}
-        rankBadge={{ num: <TrendingUp />, label: 'Multi-location ranked' }}
-        mainCard={<MainCard />}
+        lede="From single-location family practices to multi-location specialty networks — search, paid, and retention systems built for clinical reality."
+        illustration={Illustration}
+        quickStats={QUICK_STATS}
       />
-      <WhatWeDo cards={DO_CARDS} />
-      <HowItWorks steps={STEPS} />
-      <Results stats={STATS} />
-      <ServiceCTA />
+      <Specialties rows={SPECIALTIES} />
+      <Playbook steps={STEPS} />
+      <Numbers stats={STATS} />
+      <IndustryCTA
+        tag="Talk to us"
+        title={<>Ready to scale the clinic, the right way?</>}
+        body="A 30-minute call. We audit your current setup and share the closest case study from this library — whether you sign with us or not."
+      />
 
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(INDUSTRY_SCHEMA) }}
-      />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(SCHEMA) }} />
     </>
   );
 };
