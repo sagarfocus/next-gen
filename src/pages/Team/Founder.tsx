@@ -1,4 +1,4 @@
-import jayPhoto from '../../assets/Jay-dahal.png';
+import jayPhoto from '../../assets/jay-1.webp';
 
 const Founder = () => {
   return (

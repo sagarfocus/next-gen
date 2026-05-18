@@ -1,8 +1,8 @@
 import type { ReactElement } from 'react';
 
 import emergencyImg from '../../assets/freestandingemergency.png';
-import urgentCareImg from '../../assets/urgentcare.png';
-import medspaImg from '../../assets/Medspa.png';
+import urgentCareImg from "../../assets/urgentcare'.png";
+import medspaImg from '../../assets/medddsspa.png';
 
 interface OverviewCard {
   href: string;
