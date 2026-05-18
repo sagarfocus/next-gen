@@ -1,28 +1,11 @@
 import Hero from './Hero';
-import ProblemOutcome from '../../components/service/ProblemOutcome';
 import WhatWeDo from '../../components/service/WhatWeDo';
 import HowItWorks from '../../components/service/HowItWorks';
 import Results from '../../components/service/Results';
-import CaseStudies from '../../components/service/CaseStudies';
 import ServiceCTA from '../../components/service/ServiceCTA';
-import type { PainPoint, OutcomeRow } from '../../components/service/ProblemOutcome';
 import type { DoCard } from '../../components/service/WhatWeDo';
 import type { HowStep } from '../../components/service/HowItWorks';
 import type { ResultStat } from '../../components/service/Results';
-import type { CaseCard } from '../../components/service/CaseStudies';
-
-const PAINS: PainPoint[] = [
-  { title: 'Blogs nobody reads', desc: '10 posts, 12 visits, 0 bookings.' },
-  { title: 'No authority signal', desc: 'Google sees you as a thin site.' },
-  { title: 'Generic AI content', desc: 'Your competitor uses the same template.' },
-];
-
-const OUTCOMES: OutcomeRow[] = [
-  { label: 'Organic traffic', value: '14.2K / month' },
-  { label: 'Avg position', value: '#3 SERP' },
-  { label: 'Bookings from content', value: '+38 / month' },
-  { label: 'Authority backlinks', value: '+18 / quarter' },
-];
 
 const PinIcon = () => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.7} strokeLinecap="round" strokeLinejoin="round">
@@ -107,15 +90,6 @@ const STATS: ResultStat[] = [
   },
 ];
 
-const CASES: CaseCard[] = [
-  { emoji: '🏥', num: '+220%', numLbl: 'Organic', sector: 'Emergency Room', name: 'Freestanding ER · Dallas', problem: 'Thin site, no condition content.', result: '40 condition pages over 6 months.' },
-  { emoji: '⚡', num: '#1', numLbl: 'Featured snip.', sector: 'Urgent Care', name: 'Multi-location · Houston', problem: 'Outranked by hospital networks.', result: 'Question-led content cluster.' },
-  { emoji: '✨', num: '+340%', numLbl: 'Procedure traffic', sector: 'Cosmetic Surgery', name: 'Aesthetic clinic · Austin', problem: 'No procedure pages, only homepage.', result: 'Treatment deep-dives + before/after.' },
-  { emoji: '👨‍⚕️', num: '$300K', numLbl: 'Organic rev.', sector: 'Primary Care', name: 'Family medicine · San Antonio', problem: 'Invisible for "doctor near me".', result: 'Local + condition content engine.' },
-  { emoji: '🧠', num: '+148%', numLbl: 'Form fills', sector: 'Mental Health', name: 'Therapy practice · Dallas', problem: 'Stigma-heavy queries hard to rank.', result: 'Empathetic, well-researched content.' },
-  { emoji: '🦷', num: '92', numLbl: 'Backlinks', sector: 'Dental Practice', name: 'General dentistry · Irving', problem: 'No site authority.', result: 'Editorial pieces + outreach.' },
-];
-
 const SERVICE_SCHEMA = {
   '@context': 'https://schema.org',
   '@type': 'Service',
@@ -131,11 +105,9 @@ const ContentMarketing = () => {
   return (
     <>
       <Hero />
-      <ProblemOutcome pains={PAINS} outcomes={OUTCOMES} />
       <WhatWeDo cards={DO_CARDS} />
       <HowItWorks steps={STEPS} />
       <Results stats={STATS} />
-      <CaseStudies cases={CASES} />
       <ServiceCTA />
 
       <script

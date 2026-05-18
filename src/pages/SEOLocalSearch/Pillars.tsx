@@ -38,7 +38,7 @@ const Pillars = () => {
       <div className="container-shell">
         <div className="sl-sec-head">
           <div>
-            <div className="sl-sec-num">02 — How we work</div>
+            <div className="sl-sec-num">01 — How we work</div>
             <h2 className="sl-sec-title">
               Four pillars. <em>Nothing else.</em>
             </h2>

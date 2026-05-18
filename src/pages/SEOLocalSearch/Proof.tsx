@@ -140,7 +140,7 @@ const Proof = () => {
       <div className="container-shell">
         <div className="sl-sec-head">
           <div>
-            <div className="sl-sec-num">04 — Proof</div>
+            <div className="sl-sec-num">03 — Proof</div>
             <h2 className="sl-sec-title">
               Six recent <em>engagements.</em>
             </h2>

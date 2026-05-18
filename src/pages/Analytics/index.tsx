@@ -1,28 +1,11 @@
 import Hero from './Hero';
-import ProblemOutcome from '../../components/service/ProblemOutcome';
 import WhatWeDo from '../../components/service/WhatWeDo';
 import HowItWorks from '../../components/service/HowItWorks';
 import Results from '../../components/service/Results';
-import CaseStudies from '../../components/service/CaseStudies';
 import ServiceCTA from '../../components/service/ServiceCTA';
-import type { PainPoint, OutcomeRow } from '../../components/service/ProblemOutcome';
 import type { DoCard } from '../../components/service/WhatWeDo';
 import type { HowStep } from '../../components/service/HowItWorks';
 import type { ResultStat } from '../../components/service/Results';
-import type { CaseCard } from '../../components/service/CaseStudies';
-
-const PAINS: PainPoint[] = [
-  { title: 'Spreadsheet chaos', desc: 'Five tools, three reports, zero clarity.' },
-  { title: 'No attribution', desc: 'You guess which channel actually books.' },
-  { title: 'Reports that lie', desc: 'Vanity metrics hide the truth.' },
-];
-
-const OUTCOMES: OutcomeRow[] = [
-  { label: 'Attribution accuracy', value: 'End-to-end' },
-  { label: 'Reporting time', value: '−85%' },
-  { label: 'Decision speed', value: '5× faster' },
-  { label: 'ROI clarity', value: 'Per-channel' },
-];
 
 const PinIcon = () => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.7} strokeLinecap="round" strokeLinejoin="round">
@@ -114,15 +97,6 @@ const STATS: ResultStat[] = [
   },
 ];
 
-const CASES: CaseCard[] = [
-  { emoji: '🏥', num: '$2M', numLbl: 'Tracked', sector: 'Emergency Room', name: 'Freestanding ER · Dallas', problem: 'No idea which channel drove revenue.', result: 'End-to-end attribution model.' },
-  { emoji: '⚡', num: '−92%', numLbl: 'Report time', sector: 'Urgent Care', name: 'Multi-location · Houston', problem: '12 hours / week pulling reports.', result: 'Live multi-location dashboard.' },
-  { emoji: '✨', num: '+38%', numLbl: 'Spend efficiency', sector: 'Cosmetic Surgery', name: 'Aesthetic clinic · Austin', problem: 'Ad spend allocated by gut feel.', result: 'ROAS-led budget reallocation.' },
-  { emoji: '👨‍⚕️', num: '5×', numLbl: 'Decision speed', sector: 'Primary Care', name: 'Family medicine · San Antonio', problem: 'Monthly retros took 8 hours to prep.', result: 'Auto-refreshing dashboards.' },
-  { emoji: '🧠', num: '+24%', numLbl: 'Patient LTV', sector: 'Mental Health', name: 'Therapy practice · Dallas', problem: "Couldn't track retention drivers.", result: 'Cohort + LTV analysis.' },
-  { emoji: '🦷', num: '100%', numLbl: 'Coverage', sector: 'Dental Practice', name: 'General dentistry · Irving', problem: 'GBP, ads, organic — all separate.', result: 'Unified marketing dashboard.' },
-];
-
 const SERVICE_SCHEMA = {
   '@context': 'https://schema.org',
   '@type': 'Service',
@@ -138,11 +112,9 @@ const Analytics = () => {
   return (
     <>
       <Hero />
-      <ProblemOutcome pains={PAINS} outcomes={OUTCOMES} />
       <WhatWeDo cards={DO_CARDS} />
       <HowItWorks steps={STEPS} />
       <Results stats={STATS} />
-      <CaseStudies cases={CASES} />
       <ServiceCTA />
 
       <script

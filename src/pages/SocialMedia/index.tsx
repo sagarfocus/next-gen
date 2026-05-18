@@ -1,28 +1,11 @@
 import Hero from './Hero';
-import ProblemOutcome from '../../components/service/ProblemOutcome';
 import WhatWeDo from '../../components/service/WhatWeDo';
 import HowItWorks from '../../components/service/HowItWorks';
 import Results from '../../components/service/Results';
-import CaseStudies from '../../components/service/CaseStudies';
 import ServiceCTA from '../../components/service/ServiceCTA';
-import type { PainPoint, OutcomeRow } from '../../components/service/ProblemOutcome';
 import type { DoCard } from '../../components/service/WhatWeDo';
 import type { HowStep } from '../../components/service/HowItWorks';
 import type { ResultStat } from '../../components/service/Results';
-import type { CaseCard } from '../../components/service/CaseStudies';
-
-const PAINS: PainPoint[] = [
-  { title: 'Posting into a void', desc: '12 posts a month, zero patients booked.' },
-  { title: 'No content strategy', desc: 'Every post feels like a guess.' },
-  { title: 'Compliance worry', desc: 'Patient stories, before/afters, HIPAA — terrifying.' },
-];
-
-const OUTCOMES: OutcomeRow[] = [
-  { label: 'Reach', value: '+312% / quarter' },
-  { label: 'Engagement rate', value: '5.8% avg' },
-  { label: 'Booked from social', value: '+47 / month' },
-  { label: 'Compliance issues', value: 'Zero' },
-];
 
 const PinIcon = () => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.7} strokeLinecap="round" strokeLinejoin="round">
@@ -114,15 +97,6 @@ const STATS: ResultStat[] = [
   },
 ];
 
-const CASES: CaseCard[] = [
-  { emoji: '🏥', num: '8.2K', numLbl: 'Followers', sector: 'Emergency Room', name: 'Freestanding ER · Dallas', problem: 'Zero social presence pre-engagement.', result: 'Reels + paid amplification.' },
-  { emoji: '⚡', num: '+520%', numLbl: 'Reach', sector: 'Urgent Care', name: 'Multi-location · Houston', problem: 'Inconsistent posting, low engagement.', result: 'Daily editorial + community management.' },
-  { emoji: '✨', num: '+340%', numLbl: 'Bookings', sector: 'Cosmetic Surgery', name: 'Aesthetic clinic · Austin', problem: 'Before/after content compliance fears.', result: 'Compliance framework + premium creative.' },
-  { emoji: '👨‍⚕️', num: '4.6%', numLbl: 'Eng. rate', sector: 'Primary Care', name: 'Family medicine · San Antonio', problem: 'Stiff, corporate tone, no traction.', result: 'Patient-story content + paid boost.' },
-  { emoji: '🧠', num: '+182%', numLbl: 'New leads', sector: 'Mental Health', name: 'Therapy practice · Dallas', problem: 'Sensitive vertical, hard to share content.', result: 'Educational reels + careful tone.' },
-  { emoji: '🦷', num: '92K', numLbl: 'Impressions', sector: 'Dental Practice', name: 'General dentistry · Irving', problem: 'Posting once a month, no plan.', result: 'Daily TikTok + Instagram cadence.' },
-];
-
 const SERVICE_SCHEMA = {
   '@context': 'https://schema.org',
   '@type': 'Service',
@@ -138,11 +112,9 @@ const SocialMedia = () => {
   return (
     <>
       <Hero />
-      <ProblemOutcome pains={PAINS} outcomes={OUTCOMES} />
       <WhatWeDo cards={DO_CARDS} />
       <HowItWorks steps={STEPS} />
       <Results stats={STATS} />
-      <CaseStudies cases={CASES} />
       <ServiceCTA />
 
       <script

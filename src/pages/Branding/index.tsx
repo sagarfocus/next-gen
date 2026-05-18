@@ -1,28 +1,11 @@
 import Hero from './Hero';
-import ProblemOutcome from '../../components/service/ProblemOutcome';
 import WhatWeDo from '../../components/service/WhatWeDo';
 import HowItWorks from '../../components/service/HowItWorks';
 import Results from '../../components/service/Results';
-import CaseStudies from '../../components/service/CaseStudies';
 import ServiceCTA from '../../components/service/ServiceCTA';
-import type { PainPoint, OutcomeRow } from '../../components/service/ProblemOutcome';
 import type { DoCard } from '../../components/service/WhatWeDo';
 import type { HowStep } from '../../components/service/HowItWorks';
 import type { ResultStat } from '../../components/service/Results';
-import type { CaseCard } from '../../components/service/CaseStudies';
-
-const PAINS: PainPoint[] = [
-  { title: 'Forgettable identity', desc: "Patients can't tell you apart from the chain down the street." },
-  { title: 'Inconsistent application', desc: 'Logo, colors, voice — different on every page.' },
-  { title: 'Trust deficit', desc: "First-time visitors don't believe you're competent before they read." },
-];
-
-const OUTCOMES: OutcomeRow[] = [
-  { label: 'Recall lift', value: '+62%' },
-  { label: 'Trust score', value: 'A+ rating' },
-  { label: 'Premium positioning', value: 'Established' },
-  { label: 'Conversion rate', value: '+38%' },
-];
 
 const PinIcon = () => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.7} strokeLinecap="round" strokeLinejoin="round">
@@ -114,15 +97,6 @@ const STATS: ResultStat[] = [
   },
 ];
 
-const CASES: CaseCard[] = [
-  { emoji: '🏥', num: '+72%', numLbl: 'Recall', sector: 'Emergency Room', name: 'Freestanding ER · Dallas', problem: 'Mistaken for hospital ER repeatedly.', result: 'Distinct color system + voice.' },
-  { emoji: '⚡', num: 'A+', numLbl: 'Trust score', sector: 'Urgent Care', name: 'Multi-location · Houston', problem: 'Inconsistent across 8 locations.', result: 'Brand system + per-location applications.' },
-  { emoji: '✨', num: '+180%', numLbl: 'Premium leads', sector: 'Cosmetic Surgery', name: 'Aesthetic clinic · Austin', problem: 'Looked like a budget med-spa.', result: 'Editorial-grade rebrand.' },
-  { emoji: '👨‍⚕️', num: '+44%', numLbl: 'Recall', sector: 'Primary Care', name: 'Family medicine · San Antonio', problem: 'Generic, forgettable identity.', result: 'Warm, distinctive visual system.' },
-  { emoji: '🧠', num: '+58%', numLbl: 'Inquiries', sector: 'Mental Health', name: 'Therapy practice · Dallas', problem: 'Cold, clinical brand felt unwelcoming.', result: 'Warm, accessible identity.' },
-  { emoji: '🦷', num: '+34%', numLbl: 'Conversion', sector: 'Dental Practice', name: 'General dentistry · Irving', problem: 'No premium positioning.', result: 'Modern, confident rebrand.' },
-];
-
 const SERVICE_SCHEMA = {
   '@context': 'https://schema.org',
   '@type': 'Service',
@@ -138,11 +112,9 @@ const Branding = () => {
   return (
     <>
       <Hero />
-      <ProblemOutcome pains={PAINS} outcomes={OUTCOMES} />
       <WhatWeDo cards={DO_CARDS} />
       <HowItWorks steps={STEPS} />
       <Results stats={STATS} />
-      <CaseStudies cases={CASES} />
       <ServiceCTA />
 
       <script

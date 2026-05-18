@@ -1,28 +1,11 @@
 import Hero from './Hero';
-import ProblemOutcome from '../../components/service/ProblemOutcome';
 import WhatWeDo from '../../components/service/WhatWeDo';
 import HowItWorks from '../../components/service/HowItWorks';
 import Results from '../../components/service/Results';
-import CaseStudies from '../../components/service/CaseStudies';
 import ServiceCTA from '../../components/service/ServiceCTA';
-import type { PainPoint, OutcomeRow } from '../../components/service/ProblemOutcome';
 import type { DoCard } from '../../components/service/WhatWeDo';
 import type { HowStep } from '../../components/service/HowItWorks';
 import type { ResultStat } from '../../components/service/Results';
-import type { CaseCard } from '../../components/service/CaseStudies';
-
-const PAINS: PainPoint[] = [
-  { title: 'Slow site', desc: '5+ second loads. Patients leave before booking.' },
-  { title: 'Confusing booking flow', desc: '5 clicks to a phone number nobody picks up.' },
-  { title: 'Outdated look', desc: 'Site says 2014, your practice says 2026.' },
-];
-
-const OUTCOMES: OutcomeRow[] = [
-  { label: 'Conversion rate', value: '7.4% avg' },
-  { label: 'Page speed', value: '98 / 100' },
-  { label: 'Mobile UX', value: 'A+ rating' },
-  { label: 'Booking flow', value: '2 taps' },
-];
 
 const PinIcon = () => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.7} strokeLinecap="round" strokeLinejoin="round">
@@ -114,15 +97,6 @@ const STATS: ResultStat[] = [
   },
 ];
 
-const CASES: CaseCard[] = [
-  { emoji: '🏥', num: '+62%', numLbl: 'Bookings', sector: 'Emergency Room', name: 'Freestanding ER · Dallas', problem: '8s mobile load, 2014 design.', result: 'Sub-2s rebuild on Webflow.' },
-  { emoji: '⚡', num: '8.4%', numLbl: 'CVR', sector: 'Urgent Care', name: 'Multi-location · Houston', problem: 'No location pages, broken booking.', result: 'Per-location pages + 2-tap flow.' },
-  { emoji: '✨', num: '+150%', numLbl: 'Leads', sector: 'Cosmetic Surgery', name: 'Aesthetic clinic · Austin', problem: 'Outdated look hurt premium positioning.', result: 'Editorial-style brand redesign.' },
-  { emoji: '👨‍⚕️', num: '6.8%', numLbl: 'CVR', sector: 'Primary Care', name: 'Family medicine · San Antonio', problem: 'Weak mobile UX, cluttered nav.', result: 'Mobile-first rebuild + clean IA.' },
-  { emoji: '🧠', num: '+88%', numLbl: 'Form fills', sector: 'Mental Health', name: 'Therapy practice · Dallas', problem: 'Cold tone, hard to find a path forward.', result: 'Empathetic copy + clear booking.' },
-  { emoji: '🦷', num: '4.2s', numLbl: '→ 1.6s', sector: 'Dental Practice', name: 'General dentistry · Irving', problem: 'Slow, image-heavy pages.', result: 'Speed pipeline + WebP everywhere.' },
-];
-
 const SERVICE_SCHEMA = {
   '@context': 'https://schema.org',
   '@type': 'Service',
@@ -138,11 +112,9 @@ const WebsiteDesign = () => {
   return (
     <>
       <Hero />
-      <ProblemOutcome pains={PAINS} outcomes={OUTCOMES} />
       <WhatWeDo cards={DO_CARDS} />
       <HowItWorks steps={STEPS} />
       <Results stats={STATS} />
-      <CaseStudies cases={CASES} />
       <ServiceCTA />
 
       <script

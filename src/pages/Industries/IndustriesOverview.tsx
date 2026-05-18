@@ -1,11 +1,17 @@
 import type { ReactElement } from 'react';
 
+import emergencyImg from '../../assets/freestandingemergency.png';
+import urgentCareImg from '../../assets/urgentcare.png';
+import medspaImg from '../../assets/Medspa.png';
+
 interface OverviewCard {
   href: string;
   ariaId: string;
   meta: string;
   title: ReactElement;
   text: string;
+  image: string;
+  imageAlt: string;
   illustration: ReactElement;
 }
 
@@ -32,6 +38,8 @@ const CARDS: OverviewCard[] = [
     meta: 'High Acuity',
     title: <>Freestanding Emergency Rooms</>,
     text: 'Patient acquisition built for trauma searches, immediate visibility, and competitor overflow capture.',
+    image: emergencyImg,
+    imageAlt: 'Freestanding emergency room illustration',
     illustration: (
       <svg
         viewBox="0 0 320 240"
@@ -59,6 +67,8 @@ const CARDS: OverviewCard[] = [
     meta: 'Walk-In Volume',
     title: <>Urgent Care &amp; Walk-in Clinics</>,
     text: 'Volume-driven patient acquisition with reputation systems and wait-time transparency.',
+    image: urgentCareImg,
+    imageAlt: 'Urgent care clock illustration',
     illustration: (
       <svg
         viewBox="0 0 320 240"
@@ -89,6 +99,8 @@ const CARDS: OverviewCard[] = [
     meta: 'Longevity',
     title: <>MedSpas &amp; Wellness Clinics</>,
     text: 'High-LTV patient acquisition with social-led lead generation and automated retention sequences.',
+    image: medspaImg,
+    imageAlt: 'MedSpa wellness illustration',
     illustration: (
       <svg
         viewBox="0 0 320 240"
@@ -160,8 +172,13 @@ const IndustriesOverview = () => {
               className="ind-ov-card"
               aria-labelledby={card.ariaId}
             >
-              <div className="ind-ov-img">
-                {card.illustration}
+              <div className="ind-ov-img has-img">
+                <img
+                  src={card.image}
+                  alt={card.imageAlt}
+                  loading="lazy"
+                  decoding="async"
+                />
                 <span className="ind-ov-arrow" aria-hidden="true">
                   <ArrowIcon />
                 </span>

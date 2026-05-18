@@ -15,7 +15,7 @@ const Results = ({ stats }: ResultsProps) => {
     <section className="sv-section sv-results">
       <div className="container-shell">
         <SectionHead
-          num="04 — Results"
+          num="03 — Results"
           title={
             <>
               Real numbers, <em>real practices.</em>

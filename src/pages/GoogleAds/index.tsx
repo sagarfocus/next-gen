@@ -1,28 +1,11 @@
 import Hero from './Hero';
-import ProblemOutcome from '../../components/service/ProblemOutcome';
 import WhatWeDo from '../../components/service/WhatWeDo';
 import HowItWorks from '../../components/service/HowItWorks';
 import Results from '../../components/service/Results';
-import CaseStudies from '../../components/service/CaseStudies';
 import ServiceCTA from '../../components/service/ServiceCTA';
-import type { PainPoint, OutcomeRow } from '../../components/service/ProblemOutcome';
 import type { DoCard } from '../../components/service/WhatWeDo';
 import type { HowStep } from '../../components/service/HowItWorks';
 import type { ResultStat } from '../../components/service/Results';
-import type { CaseCard } from '../../components/service/CaseStudies';
-
-const PAINS: PainPoint[] = [
-  { title: 'Burning ad spend', desc: "Bids climb but bookings don't. No conversion clarity." },
-  { title: 'Wasted clicks', desc: 'Broad-match traffic that never books.' },
-  { title: 'No attribution', desc: "You can't tell which keyword booked which patient." },
-];
-
-const OUTCOMES: OutcomeRow[] = [
-  { label: 'CPA', value: '−60%' },
-  { label: 'ROAS', value: '4.2× avg' },
-  { label: 'Conversion rate', value: '+92%' },
-  { label: 'Wasted spend', value: 'Eliminated' },
-];
 
 const PinIcon = () => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.7} strokeLinecap="round" strokeLinejoin="round">
@@ -114,15 +97,6 @@ const STATS: ResultStat[] = [
   },
 ];
 
-const CASES: CaseCard[] = [
-  { emoji: '🏥', num: '4.6×', numLbl: 'ROAS', sector: 'Emergency Room', name: 'Freestanding ER · Dallas', problem: 'CPA over $180, ROAS under 2×.', result: 'Restructured campaigns + negative keyword cleanup.' },
-  { emoji: '⚡', num: '−54%', numLbl: 'CPA', sector: 'Urgent Care', name: 'Multi-location · Houston', problem: 'Spending across 8 sites, no per-location attribution.', result: 'Per-location campaigns + booking conversions.' },
-  { emoji: '✨', num: '+180%', numLbl: 'Leads', sector: 'Cosmetic Surgery', name: 'Aesthetic clinic · Austin', problem: 'Lead form spam from broad targeting.', result: 'Tightened audiences + premium creative.' },
-  { emoji: '👨‍⚕️', num: '3.8×', numLbl: 'ROAS', sector: 'Primary Care', name: 'Family medicine · San Antonio', problem: 'Wasting budget on awareness, no booking lift.', result: 'Bottom-funnel intent keywords + conversion tracking.' },
-  { emoji: '🧠', num: '−42%', numLbl: 'Cost / lead', sector: 'Mental Health', name: 'Therapy practice · Dallas', problem: 'High CPL for a sensitive vertical.', result: 'Audience layering + landing page optimization.' },
-  { emoji: '🦷', num: '5.2×', numLbl: 'ROAS', sector: 'Dental Practice', name: 'General dentistry · Irving', problem: 'Local ads underperforming.', result: 'Geo-targeting + service-page landing flows.' },
-];
-
 const SERVICE_SCHEMA = {
   '@context': 'https://schema.org',
   '@type': 'Service',
@@ -138,11 +112,9 @@ const GoogleAds = () => {
   return (
     <>
       <Hero />
-      <ProblemOutcome pains={PAINS} outcomes={OUTCOMES} />
       <WhatWeDo cards={DO_CARDS} />
       <HowItWorks steps={STEPS} />
       <Results stats={STATS} />
-      <CaseStudies cases={CASES} />
       <ServiceCTA />
 
       <script

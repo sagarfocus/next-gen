@@ -1,28 +1,11 @@
 import Hero from './Hero';
-import ProblemOutcome from '../../components/service/ProblemOutcome';
 import WhatWeDo from '../../components/service/WhatWeDo';
 import HowItWorks from '../../components/service/HowItWorks';
 import Results from '../../components/service/Results';
-import CaseStudies from '../../components/service/CaseStudies';
 import ServiceCTA from '../../components/service/ServiceCTA';
-import type { PainPoint, OutcomeRow } from '../../components/service/ProblemOutcome';
 import type { DoCard } from '../../components/service/WhatWeDo';
 import type { HowStep } from '../../components/service/HowItWorks';
 import type { ResultStat } from '../../components/service/Results';
-import type { CaseCard } from '../../components/service/CaseStudies';
-
-const PAINS: PainPoint[] = [
-  { title: 'No nurture engine', desc: 'Leads go cold within a week.' },
-  { title: 'Manual follow-ups', desc: 'Front desk drowning in templated reminders.' },
-  { title: 'Recall gaps', desc: 'Lapsed patients never come back.' },
-];
-
-const OUTCOMES: OutcomeRow[] = [
-  { label: 'Open rate', value: '68% (industry avg 22%)' },
-  { label: 'Recall bookings', value: '+47 / month' },
-  { label: 'Patient LTV', value: '+34%' },
-  { label: 'Front-desk hours', value: '−12 hrs / week' },
-];
 
 const PinIcon = () => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.7} strokeLinecap="round" strokeLinejoin="round">
@@ -114,15 +97,6 @@ const STATS: ResultStat[] = [
   },
 ];
 
-const CASES: CaseCard[] = [
-  { emoji: '🏥', num: '+38%', numLbl: 'Recall rate', sector: 'Emergency Room', name: 'Freestanding ER · Dallas', problem: 'No follow-up after first visit.', result: '90-day recall sequence + segmentation.' },
-  { emoji: '⚡', num: '+54%', numLbl: 'Repeat visits', sector: 'Urgent Care', name: 'Multi-location · Houston', problem: 'Patients only came when sick.', result: 'Wellness + seasonal-care flows.' },
-  { emoji: '✨', num: '4.2×', numLbl: 'LTV', sector: 'Cosmetic Surgery', name: 'Aesthetic clinic · Austin', problem: 'No upsell or maintenance schedule.', result: 'Treatment-aware nurture flows.' },
-  { emoji: '👨‍⚕️', num: '+62%', numLbl: 'Annuals booked', sector: 'Primary Care', name: 'Family medicine · San Antonio', problem: 'Annual reminders went unread.', result: 'Personalized birthday-month sends.' },
-  { emoji: '🧠', num: '+28%', numLbl: 'Retention', sector: 'Mental Health', name: 'Therapy practice · Dallas', problem: 'Patients dropped off after 4 sessions.', result: 'Empathetic check-in cadence.' },
-  { emoji: '🦷', num: '8.2%', numLbl: 'CTR', sector: 'Dental Practice', name: 'General dentistry · Irving', problem: 'Generic recall blasts ignored.', result: 'Per-procedure follow-ups.' },
-];
-
 const SERVICE_SCHEMA = {
   '@context': 'https://schema.org',
   '@type': 'Service',
@@ -138,11 +112,9 @@ const EmailCampaigns = () => {
   return (
     <>
       <Hero />
-      <ProblemOutcome pains={PAINS} outcomes={OUTCOMES} />
       <WhatWeDo cards={DO_CARDS} />
       <HowItWorks steps={STEPS} />
       <Results stats={STATS} />
-      <CaseStudies cases={CASES} />
       <ServiceCTA />
 
       <script

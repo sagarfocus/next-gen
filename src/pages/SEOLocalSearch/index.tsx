@@ -1,10 +1,7 @@
 import Hero from './Hero';
-import KnowledgeBase from './KnowledgeBase';
 import Pillars from './Pillars';
 import Methodology from './Methodology';
 import Proof from './Proof';
-import Pricing from './Pricing';
-import FAQ from './FAQ';
 import CTA from './CTA';
 
 const SERVICE_SCHEMA = {
@@ -28,12 +25,9 @@ const SEOLocalSearch = () => {
   return (
     <>
       <Hero />
-      <KnowledgeBase />
       <Pillars />
       <Methodology />
       <Proof />
-      <Pricing />
-      <FAQ />
       <CTA />
 
       <script

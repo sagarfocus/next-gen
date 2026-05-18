@@ -1,28 +1,11 @@
 import Hero from './Hero';
-import ProblemOutcome from '../../components/service/ProblemOutcome';
 import WhatWeDo from '../../components/service/WhatWeDo';
 import HowItWorks from '../../components/service/HowItWorks';
 import Results from '../../components/service/Results';
-import CaseStudies from '../../components/service/CaseStudies';
 import ServiceCTA from '../../components/service/ServiceCTA';
-import type { PainPoint, OutcomeRow } from '../../components/service/ProblemOutcome';
 import type { DoCard } from '../../components/service/WhatWeDo';
 import type { HowStep } from '../../components/service/HowItWorks';
 import type { ResultStat } from '../../components/service/Results';
-import type { CaseCard } from '../../components/service/CaseStudies';
-
-const PAINS: PainPoint[] = [
-  { title: 'Invisible on the map', desc: 'Patients pin the hospital, not you.' },
-  { title: 'Stale listing', desc: 'Hours wrong, phone wrong, photos from 2018.' },
-  { title: 'Reviews stagnant', desc: '4 stars for years, no new reviews.' },
-];
-
-const OUTCOMES: OutcomeRow[] = [
-  { label: 'Map ranking', value: '#1–3 average' },
-  { label: 'Direction requests', value: '+218%' },
-  { label: 'Profile views', value: '+340%' },
-  { label: 'Review velocity', value: '+18 / month' },
-];
 
 const PinIcon = () => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.7} strokeLinecap="round" strokeLinejoin="round">
@@ -107,15 +90,6 @@ const STATS: ResultStat[] = [
   },
 ];
 
-const CASES: CaseCard[] = [
-  { emoji: '🏥', num: '#1', numLbl: 'Map Pack', sector: 'Emergency Room', name: 'Freestanding ER · Dallas', problem: 'Outranked by hospital network.', result: 'Profile rebuild + citation cleanup.' },
-  { emoji: '⚡', num: '+312%', numLbl: 'Profile views', sector: 'Urgent Care', name: 'Multi-location · Houston', problem: 'Listings inconsistent across 8 sites.', result: 'Per-location GBP optimization.' },
-  { emoji: '✨', num: '8.2K', numLbl: 'Direction reqs', sector: 'Cosmetic Surgery', name: 'Aesthetic clinic · Austin', problem: 'Premium positioning vs price-led competitors.', result: 'Photo-rich profile + reviews.' },
-  { emoji: '👨‍⚕️', num: '+72', numLbl: 'Reviews / qtr', sector: 'Primary Care', name: 'Family medicine · San Antonio', problem: 'No review system, 4.0 stuck.', result: 'Sentiment-routed review automation.' },
-  { emoji: '🧠', num: '★4.9', numLbl: 'Rating', sector: 'Mental Health', name: 'Therapy practice · Dallas', problem: 'Sensitive vertical, hard to ask for reviews.', result: 'Empathetic request flow.' },
-  { emoji: '🦷', num: '#1', numLbl: 'Local Pack', sector: 'Dental Practice', name: 'General dentistry · Irving', problem: 'Not appearing top-3.', result: 'GBP + citations + reviews.' },
-];
-
 const SERVICE_SCHEMA = {
   '@context': 'https://schema.org',
   '@type': 'Service',
@@ -131,11 +105,9 @@ const GoogleBusinessProfile = () => {
   return (
     <>
       <Hero />
-      <ProblemOutcome pains={PAINS} outcomes={OUTCOMES} />
       <WhatWeDo cards={DO_CARDS} />
       <HowItWorks steps={STEPS} />
       <Results stats={STATS} />
-      <CaseStudies cases={CASES} />
       <ServiceCTA />
 
       <script

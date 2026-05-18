@@ -16,7 +16,7 @@ const WhatWeDo = ({ cards }: WhatWeDoProps) => {
     <section className="sv-section sv-do">
       <div className="container-shell">
         <SectionHead
-          num="02 — What we do"
+          num="01 — What we do"
           title={
             <>
               Six ways we <em>move the needle.</em>
