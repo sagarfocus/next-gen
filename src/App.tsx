@@ -37,6 +37,9 @@ import Pricing from './pages/Pricing';
 import Blog from './pages/Blog';
 import FAQ from './pages/FAQ';
 import Contact from './pages/Contact';
+import Phase1 from './pages/Phases/Phase1';
+import Phase2 from './pages/Phases/Phase2';
+import Phase3 from './pages/Phases/Phase3';
 import NotFound from './pages/NotFound';
 
 const App = () => {
@@ -86,6 +89,9 @@ const App = () => {
         <Route path="/blog" element={<Blog />} />
         <Route path="/faq" element={<FAQ />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/methodology/phase-1" element={<Phase1 />} />
+        <Route path="/methodology/phase-2" element={<Phase2 />} />
+        <Route path="/methodology/phase-3" element={<Phase3 />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       </PageTransition>

@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react';
+import { Link } from 'react-router-dom';
 
 interface Phase {
   num: string;
@@ -6,6 +7,7 @@ interface Phase {
   title: string;
   body: ReactNode;
   foot: string;
+  href: string;
 }
 
 const PHASES: Phase[] = [
@@ -13,6 +15,7 @@ const PHASES: Phase[] = [
     num: '01',
     phase: 'Phase 1',
     title: 'Discovery & Technical Audit',
+    href: '/methodology/phase-1',
     body: (
       <>
         We conduct a comprehensive audit of your existing digital infrastructure
@@ -28,6 +31,7 @@ const PHASES: Phase[] = [
     num: '02',
     phase: 'Phase 2',
     title: 'Strategy & Infrastructure Build',
+    href: '/methodology/phase-2',
     body: (
       <>
         We design your custom growth strategy mapping service-specific keywords,
@@ -43,6 +47,7 @@ const PHASES: Phase[] = [
     num: '03',
     phase: 'Phase 3',
     title: 'Launch & Accelerate',
+    href: '/methodology/phase-3',
     body: (
       <>
         Within the first 30 days, we launch SEO optimizations, paid media
@@ -95,9 +100,10 @@ const Methodology = () => {
         </div>
 
         <div className="phase-grid">
-          {PHASES.map(({ num, phase, title, body, foot }, i) => (
-            <article
+          {PHASES.map(({ num, phase, title, body, foot, href }, i) => (
+            <Link
               key={num}
+              to={href}
               className="phase-card"
               aria-labelledby={`phase-${i + 1}`}
             >
@@ -111,7 +117,7 @@ const Methodology = () => {
               <p className="phase-text">{body}</p>
               <div className="phase-foot">{foot}</div>
               <PhaseArrow />
-            </article>
+            </Link>
           ))}
         </div>
       </div>

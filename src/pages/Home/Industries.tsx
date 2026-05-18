@@ -8,15 +8,15 @@ interface IndustryTag {
 }
 
 const PlusIcon = () => (
-  <svg width={12} height={12} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+  <svg width={14} height={14} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
     <path d="M10 3h4v7h7v4h-7v7h-4v-7H3v-4h7V3z" />
   </svg>
 );
 
 const ClockIcon = () => (
   <svg
-    width={12}
-    height={12}
+    width={14}
+    height={14}
     viewBox="0 0 24 24"
     fill="none"
     stroke="currentColor"
@@ -30,60 +30,79 @@ const ClockIcon = () => (
   </svg>
 );
 
-const StarIcon = () => (
+const SparkleIcon = () => (
   <svg
-    width={12}
-    height={12}
+    width={14}
+    height={14}
     viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth={2.4}
-    strokeLinecap="round"
-    strokeLinejoin="round"
+    fill="currentColor"
     aria-hidden="true"
   >
-    <polygon points="12 2 15 8.5 22 9.3 17 14.1 18.2 21 12 17.8 5.8 21 7 14.1 2 9.3 9 8.5 12 2" />
+    <path d="M12 2.2 13.7 9.2 20.8 11 13.7 12.8 12 19.8 10.3 12.8 3.2 11 10.3 9.2 12 2.2Z" />
+    <path d="M19 3.6 19.8 5.9 22.1 6.6 19.8 7.4 19 9.7 18.2 7.4 15.9 6.6 18.2 5.9 19 3.6Z" opacity=".75" />
   </svg>
 );
 
 const ToothIcon = () => (
   <svg
-    width={12}
-    height={12}
+    width={14}
+    height={14}
     viewBox="0 0 24 24"
     fill="none"
     stroke="currentColor"
-    strokeWidth={2.4}
+    strokeWidth={2.2}
     strokeLinecap="round"
     strokeLinejoin="round"
     aria-hidden="true"
   >
-    <path d="M8 3c-3 0-5 2-5 5 0 6 4 13 5 13 1 0 2-3 4-3s3 3 4 3c1 0 5-7 5-13 0-3-2-5-5-5-2 0-3 1-4 1s-2-1-4-1z" />
+    <path d="M8 3.2c-2.6 0-4.3 1.7-4.3 4.4 0 1.9.5 3.3 1 4.9.4 1.4.6 3 .9 4.6.3 1.6.9 3.8 1.7 3.8.7 0 1.1-1.4 1.4-3 .3-1.8.8-2.9 1.8-2.9h2.6c1 0 1.5 1.1 1.8 2.9.3 1.6.7 3 1.4 3 .8 0 1.4-2.2 1.7-3.8.3-1.6.5-3.2.9-4.6.5-1.6 1-3 1-4.9 0-2.7-1.7-4.4-4.3-4.4-1.6 0-2.8 1.1-4 1.1-1.2 0-2.4-1.1-4-1.1z" />
   </svg>
 );
 
 const BrainIcon = () => (
   <svg
-    width={12}
-    height={12}
+    width={14}
+    height={14}
     viewBox="0 0 24 24"
     fill="none"
     stroke="currentColor"
-    strokeWidth={2.4}
+    strokeWidth={2.2}
     strokeLinecap="round"
     strokeLinejoin="round"
     aria-hidden="true"
   >
-    <path d="M9 4a3 3 0 0 0-3 3v1a3 3 0 0 0-3 3v2a3 3 0 0 0 3 3v1a3 3 0 0 0 3 3" />
-    <path d="M15 4a3 3 0 0 1 3 3v1a3 3 0 0 1 3 3v2a3 3 0 0 1-3 3v1a3 3 0 0 1-3 3" />
-    <line x1="12" y1="4" x2="12" y2="20" />
+    <path d="M9.5 3.5a2.8 2.8 0 0 0-2.8 2.8v.4A2.8 2.8 0 0 0 4 9.5v1.3a2.8 2.8 0 0 0 0 4.4v1.3a2.8 2.8 0 0 0 2.7 2.8 2.8 2.8 0 0 0 2.8 2.7" />
+    <path d="M14.5 3.5a2.8 2.8 0 0 1 2.8 2.8v.4A2.8 2.8 0 0 1 20 9.5v1.3a2.8 2.8 0 0 1 0 4.4v1.3a2.8 2.8 0 0 1-2.7 2.8 2.8 2.8 0 0 1-2.8 2.7" />
+    <line x1="12" y1="3.5" x2="12" y2="20.5" />
+    <path d="M8 10h2M14 10h2M8 14h2M14 14h2" />
   </svg>
 );
 
-const HeartIcon = () => (
+const BabyFaceIcon = () => (
   <svg
-    width={12}
-    height={12}
+    width={14}
+    height={14}
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth={2}
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    aria-hidden="true"
+  >
+    <circle cx="6.5" cy="6.5" r="2.5" />
+    <circle cx="17.5" cy="6.5" r="2.5" />
+    <circle cx="12" cy="14" r="7.5" />
+    <circle cx="9.5" cy="13" r="1.1" fill="currentColor" stroke="none" />
+    <circle cx="14.5" cy="13" r="1.1" fill="currentColor" stroke="none" />
+    <path d="M9.6 16.6c.7.7 1.6 1 2.4 1s1.7-.3 2.4-1" />
+  </svg>
+);
+
+const SpineIcon = () => (
+  <svg
+    width={14}
+    height={14}
     viewBox="0 0 24 24"
     fill="none"
     stroke="currentColor"
@@ -92,17 +111,64 @@ const HeartIcon = () => (
     strokeLinejoin="round"
     aria-hidden="true"
   >
-    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+    <path d="M12 2v20" />
+    <path d="M8 5h8" />
+    <path d="M7 9h10" />
+    <path d="M8 13h8" />
+    <path d="M7 17h10" />
+    <path d="M9 21h6" />
   </svg>
 );
+
+const StethoscopeIcon = () => (
+  <svg
+    width={14}
+    height={14}
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth={2.4}
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    aria-hidden="true"
+  >
+    <path d="M6 3v6a4 4 0 0 0 8 0V3" />
+    <path d="M10 13v3a4 4 0 0 0 8 0v-2" />
+    <circle cx="18" cy="11" r="2" />
+  </svg>
+);
+
+interface Specialty {
+  name: string;
+  meta: string;
+  tone: 'sage' | 'periwinkle' | 'clay';
+  icon: ReactElement;
+}
+
+const SPECIALTIES: Specialty[] = [
+  { name: 'Emergency Rooms', meta: '24/7 high-acuity acquisition', tone: 'sage', icon: <PlusIcon /> },
+  { name: 'Urgent Care', meta: 'Walk-in volume vs. health systems', tone: 'periwinkle', icon: <ClockIcon /> },
+  { name: 'MedSpas & Aesthetics', meta: 'Social + targeted Meta campaigns', tone: 'clay', icon: <SparkleIcon /> },
+  { name: 'Dental Practices', meta: 'Locally-optimized growth', tone: 'sage', icon: <ToothIcon /> },
+  { name: 'Chiropractic', meta: 'Recurring local patient flow', tone: 'periwinkle', icon: <SpineIcon /> },
+  { name: 'Mental Health', meta: 'Discreet, demographic-driven', tone: 'clay', icon: <BrainIcon /> },
+  { name: 'Primary Care', meta: 'Service-area patient demand', tone: 'sage', icon: <StethoscopeIcon /> },
+  { name: 'Pediatrics', meta: 'Family-tailored growth strategy', tone: 'periwinkle', icon: <BabyFaceIcon /> },
+];
+
+const PILLARS = [
+  'Patient Acquisition Costs',
+  'Competitive Dynamics',
+  'Compliance Requirements',
+];
 
 const TAGS: IndustryTag[] = [
   { slot: 't1', name: 'Emergency Room', icon: <PlusIcon /> },
   { slot: 't2', name: 'Urgent Care', icon: <ClockIcon /> },
-  { slot: 't3', name: 'MedSpa', icon: <StarIcon /> },
+  { slot: 't3', name: 'MedSpa', icon: <SparkleIcon /> },
   { slot: 't4', name: 'Dental', icon: <ToothIcon /> },
   { slot: 't5', name: 'Mental Health', icon: <BrainIcon /> },
-  { slot: 't6', name: 'Pediatrics', icon: <HeartIcon /> },
+  { slot: 't6', name: 'Pediatrics', icon: <BabyFaceIcon /> },
 ];
 
 const Industries = () => {
@@ -135,6 +201,15 @@ const Industries = () => {
               <circle cx="300" cy="350" r="260" fill="none" stroke="#B38B6D" strokeOpacity=".18" strokeWidth="1" strokeDasharray="2 8" />
               <circle cx="300" cy="350" r="190" fill="none" stroke="#B38B6D" strokeOpacity=".25" strokeWidth="1" strokeDasharray="2 8" />
               <circle cx="300" cy="350" r="120" fill="none" stroke="#B38B6D" strokeOpacity=".35" strokeWidth="1" strokeDasharray="3 6" />
+              {/* hub-to-edge spokes pointing toward each specialty */}
+              <g stroke="#B38B6D" strokeWidth="1" strokeDasharray="4 5" opacity=".42" strokeLinecap="round">
+                <line x1="260.1" y1="295.7" x2="146.5" y2="146.3" />
+                <line x1="346.4" y1="300.3" x2="473.9" y2="163.5" />
+                <line x1="232.8" y1="339.4" x2="48.1" y2="310.1" />
+                <line x1="367.9" y1="353.6" x2="554.6" y2="363.3" />
+                <line x1="260.0" y1="405.0" x2="150.1" y2="556.3" />
+                <line x1="336.0" y1="407.7" x2="435.1" y2="566.2" />
+              </g>
               {/* subtle dot grid */}
               <g fill="#B38B6D" opacity=".25">
                 <circle cx="120" cy="140" r="1.6" />
@@ -145,6 +220,39 @@ const Industries = () => {
                 <circle cx="180" cy="560" r="1.6" />
                 <circle cx="420" cy="560" r="1.6" />
                 <circle cx="480" cy="560" r="1.6" />
+              </g>
+              {/* soft aura behind hub */}
+              <circle cx="300" cy="350" r="108" fill="#7388C9" opacity=".09" />
+              <circle cx="300" cy="350" r="80" fill="#8FBC8F" opacity=".07" />
+              {/* radial pulse rings emanating from hub */}
+              <g fill="none" stroke="#576DB5" strokeWidth="1.4">
+                <circle cx="300" cy="350" r="68">
+                  <animate attributeName="r" values="68;240;240" dur="5s" repeatCount="indefinite" />
+                  <animate attributeName="stroke-opacity" values=".5;0;0" dur="5s" repeatCount="indefinite" />
+                </circle>
+                <circle cx="300" cy="350" r="68">
+                  <animate attributeName="r" values="68;240;240" dur="5s" begin="1.67s" repeatCount="indefinite" />
+                  <animate attributeName="stroke-opacity" values=".5;0;0" dur="5s" begin="1.67s" repeatCount="indefinite" />
+                </circle>
+                <circle cx="300" cy="350" r="68">
+                  <animate attributeName="r" values="68;240;240" dur="5s" begin="3.34s" repeatCount="indefinite" />
+                  <animate attributeName="stroke-opacity" values=".5;0;0" dur="5s" begin="3.34s" repeatCount="indefinite" />
+                </circle>
+              </g>
+              {/* data nodes at spoke/inner-orbit intersections */}
+              <g>
+                <circle cx="227.8" cy="254.2" r="4" fill="#fff" stroke="#576DB5" strokeWidth="1.4" />
+                <circle cx="381.8" cy="262.2" r="4" fill="#fff" stroke="#576DB5" strokeWidth="1.4" />
+                <circle cx="181.5" cy="331.2" r="4" fill="#fff" stroke="#576DB5" strokeWidth="1.4" />
+                <circle cx="419.8" cy="356.3" r="4" fill="#fff" stroke="#576DB5" strokeWidth="1.4" />
+                <circle cx="229.5" cy="447.1" r="4" fill="#fff" stroke="#576DB5" strokeWidth="1.4" />
+                <circle cx="363.6" cy="451.8" r="4" fill="#fff" stroke="#576DB5" strokeWidth="1.4" />
+                <circle cx="227.8" cy="254.2" r="1.6" fill="#576DB5" />
+                <circle cx="381.8" cy="262.2" r="1.6" fill="#576DB5" />
+                <circle cx="181.5" cy="331.2" r="1.6" fill="#576DB5" />
+                <circle cx="419.8" cy="356.3" r="1.6" fill="#576DB5" />
+                <circle cx="229.5" cy="447.1" r="1.6" fill="#576DB5" />
+                <circle cx="363.6" cy="451.8" r="1.6" fill="#576DB5" />
               </g>
               {/* center hub */}
               <g>
@@ -205,27 +313,35 @@ const Industries = () => {
             </div>
 
             <div className="ind-body">
-              <p>
-                Our team has deep operational experience across the full
-                spectrum of healthcare facilities. We serve Freestanding
-                Emergency Rooms that require high-acuity, 24/7 patient
-                acquisition campaigns. We help Urgent Care Centers compete
-                with large health systems for walk-in volume. We grow MedSpas
-                &amp; Aesthetics Clinics through social media and targeted
-                Meta campaigns. We support Dental Practices, Chiropractic
-                Clinics, Mental Health Practices, Primary Care, and Pediatric
-                Clinics with locally-optimized growth strategies tailored to
-                their unique patient demographics and service areas.
-              </p>
-              <p className="foot">
-                Each vertical has different patient acquisition costs,
-                competitive dynamics, and compliance requirements. Our
-                industry-specific playbooks ensure you are never paying for a
-                generic strategy designed for a different type of practice
-                &mdash; whether you need to fill same-day appointment slots or
-                build a 6-month elective procedure pipeline, our Clinic Growth
-                OS adapts to your clinical reality.
-              </p>
+              <ul className="ind-specs" role="list">
+                {SPECIALTIES.map((s) => (
+                  <li key={s.name} className={`ind-spec tone-${s.tone}`}>
+                    <span className="ind-spec-ico" aria-hidden="true">{s.icon}</span>
+                    <span className="ind-spec-name">{s.name}</span>
+                    <span className="ind-spec-meta">{s.meta}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <div className="ind-pillars" aria-label="Every vertical varies on">
+                <span className="ind-pillars-label">Every vertical varies on</span>
+                <span className="ind-pillars-rule" aria-hidden="true" />
+                <div className="ind-pillars-chips">
+                  {PILLARS.map((p) => (
+                    <span key={p} className="ind-pillar">{p}</span>
+                  ))}
+                </div>
+              </div>
+
+              <div className="ind-strap">
+                <span className="ind-strap-dot" aria-hidden="true" />
+                <span className="ind-strap-text">
+                  <strong>Clinic Growth OS</strong> adapts to every clinical
+                  reality &mdash; from same-day appointment slots to 6-month
+                  elective procedure pipelines. Industry-specific playbooks, not
+                  a generic strategy.
+                </span>
+              </div>
             </div>
           </div>
         </div>

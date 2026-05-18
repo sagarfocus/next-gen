@@ -138,7 +138,11 @@
     grid-template-columns: 0.95fr 1fr;
     gap: clamp(72px, 10vw, 180px);
     align-items: center;
+    /* Force grid children to allow shrinking — without min-width: 0 on the
+       items, long bold words like "Healthcare." would expand the column. */
+    min-width: 0;
   }
+  .hero-grid > * { min-width: 0; }
   .hero-content { max-width: 56ch; }
   @media (max-width: 1024px) {
     .hero-grid { grid-template-columns: 1fr; }
@@ -151,6 +155,10 @@
   .hero-content {
     position: relative;
     z-index: 2;
+    /* Allow the grid item to shrink below its intrinsic content width so the
+       title (a single long word like "Healthcare.") wraps instead of pushing
+       the column past the viewport. */
+    min-width: 0;
   }
 
   /* ===== Hero visual — layered glass dashboard mock ===== */
@@ -159,6 +167,14 @@
     aspect-ratio: 4 / 4;
     z-index: 1;
     overflow: visible;
+    width: 100%;
+    /* Shift the orbit slightly to the right. We use margin-left (not
+       transform) because the Parallax wrapper sets an inline
+       `transform: translate3d(0, Y, 0)` every scroll frame and would
+       overwrite any CSS transform we set here. Keep the shift modest
+       so the rightmost pills (Web Design, Branding) stay fully visible
+       and aren't clipped by the section's overflow:hidden. */
+    margin-left: clamp(40px, 5vw, 100px);
   }
   /* ============================================================
      HERO ORBIT — 3D stage with brand core + service pills
@@ -520,7 +536,7 @@
   }
 
   .hero-title {
-    font-size: clamp(44px, 6.2vw, 92px);
+    font-size: clamp(34px, 6.2vw, 92px);
     line-height: 0.98;
     letter-spacing: -0.038em;
     color: #1A2438;
@@ -528,6 +544,10 @@
     margin: 0 0 30px;
     max-width: 16ch;
     text-wrap: balance;
+    /* Hard fallback: if a single word (e.g. "Healthcare.") can't fit a narrow
+       column, allow it to break rather than push the layout past the viewport. */
+    overflow-wrap: break-word;
+    word-break: break-word;
   }
   .hero-title .accent-text {
     position: relative;
@@ -535,12 +555,22 @@
     font-weight: 800;
     letter-spacing: -0.034em;
     display: inline-block;
+    /* Sit on its own line with a deliberate gap from the first line.
+       `display: inline-block` keeps the underline pseudo-element working
+       while the top margin opens the air between the two lines. */
+    margin-top: clamp(14px, 1.6vw, 24px);
     padding: 0 2px;
     background: linear-gradient(95deg, #F4E4B6 0%, #D4AF37 45%, #B38B6D 100%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
     -webkit-text-fill-color: transparent;
+    /* Override the parent's break-word so "Relentlessly." stays as one
+       word and is not split into "Relentlessl" / "y." when the column
+       is narrower than the word. */
+    word-break: normal;
+    overflow-wrap: normal;
+    white-space: nowrap;
   }
   .hero-title .accent-text::after {
     content: "";
@@ -555,11 +585,12 @@
   }
 
   .hero-lede {
-    font-size: clamp(16.5px, 1.22vw, 19px);
+    font-size: clamp(15px, 1.22vw, 19px);
     line-height: 1.65;
     color: rgba(26, 36, 56, 0.72);
     max-width: 56ch;
     margin: 0 0 44px;
+    overflow-wrap: break-word;
   }
 
   .hero-cta-row {
@@ -594,6 +625,66 @@
     .btn-hero {
       width: 100%;
       justify-content: center;
+    }
+    /* Hero copy + CTAs — tighten and stack so nothing overflows
+       the viewport on phones. */
+    .hero-section {
+      padding-top: clamp(110px, 22vw, 160px);
+      padding-bottom: clamp(40px, 8vw, 64px);
+      min-height: auto;
+    }
+    .hero-grid {
+      gap: 32px;
+    }
+    .hero-eyebrow {
+      font-size: 10.5px;
+      padding: 7px 14px 7px 11px;
+      letter-spacing: 0.14em;
+      margin-bottom: 22px;
+    }
+    .hero-title {
+      font-size: clamp(30px, 8.4vw, 44px);
+      max-width: none;
+      margin-bottom: 20px;
+      letter-spacing: -0.03em;
+    }
+    .hero-title .accent-text {
+      margin-top: 8px;
+    }
+    .hero-lede {
+      font-size: 15px;
+      line-height: 1.6;
+      max-width: none;
+      margin-bottom: 28px;
+    }
+    .hero-cta-row {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 14px;
+    }
+    .hero-cta-row .m-btn,
+    .hero-cta-row .hero-mbtn {
+      width: 100%;
+      justify-content: center;
+    }
+    .hero-cta-row .link-secondary {
+      justify-content: center;
+      padding: 12px 4px;
+    }
+  }
+  @media (max-width: 380px) {
+    /* Very narrow phones — squeeze fonts and padding a touch further so
+       "Healthcare." and the CTA labels never overflow. */
+    .hero-eyebrow {
+      font-size: 9.5px;
+      letter-spacing: 0.12em;
+      padding: 6px 12px 6px 10px;
+    }
+    .hero-title {
+      font-size: clamp(26px, 8vw, 32px);
+    }
+    .hero-lede {
+      font-size: 14.5px;
     }
   }
 
@@ -1076,6 +1167,18 @@
     opacity: 0.5;
   }
   .stat-featured > * { position: relative; z-index: 1; }
+
+  .stat-featured .stat-art {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+  }
+  .stat-featured .stat-art svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
 
   .stat-tag {
     display: inline-flex;
@@ -1569,6 +1672,13 @@
     width: 100%;
     height: 100%;
     display: block;
+  }
+  .card-img img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center;
   }
   .card-arrow {
     position: absolute;
@@ -2345,34 +2455,152 @@
   .ind-body {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 22px;
   }
-  .ind-body p {
-    font-size: 14px;
-    line-height: 1.65;
-    color: rgba(255, 255, 255, 0.78);
+  .ind-specs {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    list-style: none;
     margin: 0;
-    font-weight: 400;
+    padding: 0;
   }
-  .ind-body p.foot {
-    color: rgba(255, 255, 255, 0.55);
-    font-size: 13px;
-    line-height: 1.6;
-    padding-top: 12px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    margin-top: 8px;
+  .ind-spec {
+    display: grid;
+    grid-template-columns: 34px 1fr;
+    align-items: center;
+    column-gap: 12px;
+    row-gap: 2px;
+    padding: 12px 14px;
+    background: rgba(255, 255, 255, 0.035);
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    border-radius: 12px;
+    position: relative;
+    transition: background 0.22s ease, border-color 0.22s ease, transform 0.22s ease;
   }
-  .ind-body a {
-    color: #fff;
-    font-weight: 600;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-    padding: 0 1px;
-    transition: color 0.2s, border-color 0.2s, background 0.2s;
+  .ind-spec::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 12px;
+    bottom: 12px;
+    width: 2px;
+    border-radius: 0 2px 2px 0;
+    background: currentColor;
+    color: rgba(143, 188, 143, 0.55);
+    opacity: 0.75;
   }
-  .ind-body a:hover {
+  .ind-spec.tone-periwinkle::before { color: rgba(151, 168, 220, 0.6); }
+  .ind-spec.tone-clay::before { color: rgba(205, 166, 137, 0.6); }
+  .ind-spec:hover {
+    background: rgba(255, 255, 255, 0.065);
+    border-color: rgba(255, 255, 255, 0.18);
+    transform: translateY(-1px);
+  }
+  .ind-spec-ico {
+    grid-row: 1 / 3;
+    width: 34px;
+    height: 34px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    background: rgba(143, 188, 143, 0.16);
     color: #8FBC8F;
-    border-bottom-color: #8FBC8F;
-    background: rgba(143, 188, 143, 0.08);
+  }
+  .ind-spec-ico svg { width: 15px; height: 15px; }
+  .ind-spec.tone-periwinkle .ind-spec-ico {
+    background: rgba(115, 136, 201, 0.18);
+    color: #97A8DC;
+  }
+  .ind-spec.tone-clay .ind-spec-ico {
+    background: rgba(179, 139, 109, 0.2);
+    color: #CDA689;
+  }
+  .ind-spec-name {
+    font-size: 13.5px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.96);
+    line-height: 1.2;
+    letter-spacing: -0.005em;
+  }
+  .ind-spec-meta {
+    font-size: 11.5px;
+    line-height: 1.35;
+    color: rgba(255, 255, 255, 0.55);
+    font-weight: 500;
+  }
+  .ind-pillars {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px 12px;
+    padding-top: 2px;
+  }
+  .ind-pillars-label {
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.5);
+    line-height: 1;
+  }
+  .ind-pillars-rule {
+    flex: 1 1 24px;
+    min-width: 16px;
+    height: 1px;
+    background: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0.18),
+      rgba(255, 255, 255, 0)
+    );
+  }
+  .ind-pillars-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .ind-pillar {
+    font-size: 10.5px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.78);
+    padding: 6px 10px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.03);
+    line-height: 1;
+  }
+  .ind-strap {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-top: 2px;
+    padding: 14px 16px;
+    background: rgba(143, 188, 143, 0.06);
+    border: 1px solid rgba(143, 188, 143, 0.18);
+    border-radius: 12px;
+  }
+  .ind-strap-dot {
+    flex: 0 0 auto;
+    width: 8px;
+    height: 8px;
+    margin-top: 6px;
+    border-radius: 999px;
+    background: #8FBC8F;
+    box-shadow: 0 0 0 4px rgba(143, 188, 143, 0.18);
+  }
+  .ind-strap-text {
+    font-size: 13px;
+    line-height: 1.55;
+    color: rgba(255, 255, 255, 0.82);
+    font-weight: 500;
+  }
+  .ind-strap-text strong {
+    color: #fff;
+    font-weight: 700;
+    letter-spacing: -0.005em;
   }
   @media (max-width: 1024px) {
     .ind-grid { grid-template-columns: 1fr; }
@@ -2383,6 +2611,8 @@
     .ind-stats { gap: 20px; }
     .ind-stat-num { font-size: 36px; }
     .ind-tag { font-size: 12px; padding: 8px 12px 8px 10px; }
+    .ind-specs { grid-template-columns: 1fr; }
+    .ind-pillars-rule { display: none; }
   }
 
   /* ============ CONTACT / LOCATION ============ */
@@ -2834,8 +3064,15 @@
     .ft-brand-block { grid-column: 1 / -1; max-width: 480px; }
   }
   @media (max-width: 640px) {
-    .ft-grid { grid-template-columns: 1fr; gap: 36px; }
-    .ft-brand-block { grid-column: auto; }
+    /* Keep Services + Company side-by-side; Brand and Contact span both columns. */
+    .ft-grid { grid-template-columns: 1fr 1fr; gap: 32px 24px; }
+    .ft-brand-block { grid-column: 1 / -1; max-width: 480px; }
+    .ft-grid > :last-child { grid-column: 1 / -1; }
+  }
+  @media (max-width: 380px) {
+    /* Single column only on very narrow phones where 2 cols get too cramped. */
+    .ft-grid { grid-template-columns: 1fr; gap: 32px; }
+    .ft-grid > :last-child { grid-column: auto; }
   }
   .ft-h {
     @apply font-bold uppercase text-heading m-0 inline-flex items-center;
@@ -2965,18 +3202,29 @@
   .svc-orbit {
     margin-left: auto;
     margin-right: 0;
-    max-width: 620px;
+    max-width: 560px;
+    /* Push further right past the grid column's edge into the section's
+       right gutter. The .svc-hero has overflow:hidden so any bleed past
+       the section edge is clipped, and there's ~300px of safe gutter
+       between the max-w-shell container and the section edge on wide
+       desktops. */
+    transform: translateX(clamp(48px, 6vw, 120px));
   }
+  /* Compact, clean orbit — tight radius and smaller core card so the
+     6 pills form a balanced 360° ring without overpowering the right
+     column or running into the title on the left. */
   .svc-orbit .ho-pill {
-    --ho-orbit-r: clamp(220px, 20vw, 268px);
-    max-width: 220px;
-    padding: 12px 18px 12px 11px;
-    gap: 13px;
+    --ho-orbit-r: clamp(200px, 18vw, 240px);
+    max-width: 200px;
+    padding: 10px 14px 10px 10px;
+    gap: 11px;
   }
-  .svc-orbit .ho-pill-label { font-size: 16px; }
-  .svc-orbit .ho-pill-sub   { font-size: 12px; max-width: 156px; line-height: 1.3; }
-  .svc-orbit .ho-pill-ico   { width: 42px; height: 42px; flex: 0 0 42px; }
-  .svc-orbit .ho-pill-ico svg { width: 15px; height: 15px; }
+  .svc-orbit .ho-pill-label { font-size: 14.5px; }
+  .svc-orbit .ho-pill-sub   { font-size: 11.5px; max-width: 140px; line-height: 1.3; }
+  .svc-orbit .ho-pill-ico   { width: 36px; height: 36px; flex: 0 0 36px; }
+  .svc-orbit .ho-pill-ico svg { width: 13px; height: 13px; }
+  /* Shrink the central card to keep proportion with the tighter orbit. */
+  .svc-orbit .ho-core { max-width: 160px; min-width: 130px; }
   .svc-stage { grid-column: 1 / 2; position: relative; z-index: 1; min-width: 0; }
   .svc-h1 {
     font-size: clamp(48px, 6.6vw, 104px);
@@ -3111,6 +3359,68 @@
     display: block;
     margin-top: 4px;
   }
+
+  /* ===== Orbiting social bubbles inside the central hub circle =====
+     5 small icon chips trace a full 360° orbit around the N+ mark.
+     All share one keyframe; staggered animation-delays put each bubble
+     72° apart around the ring so the group is always evenly spaced. */
+  .svc-orbit-hub-inner { position: relative; z-index: 2; }
+  .hub-bubble {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 1;
+    width: 26px;
+    height: 26px;
+    /* Negative half-size margins anchor the bubble's CENTER on the
+       hub's center, so keyframe translates trace a clean circle. */
+    margin: -13px 0 0 -13px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: rgba(255, 255, 255, 0.92);
+    border: 1px solid rgba(179, 139, 109, 0.22);
+    box-shadow:
+      0 6px 14px -6px rgba(45, 55, 72, 0.18),
+      inset 0 1px 0 rgba(255, 255, 255, 0.85);
+    animation: hubOrbit 18s linear infinite;
+    will-change: transform;
+  }
+
+  /* 5 bubbles spaced 72° apart — negative delays start each one already
+     partway through the same loop so the formation stays evenly spread. */
+  .hub-bubble.b1 { animation-delay: 0s;     }
+  .hub-bubble.b2 { animation-delay: -3.6s;  }
+  .hub-bubble.b3 { animation-delay: -7.2s;  }
+  .hub-bubble.b4 { animation-delay: -10.8s; }
+  .hub-bubble.b5 { animation-delay: -14.4s; }
+
+  /* Brand tones */
+  .hub-bubble.t-fb { color: #1877F2; }
+  .hub-bubble.t-ig { color: #C13584; }
+  .hub-bubble.t-wa { color: #25D366; }
+  .hub-bubble.t-li { color: #0A66C2; }
+  .hub-bubble.t-em { color: #B38B6D; }
+
+  /* Circular orbit at radius ≈90px — places each bubble's CENTER just
+     past the 156px hub's outer edge (hub radius 78 + bubble radius 13).
+     The bubbles now ride the rim of the circle instead of crossing
+     through the N+ mark in the middle. Sampled every 45°. */
+  @keyframes hubOrbit {
+    0%    { transform: translate(0,     -90px); }
+    12.5% { transform: translate(64px,  -64px); }
+    25%   { transform: translate(90px,  0);     }
+    37.5% { transform: translate(64px,  64px);  }
+    50%   { transform: translate(0,     90px);  }
+    62.5% { transform: translate(-64px, 64px);  }
+    75%   { transform: translate(-90px, 0);     }
+    87.5% { transform: translate(-64px, -64px); }
+    100%  { transform: translate(0,     -90px); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hub-bubble { animation: none !important; }
+  }
   .svc-float {
     position: absolute;
     top: 50%;
@@ -3128,12 +3438,30 @@
     font-weight: 600;
     color: #2D3748;
     box-shadow: 0 16px 32px -18px rgba(45, 55, 72, 0.22);
-    pointer-events: none;
+    pointer-events: auto;
+    cursor: pointer;
     white-space: nowrap;
     z-index: 2;
     --orbit-r: 190px;
     --orbit-dur: 36s;
     animation: svcOrbit var(--orbit-dur) linear infinite;
+    transition:
+      box-shadow 0.45s cubic-bezier(0.2, 0.7, 0.2, 1),
+      border-color 0.3s ease,
+      background-color 0.3s ease;
+  }
+  .svc-float:hover {
+    /* Freeze the orbit at the current position so it doesn't slide away
+       under the cursor, and lift the chip via shadow + border glow only —
+       transform is owned by the orbit animation and must not be overridden. */
+    animation-play-state: paused;
+    background: rgba(255, 255, 255, 0.97);
+    border-color: rgba(212, 175, 55, 0.6);
+    box-shadow:
+      0 22px 46px -20px rgba(45, 55, 72, 0.32),
+      0 8px 18px -8px rgba(212, 175, 55, 0.32),
+      0 0 0 1px rgba(212, 175, 55, 0.22);
+    z-index: 3;
   }
   .svc-float .tag-ico {
     width: 20px;
@@ -3142,6 +3470,10 @@
     display: grid;
     place-items: center;
     flex: 0 0 20px;
+    transition: transform 0.4s cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+  .svc-float:hover .tag-ico {
+    transform: scale(1.14);
   }
   /* Static fallback transforms (used when animation is disabled) and per-pill animation offsets */
   .svc-float.f1 { transform: translate(-50%, -50%) rotate(0deg)   translate(0, calc(-1 * var(--orbit-r))) rotate(0deg);    animation-delay: 0s; }
@@ -3410,8 +3742,8 @@
       column-gap: 32px;
       row-gap: 24px;
     }
-    .svc-orbit { max-width: 540px; }
-    .svc-orbit .ho-pill { --ho-orbit-r: clamp(200px, 21vw, 232px); }
+    .svc-orbit { max-width: 480px; }
+    .svc-orbit .ho-pill { --ho-orbit-r: clamp(180px, 19vw, 210px); }
     .svc-float { --orbit-r: 160px; }
   }
   @media (max-width: 1024px) {
@@ -3819,6 +4151,20 @@
     z-index: 1;
     transition: transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1);
   }
+  .svc-card-img img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: relative;
+    z-index: 1;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+  .svc-card:hover .svc-card-img img { transform: scale(1.04); }
+  .svc-card-img.has-img { background: #FAFAF8; }
+  .svc-card-img.has-img::before,
+  .svc-card-img.has-img::after { display: none; }
   .svc-card-arrow {
     position: absolute;
     bottom: 14px;
@@ -4641,7 +4987,7 @@
   /* ============ CTA BANNER ============ */
   .cta-banner-section {
     position: relative;
-    background: #F8F9FA;
+    background: #EEEEEE;
     padding: clamp(56px, 7vw, 96px) 0 clamp(72px, 9vw, 120px);
   }
   .cta-card {

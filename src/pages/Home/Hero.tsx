@@ -56,6 +56,50 @@ const FLOATING_PILLS: FloatingPill[] = [
   { slot: 'f6', label: 'Content', icon: <ChatIcon /> },
 ];
 
+interface HubBubble {
+  slot: 'b1' | 'b2' | 'b3' | 'b4' | 'b5';
+  tone: 'fb' | 'ig' | 'wa' | 'li' | 'em';
+  ariaLabel: string;
+  icon: ReactElement;
+}
+
+const FacebookIcon = () => (
+  <svg width={12} height={12} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+    <path d="M22 12a10 10 0 1 0-11.6 9.9v-7H8v-2.9h2.4V9.8c0-2.4 1.4-3.7 3.6-3.7 1 0 2.1.2 2.1.2v2.3h-1.2c-1.2 0-1.5.7-1.5 1.5V12h2.6l-.4 2.9h-2.2v7A10 10 0 0 0 22 12Z" />
+  </svg>
+);
+const InstagramIcon = () => (
+  <svg width={12} height={12} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <rect x="3" y="3" width="18" height="18" rx="5" />
+    <circle cx="12" cy="12" r="4" />
+    <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+  </svg>
+);
+const WhatsAppIcon = () => (
+  <svg width={12} height={12} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+    <path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1 0 12 2Zm5.4 14.1c-.2.6-1.3 1.2-1.8 1.3-.5.1-1.1.1-1.7-.1-.4-.1-.9-.3-1.6-.6-2.7-1.2-4.5-4-4.6-4.2-.1-.2-1.1-1.4-1.1-2.7s.7-1.9.9-2.1c.3-.3.6-.4.8-.4h.6c.2 0 .5 0 .7.5l.9 2.2c.1.2.1.4 0 .6l-.4.5c-.1.2-.3.3-.1.6.4.7 1 1.5 1.6 2 .8.6 1.5.9 1.7 1 .2.1.4.1.6-.1l.7-.8c.2-.3.4-.2.7-.1.3.1 1.8.9 2.1 1 .3.2.5.2.6.4 0 .1 0 .8-.3 1.5Z" />
+  </svg>
+);
+const LinkedInIcon = () => (
+  <svg width={12} height={12} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+    <path d="M20.5 2h-17A1.5 1.5 0 0 0 2 3.5v17A1.5 1.5 0 0 0 3.5 22h17a1.5 1.5 0 0 0 1.5-1.5v-17A1.5 1.5 0 0 0 20.5 2ZM8 19H5V9h3v10ZM6.5 7.5A1.5 1.5 0 1 1 8 6 1.5 1.5 0 0 1 6.5 7.5ZM19 19h-3v-5.3c0-1.3-.5-1.8-1.4-1.8a1.6 1.6 0 0 0-1.6 1.7V19h-3V9h2.9v1.4a3.4 3.4 0 0 1 3-1.7c1.8 0 3.1 1.1 3.1 3.5V19Z" />
+  </svg>
+);
+const EmailIcon = () => (
+  <svg width={12} height={12} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <rect x="3" y="5" width="18" height="14" rx="2" />
+    <path d="m3 7 9 6 9-6" />
+  </svg>
+);
+
+const HUB_BUBBLES: HubBubble[] = [
+  { slot: 'b1', tone: 'fb', ariaLabel: 'Facebook', icon: <FacebookIcon /> },
+  { slot: 'b2', tone: 'ig', ariaLabel: 'Instagram', icon: <InstagramIcon /> },
+  { slot: 'b3', tone: 'wa', ariaLabel: 'WhatsApp', icon: <WhatsAppIcon /> },
+  { slot: 'b4', tone: 'li', ariaLabel: 'LinkedIn', icon: <LinkedInIcon /> },
+  { slot: 'b5', tone: 'em', ariaLabel: 'Email',     icon: <EmailIcon /> },
+];
+
 const Hero = ({ children }: HeroProps) => {
   return (
     <section className="hero-section" aria-labelledby="hero-title">
@@ -110,6 +154,17 @@ const Hero = ({ children }: HeroProps) => {
           <Parallax as="div" speed={0.04} className="hero-visual hero-svc-orbit-wrap reveal d3" aria-hidden="true">
             <div className="svc-orbit" aria-hidden="true">
               <div className="svc-orbit-hub">
+                {/* Floating social bubbles — drift inside the circle behind
+                    the central N+ mark. Pure decoration, aria-hidden. */}
+                {HUB_BUBBLES.map(({ slot, tone, ariaLabel, icon }) => (
+                  <span
+                    key={slot}
+                    className={`hub-bubble ${slot} t-${tone}`}
+                    aria-label={ariaLabel}
+                  >
+                    {icon}
+                  </span>
+                ))}
                 <div className="svc-orbit-hub-inner">
                   <div className="svc-orbit-hub-mark">N+</div>
                   <span className="svc-orbit-hub-name">TheNextGen</span>
