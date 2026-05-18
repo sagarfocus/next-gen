@@ -1,4 +1,6 @@
+import { useEffect, useState } from 'react';
 import type { ReactElement } from 'react';
+import { Link } from 'react-router-dom';
 
 import emergencyImg from '../../assets/freestandingemergency.png';
 import urgentCareImg from "../../assets/urgentcare'.png";
@@ -8,11 +10,16 @@ interface OverviewCard {
   href: string;
   ariaId: string;
   meta: string;
+  titleText: string;
   title: ReactElement;
   text: string;
   image: string;
   imageAlt: string;
   illustration: ReactElement;
+  description: string;
+  services: string[];
+  metric: { v: string; l: string };
+  ctaTo: string;
 }
 
 const ArrowIcon = () => (
@@ -36,10 +43,22 @@ const CARDS: OverviewCard[] = [
     href: '#emergency-room',
     ariaId: 'ov-1',
     meta: 'High Acuity',
+    titleText: 'Freestanding Emergency Rooms',
     title: <>Freestanding Emergency Rooms</>,
     text: 'Patient acquisition built for trauma searches, immediate visibility, and competitor overflow capture.',
     image: emergencyImg,
     imageAlt: 'Freestanding emergency room illustration',
+    description:
+      "Emergency-care acquisition isn't optimised paid search — it's a closed loop of clinical intent, payer-mix routing, and overflow capture from hospital partners. We rebuild that loop end-to-end so every booked visit moves revenue, not just impressions.",
+    services: [
+      'Trauma intent SEO + GBP',
+      'Wait-time landing pages',
+      'Insurance verification flows',
+      'Geo-fenced display + connected TV',
+      'EmergencyMedicalService schema',
+    ],
+    metric: { v: '+318%', l: 'Booked visits, 90d' },
+    ctaTo: '/industries/specialty-emergency',
     illustration: (
       <svg
         viewBox="0 0 320 240"
@@ -65,10 +84,22 @@ const CARDS: OverviewCard[] = [
     href: '#urgent-care',
     ariaId: 'ov-2',
     meta: 'Walk-In Volume',
+    titleText: 'Urgent Care & Walk-in Clinics',
     title: <>Urgent Care &amp; Walk-in Clinics</>,
     text: 'Volume-driven patient acquisition with reputation systems and wait-time transparency.',
     image: urgentCareImg,
     imageAlt: 'Urgent care clock illustration',
+    description:
+      'Walk-in clinics live and die on volume. We build the reputation systems, wait-time transparency, and intent-aware paid funnels that keep your locations full all year — not just during flu season.',
+    services: [
+      'Wait-time + queue transparency pages',
+      'Reputation + review velocity engine',
+      'Same-day intent paid campaigns',
+      'GBP + service-area page network',
+      'After-hours intake automation',
+    ],
+    metric: { v: '+92%', l: 'Same-day bookings, 6mo' },
+    ctaTo: '/industries/clinics',
     illustration: (
       <svg
         viewBox="0 0 320 240"
@@ -97,10 +128,22 @@ const CARDS: OverviewCard[] = [
     href: '#wellness',
     ariaId: 'ov-3',
     meta: 'Longevity',
+    titleText: 'MedSpas & Wellness Clinics',
     title: <>MedSpas &amp; Wellness Clinics</>,
     text: 'High-LTV patient acquisition with social-led lead generation and automated retention sequences.',
     image: medspaImg,
     imageAlt: 'MedSpa wellness illustration',
+    description:
+      'MedSpas earn their margin on the second and third visit, not the first. We model paid acquisition around lifetime value, then layer the retention sequences and loyalty mechanics that turn one-off bookings into multi-year patient relationships.',
+    services: [
+      'LTV-modelled paid acquisition',
+      'Social-led lead generation',
+      'Membership + loyalty programmes',
+      'Aftercare + recall automation',
+      'Treatment-bundle creative + landing pages',
+    ],
+    metric: { v: '+62%', l: 'AOV, six months' },
+    ctaTo: '/industries/medspas',
     illustration: (
       <svg
         viewBox="0 0 320 240"
@@ -131,6 +174,23 @@ const CARDS: OverviewCard[] = [
 ];
 
 const IndustriesOverview = () => {
+  const [modalIdx, setModalIdx] = useState<number | null>(null);
+  const modalCard = modalIdx !== null ? CARDS[modalIdx] : null;
+
+  useEffect(() => {
+    if (modalIdx === null) return;
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setModalIdx(null);
+    };
+    window.addEventListener('keydown', onKey);
+    return () => {
+      document.body.style.overflow = prevOverflow;
+      window.removeEventListener('keydown', onKey);
+    };
+  }, [modalIdx]);
+
   return (
     <section className="ind-overview" aria-labelledby="ind-ov-title">
       <div className="container-shell">
@@ -165,12 +225,14 @@ const IndustriesOverview = () => {
         </div>
 
         <div className="ind-ov-grid">
-          {CARDS.map((card) => (
-            <a
+          {CARDS.map((card, i) => (
+            <button
               key={card.ariaId}
-              href={card.href}
+              type="button"
               className="ind-ov-card"
               aria-labelledby={card.ariaId}
+              aria-haspopup="dialog"
+              onClick={() => setModalIdx(i)}
             >
               <div className="ind-ov-img has-img">
                 <img
@@ -190,10 +252,77 @@ const IndustriesOverview = () => {
                 {card.title}
               </h3>
               <p className="ind-ov-sub-text">{card.text}</p>
-            </a>
+            </button>
           ))}
         </div>
       </div>
+
+      {modalCard !== null && modalIdx !== null && (
+        <div
+          className="ow-ind-modal"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="ind-ov-modal-title"
+          onClick={() => setModalIdx(null)}
+        >
+          <div className="ow-ind-modal-card" onClick={(e) => e.stopPropagation()}>
+            <button
+              type="button"
+              className="ow-ind-modal-close"
+              onClick={() => setModalIdx(null)}
+              aria-label="Close details"
+            >
+              <svg width={20} height={20} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.4} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <line x1="6" y1="6" x2="18" y2="18" />
+                <line x1="6" y1="18" x2="18" y2="6" />
+              </svg>
+            </button>
+
+            <div className="ow-ind-modal-art" aria-hidden="true">
+              <img src={modalCard.image} alt="" />
+              <div className="ow-ind-modal-art-shade" />
+              <span className="ow-ind-modal-num">
+                {String(modalIdx + 1).padStart(2, '0')} / {String(CARDS.length).padStart(2, '0')}
+              </span>
+            </div>
+
+            <div className="ow-ind-modal-body">
+              <span className="ow-ind-modal-tag">Industry · {modalCard.meta}</span>
+              <h2 id="ind-ov-modal-title" className="ow-ind-modal-title">{modalCard.titleText}</h2>
+              <p className="ow-ind-modal-blurb">{modalCard.text}</p>
+              <p className="ow-ind-modal-desc">{modalCard.description}</p>
+
+              <div className="ow-ind-modal-services">
+                <span className="ow-ind-modal-subtag">What we ship</span>
+                <ul>
+                  {modalCard.services.map((s) => (
+                    <li key={s}>
+                      <svg width={14} height={14} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.4} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                        <polyline points="20 6 9 17 4 12" />
+                      </svg>
+                      {s}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="ow-ind-modal-foot">
+                <div className="ow-ind-modal-metric">
+                  <strong>{modalCard.metric.v}</strong>
+                  <span>{modalCard.metric.l}</span>
+                </div>
+                <Link to={modalCard.ctaTo} className="ow-ind-modal-cta">
+                  Explore {modalCard.titleText.split(' ').slice(0, 2).join(' ')}
+                  <svg width={16} height={16} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.4} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <line x1="5" y1="12" x2="19" y2="12" />
+                    <polyline points="12 5 19 12 12 19" />
+                  </svg>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 };

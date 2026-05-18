@@ -105,30 +105,101 @@ const Hero = () => (
   </section>
 );
 
-const StatsRail = () => (
-  <section className="fga-stats" aria-label="At a glance">
-    <div className="container-shell">
-      <div className="fga-stats-grid">
-        <div>
-          <div className="fga-stat-num">5</div>
-          <div className="fga-stat-lbl">Business days · audit to delivery</div>
-        </div>
-        <div>
-          <div className="fga-stat-num">45<span>m</span></div>
-          <div className="fga-stat-lbl">Working call with a senior strategist</div>
-        </div>
-        <div>
-          <div className="fga-stat-num">$0</div>
-          <div className="fga-stat-lbl">Cost · no upsell · no obligation</div>
-        </div>
-        <div>
-          <div className="fga-stat-num">4</div>
-          <div className="fga-stat-lbl">Deliverables in your downloadable PDF</div>
+const StatsRail = () => {
+  const stats: {
+    num: string;
+    suffix?: string;
+    label: string;
+    desc: string;
+    chip: string;
+    tone: 'gold' | 'sage' | 'brown' | 'gold2';
+    icon: ReactNode;
+  }[] = [
+    {
+      num: '5',
+      label: 'Business days',
+      desc: 'From form fill to finished plan in your inbox.',
+      chip: 'Fast turnaround',
+      tone: 'gold',
+      icon: (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <rect x="3" y="5" width="18" height="16" rx="2.5" />
+          <path d="M3 10h18M8 3v4M16 3v4" />
+          <circle cx="8" cy="14.5" r="1" fill="currentColor" />
+          <circle cx="12" cy="14.5" r="1" fill="currentColor" />
+          <circle cx="16" cy="14.5" r="1" fill="currentColor" />
+          <circle cx="8" cy="18" r="1" fill="currentColor" />
+          <circle cx="12" cy="18" r="1" fill="currentColor" />
+        </svg>
+      ),
+    },
+    {
+      num: '45',
+      suffix: 'min',
+      label: 'Working call',
+      desc: 'Live walk-through with a senior strategist. Recorded.',
+      chip: 'Live & recorded',
+      tone: 'sage',
+      icon: (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="9" />
+          <path d="M12 7v5l3.5 2.2" />
+          <path d="M3.5 6.5L6 4.5M20.5 6.5L18 4.5" />
+        </svg>
+      ),
+    },
+    {
+      num: '$0',
+      label: 'Total cost',
+      desc: 'No upsell, no obligation. The plan is yours either way.',
+      chip: 'Truly free',
+      tone: 'brown',
+      icon: (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6z" />
+          <path d="M9 12l2 2 4-4" />
+        </svg>
+      ),
+    },
+    {
+      num: '4',
+      label: 'Deliverables',
+      desc: 'Score, leak map, paid review, 90-day plan — all in one PDF.',
+      chip: 'Yours to keep',
+      tone: 'gold2',
+      icon: (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z" />
+          <path d="M14 3v5h5" />
+          <path d="M9 13h6M9 17h4M9 9h2" />
+        </svg>
+      ),
+    },
+  ];
+  return (
+    <section className="fga-stats" aria-label="At a glance">
+      <div className="container-shell">
+        <div className="fga-stats-grid">
+          {stats.map((s) => (
+            <article key={s.label} className={`fga-stat-card tone-${s.tone}`}>
+              <div className="fga-stat-icon" aria-hidden="true">{s.icon}</div>
+              <div className="fga-stat-num">
+                {s.num}
+                {s.suffix && <span className="fga-stat-suffix">{s.suffix}</span>}
+              </div>
+              <div className="fga-stat-label">{s.label}</div>
+              <p className="fga-stat-desc">{s.desc}</p>
+              <span className="fga-stat-chip">
+                <span className="fga-stat-chip-dot" aria-hidden="true" />
+                {s.chip}
+              </span>
+            </article>
+          ))}
         </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 const Bento = () => (
   <section className="fga-bento-section" aria-labelledby="fga-bento-title">
@@ -247,23 +318,150 @@ const Pact = () => {
   return (
     <section className="fga-pact" aria-labelledby="fga-pact-title">
       <div className="container-shell">
-        <div className="fga-pact-grid">
-          <h2 id="fga-pact-title" className="fga-pact-h">
-            The pact <span className="fga-pact-amp">&amp;</span>
-            <br />
-            the fine print.
-          </h2>
+        <div className="fga-pact-tree">
+          <div className="fga-pact-root">
+            <span className="fga-section-tag">The promise</span>
+            <h2 id="fga-pact-title" className="fga-pact-h">
+              The pact <span className="fga-pact-amp">&amp;</span> the fine print.
+            </h2>
+          </div>
+
+          <div className="fga-pact-connector" aria-hidden="true">
+            <span className="fga-pact-trunk" />
+            <span className="fga-pact-bar" />
+            <span className="fga-pact-drop fga-pact-drop-1" />
+            <span className="fga-pact-drop fga-pact-drop-2" />
+            <span className="fga-pact-drop fga-pact-drop-3" />
+          </div>
+
           <ol className="fga-pact-list">
             {promises.map((p, i) => (
               <li key={p.k}>
                 <span className="fga-pact-num">{String(i + 1).padStart(2, '0')}</span>
-                <div>
-                  <h3>{p.k}</h3>
-                  <p>{p.v}</p>
-                </div>
+                <h3>{p.k}</h3>
+                <p>{p.v}</p>
               </li>
             ))}
           </ol>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const Compare = () => {
+  const rows: { label: string; us: string; them: string }[] = [
+    { label: 'Cost',         us: '$0 — yours either way',           them: '$2,500 – $8,000 upfront' },
+    { label: 'Turnaround',   us: '5 business days',                 them: '2 – 3 weeks' },
+    { label: 'Run by',       us: 'Senior growth strategist',        them: 'Account exec with a template' },
+    { label: 'Industry fit', us: 'Healthcare-only playbook',        them: 'Generic agency framework' },
+    { label: 'The call',     us: '45-min working plan walk-through',them: 'Sales pitch in disguise' },
+    { label: 'Deliverable',  us: 'PDF yours to keep — agency or not', them: 'Locked behind a retainer' },
+  ];
+  return (
+    <section className="fga-compare" aria-labelledby="fga-compare-title">
+      <div className="container-shell">
+        <header className="fga-section-head fga-compare-head">
+          <span className="fga-section-tag">Why this audit</span>
+          <h2 id="fga-compare-title" className="fga-section-h2">
+            Same diagnosis. Without the retainer.
+          </h2>
+          <p className="fga-compare-lede">
+            Most agency audits exist to sell you the agency. Ours exists so you
+            know exactly what to do next — whether you hire us or not.
+          </p>
+        </header>
+
+        <div className="fga-compare-grid" role="table" aria-label="Free Growth Audit compared to a typical agency audit">
+          <div className="fga-compare-row fga-compare-head-row" role="row">
+            <div role="columnheader" aria-hidden="true" />
+            <div role="columnheader" className="fga-compare-col fga-compare-col-us">
+              <span className="fga-compare-badge">Focus Free Audit</span>
+            </div>
+            <div role="columnheader" className="fga-compare-col fga-compare-col-them">
+              <span className="fga-compare-badge fga-compare-badge-muted">Typical agency audit</span>
+            </div>
+          </div>
+          {rows.map((r) => (
+            <div key={r.label} className="fga-compare-row" role="row">
+              <div role="rowheader" className="fga-compare-label">{r.label}</div>
+              <div role="cell" className="fga-compare-cell fga-compare-cell-us">
+                <span className="fga-compare-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.4} strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M5 12l5 5L20 7" />
+                  </svg>
+                </span>
+                <span>{r.us}</span>
+              </div>
+              <div role="cell" className="fga-compare-cell fga-compare-cell-them">
+                <span className="fga-compare-icon fga-compare-icon-x" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.4} strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M6 6l12 12M18 6L6 18" />
+                  </svg>
+                </span>
+                <span>{r.them}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const Outcomes = () => {
+  const results: { metric: string; metricLabel: string; context: string; practice: string }[] = [
+    {
+      metric: '+37%',
+      metricLabel: 'Qualified bookings',
+      context: 'In 60 days, by rewriting the paid landing flow and adding intake automation flagged in the audit.',
+      practice: 'Med spa · Houston',
+    },
+    {
+      metric: '−$8.4k',
+      metricLabel: 'Wasted spend / mo',
+      context: 'Broad-match keyword bleed and overlapping audiences across three ad accounts — cut in the first 30 days.',
+      practice: 'Urgent care · DFW',
+    },
+    {
+      metric: '#1–3',
+      metricLabel: 'Local Pack',
+      context: 'GBP review velocity plus a service-area page rebuild moved four service terms into the 3-pack in 11 weeks.',
+      practice: 'Dental · Austin',
+    },
+    {
+      metric: '4.2 → 4.8★',
+      metricLabel: 'Google rating',
+      context: 'Replaced manual review asks with the permission-based SMS cadence specified in the 90-day plan.',
+      practice: 'Mental health · San Antonio',
+    },
+  ];
+  return (
+    <section className="fga-outcomes" aria-labelledby="fga-outcomes-title">
+      <div className="container-shell">
+        <header className="fga-section-head fga-outcomes-head">
+          <span className="fga-section-tag">Proof, not promises</span>
+          <h2 id="fga-outcomes-title" className="fga-section-h2">
+            What past recipients did with the plan.
+          </h2>
+          <p className="fga-outcomes-lede">
+            Real numbers from healthcare practices who ran the audit themselves —
+            most without ever hiring an agency.
+          </p>
+        </header>
+
+        <div className="fga-outcomes-grid">
+          {results.map((r) => (
+            <article key={r.practice} className="fga-outcome-card">
+              <div className="fga-outcome-metric">{r.metric}</div>
+              <div className="fga-outcome-metric-lbl">{r.metricLabel}</div>
+              <p className="fga-outcome-context">{r.context}</p>
+              <div className="fga-outcome-practice">
+                <span className="fga-outcome-dot" aria-hidden="true" />
+                {r.practice}
+              </div>
+            </article>
+          ))}
         </div>
       </div>
     </section>
@@ -361,6 +559,8 @@ const FreeGrowthAudit = () => (
     <Bento />
     <Timeline />
     <Pact />
+    <Compare />
+    <Outcomes />
     <Closing />
 
     <script

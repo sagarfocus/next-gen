@@ -1,4 +1,5 @@
 import type { ReactElement } from 'react';
+import { Link } from 'react-router-dom';
 
 interface InfraCard {
   featured?: boolean;
@@ -7,6 +8,7 @@ interface InfraCard {
   text: string;
   bullets: string[];
   icon: ReactElement;
+  to: string;
 }
 
 const Check = () => (
@@ -38,6 +40,7 @@ const CARDS: InfraCard[] = [
       'Medical Content Writer',
       'Social Media Manager',
     ],
+    to: '/infrastructure/growth-team',
     icon: (
       <svg
         width={26}
@@ -66,6 +69,7 @@ const CARDS: InfraCard[] = [
       'Encrypted Patient Intake',
       'Secure Cloud Architecture',
     ],
+    to: '/infrastructure/compliance-protocol',
     icon: (
       <svg
         width={26}
@@ -92,6 +96,7 @@ const CARDS: InfraCard[] = [
       'Real-Time Dashboard Access',
       'Documented Escalation Paths',
     ],
+    to: '/infrastructure/service-level-agreements',
     icon: (
       <svg
         width={26}
@@ -128,9 +133,11 @@ const Infrastructure = () => {
 
         <div className="ab-infra-grid">
           {CARDS.map((card) => (
-            <article
+            <Link
               key={card.tag}
+              to={card.to}
               className={`ab-infra-card${card.featured ? ' is-featured' : ''}`}
+              aria-label={`${card.tag} — read more`}
             >
               <span className="ab-infra-icon" aria-hidden="true">
                 {card.icon}
@@ -146,7 +153,14 @@ const Infrastructure = () => {
                   </li>
                 ))}
               </ul>
-            </article>
+              <span className="ab-infra-cta" aria-hidden="true">
+                Learn more
+                <svg width={14} height={14} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.4} strokeLinecap="round" strokeLinejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                  <polyline points="12 5 19 12 12 19" />
+                </svg>
+              </span>
+            </Link>
           ))}
         </div>
       </div>

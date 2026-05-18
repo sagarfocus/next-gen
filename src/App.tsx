@@ -43,6 +43,9 @@ import Phase3 from './pages/Phases/Phase3';
 import IndustryClinics from './pages/Industries/Clinics';
 import IndustryMedSpas from './pages/Industries/MedSpas';
 import IndustrySpecialtyEmergency from './pages/Industries/SpecialtyEmergency';
+import GrowthTeam from './pages/Infrastructure/GrowthTeam';
+import ComplianceProtocol from './pages/Infrastructure/ComplianceProtocol';
+import ServiceLevelAgreements from './pages/Infrastructure/ServiceLevelAgreements';
 import NotFound from './pages/NotFound';
 
 const App = () => {
@@ -98,6 +101,9 @@ const App = () => {
         <Route path="/industries/clinics" element={<IndustryClinics />} />
         <Route path="/industries/medspas" element={<IndustryMedSpas />} />
         <Route path="/industries/specialty-emergency" element={<IndustrySpecialtyEmergency />} />
+        <Route path="/infrastructure/growth-team" element={<GrowthTeam />} />
+        <Route path="/infrastructure/compliance-protocol" element={<ComplianceProtocol />} />
+        <Route path="/infrastructure/service-level-agreements" element={<ServiceLevelAgreements />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       </PageTransition>

@@ -242,18 +242,42 @@ const Phase1 = () => {
         .ph1-dims {
           display: grid;
           grid-template-columns: repeat(3, 1fr);
-          gap: 0;
+          gap: 18px;
           margin-top: 32px;
-          border-top: 1px solid rgba(45, 55, 72, 0.12);
-          border-left: 1px solid rgba(45, 55, 72, 0.12);
         }
         .ph1-dim {
           padding: 32px 26px 30px;
           background: #fff;
-          border-right: 1px solid rgba(45, 55, 72, 0.12);
-          border-bottom: 1px solid rgba(45, 55, 72, 0.12);
+          border: 1px solid rgba(45, 55, 72, 0.12);
+          border-radius: 18px;
           display: flex;
           flex-direction: column;
+          position: relative;
+          overflow: hidden;
+          transition:
+            transform 0.35s cubic-bezier(0.2, 0.7, 0.2, 1),
+            border-color 0.35s ease,
+            box-shadow 0.35s ease,
+            background 0.35s ease;
+        }
+        .ph1-dim::before {
+          content: "";
+          position: absolute;
+          top: 0; left: 0; right: 0;
+          height: 3px;
+          background: #B38B6D;
+          transform: scaleX(0);
+          transform-origin: left;
+          transition: transform 0.4s cubic-bezier(0.2, 0.7, 0.2, 1);
+        }
+        .ph1-dim:hover {
+          transform: translateY(-6px);
+          border-color: rgba(179, 139, 109, 0.45);
+          box-shadow: 0 28px 48px -28px rgba(45, 55, 72, 0.25);
+        }
+        .ph1-dim:hover::before { transform: scaleX(1); }
+        .ph1-dim:hover .signals li {
+          background: #FBF5EC;
         }
         .ph1-dim .num {
           display: inline-flex;
@@ -358,64 +382,135 @@ const Phase1 = () => {
           margin: 0;
           max-width: 56ch;
         }
+        /* Horizontal funnel — one row per stage. Bar width = absolute %
+           of starting clicks, so the visual collapse equals the data. */
         .ph1-funnel {
-          display: grid;
-          grid-template-columns: repeat(5, 1fr);
-          gap: 6px;
-          align-items: end;
+          display: flex;
+          flex-direction: column;
+          gap: 4px;
         }
         .ph1-step {
+          display: grid;
+          grid-template-columns: 56px 140px 1fr auto;
+          align-items: center;
+          gap: 18px;
+          padding: 14px 18px;
           background: #fff;
           border: 1px solid rgba(45, 55, 72, 0.12);
-          padding: 22px 18px 20px;
-          position: relative;
-          border-top: 4px solid #2D3748;
+          border-radius: 14px;
+          transition:
+            transform 0.3s cubic-bezier(0.2, 0.7, 0.2, 1),
+            border-color 0.3s ease,
+            box-shadow 0.3s ease,
+            background 0.3s ease;
         }
-        .ph1-step.leak { border-top-color: #B38B6D; background: #FFF8F0; }
-        .ph1-step .stage {
-          font-size: 10.5px;
+        .ph1-step:hover {
+          transform: translateX(4px);
+          border-color: rgba(45, 55, 72, 0.22);
+          box-shadow: 0 18px 32px -22px rgba(45, 55, 72, 0.22);
+        }
+        .ph1-step.leak {
+          background: #FFF8F0;
+          border-color: rgba(179, 139, 109, 0.32);
+        }
+        .ph1-step.leak:hover { border-color: rgba(179, 139, 109, 0.55); }
+        .ph1-step .idx {
+          font-family: ui-monospace, Menlo, monospace;
+          font-size: 11px;
           font-weight: 700;
-          letter-spacing: 0.24em;
+          letter-spacing: 0.18em;
+          color: #B38B6D;
+        }
+        .ph1-step .stage {
+          font-size: 12px;
+          font-weight: 800;
+          letter-spacing: 0.18em;
           text-transform: uppercase;
-          color: #718096;
+          color: #2D3748;
+        }
+        .ph1-step .bar {
+          position: relative;
+          height: 14px;
+          background: rgba(45, 55, 72, 0.06);
+          border-radius: 999px;
+          overflow: hidden;
+        }
+        .ph1-step .fill {
+          height: 100%;
+          background: linear-gradient(90deg, #2D3748, #4A5568);
+          border-radius: inherit;
+          transition: width 0.6s cubic-bezier(0.2, 0.7, 0.2, 1);
+        }
+        .ph1-step.leak .fill {
+          background: linear-gradient(90deg, #B38B6D, #D4AF7C);
+        }
+        .ph1-step .num {
+          display: flex;
+          align-items: baseline;
+          gap: 6px;
+          min-width: 92px;
+          justify-content: flex-end;
         }
         .ph1-step .count {
-          margin-top: 10px;
-          font-size: 36px;
+          font-size: 28px;
           font-weight: 800;
           color: #2D3748;
           line-height: 1;
           letter-spacing: -0.02em;
+          font-feature-settings: "tnum" 1;
         }
-        .ph1-step .count em {
-          font-style: normal;
-          font-size: 14px;
-          color: #718096;
-          font-weight: 700;
-          margin-left: 4px;
-        }
-        .ph1-step .delta {
-          margin-top: 8px;
+        .ph1-step.leak .count { color: #B38B6D; }
+        .ph1-step .of {
           font-size: 11px;
+          font-weight: 700;
+          color: #A0AEC0;
+          letter-spacing: 0.04em;
+        }
+
+        /* Connector showing the drop between two consecutive stages */
+        .ph1-drop {
+          display: grid;
+          grid-template-columns: 56px 140px auto auto 1fr;
+          align-items: center;
+          gap: 18px;
+          padding: 0 18px;
+          height: 36px;
           color: #4A5568;
         }
-        .ph1-step .delta b { color: #B00020; font-weight: 800; }
-        .ph1-step .bar {
-          margin-top: 12px;
-          height: 80px;
-          background: linear-gradient(180deg, rgba(45,55,72,0.12), rgba(45,55,72,0.03));
-          border-radius: 2px;
-          position: relative;
-          overflow: hidden;
+        .ph1-drop .line {
+          grid-column: 1 / 3;
+          height: 22px;
+          margin-left: 10px;
+          border-left: 2px dashed rgba(45, 55, 72, 0.22);
         }
-        .ph1-step .bar::after {
-          content: "";
-          position: absolute;
-          inset: auto 0 0 0;
-          background: #2D3748;
-          height: var(--fill, 100%);
+        .ph1-drop .d-val {
+          font-family: ui-monospace, Menlo, monospace;
+          font-size: 12px;
+          font-weight: 800;
+          color: #B00020;
+          letter-spacing: 0.02em;
         }
-        .ph1-step.leak .bar::after { background: #B38B6D; }
+        .ph1-drop .d-reason {
+          font-size: 12px;
+          font-weight: 700;
+          color: #4A5568;
+          letter-spacing: 0.06em;
+          text-transform: uppercase;
+        }
+        .ph1-drop .d-badge {
+          justify-self: end;
+          font-size: 10px;
+          font-weight: 800;
+          letter-spacing: 0.18em;
+          text-transform: uppercase;
+          color: #B38B6D;
+          padding: 4px 10px;
+          border-radius: 999px;
+          background: #FBF1E2;
+          border: 1px solid rgba(179, 139, 109, 0.45);
+        }
+        .ph1-drop.is-leak .d-val { color: #B38B6D; }
+        .ph1-drop.is-leak .line { border-color: rgba(179, 139, 109, 0.55); }
 
         /* ==== Timeline ==== */
         .ph1-tl {
@@ -603,7 +698,6 @@ const Phase1 = () => {
         @media (max-width: 1100px) {
           .ph1-dims { grid-template-columns: repeat(2, 1fr); }
           .ph1-deliv-grid { grid-template-columns: repeat(2, 1fr); }
-          .ph1-funnel { grid-template-columns: repeat(5, 1fr); gap: 4px; }
           .ph1-tl-grid { grid-template-columns: repeat(2, 1fr); }
           .ph1-tl-grid::before { display: none; }
           .ph1-tl-cell { padding-top: 32px; }
@@ -623,11 +717,18 @@ const Phase1 = () => {
           .ph1-deliv-head h2 { grid-column: 1; }
           .ph1-meta-row { display: none; }
           .ph1-bignum { font-size: 140px; }
-          .ph1-funnel { grid-template-columns: 1fr 1fr; }
+          .ph1-step { grid-template-columns: 48px 100px 1fr auto; gap: 12px; padding: 12px 14px; }
+          .ph1-step .num { min-width: 80px; }
+          .ph1-step .count { font-size: 24px; }
+          .ph1-drop { grid-template-columns: 48px 100px auto auto 1fr; gap: 12px; padding: 0 14px; }
         }
         @media (max-width: 560px) {
           .ph1-dims { grid-template-columns: 1fr; }
           .ph1-deliv-grid { grid-template-columns: 1fr; }
+          .ph1-step { grid-template-columns: 42px 1fr auto; }
+          .ph1-step .stage { display: none; }
+          .ph1-drop { grid-template-columns: 42px auto auto 1fr; }
+          .ph1-drop .line { grid-column: 1 / 2; }
         }
       `}</style>
 
@@ -786,34 +887,73 @@ const Phase1 = () => {
           </div>
           <div className="ph1-funnel" aria-label="Funnel leakage from 100 clicks to 8 bookings">
             <div className="ph1-step">
-              <div className="stage">Clicks</div>
-              <div className="count">100</div>
-              <div className="delta">Baseline</div>
-              <div className="bar" style={{ ['--fill' as never]: '100%' } as React.CSSProperties} />
+              <span className="idx">01</span>
+              <span className="stage">Clicks</span>
+              <div className="bar">
+                <div className="fill" style={{ width: '100%' }} />
+              </div>
+              <div className="num"><span className="count">100</span><span className="of">/ 100</span></div>
             </div>
+
+            <div className="ph1-drop">
+              <span className="line" aria-hidden="true" />
+              <span className="d-val">−16</span>
+              <span className="d-reason">bounce</span>
+            </div>
+
             <div className="ph1-step">
-              <div className="stage">Landed</div>
-              <div className="count">84</div>
-              <div className="delta"><b>−16</b> · bounce</div>
-              <div className="bar" style={{ ['--fill' as never]: '84%' } as React.CSSProperties} />
+              <span className="idx">02</span>
+              <span className="stage">Landed</span>
+              <div className="bar">
+                <div className="fill" style={{ width: '84%' }} />
+              </div>
+              <div className="num"><span className="count">84</span><span className="of">/ 100</span></div>
             </div>
+
+            <div className="ph1-drop is-leak">
+              <span className="line" aria-hidden="true" />
+              <span className="d-val">−32</span>
+              <span className="d-reason">scroll exit</span>
+              <span className="d-badge">Biggest leak</span>
+            </div>
+
             <div className="ph1-step leak">
-              <div className="stage">Engaged</div>
-              <div className="count">52</div>
-              <div className="delta"><b>−32</b> · scroll exit</div>
-              <div className="bar" style={{ ['--fill' as never]: '52%' } as React.CSSProperties} />
+              <span className="idx">03</span>
+              <span className="stage">Engaged</span>
+              <div className="bar">
+                <div className="fill" style={{ width: '52%' }} />
+              </div>
+              <div className="num"><span className="count">52</span><span className="of">/ 100</span></div>
             </div>
+
+            <div className="ph1-drop">
+              <span className="line" aria-hidden="true" />
+              <span className="d-val">−33</span>
+              <span className="d-reason">form / call</span>
+            </div>
+
             <div className="ph1-step">
-              <div className="stage">Inquired</div>
-              <div className="count">19</div>
-              <div className="delta"><b>−33</b> · form / call</div>
-              <div className="bar" style={{ ['--fill' as never]: '19%' } as React.CSSProperties} />
+              <span className="idx">04</span>
+              <span className="stage">Inquired</span>
+              <div className="bar">
+                <div className="fill" style={{ width: '19%' }} />
+              </div>
+              <div className="num"><span className="count">19</span><span className="of">/ 100</span></div>
             </div>
+
+            <div className="ph1-drop">
+              <span className="line" aria-hidden="true" />
+              <span className="d-val">−11</span>
+              <span className="d-reason">desk drop</span>
+            </div>
+
             <div className="ph1-step leak">
-              <div className="stage">Booked</div>
-              <div className="count">08</div>
-              <div className="delta"><b>−11</b> · desk drop</div>
-              <div className="bar" style={{ ['--fill' as never]: '8%' } as React.CSSProperties} />
+              <span className="idx">05</span>
+              <span className="stage">Booked</span>
+              <div className="bar">
+                <div className="fill" style={{ width: '8%' }} />
+              </div>
+              <div className="num"><span className="count">08</span><span className="of">/ 100</span></div>
             </div>
           </div>
         </section>

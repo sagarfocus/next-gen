@@ -25,8 +25,6 @@ const MEMBERS: Member[] = [
   { name: 'Sagar Timalsina', role: 'Software Developer', photo: sagarPhoto, tint: 't4' },
 ];
 
-const pad = (n: number) => String(n).padStart(2, '0');
-
 const TeamGrid = () => {
   return (
     <section className="tm-section">
@@ -39,9 +37,8 @@ const TeamGrid = () => {
         </div>
 
         <div className="tm-team">
-          {MEMBERS.map((m, i) => (
+          {MEMBERS.map((m) => (
             <article key={m.name} className="tm-card">
-              <div className="tm-card-num">— {pad(i + 2)}</div>
               <div className={`tm-avatar ${m.tint}`}>
                 <img src={m.photo} alt={m.name} loading="lazy" />
               </div>

@@ -72,8 +72,11 @@ const TARGETS: AutoTarget[] = [
   { selector: '.ow-ind-pills li', variant: 'scale', stagger: 50 },
   { selector: '.fga-bento > *', variant: 'up', stagger: 110 },
   { selector: '.fga-stats-grid > *', variant: 'up', stagger: 90 },
+  { selector: '.fga-timeline', variant: 'fade' },
   { selector: '.fga-tl-item', variant: 'up', stagger: 110 },
   { selector: '.fga-pact-list li', variant: 'up', stagger: 110 },
+  { selector: '.fga-compare-grid', variant: 'up' },
+  { selector: '.fga-outcomes-grid > *', variant: 'up', stagger: 100 },
 
   // Stats strips
   { selector: '.ow-stats-grid > *', variant: 'up', stagger: 100 },

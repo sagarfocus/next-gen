@@ -156,14 +156,15 @@ const Phase2 = () => {
         .ph2-modules {
           display: grid;
           grid-template-columns: repeat(4, 1fr);
+          gap: 18px;
           margin: 0;
           padding: 0;
         }
         .ph2-mod {
           --accent: #B38B6D;
           background: #FAFAF8;
-          border-right: 1px solid rgba(45, 55, 72, 0.10);
-          border-bottom: 1px solid rgba(45, 55, 72, 0.10);
+          border: 1px solid rgba(45, 55, 72, 0.10);
+          border-radius: 18px;
           padding: 36px 28px 40px;
           min-height: 340px;
           display: flex;
@@ -173,10 +174,10 @@ const Phase2 = () => {
           transition:
             transform 0.35s cubic-bezier(0.2, 0.7, 0.2, 1),
             background 0.35s ease,
-            box-shadow 0.35s ease;
+            box-shadow 0.35s ease,
+            border-color 0.35s ease;
           cursor: default;
         }
-        .ph2-mod:nth-child(4n) { border-right: none; }
         .ph2-mod.accent {
           background: #F4EDE2;
           --accent: #B38B6D;
@@ -210,6 +211,7 @@ const Phase2 = () => {
         .ph2-mod:hover {
           transform: translateY(-6px);
           background: #fff;
+          border-color: rgba(45, 55, 72, 0.18);
           box-shadow: 0 28px 48px -28px rgba(45, 55, 72, 0.25);
         }
         .ph2-mod.accent:hover { background: #FBF5EC; }
@@ -561,8 +563,6 @@ const Phase2 = () => {
         /* ============ Responsive ============ */
         @media (max-width: 1100px) {
           .ph2-modules { grid-template-columns: repeat(2, 1fr); }
-          .ph2-mod:nth-child(4n) { border-right: 1px solid rgba(45,55,72,0.10); }
-          .ph2-mod:nth-child(2n) { border-right: none; }
           .ph2-gantt-days { grid-template-columns: 110px repeat(14, 1fr); }
           .ph2-gantt-days .d { font-size: 9.5px; }
           .ph2-gantt-track { grid-template-columns: 110px 1fr; }
@@ -575,7 +575,6 @@ const Phase2 = () => {
           .ph2-hero-content { grid-template-columns: 1fr; }
           .ph2-h1, .ph2-lede, .ph2-stat { grid-column: 1; }
           .ph2-modules { grid-template-columns: 1fr; }
-          .ph2-mod { border-right: none; }
           .ph2-strip-wrap { grid-template-columns: 1fr; }
           .ph2-strip-lbl, .ph2-strip-q, .ph2-strip-next { grid-column: 1; justify-self: start; text-align: left; }
           .ph2-stack-head, .ph2-gantt-head { grid-template-columns: 1fr; }
