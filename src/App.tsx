@@ -40,6 +40,9 @@ import Contact from './pages/Contact';
 import Phase1 from './pages/Phases/Phase1';
 import Phase2 from './pages/Phases/Phase2';
 import Phase3 from './pages/Phases/Phase3';
+import IndustryClinics from './pages/Industries/Clinics';
+import IndustryMedSpas from './pages/Industries/MedSpas';
+import IndustrySpecialtyEmergency from './pages/Industries/SpecialtyEmergency';
 import NotFound from './pages/NotFound';
 
 const App = () => {
@@ -92,6 +95,9 @@ const App = () => {
         <Route path="/methodology/phase-1" element={<Phase1 />} />
         <Route path="/methodology/phase-2" element={<Phase2 />} />
         <Route path="/methodology/phase-3" element={<Phase3 />} />
+        <Route path="/industries/clinics" element={<IndustryClinics />} />
+        <Route path="/industries/medspas" element={<IndustryMedSpas />} />
+        <Route path="/industries/specialty-emergency" element={<IndustrySpecialtyEmergency />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       </PageTransition>

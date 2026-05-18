@@ -1,4 +1,5 @@
 import type { ReactElement } from 'react';
+import { Link } from 'react-router-dom';
 
 interface ServeCard {
   ariaId: string;
@@ -7,6 +8,7 @@ interface ServeCard {
   title: string;
   desc: string;
   points: string[];
+  to: string;
 }
 
 const ClinicsIllustration = (
@@ -212,6 +214,7 @@ const CARDS: ServeCard[] = [
     title: 'Clinics & Multi-Specialty Practices',
     desc: 'From single-location family practices to multi-location networks — SEO, paid media, and patient-acquisition systems built for clinical reality.',
     points: ['Family Practice', 'Cardiology', 'Dental', 'Pediatrics'],
+    to: '/industries/clinics',
   },
   {
     ariaId: 'serve-2',
@@ -220,6 +223,7 @@ const CARDS: ServeCard[] = [
     title: 'MedSpas & Wellness Brands',
     desc: 'High-volume social, Meta campaigns, and conversion-focused websites engineered for elective and aesthetic services.',
     points: ['MedSpa', 'Aesthetics', 'IV Therapy', 'Wellness'],
+    to: '/industries/medspas',
   },
   {
     ariaId: 'serve-3',
@@ -228,6 +232,7 @@ const CARDS: ServeCard[] = [
     title: 'Specialty & Emergency Care',
     desc: 'Compliance-aware, high-acuity patient acquisition for ERs, urgent care, and specialty practices that need scale and speed.',
     points: ['Emergency', 'Urgent Care', 'Orthopedics', 'Oncology'],
+    to: '/industries/specialty-emergency',
   },
 ];
 
@@ -269,9 +274,10 @@ const WhoWeServe = () => {
         </div>
 
         <div className="serve-grid">
-          {CARDS.map(({ ariaId, illustration, tag, title, desc, points }) => (
-            <article
+          {CARDS.map(({ ariaId, illustration, tag, title, desc, points, to }) => (
+            <Link
               key={ariaId}
+              to={to}
               className="serve-card"
               aria-labelledby={ariaId}
             >
@@ -290,7 +296,7 @@ const WhoWeServe = () => {
                   ))}
                 </ul>
               </div>
-            </article>
+            </Link>
           ))}
         </div>
       </div>

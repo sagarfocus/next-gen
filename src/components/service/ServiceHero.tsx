@@ -2,6 +2,7 @@ import type { ReactElement, ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 
 interface ServiceHeroProps {
+  crumbRoot?: { label: string; href: string };
   crumb: string;
   title: ReactNode;
   lede: ReactNode;
@@ -60,6 +61,7 @@ const StarIcon = () => (
 );
 
 const ServiceHero = ({
+  crumbRoot,
   crumb,
   title,
   lede,
@@ -68,13 +70,14 @@ const ServiceHero = ({
   rankBadge,
   mainCard,
 }: ServiceHeroProps) => {
+  const root = crumbRoot ?? { label: 'Services', href: '/services' };
   return (
     <section className="sv-hero">
       <div className="container-shell">
         <div className="sv-hero-grid">
           <div>
             <div className="sv-hero-crumb">
-              <Link to="/services">Services</Link>
+              <Link to={root.href}>{root.label}</Link>
               <span className="sep">/</span>
               <span className="cur">{crumb}</span>
             </div>
