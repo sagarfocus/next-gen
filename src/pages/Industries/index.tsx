@@ -3,6 +3,7 @@ import IndustriesHero from './IndustriesHero';
 import IndustriesOverview from './IndustriesOverview';
 import IndustryDeepDive from './IndustryDeepDive';
 import AllIndustries from './AllIndustries';
+import IndustriesFAQ from './IndustriesFAQ';
 import BookingModal from '../../components/BookingModal';
 
 const LOCAL_BUSINESS_SCHEMA = {
@@ -39,6 +40,7 @@ const Industries = () => {
       <IndustriesOverview />
       <IndustryDeepDive />
       <AllIndustries />
+      <IndustriesFAQ onBook={openBooking} />
 
       <BookingModal open={bookingOpen} onClose={closeBooking} />
 
