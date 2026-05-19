@@ -18869,50 +18869,33 @@
     max-width: 40ch;
   }
 
-  .tm-pc-stack {
-    display: flex;
-    gap: 10px;
+  /* Process carousel — swiper-based (replaces the older .tm-pc-stack panel
+     layout). One slide per step, full-width image bg + dark gradient +
+     content overlay. Round glass arrow buttons on the sides. */
+  .tm-pc-swiper {
+    width: 100%;
     height: clamp(380px, 56vh, 560px);
     border-radius: 20px;
     overflow: hidden;
     background: #1A2438;
-    padding: 0;
-    margin: 0;
-  }
-  .tm-pc-panel {
     position: relative;
-    flex: 1;
-    min-width: 0;
-    cursor: pointer;
+  }
+  .tm-pc-slide {
+    position: relative;
     overflow: hidden;
-    border-radius: 14px;
     background: #1A2438;
-    transition: flex 0.55s cubic-bezier(0.2, 0.7, 0.2, 1);
-    outline: none;
+    height: 100%;
+    width: 100%;
   }
-  .tm-pc-panel.is-active { flex: 3.2; }
-  .tm-pc-panel:focus-visible {
-    box-shadow: inset 0 0 0 2px rgba(212, 175, 124, 0.85);
-  }
-
-  .tm-pc-panel-img {
+  .tm-pc-slide-img {
     position: absolute;
     inset: 0;
     background-size: cover;
     background-position: center;
-    transform: scale(1.05);
-    filter: brightness(0.6) saturate(0.92);
-    transition:
-      transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1),
-      filter 0.45s ease;
+    filter: brightness(0.65) saturate(1);
     z-index: 0;
   }
-  .tm-pc-panel.is-active .tm-pc-panel-img {
-    transform: scale(1);
-    filter: brightness(0.65) saturate(1);
-  }
-
-  .tm-pc-panel-shade {
+  .tm-pc-slide-shade {
     position: absolute;
     inset: 0;
     background: linear-gradient(
@@ -18921,33 +18904,18 @@
       rgba(15, 20, 32, 0.50) 38%,
       rgba(15, 20, 32, 0.05) 72%
     );
-    opacity: 0;
-    transition: opacity 0.45s ease;
     z-index: 1;
   }
-  .tm-pc-panel.is-active .tm-pc-panel-shade { opacity: 1; }
-
-  .tm-pc-panel-content {
+  .tm-pc-slide-content {
     position: absolute;
-    left: clamp(20px, 2.6vw, 36px);
-    right: clamp(20px, 2.6vw, 36px);
-    bottom: clamp(22px, 2.8vw, 34px);
+    left: clamp(28px, 4vw, 56px);
+    right: clamp(28px, 4vw, 56px);
+    bottom: clamp(28px, 4vw, 56px);
     z-index: 2;
-    opacity: 0;
-    transform: translateY(14px);
-    transition:
-      opacity 0.35s ease,
-      transform 0.45s cubic-bezier(0.2, 0.7, 0.2, 1);
-    pointer-events: none;
-    max-width: 56ch;
+    color: #FFFFFF;
+    max-width: 64ch;
   }
-  .tm-pc-panel.is-active .tm-pc-panel-content {
-    opacity: 1;
-    transform: none;
-    transition-delay: 0.18s;
-  }
-
-  .tm-pc-panel-phase {
+  .tm-pc-slide-phase {
     display: inline-flex;
     align-items: center;
     gap: 9px;
@@ -18959,56 +18927,75 @@
     color: #E5C796;
     margin: 0 0 14px;
   }
-  .tm-pc-panel-dot {
+  .tm-pc-slide-dot {
     width: 6px;
     height: 6px;
     border-radius: 50%;
     background: #E5C796;
     flex: 0 0 auto;
   }
-
-  .tm-pc-panel-title {
-    margin: 0 0 12px;
+  .tm-pc-slide-title {
+    margin: 0 0 14px;
     font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: clamp(22px, 2.4vw, 34px);
+    font-size: clamp(26px, 3vw, 42px);
     font-weight: 800;
     line-height: 1.08;
     letter-spacing: -0.024em;
     color: #FFFFFF;
     text-wrap: balance;
   }
-
-  .tm-pc-panel-desc {
+  .tm-pc-slide-desc {
     margin: 0;
-    font-size: 14.5px;
+    font-size: clamp(14.5px, 1.05vw, 16.5px);
     line-height: 1.55;
     color: rgba(255, 255, 255, 0.85);
-    max-width: 52ch;
+    max-width: 56ch;
   }
 
-  /* Mobile: vertical accordion */
+  /* Swiper navigation arrows — bare chevrons, no circle/background.
+     Subtle drop shadow keeps them legible against any image background. */
+  .tm-pc-swiper .swiper-button-prev,
+  .tm-pc-swiper .swiper-button-next {
+    width: 36px;
+    height: 36px;
+    border-radius: 0;
+    background: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border: none;
+    color: #FFFFFF;
+    margin-top: -18px;
+    filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.45));
+    transition: color 0.2s ease, transform 0.2s ease;
+  }
+  .tm-pc-swiper .swiper-button-prev:hover,
+  .tm-pc-swiper .swiper-button-next:hover {
+    color: #E5C796;
+    transform: scale(1.08);
+  }
+  .tm-pc-swiper .swiper-button-prev::after,
+  .tm-pc-swiper .swiper-button-next::after {
+    font-size: 28px;
+    font-weight: 800;
+  }
+  .tm-pc-swiper .swiper-button-prev { left: clamp(16px, 2vw, 28px); }
+  .tm-pc-swiper .swiper-button-next { right: clamp(16px, 2vw, 28px); }
+
   @media (max-width: 900px) {
     .tm-pc-head { grid-template-columns: 1fr; gap: 24px; align-items: start; }
-    .tm-pc-stack {
-      flex-direction: column;
-      height: auto;
-      gap: 8px;
+    .tm-pc-swiper {
+      height: clamp(340px, 60vh, 480px);
+      border-radius: 14px;
     }
-    .tm-pc-panel {
-      flex: 0 0 88px;
-      height: 88px;
-      border-radius: 12px;
+    .tm-pc-slide-content { left: 18px; right: 18px; bottom: 22px; }
+    .tm-pc-slide-title { font-size: clamp(22px, 5.4vw, 28px); }
+    .tm-pc-swiper .swiper-button-prev,
+    .tm-pc-swiper .swiper-button-next {
+      width: 32px;
+      height: 32px;
     }
-    .tm-pc-panel.is-active {
-      flex: 0 0 360px;
-      height: 360px;
-    }
-    .tm-pc-panel-content {
-      left: 18px;
-      right: 18px;
-      bottom: 18px;
-    }
-    .tm-pc-panel-title { font-size: clamp(20px, 5vw, 26px); }
+    .tm-pc-swiper .swiper-button-prev::after,
+    .tm-pc-swiper .swiper-button-next::after { font-size: 22px; }
   }
 
   /* ---------- TOOLS & STACK ---------- */

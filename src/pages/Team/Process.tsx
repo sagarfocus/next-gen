@@ -1,4 +1,7 @@
-import { useState } from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Autoplay } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
 import imgDiscovery from '../../assets/analytics and report.png';
 import imgRoadmap from '../../assets/strategy planning.png';
 import imgBuild from '../../assets/websitedesign.png';
@@ -58,8 +61,6 @@ const STEPS: Step[] = [
 ];
 
 const Process = () => {
-  const [active, setActive] = useState(0);
-
   return (
     <section className="tm-section tm-process">
       <div className="container-shell">
@@ -77,56 +78,43 @@ const Process = () => {
             in five stages.
           </h2>
           <p className="tm-pc-lede">
-            Hover any stage to step inside.
+            Five stages, week by week.
           </p>
         </header>
 
-        <div
-          className="tm-pc-stack"
-          role="tablist"
+        <Swiper
+          className="tm-pc-swiper"
+          modules={[Navigation, Autoplay]}
+          navigation
+          loop
+          autoplay={{
+            delay: 5000,
+            pauseOnMouseEnter: true,
+            disableOnInteraction: false,
+          }}
+          slidesPerView={1}
+          spaceBetween={16}
           aria-label="Engagement process, five stages"
         >
-          {STEPS.map((s, i) => {
-            const isActive = active === i;
-            return (
+          {STEPS.map((s) => (
+            <SwiperSlide key={s.num} className="tm-pc-slide">
               <div
-                key={s.num}
-                role="tab"
-                tabIndex={isActive ? 0 : -1}
-                aria-selected={isActive}
-                aria-label={`Stage ${s.num}: ${s.title}`}
-                className={`tm-pc-panel${isActive ? ' is-active' : ''}`}
-                onMouseEnter={() => setActive(i)}
-                onFocus={() => setActive(i)}
-                onClick={() => setActive(i)}
-                onKeyDown={(e) => {
-                  if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
-                    e.preventDefault();
-                    setActive((active + 1) % STEPS.length);
-                  } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
-                    e.preventDefault();
-                    setActive((active - 1 + STEPS.length) % STEPS.length);
-                  }
-                }}
-              >
-                <div
-                  className="tm-pc-panel-img"
-                  style={{ backgroundImage: `url(${s.img})` }}
-                  aria-hidden="true"
-                />
-                <div className="tm-pc-panel-shade" aria-hidden="true" />
-                <div className="tm-pc-panel-content">
-                  <span className="tm-pc-panel-phase">
-                    <span className="tm-pc-panel-dot" aria-hidden="true" />
-                    {s.phase} · {s.when}
-                  </span>
-                  <h3 className="tm-pc-panel-title">{s.title}</h3>
-                  <p className="tm-pc-panel-desc">{s.desc}</p>
-                </div>
+                className="tm-pc-slide-img"
+                style={{ backgroundImage: `url(${s.img})` }}
+                aria-hidden="true"
+              />
+              <div className="tm-pc-slide-shade" aria-hidden="true" />
+              <div className="tm-pc-slide-content">
+                <span className="tm-pc-slide-phase">
+                  <span className="tm-pc-slide-dot" aria-hidden="true" />
+                  {s.phase} · {s.when}
+                </span>
+                <h3 className="tm-pc-slide-title">{s.title}</h3>
+                <p className="tm-pc-slide-desc">{s.desc}</p>
               </div>
-            );
-          })}
-        </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </div>
     </section>
   );
