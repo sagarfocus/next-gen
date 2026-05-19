@@ -1,4 +1,5 @@
 import type { ReactElement } from 'react';
+import { Link } from 'react-router-dom';
 import Breadcrumb from '../../components/Breadcrumb';
 import { AnimatedBackground } from '../../lib/motion';
 
@@ -114,42 +115,6 @@ const RIGHT_SIDE: SideCard[] = [
       </svg>
     ),
   },
-  {
-    href: '/blog/automation-roi',
-    cls: 's4',
-    cat: 'Automation',
-    title: 'The 4-hour weekly automation that recovers 18% of no-shows.',
-    meta: 'Apr 9, 2026 · 7 min read',
-    illustration: (
-      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <circle
-          cx="50"
-          cy="50"
-          r="30"
-          fill="rgba(143,188,143,.14)"
-          stroke="#8FBC8F"
-          strokeWidth="2.5"
-        />
-        <path
-          d="M50 28 V 50 L 64 60"
-          fill="none"
-          stroke="#576DB5"
-          strokeWidth="3"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <circle cx="50" cy="50" r="3" fill="#B38B6D" />
-        <path
-          d="M76 26 L 82 32 L 76 38"
-          fill="none"
-          stroke="#B38B6D"
-          strokeWidth="2.4"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-      </svg>
-    ),
-  },
 ];
 
 interface LatestItem {
@@ -259,24 +224,30 @@ const LATEST: LatestItem[] = [
   },
 ];
 
-const TRENDING_TOPICS = [
-  'Local SEO',
-  'HIPAA Tracking',
-  'CPA Benchmarks',
-  'AI Intake',
-  'MedSpa LTV',
-  'Reviews',
+interface TrendingTopic {
+  label: string;
+  to: string;
+}
+
+// Each trending topic anchors to a real article that covers the topic.
+const TRENDING_TOPICS: TrendingTopic[] = [
+  { label: 'Local SEO', to: '/blog/maps-rank' },
+  { label: 'HIPAA Tracking', to: '/blog/hipaa-tracking' },
+  { label: 'CPA Benchmarks', to: '/blog/ads-cost' },
+  { label: 'AI Intake', to: '/blog/ai-chatbot' },
+  { label: 'MedSpa LTV', to: '/blog/medspa' },
+  { label: 'Reviews', to: '/blog/reviews' },
 ];
 
 const renderSideCard = (card: SideCard) => (
-  <a key={card.href} href={card.href} className={`bl-side-card ${card.cls}`}>
+  <Link key={card.href} to={card.href} className={`bl-side-card ${card.cls}`}>
     <div className="bl-side-cover">{card.illustration}</div>
     <div className="bl-side-body">
       <span className="bl-side-cat">{card.cat}</span>
       <h3 className="bl-side-title">{card.title}</h3>
       <span className="bl-side-meta">{card.meta}</span>
     </div>
-  </a>
+  </Link>
 );
 
 const BlogHero = () => {
@@ -312,16 +283,16 @@ const BlogHero = () => {
         <div className="bl-hero-topics reveal d3">
           <span className="bl-hero-topics-label">Trending Topics</span>
           {TRENDING_TOPICS.map((topic) => (
-            <a key={topic} href="#" className="bl-hero-topic">
-              {topic}
-            </a>
+            <Link key={topic.label} to={topic.to} className="bl-hero-topic">
+              {topic.label}
+            </Link>
           ))}
         </div>
 
         <div className="bl-edit-grid reveal d3">
           <div className="bl-side">{LEFT_SIDE.map(renderSideCard)}</div>
 
-          <a href="/blog/patient-acquisition-cost-2026" className="bl-feat">
+          <Link to="/blog/ads-cost" className="bl-feat">
             <div className="bl-feat-cover">
               <span className="bl-feat-badge">Featured</span>
               <svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -384,7 +355,7 @@ const BlogHero = () => {
                 <span>12 min read</span>
               </div>
             </div>
-          </a>
+          </Link>
 
           <div className="bl-side">
             <aside className="bl-latest" aria-label="Latest articles">
@@ -398,13 +369,13 @@ const BlogHero = () => {
 
               <div className="bl-latest-list">
                 {LATEST.map((item) => (
-                  <a key={item.href} href={item.href} className="bl-latest-item">
+                  <Link key={item.href} to={item.href} className="bl-latest-item">
                     <div className="bl-latest-body">
                       <h4 className="bl-latest-h">{item.title}</h4>
                       <span className="bl-latest-meta">{item.meta}</span>
                     </div>
                     <span className="bl-latest-thumb">{item.thumb}</span>
-                  </a>
+                  </Link>
                 ))}
               </div>
             </aside>

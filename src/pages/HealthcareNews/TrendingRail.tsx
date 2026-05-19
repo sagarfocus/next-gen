@@ -1,8 +1,9 @@
 import { Fragment } from 'react';
+import { Link } from 'react-router-dom';
+import NewsThumb from './NewsThumb';
 
 interface TrendCard {
-  href: string;
-  imgSeed: string;
+  to: string;
   cat: string;
   title: string;
   meta: string;
@@ -10,57 +11,49 @@ interface TrendCard {
 
 const CARDS: TrendCard[] = [
   {
-    href: '#trend-1',
-    imgSeed: 'trend01',
+    to: '/blog/analytics',
     cat: 'Research',
     title: 'AI imaging tool cuts radiology errors 47%',
     meta: 'May 1, 2026 · 9 min',
   },
   {
-    href: '#trend-2',
-    imgSeed: 'trend02',
+    to: '/blog/ai-chatbot',
     cat: 'Telehealth',
     title: 'Mental-health visits hit a new Q1 record',
     meta: 'Apr 29 · 6 min',
   },
   {
-    href: '#trend-3',
-    imgSeed: 'trend03',
+    to: '/medical-automation',
     cat: 'Operations',
     title: 'Voice-AI front desks land in 38 hospitals',
     meta: 'Apr 28 · 5 min',
   },
   {
-    href: '#trend-4',
-    imgSeed: 'trend04',
+    to: '/blog/reviews',
     cat: 'Marketing',
     title: 'Why patient reviews carry 3× more SEO weight',
     meta: 'Apr 27 · 7 min',
   },
   {
-    href: '#trend-5',
-    imgSeed: 'trend05',
+    to: '/blog/hipaa-tracking',
     cat: 'Compliance',
     title: 'Five HIPAA pitfalls every marketer must know',
     meta: 'Apr 25 · 9 min',
   },
   {
-    href: '#trend-6',
-    imgSeed: 'trend06',
+    to: '/automation',
     cat: 'Automation',
     title: 'EHR-connected SMS cut no-shows by 40%',
     meta: 'Apr 24 · 5 min',
   },
   {
-    href: '#trend-7',
-    imgSeed: 'trend07',
+    to: '/case-studies/urgent-care-patient-acquisition',
     cat: 'Case Study',
     title: 'Texas clinic reclaims 18 hrs a week with N8N',
     meta: 'Apr 22 · 7 min',
   },
   {
-    href: '#trend-8',
-    imgSeed: 'trend08',
+    to: '/blog/ads-cost',
     cat: 'Paid Ads',
     title: 'What healthy ROAS looks like for med-spas',
     meta: 'Apr 20 · 6 min',
@@ -68,23 +61,23 @@ const CARDS: TrendCard[] = [
 ];
 
 const renderCard = (card: TrendCard, ariaHidden: boolean) => (
-  <a
+  <Link
     className="trend-card"
-    href={card.href}
+    to={card.to}
     aria-hidden={ariaHidden || undefined}
     tabIndex={ariaHidden ? -1 : undefined}
   >
     <div className="trend-img">
-      <img
-        src={`https://picsum.photos/seed/${card.imgSeed}/400/300`}
-        alt=""
-        loading="lazy"
+      <NewsThumb
+        category={card.cat}
+        seed={`trend-${card.to}`}
+        aspect="landscape"
       />
     </div>
     <span className="trend-cat">{card.cat}</span>
     <h3 className="trend-title">{card.title}</h3>
     <div className="trend-meta">{card.meta}</div>
-  </a>
+  </Link>
 );
 
 const TrendingRail = () => {
@@ -153,10 +146,10 @@ const TrendingRail = () => {
       <div className="trending-rail">
         <div className="trending-track">
           {CARDS.map((card) => (
-            <Fragment key={`a-${card.href}`}>{renderCard(card, false)}</Fragment>
+            <Fragment key={`a-${card.to}`}>{renderCard(card, false)}</Fragment>
           ))}
           {CARDS.map((card) => (
-            <Fragment key={`b-${card.href}`}>{renderCard(card, true)}</Fragment>
+            <Fragment key={`b-${card.to}`}>{renderCard(card, true)}</Fragment>
           ))}
         </div>
       </div>

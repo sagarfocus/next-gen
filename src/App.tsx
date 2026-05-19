@@ -18,6 +18,7 @@ import ContentMarketing from './pages/ContentMarketing';
 import Team from './pages/Team';
 import Industries from './pages/Industries';
 import CaseStudies from './pages/CaseStudies';
+import CaseStudyDetail from './pages/CaseStudies/CaseStudyDetail';
 import HealthcareNews from './pages/HealthcareNews';
 import HealthcareContent from './pages/HealthcareContent';
 import GrowthPlan from './pages/GrowthPlan';
@@ -30,12 +31,14 @@ import HyperLocalContent from './pages/HyperLocalContent';
 import AeoSchema from './pages/AeoSchema';
 import Automation from './pages/Automation';
 import AutomationMoreInfo from './pages/Automation/MoreInfo';
+import AutomationTemplates from './pages/Automation/Templates';
 import OnsiteFieldMarketing from './pages/OnsiteFieldMarketing';
 import MedicalAutomation from './pages/MedicalAutomation';
 import FreeGrowthAudit from './pages/FreeGrowthAudit';
 import OurWork from './pages/OurWork';
 import Pricing from './pages/Pricing';
 import Blog from './pages/Blog';
+import BlogPost from './pages/Blog/BlogPost';
 import FAQ from './pages/FAQ';
 import Contact from './pages/Contact';
 import Phase1 from './pages/Phases/Phase1';
@@ -47,6 +50,10 @@ import IndustrySpecialtyEmergency from './pages/Industries/SpecialtyEmergency';
 import GrowthTeam from './pages/Infrastructure/GrowthTeam';
 import ComplianceProtocol from './pages/Infrastructure/ComplianceProtocol';
 import ServiceLevelAgreements from './pages/Infrastructure/ServiceLevelAgreements';
+import Privacy from './pages/Legal/Privacy';
+import Terms from './pages/Legal/Terms';
+import Accessibility from './pages/Legal/Accessibility';
+import Sitemap from './pages/Legal/Sitemap';
 import NotFound from './pages/NotFound';
 
 const App = () => {
@@ -77,6 +84,7 @@ const App = () => {
         <Route path="/team" element={<Team />} />
         <Route path="/industries" element={<Industries />} />
         <Route path="/case-studies" element={<CaseStudies />} />
+        <Route path="/case-studies/:slug" element={<CaseStudyDetail />} />
         <Route path="/healthcare-news" element={<HealthcareNews />} />
         <Route path="/healthcare-content" element={<HealthcareContent />} />
         <Route path="/growth-plan" element={<GrowthPlan />} />
@@ -89,12 +97,14 @@ const App = () => {
         <Route path="/aeo-schema" element={<AeoSchema />} />
         <Route path="/automation" element={<Automation />} />
         <Route path="/automation/more-info" element={<AutomationMoreInfo />} />
+        <Route path="/automation/templates" element={<AutomationTemplates />} />
         <Route path="/onsite-field-marketing" element={<OnsiteFieldMarketing />} />
         <Route path="/medical-automation" element={<MedicalAutomation />} />
         <Route path="/free-growth-audit" element={<FreeGrowthAudit />} />
         <Route path="/our-work" element={<OurWork />} />
         <Route path="/pricing" element={<Pricing />} />
         <Route path="/blog" element={<Blog />} />
+        <Route path="/blog/:slug" element={<BlogPost />} />
         <Route path="/faq" element={<FAQ />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/methodology/phase-1" element={<Phase1 />} />
@@ -106,6 +116,10 @@ const App = () => {
         <Route path="/infrastructure/growth-team" element={<GrowthTeam />} />
         <Route path="/infrastructure/compliance-protocol" element={<ComplianceProtocol />} />
         <Route path="/infrastructure/service-level-agreements" element={<ServiceLevelAgreements />} />
+        <Route path="/privacy" element={<Privacy />} />
+        <Route path="/terms" element={<Terms />} />
+        <Route path="/accessibility" element={<Accessibility />} />
+        <Route path="/sitemap" element={<Sitemap />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       </PageTransition>

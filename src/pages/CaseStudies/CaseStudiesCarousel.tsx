@@ -6,156 +6,10 @@ import {
   useState,
 } from 'react';
 import type { CSSProperties, KeyboardEvent, TouchEvent } from 'react';
+import { Link } from 'react-router-dom';
+import { CASE_STUDIES } from './caseStudies.data';
 
-interface CaseBlock {
-  label: string;
-  text: string;
-}
-
-interface CaseCard {
-  id: string;
-  emoji: string;
-  metricNum: string;
-  metricLbl: string;
-  sector: string;
-  name: string;
-  blocks: CaseBlock[];
-}
-
-const CARDS: CaseCard[] = [
-  {
-    id: 'er-network-patient-growth',
-    emoji: '🏥',
-    metricNum: '+45%',
-    metricLbl: 'Patient Visits',
-    sector: 'Emergency Room',
-    name: 'Freestanding ER in Dallas Metro',
-    blocks: [
-      {
-        label: 'Challenge',
-        text: 'Limited local visibility competing against large hospital systems.',
-      },
-      {
-        label: 'Solution',
-        text: 'Local SEO dominance + Google Ads targeting high-acuity keywords.',
-      },
-      {
-        label: 'Results',
-        text: '45% increase in patient visits within 6 months, $800K+ additional annual revenue.',
-      },
-    ],
-  },
-  {
-    id: 'urgent-care-patient-acquisition',
-    emoji: '⚡',
-    metricNum: '3×',
-    metricLbl: 'Acquisitions',
-    sector: 'Urgent Care',
-    name: 'Multi-location urgent care in Houston',
-    blocks: [
-      {
-        label: 'Challenge',
-        text: 'Brand not recognized, losing patients to competitors.',
-      },
-      {
-        label: 'Solution',
-        text: 'Comprehensive market strategy + location-specific campaigns.',
-      },
-      {
-        label: 'Results',
-        text: '3× increase in appointments, 60% reduction in cost-per-acquisition.',
-      },
-    ],
-  },
-  {
-    id: 'cosmetic-surgery-lead-growth',
-    emoji: '✨',
-    metricNum: '+120%',
-    metricLbl: 'Lead Growth',
-    sector: 'Cosmetic Surgery',
-    name: 'Aesthetic clinic in Austin',
-    blocks: [
-      {
-        label: 'Challenge',
-        text: 'Competing on price, needed premium positioning.',
-      },
-      {
-        label: 'Solution',
-        text: 'Brand identity + targeted social media for high-ticket procedures.',
-      },
-      {
-        label: 'Results',
-        text: '120% increase in qualified leads, 25% higher average transaction value.',
-      },
-    ],
-  },
-  {
-    id: 'primary-care-seo-roi',
-    emoji: '👨‍⚕️',
-    metricNum: '500%',
-    metricLbl: 'SEO ROI',
-    sector: 'Primary Care',
-    name: 'Family medicine practice in San Antonio',
-    blocks: [
-      {
-        label: 'Challenge',
-        text: 'Invisible in search results for "doctor near me".',
-      },
-      {
-        label: 'Solution',
-        text: 'Local SEO fundamentals + content marketing for patient education.',
-      },
-      {
-        label: 'Results',
-        text: '500%+ ROI, $300K+ annual additional revenue from organic traffic.',
-      },
-    ],
-  },
-  {
-    id: 'mental-health-patient-retention',
-    emoji: '🧠',
-    metricNum: '2×',
-    metricLbl: 'Retention',
-    sector: 'Mental Health',
-    name: 'Therapy practice in Dallas',
-    blocks: [
-      {
-        label: 'Challenge',
-        text: 'High patient acquisition costs, poor retention.',
-      },
-      {
-        label: 'Solution',
-        text: 'Email automation + patient education content strategy.',
-      },
-      {
-        label: 'Results',
-        text: '2× patient retention rate, 40% reduction in marketing spend needed.',
-      },
-    ],
-  },
-  {
-    id: 'dental-practice-local-pack',
-    emoji: '🦷',
-    metricNum: '#1',
-    metricLbl: 'Local Pack',
-    sector: 'Dental Practice',
-    name: 'General dentistry in Irving',
-    blocks: [
-      {
-        label: 'Challenge',
-        text: 'Not appearing in local search top 3.',
-      },
-      {
-        label: 'Solution',
-        text: 'Google Business Profile optimization + local citations.',
-      },
-      {
-        label: 'Results',
-        text: '#1 ranking in local pack, 70% increase in appointment bookings.',
-      },
-    ],
-  },
-];
+const CARDS = CASE_STUDIES;
 
 const visibleForWidth = (w: number) => {
   if (w <= 640) return 1;
@@ -211,7 +65,7 @@ const CaseStudiesCarousel = () => {
     typeof window === 'undefined' ? 3 : visibleForWidth(window.innerWidth),
   );
   const trackRef = useRef<HTMLDivElement>(null);
-  const cardRef = useRef<HTMLElement>(null);
+  const cardRef = useRef<HTMLAnchorElement>(null);
   const touchStartX = useRef<number | null>(null);
 
   const total = CARDS.length;
@@ -305,10 +159,12 @@ const CaseStudiesCarousel = () => {
           >
             <div className="cs-track" ref={trackRef}>
               {CARDS.map((card, i) => (
-                <article
+                <Link
                   key={card.id}
                   ref={i === 0 ? cardRef : undefined}
+                  to={`/case-studies/${card.id}`}
                   className="cs-card"
+                  aria-label={`Read the ${card.name} case study`}
                 >
                   <div className="cs-card-top">
                     <span className="cs-emoji" aria-hidden="true">
@@ -333,7 +189,7 @@ const CaseStudiesCarousel = () => {
                     Read full case study
                     <ArrowOut />
                   </div>
-                </article>
+                </Link>
               ))}
             </div>
           </div>

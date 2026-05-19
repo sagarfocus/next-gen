@@ -416,7 +416,7 @@ const FAQList = () => {
   };
 
   return (
-    <section className="fp-section">
+    <section className="fp-section" id="fp-list">
       <div className="container-shell">
         <div className="fp-search">
           <SearchIcon />

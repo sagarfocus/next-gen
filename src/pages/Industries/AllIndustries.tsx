@@ -37,7 +37,7 @@ const ROWS: IndustryRow[] = [
       'Insurance + financing intake flows',
     ],
     metric: { v: '+47%', l: 'New patient bookings, 90d' },
-    ctaTo: '/contact',
+    ctaTo: '/industries/clinics',
   },
   {
     label: 'Urgent Care',
@@ -101,7 +101,7 @@ const ROWS: IndustryRow[] = [
       'Provider-match recommendation engines',
     ],
     metric: { v: '+58%', l: 'Qualified inquiries, 6mo' },
-    ctaTo: '/contact',
+    ctaTo: '/industries/clinics',
   },
   {
     label: 'Primary Care',
@@ -117,7 +117,7 @@ const ROWS: IndustryRow[] = [
       'Care-gap closure flows',
     ],
     metric: { v: '+24%', l: 'Commercial payer mix shift' },
-    ctaTo: '/contact',
+    ctaTo: '/industries/clinics',
   },
   {
     label: 'Chiropractic',
@@ -133,7 +133,7 @@ const ROWS: IndustryRow[] = [
       'Review velocity for trust-driven bookings',
     ],
     metric: { v: '+71%', l: 'New patient bookings, 90d' },
-    ctaTo: '/contact',
+    ctaTo: '/industries/clinics',
   },
   {
     label: 'Plastic Surgery',
@@ -149,7 +149,7 @@ const ROWS: IndustryRow[] = [
       'Before/after gallery systems',
     ],
     metric: { v: '+44%', l: 'Consult-to-procedure rate' },
-    ctaTo: '/contact',
+    ctaTo: '/industries/medspas',
   },
   {
     label: 'Ophthalmology',
@@ -165,7 +165,7 @@ const ROWS: IndustryRow[] = [
       'Post-procedure recall automation',
     ],
     metric: { v: '+39%', l: 'Qualified LASIK consults' },
-    ctaTo: '/contact',
+    ctaTo: '/industries/specialty-emergency',
   },
   {
     label: 'Dermatology',
@@ -181,7 +181,7 @@ const ROWS: IndustryRow[] = [
       'Insurance verification automation',
     ],
     metric: { v: '+53%', l: 'Cosmetic procedure bookings' },
-    ctaTo: '/contact',
+    ctaTo: '/industries/clinics',
   },
 ];
 

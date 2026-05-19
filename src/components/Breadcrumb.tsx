@@ -1,7 +1,15 @@
+import { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 
+export interface BreadcrumbItem {
+  label: string;
+  to?: string;
+}
+
 interface BreadcrumbProps {
-  current: string;
+  current?: string;
+  items?: BreadcrumbItem[];
+  section?: string;
 }
 
 const ChevronRight = () => (
@@ -20,27 +28,45 @@ const ChevronRight = () => (
   </svg>
 );
 
-const Breadcrumb = ({ current }: BreadcrumbProps) => {
+// Path-aware breadcrumb. New callers pass `items` (each can be a link or label).
+// Legacy callers passing only `current` (and optionally `section`) keep working
+// as Home > Resources > current.
+const Breadcrumb = ({ current, items, section = 'Resources' }: BreadcrumbProps) => {
+  const trail: BreadcrumbItem[] = items
+    ? items
+    : [{ label: section }, { label: current ?? '' }];
+
+  const lastIdx = trail.length - 1;
+
   return (
     <nav className="crumb" aria-label="Breadcrumb">
       <ol className="crumb-list">
         <li>
           <Link to="/">Home</Link>
         </li>
-        <li aria-hidden="true">
-          <ChevronRight />
-        </li>
-        <li>
-          <span className="crumb-section">Resources</span>
-        </li>
-        <li aria-hidden="true">
-          <ChevronRight />
-        </li>
-        <li>
-          <span className="crumb-here" aria-current="page">
-            {current}
-          </span>
-        </li>
+        {trail.map((item, idx) => {
+          const isLast = idx === lastIdx;
+          return (
+            <Fragment key={`${item.label}-${idx}`}>
+              <li aria-hidden="true">
+                <ChevronRight />
+              </li>
+              <li>
+                {isLast ? (
+                  <span className="crumb-here" aria-current="page">
+                    {item.label}
+                  </span>
+                ) : item.to ? (
+                  <Link to={item.to} className="crumb-link">
+                    {item.label}
+                  </Link>
+                ) : (
+                  <span className="crumb-section">{item.label}</span>
+                )}
+              </li>
+            </Fragment>
+          );
+        })}
       </ol>
     </nav>
   );

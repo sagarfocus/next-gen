@@ -10,7 +10,16 @@ interface NumbersProps {
   stats: BigNumber[];
 }
 
+/**
+ * Numbers wall — first stat on a dark hero panel as the lead metric, with the
+ * remaining stats laid out as supporting tiles. Mirrors the asymmetric Swiss
+ * rhythm used in the service Results section, but stays visually distinct
+ * because the tile grid here is 2×N instead of 1×N.
+ */
 const Numbers = ({ stats }: NumbersProps) => {
+  const lead = stats[0];
+  const rest = stats.slice(1);
+
   return (
     <section className="iv-section iv-numbers" aria-labelledby="iv-num-title">
       <div className="container-shell">
@@ -21,18 +30,38 @@ const Numbers = ({ stats }: NumbersProps) => {
           </h2>
         </header>
 
-        <ol className="iv-num-list" role="list">
-          {stats.map((s, i) => (
-            <li key={s.label} className="iv-num-row">
-              <span className="iv-num-marker">{String(i + 1).padStart(2, '0')}</span>
-              <span className="iv-num-big">{s.num}</span>
-              <span className="iv-num-meta">
-                <span className="iv-num-label">{s.label}</span>
-                <span className="iv-num-caption">{s.caption}</span>
-              </span>
-            </li>
-          ))}
-        </ol>
+        <div className="iv-numbers-wall">
+          {lead ? (
+            <article className="iv-numbers-hero">
+              <span className="iv-num-eyebrow">Headline metric</span>
+              <div>
+                <div className="iv-num-big">{lead.num}</div>
+                <div
+                  style={{
+                    fontSize: 12,
+                    fontWeight: 800,
+                    letterSpacing: '0.18em',
+                    textTransform: 'uppercase',
+                    color: 'rgba(255,255,255,0.8)',
+                    marginBottom: 8,
+                  }}
+                >
+                  {lead.label}
+                </div>
+                <p className="iv-num-cap">{lead.caption}</p>
+              </div>
+            </article>
+          ) : null}
+          <div className="iv-numbers-tiles">
+            {rest.map((s) => (
+              <article key={s.label} className="iv-numbers-tile">
+                <div className="iv-num-tile-num">{s.num}</div>
+                <div className="iv-num-tile-lbl">{s.label}</div>
+                <p className="iv-num-tile-cap">{s.caption}</p>
+              </article>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );

@@ -3,10 +3,71 @@ import Specialties from '../../../components/industry/Specialties';
 import Playbook from '../../../components/industry/Playbook';
 import Numbers from '../../../components/industry/Numbers';
 import IndustryCTA from '../../../components/industry/IndustryCTA';
+import ServiceFAQ from '../../../components/service/ServiceFAQ';
+import RelatedServices from '../../../components/service/RelatedServices';
 import type { QuickStat } from '../../../components/industry/IndustryHero';
 import type { SpecialtyRow } from '../../../components/industry/Specialties';
 import type { PlayStep } from '../../../components/industry/Playbook';
 import type { BigNumber } from '../../../components/industry/Numbers';
+import type { ServiceFAQItem } from '../../../components/service/ServiceFAQ';
+import type { RelatedServiceLink } from '../../../components/service/RelatedServices';
+
+const ORIGIN =
+  typeof window !== 'undefined' ? window.location.origin : 'https://thenextgenhealth.com';
+
+const BREADCRUMB_SCHEMA = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: `${ORIGIN}/` },
+    { '@type': 'ListItem', position: 2, name: 'Industries', item: `${ORIGIN}/industries` },
+    { '@type': 'ListItem', position: 3, name: 'Clinics', item: `${ORIGIN}/industries/clinics` },
+  ],
+};
+
+const FAQS: ServiceFAQItem[] = [
+  {
+    q: 'We have multiple locations under one brand — should each have its own marketing footprint?',
+    a: 'Yes. Each clinic gets its own Google Business Profile, a per-location landing page with that clinic\'s photos, providers, and insurance list, and a per-location review program. Google penalizes duplicate location pages, and patients can\'t tell which clinic is closest if they all look identical.',
+  },
+  {
+    q: 'How do you handle providers who come and go?',
+    a: 'Provider bios live in a central directory with structured data. When someone joins, we publish a bio, wire the schema, and roll them into the next month\'s content calendar. When someone leaves, we redirect their page to a relevant service line within 24 hours so SEO authority doesn\'t leak.',
+  },
+  {
+    q: 'What about referral relationships with specialists?',
+    a: 'Specialist referral pages are a separate content track. We build provider-to-provider trust pages, attend referral events with you, and instrument referral attribution back to the originating clinic — so you know which relationships actually drive volume.',
+  },
+  {
+    q: 'How do you stay HIPAA-safe when reporting?',
+    a: 'Dashboards never show PHI. We aggregate to the location and service-line level, strip identifiers before any data leaves your site, and only use BAA-covered tooling downstream. Your CTO can hand the dashboard to legal without redaction.',
+  },
+  {
+    q: 'Can we start with one location and scale up?',
+    a: 'That is the most common pattern. We pick the location with the most ambiguous performance, win it, then template the wins across the network. The system is built to scale to 100+ locations without rebuilding the foundation.',
+  },
+];
+
+const RELATED: RelatedServiceLink[] = [
+  {
+    to: '/services/seo-local-search',
+    name: 'Local SEO',
+    blurb: 'Win the map pack in every catchment area your clinics serve.',
+    tag: 'Strategy',
+  },
+  {
+    to: '/services/google-business-profile',
+    name: 'Google Business Profile',
+    blurb: 'Profile management across every clinic location, run from one console.',
+    tag: 'Operations',
+  },
+  {
+    to: '/case-studies/primary-care-seo-roi',
+    name: 'Primary care SEO ROI · case study',
+    blurb: 'The full engagement, the levers, and the numbers — read the case study.',
+    tag: 'Proof',
+  },
+];
 
 const Illustration = (
   <svg viewBox="0 0 600 750" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
@@ -120,6 +181,18 @@ const Clinics = () => {
       <Specialties rows={SPECIALTIES} />
       <Playbook steps={STEPS} />
       <Numbers stats={STATS} />
+      <ServiceFAQ
+        items={FAQS}
+        serviceName="Clinics & Multi-Specialty Practices — Marketing"
+        title="How clinic owners size up a multi-location engagement."
+        sectionNum="05"
+      />
+      <RelatedServices
+        items={RELATED}
+        sectionNum="06"
+        title="Pair the playbook with the right levers."
+        intro="Clinic networks compound when these three layers run together — Local SEO for discovery, GBP for the front door, and proof from a peer engagement."
+      />
       <IndustryCTA
         tag="Talk to us"
         title={<>Ready to scale the clinic, the right way?</>}
@@ -127,6 +200,10 @@ const Clinics = () => {
       />
 
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(SCHEMA) }} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(BREADCRUMB_SCHEMA) }}
+      />
     </>
   );
 };

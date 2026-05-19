@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import Breadcrumb from '../../components/Breadcrumb';
 import futuristicHealthcare from '../../assets/Futuristic healthcare.png';
 
@@ -30,7 +31,7 @@ const AutomationHero = ({ onBook }: AutomationHeroProps) => {
             </p>
 
             <div className="au-cta-row">
-              <a href="#templates" className="au-btn au-btn-primary au-btn-hero">
+              <Link to="/automation/templates" className="au-btn au-btn-primary au-btn-hero">
                 Get the templates
                 <svg
                   width={13}
@@ -46,7 +47,7 @@ const AutomationHero = ({ onBook }: AutomationHeroProps) => {
                   <line x1="5" y1="12" x2="19" y2="12" />
                   <polyline points="12 5 19 12 12 19" />
                 </svg>
-              </a>
+              </Link>
               <button
                 type="button"
                 className="au-btn au-btn-ghost au-btn-hero"
@@ -69,7 +70,6 @@ const AutomationHero = ({ onBook }: AutomationHeroProps) => {
           </div>
 
           <div className="au-hero-visual reveal d2" aria-hidden="true">
-            <div className="h-blob" />
             <img
               src={futuristicHealthcare}
               alt=""

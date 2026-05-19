@@ -3,9 +3,15 @@ import WhatWeDo from '../../components/service/WhatWeDo';
 import HowItWorks from '../../components/service/HowItWorks';
 import Results from '../../components/service/Results';
 import ServiceCTA from '../../components/service/ServiceCTA';
+import ServiceFAQ from '../../components/service/ServiceFAQ';
+import ServiceScenario from '../../components/service/ServiceScenario';
+import RelatedServices from '../../components/service/RelatedServices';
 import type { DoCard } from '../../components/service/WhatWeDo';
 import type { HowStep } from '../../components/service/HowItWorks';
 import type { ResultStat } from '../../components/service/Results';
+import type { ServiceFAQItem } from '../../components/service/ServiceFAQ';
+import type { ComparisonRow } from '../../components/service/ServiceScenario';
+import type { RelatedServiceLink } from '../../components/service/RelatedServices';
 
 const PinIcon = () => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.7} strokeLinecap="round" strokeLinejoin="round">
@@ -108,6 +114,78 @@ const SERVICE_SCHEMA = {
   serviceType: 'Website Design & Development',
 };
 
+const COMPARISON: ComparisonRow[] = [
+  {
+    label: 'Largest Contentful Paint',
+    before: 'Multi-second LCP on most Wix or WordPress builds.',
+    after: 'Green-band Core Web Vitals on every page we ship.',
+  },
+  {
+    label: 'Booking conversion',
+    before: 'Generic contact form, no clear next step.',
+    after: 'EHR-wired booking widget embedded into the page.',
+  },
+  {
+    label: 'Service / location pages',
+    before: 'One generic "Services" page covering every line.',
+    after: 'One unique page per service × per location, with schema.',
+  },
+  {
+    label: 'Accessibility',
+    before: 'Common WCAG failures on Lighthouse / axe.',
+    after: 'WCAG 2.2 AA at launch with a documented audit trail.',
+  },
+  {
+    label: 'Editing experience',
+    before: 'Editing requires the agency every time.',
+    after: 'Headless CMS — your team ships copy without dev help.',
+  },
+];
+
+const FAQS: ServiceFAQItem[] = [
+  {
+    q: 'How long does a new clinic site take?',
+    a: 'Design plus build runs 6 to 9 weeks for single-location practices, 10 to 14 for multi-location systems. We sequence content collection up front so the build never stalls waiting on copy.',
+  },
+  {
+    q: 'Does it have to be in WordPress?',
+    a: 'No. We default to a modern Next.js stack for new builds because it’s faster, more secure, and easier to update. WordPress is fine when the team needs to ship blog posts daily; we still harden it for HIPAA.',
+  },
+  {
+    q: 'Can the booking widget connect to our EHR?',
+    a: 'Most modern EHRs (Athena, eClinicalWorks, NextGen, Kareo, Cerner, Epic via integration partners) expose schedule APIs we can wire to. We also support widget-style providers (Solv, Zocdoc) when direct API isn’t available.',
+  },
+  {
+    q: 'What about Core Web Vitals and SEO impact?',
+    a: 'Every new site ships with green-band LCP, INP, and CLS, structured data on every service and location, and a redirect map so legacy URLs don’t lose authority. We measure SEO impact monthly post-launch.',
+  },
+  {
+    q: 'Who owns the site after launch?',
+    a: 'You do. Code, design files, hosting account, domain — all in your name from day one. We can manage hosting and updates as a retainer, or hand off cleanly.',
+  },
+];
+
+const RELATED: RelatedServiceLink[] = [
+  {
+    to: '/services/seo-local-search',
+    name: 'Local SEO',
+    blurb: 'Get the new site ranking in the Local Pack the month it ships.',
+    tag: 'Pair with',
+  },
+  {
+    to: '/services/brand-identity-design',
+    name: 'Brand Identity & Design',
+    blurb: 'Make sure the system the site is built on actually scales.',
+    tag: 'Pair with',
+  },
+  {
+    to: '/services/analytics-reporting',
+    name: 'Analytics & Reporting',
+    blurb: 'Wire the dashboard that proves the new site is converting.',
+    tag: 'Pair with',
+  },
+];
+
 const WebsiteDesign = () => {
   return (
     <>
@@ -115,7 +193,34 @@ const WebsiteDesign = () => {
       <WhatWeDo cards={DO_CARDS} />
       <HowItWorks steps={STEPS} />
       <Results stats={STATS} />
-      <ServiceCTA />
+      <ServiceScenario
+        variant="comparison"
+        eyebrow="What we leave you with"
+        title="The five things that change between the old site and the new one."
+        intro="Most healthcare sites fail on the same five vectors. Here is the gap we measure before launch and the band we ship in afterwards."
+        comparison={COMPARISON}
+      />
+      <ServiceFAQ
+        items={FAQS}
+        serviceName="Healthcare Website Design & Development"
+        title="Build, performance, and ownership questions."
+      />
+      <RelatedServices items={RELATED} />
+      <ServiceCTA
+        variant="editorial"
+        eyebrow="Build readiness audit"
+        title="See exactly what your next site has to clear."
+        description="A short call where we open your current site live, score it against the five vectors above, and hand you the gap list — even if you build it with someone else."
+        primaryTo="/free-growth-audit"
+        primaryLabel="Get the gap list"
+        secondaryTo="/case-studies"
+        secondaryLabel="See past builds"
+        bullets={[
+          'Core Web Vitals scorecard you can hand a developer tomorrow.',
+          'WCAG 2.2 AA pre-flight checklist tailored to your service pages.',
+          'A clear go / fix / rebuild verdict before we propose anything.',
+        ]}
+      />
 
       <script
         type="application/ld+json"

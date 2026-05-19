@@ -3,10 +3,71 @@ import Specialties from '../../../components/industry/Specialties';
 import Playbook from '../../../components/industry/Playbook';
 import Numbers from '../../../components/industry/Numbers';
 import IndustryCTA from '../../../components/industry/IndustryCTA';
+import ServiceFAQ from '../../../components/service/ServiceFAQ';
+import RelatedServices from '../../../components/service/RelatedServices';
 import type { QuickStat } from '../../../components/industry/IndustryHero';
 import type { SpecialtyRow } from '../../../components/industry/Specialties';
 import type { PlayStep } from '../../../components/industry/Playbook';
 import type { BigNumber } from '../../../components/industry/Numbers';
+import type { ServiceFAQItem } from '../../../components/service/ServiceFAQ';
+import type { RelatedServiceLink } from '../../../components/service/RelatedServices';
+
+const ORIGIN =
+  typeof window !== 'undefined' ? window.location.origin : 'https://thenextgenhealth.com';
+
+const BREADCRUMB_SCHEMA = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: `${ORIGIN}/` },
+    { '@type': 'ListItem', position: 2, name: 'Industries', item: `${ORIGIN}/industries` },
+    { '@type': 'ListItem', position: 3, name: 'Specialty & Emergency', item: `${ORIGIN}/industries/specialty-emergency` },
+  ],
+};
+
+const FAQS: ServiceFAQItem[] = [
+  {
+    q: 'How do we compete with hospital systems on emergency keywords?',
+    a: 'Hospital systems usually spend big on broad branded queries. We win on the long tail: condition-plus-symptom queries, neighborhood-plus-ER queries, and wait-time queries. The hospital can\'t outbid us on every "abdominal pain ER Plano" search — and that\'s where booked visits actually come from.',
+  },
+  {
+    q: 'Is HIPAA risk higher for ER and urgent-care ads?',
+    a: 'Yes — because intent itself reveals condition. We strip URL parameters that leak symptom data, deploy server-side conversion APIs that never ship PHI to ad networks, and use BAA-covered tooling on every step. Compliance is the gate every campaign passes through before launch.',
+  },
+  {
+    q: 'What about wait-time pages — do they actually move bookings?',
+    a: 'They are the highest-converting page type on most urgent-care sites we audit. Real-time wait calls, geo-routing to the nearest clinic, and a single-tap "drive to this location" link consistently outperform a generic location page on booking rate.',
+  },
+  {
+    q: 'How fast can you launch for a new facility opening?',
+    a: 'Six weeks from kickoff for a single freestanding ER or urgent-care location: GBP rebuild, schema deployment, paid launch, wait-time page, review pipeline. Multi-location systems take 10–12 weeks because we sequence rollouts to avoid competing with yourself.',
+  },
+  {
+    q: 'Do you handle EmergencyMedicalService schema?',
+    a: 'Yes. Schema is one of the few free-and-instant ways to qualify in the Local Pack for high-acuity searches. We deploy EmergencyMedicalService, MedicalSpecialty, and condition-specific markup at the page and location level.',
+  },
+];
+
+const RELATED: RelatedServiceLink[] = [
+  {
+    to: '/hipaa-compliance',
+    name: 'HIPAA Compliance',
+    blurb: 'The compliance posture that makes high-acuity marketing safe to scale.',
+    tag: 'Foundation',
+  },
+  {
+    to: '/aeo-schema',
+    name: 'AEO & Schema',
+    blurb: 'EmergencyMedicalService markup that wins Local Pack on acuity queries.',
+    tag: 'Strategy',
+  },
+  {
+    to: '/case-studies/er-network-patient-growth',
+    name: 'Freestanding ER · case study',
+    blurb: 'Dallas-metro ER engagement — visits, revenue, and the playbook behind both.',
+    tag: 'Proof',
+  },
+];
 
 const Illustration = (
   <svg viewBox="0 0 600 750" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
@@ -107,6 +168,18 @@ const SpecialtyEmergency = () => {
       <Specialties rows={SPECIALTIES} />
       <Playbook steps={STEPS} />
       <Numbers stats={STATS} />
+      <ServiceFAQ
+        items={FAQS}
+        serviceName="Specialty & Emergency Care — Marketing"
+        title="What ER and urgent-care operators ask first."
+        sectionNum="05"
+      />
+      <RelatedServices
+        items={RELATED}
+        sectionNum="06"
+        title="The compliance and intent layer that scales acuity."
+        intro="High-acuity marketing only works when compliance, schema, and proof move together. Here is the order we sequence them in."
+      />
       <IndustryCTA
         tag="Talk to us"
         title={<>Ready to capture every search that matters?</>}
@@ -114,6 +187,10 @@ const SpecialtyEmergency = () => {
       />
 
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(SCHEMA) }} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(BREADCRUMB_SCHEMA) }}
+      />
     </>
   );
 };

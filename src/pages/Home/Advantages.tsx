@@ -103,14 +103,12 @@ const Advantages = () => {
         <div className="adv-head">
           <span className="adv-eyebrow">Our Advantages</span>
           <h2 id="adv-title" className="adv-h2">
-            Focus &mdash; your trusted partner for healthcare growth and
-            patient acquisition.
+            One partner for healthcare growth.
           </h2>
           <p className="adv-intro">
-            With 200+ practices grown and a proven Clinic Growth OS, we run
-            local SEO, paid media, automation, and reporting under one roof
-            &mdash; so your team gets one accountable partner instead of five
-            disconnected vendors.
+            SEO, paid media, automation, and reporting under one roof &mdash;
+            so your team has one accountable partner, not five disconnected
+            vendors.
           </p>
         </div>
 

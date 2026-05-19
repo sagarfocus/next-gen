@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react';
 import type { ChangeEvent, ReactElement } from 'react';
+import { Link } from 'react-router-dom';
 
 interface Article {
   href: string;
@@ -426,7 +427,7 @@ const ArticleGrid = () => {
               </div>
             ) : (
               filtered.map((article) => (
-                <a key={article.href} href={article.href} className="bl-card">
+                <Link key={article.href} to={article.href} className="bl-card">
                   <div className="bl-card-cover">
                     <span className="bl-card-cat">{article.catLabel}</span>
                     {article.illustration}
@@ -458,7 +459,7 @@ const ArticleGrid = () => {
                       </span>
                     </div>
                   </div>
-                </a>
+                </Link>
               ))
             )}
           </div>

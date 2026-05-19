@@ -1,22 +1,23 @@
 import type { ReactElement } from 'react';
+import { Link } from 'react-router-dom';
+import NewsThumb from './NewsThumb';
 
 interface LatestItem {
-  href: string;
-  imgSeed: string;
+  to: string;
   cat: string;
   title: string;
   meta: string;
 }
 
 interface FeaturedItem {
-  href: string;
+  to: string;
   cat: string;
   title: string;
   meta: string;
 }
 
 interface PopularItem {
-  href: string;
+  to: string;
   num: string;
   cat: string;
   title: string;
@@ -25,36 +26,31 @@ interface PopularItem {
 
 const LATEST: LatestItem[] = [
   {
-    href: '#l1',
-    imgSeed: 'lateste1',
+    to: '/blog/analytics',
     cat: 'Research',
     title: 'Mayo Clinic pilots wearable heart-monitor program for high-risk patients',
     meta: 'Apr 27 · 5 min read',
   },
   {
-    href: '#l2',
-    imgSeed: 'lateste2',
+    to: '/services/email-drip-campaigns',
     cat: 'Insurance',
     title: 'Major carriers expand mental-health coverage following parity ruling',
     meta: 'Apr 26 · 6 min read',
   },
   {
-    href: '#l3',
-    imgSeed: 'lateste3',
+    to: '/medical-automation',
     cat: 'Operations',
     title: 'Rural clinics partner on shared EHR system to reduce admin overhead',
     meta: 'Apr 26 · 4 min read',
   },
   {
-    href: '#l4',
-    imgSeed: 'lateste4',
+    to: '/blog/medspa',
     cat: 'Marketing',
     title: 'Dental practices report 22% growth in online bookings year-over-year',
     meta: 'Apr 25 · 5 min read',
   },
   {
-    href: '#l5',
-    imgSeed: 'lateste5',
+    to: '/automation',
     cat: 'Pharmacy',
     title: 'National chains roll out AI-powered inventory forecasting to cut waste',
     meta: 'Apr 24 · 4 min read',
@@ -63,19 +59,19 @@ const LATEST: LatestItem[] = [
 
 const FEATURED_ITEMS: FeaturedItem[] = [
   {
-    href: '#feat1',
+    to: '/case-studies/urgent-care-patient-acquisition',
     cat: 'Case Study',
     title: 'How a Texas clinic recaptured 18 hours/week with three N8N workflows',
     meta: 'Apr 26 · 7 min read',
   },
   {
-    href: '#feat2',
+    to: '/blog/hipaa-tracking',
     cat: 'Compliance',
     title: 'Five HIPAA pitfalls every healthcare marketer should know in 2026',
     meta: 'Apr 25 · 9 min read',
   },
   {
-    href: '#feat3',
+    to: '/services/analytics-reporting',
     cat: 'Tech Stack',
     title: 'The marketing stack modern practices are quietly standardizing on',
     meta: 'Apr 23 · 8 min read',
@@ -84,41 +80,43 @@ const FEATURED_ITEMS: FeaturedItem[] = [
 
 const POPULAR: PopularItem[] = [
   {
-    href: '#p1',
+    to: '/blog/reviews',
     num: '01',
     cat: 'Reputation',
     title: 'Why patient reviews carry 3× more weight in the 2026 search ranking',
     meta: '5,213 reads',
   },
   {
-    href: '#p2',
+    to: '/blog/ai-chatbot',
     num: '02',
     cat: 'Operations',
     title: 'Inside the rise of AI-powered front desks — and what they replace',
     meta: '4,082 reads',
   },
   {
-    href: '#p3',
+    to: '/services/email-drip-campaigns',
     num: '03',
     cat: 'Email',
     title: 'Compliant email drips that actually convert patients (with examples)',
     meta: '3,648 reads',
   },
   {
-    href: '#p4',
+    to: '/blog/ads-cost',
     num: '04',
     cat: 'Paid Ads',
     title: 'What healthy ROAS actually looks like for med-spas in 2026',
     meta: '3,201 reads',
   },
   {
-    href: '#p5',
+    to: '/medical-automation',
     num: '05',
     cat: 'Automation',
     title: 'How EHR-connected SMS reminders are cutting no-shows by 40%',
     meta: '2,945 reads',
   },
 ];
+
+const FEATURED_MAIN_TO = '/case-studies/urgent-care-patient-acquisition';
 
 const ArrowRight = () => (
   <svg
@@ -150,21 +148,21 @@ const TrendIcon = () => (
 
 const ColumnHead = ({
   title,
-  link,
+  to,
   linkLabel,
   icon,
 }: {
   title: string;
-  link: string;
+  to: string;
   linkLabel: string;
   icon: ReactElement;
 }) => (
   <div className="tc-head">
     <h2>{title}</h2>
-    <a href={link} className="tc-link">
+    <Link to={to} className="tc-link">
       {linkLabel}
       {icon}
-    </a>
+    </Link>
   </div>
 );
 
@@ -177,17 +175,17 @@ const NewsThreeColumn = () => {
           <div className="tc-col">
             <ColumnHead
               title="Latest News"
-              link="#latest"
+              to="/blog"
               linkLabel="All"
               icon={<ArrowRight />}
             />
             {LATEST.map((item) => (
-              <a key={item.href} className="latest-item" href={item.href}>
+              <Link key={item.to} className="latest-item" to={item.to}>
                 <div className="latest-img">
-                  <img
-                    src={`https://picsum.photos/seed/${item.imgSeed}/200/200`}
-                    alt=""
-                    loading="lazy"
+                  <NewsThumb
+                    category={item.cat}
+                    seed={`latest-${item.to}`}
+                    aspect="square"
                   />
                 </div>
                 <div>
@@ -195,7 +193,7 @@ const NewsThreeColumn = () => {
                   <h3 className="latest-title">{item.title}</h3>
                   <div className="latest-meta">{item.meta}</div>
                 </div>
-              </a>
+              </Link>
             ))}
           </div>
 
@@ -203,17 +201,18 @@ const NewsThreeColumn = () => {
           <div className="tc-col">
             <ColumnHead
               title="Featured News"
-              link="#featured"
+              to="/case-studies"
               linkLabel="All"
               icon={<ArrowRight />}
             />
 
-            <a className="featured-main" href="#feature-deep">
+            <Link className="featured-main" to={FEATURED_MAIN_TO}>
               <div className="featured-main-img">
-                <img
-                  src="https://picsum.photos/seed/featuredmain1/900/560"
-                  alt=""
-                  loading="lazy"
+                <NewsThumb
+                  category="Long Read · Practice Operations"
+                  seed="featured-main-long-read"
+                  aspect="landscape"
+                  caption="Long Read · Practice Operations"
                 />
               </div>
               <span className="featured-item-cat">
@@ -235,15 +234,15 @@ const NewsThreeColumn = () => {
                 <span className="dot" />
                 <span>Apr 28 · 12 min</span>
               </div>
-            </a>
+            </Link>
 
             <div className="featured-list">
               {FEATURED_ITEMS.map((item) => (
-                <a key={item.href} className="featured-item" href={item.href}>
+                <Link key={item.to} className="featured-item" to={item.to}>
                   <span className="featured-item-cat">{item.cat}</span>
                   <h4 className="featured-item-title">{item.title}</h4>
                   <div className="featured-item-meta">{item.meta}</div>
-                </a>
+                </Link>
               ))}
             </div>
           </div>
@@ -252,19 +251,19 @@ const NewsThreeColumn = () => {
           <div className="tc-col">
             <ColumnHead
               title="Most Popular"
-              link="#popular"
+              to="/blog"
               linkLabel="Trending"
               icon={<TrendIcon />}
             />
             {POPULAR.map((item) => (
-              <a key={item.href} className="pop-item" href={item.href}>
+              <Link key={item.to} className="pop-item" to={item.to}>
                 <span className="pop-num">{item.num}</span>
                 <div>
                   <span className="pop-cat">{item.cat}</span>
                   <h3 className="pop-title">{item.title}</h3>
                   <div className="pop-meta">{item.meta}</div>
                 </div>
-              </a>
+              </Link>
             ))}
           </div>
         </div>

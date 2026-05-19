@@ -1,5 +1,30 @@
 import { Link } from 'react-router-dom';
 import Breadcrumb from '../../components/Breadcrumb';
+import moreInfoBanner from '../../assets/moreinforbanner.png';
+import builtForClinic from '../../assets/builtforclinic.png';
+
+const buildWalkthroughMailto = (form: HTMLFormElement) => {
+  const data = new FormData(form);
+  const name = String(data.get('name') ?? '').trim();
+  const email = String(data.get('email') ?? '').trim();
+  const clinic = String(data.get('clinic') ?? '').trim();
+  const task = String(data.get('task') ?? '').trim();
+  const message = String(data.get('message') ?? '').trim();
+
+  const subject = `Automation walkthrough request${clinic ? ` — ${clinic}` : ''}`;
+  const body = [
+    name ? `Name: ${name}` : null,
+    email ? `Email: ${email}` : null,
+    clinic ? `Clinic: ${clinic}` : null,
+    task ? `Top manual task: ${task}` : null,
+    '',
+    message ? `What I would automate first:\n${message}` : null,
+  ]
+    .filter(Boolean)
+    .join('\n');
+
+  return `mailto:hello@thenextgenhealth.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+};
 
 const PILLARS = [
   {
@@ -33,16 +58,19 @@ const SOLUTIONS = [
     tag: 'Front Desk',
     title: 'Patient intake & verification',
     desc: 'Forms, insurance capture, eligibility checks, and chart prep — all complete before the patient walks in.',
+    to: '/medical-automation',
   },
   {
     tag: 'Reminders',
     title: 'Two-way SMS & email reminders',
     desc: 'Multi-touch reminder cadences with auto-rescheduling links. Recover 18% of no-shows in the first 60 days.',
+    to: '/automation/templates',
   },
   {
     tag: 'Revenue',
     title: 'Reviews, recalls & reactivation',
     desc: 'HIPAA-aware review requests, recall campaigns, and dormant-patient re-engagement that compounds month over month.',
+    to: '/reviews-reputation',
   },
 ];
 
@@ -67,12 +95,6 @@ const STEPS = [
     title: 'Optimize',
     desc: 'We tune cadences, copy, and triggers weekly. You own the data and dashboards.',
   },
-];
-
-const STATS = [
-  { v: '20+', l: 'hours saved / week' },
-  { v: '18%', l: 'no-show recovery' },
-  { v: '≤ 7', l: 'days to live' },
 ];
 
 const ArrowRight = () => (
@@ -140,21 +162,11 @@ const MoreInfo = () => {
               </div>
             </div>
 
-            <aside className="amih-hero-card" aria-label="At a glance">
-              <span className="amih-card-label">At a glance</span>
-              <dl className="amih-card-stats">
-                {STATS.map((s) => (
-                  <div key={s.l} className="amih-card-stat">
-                    <dt>{s.v}</dt>
-                    <dd>{s.l}</dd>
-                  </div>
-                ))}
-              </dl>
-              <div className="amih-card-meta">
-                <span>Updated Q2, 2026</span>
-                <span>· 12 min read</span>
-              </div>
-            </aside>
+            <img
+              src={moreInfoBanner}
+              alt="The complete playbook for healthcare automation"
+              className="amih-hero-banner"
+            />
           </div>
         </div>
       </section>
@@ -188,6 +200,12 @@ const MoreInfo = () => {
                 <span className="amih-frame-block amih-frame-block--a" />
                 <span className="amih-frame-block amih-frame-block--b" />
                 <span className="amih-frame-block amih-frame-block--c" />
+                <img
+                  src={builtForClinic}
+                  alt=""
+                  className="amih-frame-img"
+                  loading="lazy"
+                />
                 <div className="amih-frame-tag">
                   <span>Live workflow</span>
                   <strong>Patient intake</strong>
@@ -247,7 +265,7 @@ const MoreInfo = () => {
                 <span className="amih-sol-tag">{s.tag}</span>
                 <h3 className="amih-sol-title">{s.title}</h3>
                 <p className="amih-sol-desc">{s.desc}</p>
-                <Link to="/automation" className="amih-sol-link">
+                <Link to={s.to} className="amih-sol-link">
                   Read the workflow <ArrowRight />
                 </Link>
               </article>
@@ -303,7 +321,10 @@ const MoreInfo = () => {
 
             <form
               className="amih-cta-form"
-              onSubmit={(e) => e.preventDefault()}
+              onSubmit={(e) => {
+                e.preventDefault();
+                window.location.href = buildWalkthroughMailto(e.currentTarget);
+              }}
               aria-label="Walkthrough request"
             >
               <div className="amih-row">

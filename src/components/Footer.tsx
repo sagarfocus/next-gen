@@ -1,11 +1,18 @@
 import { Link } from 'react-router-dom';
-import type { FormEvent } from 'react';
 import logoSrc from '../assets/the-nextgen-logo.png';
 
 const Footer = () => {
-  const handleNewsletterSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleNewsletterSubmit: React.FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
-    // Newsletter handler hooked up later.
+    const data = new FormData(e.currentTarget);
+    const email = String(data.get('email') ?? '').trim();
+    if (!email) return;
+    const subject = 'Subscribe — TheNextGen weekly brief';
+    const body = `Please add this address to the weekly brief: ${email}`;
+    window.location.href = `mailto:hello@thenextgenhealth.com?subject=${encodeURIComponent(
+      subject,
+    )}&body=${encodeURIComponent(body)}`;
+    e.currentTarget.reset();
   };
 
   return (
@@ -123,7 +130,7 @@ const Footer = () => {
             <ul className="list-none m-0 p-0 flex flex-col gap-[11px]">
               <li><Link to="/about" className="ft-list-link">About</Link></li>
               <li><Link to="/faq" className="ft-list-link">FAQ</Link></li>
-              <li><Link to="/#seo-guide" className="ft-list-link">SEO Guide</Link></li>
+              <li><Link to="/free-growth-audit" className="ft-list-link">Free Growth Audit</Link></li>
               <li><Link to="/pricing" className="ft-list-link">Pricing</Link></li>
               <li><Link to="/blog" className="ft-list-link">Blog</Link></li>
               <li><Link to="/industries" className="ft-list-link">Industries</Link></li>
@@ -204,16 +211,16 @@ const Footer = () => {
         <div className="ft-bottom-row">
           <span>&copy; 2026 TheNextGen Healthcare Marketing. All rights reserved.</span>
           <div className="flex gap-[22px] flex-wrap">
-            <Link to="/#privacy" className="text-muted transition-colors hover:text-heading">
+            <Link to="/privacy" className="text-muted transition-colors hover:text-heading">
               Privacy
             </Link>
-            <Link to="/#terms" className="text-muted transition-colors hover:text-heading">
+            <Link to="/terms" className="text-muted transition-colors hover:text-heading">
               Terms
             </Link>
-            <Link to="/#sitemap" className="text-muted transition-colors hover:text-heading">
+            <Link to="/sitemap" className="text-muted transition-colors hover:text-heading">
               Sitemap
             </Link>
-            <Link to="/#accessibility" className="text-muted transition-colors hover:text-heading">
+            <Link to="/accessibility" className="text-muted transition-colors hover:text-heading">
               Accessibility
             </Link>
           </div>

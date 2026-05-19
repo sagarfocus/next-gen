@@ -3,10 +3,71 @@ import Specialties from '../../../components/industry/Specialties';
 import Playbook from '../../../components/industry/Playbook';
 import Numbers from '../../../components/industry/Numbers';
 import IndustryCTA from '../../../components/industry/IndustryCTA';
+import ServiceFAQ from '../../../components/service/ServiceFAQ';
+import RelatedServices from '../../../components/service/RelatedServices';
 import type { QuickStat } from '../../../components/industry/IndustryHero';
 import type { SpecialtyRow } from '../../../components/industry/Specialties';
 import type { PlayStep } from '../../../components/industry/Playbook';
 import type { BigNumber } from '../../../components/industry/Numbers';
+import type { ServiceFAQItem } from '../../../components/service/ServiceFAQ';
+import type { RelatedServiceLink } from '../../../components/service/RelatedServices';
+
+const ORIGIN =
+  typeof window !== 'undefined' ? window.location.origin : 'https://thenextgenhealth.com';
+
+const BREADCRUMB_SCHEMA = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: `${ORIGIN}/` },
+    { '@type': 'ListItem', position: 2, name: 'Industries', item: `${ORIGIN}/industries` },
+    { '@type': 'ListItem', position: 3, name: 'MedSpas & Aesthetics', item: `${ORIGIN}/industries/medspas` },
+  ],
+};
+
+const FAQS: ServiceFAQItem[] = [
+  {
+    q: 'Patients usually find us on Instagram — do we still need Google Ads and SEO?',
+    a: 'Yes, but for different stages. Instagram and TikTok create demand; Google captures it the moment someone types "lip filler near me." Without the search layer, the demand you built leaks to whichever competitor ranks above you. We run them as one system, not two.',
+  },
+  {
+    q: 'How do you measure LTV when most patients pay cash and procedures happen months apart?',
+    a: 'We pipe booking, treatment, and POS data into one customer record, then attribute LTV at 90 / 180 / 365 day windows. Treatments that look low-margin on first visit often unlock the highest LTV — that\'s the signal worth bidding behind.',
+  },
+  {
+    q: 'Are before/after photos compliant in paid ads?',
+    a: 'Yes — when you have signed photo releases, when the photo isn\'t paired with promises of identical results, and when Meta\'s policies for cosmetic claims are followed precisely. We audit your release library before any creative goes live.',
+  },
+  {
+    q: 'What about retention — the second and third visit is where the money is?',
+    a: 'A retention drip ships alongside acquisition. Post-visit care, recall sequences for time-sensitive treatments (Botox at 4 months, lasers at 6), and a membership offer pitched at the right moment. We measure 90-day rebook rate as a primary KPI.',
+  },
+  {
+    q: 'How do you handle competitive metros with 30+ med-spas in five miles?',
+    a: 'We differentiate on niche, not breadth — we pick the two treatments where your team has a clear edge and dominate the search and social space around them. Wide positioning loses to narrow positioning in saturated metros every time.',
+  },
+];
+
+const RELATED: RelatedServiceLink[] = [
+  {
+    to: '/meta-ads',
+    name: 'Meta Ads',
+    blurb: 'Aesthetic Instagram and Facebook creative that converts cold scrolls.',
+    tag: 'Strategy',
+  },
+  {
+    to: '/services/social-media-marketing',
+    name: 'Social Media Marketing',
+    blurb: 'The organic engine that makes the paid creative work harder.',
+    tag: 'Distribution',
+  },
+  {
+    to: '/case-studies/cosmetic-surgery-lead-growth',
+    name: 'Aesthetic clinic lead growth · case study',
+    blurb: 'The engagement narrative and the lead-growth numbers in one read.',
+    tag: 'Proof',
+  },
+];
 
 const Illustration = (
   <svg viewBox="0 0 600 750" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
@@ -103,6 +164,18 @@ const MedSpas = () => {
       <Specialties rows={SPECIALTIES} />
       <Playbook steps={STEPS} />
       <Numbers stats={STATS} />
+      <ServiceFAQ
+        items={FAQS}
+        serviceName="MedSpas & Aesthetics — Marketing"
+        title="The five questions med-spa owners ask before signing."
+        sectionNum="05"
+      />
+      <RelatedServices
+        items={RELATED}
+        sectionNum="06"
+        title="Layer the levers that make aesthetics scale."
+        intro="Meta builds the demand, social keeps the brand visible between visits, and a peer case study tells you what realistic compound looks like."
+      />
       <IndustryCTA
         tag="Talk to us"
         title={<>Ready to fill your consult calendar?</>}
@@ -110,6 +183,10 @@ const MedSpas = () => {
       />
 
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(SCHEMA) }} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(BREADCRUMB_SCHEMA) }}
+      />
     </>
   );
 };

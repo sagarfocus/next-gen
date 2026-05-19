@@ -15,7 +15,12 @@ const NewsHead = () => {
   return (
     <section className="ph-page-head">
       <div className="container-shell">
-        <Breadcrumb current="Healthcare News" />
+        <Breadcrumb
+          items={[
+            { label: 'Resources', to: '/blog' },
+            { label: 'Healthcare News' },
+          ]}
+        />
         <div className="ph-row">
           <div>
             <div className="ph-eyebrow">

@@ -3,9 +3,15 @@ import WhatWeDo from '../../components/service/WhatWeDo';
 import HowItWorks from '../../components/service/HowItWorks';
 import Results from '../../components/service/Results';
 import ServiceCTA from '../../components/service/ServiceCTA';
+import ServiceFAQ from '../../components/service/ServiceFAQ';
+import ServiceScenario from '../../components/service/ServiceScenario';
+import RelatedServices from '../../components/service/RelatedServices';
 import type { DoCard } from '../../components/service/WhatWeDo';
 import type { HowStep } from '../../components/service/HowItWorks';
 import type { ResultStat } from '../../components/service/Results';
+import type { ServiceFAQItem } from '../../components/service/ServiceFAQ';
+import type { VignetteMetric as BenchmarkTile } from '../../components/service/ServiceScenario';
+import type { RelatedServiceLink } from '../../components/service/RelatedServices';
 
 const PinIcon = () => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.7} strokeLinecap="round" strokeLinejoin="round">
@@ -108,6 +114,57 @@ const SERVICE_SCHEMA = {
   serviceType: 'Social Media Marketing',
 };
 
+// Benchmarks are framed as planning targets, not measured client outcomes.
+const BENCHMARKS: BenchmarkTile[] = [
+  { value: '4×/wk', label: 'Posting cadence per channel' },
+  { value: '2', label: 'Channels run deep — not four run shallow' },
+  { value: 'Q', label: 'Quarterly shot list for clinical content' },
+];
+
+const FAQS: ServiceFAQItem[] = [
+  {
+    q: 'Does social actually drive bookings for healthcare?',
+    a: 'It rarely drives cold bookings — it drives trust, referrals, and the second-visit decision. We measure assisted conversions and direct-search lift, not vanity follower counts.',
+  },
+  {
+    q: 'What channels do you cover?',
+    a: 'Instagram and Facebook for community and reactivation, LinkedIn for recruiting and B2B specialty referrals, TikTok and YouTube Shorts when the clinical voice is naturally video-first. We don’t spread thin — usually two channels run cleaner than four.',
+  },
+  {
+    q: 'How do you stay HIPAA-safe in the comments?',
+    a: 'We use a moderation playbook: never confirm a patient relationship in public, redirect anything specific to a private channel, log every interaction. Staff training is part of the engagement.',
+  },
+  {
+    q: 'Do you produce the content or do we?',
+    a: 'Both. We script, schedule, and capture remotely. For on-camera clinical content, we send a quarterly shot list your team can record in under an hour.',
+  },
+  {
+    q: 'What does cadence look like?',
+    a: 'Four posts a week per channel is the floor that keeps the algorithm friendly. We layer in two Reels or short videos and one community engagement push monthly.',
+  },
+];
+
+const RELATED: RelatedServiceLink[] = [
+  {
+    to: '/services/content-copywriting',
+    name: 'Content & Copywriting',
+    blurb: 'The editorial backbone that fuels two months of social at a time.',
+    tag: 'Pair with',
+  },
+  {
+    to: '/services/brand-identity-design',
+    name: 'Brand Identity & Design',
+    blurb: 'Template kits so every post looks like it belongs to one practice.',
+    tag: 'Pair with',
+  },
+  {
+    to: '/reviews-reputation',
+    name: 'Reviews & Reputation',
+    blurb: 'Convert positive social moments into Google reviews automatically.',
+    tag: 'Pair with',
+  },
+];
+
 const SocialMedia = () => {
   return (
     <>
@@ -115,7 +172,32 @@ const SocialMedia = () => {
       <WhatWeDo cards={DO_CARDS} />
       <HowItWorks steps={STEPS} />
       <Results stats={STATS} />
-      <ServiceCTA />
+      <ServiceScenario
+        variant="sketch"
+        eyebrow="How we shape the cadence"
+        title="Two channels, run all the way — beats four channels run half-way."
+        intro="Social rarely drives cold bookings; it builds trust in the gap between the click and the visit. The sketch below describes how we shape that cadence, not a specific client outcome."
+        sketch={{
+          contextLabel: 'How we sequence the engagement',
+          narrative:
+            'We pick the two channels where the clinic\'s voice already lands and run them at four touches a week — each post tied back to a content pillar, not a one-off idea. Reels and short videos layer in monthly from a quarterly shot list your team can record in under an hour. Channels three and four only join the rotation once the first two have proven they earn the time.',
+          benchmarks: BENCHMARKS,
+        }}
+      />
+      <ServiceFAQ
+        items={FAQS}
+        serviceName="Healthcare Social Media Marketing"
+        title="What works on social — and what doesn’t."
+      />
+      <RelatedServices items={RELATED} />
+      <ServiceCTA
+        variant="band"
+        eyebrow="Cadence intro · 30 min"
+        title="Pick the two channels worth your team's time."
+        description="We look at your current channels, audience signals, and clinical voice — and tell you which two to commit to before the next quarter."
+        primaryTo="/contact"
+        primaryLabel="Book the cadence call"
+      />
 
       <script
         type="application/ld+json"

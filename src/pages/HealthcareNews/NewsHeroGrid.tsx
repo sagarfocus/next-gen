@@ -1,39 +1,37 @@
+import { Link } from 'react-router-dom';
+import NewsThumb from './NewsThumb';
+
 interface SideArticle {
-  href: string;
+  to: string;
   cat: string;
   title: string;
   meta: string;
-  imgSeed: string;
 }
 
 const SIDE_ARTICLES: SideArticle[] = [
   {
-    href: '#article-2',
+    to: '/blog/hipaa-tracking',
     cat: 'Regulation',
     title: 'FDA approves first continuous glucose monitor for Type 2 diabetes',
     meta: 'Apr 30 · 4 min read',
-    imgSeed: 'healthnewsside1',
   },
   {
-    href: '#article-3',
+    to: '/blog/ai-chatbot',
     cat: 'Telehealth',
     title: 'Telemedicine visits hit a record high in Q1, led by mental-health specialties',
     meta: 'Apr 29 · 6 min read',
-    imgSeed: 'healthnewsside2',
   },
   {
-    href: '#article-4',
+    to: '/medical-automation',
     cat: 'AI & Operations',
     title: 'Hospital network adopts voice-AI front desks across 38 locations',
     meta: 'Apr 28 · 5 min read',
-    imgSeed: 'healthnewsside3',
   },
   {
-    href: '#article-5',
+    to: '/services/analytics-reporting',
     cat: 'Policy',
     title: 'CMS announces expanded reimbursement for at-home cardiac monitoring',
     meta: 'Apr 27 · 7 min read',
-    imgSeed: 'healthnewsside4',
   },
 ];
 
@@ -42,12 +40,13 @@ const NewsHeroGrid = () => {
     <section className="hn-hero">
       <div className="container-shell">
         <div className="hg-grid">
-          <a className="hg-main" href="#article-1">
+          <Link className="hg-main" to="/blog/analytics">
             <div className="hg-main-img">
-              <img
-                src="https://picsum.photos/seed/healthnewsfeature1/1200/700"
-                alt=""
-                loading="lazy"
+              <NewsThumb
+                category="Research"
+                seed="hn-main-research"
+                aspect="landscape"
+                caption="Editorial · Research"
               />
             </div>
             <span className="hg-cat">Research</span>
@@ -70,20 +69,20 @@ const NewsHeroGrid = () => {
               <span className="dot" />
               <span>9 min read</span>
             </div>
-          </a>
+          </Link>
 
           <div className="hg-side">
             {SIDE_ARTICLES.map((article) => (
-              <a
-                key={article.href}
+              <Link
+                key={article.to}
                 className="hg-side-item"
-                href={article.href}
+                to={article.to}
               >
                 <div className="hg-side-img">
-                  <img
-                    src={`https://picsum.photos/seed/${article.imgSeed}/400/400`}
-                    alt=""
-                    loading="lazy"
+                  <NewsThumb
+                    category={article.cat}
+                    seed={`hg-side-${article.to}`}
+                    aspect="square"
                   />
                 </div>
                 <div>
@@ -91,7 +90,7 @@ const NewsHeroGrid = () => {
                   <h3 className="hg-side-title">{article.title}</h3>
                   <div className="hg-side-meta">{article.meta}</div>
                 </div>
-              </a>
+              </Link>
             ))}
           </div>
         </div>

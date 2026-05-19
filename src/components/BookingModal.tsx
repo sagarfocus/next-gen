@@ -41,6 +41,7 @@ const BookingModal = ({ open, onClose }: BookingModalProps) => {
   );
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
   const [selectedTime, setSelectedTime] = useState<string | null>(null);
+  const [confirmed, setConfirmed] = useState(false);
 
   useEffect(() => {
     if (!open) return;
@@ -55,6 +56,15 @@ const BookingModal = ({ open, onClose }: BookingModalProps) => {
       document.removeEventListener('keydown', onKey);
     };
   }, [open, onClose]);
+
+  // Reset confirmed state when modal reopens.
+  useEffect(() => {
+    if (!open) {
+      setConfirmed(false);
+      setSelectedDate(null);
+      setSelectedTime(null);
+    }
+  }, [open]);
 
   const isAtCurrentMonth =
     view.getFullYear() === today.getFullYear() &&
@@ -74,16 +84,17 @@ const BookingModal = ({ open, onClose }: BookingModalProps) => {
 
   const handleConfirm = () => {
     if (!selectedDate || !selectedTime) return;
-    const fmt = selectedDate.toLocaleDateString('en-US', {
-      weekday: 'long',
-      month: 'long',
-      day: 'numeric',
-      year: 'numeric',
-    });
-    alert(
-      `Booked: ${fmt} at ${selectedTime}\n\n(In production this submits to your booking backend.)`,
-    );
+    setConfirmed(true);
   };
+
+  const formattedDate = selectedDate
+    ? selectedDate.toLocaleDateString('en-US', {
+        weekday: 'long',
+        month: 'long',
+        day: 'numeric',
+        year: 'numeric',
+      })
+    : '';
 
   const confirmLabel = selectedDate
     ? selectedTime
@@ -126,21 +137,42 @@ const BookingModal = ({ open, onClose }: BookingModalProps) => {
         </button>
 
         <aside className="modal-info">
-          <span className="modal-eyebrow">Free 30-min Call</span>
+          <span className="modal-eyebrow">
+            {confirmed ? 'Hold confirmed' : 'Free 30-min Call'}
+          </span>
           <h3 id="modalTitle" className="modal-title">
-            Book a free consultation with a healthcare growth specialist.
+            {confirmed
+              ? 'You’re on the calendar.'
+              : 'Book a free consultation with a healthcare growth specialist.'}
           </h3>
           <p className="modal-text">
-            We&rsquo;ll review your current funnel, identify quick-win
-            opportunities, and outline a custom growth roadmap for your
-            practice.
+            {confirmed ? (
+              <>
+                We&rsquo;ve reserved <strong>{formattedDate}</strong> at{' '}
+                <strong>{selectedTime}</strong>. A confirmation email with the
+                call link will arrive within the next business hour.
+              </>
+            ) : (
+              <>
+                We&rsquo;ll review your current funnel, identify quick-win
+                opportunities, and outline a custom growth roadmap for your
+                practice.
+              </>
+            )}
           </p>
           <ul className="modal-list">
-            {[
-              'Personalized funnel audit',
-              'Custom 90-day growth roadmap',
-              'HIPAA-compliant, no commitment',
-            ].map((item) => (
+            {(confirmed
+              ? [
+                  'Calendar invite + agenda within 1 business hour',
+                  'A 1-page audit preview the morning of the call',
+                  'No prep needed — bring your top 2 questions',
+                ]
+              : [
+                  'Personalized funnel audit',
+                  'Custom 90-day growth roadmap',
+                  'HIPAA-compliant, no commitment',
+                ]
+            ).map((item) => (
               <li key={item}>
                 <span className="check" aria-hidden="true">
                   <svg
@@ -160,10 +192,174 @@ const BookingModal = ({ open, onClose }: BookingModalProps) => {
               </li>
             ))}
           </ul>
-          <div className="modal-foot">All times shown in your local timezone</div>
+          <div className="modal-foot">
+            {confirmed
+              ? 'Need to reschedule? Reply to the confirmation email.'
+              : 'All times shown in your local timezone'}
+          </div>
         </aside>
 
         <div className="modal-cal">
+          {confirmed ? (
+            <div
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                gap: 20,
+                padding: '12px 4px',
+                minHeight: 380,
+              }}
+              aria-live="polite"
+            >
+              <div
+                style={{
+                  display: 'inline-flex',
+                  alignSelf: 'flex-start',
+                  alignItems: 'center',
+                  gap: 8,
+                  padding: '5px 12px',
+                  borderRadius: 999,
+                  background: 'rgba(143,188,143,0.18)',
+                  color: '#2D5A3D',
+                  fontSize: 11,
+                  fontWeight: 700,
+                  letterSpacing: '0.16em',
+                  textTransform: 'uppercase',
+                }}
+              >
+                <span
+                  style={{
+                    display: 'inline-flex',
+                    width: 18,
+                    height: 18,
+                    borderRadius: 999,
+                    background: '#2D5A3D',
+                    color: '#fff',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                  }}
+                  aria-hidden="true"
+                >
+                  <svg
+                    width={11}
+                    height={11}
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth={3.2}
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                </span>
+                Confirmed
+              </div>
+              <div>
+                <div
+                  style={{
+                    fontSize: 12,
+                    fontWeight: 700,
+                    letterSpacing: '0.18em',
+                    textTransform: 'uppercase',
+                    color: '#718096',
+                    marginBottom: 6,
+                  }}
+                >
+                  Your call
+                </div>
+                <div
+                  style={{
+                    fontSize: 'clamp(20px, 2.4vw, 28px)',
+                    fontWeight: 700,
+                    color: '#1A2438',
+                    lineHeight: 1.2,
+                    letterSpacing: '-0.01em',
+                  }}
+                >
+                  {formattedDate}
+                </div>
+                <div
+                  style={{
+                    fontSize: 16,
+                    color: '#576DB5',
+                    fontWeight: 600,
+                    marginTop: 4,
+                  }}
+                >
+                  {selectedTime}
+                </div>
+              </div>
+              <div
+                style={{
+                  display: 'grid',
+                  gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))',
+                  gap: 12,
+                  padding: '16px 0',
+                  borderTop: '1px solid rgba(45,55,72,0.08)',
+                  borderBottom: '1px solid rgba(45,55,72,0.08)',
+                }}
+              >
+                <div>
+                  <div
+                    style={{
+                      fontSize: 11,
+                      fontWeight: 700,
+                      letterSpacing: '0.18em',
+                      textTransform: 'uppercase',
+                      color: '#718096',
+                      marginBottom: 4,
+                    }}
+                  >
+                    Format
+                  </div>
+                  <div style={{ fontSize: 14, fontWeight: 600, color: '#2D3748' }}>
+                    Video call · 30 min
+                  </div>
+                </div>
+                <div>
+                  <div
+                    style={{
+                      fontSize: 11,
+                      fontWeight: 700,
+                      letterSpacing: '0.18em',
+                      textTransform: 'uppercase',
+                      color: '#718096',
+                      marginBottom: 4,
+                    }}
+                  >
+                    Specialist
+                  </div>
+                  <div style={{ fontSize: 14, fontWeight: 600, color: '#2D3748' }}>
+                    Assigned by vertical
+                  </div>
+                </div>
+              </div>
+              <button
+                type="button"
+                className="cal-confirm"
+                onClick={onClose}
+              >
+                <span>Close</span>
+                <span className="ico" aria-hidden="true">
+                  <svg
+                    width={14}
+                    height={14}
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth={2.4}
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <line x1="5" y1="12" x2="19" y2="12" />
+                    <polyline points="12 5 19 12 12 19" />
+                  </svg>
+                </span>
+              </button>
+            </div>
+          ) : (
+            <>
           <div className="cal-head">
             <span className="cal-month">
               {MONTHS[view.getMonth()]} {view.getFullYear()}
@@ -313,6 +509,8 @@ const BookingModal = ({ open, onClose }: BookingModalProps) => {
               </svg>
             </span>
           </button>
+            </>
+          )}
         </div>
       </div>
     </div>
