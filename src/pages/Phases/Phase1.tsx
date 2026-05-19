@@ -13,6 +13,7 @@ const Phase1 = () => {
           background: #FAFAF8;
           color: #1A1F2C;
           font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+          margin-top: calc(-1 * var(--nav-h, 88px));
           padding: 140px 0 120px;
           min-height: 100vh;
         }

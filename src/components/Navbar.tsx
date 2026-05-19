@@ -26,8 +26,16 @@ const PRIMARY_LINKS: { to: string; label: string }[] = [
 const Navbar = () => {
   const [resourcesOpen, setResourcesOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const resourcesRef = useRef<HTMLDivElement>(null);
   const location = useLocation();
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 4);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   useEffect(() => {
     if (!resourcesOpen) return;
@@ -72,7 +80,7 @@ const Navbar = () => {
 
   return (
     <>
-    <header className="nav-wrap">
+    <header className={`nav-wrap${scrolled ? ' is-scrolled' : ''}`}>
       <div className="container-shell">
         <nav
           className="grid grid-cols-[auto_1fr_auto] items-center gap-3 sm:gap-8 h-16 sm:h-[78px]"
