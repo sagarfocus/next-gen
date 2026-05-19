@@ -29,6 +29,7 @@ import CitationBuilding from './pages/CitationBuilding';
 import HyperLocalContent from './pages/HyperLocalContent';
 import AeoSchema from './pages/AeoSchema';
 import Automation from './pages/Automation';
+import AutomationMoreInfo from './pages/Automation/MoreInfo';
 import OnsiteFieldMarketing from './pages/OnsiteFieldMarketing';
 import MedicalAutomation from './pages/MedicalAutomation';
 import FreeGrowthAudit from './pages/FreeGrowthAudit';
@@ -87,6 +88,7 @@ const App = () => {
         <Route path="/hyper-local-content" element={<HyperLocalContent />} />
         <Route path="/aeo-schema" element={<AeoSchema />} />
         <Route path="/automation" element={<Automation />} />
+        <Route path="/automation/more-info" element={<AutomationMoreInfo />} />
         <Route path="/onsite-field-marketing" element={<OnsiteFieldMarketing />} />
         <Route path="/medical-automation" element={<MedicalAutomation />} />
         <Route path="/free-growth-audit" element={<FreeGrowthAudit />} />

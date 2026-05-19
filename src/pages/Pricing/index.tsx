@@ -3,6 +3,7 @@ import PricingTiers from './PricingTiers';
 import ComparisonTable from './ComparisonTable';
 import InvestmentIncludes from './InvestmentIncludes';
 import AutomationROI from './AutomationROI';
+import PricingFAQ from './PricingFAQ';
 import FinalCTA from './FinalCTA';
 
 const SERVICE_SCHEMA = {
@@ -50,6 +51,7 @@ const Pricing = () => {
       <ComparisonTable />
       <InvestmentIncludes />
       <AutomationROI />
+      <PricingFAQ />
       <FinalCTA />
 
       <script

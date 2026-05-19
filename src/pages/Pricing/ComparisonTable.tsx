@@ -113,7 +113,9 @@ const ComparisonTable = () => {
               {GROUPS.map((group) => (
                 <Fragment key={group.label}>
                   <tr className="is-divider">
-                    <td colSpan={4}>{group.label}</td>
+                    <td colSpan={4}>
+                      <span className="pr-table-group">{group.label}</span>
+                    </td>
                   </tr>
                   {group.rows.map((row) => (
                     <tr key={row.feature}>

@@ -3,6 +3,7 @@ import Hero from './Hero';
 import CertStrip from './CertStrip';
 import Process from './Process';
 import Results from './Results';
+import Advantages from './Advantages';
 import Methodology from './Methodology';
 import Services from './Services';
 import FAQ from './FAQ';
@@ -106,6 +107,7 @@ const Home = () => {
       </Hero>
       <Process />
       <Results />
+      <Advantages />
       <Methodology />
       <Services />
       <Industries />

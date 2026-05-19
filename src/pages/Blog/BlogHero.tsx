@@ -114,6 +114,42 @@ const RIGHT_SIDE: SideCard[] = [
       </svg>
     ),
   },
+  {
+    href: '/blog/automation-roi',
+    cls: 's4',
+    cat: 'Automation',
+    title: 'The 4-hour weekly automation that recovers 18% of no-shows.',
+    meta: 'Apr 9, 2026 · 7 min read',
+    illustration: (
+      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle
+          cx="50"
+          cy="50"
+          r="30"
+          fill="rgba(143,188,143,.14)"
+          stroke="#8FBC8F"
+          strokeWidth="2.5"
+        />
+        <path
+          d="M50 28 V 50 L 64 60"
+          fill="none"
+          stroke="#576DB5"
+          strokeWidth="3"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <circle cx="50" cy="50" r="3" fill="#B38B6D" />
+        <path
+          d="M76 26 L 82 32 L 76 38"
+          fill="none"
+          stroke="#B38B6D"
+          strokeWidth="2.4"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    ),
+  },
 ];
 
 interface LatestItem {
@@ -351,8 +387,6 @@ const BlogHero = () => {
           </a>
 
           <div className="bl-side">
-            {RIGHT_SIDE.map(renderSideCard)}
-
             <aside className="bl-latest" aria-label="Latest articles">
               <div className="bl-latest-head">
                 <h3 className="bl-latest-title">Latest</h3>
@@ -374,6 +408,8 @@ const BlogHero = () => {
                 ))}
               </div>
             </aside>
+
+            {RIGHT_SIDE.map(renderSideCard)}
           </div>
         </div>
       </div>

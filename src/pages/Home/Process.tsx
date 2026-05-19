@@ -96,18 +96,21 @@ const Process = () => {
           scrollTrigger: {
             trigger: section,
             start: 'top 78%',
-            end: 'bottom 40%',
-            scrub: 0.6,
+            toggleActions: 'play none none reverse',
           },
         });
 
-        tl.to(path, { strokeDashoffset: 0, ease: 'none' }, 0);
+        tl.to(path, {
+          strokeDashoffset: 0,
+          duration: 4.5,
+          ease: 'power1.inOut',
+        }, 0);
 
         steps.forEach((s, i) => {
           tl.to(
             s,
-            { opacity: 1, scale: 1, duration: 0.6, ease: 'power2.out' },
-            i / steps.length,
+            { opacity: 1, scale: 1, duration: 0.9, ease: 'power2.out' },
+            0.3 + i * 0.6,
           );
         });
       }, section);

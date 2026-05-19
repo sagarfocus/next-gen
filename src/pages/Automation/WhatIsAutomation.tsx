@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 const WhatIsAutomation = () => {
   return (
     <section className="what-is" aria-labelledby="what-title">
@@ -14,7 +16,7 @@ const WhatIsAutomation = () => {
               your clinic already runs on. No replacement, no migration. Just
               less manual work.
             </p>
-            <a href="#what-more" className="more-info">
+            <Link to="/automation/more-info" className="more-info">
               <span className="more-info-icon">
                 <svg
                   width={16}
@@ -31,7 +33,7 @@ const WhatIsAutomation = () => {
                 </svg>
               </span>
               More Info
-            </a>
+            </Link>
           </div>
 
           <div className="reveal d2">
