@@ -17,7 +17,7 @@ interface ParallaxProps extends HTMLAttributes<HTMLElement> {
 
 /**
  * Subtle scroll-linked vertical parallax. Reads the element's position
- * once per rAF, applies a `translate3d` — never touches layout
+ * once per rAF, applies a `translate3d` - never touches layout
  * properties. Disabled entirely under prefers-reduced-motion.
  */
 export const Parallax = ({

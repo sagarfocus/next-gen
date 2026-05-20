@@ -15,17 +15,17 @@ const QAS: QA[] = [
   {
     num: '06.02',
     q: 'Do you guarantee rankings?',
-    a: 'No honest agency does. We guarantee process — audits, deliverables, weekly reviews — and measure ourselves against booked appointments and revenue, not vanity rankings.',
+    a: 'No honest agency does. We guarantee process - audits, deliverables, weekly reviews - and measure ourselves against booked appointments and revenue, not vanity rankings.',
   },
   {
     num: '06.03',
     q: 'What if we have multiple locations?',
-    a: 'Each location gets its own GBP, landing page, and review program — under one shared brand authority and content engine. No template-copy traps.',
+    a: 'Each location gets its own GBP, landing page, and review program - under one shared brand authority and content engine. No template-copy traps.',
   },
   {
     num: '06.04',
     q: 'What happens if we stop the engagement?',
-    a: "Foundational work stays with you. You'll feel slowdown in 4–6 months as fresh content stops shipping. We hand off all assets clean — accounts, dashboards, drafts — at exit.",
+    a: "Foundational work stays with you. You'll feel slowdown in 4–6 months as fresh content stops shipping. We hand off all assets clean - accounts, dashboards, drafts - at exit.",
   },
 ];
 
@@ -41,7 +41,7 @@ const FAQ = () => {
       <div className="container-shell">
         <div className="sl-sec-head">
           <div>
-            <div className="sl-sec-num">06 — Common questions</div>
+            <div className="sl-sec-num">06 - Common questions</div>
             <h2 className="sl-sec-title">The four most asked.</h2>
           </div>
           <div className="sl-sec-meta">

@@ -10,7 +10,7 @@ const ORIGIN =
 const NEWS_SCHEMA = {
   '@context': 'https://schema.org',
   '@type': 'CollectionPage',
-  name: 'Healthcare News & Insights — TheNextGen Weekly Brief',
+  name: 'Healthcare News & Insights - TheNextGen Weekly Brief',
   description:
     'Weekly editorial brief covering healthcare research, compliance, telehealth, AI operations, and patient-acquisition marketing.',
   url: `${ORIGIN}/healthcare-news`,

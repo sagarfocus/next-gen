@@ -28,7 +28,7 @@ const WhyUs = () => {
         </div>
 
         <div className="fp-why-grid">
-          {/* TL: Image card — referrals mockup */}
+          {/* TL: Image card - referrals mockup */}
           <div className="fp-card fp-card-img">
             <div className="fp-mock">
               <div className="fp-mock-dash">
@@ -62,7 +62,7 @@ const WhyUs = () => {
             </h3>
             <p className="fp-card-desc">
               Our intake automation turns form submissions into EHR records
-              and confirmation messages in under three seconds &mdash; no
+              and confirmation messages in under three seconds - no
               front desk lift, no PHI leakage.
             </p>
             <span className="fp-btn">
@@ -78,7 +78,7 @@ const WhyUs = () => {
               Keep your numbers in check with one live dashboard.
             </h3>
             <p className="fp-card-desc">
-              CPA, ROAS, no-show rate, and patient lifetime value &mdash;
+              CPA, ROAS, no-show rate, and patient lifetime value -
               refreshed every fifteen minutes from your ad accounts, EHR, and
               analytics. One screen, no spreadsheets.
             </p>
@@ -88,7 +88,7 @@ const WhyUs = () => {
             </span>
           </a>
 
-          {/* BR: Image card — finance health mockup */}
+          {/* BR: Image card - finance health mockup */}
           <div className="fp-card fp-card-img">
             <div className="fp-mock">
               <div className="fp-mock-health">

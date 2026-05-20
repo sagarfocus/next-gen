@@ -54,7 +54,7 @@ const ChartIcon = () => (
 
 const DO_CARDS: DoCard[] = [
   { name: 'Content Strategy', desc: 'Patient-led editorial calendar mapped to your specialties and revenue goals.', icon: <PinIcon /> },
-  { name: 'Reels & Creatives', desc: 'Short-form video, carousels, and graphics produced in-house — clinically reviewed.', icon: <LinkIcon /> },
+  { name: 'Reels & Creatives', desc: 'Short-form video, carousels, and graphics produced in-house - clinically reviewed.', icon: <LinkIcon /> },
   { name: 'Paid Amplification', desc: 'Boosted posts and dark-post campaigns layered on top of your organic reach.', icon: <FileIcon /> },
   { name: 'Community Growth', desc: 'DM responses, comment moderation, follower-list nurturing on a daily SLA.', icon: <NetworkIcon /> },
   { name: 'Compliance Review', desc: 'Every post pre-screened for HIPAA, HHS, and state board guidelines.', icon: <StarIcon /> },
@@ -117,18 +117,18 @@ const SERVICE_SCHEMA = {
 // Benchmarks are framed as planning targets, not measured client outcomes.
 const BENCHMARKS: BenchmarkTile[] = [
   { value: '4×/wk', label: 'Posting cadence per channel' },
-  { value: '2', label: 'Channels run deep — not four run shallow' },
+  { value: '2', label: 'Channels run deep - not four run shallow' },
   { value: 'Q', label: 'Quarterly shot list for clinical content' },
 ];
 
 const FAQS: ServiceFAQItem[] = [
   {
     q: 'Does social actually drive bookings for healthcare?',
-    a: 'It rarely drives cold bookings — it drives trust, referrals, and the second-visit decision. We measure assisted conversions and direct-search lift, not vanity follower counts.',
+    a: 'It rarely drives cold bookings - it drives trust, referrals, and the second-visit decision. We measure assisted conversions and direct-search lift, not vanity follower counts.',
   },
   {
     q: 'What channels do you cover?',
-    a: 'Instagram and Facebook for community and reactivation, LinkedIn for recruiting and B2B specialty referrals, TikTok and YouTube Shorts when the clinical voice is naturally video-first. We don’t spread thin — usually two channels run cleaner than four.',
+    a: 'Instagram and Facebook for community and reactivation, LinkedIn for recruiting and B2B specialty referrals, TikTok and YouTube Shorts when the clinical voice is naturally video-first. We don’t spread thin - usually two channels run cleaner than four.',
   },
   {
     q: 'How do you stay HIPAA-safe in the comments?',
@@ -175,26 +175,26 @@ const SocialMedia = () => {
       <ServiceScenario
         variant="sketch"
         eyebrow="How we shape the cadence"
-        title="Two channels, run all the way — beats four channels run half-way."
+        title="Two channels, run all the way - beats four channels run half-way."
         intro="Social rarely drives cold bookings; it builds trust in the gap between the click and the visit. The sketch below describes how we shape that cadence, not a specific client outcome."
         sketch={{
           contextLabel: 'How we sequence the engagement',
           narrative:
-            'We pick the two channels where the clinic\'s voice already lands and run them at four touches a week — each post tied back to a content pillar, not a one-off idea. Reels and short videos layer in monthly from a quarterly shot list your team can record in under an hour. Channels three and four only join the rotation once the first two have proven they earn the time.',
+            'We pick the two channels where the clinic\'s voice already lands and run them at four touches a week - each post tied back to a content pillar, not a one-off idea. Reels and short videos layer in monthly from a quarterly shot list your team can record in under an hour. Channels three and four only join the rotation once the first two have proven they earn the time.',
           benchmarks: BENCHMARKS,
         }}
       />
       <ServiceFAQ
         items={FAQS}
         serviceName="Healthcare Social Media Marketing"
-        title="What works on social — and what doesn’t."
+        title="What works on social - and what doesn’t."
       />
       <RelatedServices items={RELATED} />
       <ServiceCTA
         variant="band"
         eyebrow="Cadence intro · 30 min"
         title="Pick the two channels worth your team's time."
-        description="We look at your current channels, audience signals, and clinical voice — and tell you which two to commit to before the next quarter."
+        description="We look at your current channels, audience signals, and clinical voice - and tell you which two to commit to before the next quarter."
         primaryTo="/contact"
         primaryLabel="Book the cadence call"
       />

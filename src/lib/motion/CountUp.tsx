@@ -21,7 +21,7 @@ interface CountUpProps {
 }
 
 /**
- * Animated number counter — runs once when the element scrolls into
+ * Animated number counter - runs once when the element scrolls into
  * view. Springs from 0 → `to`. Reduced-motion safe (snaps to value).
  */
 export const CountUp = ({

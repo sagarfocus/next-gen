@@ -8,7 +8,7 @@ interface PageTransitionProps {
 
 /**
  * Wraps the route outlet and fades each route in on path change.
- * Pure CSS transition driven by a key+class swap — no layout thrash,
+ * Pure CSS transition driven by a key+class swap - no layout thrash,
  * no library, no continuous animation. Reduced-motion users see a
  * straight cut (gated in CSS).
  */
@@ -18,7 +18,7 @@ export const PageTransition = ({ children }: PageTransitionProps) => {
   const firstRender = useRef(true);
 
   useEffect(() => {
-    // Skip the very first paint — the static markup is already on screen
+    // Skip the very first paint - the static markup is already on screen
     if (firstRender.current) {
       firstRender.current = false;
       // Promote to idle on next frame so transition class kicks in

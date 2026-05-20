@@ -4,38 +4,23 @@ import type { ReactNode } from 'react';
 import { Parallax, AnimatedBackground, MotionButton, MotionCard } from '../../lib/motion';
 import nextHeroImg1 from '../../assets/nextheroimg1.png';
 import nextHeroImg2 from '../../assets/nextheroimg2.png';
-import imgER from '../../assets/freestandingemergency.png';
-import imgUrgent from '../../assets/urgentcare.png';
-import imgMedspa from '../../assets/Medspa.png';
-import imgDental from '../../assets/dental.png';
-import imgMental from '../../assets/mental health.png';
-import imgPediatrics from '../../assets/dermatology.png';
-import imgChiro from '../../assets/chiropratic.png';
-import imgPrimary from '../../assets/primary care\'.png';
-import imgNetworks from '../../assets/medicalautomation.png';
-import imgLocalSearch from '../../assets/Local Search.png';
-import imgBookingWeb from '../../assets/bookingfirstwebsite.png';
-import imgFrontDeskAutomation from '../../assets/automation frontedesk.png';
-import imgFeatER from '../../assets/er.png';
-import imgFeatSpaMed from '../../assets/spamed.png';
-import imgFeatDental from '../../assets/dentalimg.png';
-import imgPaidMedia from '../../assets/paidmedia.png';
-import imgPatientIdentities from '../../assets/patientidentities.png';
-import imgRecall from '../../assets/recall+.png';
+import {
+  ENGAGEMENT_DETAILS,
+  INDUSTRY_DETAILS,
+  CAPABILITY_DETAILS,
+  INDUSTRY_ICONS,
+  detailHref,
+} from './details.data';
 
 /* ============================================================
-   OUR WORK — bespoke gallery page.
-   A retrospective of the engagements, capabilities, and
-   industries shipped from this studio. SEO-first, image-light,
-   distinct from every other page on the site.
+   OUR WORK - bespoke gallery page.
+   Card clicks navigate to dedicated /our-work/:kind/:slug pages
+   so each engagement, industry, and capability has its own
+   indexable URL (no overlay/modal pattern - SEO-first).
    ============================================================ */
 
 const IMG = {
   spotlight: nextHeroImg1,
-  search:
-    'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=900&q=70',
-  web:
-    'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&w=900&q=70',
   studio: nextHeroImg2,
 };
 
@@ -61,441 +46,58 @@ const STATS = [
   { v: '4.1×',   l: 'Median ROAS' },
 ];
 
-type Industry = {
-  name: string;
-  blurb: string;
-  img: string;
-  icon: ReactNode;
-  description: string;
-  services: string[];
-  metric: { v: string; l: string };
-};
+const CAPABILITY_TAGS = ['Discovery', 'Acquisition', 'Brand', 'Web', 'Lifecycle', 'Operations'] as const;
 
-const INDUSTRIES: Industry[] = [
-  {
-    name: 'Emergency Rooms',
-    blurb: 'Freestanding & hospital-attached.',
-    img: imgER,
-    description:
-      'We rebuild your emergency-care funnel around true ED intent — chest-pain, trauma, kid-with-a-fever — and bend paid spend away from non-emergent traffic that crowds rooms but never converts on revenue.',
-    services: [
-      'Trauma intent SEO',
-      'Wait-time landing pages',
-      'Insurance verification flows',
-      'Geo-fenced display + connected TV',
-      'EmergencyMedicalService schema',
-    ],
-    metric: { v: '+318%', l: 'Booked emergency visits, 90 days' },
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-        <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
-      </svg>
-    ),
-  },
-  {
-    name: 'Urgent Care',
-    blurb: 'Walk-in volume, fast turnaround.',
-    img: imgUrgent,
-    description:
-      'Walk-in volume that pays back the same week. We re-engineer your local presence so the parent searching at 8pm chooses you, not the national chain across town.',
-    services: [
-      'Same-day appointment funnels',
-      'Google Business Profile optimisation',
-      'Insurance-by-location pages',
-      'After-hours paid search',
-      'Patient review automation',
-    ],
-    metric: { v: '−42%', l: 'Cost per walk-in, 6 months' },
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-        <circle cx="12" cy="12" r="9" />
-        <path d="M12 7v10M7 12h10" />
-      </svg>
-    ),
-  },
-  {
-    name: 'Medspas & Aesthetics',
-    blurb: 'Injectables, lasers, lifetime value.',
-    img: imgMedspa,
-    description:
-      'Re-price the launch funnel around lifetime value, not first visit. We build full-funnel ecosystems for injectables, lasers, and body — the kind that survive seasonality and don\'t collapse when Groupon disappears.',
-    services: [
-      'Treatment-specific landing pages',
-      'Before/after gallery SEO',
-      'Loyalty + membership automation',
-      'Instagram + TikTok ad creative',
-      'Patient retention sequences',
-    ],
-    metric: { v: '+62%', l: 'Average order value, 6 months' },
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-        <path d="M12 2l2.3 5.3L20 9l-4 4.2L17 20l-5-2.8L7 20l1-6.8L4 9l5.7-1.7L12 2z" />
-      </svg>
-    ),
-  },
-  {
-    name: 'Dental Practices',
-    blurb: 'Solo to DSO-level networks.',
-    img: imgDental,
-    description:
-      'Solo office to DSO — one search and brand operating system. We unify locations under one marketing engine, then push each office\'s local rankings independently so they never cannibalise each other.',
-    services: [
-      'Multi-location SEO',
-      'Insurance-accepted pages per office',
-      'New-patient nurture flows',
-      'Service-area schema',
-      'Treatment-coordinator call scripts',
-    ],
-    metric: { v: '−48%', l: 'Cost per new patient' },
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-        <path d="M7 3c-2 0-3 1.5-3 4 0 3 1 5 1.5 8s1 7 2.5 7c1 0 1-3 2-5s1.5-2 2 0 1 5 2 5c1.5 0 2-4 2.5-7s1.5-5 1.5-8c0-2.5-1-4-3-4-1.5 0-2.5 1-3.5 1S8.5 3 7 3z" />
-      </svg>
-    ),
-  },
-  {
-    name: 'Mental Health',
-    blurb: 'Empathetic recall + insurance flow.',
-    img: imgMental,
-    description:
-      'Make the front door feel safe and the back office actually work. From search to scheduled session in under 24 hours — without the cold-CRM email tone that pushes anxious patients straight back to Google.',
-    services: [
-      'Specialty-matched landing pages',
-      'Telehealth booking funnels',
-      'Therapist directory SEO',
-      'Insurance verification automation',
-      'Crisis-line ad compliance review',
-    ],
-    metric: { v: '4.6×', l: 'Booked sessions per ad spend' },
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-        <path d="M9 21V9a3 3 0 0 1 3-3 3 3 0 0 1 3 3v12" />
-        <path d="M5 14a4 4 0 0 1 0-8 4 4 0 0 1 4-4" />
-        <path d="M19 14a4 4 0 0 0 0-8 4 4 0 0 0-4-4" />
-      </svg>
-    ),
-  },
-  {
-    name: 'Pediatrics',
-    blurb: 'Parent-first comms, well-visit ladders.',
-    img: imgPediatrics,
-    description:
-      'Write to the parent\'s actual questions, schedule for their actual life, and remind without the guilt. We tune every touch — search, ad copy, intake, recall — to the way overwhelmed parents actually behave at 9pm on a Sunday.',
-    services: [
-      'Well-visit reminder sequences',
-      'Vaccine page SEO',
-      'School-form automation',
-      'Parent education content',
-      'Sick-visit same-day funnels',
-    ],
-    metric: { v: '+71%', l: 'Well-visit attachment, 12 months' },
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-        <circle cx="12" cy="8" r="4" />
-        <path d="M5 21a7 7 0 0 1 14 0" />
-      </svg>
-    ),
-  },
-  {
-    name: 'Chiropractic',
-    blurb: 'Decompression, wellness, retention.',
-    img: imgChiro,
-    description:
-      'Front door for the first visit, funnel for the next ten, and the brand that earns referrals year after year. We replace one-off promo offers with a retention system that compounds.',
-    services: [
-      'Condition-specific SEO',
-      'Decompression therapy ads',
-      'Membership funnel design',
-      'Patient testimonial video',
-      'Local sports + corporate partnerships',
-    ],
-    metric: { v: '+158%', l: 'Membership conversions' },
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-        <path d="M12 2v20" />
-        <path d="M8 5h8M7 9h10M6 13h12M7 17h10M8 21h8" />
-      </svg>
-    ),
-  },
-  {
-    name: 'Primary Care',
-    blurb: 'Panel growth + payer mix optimisation.',
-    img: imgPrimary,
-    description:
-      'Grow your panel with the patients your panel actually needs — by payer, by zip, by visit type. Volume that lifts revenue, not just utilisation.',
-    services: [
-      'Panel-growth campaigns',
-      'Payer-mix landing pages',
-      'Annual wellness funnels',
-      'Same-day-visit ads',
-      'Care-gap closure flows',
-    ],
-    metric: { v: '+24%', l: 'Commercial payer mix shift' },
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-        <path d="M3 12h4l3-8 4 16 3-8h4" />
-      </svg>
-    ),
-  },
-  {
-    name: 'Healthcare Networks',
-    blurb: 'Multi-location brand operating systems.',
-    img: imgNetworks,
-    description:
-      'The system that lets 7, 70, or 700 locations rank, convert, and report — without seven, seventy, or seven hundred marketing teams. One brand, one tech spine, one weekly dashboard.',
-    services: [
-      'Centralised brand system',
-      'Location-page templates at scale',
-      'Cross-location performance reporting',
-      'Service-line launch playbooks',
-      'Post-acquisition integration runbooks',
-    ],
-    metric: { v: '7 → 17', l: 'Locations unified in 14 months' },
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-        <circle cx="12" cy="12" r="2.5" />
-        <circle cx="5" cy="5" r="2" />
-        <circle cx="19" cy="5" r="2" />
-        <circle cx="5" cy="19" r="2" />
-        <circle cx="19" cy="19" r="2" />
-        <path d="M7 6.5l3 4M17 6.5l-3 4M7 17.5l3-4M17 17.5l-3-4" />
-      </svg>
-    ),
-  },
+/* Per-card stat triplet — three quick facts shown at the bottom of each card.
+   Order matches CAPABILITY_DETAILS / CAPABILITY_TAGS. */
+const CAPABILITY_STATS: { v: string; l: string }[][] = [
+  // 01 Local search systems · Discovery
+  [
+    { v: '90 d',     l: 'Time to lift' },
+    { v: 'Map Pack', l: 'Channel' },
+    { v: 'Compound', l: 'Trajectory' },
+  ],
+  // 02 Paid media · Acquisition
+  [
+    { v: '7 d',           l: 'To live' },
+    { v: 'Google + Meta', l: 'Platforms' },
+    { v: 'Pay-back',      l: 'Goal' },
+  ],
+  // 03 Identities · Brand
+  [
+    { v: '6 wk',           l: 'Sprint' },
+    { v: 'Visual + Voice', l: 'Scope' },
+    { v: 'Refresh',        l: 'Outcome' },
+  ],
+  // 04 Booking-first websites · Web
+  [
+    { v: '8 wk',          l: 'Build' },
+    { v: 'Booking-first', l: 'Approach' },
+    { v: 'Convert',       l: 'Focus' },
+  ],
+  // 05 Recall + nurture · Lifecycle
+  [
+    { v: '30 d',      l: 'Setup' },
+    { v: 'Automated', l: 'Type' },
+    { v: 'Retain',    l: 'Goal' },
+  ],
+  // 06 Automations · Operations
+  [
+    { v: '21 d',      l: 'Install' },
+    { v: 'EHR-link',  l: 'Integration' },
+    { v: 'AI Triage', l: 'Layer' },
+  ],
 ];
 
-type Capability = {
-  tag: string;
-  title: string;
-  copy: string;
-  size: 'a' | 'b' | 'c' | 'd' | 'e' | 'f';
-  description: string;
-  services: string[];
-  metric: { v: string; l: string };
-  to: string;
-  img: string;
-};
+const ENGAGEMENT_DELTAS = ['+318', '+62', '−48'] as const;
 
-const CAPABILITIES: Capability[] = [
-  {
-    size: 'a',
-    tag: 'Discovery',
-    title: 'Local search systems that own the Map Pack.',
-    copy: 'Schema, GBP optimisation, geo-targeted content, and a review engine that compounds month over month.',
-    description:
-      'Healthcare buyers start with high-intent searches in their zip code. We engineer the systems that put your practice in the Local Pack on the searches that matter — emergency-care, same-day appointments, specialty visits — and keep you there as competitors churn around you.',
-    services: [
-      'Local schema + GBP optimisation',
-      'Service-area page architecture',
-      'Review-velocity engine',
-      'Geo-targeted content briefs',
-      'Citations + NAP cleanup',
-    ],
-    metric: { v: '+187%', l: 'Local Pack impressions, 90d' },
-    to: '/services/seo-local-search',
-    img: imgLocalSearch,
-  },
-  {
-    size: 'b',
-    tag: 'Acquisition',
-    title: 'Paid media that pays back in week one.',
-    copy: 'Google + Meta + LinkedIn with server-side tracking and HIPAA-aware audiences.',
-    description:
-      'Paid spend that compounds, not leaks. HIPAA-aware audience design, server-side conversion tracking, and budget routed toward patients with real lifetime value — not the cheapest first click.',
-    services: [
-      'Google + Meta + LinkedIn campaigns',
-      'Server-side conversion tracking',
-      'HIPAA-aware audience design',
-      'Landing-flow experiments',
-      'Weekly CAC + LTV reporting',
-    ],
-    metric: { v: '4.1×', l: 'Median ROAS across clients' },
-    to: '/services/paid-media',
-    img: imgPaidMedia,
-  },
-  {
-    size: 'c',
-    tag: 'Brand',
-    title: 'Identities patients trust on sight.',
-    copy: 'Marks, voice, and motion built to age well across signage, screen, and surgical theatre.',
-    description:
-      'A brand system designed for the moment a patient is choosing between you and the practice down the street. Marks, voice, and motion that read as competent and current across every surface — signage, screen, surgical theatre.',
-    services: [
-      'Visual identity systems',
-      'Patient-facing voice + tone',
-      'Photography + motion direction',
-      'Wayfinding + collateral',
-      'Brand guidelines + ops manual',
-    ],
-    metric: { v: '7+', l: 'Identities shipped at network scale' },
-    to: '/services/brand-identity',
-    img: imgPatientIdentities,
-  },
-  {
-    size: 'd',
-    tag: 'Web',
-    title: 'Booking-first websites that convert.',
-    copy: 'Speed, schema, accessibility — and a booking pathway with measured drop-off at every step.',
-    description:
-      'Sites engineered around the booking pathway. Speed, schema, accessibility — and a drop-off map at every step so we know exactly where conversion leaks happen and which fix moves the number.',
-    services: [
-      'Booking-first information architecture',
-      'Core Web Vitals + accessibility',
-      'HIPAA-respecting analytics',
-      'Funnel drop-off instrumentation',
-      'CMS your team can actually use',
-    ],
-    metric: { v: '+38%', l: 'Booking completion lift' },
-    to: '/services/web-design',
-    img: imgBookingWeb,
-  },
-  {
-    size: 'e',
-    tag: 'Lifecycle',
-    title: 'Recall + nurture that earns trust.',
-    copy: 'Empathetic recall flows that move return rates without ever feeling like advertising.',
-    description:
-      'Patient lifecycle communication that respects intent. Empathetic recall flows that move return rates and reactivate dormant patients without ever feeling transactional, templated, or manipulative.',
-    services: [
-      'Recall email + SMS cadences',
-      'Reactivation campaigns',
-      'Permission-based review asks',
-      'Care-gap nurture flows',
-      'NPS + satisfaction loops',
-    ],
-    metric: { v: '+24%', l: 'Annual patient return rate' },
-    to: '/services/lifecycle-engagement',
-    img: imgRecall,
-  },
-  {
-    size: 'f',
-    tag: 'Operations',
-    title: 'Automations the front desk actually runs on.',
-    copy: 'EHR-connected, BAA-covered workflows: intake, reminders, eligibility, AI triage.',
-    description:
-      'EHR-connected, BAA-covered workflows that take busywork off the front desk so staff can spend time on patients, not on phones. Intake, reminders, eligibility, AI triage — running where your team already works.',
-    services: [
-      'Intake + scheduling automation',
-      'Insurance verification flows',
-      'Appointment reminders + recall',
-      'AI-assisted triage routing',
-      'EHR-to-CRM data bridges',
-    ],
-    metric: { v: '−42%', l: 'No-show rate, networked clinics' },
-    to: '/services/automation',
-    img: imgFrontDeskAutomation,
-  },
-];
+const ENGAGEMENT_SECTORS = ['Emergency Room', 'Medspa', 'Dental Network'] as const;
 
-type Engagement = {
-  sector: string;
-  name: string;
-  headline: string;
-  metric: { v: string; l: string };
-  delta: string;
-  to: string;
-  img?: string;
-  description: string;
-  services: string[];
-};
-
-const ENGAGEMENTS: Engagement[] = [
-  {
-    sector: 'Emergency Room',
-    name: 'SunCrest Freestanding ER',
-    headline: 'Filled overnight slots without paying for non-emergent traffic.',
-    metric: { v: '+318%', l: 'Booked visits, 90d' },
-    delta: '+318',
-    to: '/case-studies',
-    img: imgFeatER,
-    description:
-      'A 24/7 freestanding ER bleeding overnight capacity to non-emergent traffic and chasing impressions across broken ad accounts. We rebuilt the funnel around true ED intent — chest pain, trauma, kid-with-a-fever — and routed paid spend to the patients who actually convert on revenue.',
-    services: [
-      'Trauma intent SEO + GBP rebuild',
-      'Wait-time + insurance landing pages',
-      'Geo-fenced display + connected TV',
-      'EmergencyMedicalService schema',
-      'Insurance verification automation',
-    ],
-  },
-  {
-    sector: 'Medspa',
-    name: 'VitalSpa Aesthetics',
-    headline: 'Re-priced the launch funnel around lifetime value, not first visit.',
-    metric: { v: '+62%', l: 'AOV, six months' },
-    delta: '+62',
-    to: '/case-studies',
-    img: imgFeatSpaMed,
-    description:
-      'A multi-treatment medspa scaling past founder-led growth. We re-priced the entire launch funnel around lifetime value instead of first-visit revenue, then layered loyalty + financing flows that compound — instead of discount cycles that train the wrong behaviour.',
-    services: [
-      'LTV-modelled paid acquisition',
-      'Membership + loyalty programme',
-      'Financing-aware landing flows',
-      'Treatment-bundle ad creative',
-      'Aftercare + recall automation',
-    ],
-  },
-  {
-    sector: 'Dental Network',
-    name: 'NorthLake Dental',
-    headline: 'Unified seven locations under one search + brand operating system.',
-    metric: { v: '−48%', l: 'Cost per patient' },
-    delta: '−48',
-    to: '/case-studies',
-    img: imgFeatDental,
-    description:
-      'Seven dental locations operating as seven brands. We unified them under one search + brand operating system, then engineered cross-location attribution so each clinic could see its own pipeline without drowning in the others’ noise.',
-    services: [
-      'Network-wide brand system',
-      'Per-location SEO + GBP',
-      'Cross-location attribution',
-      'Centralised paid media',
-      'Patient-routing automation',
-    ],
-  },
-];
-
-/* ---------- SVG art used for non-photo tiles ---------- */
-
-const MeshArt = () => (
-  <svg viewBox="0 0 600 420" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-    <defs>
-      <radialGradient id="mwA" cx="20%" cy="20%" r="60%">
-        <stop offset="0%" stopColor="#576DB5" stopOpacity="0.85" />
-        <stop offset="100%" stopColor="#576DB5" stopOpacity="0" />
-      </radialGradient>
-      <radialGradient id="mwB" cx="85%" cy="35%" r="55%">
-        <stop offset="0%" stopColor="#D4AF37" stopOpacity="0.55" />
-        <stop offset="100%" stopColor="#D4AF37" stopOpacity="0" />
-      </radialGradient>
-      <radialGradient id="mwC" cx="40%" cy="90%" r="65%">
-        <stop offset="0%" stopColor="#8FBC8F" stopOpacity="0.55" />
-        <stop offset="100%" stopColor="#8FBC8F" stopOpacity="0" />
-      </radialGradient>
-    </defs>
-    <rect width="600" height="420" fill="#1A2438" />
-    <rect width="600" height="420" fill="url(#mwA)" />
-    <rect width="600" height="420" fill="url(#mwB)" />
-    <rect width="600" height="420" fill="url(#mwC)" />
-    <g stroke="rgba(255,255,255,0.10)" strokeWidth="1" fill="none">
-      <circle cx="120" cy="320" r="80" />
-      <circle cx="120" cy="320" r="140" strokeDasharray="3 6" />
-      <circle cx="480" cy="100" r="60" />
-      <circle cx="480" cy="100" r="110" strokeDasharray="3 6" />
-    </g>
-    <g fill="#D4AF37">
-      <circle cx="120" cy="320" r="6" />
-      <circle cx="480" cy="100" r="6" />
-    </g>
-    <text x="32" y="44" fontFamily="ui-monospace,Menlo" fontSize="11" letterSpacing="2" fill="rgba(255,255,255,0.65)">
-      FIG. 01 — TERRITORY
-    </text>
-    <text x="32" y="398" fontFamily="ui-monospace,Menlo" fontSize="11" letterSpacing="2" fill="rgba(255,255,255,0.5)">
-      SCALE · 1 : ∞
-    </text>
-  </svg>
-);
+const ENGAGEMENT_HEADLINES = [
+  'Filled overnight slots without paying for non-emergent traffic.',
+  'Re-priced the launch funnel around lifetime value, not first visit.',
+  'Unified seven locations under one search + brand operating system.',
+] as const;
 
 /* ---------- Sections ---------- */
 
@@ -591,206 +193,86 @@ const Stats = () => (
   </section>
 );
 
-type DetailModalProps = {
-  open: boolean;
-  onClose: () => void;
-  img: string;
-  numLabel?: string;
-  eyebrow: string;
-  title: string;
-  blurb?: string;
-  description: string;
-  serviceLabel: string;
-  services: string[];
-  metric: { v: string; l: string };
-  cta: { text: string; to: string };
-};
-
-const DetailModal = ({
-  open,
-  onClose,
-  img,
-  numLabel,
-  eyebrow,
-  title,
-  blurb,
-  description,
-  serviceLabel,
-  services,
-  metric,
-  cta,
-}: DetailModalProps) => {
-  useEffect(() => {
-    if (!open) return;
-    const prevOverflow = document.body.style.overflow;
-    document.body.style.overflow = 'hidden';
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') onClose();
-    };
-    window.addEventListener('keydown', onKey);
-    return () => {
-      document.body.style.overflow = prevOverflow;
-      window.removeEventListener('keydown', onKey);
-    };
-  }, [open, onClose]);
-
-  if (!open) return null;
-
-  return (
-    <div
-      className="ow-ind-modal"
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby="ow-detail-modal-title"
-      onClick={onClose}
-    >
-      <div className="ow-ind-modal-card" onClick={(e) => e.stopPropagation()}>
-        <button
-          type="button"
-          className="ow-ind-modal-close"
-          onClick={onClose}
-          aria-label="Close details"
-        >
-          <svg width={20} height={20} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.4} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-            <line x1="6" y1="6" x2="18" y2="18" />
-            <line x1="6" y1="18" x2="18" y2="6" />
-          </svg>
-        </button>
-
-        <div className="ow-ind-modal-art" aria-hidden="true">
-          <img src={img} alt="" />
-          <div className="ow-ind-modal-art-shade" />
-          {numLabel && <span className="ow-ind-modal-num">{numLabel}</span>}
-        </div>
-
-        <div className="ow-ind-modal-body">
-          <span className="ow-ind-modal-tag">{eyebrow}</span>
-          <h2 id="ow-detail-modal-title" className="ow-ind-modal-title">{title}</h2>
-          {blurb && <p className="ow-ind-modal-blurb">{blurb}</p>}
-          <p className="ow-ind-modal-desc">{description}</p>
-
-          <div className="ow-ind-modal-services">
-            <span className="ow-ind-modal-subtag">{serviceLabel}</span>
-            <ul>
-              {services.map((s) => (
-                <li key={s}>
-                  <svg width={14} height={14} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.4} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                    <polyline points="20 6 9 17 4 12" />
-                  </svg>
-                  {s}
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="ow-ind-modal-foot">
-            <div className="ow-ind-modal-metric">
-              <strong>{metric.v}</strong>
-              <span>{metric.l}</span>
-            </div>
-            <Link to={cta.to} className="ow-ind-modal-cta">
-              {cta.text}
-              <svg width={16} height={16} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.4} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                <line x1="5" y1="12" x2="19" y2="12" />
-                <polyline points="12 5 19 12 12 19" />
-              </svg>
-            </Link>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-const Capabilities = () => {
-  const [modalIdx, setModalIdx] = useState<number | null>(null);
-  const modalItem = modalIdx !== null ? CAPABILITIES[modalIdx] : null;
-
-  return (
-    <section className="ow-cap" aria-labelledby="ow-cap-title">
-      <div className="container-shell">
-        <header className="ow-section-head">
+const Capabilities = () => (
+  <section className="ow-cap" aria-labelledby="ow-cap-title">
+    <div className="container-shell">
+      <header className="ow-section-head ow-section-head--split">
+        <div className="ow-section-head-main">
           <span className="ow-section-tag">What we ship</span>
           <h2 id="ow-cap-title" className="ow-section-h2">
             Six capabilities. One operating system.
           </h2>
-        </header>
-
-        <div className="ow-bento">
-          {CAPABILITIES.map((cap, i) => (
-            <MotionCard
-              key={cap.tag}
-              naked
-              tilt={5}
-              className={`ow-tile ow-tile-${cap.size}`}
-            >
-              <button
-                type="button"
-                className="ow-tile-btn"
-                onClick={() => setModalIdx(i)}
-                aria-haspopup="dialog"
-                aria-label={`View details for ${cap.tag} — ${cap.title}`}
-              >
-                <div className="ow-tile-art ow-tile-art-img">
-                  <img src={cap.img} alt="" loading="lazy" />
-                </div>
-                <div className="ow-tile-body">
-                  <span className="ow-tile-tag">{cap.tag}</span>
-                  <h3 className="ow-tile-title">{cap.title}</h3>
-                  <p className="ow-tile-copy">{cap.copy}</p>
-                  <span className="ow-tile-cta">View details
-                    <svg width={14} height={14} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.4} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                      <line x1="5" y1="12" x2="19" y2="12" />
-                      <polyline points="12 5 19 12 12 19" />
-                    </svg>
-                  </span>
-                </div>
-              </button>
-            </MotionCard>
-          ))}
         </div>
-      </div>
+        <p className="ow-section-aside">
+          Each capability runs as its own discipline — with a scorecard, a
+          cadence, and an owner — but they share one calendar and one growth
+          lead. That is how the engine stays in sync.
+        </p>
+      </header>
 
-      {modalItem !== null && modalIdx !== null && (
-        <DetailModal
-          open
-          onClose={() => setModalIdx(null)}
-          img={modalItem.img}
-          numLabel={`${String(modalIdx + 1).padStart(2, '0')} / ${String(CAPABILITIES.length).padStart(2, '0')}`}
-          eyebrow={`Capability · ${modalItem.tag}`}
-          title={modalItem.title}
-          blurb={modalItem.copy}
-          description={modalItem.description}
-          serviceLabel="What we ship"
-          services={modalItem.services}
-          metric={modalItem.metric}
-          cta={{ text: `Talk to us about ${modalItem.tag}`, to: modalItem.to }}
-        />
-      )}
-    </section>
-  );
-};
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-7">
+        {CAPABILITY_DETAILS.map((cap, i) => {
+          const stats = CAPABILITY_STATS[i];
+          return (
+            <MotionCard
+              key={cap.slug}
+              naked
+              tilt={4}
+              className="cap-card"
+            >
+              {/* Image with rounded inner radius */}
+              <div className="cap-card-art">
+                <img src={cap.img} alt="" loading="lazy" />
+              </div>
+
+              {/* Title row + circular arrow icon top-right */}
+              <div className="cap-card-head">
+                <div className="cap-card-head-text">
+                  <h3 className="cap-card-title">{cap.title}</h3>
+                  <span className="cap-card-tag">{CAPABILITY_TAGS[i]}</span>
+                </div>
+                <span className="cap-card-pin" aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <line x1="7" y1="17" x2="17" y2="7" />
+                    <polyline points="7 7 17 7 17 17" />
+                  </svg>
+                </span>
+              </div>
+
+              {/* Short blurb */}
+              <p className="cap-card-copy">{cap.blurb}</p>
+
+              {/* Footer: 3 stat columns + "See more" pill button */}
+              <div className="cap-card-foot">
+                <div className="cap-card-stats">
+                  {stats.map((s) => (
+                    <div key={s.l} className="cap-card-stat">
+                      <span className="cap-card-stat-v">{s.v}</span>
+                      <span className="cap-card-stat-l">{s.l}</span>
+                    </div>
+                  ))}
+                </div>
+                <Link
+                  to={detailHref(cap.kind, cap.slug)}
+                  className="cap-card-cta"
+                  aria-label={`See more about ${CAPABILITY_TAGS[i]} - ${cap.title}`}
+                >
+                  See more
+                </Link>
+              </div>
+            </MotionCard>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+);
 
 const Industries = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const trackRef = useRef<HTMLUListElement>(null);
   const [progress, setProgress] = useState(0);
   const [active, setActive] = useState(0);
-  const [modalIdx, setModalIdx] = useState<number | null>(null);
-
-  useEffect(() => {
-    if (modalIdx === null) return;
-    const prevOverflow = document.body.style.overflow;
-    document.body.style.overflow = 'hidden';
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') setModalIdx(null);
-    };
-    window.addEventListener('keydown', onKey);
-    return () => {
-      document.body.style.overflow = prevOverflow;
-      window.removeEventListener('keydown', onKey);
-    };
-  }, [modalIdx]);
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -819,7 +301,7 @@ const Industries = () => {
       const trackOverflow = Math.max(0, track.scrollWidth - viewportWidth);
       track.style.transform = `translate3d(${-p * trackOverflow}px, 0, 0)`;
       setProgress(p);
-      setActive(Math.min(INDUSTRIES.length - 1, Math.round(p * (INDUSTRIES.length - 1))));
+      setActive(Math.min(INDUSTRY_DETAILS.length - 1, Math.round(p * (INDUSTRY_DETAILS.length - 1))));
     };
 
     const onScroll = () => {
@@ -840,9 +322,7 @@ const Industries = () => {
     };
   }, []);
 
-  const modalItem = modalIdx !== null ? INDUSTRIES[modalIdx] : null;
   return (
-    <>
     <section ref={sectionRef} className="ow-ind" aria-labelledby="ow-ind-title">
       <div className="ow-ind-sticky">
         <div className="container-shell">
@@ -853,7 +333,7 @@ const Industries = () => {
             </h2>
             <p className="ow-ind-lede">
               Single-location practices, multi-site networks, and everything between.
-              Scroll to explore — every vertical has its own pricing model, regulatory
+              Scroll to explore - every vertical has its own pricing model, regulatory
               edge, and patient journey.
             </p>
           </header>
@@ -861,31 +341,29 @@ const Industries = () => {
 
         <div className="ow-ind-viewport" aria-hidden="false">
           <ul ref={trackRef} className="ow-ind-track">
-            {INDUSTRIES.map((it, i) => {
+            {INDUSTRY_DETAILS.map((it, i) => {
               const isOpen = i === active;
               return (
                 <li
-                  key={it.name}
+                  key={it.slug}
                   className={`ow-ind-card${isOpen ? ' is-active' : ''}`}
                   aria-current={isOpen ? 'true' : undefined}
                 >
-                  <button
-                    type="button"
+                  <Link
+                    to={detailHref(it.kind, it.slug)}
                     className="ow-ind-card-btn"
-                    onClick={() => setModalIdx(i)}
-                    aria-label={`View details for ${it.name}`}
-                    aria-haspopup="dialog"
+                    aria-label={`Read more about ${it.title}`}
                   >
                     <div className="ow-ind-card-media" aria-hidden="true">
                       <img src={it.img} alt="" loading="lazy" />
                       <div className="ow-ind-card-shade" />
                     </div>
                     <div className="ow-ind-card-top">
-                      <span className="ow-ind-card-num">{String(i + 1).padStart(2, '0')} / {String(INDUSTRIES.length).padStart(2, '0')}</span>
-                      <span className="ow-ind-card-icon" aria-hidden="true">{it.icon}</span>
+                      <span className="ow-ind-card-num">{String(i + 1).padStart(2, '0')} / {String(INDUSTRY_DETAILS.length).padStart(2, '0')}</span>
+                      <span className="ow-ind-card-icon" aria-hidden="true">{INDUSTRY_ICONS[it.slug]}</span>
                     </div>
                     <div className="ow-ind-card-bottom">
-                      <h3 className="ow-ind-card-title">{it.name}</h3>
+                      <h3 className="ow-ind-card-title">{it.title}</h3>
                       <p className="ow-ind-card-blurb">{it.blurb}</p>
                       <span className="ow-ind-card-cta">View details
                         <svg width={14} height={14} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.4} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -894,7 +372,7 @@ const Industries = () => {
                         </svg>
                       </span>
                     </div>
-                  </button>
+                  </Link>
                 </li>
               );
             })}
@@ -904,8 +382,8 @@ const Industries = () => {
         <div className="container-shell">
           <div className="ow-ind-progress" aria-hidden="true">
             <div className="ow-ind-progress-meta">
-              <span>{String(active + 1).padStart(2, '0')} <em>/ {String(INDUSTRIES.length).padStart(2, '0')}</em></span>
-              <span className="ow-ind-progress-name">{INDUSTRIES[active].name}</span>
+              <span>{String(active + 1).padStart(2, '0')} <em>/ {String(INDUSTRY_DETAILS.length).padStart(2, '0')}</em></span>
+              <span className="ow-ind-progress-name">{INDUSTRY_DETAILS[active].title}</span>
               <span className="ow-ind-progress-hint">Scroll to advance →</span>
             </div>
             <div className="ow-ind-progress-rail">
@@ -915,150 +393,51 @@ const Industries = () => {
         </div>
       </div>
     </section>
+  );
+};
 
-    {modalItem !== null && modalIdx !== null && (
-      <div
-        className="ow-ind-modal"
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="ow-ind-modal-title"
-        onClick={() => setModalIdx(null)}
-      >
-        <div className="ow-ind-modal-card" onClick={(e) => e.stopPropagation()}>
-          <button
-            type="button"
-            className="ow-ind-modal-close"
-            onClick={() => setModalIdx(null)}
-            aria-label="Close details"
-          >
-            <svg width={20} height={20} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.4} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-              <line x1="6" y1="6" x2="18" y2="18" />
-              <line x1="6" y1="18" x2="18" y2="6" />
-            </svg>
-          </button>
+const Featured = () => (
+  <section className="ow-feat" aria-labelledby="ow-feat-title">
+    <div className="container-shell">
+      <header className="ow-section-head">
+        <span className="ow-section-tag">Featured engagements</span>
+        <h2 id="ow-feat-title" className="ow-section-h2">
+          Three from the last quarter.
+        </h2>
+      </header>
 
-          <div className="ow-ind-modal-art" aria-hidden="true">
-            <img src={modalItem.img} alt="" />
-            <div className="ow-ind-modal-art-shade" />
-            <span className="ow-ind-modal-num">
-              {String(modalIdx + 1).padStart(2, '0')} / {String(INDUSTRIES.length).padStart(2, '0')}
-            </span>
-            <span className="ow-ind-modal-art-icon">{modalItem.icon}</span>
-          </div>
-
-          <div className="ow-ind-modal-body">
-            <span className="ow-ind-modal-tag">Industry · Healthcare</span>
-            <h2 id="ow-ind-modal-title" className="ow-ind-modal-title">{modalItem.name}</h2>
-            <p className="ow-ind-modal-blurb">{modalItem.blurb}</p>
-            <p className="ow-ind-modal-desc">{modalItem.description}</p>
-
-            <div className="ow-ind-modal-services">
-              <span className="ow-ind-modal-subtag">What we ship</span>
-              <ul>
-                {modalItem.services.map((s) => (
-                  <li key={s}>
-                    <svg width={14} height={14} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.4} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                      <polyline points="20 6 9 17 4 12" />
-                    </svg>
-                    {s}
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="ow-ind-modal-foot">
-              <div className="ow-ind-modal-metric">
-                <strong>{modalItem.metric.v}</strong>
-                <span>{modalItem.metric.l}</span>
+      <div className="ow-feat-grid">
+        {ENGAGEMENT_DETAILS.map((e, i) => (
+          <MotionCard key={e.slug} naked tilt={7} className="ow-feat-card-wrap">
+            <Link
+              to={detailHref(e.kind, e.slug)}
+              className="ow-feat-card"
+              aria-label={`Read more about ${e.title}`}
+            >
+              <div className="ow-feat-art ow-feat-art--photo" aria-hidden="true">
+                <img src={e.img} alt="" loading="lazy" />
+                <div className="ow-feat-art-shade" />
+                <span className="ow-feat-delta">{ENGAGEMENT_DELTAS[i]}<small>%</small></span>
               </div>
-              <Link to="/contact" className="ow-ind-modal-cta">
-                Talk to us about {modalItem.name}
-                <svg width={16} height={16} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.4} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                  <line x1="5" y1="12" x2="19" y2="12" />
-                  <polyline points="12 5 19 12 12 19" />
-                </svg>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </div>
-    )}
-    </>
-  );
-};
-
-const Featured = () => {
-  const [modalIdx, setModalIdx] = useState<number | null>(null);
-  const modalItem = modalIdx !== null ? ENGAGEMENTS[modalIdx] : null;
-
-  return (
-    <section className="ow-feat" aria-labelledby="ow-feat-title">
-      <div className="container-shell">
-        <header className="ow-section-head">
-          <span className="ow-section-tag">Featured engagements</span>
-          <h2 id="ow-feat-title" className="ow-section-h2">
-            Three from the last quarter.
-          </h2>
-        </header>
-
-        <div className="ow-feat-grid">
-          {ENGAGEMENTS.map((e, i) => (
-            <MotionCard key={e.name} naked tilt={7} className="ow-feat-card-wrap">
-              <button
-                type="button"
-                className="ow-feat-card"
-                onClick={() => setModalIdx(i)}
-                aria-haspopup="dialog"
-                aria-label={`View details for ${e.name}`}
-              >
-                <div className={`ow-feat-art${e.img ? ' ow-feat-art--photo' : ''}`} aria-hidden="true">
-                  {e.img ? (
-                    <>
-                      <img src={e.img} alt="" loading="lazy" />
-                      <div className="ow-feat-art-shade" />
-                    </>
-                  ) : (
-                    <MeshArt />
-                  )}
-                  <span className="ow-feat-delta">{e.delta}<small>%</small></span>
-                </div>
-                <div className="ow-feat-body">
-                  <span className="ow-feat-sector">{e.sector}</span>
-                  <h3 className="ow-feat-name">{e.name}</h3>
-                  <p className="ow-feat-headline">{e.headline}</p>
-                  <div className="ow-feat-foot">
-                    <div>
-                      <strong>{e.metric.v}</strong>
-                      <span>{e.metric.l}</span>
-                    </div>
-                    <span className="ow-feat-arrow" aria-hidden="true">↗</span>
+              <div className="ow-feat-body">
+                <span className="ow-feat-sector">{ENGAGEMENT_SECTORS[i]}</span>
+                <h3 className="ow-feat-name">{e.title}</h3>
+                <p className="ow-feat-headline">{ENGAGEMENT_HEADLINES[i]}</p>
+                <div className="ow-feat-foot">
+                  <div>
+                    <strong>{e.metric.v}</strong>
+                    <span>{e.metric.l}</span>
                   </div>
+                  <span className="ow-feat-arrow" aria-hidden="true">↗</span>
                 </div>
-              </button>
-            </MotionCard>
-          ))}
-        </div>
+              </div>
+            </Link>
+          </MotionCard>
+        ))}
       </div>
-
-      {modalItem !== null && modalIdx !== null && (
-        <DetailModal
-          open
-          onClose={() => setModalIdx(null)}
-          img={modalItem.img || ''}
-          numLabel={`${String(modalIdx + 1).padStart(2, '0')} / ${String(ENGAGEMENTS.length).padStart(2, '0')}`}
-          eyebrow={`Engagement · ${modalItem.sector}`}
-          title={modalItem.name}
-          blurb={modalItem.headline}
-          description={modalItem.description}
-          serviceLabel="What we delivered"
-          services={modalItem.services}
-          metric={modalItem.metric}
-          cta={{ text: `Talk to us about ${modalItem.sector}`, to: modalItem.to }}
-        />
-      )}
-    </section>
-  );
-};
+    </div>
+  </section>
+);
 
 const Closing = () => (
   <section className="ow-close" aria-labelledby="ow-close-title">
@@ -1100,7 +479,7 @@ const Closing = () => (
 const COLLECTION_SCHEMA = {
   '@context': 'https://schema.org',
   '@type': 'CollectionPage',
-  name: 'Our Work — Healthcare Marketing Portfolio',
+  name: 'Our Work - Healthcare Marketing Portfolio',
   url: 'https://thenextgenhealth.com/our-work',
   description:
     'A retrospective of marketing, branding, web, and automation work shipped for clinics, medspas, urgent care, and multi-location healthcare brands.',
@@ -1117,7 +496,6 @@ const COLLECTION_SCHEMA = {
   ],
 };
 
-/* Silence "unused" warning for ReactNode import in environments without TS dead-code stripping. */
 const _noopNode: ReactNode = null;
 
 const OurWork = () => (

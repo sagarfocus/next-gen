@@ -20,7 +20,7 @@ const PILLARS: Pillar[] = [
   {
     tag: 'Digital Acquisition',
     title: 'Patient Acquisition Channels',
-    text: 'Get found by patients actively searching for care in your area — and convert that intent into booked appointments across every channel that moves the needle.',
+    text: 'Get found by patients actively searching for care in your area - and convert that intent into booked appointments across every channel that moves the needle.',
     icon: (
       <svg
         width={26}
@@ -73,7 +73,7 @@ const PILLARS: Pillar[] = [
           </svg>
         ),
         title: 'Own the Local Map Pack',
-        desc: 'Rank in Google\'s top-3 local results for high-intent searches like "urgent care near me" — where 76% of bookings come from.',
+        desc: 'Rank in Google\'s top-3 local results for high-intent searches like "urgent care near me" - where 76% of bookings come from.',
       },
       {
         icon: (
@@ -82,7 +82,7 @@ const PILLARS: Pillar[] = [
           </svg>
         ),
         title: 'HIPAA-Aware Paid Media',
-        desc: 'Google Ads, Meta, and YouTube campaigns engineered for healthcare — compliant tracking, real ROAS, no wasted spend.',
+        desc: 'Google Ads, Meta, and YouTube campaigns engineered for healthcare - compliant tracking, real ROAS, no wasted spend.',
       },
       {
         icon: (
@@ -103,7 +103,7 @@ const PILLARS: Pillar[] = [
   {
     tag: 'Infrastructure & Brand',
     title: 'Operational Foundation',
-    text: 'The foundation every modern practice needs — a HIPAA-compliant website, a trusted clinical brand, and analytics that prove what works.',
+    text: 'The foundation every modern practice needs - a HIPAA-compliant website, a trusted clinical brand, and analytics that prove what works.',
     icon: (
       <svg
         width={26}
@@ -200,7 +200,7 @@ const ServicesSpectrum = () => {
             From digital patient acquisition to operational automation.
           </h2>
           <p className="ab-spec-sub">
-            We cover every aspect of clinical growth &mdash; the full spectrum
+            We cover every aspect of clinical growth - the full spectrum
             of healthcare marketing under one operating system.
           </p>
         </div>

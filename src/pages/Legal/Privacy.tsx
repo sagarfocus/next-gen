@@ -127,7 +127,7 @@ const Privacy = () => (
     contact={{ email: 'hello@thenextgenhealth.com' }}
     sections={SECTIONS}
     breadcrumb="Privacy"
-    metaDescription="Privacy Policy for TheNextGen Healthcare Marketing — what we collect, how we use it, sub-processors, and your rights."
+    metaDescription="Privacy Policy for TheNextGen Healthcare Marketing - what we collect, how we use it, sub-processors, and your rights."
     canonicalPath="/privacy"
   />
 );

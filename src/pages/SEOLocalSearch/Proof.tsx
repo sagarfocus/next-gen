@@ -18,7 +18,7 @@ const RESULTS: Result[] = [
     sector: 'Emergency Room',
     name: 'Freestanding ER · Dallas',
     summary:
-      'Local Pack dominance closed 45% more visits in 6 months — added $800K+ annual revenue.',
+      'Local Pack dominance closed 45% more visits in 6 months - added $800K+ annual revenue.',
   },
   {
     emoji: '⚡',
@@ -45,7 +45,7 @@ const RESULTS: Result[] = [
     sector: 'Primary Care',
     name: 'Family medicine · San Antonio',
     summary:
-      'Local SEO + condition content lifted ROI past 500% — $300K+ in added organic revenue.',
+      'Local SEO + condition content lifted ROI past 500% - $300K+ in added organic revenue.',
   },
   {
     emoji: '🧠',
@@ -140,7 +140,7 @@ const Proof = () => {
       <div className="container-shell">
         <div className="sl-sec-head">
           <div>
-            <div className="sl-sec-num">03 — Proof</div>
+            <div className="sl-sec-num">03 - Proof</div>
             <h2 className="sl-sec-title">
               Six recent <em>engagements.</em>
             </h2>

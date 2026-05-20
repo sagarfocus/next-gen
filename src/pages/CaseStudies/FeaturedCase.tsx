@@ -39,7 +39,7 @@ const FeaturedCaseArt = () => (
       letterSpacing="4"
       fill="rgba(255,255,255,0.55)"
     >
-      FIG. 01 — DALLAS METRO ER NETWORK
+      FIG. 01 - DALLAS METRO ER NETWORK
     </text>
     <g transform="translate(500, 360)">
       <rect

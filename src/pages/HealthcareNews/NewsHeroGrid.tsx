@@ -10,25 +10,25 @@ interface SideArticle {
 
 const SIDE_ARTICLES: SideArticle[] = [
   {
-    to: '/blog/hipaa-tracking',
+    to: '/healthcare-news/fda-glucose-monitor-type2',
     cat: 'Regulation',
     title: 'FDA approves first continuous glucose monitor for Type 2 diabetes',
     meta: 'Apr 30 · 4 min read',
   },
   {
-    to: '/blog/ai-chatbot',
+    to: '/healthcare-news/telemedicine-q1-record',
     cat: 'Telehealth',
     title: 'Telemedicine visits hit a record high in Q1, led by mental-health specialties',
     meta: 'Apr 29 · 6 min read',
   },
   {
-    to: '/medical-automation',
+    to: '/healthcare-news/voice-ai-front-desks',
     cat: 'AI & Operations',
     title: 'Hospital network adopts voice-AI front desks across 38 locations',
     meta: 'Apr 28 · 5 min read',
   },
   {
-    to: '/services/analytics-reporting',
+    to: '/healthcare-news/cms-cardiac-monitoring',
     cat: 'Policy',
     title: 'CMS announces expanded reimbursement for at-home cardiac monitoring',
     meta: 'Apr 27 · 7 min read',
@@ -40,7 +40,7 @@ const NewsHeroGrid = () => {
     <section className="hn-hero">
       <div className="container-shell">
         <div className="hg-grid">
-          <Link className="hg-main" to="/blog/analytics">
+          <Link className="hg-main" to="/healthcare-news/ai-imaging-diagnostic-errors">
             <div className="hg-main-img">
               <NewsThumb
                 category="Research"

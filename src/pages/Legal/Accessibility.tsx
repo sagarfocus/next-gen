@@ -83,7 +83,7 @@ const Accessibility = () => (
     contact={{ email: 'hello@thenextgenhealth.com' }}
     sections={SECTIONS}
     breadcrumb="Accessibility"
-    metaDescription="Accessibility Statement for TheNextGen Healthcare Marketing — WCAG 2.2 AA commitment, testing process, and how to report a barrier."
+    metaDescription="Accessibility Statement for TheNextGen Healthcare Marketing - WCAG 2.2 AA commitment, testing process, and how to report a barrier."
     canonicalPath="/accessibility"
   />
 );

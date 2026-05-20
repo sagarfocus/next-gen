@@ -19,13 +19,13 @@ const PHASES: Phase[] = [
     body: (
       <>
         We conduct a comprehensive audit of your existing digital infrastructure
-        &mdash; website performance, SEO health, Google Business Profile
+        - website performance, SEO health, Google Business Profile
         optimization, paid media efficiency, and front-desk call handling
         capacity. This reveals exactly where patients are being lost in your
         funnel.
       </>
     ),
-    foot: 'Audit — Week 1–2',
+    foot: 'Audit - Week 1–2',
   },
   {
     num: '02',
@@ -36,12 +36,12 @@ const PHASES: Phase[] = [
       <>
         We design your custom growth strategy mapping service-specific keywords,
         competitive positioning, and patient journey touchpoints. Simultaneously,
-        our development team deploys the automation infrastructure &mdash; AI
+        our development team deploys the automation infrastructure - AI
         chatbots, digital intake forms, call tracking, and real-time analytics
         dashboards.
       </>
     ),
-    foot: 'Build — Week 3–4',
+    foot: 'Build - Week 3–4',
   },
   {
     num: '03',
@@ -57,7 +57,7 @@ const PHASES: Phase[] = [
         one.
       </>
     ),
-    foot: 'Launch — Day 1–30',
+    foot: 'Launch - Day 1–30',
   },
 ];
 
@@ -94,7 +94,7 @@ const Methodology = () => {
             <span className="accent-text">Our Methodology</span>.
           </h2>
           <p className="method-sub">
-            We don&rsquo;t just generate leads &mdash; we build predictable
+            We don&rsquo;t just generate leads - we build predictable
             patient acquisition systems that scale with your practice.
           </p>
         </div>

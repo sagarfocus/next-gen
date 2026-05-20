@@ -110,7 +110,7 @@ const SeparatorIcon = () => (
 
 interface CertDefinition {
   name: string;
-  /** Tone class — `g` Google blue, `m` Meta tan, `h` HIPAA sage, `b` navy, `o` gold. */
+  /** Tone class - `g` Google blue, `m` Meta tan, `h` HIPAA sage, `b` navy, `o` gold. */
   tone: 'g' | 'm' | 'h' | 'b' | 'o';
   Icon: () => ReactElement;
 }

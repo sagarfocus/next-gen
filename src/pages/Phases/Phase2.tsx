@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 
 /**
- * Phase 2 — Swiss layout #2: modular block grid with light accent cards,
+ * Phase 2 - Swiss layout #2: modular block grid with light accent cards,
  * hover lifts, integration stack, and parallel-sprint Gantt timeline.
  */
 const Phase2 = () => {
@@ -600,12 +600,12 @@ const Phase2 = () => {
             <span className="ph2-rail-num">02</span>
           </div>
           <div className="ph2-hero-content">
-            <span className="ph2-eyebrow">/ Build — Week 03 — 04</span>
+            <span className="ph2-eyebrow">/ Build - Week 03 - 04</span>
             <h1 className="ph2-h1">
               Strategy &amp; <em>Infrastructure</em>&nbsp;Build.
             </h1>
             <p className="ph2-lede">
-              Two parallel tracks. Strategy maps the route — service-specific
+              Two parallel tracks. Strategy maps the route - service-specific
               keywords, competitor wedges, and the patient journey for each
               persona. The build track wires the infrastructure underneath so
               every lead becomes a tracked, attributable event.
@@ -647,7 +647,7 @@ const Phase2 = () => {
             <h3 className="ph2-mod-title">Competitive positioning</h3>
             <p className="ph2-mod-text">
               The single sentence that separates your clinic from every other
-              clinic on the SERP — and the proof to back it.
+              clinic on the SERP - and the proof to back it.
             </p>
             <div className="ph2-mod-foot">Strategy</div>
           </article>
@@ -665,7 +665,7 @@ const Phase2 = () => {
             <span className="ph2-mod-num">A · 03</span>
             <h3 className="ph2-mod-title">Patient journey</h3>
             <p className="ph2-mod-text">
-              Touchpoints from first impression to retained patient — each one
+              Touchpoints from first impression to retained patient - each one
               owned by a specific channel and metric.
             </p>
             <div className="ph2-mod-foot">Strategy</div>
@@ -828,10 +828,10 @@ const Phase2 = () => {
           <span className="ph2-strip-lbl">End of Phase 02</span>
           <p className="ph2-strip-q">
             &ldquo;When the strategy and the infrastructure ship in the same
-            two weeks, the launch isn&rsquo;t a launch — it&rsquo;s a switch.&rdquo;
+            two weeks, the launch isn&rsquo;t a launch - it&rsquo;s a switch.&rdquo;
           </p>
           <Link to="/methodology/phase-3" className="ph2-strip-next">
-            <span className="l">Next — Phase 03</span>
+            <span className="l">Next - Phase 03</span>
             <span className="t">Launch &amp; Accelerate →</span>
           </Link>
         </div>

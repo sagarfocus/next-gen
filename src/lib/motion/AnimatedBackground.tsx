@@ -8,7 +8,7 @@ interface AnimatedBackgroundProps {
 }
 
 /**
- * Premium animated background layer — pure CSS keyframes + radial
+ * Premium animated background layer - pure CSS keyframes + radial
  * gradients. Drop behind a hero or section, mark aria-hidden, done.
  * Variants:
  *  - aurora    : slowly drifting multi-color radial blobs

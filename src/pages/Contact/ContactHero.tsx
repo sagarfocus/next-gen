@@ -12,7 +12,7 @@ const ContactHero = () => {
         </h1>
         <p className="ct-hero-lede reveal d3">
           Answer 4 quick questions about your facility, scale, budget, and goals
-          &mdash; we&rsquo;ll send a custom marketing roadmap within one
+          - we&rsquo;ll send a custom marketing roadmap within one
           business half-day.
         </p>
       </div>

@@ -10,7 +10,7 @@ const CTABanner = () => {
             <p className="ctab-desc">
               Book a 30-minute strategy call. We&rsquo;ll audit your current
               funnel, share the closest case study from this library, and build
-              a plan you can implement with us &mdash; or without.
+              a plan you can implement with us - or without.
             </p>
           </div>
           <a href="#book" className="ctab-btn">

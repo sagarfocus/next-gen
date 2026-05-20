@@ -33,7 +33,7 @@ const CARDS: InfraCard[] = [
     featured: true,
     tag: 'The Growth Team',
     title: 'Dedicated specialists driving patient volume.',
-    text: 'A senior, healthcare-fluent team focused entirely on driving qualified patient volume to your facility — integrated into your operations.',
+    text: 'A senior, healthcare-fluent team focused entirely on driving qualified patient volume to your facility - integrated into your operations.',
     bullets: [
       'Dedicated Ads Manager',
       'SEO & AEO Strategist',
@@ -137,7 +137,7 @@ const Infrastructure = () => {
               key={card.tag}
               to={card.to}
               className={`ab-infra-card${card.featured ? ' is-featured' : ''}`}
-              aria-label={`${card.tag} — read more`}
+              aria-label={`${card.tag} - read more`}
             >
               <span className="ab-infra-icon" aria-hidden="true">
                 {card.icon}

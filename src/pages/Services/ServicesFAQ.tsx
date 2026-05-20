@@ -15,7 +15,7 @@ const FAQS: FAQItem[] = [
     q: 'What healthcare marketing services do you actually deliver?',
     a: (
       <>
-        We run a full healthcare growth stack under one roof &mdash;{' '}
+        We run a full healthcare growth stack under one roof -{' '}
         <strong>local SEO, Google Business Profile optimization, Google &amp;
         Meta paid media, content + schema, conversion-focused website builds,
         review and reputation engines, and HIPAA-aware tracking</strong>. On
@@ -32,7 +32,7 @@ const FAQS: FAQItem[] = [
     a: (
       <>
         Local Pack and Google Business Profile wins typically show in the first{' '}
-        <strong>30&ndash;60 days</strong> &mdash; category accuracy, photo
+        <strong>30&ndash;60 days</strong> - category accuracy, photo
         cadence, review velocity, NAP consistency, and on-page schema fixes
         move fast. Organic search rankings for high-intent service keywords
         compound through <strong>months 3&ndash;6</strong>, and the long-tail
@@ -48,7 +48,7 @@ const FAQS: FAQItem[] = [
       <>
         It depends on intent. <strong>Google Ads</strong> captures patients
         already searching (urgent care, ER, emergency dental, "near me" terms)
-        &mdash; high CPC but high intent.{' '}
+        - high CPC but high intent.{' '}
         <strong>Meta &amp; Instagram Ads</strong> create demand for elective
         and aesthetic services (MedSpa, plastic surgery, orthodontics) where
         the patient hasn&rsquo;t typed a search query yet. Most multi-service
@@ -92,7 +92,7 @@ const FAQS: FAQItem[] = [
     q: 'Do you charge per service or as a bundled monthly retainer?',
     a: (
       <>
-        Mostly <strong>monthly retainers</strong> &mdash; that&rsquo;s how
+        Mostly <strong>monthly retainers</strong> - that&rsquo;s how
         compounding channels (SEO, content, review velocity, retargeting
         audiences) actually pay back. Retainers are scoped by service mix and
         ad-spend tier, with a flat strategy fee on top so the agency makes
@@ -147,14 +147,14 @@ const ServicesFAQ = ({ onBook }: FAQProps) => {
             <p className="faq-intro">
               How scope, timelines, ad budgets, compliance, and engagement
               model actually work when you bring on a healthcare growth
-              partner &mdash; written for the people doing the hiring.
+              partner - written for the people doing the hiring.
             </p>
 
             <div className="still-card">
               <h3>Need a custom scope?</h3>
               <p>
                 Multi-location group, brand-new launch, or an existing agency
-                you&rsquo;re ready to replace &mdash; we&rsquo;ll size the
+                you&rsquo;re ready to replace - we&rsquo;ll size the
                 engagement to your stage. No template proposals.
               </p>
               <p>

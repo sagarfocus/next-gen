@@ -110,13 +110,13 @@ const AutomationROI = () => {
               Our retainer pays for itself.
             </h2>
             <p>
-              Don&rsquo;t evaluate just the cost of SEO or PPC &mdash; factor in
+              Don&rsquo;t evaluate just the cost of SEO or PPC - factor in
               the operational savings from our AI automation suite.{' '}
               <strong>
                 Front-desk turnover, missed calls, manual insurance
                 verification, intake transcription
               </strong>{' '}
-              &mdash; our Clinic Growth OS eliminates these inefficiencies.
+              - our Clinic Growth OS eliminates these inefficiencies.
             </p>
             <p>
               By saving 15+ staff hours weekly and recovering tens of thousands

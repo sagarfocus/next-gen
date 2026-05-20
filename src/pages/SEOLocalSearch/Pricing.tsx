@@ -88,7 +88,7 @@ const Pricing = () => {
       <div className="container-shell">
         <div className="sl-sec-head">
           <div>
-            <div className="sl-sec-num">05 — Pricing</div>
+            <div className="sl-sec-num">05 - Pricing</div>
             <h2 className="sl-sec-title">
               Three plans. <em>Same playbook.</em>
             </h2>

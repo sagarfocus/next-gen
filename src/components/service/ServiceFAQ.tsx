@@ -36,7 +36,7 @@ const ServiceFAQ = ({
   const faqSchema = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
-    name: `${serviceName} — frequently asked questions`,
+    name: `${serviceName} - frequently asked questions`,
     mainEntity: items.map((qa) => ({
       '@type': 'Question',
       name: qa.q,
@@ -55,7 +55,7 @@ const ServiceFAQ = ({
       <div className="container-shell">
         <div className="sl-sec-head">
           <div>
-            <div className="sl-sec-num">{sectionNum} — Common questions</div>
+            <div className="sl-sec-num">{sectionNum} - Common questions</div>
             <h2
               id={`svfaq-${sectionNum}-title`}
               className="sl-sec-title"

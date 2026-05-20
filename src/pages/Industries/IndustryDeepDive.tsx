@@ -187,7 +187,7 @@ const IndustryDeepDive = () => {
           </h2>
           <p className="ind-deep-sub">
             Click any subtype to see the exact tactics, channels, and KPIs we
-            deploy &mdash; built around the specific patient psychology of your
+            deploy - built around the specific patient psychology of your
             industry.
           </p>
         </div>

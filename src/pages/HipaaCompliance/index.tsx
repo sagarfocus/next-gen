@@ -1,176 +1,570 @@
 import { Link } from 'react-router-dom';
-import Breadcrumb from '../../components/Breadcrumb';
 
-const HEAD_META = [
-  { label: 'Framework',  value: 'HIPAA + HITECH' },
-  { label: 'Reviewed',   value: 'Annually' },
-  { label: 'Hosting',    value: 'BAA-covered' },
-  { label: 'Last Audit', value: 'Mar 2026' },
+import heroImg from '../../assets/healthcareimg6.png';
+import ctaImg from '../../assets/healthcareimg3.png';
+import storyBannerImg from '../../assets/ouradvanbtage.png';
+import story1 from '../../assets/healthcareimg1.png';
+import story2 from '../../assets/jay-1.webp';
+import story3 from '../../assets/healthcareimg2.png';
+import story4 from '../../assets/shree-gauli.png';
+import story5 from '../../assets/healthcareimg4.png';
+import story6 from '../../assets/bikash-neupane-P8v2nMWX.png';
+
+/* ============================================================
+   HIPAA COMPLIANCE - Image-driven swiss redesign.
+   Hero with security image, 3 safeguard pillars, in-scope/out-of-scope
+   coverage cards, 4-step compliance loop, image CTA card.
+   ============================================================ */
+
+interface Pillar {
+  num: string;
+  tag: string;
+  description: string;
+  items: string[];
+  tone: 'sage' | 'tan' | 'periwinkle';
+  icon: React.ReactNode;
+}
+
+const PILLARS: Pillar[] = [
+  {
+    num: '01',
+    tag: 'Administrative',
+    description: 'Policies, people, and process - the human layer that keeps the technical work honest.',
+    items: [
+      'Workforce training (annual + on hire)',
+      'Access controls and provisioning',
+      'Documented policies, versioned',
+      'Incident response plan',
+    ],
+    tone: 'sage',
+    icon: (
+      <svg width={22} height={22} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.7} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <circle cx="9" cy="8" r="3" />
+        <path d="M3 21a6 6 0 0 1 12 0" />
+        <circle cx="17" cy="9" r="2.5" />
+        <path d="M14 21a4 4 0 0 1 8 0" />
+      </svg>
+    ),
+  },
+  {
+    num: '02',
+    tag: 'Physical',
+    description: 'Where data lives, who walks past it, and how it gets disposed of when its job is done.',
+    items: [
+      'BAA-covered data centres',
+      'Hardware disposal log',
+      'Workstation policy',
+      'Visitor and tenant controls',
+    ],
+    tone: 'tan',
+    icon: (
+      <svg width={22} height={22} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.7} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <rect x="3" y="11" width="18" height="10" rx="2" />
+        <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+      </svg>
+    ),
+  },
+  {
+    num: '03',
+    tag: 'Technical',
+    description: 'The cryptography, access controls, and logging that protect every signal that moves.',
+    items: [
+      'End-to-end encryption (TLS 1.3 / AES-256)',
+      'MFA enforced across all tools',
+      'Audit and access logging',
+      'Automatic session timeout',
+    ],
+    tone: 'periwinkle',
+    icon: (
+      <svg width={22} height={22} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.7} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M12 2 L 4 6 V 12 C 4 16.5 7.5 20.7 12 22 C 16.5 20.7 20 16.5 20 12 V 6 Z" />
+        <path d="M9 12 L 11 14 L 15 10" />
+      </svg>
+    ),
+  },
 ];
 
-const SAFEGUARDS = [
-  { tag: 'Administrative', n: '01', list: ['Workforce training', 'Access controls and provisioning', 'Documented policies', 'Incident response plan'] },
-  { tag: 'Physical',       n: '02', list: ['BAA-covered data centres', 'Hardware disposal log', 'Workstation policy', 'Visitor and tenant controls'] },
-  { tag: 'Technical',      n: '03', list: ['End-to-end encryption', 'MFA enforced', 'Audit and access logging', 'Automatic session timeout'] },
+interface CoverageRow {
+  area: string;
+  inScope: string;
+  outScope: string;
+  icon: React.ReactNode;
+}
+
+const COVERAGE: CoverageRow[] = [
+  {
+    area: 'Website',
+    inScope: 'HIPAA-aware forms, BAA-covered hosting, secure file transfer.',
+    outScope: 'Treating the website as a long-term PHI store.',
+    icon: (
+      <svg width={20} height={20} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.7} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <rect x="3" y="4" width="18" height="14" rx="2" />
+        <path d="M8 21h8M12 18v3" />
+      </svg>
+    ),
+  },
+  {
+    area: 'Ad Platforms',
+    inScope: 'Server-side conversions with hashed, salted identifiers.',
+    outScope: 'Sharing PHI in custom audiences or CRM imports.',
+    icon: (
+      <svg width={20} height={20} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.7} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M3 11v8a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-8" />
+        <path d="M16 6l-4-4-4 4" />
+        <path d="M12 2v14" />
+      </svg>
+    ),
+  },
+  {
+    area: 'Email & SMS',
+    inScope: 'BAA-covered providers, opt-in receipts, encrypted at rest.',
+    outScope: 'Treatment-specific content without explicit consent.',
+    icon: (
+      <svg width={20} height={20} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.7} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <rect x="3" y="5" width="18" height="14" rx="2" />
+        <path d="M3 7l9 6 9-6" />
+      </svg>
+    ),
+  },
+  {
+    area: 'Analytics',
+    inScope: 'IP truncation, PHI-free URLs, consent-aware tag firing.',
+    outScope: 'Page-level event tracking on clinical content.',
+    icon: (
+      <svg width={20} height={20} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.7} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <line x1="6" y1="20" x2="6" y2="14" />
+        <line x1="12" y1="20" x2="12" y2="8" />
+        <line x1="18" y1="20" x2="18" y2="11" />
+      </svg>
+    ),
+  },
+  {
+    area: 'Reviews & Social',
+    inScope: 'Sentiment-routed response flows that never solicit PHI.',
+    outScope: 'Responding to a public review with patient detail.',
+    icon: (
+      <svg width={20} height={20} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.7} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M12 2 L 14 8 L 20 8.5 L 15.5 12.5 L 17 19 L 12 15.5 L 7 19 L 8.5 12.5 L 4 8.5 L 10 8 Z" />
+      </svg>
+    ),
+  },
 ];
 
-const COVERAGE = [
-  { area: 'Website',           in: 'HIPAA-aware forms, BAA hosting, secure file transfer',                 not: 'Treating the website as a PHI store' },
-  { area: 'Ad platforms',      in: 'Server-side conversions with hashed identifiers',                       not: 'Sharing PHI in custom audiences or CRM imports' },
-  { area: 'Email & SMS',       in: 'BAA-covered providers, opt-in receipts, encrypted at rest',             not: 'Treatment-specific content without explicit consent' },
-  { area: 'Analytics',         in: 'IP truncation, no PHI in URLs, consent-aware tags',                     not: 'Page-level event tracking of clinical pages' },
-  { area: 'Reviews & social',  in: 'Sentiment-routed flows that never solicit PHI',                         not: 'Responding to a public review with patient detail' },
+interface LoopStep {
+  num: string;
+  label: string;
+  title: string;
+  body: string;
+}
+
+const STEPS: LoopStep[] = [
+  {
+    num: '01',
+    label: 'Scope',
+    title: 'Map the surface.',
+    body: 'Every system that touches a patient inquiry, charted into a plain-language data flow diagram shared with your team.',
+  },
+  {
+    num: '02',
+    label: 'Replace',
+    title: 'Migrate non-compliant tools.',
+    body: 'Hosting, email, forms, file transfer, analytics - swapped to BAA-covered alternatives without disrupting operations.',
+  },
+  {
+    num: '03',
+    label: 'Train',
+    title: 'Roll out to staff.',
+    body: 'Workforce training across clinical and ops staff. Quarterly refreshers. Sign-offs retained for the auditor.',
+  },
+  {
+    num: '04',
+    label: 'Verify',
+    title: 'Annual external review.',
+    body: 'Penetration test, policy audit, and a remediation register that closes every finding inside 60 days.',
+  },
 ];
 
-const STEPS = [
-  { k: 'Scope',     d: 'Map every system that touches a patient. Build a shared, plain-language data flow diagram with your team.' },
-  { k: 'Replace',   d: 'Migrate non-compliant vendors to BAA-covered alternatives. Hosting, email, forms, file transfer, analytics.' },
-  { k: 'Train',     d: 'Workforce training rolled out across clinical and ops staff. Quarterly refreshers, sign-off retained.' },
-  { k: 'Verify',    d: 'Annual external review. Penetration test, policy audit, and a remediation register that closes inside 60 days.' },
-];
-
-const Section = ({ no, title, kicker, children }: { no: string; title: string; kicker?: string; children: React.ReactNode }) => (
-  <section className="border-t border-line-faint">
-    <div className="container-shell py-[clamp(56px,8vw,112px)]">
-      <div className="grid lg:grid-cols-12 gap-x-12 gap-y-10">
-        <div className="lg:col-span-3">
-          <div className="flex items-baseline gap-3">
-            <span className="text-line font-mono text-[13px] tracking-[0.18em]">{no}</span>
-            <span className="h-px flex-1 bg-line-soft" />
-          </div>
-          <h2 className="mt-4 text-heading text-[clamp(22px,2vw,30px)] font-bold tracking-[-0.02em] leading-[1.1]">{title}</h2>
-          {kicker && <p className="mt-3 text-muted text-[14px] leading-[1.55] max-w-[34ch]">{kicker}</p>}
-        </div>
-        <div className="lg:col-span-9">{children}</div>
-      </div>
-    </div>
-  </section>
+const ArrowRight = ({ size = 16 }: { size?: number }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.4} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <line x1="5" y1="12" x2="19" y2="12" />
+    <polyline points="12 5 19 12 12 19" />
+  </svg>
 );
 
-const Hero = () => (
-  <section className="ph-page-head">
-    <div className="container-shell">
-      <Breadcrumb current="HIPAA Compliance" />
-      <div className="mt-6 grid lg:grid-cols-12 gap-x-12 gap-y-10 items-end">
-        <div className="lg:col-span-8">
-          <div className="flex items-center gap-3 text-line font-mono text-[12px] tracking-[0.22em] uppercase">
-            <span className="inline-block h-[6px] w-[6px] rounded-full bg-accent-soft" />
-            HIPAA + HITECH · 2026
-          </div>
-          <h1 className="mt-6 text-heading font-extrabold leading-[0.98] tracking-[-0.038em] text-[clamp(44px,6.4vw,86px)]">
-            Marketing,<br/>
-            under <span className="text-line">HIPAA</span>.
-          </h1>
-          <p className="mt-7 text-body text-[17px] leading-[1.65] max-w-[58ch]">
-            HIPAA is not a checkbox. It is a working discipline that touches every system a
-            patient inquiry passes through. Here is the way we organise it — from forms and
-            hosting to ad platforms and analytics.
-          </p>
-        </div>
-        <div className="lg:col-span-4">
-          <div className="border-t-2 border-heading">
-            {HEAD_META.map((row) => (
-              <div key={row.label} className="grid grid-cols-2 py-3 border-b border-line-faint text-[14px]">
-                <span className="text-muted font-medium">{row.label}</span>
-                <span className="text-heading font-semibold text-right">{row.value}</span>
+const Check = () => (
+  <svg width={12} height={12} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={3} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <polyline points="20 6 9 17 4 12" />
+  </svg>
+);
+
+const X = () => (
+  <svg width={12} height={12} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={3} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <line x1="18" y1="6" x2="6" y2="18" />
+    <line x1="6" y1="6" x2="18" y2="18" />
+  </svg>
+);
+
+const HipaaCompliance = () => {
+  const SCHEMA = {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: 'HIPAA-Compliant Healthcare Marketing',
+    serviceType: 'HIPAA + HITECH Compliance for Marketing Operations',
+    audience: 'Healthcare practices, clinics, networks',
+  };
+
+  return (
+    <main className="gt-page gt-page-x hcp-page">
+      {/* ─── HERO ─── */}
+      <section className="gtx-hero">
+        <div className="gt-shell">
+          <nav className="gtx-crumb" aria-label="Breadcrumb">
+            <Link to="/">Home</Link>
+            <span aria-hidden="true">/</span>
+            <Link to="/services">Services</Link>
+            <span aria-hidden="true">/</span>
+            <span className="cur">HIPAA Compliance</span>
+          </nav>
+
+          <div className="gtx-hero-grid">
+            <div className="gtx-hero-content">
+              <span className="gtx-eyebrow">
+                <span className="gtx-eyebrow-dot" aria-hidden="true" />
+                HIPAA + HITECH · 2026
+              </span>
+              <h1 className="gtx-hero-title">
+                Marketing,
+                <em> under HIPAA.</em>
+              </h1>
+              <p className="gtx-hero-lede">
+                HIPAA is not a checkbox. It is a working discipline that
+                touches every system a patient inquiry passes through.
+                Here is how we organise it - from forms and hosting to
+                ad platforms and analytics.
+              </p>
+              <div className="gtx-hero-ctas">
+                <Link to="/contact" className="gtx-btn-primary">
+                  Request a posture review
+                  <ArrowRight />
+                </Link>
+                <Link to="/services" className="gtx-btn-link">
+                  View all services →
+                </Link>
               </div>
-            ))}
+            </div>
+            <div className="gtx-hero-visual">
+              <img src={heroImg} alt="" loading="eager" decoding="async" />
+              <div className="gtx-hero-visual-tag" aria-hidden="true">
+                <span className="gtx-hero-visual-tag-num">100%</span>
+                <span className="gtx-hero-visual-tag-lbl">BAA-covered toolchain</span>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-    </div>
-  </section>
-);
 
-const Safeguards = () => (
-  <Section no="01" title="The three safeguard pillars" kicker="HIPAA organises the work into three categories. Each has its own deliverables, owners, and review cycle.">
-    <div className="grid sm:grid-cols-3 gap-[1px] bg-line-faint border border-line-faint">
-      {SAFEGUARDS.map((s) => (
-        <div key={s.n} className="bg-bg p-7 sm:p-8 flex flex-col gap-5">
-          <div className="flex items-baseline justify-between">
-            <span className="font-mono text-[12px] text-line tracking-[0.18em]">{s.n}</span>
-            <span className="text-[10px] uppercase tracking-[0.18em] text-muted font-semibold">Safeguard</span>
-          </div>
-          <h3 className="text-heading text-[26px] font-extrabold leading-[1.05] tracking-[-0.02em]">{s.tag}</h3>
-          <ul className="mt-2 space-y-2.5 text-[14px] text-body">
-            {s.list.map((l) => (
-              <li key={l} className="flex gap-2 items-baseline">
-                <span className="text-accent-soft">✓</span>
-                <span>{l}</span>
-              </li>
-            ))}
+          <ul className="hcp-credentials">
+            <li className="hcp-cred tone-sage">
+              <div className="hcp-cred-head">
+                <span className="hcp-cred-icon" aria-hidden="true">
+                  <svg width={20} height={20} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M12 2 L 4 6 V 12 C 4 16.5 7.5 20.7 12 22 C 16.5 20.7 20 16.5 20 12 V 6 Z" />
+                    <path d="M9 12 L 11 14 L 15 10" />
+                  </svg>
+                </span>
+                <span className="hcp-cred-num">/01</span>
+              </div>
+              <div className="hcp-cred-body">
+                <span className="hcp-cred-label">Framework</span>
+                <strong className="hcp-cred-value">HIPAA + HITECH</strong>
+              </div>
+              <span className="hcp-cred-seal" aria-hidden="true">CERTIFIED</span>
+            </li>
+
+            <li className="hcp-cred tone-periwinkle">
+              <div className="hcp-cred-head">
+                <span className="hcp-cred-icon" aria-hidden="true">
+                  <svg width={20} height={20} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M3 12a9 9 0 1 0 3-6.7" />
+                    <path d="M3 4v5h5" />
+                  </svg>
+                </span>
+                <span className="hcp-cred-num">/02</span>
+              </div>
+              <div className="hcp-cred-body">
+                <span className="hcp-cred-label">Review cadence</span>
+                <strong className="hcp-cred-value">Annually</strong>
+              </div>
+              <span className="hcp-cred-seal" aria-hidden="true">EXTERNAL</span>
+            </li>
+
+            <li className="hcp-cred tone-tan">
+              <div className="hcp-cred-head">
+                <span className="hcp-cred-icon" aria-hidden="true">
+                  <svg width={20} height={20} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z" />
+                    <path d="M14 3v5h5" />
+                    <path d="M9 13l2 2 4-4" />
+                  </svg>
+                </span>
+                <span className="hcp-cred-num">/03</span>
+              </div>
+              <div className="hcp-cred-body">
+                <span className="hcp-cred-label">Hosting + every vendor</span>
+                <strong className="hcp-cred-value">BAA-covered</strong>
+              </div>
+              <span className="hcp-cred-seal" aria-hidden="true">SIGNED</span>
+            </li>
+
+            <li className="hcp-cred tone-ink">
+              <div className="hcp-cred-head">
+                <span className="hcp-cred-icon" aria-hidden="true">
+                  <svg width={20} height={20} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round">
+                    <rect x="3" y="5" width="18" height="16" rx="2" />
+                    <path d="M3 10h18M8 3v4M16 3v4" />
+                  </svg>
+                </span>
+                <span className="hcp-cred-num">/04</span>
+              </div>
+              <div className="hcp-cred-body">
+                <span className="hcp-cred-label">Last independent audit</span>
+                <strong className="hcp-cred-value">Mar 2026</strong>
+              </div>
+              <span className="hcp-cred-seal" aria-hidden="true">VERIFIED</span>
+            </li>
           </ul>
         </div>
-      ))}
-    </div>
-  </Section>
-);
+      </section>
 
-const CoverageTable = () => (
-  <Section no="02" title="What is in scope and out of scope" kicker="A practical map of marketing surface area. The right column is where most teams over-promise.">
-    <div className="border border-line-faint">
-      <div className="grid grid-cols-[1fr_1.6fr_1.4fr] gap-x-6 px-7 py-4 bg-heading text-white text-[11px] uppercase tracking-[0.18em] font-semibold">
-        <span>Surface</span>
-        <span>What we do</span>
-        <span>What we won&rsquo;t do</span>
-      </div>
-      {COVERAGE.map((c, i) => (
-        <div key={c.area} className={`grid grid-cols-[1fr_1.6fr_1.4fr] gap-x-6 px-7 py-6 items-start text-[14px] ${i < COVERAGE.length - 1 ? 'border-b border-line-faint' : ''}`}>
-          <span className="text-heading font-semibold">{c.area}</span>
-          <span className="text-body leading-[1.55]">{c.in}</span>
-          <span className="text-muted leading-[1.55] italic">{c.not}</span>
+      {/* ─── OUR STORY (editorial banner + collage + offer block) ─── */}
+      <section className="hcp-story">
+        <div className="hcp-story-banner">
+          <img src={storyBannerImg} alt="" loading="lazy" decoding="async" />
+          <div className="hcp-story-banner-overlay" aria-hidden="true">
+            <span className="hcp-story-banner-eyebrow">Our Story</span>
+            <h2 className="hcp-story-banner-title">Built around clinics. <em>Audited like a hospital.</em></h2>
+          </div>
         </div>
-      ))}
-    </div>
-  </Section>
-);
 
-const Method = () => (
-  <Section no="03" title="The compliance loop" kicker="Four-step working method. Same loop, re-run annually, with a remediation register that closes findings inside 60 days.">
-    <ol className="grid sm:grid-cols-2 gap-x-12 gap-y-10">
-      {STEPS.map((s, i) => (
-        <li key={s.k} className="relative pl-10">
-          <span className="absolute left-0 top-1 font-mono text-line text-[13px] tracking-[0.16em]">0{i + 1}</span>
-          <h4 className="text-heading text-[22px] font-bold tracking-[-0.015em]">{s.k}.</h4>
-          <p className="mt-3 text-body text-[15px] leading-[1.6]">{s.d}</p>
-        </li>
-      ))}
-    </ol>
-  </Section>
-);
+        <div className="gt-shell">
+          {/* Intro paragraph + collage */}
+          <div className="hcp-story-grid">
+            <div className="hcp-story-intro">
+              <span className="gtx-eyebrow">
+                <span className="gtx-eyebrow-dot" aria-hidden="true" />
+                Who We Are
+              </span>
+              <p className="hcp-story-lede">
+                At Focus, we are passionate about marketing systems that
+                respect patient privacy and protect practices from regulatory
+                risk - engineered for trust, accessibility, and compliance
+                from day one.
+              </p>
+              <p className="hcp-story-sub">
+                Built and audited by a senior team that has spent the last
+                decade inside healthcare. Every protocol on this page is the
+                same one we hand to your legal counsel before signing.
+              </p>
+            </div>
 
-const Closing = () => (
-  <Section no="04" title="Start with a posture review" kicker="Two-week assessment with a remediation list and a privileged memo for your counsel.">
-    <div className="bg-heading text-white p-10 sm:p-14 relative overflow-hidden">
-      <div className="absolute right-0 top-0 h-full w-[160px] bg-accent-soft/15" />
-      <div className="absolute right-6 top-6 font-mono text-[11px] tracking-[0.22em] text-white/70">
-        AUDIT · CONFIDENTIAL
-      </div>
-      <h3 className="text-[clamp(32px,4vw,52px)] font-extrabold leading-[1.02] tracking-[-0.028em] max-w-[18ch]">
-        Treat compliance like an operating system.
-      </h3>
-      <p className="mt-6 text-white/75 text-[16px] leading-[1.6] max-w-[58ch]">
-        The compliance review is delivered under privilege. You receive a working remediation
-        register, ranked by patient-risk severity. No marketing pitch.
-      </p>
-      <div className="mt-10 flex flex-wrap items-center gap-5">
-        <Link to="/contact" className="btn-primary">Request the review →</Link>
-        <Link to="/services" className="text-white/85 text-[14px] font-medium underline-offset-4 hover:underline">
-          Read service overview
-        </Link>
-      </div>
-    </div>
-  </Section>
-);
+            <div className="hcp-story-collage" aria-hidden="true">
+              <div className="hcp-story-tile tile-1"><img src={story1} alt="" loading="lazy" decoding="async" /></div>
+              <div className="hcp-story-tile tile-2"><img src={story2} alt="" loading="lazy" decoding="async" /></div>
+              <div className="hcp-story-tile tile-3"><img src={story3} alt="" loading="lazy" decoding="async" /></div>
+              <div className="hcp-story-tile tile-4"><img src={story4} alt="" loading="lazy" decoding="async" /></div>
+              <div className="hcp-story-tile tile-5"><img src={story5} alt="" loading="lazy" decoding="async" /></div>
+              <div className="hcp-story-tile tile-6"><img src={story6} alt="" loading="lazy" decoding="async" /></div>
+            </div>
+          </div>
 
-const HipaaCompliance = () => (
-  <>
-    <Hero />
-    <Safeguards />
-    <CoverageTable />
-    <Method />
-    <Closing />
-  </>
-);
+          {/* What We Offer block */}
+          <div className="hcp-story-offer">
+            <div className="hcp-story-offer-left">
+              <span className="hcp-story-offer-eyebrow">The Calling</span>
+              <h3 className="hcp-story-offer-title">
+                What We <em>Offer</em>
+              </h3>
+            </div>
+            <div className="hcp-story-offer-right">
+              <p className="hcp-story-offer-lede">
+                We specialise in transforming visions into reality. Explore
+                our portfolio of HIPAA-aware growth systems for clinics,
+                medspas, and wellness practices - crafted with precision
+                and audited every quarter.
+              </p>
+              <p className="hcp-story-offer-body">
+                Every campaign, form, and analytics call is engineered to
+                maintain the security of your patient data while still
+                moving the numbers that matter. Assurance that personal
+                information is collected and used only with the patient's
+                explicit consent - and that the practice never has to
+                second-guess whether a marketing decision will hold up
+                under regulator review.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── 3 SAFEGUARD PILLARS ─── */}
+      <section className="hcp-pillars">
+        <div className="gt-shell">
+          <header className="gtx-sec-head">
+            <span className="gtx-eyebrow">
+              <span className="gtx-eyebrow-dot" aria-hidden="true" />
+              The Safeguard Pillars
+            </span>
+            <h2 className="gtx-sec-title">
+              Three categories. <em>One commitment.</em>
+            </h2>
+            <p className="gtx-sec-sub">
+              The HIPAA Security Rule organises the work into three
+              categories of safeguards. Each has its own deliverables,
+              owners, and review cycle.
+            </p>
+          </header>
+
+          <div className="hcp-pillar-grid">
+            {PILLARS.map((p) => (
+              <article key={p.num} className={`hcp-pillar-card tone-${p.tone}`}>
+                <div className="hcp-pillar-head">
+                  <span className="hcp-pillar-icon" aria-hidden="true">{p.icon}</span>
+                  <span className="hcp-pillar-num" aria-hidden="true">/{p.num}</span>
+                </div>
+                <h3 className="hcp-pillar-tag">{p.tag}</h3>
+                <p className="hcp-pillar-desc">{p.description}</p>
+                <ul className="hcp-pillar-list">
+                  {p.items.map((item) => (
+                    <li key={item}>
+                      <span className="hcp-pillar-check" aria-hidden="true">
+                        <Check />
+                      </span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ─── COVERAGE MAP (in/out scope per surface) ─── */}
+      <section className="hcp-coverage">
+        <div className="gt-shell">
+          <header className="gtx-sec-head">
+            <span className="gtx-eyebrow">
+              <span className="gtx-eyebrow-dot" aria-hidden="true" />
+              Coverage Map
+            </span>
+            <h2 className="gtx-sec-title">
+              What's in scope. <em>What's out.</em>
+            </h2>
+            <p className="gtx-sec-sub">
+              A practical map of marketing surface area. The right column
+              is where most teams over-promise themselves into a breach.
+            </p>
+          </header>
+
+          <div className="hcp-coverage-list">
+            {COVERAGE.map((row, i) => (
+              <article key={row.area} className="hcp-coverage-row">
+                <div className="hcp-coverage-area">
+                  <span className="hcp-coverage-num" aria-hidden="true">
+                    {String(i + 1).padStart(2, '0')}
+                  </span>
+                  <span className="hcp-coverage-icon" aria-hidden="true">{row.icon}</span>
+                  <h3 className="hcp-coverage-area-name">{row.area}</h3>
+                </div>
+                <div className="hcp-coverage-cell hcp-coverage-in">
+                  <span className="hcp-coverage-cell-tag">
+                    <Check /> What we do
+                  </span>
+                  <p>{row.inScope}</p>
+                </div>
+                <div className="hcp-coverage-cell hcp-coverage-out">
+                  <span className="hcp-coverage-cell-tag">
+                    <X /> What we won't do
+                  </span>
+                  <p>{row.outScope}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ─── COMPLIANCE LOOP (4 steps) ─── */}
+      <section className="hcp-loop">
+        <div className="gt-shell">
+          <header className="gtx-sec-head">
+            <span className="gtx-eyebrow">
+              <span className="gtx-eyebrow-dot" aria-hidden="true" />
+              The Compliance Loop
+            </span>
+            <h2 className="gtx-sec-title">
+              Four steps. <em>Re-run annually.</em>
+            </h2>
+            <p className="gtx-sec-sub">
+              Same working method every year, with a remediation register
+              that closes findings inside 60 days.
+            </p>
+          </header>
+
+          <ol className="hcp-loop-grid">
+            {STEPS.map((step, i) => (
+              <li key={step.num} className="hcp-loop-step">
+                <div className="hcp-loop-marker">
+                  <span className="hcp-loop-num">{step.num}</span>
+                  {i < STEPS.length - 1 && (
+                    <span className="hcp-loop-connector" aria-hidden="true" />
+                  )}
+                </div>
+                <div className="hcp-loop-body">
+                  <span className="hcp-loop-label">{step.label}</span>
+                  <h3 className="hcp-loop-title">{step.title}</h3>
+                  <p className="hcp-loop-text">{step.body}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      {/* ─── CTA ─── */}
+      <section className="gtx-cta">
+        <div className="gt-shell">
+          <div className="gtx-cta-card">
+            <div className="gtx-cta-card-img">
+              <img src={ctaImg} alt="" loading="lazy" decoding="async" />
+              <div className="gtx-cta-card-img-tag" aria-hidden="true">
+                <span className="dot" /> Delivered under privilege
+              </div>
+            </div>
+            <div className="gtx-cta-card-body">
+              <span className="gtx-eyebrow">
+                <span className="gtx-eyebrow-dot" aria-hidden="true" />
+                Next Step
+              </span>
+              <h2 className="gtx-cta-h">
+                Start with a <em>two-week posture review.</em>
+              </h2>
+              <p>
+                Delivered under privilege. You receive a working remediation
+                register, ranked by patient-risk severity, plus a privileged
+                memo your legal counsel can take straight to the practice.
+                No marketing pitch attached.
+              </p>
+              <Link to="/contact" className="gtx-btn-primary">
+                Request the review
+                <ArrowRight />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(SCHEMA) }} />
+    </main>
+  );
+};
 
 export default HipaaCompliance;

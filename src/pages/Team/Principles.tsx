@@ -16,7 +16,7 @@ const PRINCIPLES: Principle[] = [
     num: '02',
     label: 'Scope',
     title: 'Healthcare-only.',
-    desc: 'We do not work outside healthcare. The vocabulary, the compliance posture, the patient psychology — all of it compounds when the team only ships in one industry.',
+    desc: 'We do not work outside healthcare. The vocabulary, the compliance posture, the patient psychology - all of it compounds when the team only ships in one industry.',
   },
   {
     num: '03',
@@ -34,13 +34,13 @@ const PRINCIPLES: Principle[] = [
     num: '05',
     label: 'Strategy',
     title: 'Compounding over campaigns.',
-    desc: 'We bias to channels that build equity — organic search, owned audiences, reputation engines — and use paid to bridge the gap, never to be the gap.',
+    desc: 'We bias to channels that build equity - organic search, owned audiences, reputation engines - and use paid to bridge the gap, never to be the gap.',
   },
   {
     num: '06',
     label: 'Measurement',
     title: 'Revenue, not vanity.',
-    desc: 'Form fills are not bookings. Bookings are not revenue. Every dashboard rolls up to booked-and-attended visits — the only metric that ever paid anyone\'s salary.',
+    desc: 'Form fills are not bookings. Bookings are not revenue. Every dashboard rolls up to booked-and-attended visits - the only metric that ever paid anyone\'s salary.',
   },
 ];
 
@@ -62,7 +62,7 @@ const Principles = () => {
           <div className="tm-pr-meta">
             <div className="tm-pr-meta-row">
               <span className="tm-pr-meta-k">Index</span>
-              <span className="tm-pr-meta-v">01 — 06</span>
+              <span className="tm-pr-meta-v">01 - 06</span>
             </div>
             <div className="tm-pr-meta-row">
               <span className="tm-pr-meta-k">Scope</span>
@@ -74,7 +74,7 @@ const Principles = () => {
             </div>
             <p className="tm-pr-meta-note">
               Operating principles aren&rsquo;t marketing copy. They&rsquo;re
-              the constraints we apply to every retainer, every quarter — even
+              the constraints we apply to every retainer, every quarter - even
               when the room is asking us to bend them.
             </p>
           </div>

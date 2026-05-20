@@ -14,7 +14,7 @@ const TeamHero = () => {
           </div>
           <p className="tm-hero-lede">
             Nine practitioners. One healthcare-only growth team. Each owns a
-            single craft &mdash; SEO, paid media, content, design, code &mdash;
+            single craft - SEO, paid media, content, design, code -
             and we move in lock-step on every retainer.
           </p>
         </div>

@@ -24,9 +24,9 @@ interface ServiceCTAProps {
   /**
    * Visual treatment. Distributing variants across services breaks the
    * "every service ends with the same CTA card" pattern.
-   *   panel      — original centered dark panel (Section)
-   *   band       — wide split band, copy left + button right
-   *   editorial  — two-column with bullet rail + dual buttons
+   *   panel      - original centered dark panel (Section)
+   *   band       - wide split band, copy left + button right
+   *   editorial  - two-column with bullet rail + dual buttons
    */
   variant?: ServiceCTAVariant;
   eyebrow?: string;
@@ -46,7 +46,7 @@ const ServiceCTA = ({
   variant = 'panel',
   eyebrow = 'Free audit · No commitment',
   title = "Let's make this work.",
-  description = "A 30-minute call. We'll audit your current setup and share the closest case study from this library — whether you sign with us or not.",
+  description = "A 30-minute call. We'll audit your current setup and share the closest case study from this library - whether you sign with us or not.",
   primaryTo = '/contact',
   primaryLabel = 'Book strategy call',
   secondaryTo,
@@ -112,7 +112,7 @@ const ServiceCTA = ({
     );
   }
 
-  // panel (default — keeps existing class names for the legacy centered design)
+  // panel (default - keeps existing class names for the legacy centered design)
   return (
     <section className="sv-cta" id="audit">
       <div className="container-shell">

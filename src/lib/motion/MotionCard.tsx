@@ -15,7 +15,7 @@ interface MotionCardProps {
   /** Glow color for hover. Default gold. */
   glow?: string;
   /**
-   * Naked mode — skips the inner white background / inner wrapper /
+   * Naked mode - skips the inner white background / inner wrapper /
    * gradient border, keeping only tilt + spotlight. Use this when
    * wrapping cards that already have their own background + border.
    */

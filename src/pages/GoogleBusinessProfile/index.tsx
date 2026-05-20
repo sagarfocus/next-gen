@@ -53,10 +53,10 @@ const ChartIcon = () => (
 );
 
 const DO_CARDS: DoCard[] = [
-  { name: 'Profile Optimization', desc: 'Categories, attributes, services, photos, hours — every field tuned.', icon: <PinIcon /> },
-  { name: 'Review Strategy', desc: 'Request automation, response SLAs, sentiment routing — all HIPAA-aware.', icon: <LinkIcon /> },
+  { name: 'Profile Optimization', desc: 'Categories, attributes, services, photos, hours - every field tuned.', icon: <PinIcon /> },
+  { name: 'Review Strategy', desc: 'Request automation, response SLAs, sentiment routing - all HIPAA-aware.', icon: <LinkIcon /> },
   { name: 'Local SEO', desc: 'NAP consistency across 70+ directories, citation cleanup, geo-targeted content.', icon: <FileIcon /> },
-  { name: 'Map Ranking', desc: 'Proximity, prominence, relevance — engineered for the Local Pack.', icon: <NetworkIcon /> },
+  { name: 'Map Ranking', desc: 'Proximity, prominence, relevance - engineered for the Local Pack.', icon: <NetworkIcon /> },
   { name: 'Posts & Updates', desc: 'Weekly Q&A, offers, events posted to keep your profile active.', icon: <StarIcon /> },
   { name: 'Live Reporting', desc: 'Profile views, calls, direction requests, and ranking tracked daily.', icon: <ChartIcon /> },
 ];
@@ -110,7 +110,7 @@ const SERVICE_SCHEMA = {
 const COMPARISON: ComparisonRow[] = [
   {
     label: 'Profile completeness',
-    before: 'Partial — services missing, hours stale, no posts.',
+    before: 'Partial - services missing, hours stale, no posts.',
     after: 'Every field used, posts every week, photos refreshed monthly.',
   },
   {
@@ -141,7 +141,7 @@ const FAQS: ServiceFAQItem[] = [
     a: 'Movement begins inside four weeks once the profile is fully populated, services are mapped to the right categories, and the first reviews are coming in steadily. Most clinics see top-3 Local Pack positions for service-plus-city queries inside 8 to 12 weeks.',
   },
   {
-    q: 'We have multiple locations — do they each need their own profile?',
+    q: 'We have multiple locations - do they each need their own profile?',
     a: 'Yes. Every clinic gets its own GBP with a unique landing page, phone number, and review stream. We never share a profile across locations; Google penalizes that and patients can\'t tell which clinic is closest.',
   },
   {
@@ -149,12 +149,12 @@ const FAQS: ServiceFAQItem[] = [
     a: 'They are when written correctly. We never confirm a patient relationship in a public reply, never mention specifics, and always redirect into a private channel. We script the template library so the front desk can respond fast without leaking PHI.',
   },
   {
-    q: 'What about photos — does it really move the needle?',
+    q: 'What about photos - does it really move the needle?',
     a: 'Yes. Profiles with weekly fresh photos consistently outperform profiles updated quarterly on both direction requests and call volume. We coordinate a quarterly shoot and supply a weekly drip schedule so the cadence is never the bottleneck.',
   },
   {
     q: 'Can you manage Apple Business Connect and Bing Places too?',
-    a: 'Yes — both are folded into the Local SEO retainer and seeded from the same canonical NAP data, so updates stay consistent across the open web.',
+    a: 'Yes - both are folded into the Local SEO retainer and seeded from the same canonical NAP data, so updates stay consistent across the open web.',
   },
 ];
 
@@ -189,7 +189,7 @@ const GoogleBusinessProfile = () => {
       <ServiceScenario
         variant="comparison"
         eyebrow="GBP health audit"
-        title="Five vectors most profiles fail on — and the band we ship in."
+        title="Five vectors most profiles fail on - and the band we ship in."
         intro="Profile health is graded on five vectors before we touch a single field. The gap below is what we close on a typical multi-location engagement in 90 days."
         comparison={COMPARISON}
       />
@@ -203,7 +203,7 @@ const GoogleBusinessProfile = () => {
         variant="band"
         eyebrow="GBP health check · Free"
         title="Score every location's profile against the five vectors."
-        description="Send us the profiles you manage. We hand back a scored gap report inside three business days — yours to keep."
+        description="Send us the profiles you manage. We hand back a scored gap report inside three business days - yours to keep."
         primaryTo="/free-growth-audit"
         primaryLabel="Request the audit"
       />

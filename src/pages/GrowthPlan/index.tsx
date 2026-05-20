@@ -1,8 +1,9 @@
 import { Link } from 'react-router-dom';
 import Breadcrumb from '../../components/Breadcrumb';
+import closingImg from '../../assets/healthcareimg5.png';
 
 /* ────────────────────────────────────────────────────────────────────
-   GROWTH-PLAN DATA — single source for the chart, phase cards, and timeline.
+   GROWTH-PLAN DATA - single source for the chart, phase cards, and timeline.
    Keep figures consistent so the visualisation, table, and KPI panel agree.
    ──────────────────────────────────────────────────────────────────── */
 
@@ -45,7 +46,7 @@ const COMMITMENTS = [
 ];
 
 /* ────────────────────────────────────────────────────────────────────
-   SVG CHART — the page's single, authoritative visualisation.
+   SVG CHART - the page's single, authoritative visualisation.
    ──────────────────────────────────────────────────────────────────── */
 
 const ChartWidth = 1280;
@@ -164,13 +165,23 @@ const Hero = () => (
             The 12-Month Healthcare Growth Plan
           </div>
           <h1 className="mt-7 text-heading font-extrabold leading-[1.02] tracking-[-0.036em] text-[clamp(40px,5.6vw,76px)] max-w-[18ch]">
-            One chart. Twelve months. No surprises.
+            One chart.{' '}
+            <span
+              className="bg-clip-text text-transparent"
+              style={{
+                backgroundImage:
+                  'linear-gradient(90deg, #B38B6D 0%, #8FBC8F 50%, #576DB5 100%)',
+              }}
+            >
+              Twelve months
+            </span>
+            . No surprises.
           </h1>
         </div>
         <div className="lg:col-span-5">
           <p className="text-body text-[17px] leading-[1.7] max-w-[52ch]">
             A growth plan you can read at a glance. Four phases, twelve months, a single
-            trajectory benchmarked against your starting line — engineered for healthcare
+            trajectory benchmarked against your starting line - engineered for healthcare
             practices and underwritten by SEO, paid, and lifecycle channels working together.
           </p>
         </div>
@@ -186,7 +197,17 @@ const Chart = () => (
         <div>
           <div className="text-line font-mono text-[12px] tracking-[0.24em] uppercase">The Trajectory</div>
           <h2 className="mt-3 text-heading text-[clamp(22px,2vw,28px)] font-bold tracking-[-0.02em]">
-            Where the practice is at each month, indexed to its own baseline.
+            Where the practice is at each month, indexed to its{' '}
+            <span
+              className="bg-clip-text text-transparent"
+              style={{
+                backgroundImage:
+                  'linear-gradient(90deg, #B38B6D 0%, #8FBC8F 50%, #576DB5 100%)',
+              }}
+            >
+              own baseline
+            </span>
+            .
           </h2>
         </div>
         <div className="flex items-baseline gap-6 text-[12px]">
@@ -226,55 +247,290 @@ const Phases = () => (
         </div>
       </div>
 
-      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-[1px] bg-line-faint border border-line-faint">
-        {PHASES.map((p) => (
-          <article key={p.n} className="bg-bg p-7 flex flex-col gap-5">
-            <div className="flex items-baseline justify-between">
-              <span className="font-mono text-[12px] text-line tracking-[0.18em]">{p.n}</span>
-              <span className="font-mono text-[11px] text-muted tracking-[0.16em]">M{String(p.range[0]).padStart(2,'0')} – M{String(p.range[1]).padStart(2,'0')}</span>
-            </div>
-            <h3 className="text-heading text-[28px] font-extrabold leading-none tracking-[-0.022em]">{p.name}<span className="text-line">.</span></h3>
-            <p className="text-body text-[14px] leading-[1.6]">{p.summary}</p>
-            <ul className="mt-auto pt-4 border-t border-line-faint space-y-2 text-[13px] text-heading">
-              {p.deliverables.map((d) => (
-                <li key={d} className="flex gap-2 items-baseline">
-                  <span className="text-line">—</span>
-                  <span>{d}</span>
-                </li>
-              ))}
-            </ul>
-          </article>
-        ))}
+      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        {PHASES.map((p, i) => {
+          const TONES: { hex: string; soft: string }[] = [
+            { hex: '#5A8F5A', soft: 'rgba(143, 188, 143, 0.16)' }, // sage
+            { hex: '#B38B6D', soft: 'rgba(179, 139, 109, 0.16)' }, // tan
+            { hex: '#576DB5', soft: 'rgba(87, 109, 181, 0.14)'  }, // cta
+            { hex: '#2D3748', soft: 'rgba(45, 55, 72, 0.10)'    }, // heading
+          ];
+          const t = TONES[i] ?? TONES[3];
+          const prev = TONES[i - 1]?.hex ?? t.hex;
+          const next = TONES[i + 1]?.hex ?? t.hex;
+          // Continuous gradient flows from previous phase's tone through this
+          // phase's tone into the next — so the top of the 4 cards reads as
+          // one connected color story.
+          const flowGradient = `linear-gradient(90deg, ${prev} 0%, ${t.hex} 50%, ${next} 100%)`;
+          const isLast = i === PHASES.length - 1;
+          return (
+            <article
+              key={p.n}
+              className="group relative bg-white border border-line-faint rounded-[16px] flex flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_24px_48px_-28px_rgba(45,55,72,0.22)]"
+              style={{ ['--tone' as string]: t.hex }}
+            >
+              {/* Continuous gradient accent bar — reads as one flowing strip across all four cards */}
+              <div
+                className="h-1.5 rounded-t-[16px]"
+                style={{ background: flowGradient }}
+                aria-hidden="true"
+              />
+
+              {/* Chevron connector to next phase (cards 1–3 only, lg+ only) */}
+              {!isLast && (
+                <span
+                  className="hidden lg:flex absolute top-1/2 -right-[18px] -translate-y-1/2 z-10 w-9 h-9 rounded-full bg-white border border-line-faint items-center justify-center shadow-[0_4px_12px_rgba(45,55,72,0.10)]"
+                  aria-hidden="true"
+                  style={{ color: next }}
+                >
+                  <svg
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <polyline points="9 6 15 12 9 18" />
+                  </svg>
+                </span>
+              )}
+
+              <div className="p-6 sm:p-7 flex flex-col gap-5 flex-1">
+                {/* Number badge + month pill */}
+                <div className="flex items-center justify-between">
+                  <span
+                    className="inline-grid place-items-center w-12 h-12 rounded-[10px] font-mono text-[15px] font-bold tracking-[0.06em]"
+                    style={{ background: t.soft, color: t.hex }}
+                  >
+                    {p.n}
+                  </span>
+                  <span
+                    className="inline-flex items-center px-3 py-1.5 rounded-full font-mono text-[11px] tracking-[0.16em] uppercase"
+                    style={{ background: t.soft, color: t.hex }}
+                  >
+                    M{String(p.range[0]).padStart(2, '0')} — M{String(p.range[1]).padStart(2, '0')}
+                  </span>
+                </div>
+
+                {/* Title */}
+                <h3 className="text-heading text-[30px] font-extrabold leading-none tracking-[-0.024em]">
+                  {p.name}
+                  <span style={{ color: t.hex }}>.</span>
+                </h3>
+
+                {/* Summary */}
+                <p className="text-body text-[14.5px] leading-[1.6]">{p.summary}</p>
+
+                {/* Deliverables */}
+                <ul className="mt-auto pt-5 border-t border-line-faint space-y-2.5 text-[13.5px] text-heading">
+                  {p.deliverables.map((d) => (
+                    <li key={d} className="flex gap-2.5 items-center">
+                      <span
+                        className="inline-grid place-items-center w-4 h-4 rounded-full shrink-0"
+                        style={{ background: t.soft }}
+                        aria-hidden="true"
+                      >
+                        <svg
+                          width="9"
+                          height="9"
+                          viewBox="0 0 12 12"
+                          fill="none"
+                          stroke={t.hex}
+                          strokeWidth="2.2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        >
+                          <polyline points="2.5 6.5 5 9 9.5 3.5" />
+                        </svg>
+                      </span>
+                      <span className="font-medium">{d}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </article>
+          );
+        })}
       </div>
     </div>
   </section>
 );
 
+const QUARTER_ICONS: React.ReactNode[] = [
+  // Q1 Foundation — clipboard check
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <rect x="9" y="2" width="6" height="4" rx="1" />
+    <path d="M9 4H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-3" />
+    <polyline points="9 14 12 17 17 11" />
+  </svg>,
+  // Q2 Acquisition — megaphone
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <path d="M3 11v2a2 2 0 0 0 2 2h2l5 4V5L7 9H5a2 2 0 0 0-2 2z" />
+    <path d="M19 5a8 8 0 0 1 0 14" />
+    <path d="M16 8a4 4 0 0 1 0 8" />
+  </svg>,
+  // Q3 Compounding — trending up
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <polyline points="22 7 13.5 15.5 8.5 10.5 1 18" />
+    <polyline points="16 7 22 7 22 13" />
+  </svg>,
+  // Q4 Optimising — refresh / loop
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <polyline points="23 4 23 10 17 10" />
+    <polyline points="1 20 1 14 7 14" />
+    <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10" />
+    <path d="M20.49 15a9 9 0 0 1-14.85 3.36L1 14" />
+  </svg>,
+];
+
+const QUARTER_TONES = [
+  { hex: '#5A8F5A', soft: 'rgba(143, 188, 143, 0.22)' }, // sage
+  { hex: '#B38B6D', soft: 'rgba(179, 139, 109, 0.20)' }, // tan
+  { hex: '#576DB5', soft: 'rgba(87, 109, 181, 0.20)'  }, // cta
+  { hex: '#2D3748', soft: 'rgba(45, 55, 72, 0.14)'    }, // heading
+];
+
 const Quarters = () => (
-  <section className="border-t border-line-faint bg-bg-alt">
+  <section className="border-t border-line-faint">
     <div className="container-shell py-[clamp(64px,9vw,128px)]">
-      <div className="grid lg:grid-cols-12 gap-x-16 gap-y-6 mb-10">
-        <div className="lg:col-span-5">
-          <div className="text-line font-mono text-[12px] tracking-[0.24em] uppercase">What ships, by quarter</div>
-          <h2 className="mt-4 text-heading text-[clamp(28px,3vw,42px)] font-bold tracking-[-0.024em] leading-[1.1]">
-            The plan, on one page.
-          </h2>
+      <div className="text-center mb-12 lg:mb-16">
+        <div className="text-line font-mono text-[12px] tracking-[0.24em] uppercase">
+          What ships, by quarter
+        </div>
+        <h2 className="mt-4 text-heading text-[clamp(30px,3.4vw,48px)] font-extrabold tracking-[-0.026em] leading-[1.08]">
+          The plan, on{' '}
+          <span
+            className="bg-clip-text text-transparent"
+            style={{ backgroundImage: 'linear-gradient(90deg, #B38B6D 0%, #8FBC8F 50%, #576DB5 100%)' }}
+          >
+            one page
+          </span>
+          .
+        </h2>
+        <p className="mt-4 text-muted text-[15px] leading-[1.65] max-w-[58ch] mx-auto">
+          Four quarters. One arc — Foundation to Compound. Each stage hands off to the next.
+        </p>
+      </div>
+
+      <div
+        className="relative rounded-[24px] p-6 sm:p-10 lg:p-14"
+        style={{
+          background: 'linear-gradient(90deg, #DDD9E5 0%, #DDE3DC 50%, #EFE7CD 100%)',
+        }}
+      >
+        {/* Connecting curved line behind the cards (desktop only) */}
+        <svg
+          className="hidden lg:block absolute left-0 right-0 top-[120px] w-full h-[40px] pointer-events-none"
+          viewBox="0 0 1200 40"
+          preserveAspectRatio="none"
+          aria-hidden="true"
+        >
+          <path
+            d="M 80 20 C 280 -10, 380 50, 580 20 S 880 -10, 1120 20"
+            fill="none"
+            stroke="url(#qline)"
+            strokeWidth="2"
+            strokeDasharray="6 8"
+          />
+          <defs>
+            <linearGradient id="qline" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stopColor="#5A8F5A" />
+              <stop offset="33%" stopColor="#B38B6D" />
+              <stop offset="66%" stopColor="#576DB5" />
+              <stop offset="100%" stopColor="#2D3748" />
+            </linearGradient>
+          </defs>
+        </svg>
+
+        <div className="relative grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-5">
+          {QUARTERS.map((q, i) => {
+            const t = QUARTER_TONES[i];
+            return (
+              <article
+                key={q.q}
+                className="relative bg-white rounded-[18px] p-6 sm:p-7 flex flex-col gap-4 border border-line-faint shadow-[0_18px_38px_-28px_rgba(45,55,72,0.20)] transition-transform duration-300 hover:-translate-y-1"
+              >
+                {/* Big numbered badge — sits at the top, overlaps the curve */}
+                <div className="flex items-start justify-between">
+                  <span
+                    className="inline-grid place-items-center w-12 h-12 rounded-full shrink-0"
+                    style={{ background: t.soft, color: t.hex }}
+                    aria-hidden="true"
+                  >
+                    <span className="w-6 h-6 block">{QUARTER_ICONS[i]}</span>
+                  </span>
+                  <span
+                    className="inline-grid place-items-center w-12 h-12 rounded-full font-mono text-[15px] font-bold border-2 bg-white"
+                    style={{ borderColor: t.hex, color: t.hex }}
+                  >
+                    {String(i + 1).padStart(2, '0')}
+                  </span>
+                </div>
+
+                {/* Quarter + window */}
+                <div className="flex items-baseline gap-2">
+                  <span
+                    className="font-mono text-[13px] font-bold tracking-[0.14em]"
+                    style={{ color: t.hex }}
+                  >
+                    {q.q}
+                  </span>
+                  <span className="font-mono text-muted text-[11px] tracking-[0.12em]">
+                    · {q.months}
+                  </span>
+                </div>
+
+                {/* Focus title */}
+                <h3 className="text-heading text-[22px] font-extrabold tracking-[-0.02em] leading-[1.05]">
+                  {q.focus}
+                  <span style={{ color: t.hex }}>.</span>
+                </h3>
+
+                {/* Ships description */}
+                <p className="text-body text-[13.5px] leading-[1.55]">{q.ships}</p>
+
+                {/* Reads-as badge */}
+                <span
+                  className="mt-auto inline-flex items-center gap-2 self-start px-3 py-1.5 rounded-full text-[10.5px] uppercase tracking-[0.18em] font-bold"
+                  style={{ background: t.soft, color: t.hex }}
+                >
+                  <span
+                    className="w-1.5 h-1.5 rounded-full"
+                    style={{ background: t.hex }}
+                    aria-hidden="true"
+                  />
+                  {q.read}
+                </span>
+              </article>
+            );
+          })}
         </div>
       </div>
 
-      <div className="bg-white border border-line-faint">
-        <div className="grid grid-cols-[80px_140px_1.2fr_2fr_160px] gap-x-6 px-6 py-4 bg-heading text-white text-[10px] uppercase tracking-[0.22em] font-bold">
-          <span>Quarter</span><span>Window</span><span>Focus</span><span>What ships</span><span className="text-right">Reads as</span>
-        </div>
-        {QUARTERS.map((q, i) => (
-          <div key={q.q} className={`grid grid-cols-[80px_140px_1.2fr_2fr_160px] gap-x-6 px-6 py-6 items-baseline ${i < QUARTERS.length - 1 ? 'border-b border-line-faint' : ''}`}>
-            <span className="font-mono text-line text-[16px] tracking-[0.12em]">{q.q}</span>
-            <span className="font-mono text-muted text-[12px] tracking-[0.1em]">{q.months}</span>
-            <span className="text-heading font-bold text-[18px] tracking-[-0.015em]">{q.focus}</span>
-            <span className="text-body text-[14px] leading-[1.55]">{q.ships}</span>
-            <span className="text-right text-[11px] uppercase tracking-[0.18em] font-semibold text-cta">{q.read}</span>
-          </div>
-        ))}
+      <div className="mt-10 flex justify-center">
+        <Link
+          to="/contact"
+          className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-heading text-white text-[14px] font-semibold tracking-[-0.005em] transition-transform duration-200 hover:-translate-y-0.5 hover:shadow-[0_18px_36px_-20px_rgba(45,55,72,0.45)]"
+        >
+          Start your plan
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2.4"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            aria-hidden="true"
+          >
+            <line x1="5" y1="12" x2="19" y2="12" />
+            <polyline points="12 5 19 12 12 19" />
+          </svg>
+        </Link>
       </div>
     </div>
   </section>
@@ -283,12 +539,19 @@ const Quarters = () => (
 const Commitments = () => (
   <section className="border-t border-line-faint">
     <div className="container-shell py-[clamp(64px,9vw,128px)]">
-      <div className="grid lg:grid-cols-12 gap-x-16 gap-y-6 mb-12">
-        <div className="lg:col-span-5">
+      <div className="grid lg:grid-cols-12 gap-x-16 gap-y-6 mb-12 items-end">
+        <div className="lg:col-span-7">
           <div className="text-line font-mono text-[12px] tracking-[0.24em] uppercase">What we commit to</div>
           <h2 className="mt-4 text-heading text-[clamp(28px,3vw,42px)] font-bold tracking-[-0.024em] leading-[1.1]">
             Three numbers. Measured monthly. Reported in your dashboard.
           </h2>
+        </div>
+        <div className="lg:col-span-4 lg:col-start-9">
+          <p className="text-muted text-[13px] leading-[1.65] max-w-[44ch]">
+            Targets are net-new versus baseline measured in the 30 days preceding kickoff.
+            We do not report against improvements driven by seasonality or campaigns
+            already in flight at signing.
+          </p>
         </div>
       </div>
 
@@ -305,11 +568,6 @@ const Commitments = () => (
           </div>
         ))}
       </div>
-
-      <p className="mt-6 text-muted text-[13px] leading-[1.6] max-w-[64ch]">
-        Targets are net-new versus baseline measured in the 30 days preceding kickoff. We do not
-        report against improvements driven by seasonality or campaigns already in flight at signing.
-      </p>
     </div>
   </section>
 );
@@ -317,22 +575,39 @@ const Commitments = () => (
 const Closing = () => (
   <section className="border-t border-line-faint">
     <div className="container-shell py-[clamp(64px,9vw,128px)]">
-      <div className="bg-heading text-white p-10 sm:p-16 relative overflow-hidden">
-        <div className="absolute right-0 top-0 h-full w-1 bg-cta" />
-        <div className="grid lg:grid-cols-12 gap-x-16 gap-y-8 items-end">
-          <div className="lg:col-span-8">
-            <div className="text-line font-mono text-[12px] tracking-[0.24em] uppercase">Step Zero</div>
-            <h2 className="mt-5 text-[clamp(32px,4vw,52px)] font-extrabold leading-[1.04] tracking-[-0.028em] max-w-[22ch]">
-              Begin with the audit. Decide later.
-            </h2>
-            <p className="mt-6 text-white/75 text-[16px] leading-[1.65] max-w-[58ch]">
-              A two-week, fixed-fee diagnostic that returns a forensic plan whether you continue
-              with us or not. If we move forward, the audit fee credits against month one.
-            </p>
+      <div
+        className="rounded-[28px] overflow-hidden grid lg:grid-cols-2 items-stretch"
+        style={{ backgroundColor: '#B4DBC3' }}
+      >
+        {/* Left half - image */}
+        <div className="relative min-h-[320px] lg:min-h-[480px]">
+          <img
+            src={closingImg}
+            alt=""
+            className="absolute inset-0 w-full h-full object-cover"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+
+        {/* Right half - content */}
+        <div className="p-10 sm:p-14 lg:p-16 flex flex-col justify-center">
+          <div className="font-mono text-[12px] tracking-[0.24em] uppercase text-heading/60">
+            Step Zero
           </div>
-          <div className="lg:col-span-4 flex flex-col gap-3 lg:items-end">
+          <h2 className="mt-5 text-[clamp(28px,3.4vw,44px)] font-extrabold leading-[1.05] tracking-[-0.026em] max-w-[18ch] text-heading">
+            Begin with the audit. Decide later.
+          </h2>
+          <p className="mt-6 text-heading/75 text-[15.5px] leading-[1.65] max-w-[44ch]">
+            A two-week, fixed-fee diagnostic that returns a forensic plan whether you continue
+            with us or not. If we move forward, the audit fee credits against month one.
+          </p>
+          <div className="mt-8 flex flex-wrap items-center gap-6">
             <Link to="/contact" className="btn-primary">Start the audit →</Link>
-            <Link to="/case-studies" className="text-white/80 text-[14px] font-medium underline-offset-4 hover:underline">
+            <Link
+              to="/case-studies"
+              className="text-heading/80 text-[14px] font-medium underline-offset-4 hover:underline"
+            >
               Read the casebook
             </Link>
           </div>

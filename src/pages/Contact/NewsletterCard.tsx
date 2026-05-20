@@ -24,7 +24,7 @@ const NewsletterCard = () => {
       </h3>
       <p className="ct-form-text">
         Field-tested patient acquisition tactics, HIPAA updates, and case
-        studies from 200+ Texas practices &mdash; delivered every Tuesday
+        studies from 200+ Texas practices - delivered every Tuesday
         morning. No fluff, no spam.
       </p>
 

@@ -19,7 +19,7 @@ const WhatIsAutomation = () => {
             <p className="what-text">
               Healthcare automation is the deployment of intelligent workflows
               that handle repetitive front-desk, back-office, and
-              patient-communication tasks &mdash; directly inside the systems
+              patient-communication tasks - directly inside the systems
               your clinic already runs on. No replacement, no migration. Just
               less manual work.
             </p>

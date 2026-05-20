@@ -37,18 +37,18 @@ const Founder = () => {
             <p className="tm-founder-bio">
               Jay built TheNextGen on a single thesis: healthcare deserves a
               marketing partner that understands clinical reality, financial
-              accountability, and HIPAA &mdash; not a generalist agency that
+              accountability, and HIPAA - not a generalist agency that
               treats clinics like e-commerce stores.
             </p>
             <p className="tm-founder-bio">
               As a CPA and Certified Tax Coach, he brings a rare blend of
               operational rigor and revenue discipline to every engagement
-              &mdash; making sure marketing investment maps directly to
+              - making sure marketing investment maps directly to
               practice profitability.
             </p>
             <p className="tm-founder-quote">
               We measure ourselves in booked appointments and patient lifetime
-              value &mdash; not impressions.
+              value - not impressions.
             </p>
           </div>
         </div>

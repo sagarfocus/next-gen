@@ -26,31 +26,31 @@ interface PopularItem {
 
 const LATEST: LatestItem[] = [
   {
-    to: '/blog/analytics',
+    to: '/healthcare-news/mayo-wearable-heart-monitor',
     cat: 'Research',
     title: 'Mayo Clinic pilots wearable heart-monitor program for high-risk patients',
     meta: 'Apr 27 · 5 min read',
   },
   {
-    to: '/services/email-drip-campaigns',
+    to: '/healthcare-news/mental-health-coverage-expansion',
     cat: 'Insurance',
     title: 'Major carriers expand mental-health coverage following parity ruling',
     meta: 'Apr 26 · 6 min read',
   },
   {
-    to: '/medical-automation',
+    to: '/healthcare-news/rural-clinics-shared-ehr',
     cat: 'Operations',
     title: 'Rural clinics partner on shared EHR system to reduce admin overhead',
     meta: 'Apr 26 · 4 min read',
   },
   {
-    to: '/blog/medspa',
+    to: '/healthcare-news/dental-online-bookings-growth',
     cat: 'Marketing',
     title: 'Dental practices report 22% growth in online bookings year-over-year',
     meta: 'Apr 25 · 5 min read',
   },
   {
-    to: '/automation',
+    to: '/healthcare-news/ai-pharmacy-inventory',
     cat: 'Pharmacy',
     title: 'National chains roll out AI-powered inventory forecasting to cut waste',
     meta: 'Apr 24 · 4 min read',
@@ -59,19 +59,19 @@ const LATEST: LatestItem[] = [
 
 const FEATURED_ITEMS: FeaturedItem[] = [
   {
-    to: '/case-studies/urgent-care-patient-acquisition',
+    to: '/healthcare-news/texas-clinic-n8n-workflows',
     cat: 'Case Study',
     title: 'How a Texas clinic recaptured 18 hours/week with three N8N workflows',
     meta: 'Apr 26 · 7 min read',
   },
   {
-    to: '/blog/hipaa-tracking',
+    to: '/healthcare-news/hipaa-pitfalls-2026',
     cat: 'Compliance',
     title: 'Five HIPAA pitfalls every healthcare marketer should know in 2026',
     meta: 'Apr 25 · 9 min read',
   },
   {
-    to: '/services/analytics-reporting',
+    to: '/healthcare-news/marketing-stack-standardization',
     cat: 'Tech Stack',
     title: 'The marketing stack modern practices are quietly standardizing on',
     meta: 'Apr 23 · 8 min read',
@@ -80,35 +80,35 @@ const FEATURED_ITEMS: FeaturedItem[] = [
 
 const POPULAR: PopularItem[] = [
   {
-    to: '/blog/reviews',
+    to: '/healthcare-news/patient-reviews-search-weight',
     num: '01',
     cat: 'Reputation',
     title: 'Why patient reviews carry 3× more weight in the 2026 search ranking',
     meta: '5,213 reads',
   },
   {
-    to: '/blog/ai-chatbot',
+    to: '/healthcare-news/ai-front-desks-rise',
     num: '02',
     cat: 'Operations',
-    title: 'Inside the rise of AI-powered front desks — and what they replace',
+    title: 'Inside the rise of AI-powered front desks - and what they replace',
     meta: '4,082 reads',
   },
   {
-    to: '/services/email-drip-campaigns',
+    to: '/healthcare-news/compliant-email-drips',
     num: '03',
     cat: 'Email',
     title: 'Compliant email drips that actually convert patients (with examples)',
     meta: '3,648 reads',
   },
   {
-    to: '/blog/ads-cost',
+    to: '/healthcare-news/medspa-roas-2026',
     num: '04',
     cat: 'Paid Ads',
     title: 'What healthy ROAS actually looks like for med-spas in 2026',
     meta: '3,201 reads',
   },
   {
-    to: '/medical-automation',
+    to: '/healthcare-news/ehr-sms-no-show-reduction',
     num: '05',
     cat: 'Automation',
     title: 'How EHR-connected SMS reminders are cutting no-shows by 40%',
@@ -116,7 +116,7 @@ const POPULAR: PopularItem[] = [
   },
 ];
 
-const FEATURED_MAIN_TO = '/case-studies/urgent-care-patient-acquisition';
+const FEATURED_MAIN_TO = '/healthcare-news/texas-clinic-n8n-workflows';
 
 const ArrowRight = () => (
   <svg
@@ -219,7 +219,7 @@ const NewsThreeColumn = () => {
                 Long Read · Practice Operations
               </span>
               <h3 className="featured-main-title">
-                The real cost of manual patient intake &mdash; and how clinics
+                The real cost of manual patient intake - and how clinics
                 are cutting it in half
               </h3>
               <p className="featured-main-desc">

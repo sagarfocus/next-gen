@@ -212,7 +212,7 @@ const CARDS: ServeCard[] = [
     illustration: ClinicsIllustration,
     tag: 'Clinical',
     title: 'Clinics & Multi-Specialty Practices',
-    desc: 'From single-location family practices to multi-location networks — SEO, paid media, and patient-acquisition systems built for clinical reality.',
+    desc: 'From single-location family practices to multi-location networks - SEO, paid media, and patient-acquisition systems built for clinical reality.',
     points: ['Family Practice', 'Cardiology', 'Dental', 'Pediatrics'],
     to: '/industries/clinics',
   },
@@ -269,7 +269,7 @@ const WhoWeServe = () => {
           </h2>
           <p className="serve-sub">
             We exclusively serve healthcare practices that want to dominate
-            their market &mdash; from solo medspas to multi-location networks.
+            their market - from solo medspas to multi-location networks.
           </p>
         </div>
 

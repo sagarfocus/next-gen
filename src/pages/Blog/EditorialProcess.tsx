@@ -16,7 +16,7 @@ const STEPS: Step[] = [
     num: '1',
     duration: '1 Week',
     title: 'Research',
-    text: 'We mine our $10M+ in healthcare ad spend data, client dashboards, and HIPAA audit findings to find the patterns most clinics miss — before writing a single word.',
+    text: 'We mine our $10M+ in healthcare ad spend data, client dashboards, and HIPAA audit findings to find the patterns most clinics miss - before writing a single word.',
     icon: (
       <svg
         width={14}
@@ -38,7 +38,7 @@ const STEPS: Step[] = [
     num: '2',
     duration: '2 Weeks',
     title: 'Draft & Visuals',
-    text: 'A senior practitioner drafts the article alongside our design team — clean diagrams, real screenshots, and brand-consistent visuals that make complex tactics easy to scan.',
+    text: 'A senior practitioner drafts the article alongside our design team - clean diagrams, real screenshots, and brand-consistent visuals that make complex tactics easy to scan.',
     icon: (
       <svg
         width={14}
@@ -61,7 +61,7 @@ const STEPS: Step[] = [
     num: '3',
     duration: '1–2 Days',
     title: 'Compliance Review',
-    text: 'Our Head of Compliance reviews every article line-by-line for HIPAA accuracy. We test every recommended tactic against real client funnels before publishing — nothing untested ships.',
+    text: 'Our Head of Compliance reviews every article line-by-line for HIPAA accuracy. We test every recommended tactic against real client funnels before publishing - nothing untested ships.',
     icon: (
       <svg
         width={14}
@@ -83,7 +83,7 @@ const STEPS: Step[] = [
     num: '4',
     duration: '1–2 Days',
     title: 'Publish & Distribute',
-    text: 'We wrap each article with a polished cover, embed it in our newsletter, and notify the 4,000+ healthcare practice managers reading every Tuesday morning — with full source attribution.',
+    text: 'We wrap each article with a polished cover, embed it in our newsletter, and notify the 4,000+ healthcare practice managers reading every Tuesday morning - with full source attribution.',
     icon: (
       <svg
         width={14}
@@ -114,7 +114,7 @@ const EditorialProcess = () => {
           </h2>
           <p className="bl-process-sub">
             Beyond just publishing tactics, we build each piece around real
-            client work &mdash; from raw insight to peer-reviewed, HIPAA-checked,
+            client work - from raw insight to peer-reviewed, HIPAA-checked,
             practitioner-tested content.
           </p>
 

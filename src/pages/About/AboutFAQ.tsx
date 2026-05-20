@@ -16,7 +16,7 @@ const FAQS: FAQItem[] = [
         We sign <strong>Business Associate Agreements (BAAs)</strong> with every
         client. Our infrastructure runs on BAA-ready hosting, encrypted forms,
         and audited data routing. Our Head of Compliance personally reviews
-        every funnel before launch &mdash; we have a 98% HIPAA audit pass rate.
+        every funnel before launch - we have a 98% HIPAA audit pass rate.
       </>
     ),
     defaultOpen: true,
@@ -38,7 +38,7 @@ const FAQS: FAQItem[] = [
       <>
         Freestanding ERs, urgent care, MedSpas, dental, primary care, mental
         health, chiropractic, plastic surgery, ophthalmology, and dermatology
-        &mdash; mostly Texas-based. We&rsquo;ve served{' '}
+        - mostly Texas-based. We&rsquo;ve served{' '}
         <strong>200+ practices</strong> ranging from single-location clinics to
         multi-site groups.
       </>
@@ -51,7 +51,7 @@ const FAQS: FAQItem[] = [
         Paid channels usually drive measurable patient leads within{' '}
         <strong>14&ndash;30 days</strong> of launch. Local SEO is a 90&ndash;180
         day curve depending on your starting position. Our average client sees a{' '}
-        <strong>3&times; ROI lift within 90 days</strong> &mdash; though
+        <strong>3&times; ROI lift within 90 days</strong> - though
         high-acuity verticals (FSEDs, urgent care) often move faster.
       </>
     ),
@@ -63,7 +63,7 @@ const FAQS: FAQItem[] = [
         Either model works. Most clients use us as their{' '}
         <strong>full marketing department</strong> (no internal hires needed).
         Larger groups embed us alongside a marketing director for execution
-        muscle. We&rsquo;re flexible &mdash; what matters is the patient
+        muscle. We&rsquo;re flexible - what matters is the patient
         acquisition outcome.
       </>
     ),
@@ -109,7 +109,7 @@ const AboutFAQ = () => {
               Asked <span className="accent-text">Questions</span>.
             </h2>
             <p className="faq-intro">
-              Everything you need to know about working with TheNextGen &mdash;
+              Everything you need to know about working with TheNextGen -
               from compliance and reporting to clinic specialties and engagement
               models.
             </p>
@@ -123,7 +123,7 @@ const AboutFAQ = () => {
                 to help.
               </p>
               <p>
-                Reach out anytime &mdash; we&rsquo;ll walk you through every
+                Reach out anytime - we&rsquo;ll walk you through every
                 detail before any commitment.
               </p>
               <Link to="/contact" className="btn-primary">

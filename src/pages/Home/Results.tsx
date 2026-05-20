@@ -16,7 +16,7 @@ const SMALL_STATS: SmallStat[] = [
     value: 47,
     suffix: '%',
     label: 'Increase in walk-in patients in six months.',
-    ariaLabel: '47% increase in walk-in patients — Emergency Room',
+    ariaLabel: '47% increase in walk-in patients - Emergency Room',
   },
   {
     tag: 'Urgent Care',
@@ -24,7 +24,7 @@ const SMALL_STATS: SmallStat[] = [
     suffix: '×',
     decimals: 1,
     label: 'Return on ad spend in the first quarter.',
-    ariaLabel: '2.8x return on ad spend — Urgent Care',
+    ariaLabel: '2.8x return on ad spend - Urgent Care',
   },
   {
     tag: 'MedSpa Network',
@@ -33,7 +33,7 @@ const SMALL_STATS: SmallStat[] = [
     suffix: 'M',
     decimals: 1,
     label: 'Revenue generated from Facebook ads in 12 months.',
-    ariaLabel: '$1.2M revenue generated — MedSpa Network',
+    ariaLabel: '$1.2M revenue generated - MedSpa Network',
   },
 ];
 
@@ -68,7 +68,7 @@ const Results = () => {
             Real results.
           </h2>
           <p className="results-sub">
-            We don&rsquo;t just talk &mdash; we deliver measurable outcomes for
+            We don&rsquo;t just talk - we deliver measurable outcomes for
             healthcare practices.
           </p>
         </div>
@@ -77,7 +77,7 @@ const Results = () => {
           {/* Big featured dark card */}
           <article
             className="stat-featured"
-            aria-label="312% increase in Instagram leads — MedSpa"
+            aria-label="312% increase in Instagram leads - MedSpa"
           >
             <div className="stat-art" aria-hidden="true">
               <svg
@@ -108,7 +108,7 @@ const Results = () => {
                   </linearGradient>
                 </defs>
 
-                {/* Glow blobs — upper right */}
+                {/* Glow blobs - upper right */}
                 <circle cx="560" cy="150" r="200" fill="url(#medGlowSage)" />
                 <circle cx="640" cy="60" r="150" fill="url(#medGlowPeri)" />
 
@@ -147,7 +147,7 @@ const Results = () => {
                   <circle cx="9" cy="-9" r="3.4" fill="#8FBC8F" />
                 </g>
 
-                {/* Back post card — rotated, behind */}
+                {/* Back post card - rotated, behind */}
                 <g className="art-post-back" transform="translate(525 132) rotate(9)">
                   <rect
                     x="0"
@@ -309,7 +309,7 @@ const Results = () => {
               <CountUp to={312} suffix="%" duration={2.0} />
             </p>
             <p className="stat-label">
-              Increase in Instagram leads in 90&nbsp;days &mdash; from a single
+              Increase in Instagram leads in 90&nbsp;days - from a single
               optimized funnel and creative refresh.
             </p>
             <span className="stat-arrow" aria-hidden="true">
@@ -317,7 +317,7 @@ const Results = () => {
             </span>
           </article>
 
-          {/* Right column — 3 stacked cards */}
+          {/* Right column - 3 stacked cards */}
           <div className="stats-right">
             {SMALL_STATS.map(({ tag, value, prefix, suffix, decimals, label, ariaLabel }) => (
               <article

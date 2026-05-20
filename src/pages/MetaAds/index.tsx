@@ -9,7 +9,7 @@ const HEAD_META = [
 ];
 
 const STACK = [
-  { tag: 'Discovery',  k: 'Reels & Stories', d: 'Vertical-native creative shot for the feed — not repurposed.' },
+  { tag: 'Discovery',  k: 'Reels & Stories', d: 'Vertical-native creative shot for the feed - not repurposed.' },
   { tag: 'Consider',   k: 'Lead Forms',      d: 'Pre-qualifying questions, instant CRM handoff, no manual export.' },
   { tag: 'Convert',    k: 'Conversions API', d: 'Server-side events keep tracking accurate after iOS signal loss.' },
   { tag: 'Retain',     k: 'WhatsApp Click-to-Chat', d: 'Recovery flow for the 70%+ of leads who never finish a form.' },
@@ -19,7 +19,7 @@ const TACTICS = [
   { n: '01', h: 'Audience layering',        d: 'Layered geo + interest + custom audience stacks built per service line.' },
   { n: '02', h: 'Vertical creative kits',   d: 'Editorial-grade creative scripts and edits, recorded in-clinic or remote.' },
   { n: '03', h: 'Pre-qualifying lead forms',d: 'Three-question filter that reduces tire-kickers without killing volume.' },
-  { n: '04', h: 'Booking pixel + CAPI',     d: 'Server-side conversions with deduped event IDs — what iOS hid, we surface.' },
+  { n: '04', h: 'Booking pixel + CAPI',     d: 'Server-side conversions with deduped event IDs - what iOS hid, we surface.' },
   { n: '05', h: 'Compliant before/after',   d: 'Aesthetic creative frameworks that survive Meta review and brand guidelines.' },
   { n: '06', h: 'Retention nudges',         d: 'Win-back, recall, and reactivation audiences. Lookalikes from booked patients.' },
 ];

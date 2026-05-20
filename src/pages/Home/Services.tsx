@@ -18,7 +18,7 @@ import emailImg from "../../assets/email&dripcamping'.png";
  * page resumes vertical flow normally.
  *
  * Mobile / touch / reduced motion fall back to the original native
- * `overflow-x: auto` snap-scroll behavior — no scroll hijacking.
+ * `overflow-x: auto` snap-scroll behavior - no scroll hijacking.
  */
 
 interface ServiceCardData {
@@ -42,7 +42,7 @@ const SERVICES: ServiceCardData[] = [
   {
     tag: 'Social',
     title: 'Social Media Marketing',
-    sub: 'Show up where your patients spend their time — consistently.',
+    sub: 'Show up where your patients spend their time - consistently.',
     ariaLabel: 'Social Media Marketing',
     image: socialImg,
     to: '/services/social-media-marketing',
@@ -105,7 +105,7 @@ const Services = () => {
   const [pinActive, setPinActive] = useState(false);
   const reduced = useReducedMotion();
 
-  // GSAP pin + horizontal scroll — desktop, non-touch, non-reduced-motion only.
+  // GSAP pin + horizontal scroll - desktop, non-touch, non-reduced-motion only.
   // On mobile / reduced motion the native `overflow-x: auto` + scroll-snap on
   // .services-grid takes over (the user can swipe / drag).
   useEffect(() => {
@@ -188,7 +188,7 @@ const Services = () => {
               Marketing built for healthcare practices.
             </h2>
             <p className="services-sub">
-              Six core capabilities &mdash; one integrated growth engine for
+              Six core capabilities - one integrated growth engine for
               clinics, medspas, and wellness brands.
             </p>
           </div>

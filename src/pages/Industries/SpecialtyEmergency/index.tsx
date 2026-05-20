@@ -28,14 +28,14 @@ const BREADCRUMB_SCHEMA = {
 const FAQS: ServiceFAQItem[] = [
   {
     q: 'How do we compete with hospital systems on emergency keywords?',
-    a: 'Hospital systems usually spend big on broad branded queries. We win on the long tail: condition-plus-symptom queries, neighborhood-plus-ER queries, and wait-time queries. The hospital can\'t outbid us on every "abdominal pain ER Plano" search — and that\'s where booked visits actually come from.',
+    a: 'Hospital systems usually spend big on broad branded queries. We win on the long tail: condition-plus-symptom queries, neighborhood-plus-ER queries, and wait-time queries. The hospital can\'t outbid us on every "abdominal pain ER Plano" search - and that\'s where booked visits actually come from.',
   },
   {
     q: 'Is HIPAA risk higher for ER and urgent-care ads?',
-    a: 'Yes — because intent itself reveals condition. We strip URL parameters that leak symptom data, deploy server-side conversion APIs that never ship PHI to ad networks, and use BAA-covered tooling on every step. Compliance is the gate every campaign passes through before launch.',
+    a: 'Yes - because intent itself reveals condition. We strip URL parameters that leak symptom data, deploy server-side conversion APIs that never ship PHI to ad networks, and use BAA-covered tooling on every step. Compliance is the gate every campaign passes through before launch.',
   },
   {
-    q: 'What about wait-time pages — do they actually move bookings?',
+    q: 'What about wait-time pages - do they actually move bookings?',
     a: 'They are the highest-converting page type on most urgent-care sites we audit. Real-time wait calls, geo-routing to the nearest clinic, and a single-tap "drive to this location" link consistently outperform a generic location page on booking rate.',
   },
   {
@@ -64,7 +64,7 @@ const RELATED: RelatedServiceLink[] = [
   {
     to: '/case-studies/er-network-patient-growth',
     name: 'Freestanding ER · case study',
-    blurb: 'Dallas-metro ER engagement — visits, revenue, and the playbook behind both.',
+    blurb: 'Dallas-metro ER engagement - visits, revenue, and the playbook behind both.',
     tag: 'Proof',
   },
 ];
@@ -150,7 +150,7 @@ const STATS: BigNumber[] = [
 const SCHEMA = {
   '@context': 'https://schema.org',
   '@type': 'Service',
-  name: 'Specialty & Emergency Care — Marketing',
+  name: 'Specialty & Emergency Care - Marketing',
   serviceType: 'Healthcare Marketing',
   audience: 'ERs, urgent care, specialty practices, high-acuity providers',
 };
@@ -170,7 +170,7 @@ const SpecialtyEmergency = () => {
       <Numbers stats={STATS} />
       <ServiceFAQ
         items={FAQS}
-        serviceName="Specialty & Emergency Care — Marketing"
+        serviceName="Specialty & Emergency Care - Marketing"
         title="What ER and urgent-care operators ask first."
         sectionNum="05"
       />
@@ -183,7 +183,7 @@ const SpecialtyEmergency = () => {
       <IndustryCTA
         tag="Talk to us"
         title={<>Ready to capture every search that matters?</>}
-        body="A 30-minute call. We'll audit your compliance posture and current visibility, and share the closest case study — whether you sign with us or not."
+        body="A 30-minute call. We'll audit your compliance posture and current visibility, and share the closest case study - whether you sign with us or not."
       />
 
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(SCHEMA) }} />

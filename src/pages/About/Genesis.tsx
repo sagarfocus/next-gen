@@ -232,8 +232,8 @@ const Genesis = () => {
             </p>
             <p>
               So we became <strong>operational integrators</strong>. We
-              don&rsquo;t just run Google Ads &mdash; we build the AI chatbots
-              that answer them. We don&rsquo;t just do Local SEO &mdash; we
+              don&rsquo;t just run Google Ads - we build the AI chatbots
+              that answer them. We don&rsquo;t just do Local SEO - we
               build the digital intake forms that process the patients who
               find you.
             </p>

@@ -1,9 +1,12 @@
 import { Link } from 'react-router-dom';
 
+import heroImg from '../../assets/patientidentities.png';
+import ctaImg from '../../assets/builtforclinic.png';
+
 /* ============================================================
-   COMPLIANCE PROTOCOL — Swiss specification-document layout.
-   Document numbering, monospaced metadata, indented folder-tree
-   of safeguards. Bronze accent. Specification-sheet aesthetic.
+   COMPLIANCE PROTOCOL - Image-driven swiss redesign.
+   Hero with security image, 3 safeguard cards, 6 spec cards
+   in a 3x2 grid, image CTA. Brand colors throughout.
    ============================================================ */
 
 interface Section {
@@ -89,98 +92,92 @@ const SECTIONS: Section[] = [
   },
 ];
 
-const SafeguardTree = () => {
-  const tree = [
-    {
-      tier: 'Administrative Safeguards',
-      items: [
-        'Security Officer designated',
-        'Workforce training (annual)',
-        'Access management policy',
-        'Contingency plan + drills',
-      ],
-    },
-    {
-      tier: 'Physical Safeguards',
-      items: [
-        'Workstation security policy',
-        'Device + media controls',
-        'Facility access (cloud datacenters)',
-        'Asset disposal procedures',
-      ],
-    },
-    {
-      tier: 'Technical Safeguards',
-      items: [
-        'Access controls (RBAC + MFA)',
-        'Audit logging + integrity',
-        'Transmission security (TLS 1.3)',
-        'Encryption (AES-256 at rest)',
-      ],
-    },
-  ];
+interface Safeguard {
+  tier: string;
+  description: string;
+  items: string[];
+  tone: 'sage' | 'periwinkle' | 'tan';
+  icon: React.ReactNode;
+}
 
-  return (
-    <div className="cp-tree" role="img" aria-label="HIPAA safeguards hierarchy">
-      <div className="cp-tree-root">
-        <span className="cp-tree-root-label">HIPAA · 45 CFR § 164</span>
-      </div>
-      <ul className="cp-tree-tiers">
-        {tree.map((t) => (
-          <li key={t.tier} className="cp-tree-tier">
-            <div className="cp-tree-tier-head">
-              <span className="cp-tree-tier-dot" />
-              <span>{t.tier}</span>
-            </div>
-            <ul className="cp-tree-leaves">
-              {t.items.map((item) => (
-                <li key={item}>
-                  <span className="cp-tree-leaf-rule" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-};
+const SAFEGUARDS: Safeguard[] = [
+  {
+    tier: 'Administrative Safeguards',
+    description: 'The policies, training, and people accountable for keeping the stack compliant.',
+    items: [
+      'Security Officer designated',
+      'Workforce training (annual)',
+      'Access management policy',
+      'Contingency plan + drills',
+    ],
+    tone: 'sage',
+    icon: (
+      <svg width={22} height={22} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.7} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <circle cx="9" cy="8" r="3" />
+        <path d="M3 21a6 6 0 0 1 12 0" />
+        <circle cx="17" cy="9" r="2.5" />
+        <path d="M14 21a4 4 0 0 1 8 0" />
+      </svg>
+    ),
+  },
+  {
+    tier: 'Physical Safeguards',
+    description: 'Where data lives and the controls that keep the perimeter intact.',
+    items: [
+      'Workstation security policy',
+      'Device + media controls',
+      'Facility access (cloud datacenters)',
+      'Asset disposal procedures',
+    ],
+    tone: 'tan',
+    icon: (
+      <svg width={22} height={22} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.7} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <rect x="3" y="11" width="18" height="10" rx="2" />
+        <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+      </svg>
+    ),
+  },
+  {
+    tier: 'Technical Safeguards',
+    description: 'The cryptography, access controls, and logging that protect every signal.',
+    items: [
+      'Access controls (RBAC + MFA)',
+      'Audit logging + integrity',
+      'Transmission security (TLS 1.3)',
+      'Encryption (AES-256 at rest)',
+    ],
+    tone: 'periwinkle',
+    icon: (
+      <svg width={22} height={22} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.7} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M12 2 L 4 6 V 12 C 4 16.5 7.5 20.7 12 22 C 16.5 20.7 20 16.5 20 12 V 6 Z" />
+        <path d="M9 12 L 11 14 L 15 10" />
+      </svg>
+    ),
+  },
+];
+
+const ArrowRight = ({ size = 16 }: { size?: number }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.4} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <line x1="5" y1="12" x2="19" y2="12" />
+    <polyline points="12 5 19 12 12 19" />
+  </svg>
+);
 
 const ComplianceProtocol = () => {
   const SCHEMA = {
     '@context': 'https://schema.org',
     '@type': 'Service',
-    name: 'Healthcare Compliance Protocol — HIPAA-Aligned Marketing Infrastructure',
+    name: 'Healthcare Compliance Protocol - HIPAA-Aligned Marketing Infrastructure',
     serviceType: 'Compliance & Data Security',
     audience: 'Healthcare practices, clinics, healthcare networks',
   };
 
   return (
-    <main className="cp-page">
-      {/* Document header */}
-      <section className="cp-doc-head">
-        <div className="cp-shell">
-          <div className="cp-doc-meta">
-            <div>
-              <span className="cp-doc-label">Document</span>
-              <span className="cp-doc-value">COMP-PROTO-2026</span>
-            </div>
-            <div>
-              <span className="cp-doc-label">Revision</span>
-              <span className="cp-doc-value">R.07</span>
-            </div>
-            <div>
-              <span className="cp-doc-label">Effective</span>
-              <span className="cp-doc-value">2026-01-01</span>
-            </div>
-            <div>
-              <span className="cp-doc-label">Classification</span>
-              <span className="cp-doc-value">Public</span>
-            </div>
-          </div>
-
-          <nav className="cp-crumb" aria-label="Breadcrumb">
+    <main className="gt-page gt-page-x cp-page-x">
+      {/* ─── HERO ─── */}
+      <section className="gtx-hero">
+        <div className="gt-shell">
+          <nav className="gtx-crumb" aria-label="Breadcrumb">
             <Link to="/about">About</Link>
             <span aria-hidden="true">/</span>
             <span>Infrastructure</span>
@@ -188,91 +185,170 @@ const ComplianceProtocol = () => {
             <span className="cur">Compliance Protocol</span>
           </nav>
 
-          <h1 className="cp-h1">
-            Healthcare-grade infrastructure,<br />
-            documented and audited.
-          </h1>
-          <p className="cp-lede">
-            This document describes the compliance, security, and data-handling
-            protocols that govern every engagement. It is provided to
-            stakeholders, legal teams, and security reviewers prior to BAA
-            execution.
-          </p>
-        </div>
-      </section>
-
-      {/* Safeguard tree */}
-      <section className="cp-tree-section">
-        <div className="cp-shell">
-          <div className="cp-tree-grid">
-            <div>
-              <span className="cp-section-ref">§ 0.0</span>
-              <h2 className="cp-section-h2">Safeguard hierarchy.</h2>
-              <p className="cp-section-sub">
-                We map every control to the HIPAA Security Rule's three categories
-                of safeguards. The tree below summarises which controls are
-                implemented at each tier.
+          <div className="gtx-hero-grid">
+            <div className="gtx-hero-content">
+              <span className="gtx-eyebrow">
+                <span className="gtx-eyebrow-dot" aria-hidden="true" />
+                Compliance Protocol
+              </span>
+              <h1 className="gtx-hero-title">
+                Healthcare-grade infrastructure,
+                <em> documented and audited.</em>
+              </h1>
+              <p className="gtx-hero-lede">
+                Every engagement runs on a HIPAA-aligned stack: BAA-covered tools,
+                encrypted intake, PHI-safe analytics, audited logs. This page
+                summarises the protocols stakeholders, legal teams, and security
+                reviewers ask for before BAA execution.
               </p>
-              <dl className="cp-key">
-                <div><dt>Standard</dt><dd>45 CFR Part 164, Subpart C</dd></div>
-                <div><dt>Coverage</dt><dd>Administrative · Physical · Technical</dd></div>
-                <div><dt>Auditor</dt><dd>Independent · Annual</dd></div>
-              </dl>
+              <div className="gtx-hero-ctas">
+                <Link to="/contact" className="gtx-btn-primary">
+                  Request documentation pack
+                  <ArrowRight />
+                </Link>
+                <Link to="/about" className="gtx-btn-link">
+                  Back to Infrastructure →
+                </Link>
+              </div>
             </div>
-            <SafeguardTree />
+            <div className="gtx-hero-visual">
+              <img src={heroImg} alt="" loading="eager" decoding="async" />
+              <div className="gtx-hero-visual-tag" aria-hidden="true">
+                <span className="gtx-hero-visual-tag-num">100%</span>
+                <span className="gtx-hero-visual-tag-lbl">BAA-covered toolchain</span>
+              </div>
+            </div>
+          </div>
+
+          <ul className="gtx-hero-stats">
+            <li>
+              <strong>100%</strong>
+              <span>BAAs signed (healthcare clients)</span>
+            </li>
+            <li>
+              <strong>AES-256</strong>
+              <span>Encryption at rest</span>
+            </li>
+            <li>
+              <strong>TLS 1.3</strong>
+              <span>Transit security</span>
+            </li>
+            <li>
+              <strong>6 yrs</strong>
+              <span>Audit-log retention (HIPAA)</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      {/* ─── SAFEGUARD HIERARCHY (3 cards) ─── */}
+      <section className="cpx-safeguards">
+        <div className="gt-shell">
+          <header className="gtx-sec-head">
+            <span className="gtx-eyebrow">
+              <span className="gtx-eyebrow-dot" aria-hidden="true" />
+              Safeguard Hierarchy
+            </span>
+            <h2 className="gtx-sec-title">
+              Three categories of controls, <em>mapped to the rule.</em>
+            </h2>
+            <p className="gtx-sec-sub">
+              Every protocol maps to one of the HIPAA Security Rule's three
+              safeguard categories under 45 CFR § 164 Subpart C.
+            </p>
+          </header>
+
+          <div className="cpx-safeguard-grid">
+            {SAFEGUARDS.map((s, i) => (
+              <article key={s.tier} className={`cpx-safeguard-card tone-${s.tone}`}>
+                <span className="cpx-safeguard-num" aria-hidden="true">
+                  /{String(i + 1).padStart(2, '0')}
+                </span>
+                <span className="cpx-safeguard-icon" aria-hidden="true">{s.icon}</span>
+                <h3 className="cpx-safeguard-title">{s.tier}</h3>
+                <p className="cpx-safeguard-desc">{s.description}</p>
+                <ul className="cpx-safeguard-list">
+                  {s.items.map((item) => (
+                    <li key={item}>
+                      <span className="cpx-safeguard-bullet" aria-hidden="true" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </article>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Spec sections */}
-      <section className="cp-specs">
-        <div className="cp-shell">
-          <div className="cp-section-row">
-            <span className="cp-section-ref">§ 1–6</span>
-            <h2 className="cp-section-h2">Protocol specifications.</h2>
-          </div>
-          <ol className="cp-spec-list">
+      {/* ─── PROTOCOL SPECS (6 cards, 3x2 grid) ─── */}
+      <section className="cpx-specs">
+        <div className="gt-shell">
+          <header className="gtx-sec-head">
+            <span className="gtx-eyebrow">
+              <span className="gtx-eyebrow-dot" aria-hidden="true" />
+              Protocol Specifications
+            </span>
+            <h2 className="gtx-sec-title">
+              Six protocols. <em>One commitment.</em>
+            </h2>
+            <p className="gtx-sec-sub">
+              The complete list of compliance specifications referenced in every
+              BAA we sign.
+            </p>
+          </header>
+
+          <div className="cpx-spec-grid">
             {SECTIONS.map((s) => (
-              <li key={s.id} id={s.id} className="cp-spec">
-                <header className="cp-spec-head">
-                  <span className="cp-spec-ref">{s.ref}</span>
-                  <h3 className="cp-spec-title">{s.title}</h3>
+              <article key={s.id} id={s.id} className="cpx-spec-card">
+                <header className="cpx-spec-head">
+                  <span className="cpx-spec-ref">{s.ref}</span>
+                  <h3 className="cpx-spec-title">{s.title}</h3>
                 </header>
-                <p className="cp-spec-body">{s.body}</p>
-                <dl className="cp-spec-table">
+                <p className="cpx-spec-body">{s.body}</p>
+                <dl className="cpx-spec-table">
                   {s.specs.map((sp) => (
-                    <div key={sp.k} className="cp-spec-row">
+                    <div key={sp.k} className="cpx-spec-row">
                       <dt>{sp.k}</dt>
                       <dd>{sp.v}</dd>
                     </div>
                   ))}
                 </dl>
-              </li>
+              </article>
             ))}
-          </ol>
+          </div>
         </div>
       </section>
 
-      {/* Document footer / CTA */}
-      <section className="cp-footer-cta">
-        <div className="cp-shell">
-          <div className="cp-footer-grid">
-            <div>
-              <span className="cp-section-ref">§ 7.0</span>
-              <h2 className="cp-section-h2">Request the full documentation pack.</h2>
-              <p>Includes our BAA template, vendor registry, incident response runbook, and the latest independent compliance audit.</p>
+      {/* ─── CTA ─── */}
+      <section className="gtx-cta">
+        <div className="gt-shell">
+          <div className="gtx-cta-card">
+            <div className="gtx-cta-card-img">
+              <img src={ctaImg} alt="" loading="lazy" decoding="async" />
+              <div className="gtx-cta-card-img-tag" aria-hidden="true">
+                <span className="dot" /> Documentation available on request
+              </div>
             </div>
-            <Link to="/contact" className="cp-doc-btn">
-              Request documentation
-              <svg width={16} height={16} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.4} strokeLinecap="round" strokeLinejoin="round">
-                <line x1="5" y1="12" x2="19" y2="12" />
-                <polyline points="12 5 19 12 12 19" />
-              </svg>
-            </Link>
+            <div className="gtx-cta-card-body">
+              <span className="gtx-eyebrow">
+                <span className="gtx-eyebrow-dot" aria-hidden="true" />
+                Next Step
+              </span>
+              <h2 className="gtx-cta-h">
+                Want the full <em>documentation pack?</em>
+              </h2>
+              <p>
+                Includes our BAA template, vendor registry, incident response
+                runbook, and the latest independent compliance audit - delivered
+                to your legal team within one business day.
+              </p>
+              <Link to="/contact" className="gtx-btn-primary">
+                Request documentation
+                <ArrowRight />
+              </Link>
+            </div>
           </div>
-          <p className="cp-footer-note">
-            END OF DOCUMENT · COMP-PROTO-2026 · Page 1 of 1
-          </p>
         </div>
       </section>
 

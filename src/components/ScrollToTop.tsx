@@ -13,10 +13,10 @@ const ScrollToTop = () => {
     if (lenis) {
       // Use Lenis's authoritative scrollTo so we don't fight its internal
       // scroll state. `immediate: true` avoids the easing animation on
-      // route change — feels like a clean page load.
+      // route change - feels like a clean page load.
       lenis.scrollTo(0, { immediate: true, force: true });
     } else {
-      // No Lenis (mobile / touch / reduced-motion) — native fallback.
+      // No Lenis (mobile / touch / reduced-motion) - native fallback.
       window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
     }
   }, [pathname, hash]);

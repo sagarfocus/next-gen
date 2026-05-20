@@ -182,7 +182,7 @@ const Industries = () => {
         <span className="ind-eyebrow">Industries</span>
 
         <div className="ind-grid">
-          {/* LEFT — visual with floating glass tags. Subtle Parallax wraps the
+          {/* LEFT - visual with floating glass tags. Subtle Parallax wraps the
               whole visual column so the figure drifts as the section enters
               view; floating .ind-tag items keep their own roam animations. */}
           <Parallax as="div" speed={0.05} className="ind-visual" aria-hidden="true">
@@ -286,14 +286,14 @@ const Industries = () => {
             ))}
           </Parallax>
 
-          {/* RIGHT — dark panel */}
+          {/* RIGHT - dark panel */}
           <div className="ind-panel">
             <h2 id="ind-title" className="ind-h2">
               Industries We Serve
             </h2>
             <p className="ind-lead">
               Specialized marketing for every type of healthcare facility
-              &mdash; because an ER and a MedSpa require fundamentally
+              - because an ER and a MedSpa require fundamentally
               different growth strategies.
             </p>
 
@@ -337,7 +337,7 @@ const Industries = () => {
                 <span className="ind-strap-dot" aria-hidden="true" />
                 <span className="ind-strap-text">
                   <strong>Clinic Growth OS</strong> adapts to every clinical
-                  reality &mdash; from same-day appointment slots to 6-month
+                  reality - from same-day appointment slots to 6-month
                   elective procedure pipelines. Industry-specific playbooks, not
                   a generic strategy.
                 </span>

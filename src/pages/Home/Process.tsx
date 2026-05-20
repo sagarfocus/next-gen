@@ -32,12 +32,12 @@ const STEPS: ProcessStep[] = [
   {
     num: '/03',
     title: 'Build & Setup',
-    desc: 'We deploy your tech stack — landing pages, tracking, automation, and dashboards.',
+    desc: 'We deploy your tech stack - landing pages, tracking, automation, and dashboards.',
   },
   {
     num: '/04',
     title: 'Launch',
-    desc: 'We execute campaigns across every channel — search, social, and email.',
+    desc: 'We execute campaigns across every channel - search, social, and email.',
     active: true,
   },
   {
@@ -60,7 +60,7 @@ const Process = () => {
   useEffect(() => {
     if (reduced) return;
     if (typeof window === 'undefined') return;
-    // Skip GSAP entirely on small / touch viewports — keep page light
+    // Skip GSAP entirely on small / touch viewports - keep page light
     if (window.matchMedia('(max-width: 900px)').matches) return;
     if (window.matchMedia('(pointer: coarse)').matches) return;
 
@@ -72,7 +72,7 @@ const Process = () => {
     let cancelled = false;
 
     (async () => {
-      // Dynamic imports — Vite splits these into a separate chunk that
+      // Dynamic imports - Vite splits these into a separate chunk that
       // never reaches mobile / reduced-motion users.
       const [{ default: gsap }, { ScrollTrigger }] = await Promise.all([
         import('gsap'),
@@ -144,7 +144,7 @@ const Process = () => {
         </div>
 
         <ol className="process-steps process-steps--curved">
-          {/* Decorative wave connector — GSAP scrubs strokeDashoffset to draw it on scroll */}
+          {/* Decorative wave connector - GSAP scrubs strokeDashoffset to draw it on scroll */}
           <svg
             className="process-curve"
             viewBox="0 0 1200 200"

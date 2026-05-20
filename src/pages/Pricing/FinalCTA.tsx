@@ -12,7 +12,7 @@ const FinalCTA = () => {
           <p className="pr-cta-text">
             Get a free 30-minute consultation with a senior practitioner.
             We&rsquo;ll audit your current funnel, recommend the right tier for
-            your scale, and outline a custom roadmap &mdash; no commitment.
+            your scale, and outline a custom roadmap - no commitment.
           </p>
           <div className="pr-cta-actions">
             <Link to="/contact" className="pr-cta-pri">

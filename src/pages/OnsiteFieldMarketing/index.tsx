@@ -52,7 +52,7 @@ const METRICS = [
 const PROCESS = [
   { k: 'Map',      d: 'Audit your service area, payer mix, and current referral graph. Surface the 10 highest-yield community + B2B touchpoints.' },
   { k: 'Build',    d: 'Design the booth, collateral, intake flow, and CRM hand-off. Train the territory reps on your tone, services, and compliance.' },
-  { k: 'Activate', d: 'Weekly cadence of events and visits across your metro. Live reporting from the field — every lead, every booked visit.' },
+  { k: 'Activate', d: 'Weekly cadence of events and visits across your metro. Live reporting from the field - every lead, every booked visit.' },
   { k: 'Compound', d: 'Quarterly review of channel ROAS. Cut the low performers, double the winners. The territory plan compounds month over month.' },
 ];
 
@@ -109,7 +109,7 @@ const Hero = () => (
           </h1>
           <p className="mt-7 text-body text-[17px] leading-[1.65] max-w-[58ch]">
             Healthcare grows where doors open in person. We run the booth, walk the territory,
-            and book the referral lunch — then attribute every lead back to first-visit revenue
+            and book the referral lunch - then attribute every lead back to first-visit revenue
             in your dashboard. Field marketing, accountable to the same numbers as paid media.
           </p>
         </div>
@@ -168,7 +168,7 @@ const Deliverables = () => (
   <Section
     no="02"
     title="What's in every engagement"
-    kicker="Four working surfaces, all owned by your dedicated field lead — never tossed between vendors."
+    kicker="Four working surfaces, all owned by your dedicated field lead - never tossed between vendors."
   >
     <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-[1px] bg-line-faint border border-line-faint">
       {DELIVERABLES.map((d, i) => (
@@ -185,7 +185,7 @@ const Deliverables = () => (
           <ul className="space-y-2 text-[13px] text-body mt-auto">
             {d.list.map((l) => (
               <li key={l} className="flex gap-2 items-baseline">
-                <span className="text-line">—</span>
+                <span className="text-line">-</span>
                 <span>{l}</span>
               </li>
             ))}
@@ -264,7 +264,7 @@ const Closing = () => (
       </h3>
       <p className="mt-6 text-white/75 text-[16px] leading-[1.6] max-w-[58ch]">
         We will not staff a single booth without a territory plan and a defined ROAS target.
-        Book the walk, walk away with the plan — pilot only if the math holds up.
+        Book the walk, walk away with the plan - pilot only if the math holds up.
       </p>
       <div className="mt-10 flex flex-wrap items-center gap-5">
         <Link to="/contact" className="btn-primary">
@@ -293,7 +293,7 @@ const SERVICE_SCHEMA = {
   },
   areaServed: ['Dallas', 'Fort Worth', 'Austin', 'Houston', 'San Antonio'],
   description:
-    'Community activations, B2B referral visits, geo-targeted print, and sponsorships — staffed, attributed, and reported. Field marketing for clinics, medspas, urgent care, and multi-location healthcare brands.',
+    'Community activations, B2B referral visits, geo-targeted print, and sponsorships - staffed, attributed, and reported. Field marketing for clinics, medspas, urgent care, and multi-location healthcare brands.',
   offers: {
     '@type': 'Offer',
     description: '90-day field marketing pilot with full attribution dashboard.',

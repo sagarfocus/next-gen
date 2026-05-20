@@ -4,7 +4,7 @@ import { useReducedMotion } from './useReducedMotion';
 
 // Flip to `true` to enable Lenis smooth scroll. Disabled by default so the
 // site uses fast, responsive native browser scrolling. The Lenis code below
-// stays in place — flipping this flag is the only switch needed to re-enable.
+// stays in place - flipping this flag is the only switch needed to re-enable.
 const ENABLE_LENIS = false;
 
 // Shared module-level reference to the active Lenis instance so other
@@ -32,7 +32,7 @@ export const SmoothScroll = () => {
 
     // Lerp-based config: feels snappy and responsive on Windows wheel /
     // trackpad / desktop browser. `lerp` is the per-frame catch-up factor
-    // (0 = instant, 1 = never moves) — 0.12 lands the viewport within a
+    // (0 = instant, 1 = never moves) - 0.12 lands the viewport within a
     // few frames without feeling abrupt. No `duration` so each input
     // event is independently smoothed instead of queued.
     const lenis = new Lenis({
@@ -49,7 +49,7 @@ export const SmoothScroll = () => {
     };
     rafId = requestAnimationFrame(tick);
 
-    // Anchor link support — intercept clicks on same-page hash links
+    // Anchor link support - intercept clicks on same-page hash links
     const onClick = (e: MouseEvent) => {
       const target = (e.target as HTMLElement | null)?.closest?.('a[href^="#"]');
       if (!target) return;

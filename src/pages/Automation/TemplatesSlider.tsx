@@ -17,7 +17,7 @@ interface Template {
 
 const TEMPLATES: Template[] = [
   {
-    desc: 'Auto-collect patient info via webhook, verify insurance, create EHR records, log to Google Sheets, and send confirmation emails plus Slack alerts — all without front-desk involvement.',
+    desc: 'Auto-collect patient info via webhook, verify insurance, create EHR records, log to Google Sheets, and send confirmation emails plus Slack alerts - all without front-desk involvement.',
     tags: ['Intake', 'Insurance', 'EHR'],
     title: 'Patient Intake Automation',
     nodes: '7 nodes · N8N workflow',
@@ -54,7 +54,7 @@ const TEMPLATES: Template[] = [
     ),
   },
   {
-    desc: 'Real-time eligibility checks, copay and deductible lookup, automatic pre-auth submission, and Slack alerts to front desk and billing — every patient verified before they walk in.',
+    desc: 'Real-time eligibility checks, copay and deductible lookup, automatic pre-auth submission, and Slack alerts to front desk and billing - every patient verified before they walk in.',
     tags: ['Insurance', 'Billing', 'Verification'],
     title: 'Insurance Verification Bot',
     nodes: '9 nodes · N8N workflow',
@@ -66,7 +66,7 @@ const TEMPLATES: Template[] = [
     ),
   },
   {
-    desc: 'A GPT-powered chatbot qualifies leads, extracts contact info, creates CRM entries, and pings Slack the moment a high-priority patient lands on your site — no human intervention required.',
+    desc: 'A GPT-powered chatbot qualifies leads, extracts contact info, creates CRM entries, and pings Slack the moment a high-priority patient lands on your site - no human intervention required.',
     tags: ['AI', 'Chatbot', 'Lead Gen'],
     title: 'AI Chatbot Lead Capture',
     nodes: '10 nodes · N8N workflow',
@@ -195,7 +195,7 @@ const TemplatesSlider = () => {
                   <polyline points="20 6 9 17 4 12" />
                 </svg>
               </span>
-              100% Free — No Signup Required
+              100% Free - No Signup Required
             </span>
             <h2 className="section-title" id="tpl-title">
               Plug-and-Play N8N Templates
@@ -203,7 +203,7 @@ const TemplatesSlider = () => {
           </div>
           <p className="right reveal d2">
             Download ready-to-import JSON workflow files. Each template is a
-            complete automation &mdash; just connect your credentials and
+            complete automation - just connect your credentials and
             activate.
           </p>
         </div>

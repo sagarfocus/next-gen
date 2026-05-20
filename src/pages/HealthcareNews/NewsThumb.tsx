@@ -196,7 +196,7 @@ const NewsThumb = ({
       style={{ display: 'block' }}
     >
       <rect width="200" height={aspect === 'square' ? 200 : 110} fill={palette.bg} />
-      {/* Editorial chrome — figure number + caption — fixes the news system as branded, not stock */}
+      {/* Editorial chrome - figure number + caption - fixes the news system as branded, not stock */}
       <text
         x="14"
         y="20"

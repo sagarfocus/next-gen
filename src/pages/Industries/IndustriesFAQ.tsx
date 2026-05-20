@@ -15,7 +15,7 @@ const FAQS: FAQItem[] = [
     q: 'Do you specialize in specific healthcare verticals or work across all of them?',
     a: (
       <>
-        We focus exclusively on <strong>healthcare and wellness</strong> &mdash;
+        We focus exclusively on <strong>healthcare and wellness</strong> -
         from Freestanding ERs and Urgent Care to MedSpas, Dental, Mental Health,
         Chiropractic, Plastic Surgery, Ophthalmology, and Dermatology. Each
         vertical gets its own tailored playbook because patient psychology,
@@ -32,7 +32,7 @@ const FAQS: FAQItem[] = [
         ERs require <strong>24/7 high-acuity visibility</strong>, trauma-intent
         keyword capture, and competitor overflow strategy. MedSpas live on{' '}
         <strong>aesthetic-led social, Meta campaigns, and LTV-driven email
-        nurturing</strong>. We don&rsquo;t reuse templates &mdash; ER ad copy
+        nurturing</strong>. We don&rsquo;t reuse templates - ER ad copy
         speaks to urgency and trust; MedSpa creative speaks to outcomes,
         aspiration, and financing options.
       </>
@@ -45,7 +45,7 @@ const FAQS: FAQItem[] = [
         Yes. Multi-location and multi-specialty groups are one of our strengths.
         We build <strong>per-service-line landing pages</strong>, location-level
         GBP optimization, and unified reporting that rolls up by region or
-        specialty &mdash; so your CMO sees the whole picture and each clinic
+        specialty - so your CMO sees the whole picture and each clinic
         gets credit for its own lift.
       </>
     ),
@@ -66,7 +66,7 @@ const FAQS: FAQItem[] = [
     q: 'How do you handle compliance across different industries?',
     a: (
       <>
-        Every vertical has different exposure &mdash; Mental Health is HIPAA
+        Every vertical has different exposure - Mental Health is HIPAA
         plus state telehealth rules, MedSpas balance FDA cosmetic claim limits,
         ERs work with EMTALA-adjacent messaging. We use{' '}
         <strong>server-side tracking, BAA-ready vendors, and pre-approved
@@ -118,7 +118,7 @@ const IndustriesFAQ = ({ onBook }: FAQProps) => {
             </h2>
             <p className="faq-intro">
               How we tailor strategy, compliance, and timelines for every
-              healthcare specialty we serve &mdash; from high-acuity ER traffic
+              healthcare specialty we serve - from high-acuity ER traffic
               to elective aesthetic acquisition.
             </p>
 
@@ -127,7 +127,7 @@ const IndustriesFAQ = ({ onBook }: FAQProps) => {
               <p>
                 We work across more verticals than we list. If you run a
                 healthcare or wellness practice with patients to acquire,
-                let&rsquo;s talk &mdash; we&rsquo;ll tell you honestly whether
+                let&rsquo;s talk - we&rsquo;ll tell you honestly whether
                 our playbook fits your specialty.
               </p>
               <p>

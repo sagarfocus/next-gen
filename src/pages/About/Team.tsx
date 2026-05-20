@@ -38,7 +38,7 @@ const Team = () => {
             </p>
             <blockquote className="ab-founder-quote">
               Healthcare marketing isn&rsquo;t about being clever. It&rsquo;s
-              about being specific &mdash; specific to the specialty, specific
+              about being specific - specific to the specialty, specific
               to the patient, specific to the moment of decision.
             </blockquote>
             <p className="ab-founder-bio">

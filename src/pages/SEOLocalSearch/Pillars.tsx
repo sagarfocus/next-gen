@@ -9,25 +9,25 @@ const PILLARS: PillarItem[] = [
   {
     num: '01',
     name: 'Local Authority',
-    desc: 'Google Business Profile, citations, reviews — the trust signals Map Pack ranking depends on.',
+    desc: 'Google Business Profile, citations, reviews - the trust signals Map Pack ranking depends on.',
     tags: ['GBP', 'Citations', 'Reviews'],
   },
   {
     num: '02',
     name: 'Technical Foundation',
-    desc: 'Speed, schema, mobile UX, crawlability. The plumbing patients never see — but Google does.',
+    desc: 'Speed, schema, mobile UX, crawlability. The plumbing patients never see - but Google does.',
     tags: ['Core Web Vitals', 'Schema', 'Sitemap'],
   },
   {
     num: '03',
     name: 'Content Relevance',
-    desc: 'Condition pages, procedure deep-dives, location pages — clinically accurate, search-aligned.',
+    desc: 'Condition pages, procedure deep-dives, location pages - clinically accurate, search-aligned.',
     tags: ['Conditions', 'Procedures', 'FAQs'],
   },
   {
     num: '04',
     name: 'Off-Site Trust',
-    desc: 'Backlinks from medical directories, local press, partner clinics. Built manually — never bought.',
+    desc: 'Backlinks from medical directories, local press, partner clinics. Built manually - never bought.',
     tags: ['Backlinks', 'Directories', 'PR'],
   },
 ];
@@ -38,7 +38,7 @@ const Pillars = () => {
       <div className="container-shell">
         <div className="sl-sec-head">
           <div>
-            <div className="sl-sec-num">01 — How we work</div>
+            <div className="sl-sec-num">01 - How we work</div>
             <h2 className="sl-sec-title">
               Four pillars. <em>Nothing else.</em>
             </h2>

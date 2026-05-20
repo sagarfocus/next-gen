@@ -268,7 +268,7 @@ const FeaturePair = () => {
         <div className="pair-head">
           <span className="pair-eyebrow">Local SEO &amp; Visibility</span>
           <h2 id="pair-title" className="pair-h2">
-            Own your local search &mdash; from map pack to AI Overviews.
+            Own your local search - from map pack to AI Overviews.
           </h2>
           <p className="pair-sub">
             A four-pillar approach to local search visibility, structured data,

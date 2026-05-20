@@ -15,7 +15,7 @@ const CARDS: IncludeCard[] = [
     text: (
       <>
         Dedicated Ads Manager, SEO Strategist, Medical Content Writer, and
-        Social Media Manager &mdash; not isolated freelancers.
+        Social Media Manager - not isolated freelancers.
       </>
     ),
     bullets: [
@@ -47,7 +47,7 @@ const CARDS: IncludeCard[] = [
     text: (
       <>
         Technical audit, CRM/EHR integration, HIPAA-compliant call tracking,
-        AI chatbot deployment, and first campaign launches &mdash; all in 30
+        AI chatbot deployment, and first campaign launches - all in 30
         days.
       </>
     ),
@@ -76,7 +76,7 @@ const CARDS: IncludeCard[] = [
     title: 'Compliance built in, not billed extra.',
     text: (
       <>
-        BAAs signed at signup, encrypted servers, secure data routing &mdash;
+        BAAs signed at signup, encrypted servers, secure data routing -
         full HIPAA compliance with zero hidden fees.
       </>
     ),
@@ -133,7 +133,7 @@ const InvestmentIncludes = () => {
           </h2>
           <p className="pr-section-sub">
             Every retainer integrates an entire department of medical growth
-            experts into your clinic &mdash; with HIPAA infrastructure and
+            experts into your clinic - with HIPAA infrastructure and
             onboarding included.
           </p>
         </div>

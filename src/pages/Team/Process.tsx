@@ -39,7 +39,7 @@ const STEPS: Step[] = [
     phase: 'Build',
     when: 'Weeks 03 – 06',
     title: 'Ship the systems.',
-    desc: 'Tracking rebuilt server-side. Pages, schema, ad creative, automations, and the dashboard go in. One craftsperson per discipline — no juniors, no handoffs.',
+    desc: 'Tracking rebuilt server-side. Pages, schema, ad creative, automations, and the dashboard go in. One craftsperson per discipline - no juniors, no handoffs.',
     img: imgBuild,
   },
   {
@@ -55,7 +55,7 @@ const STEPS: Step[] = [
     phase: 'Compound',
     when: 'Month 03+',
     title: 'Compound what works.',
-    desc: 'Quarterly re-forecasts. Channel mix tilts toward what is paying back. The retainer adapts — every line item earns its place on the next quarter\'s plan.',
+    desc: 'Quarterly re-forecasts. Channel mix tilts toward what is paying back. The retainer adapts - every line item earns its place on the next quarter\'s plan.',
     img: imgCompound,
   },
 ];

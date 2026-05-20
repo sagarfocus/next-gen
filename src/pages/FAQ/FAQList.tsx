@@ -36,7 +36,7 @@ const CATEGORIES: FAQCategory[] = [
             </p>
             <p>
               Practices with already-running ad accounts and a healthy GBP
-              often get there faster &mdash; sometimes in as little as a week.
+              often get there faster - sometimes in as little as a week.
             </p>
           </>
         ),
@@ -59,7 +59,7 @@ const CATEGORIES: FAQCategory[] = [
                 One stakeholder for our weekly 30-minute check-in (clinical or
                 operational lead)
               </li>
-              <li>Brand assets &mdash; logo, colors, fonts &mdash; even if rough</li>
+              <li>Brand assets - logo, colors, fonts - even if rough</li>
               <li>Last 12 months of performance data, where available</li>
             </ul>
           </>
@@ -153,8 +153,8 @@ const CATEGORIES: FAQCategory[] = [
         a: (
           <p>
             For standard retainers, no. We absorb onboarding into the first
-            month. Larger custom builds &mdash; full website rebuilds,
-            multi-location SEO migrations &mdash; carry a separate scoped fee
+            month. Larger custom builds - full website rebuilds,
+            multi-location SEO migrations - carry a separate scoped fee
             disclosed upfront.
           </p>
         ),
@@ -190,7 +190,7 @@ const CATEGORIES: FAQCategory[] = [
         a: (
           <p>
             Yes. Every retainer includes design hours scaled to your channel
-            mix &mdash; landing pages, ad creative, social graphics, email
+            mix - landing pages, ad creative, social graphics, email
             templates. We can also take on full brand identity, website
             redesigns, and print collateral as scoped projects.
           </p>
@@ -202,9 +202,9 @@ const CATEGORIES: FAQCategory[] = [
         a: (
           <>
             <p>
-              If your EHR exposes a documented API or webhook layer &mdash;
+              If your EHR exposes a documented API or webhook layer -
               Athena, Epic via API, eClinicalWorks, DrChrono, AdvancedMD,
-              NextGen, Kareo &mdash; yes. For systems without API access, we
+              NextGen, Kareo - yes. For systems without API access, we
               use form bridges and structured CSV imports as the fallback.
             </p>
             <p>
@@ -242,8 +242,8 @@ const CATEGORIES: FAQCategory[] = [
             <p>
               We minimize PHI exposure by default. Marketing systems are kept
               in non-PHI environments wherever possible. When PHI must flow
-              &mdash; appointment confirmations, intake forms, recall
-              messaging &mdash; it travels through encrypted channels into
+              - appointment confirmations, intake forms, recall
+              messaging - it travels through encrypted channels into
               BAA-covered tools (Twilio Healthcare, HIPAA-aware Mailchimp, AWS
               HIPAA-eligible services).
             </p>
@@ -261,8 +261,8 @@ const CATEGORIES: FAQCategory[] = [
         a: (
           <p>
             You own everything. On exit we hand over the full asset library
-            &mdash; accounts, creative files, dashboards, automation JSONs,
-            content drafts &mdash; and purge our copies within 30 days unless
+            - accounts, creative files, dashboards, automation JSONs,
+            content drafts - and purge our copies within 30 days unless
             you ask us to retain them. The BAA continues to govern any
             residual PHI.
           </p>
@@ -310,7 +310,7 @@ const CATEGORIES: FAQCategory[] = [
             We define success milestones together in week one and review them
             every 30 days. If we miss two consecutive months on a critical
             milestone, we run a structured root-cause review at our cost
-            &mdash; and either reset the plan, restructure the retainer, or
+            - and either reset the plan, restructure the retainer, or
             end the engagement cleanly. We don&rsquo;t keep partners on a
             contract that isn&rsquo;t working.
           </p>
@@ -422,7 +422,7 @@ const FAQList = () => {
           <SearchIcon />
           <input
             type="search"
-            placeholder="Search questions — try 'HIPAA', 'pricing', 'EHR'…"
+            placeholder="Search questions - try 'HIPAA', 'pricing', 'EHR'…"
             value={query}
             onChange={handleSearch}
           />

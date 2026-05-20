@@ -11,7 +11,7 @@ interface NumbersProps {
 }
 
 /**
- * Numbers wall — first stat on a dark hero panel as the lead metric, with the
+ * Numbers wall - first stat on a dark hero panel as the lead metric, with the
  * remaining stats laid out as supporting tiles. Mirrors the asymmetric Swiss
  * rhythm used in the service Results section, but stays visually distinct
  * because the tile grid here is 2×N instead of 1×N.

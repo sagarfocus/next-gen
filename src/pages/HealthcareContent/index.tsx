@@ -30,7 +30,7 @@ const PILLARS = [
 ];
 
 const SAMPLES = [
-  { kind: 'PILLAR',  title: 'When emergency care is not an emergency room', read: '11 min',  vertical: 'ER',           pull: 'Cost, wait time, and follow-up — what your insurer will and will not cover.' },
+  { kind: 'PILLAR',  title: 'When emergency care is not an emergency room', read: '11 min',  vertical: 'ER',           pull: 'Cost, wait time, and follow-up - what your insurer will and will not cover.' },
   { kind: 'GUIDE',   title: 'A patient guide to retinol, retinaldehyde and tretinoin',     read: '7 min',  vertical: 'Aesthetic',    pull: 'Three molecules, three protocols. A side-by-side decision matrix.' },
   { kind: 'FEATURE', title: 'The case for booking dental cleanings around payroll',        read: '5 min',  vertical: 'Dental',       pull: 'Timing matters more than reminders. Data from 18 practices.' },
   { kind: 'PILLAR',  title: 'Annual physicals: what to skip, what to insist on',           read: '9 min',  vertical: 'Primary',      pull: 'A practitioner-vetted checklist organised by life stage.' },
@@ -110,7 +110,7 @@ const Pillars = () => (
           <p className="text-body text-[14px] leading-[1.6]">{p.d}</p>
           <ul className="mt-auto pt-5 border-t border-line-faint flex flex-wrap gap-x-3 gap-y-1.5">
             {p.items.map((i) => (
-              <li key={i} className="text-[12px] text-muted">— {i}</li>
+              <li key={i} className="text-[12px] text-muted">- {i}</li>
             ))}
           </ul>
         </div>

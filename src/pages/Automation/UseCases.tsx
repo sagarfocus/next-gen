@@ -29,7 +29,7 @@ const USE_CASES: UseCase[] = [
     body: {
       tag: 'USE CASE #01:',
       h: 'Zero-Touch Patient Intake',
-      p: 'A new patient submits their information online. N8N automatically verifies their insurance coverage, creates a record in your EHR, logs everything to a tracking spreadsheet, and sends a welcome email — all in under 3 seconds. Your front desk never has to touch it.',
+      p: 'A new patient submits their information online. N8N automatically verifies their insurance coverage, creates a record in your EHR, logs everything to a tracking spreadsheet, and sends a welcome email - all in under 3 seconds. Your front desk never has to touch it.',
       bullets: [
         'Webhook captures patient form data',
         'Insurance eligibility checked in real-time',
@@ -75,7 +75,7 @@ const USE_CASES: UseCase[] = [
     body: {
       tag: 'USE CASE #03:',
       h: 'AI-Powered Lead Capture',
-      p: 'A GPT-4 powered chatbot on your website qualifies every visitor. It collects contact info, identifies service interest and urgency, creates CRM entries, and sends urgent Slack alerts for high-priority patients — all without human intervention.',
+      p: 'A GPT-4 powered chatbot on your website qualifies every visitor. It collects contact info, identifies service interest and urgency, creates CRM entries, and sends urgent Slack alerts for high-priority patients - all without human intervention.',
       bullets: [
         'GPT-4 powered with healthcare guardrails',
         'Extracts name, phone, email, service interest',

@@ -7,7 +7,7 @@ const Footer = () => {
     const data = new FormData(e.currentTarget);
     const email = String(data.get('email') ?? '').trim();
     if (!email) return;
-    const subject = 'Subscribe — TheNextGen weekly brief';
+    const subject = 'Subscribe - TheNextGen weekly brief';
     const body = `Please add this address to the weekly brief: ${email}`;
     window.location.href = `mailto:hello@thenextgenhealth.com?subject=${encodeURIComponent(
       subject,
@@ -24,7 +24,7 @@ const Footer = () => {
             <Link
               to="/"
               className="inline-block"
-              aria-label="TheNextGen Healthcare Marketing — Home"
+              aria-label="TheNextGen Healthcare Marketing - Home"
             >
               <img
                 src={logoSrc}

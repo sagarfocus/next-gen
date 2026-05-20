@@ -32,7 +32,7 @@ const TARGETS: AutoTarget[] = [
   { selector: '.bl-hero-grid > *', variant: 'up', stagger: 100 },
   { selector: '.hn-hero > *', variant: 'up', stagger: 100 },
 
-  // Section headers — universal
+  // Section headers - universal
   { selector: 'section h2', variant: 'up' },
   { selector: 'section header > *, section .section-head > *, section .sv-sec-head > *', variant: 'up', stagger: 80 },
   // Home-specific section heads (eyebrow + h2 + intro cascade)
@@ -47,7 +47,7 @@ const TARGETS: AutoTarget[] = [
   { selector: '.contact-section .contact-grid > *', variant: 'up', stagger: 90 },
   { selector: '.cert-strip > *, .certs > *', variant: 'up', stagger: 80 },
 
-  // Card grids — stagger across siblings
+  // Card grids - stagger across siblings
   { selector: '.services-grid > .service-card', variant: 'up', stagger: 90 },
   { selector: '.pair-grid > *', variant: 'up', stagger: 110 },
   { selector: '.process-steps > .step', variant: 'up', stagger: 100 },

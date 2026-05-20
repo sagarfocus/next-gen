@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
  * for live changes (orientation/connected pointer) and updates on the
  * fly. Use to gate magnetic / tilt / spotlight pointer effects.
  *
- * NOTE: `pointer: coarse` is the W3C-recommended detection — more
+ * NOTE: `pointer: coarse` is the W3C-recommended detection - more
  * reliable than viewport width because hybrid laptops with touch
  * screens also benefit from disabling pointer-follow.
  */

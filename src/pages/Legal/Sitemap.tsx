@@ -69,9 +69,9 @@ const GROUPS: SitemapGroup[] = [
     title: 'Methodology',
     links: [
       { to: '/growth-plan', label: 'Growth plan' },
-      { to: '/methodology/phase-1', label: 'Phase 1 — Diagnose' },
-      { to: '/methodology/phase-2', label: 'Phase 2 — Build' },
-      { to: '/methodology/phase-3', label: 'Phase 3 — Scale' },
+      { to: '/methodology/phase-1', label: 'Phase 1 - Diagnose' },
+      { to: '/methodology/phase-2', label: 'Phase 2 - Build' },
+      { to: '/methodology/phase-3', label: 'Phase 3 - Scale' },
     ],
   },
   {
@@ -150,7 +150,7 @@ const Sitemap = () => {
                 maxWidth: '64ch',
               }}
             >
-              The full site index — services, industries, methodology, automation,
+              The full site index - services, industries, methodology, automation,
               infrastructure, and resources. Useful for navigation, share-able
               for stakeholders, and indexed for search engines.
             </p>

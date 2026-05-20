@@ -221,12 +221,12 @@ export const BLOG_POSTS: BlogPostData[] = [
     illustration: ShieldArt,
     takeaways: [
       { label: 'Risk class', value: 'PHI-adjacent', desc: 'Conversion pixels can carry IP, user-agent, and URL signals that qualify as identifiers under HIPAA.' },
-      { label: 'Setup time', value: '~ 3 days', desc: 'Server-side container, BAA paperwork, and consent banner — wired end-to-end in under a week.' },
+      { label: 'Setup time', value: '~ 3 days', desc: 'Server-side container, BAA paperwork, and consent banner - wired end-to-end in under a week.' },
       { label: 'Conversion lift', value: '+18%', desc: 'Server-side tags recover conversions that browser blockers would otherwise drop on the floor.' },
     ],
     sections: [
       { num: '01', title: 'Map the data trail', desc: 'Inventory every form, page, and pixel that touches a patient identifier before you touch a single tag.' },
-      { num: '02', title: 'Move to server-side', desc: 'Route all conversion events through your own first-party endpoint — never directly from the browser to Google.' },
+      { num: '02', title: 'Move to server-side', desc: 'Route all conversion events through your own first-party endpoint - never directly from the browser to Google.' },
       { num: '03', title: 'Sign the right BAAs', desc: 'Confirm BAA-ready coverage with every vendor in the chain, from CDN to analytics warehouse.' },
       { num: '04', title: 'Ship the consent flow', desc: 'A two-line banner, a real opt-in, and an audit log that survives a compliance review.' },
     ],
@@ -244,9 +244,9 @@ export const BLOG_POSTS: BlogPostData[] = [
     readTime: '6 min read',
     title: 'Why your urgent care CPA is probably 30% too high.',
     excerpt:
-      'The 4 most common bidding mistakes we see in urgent care Google Ads accounts — and the audit checklist we use to identify them in the first 24 hours.',
+      'The 4 most common bidding mistakes we see in urgent care Google Ads accounts - and the audit checklist we use to identify them in the first 24 hours.',
     metaDescription:
-      'Four high-frequency bidding mistakes that inflate urgent care Google Ads CPA — plus the 24-hour audit checklist used to find and fix them fast.',
+      'Four high-frequency bidding mistakes that inflate urgent care Google Ads CPA - plus the 24-hour audit checklist used to find and fix them fast.',
     author: 'Marcus Rodriguez',
     authorRole: 'Head of Paid Media',
     illustration: ChartArt,
@@ -258,7 +258,7 @@ export const BLOG_POSTS: BlogPostData[] = [
     sections: [
       { num: '01', title: 'Audit the match types', desc: 'Broad-match leakage is the single biggest reason urgent care budgets bleed into off-intent searches.' },
       { num: '02', title: 'Geo-fence intent', desc: 'A 5-mile radius is rarely the right shape. Map drive-time, not distance, to real catchment behavior.' },
-      { num: '03', title: 'Cap the dayparts', desc: 'After-hours clicks convert at a fraction of business-hour clicks — bid accordingly, not equally.' },
+      { num: '03', title: 'Cap the dayparts', desc: 'After-hours clicks convert at a fraction of business-hour clicks - bid accordingly, not equally.' },
       { num: '04', title: 'Pin the negatives', desc: 'A clinic without a 200-term negative list is paying Google to talk to the wrong patients.' },
     ],
     pullQuote: {
@@ -275,7 +275,7 @@ export const BLOG_POSTS: BlogPostData[] = [
     readTime: '5 min read',
     title: 'Automating Google reviews without violating HIPAA.',
     excerpt:
-      "Patient testimonials are 10x more powerful than ad copy — but most review automation tools quietly break HIPAA. Here's the stack we use instead.",
+      "Patient testimonials are 10x more powerful than ad copy - but most review automation tools quietly break HIPAA. Here's the stack we use instead.",
     metaDescription:
       'Build a compliant patient review engine: opt-in only, no PHI in messages, and a BAA-covered tooling stack that keeps Google reviews flowing safely.',
     author: 'Sarah Chen',
@@ -284,10 +284,10 @@ export const BLOG_POSTS: BlogPostData[] = [
     takeaways: [
       { label: 'Trust lift', value: '10×', desc: 'Patient reviews convert prospects roughly an order of magnitude better than paid ad copy.' },
       { label: 'Opt-in rate', value: '64%', desc: 'When the review prompt sits at the right post-visit moment, two-thirds of patients say yes.' },
-      { label: 'Compliance risk', value: 'High', desc: 'Most off-the-shelf review SaaS tools transmit PHI without a BAA — and most clinics never notice.' },
+      { label: 'Compliance risk', value: 'High', desc: 'Most off-the-shelf review SaaS tools transmit PHI without a BAA - and most clinics never notice.' },
     ],
     sections: [
-      { num: '01', title: 'Strip the PHI', desc: 'Review requests never reference appointments, providers, or conditions — only the visit existed, nothing else.' },
+      { num: '01', title: 'Strip the PHI', desc: 'Review requests never reference appointments, providers, or conditions - only the visit existed, nothing else.' },
       { num: '02', title: 'Capture the opt-in', desc: 'Consent is collected at intake, time-stamped, and revocable in a single click from any message.' },
       { num: '03', title: 'Wire BAA tools only', desc: 'Every SMS, email, and storage layer in the path operates under a signed Business Associate Agreement.' },
       { num: '04', title: 'Route the negatives', desc: 'Low-scoring responses surface privately to the front desk before they ever reach a public profile.' },
@@ -306,9 +306,9 @@ export const BLOG_POSTS: BlogPostData[] = [
     readTime: '9 min read',
     title: 'The 7 Google Business Profile signals that move map rankings.',
     excerpt:
-      'After managing 200+ Google Business Profiles across Texas, these are the 7 signals that actually correlate with local-pack ranking improvement — ranked by leverage.',
+      'After managing 200+ Google Business Profiles across Texas, these are the 7 signals that actually correlate with local-pack ranking improvement - ranked by leverage.',
     metaDescription:
-      'The seven Google Business Profile signals that genuinely move local-pack rankings — sourced from 200+ healthcare GBPs and ranked by real-world leverage.',
+      'The seven Google Business Profile signals that genuinely move local-pack rankings - sourced from 200+ healthcare GBPs and ranked by real-world leverage.',
     author: 'Marcus Rodriguez',
     authorRole: 'Head of Paid Media',
     illustration: MapArt,
@@ -320,7 +320,7 @@ export const BLOG_POSTS: BlogPostData[] = [
     sections: [
       { num: '01', title: 'Reviews above everything', desc: 'Volume, velocity, and reply-rate together explain more local-pack movement than any other signal we measure.' },
       { num: '02', title: 'Service & area pages', desc: 'GBP service blocks linked to hyper-local landing pages compound the proximity ranking signal.' },
-      { num: '03', title: 'Photos that look human', desc: 'Real interior, exterior, and team photos outperform stock — and uploads decay if you stop posting.' },
+      { num: '03', title: 'Photos that look human', desc: 'Real interior, exterior, and team photos outperform stock - and uploads decay if you stop posting.' },
       { num: '04', title: 'Q&A you actually own', desc: 'Pre-load and answer your own Q&A. Empty profiles invite competitor-flavored answers from strangers.' },
     ],
     pullQuote: {
@@ -339,13 +339,13 @@ export const BLOG_POSTS: BlogPostData[] = [
     excerpt:
       "AI scheduling and intake bots can cut front-desk load by 40%. They can also leak PHI in 6 different ways. Here's the architecture that does the first without the second.",
     metaDescription:
-      'A practitioner architecture for HIPAA-aware AI patient intake — what compliant bots include, what they exclude, and the six leak vectors to design out.',
+      'A practitioner architecture for HIPAA-aware AI patient intake - what compliant bots include, what they exclude, and the six leak vectors to design out.',
     author: 'David Kim',
     authorRole: 'Automation Architect',
     illustration: BotArt,
     takeaways: [
       { label: 'Load reduction', value: '40%', desc: 'How much front-desk volume a well-scoped intake bot absorbs in the first 60 days.' },
-      { label: 'Leak vectors', value: '6', desc: 'Most consumer AI stacks expose PHI in at least six discrete ways — none of them advertised.' },
+      { label: 'Leak vectors', value: '6', desc: 'Most consumer AI stacks expose PHI in at least six discrete ways - none of them advertised.' },
       { label: 'Time to live', value: '2 weeks', desc: 'From scope-and-script to a production bot inside a BAA-covered, audit-logged stack.' },
     ],
     sections: [
@@ -368,7 +368,7 @@ export const BLOG_POSTS: BlogPostData[] = [
     readTime: '7 min read',
     title: 'The MedSpa LTV playbook: turning $300 facials into $4K patients.',
     excerpt:
-      "High-LTV MedSpa marketing isn't about cheaper acquisition — it's about better post-purchase journey. Here's the email + SMS + remarketing stack we deploy on day one.",
+      "High-LTV MedSpa marketing isn't about cheaper acquisition - it's about better post-purchase journey. Here's the email + SMS + remarketing stack we deploy on day one.",
     metaDescription:
       'A MedSpa LTV playbook: the email, SMS, and remarketing journey that turns a first $300 facial into a multi-thousand-dollar lifetime patient relationship.',
     author: 'Marcus Rodriguez',
@@ -399,7 +399,7 @@ export const BLOG_POSTS: BlogPostData[] = [
     readTime: '6 min read',
     title: 'Wait-time marketing: the urgent care advantage no one is using.',
     excerpt:
-      'Why publishing real-time wait times publicly converts 23% better than promoting "convenience" or "walk-in welcome" — and the technical stack to do it safely.',
+      'Why publishing real-time wait times publicly converts 23% better than promoting "convenience" or "walk-in welcome" - and the technical stack to do it safely.',
     metaDescription:
       'Real-time wait-time publishing converts urgent care prospects 23% better than generic "walk-in welcome" copy. Here is the safe, scalable stack to do it.',
     author: 'Sarah Chen',
@@ -412,7 +412,7 @@ export const BLOG_POSTS: BlogPostData[] = [
     ],
     sections: [
       { num: '01', title: 'Publish the actual number', desc: 'Round to five minutes, not zero. Honesty out-converts every form of optimism marketing.' },
-      { num: '02', title: 'Mirror it on every channel', desc: 'GBP, website, Apple/Google Maps, and SMS auto-reply — one source of truth, four surfaces.' },
+      { num: '02', title: 'Mirror it on every channel', desc: 'GBP, website, Apple/Google Maps, and SMS auto-reply - one source of truth, four surfaces.' },
       { num: '03', title: 'Wrap it in expectations', desc: 'Show next-slot availability and walk-in window beside the number, so patients pick the lane that fits.' },
       { num: '04', title: 'Audit the feed', desc: 'A stale wait-time is worse than no wait-time. Alert when the feed drifts more than five minutes.' },
     ],
@@ -430,9 +430,9 @@ export const BLOG_POSTS: BlogPostData[] = [
     readTime: '8 min read',
     title: 'The healthcare marketing dashboard every clinic should run.',
     excerpt:
-      "CPA, appointment-to-show ratio, LTV, channel ROI — the 12 metrics we put on every client's real-time dashboard, plus the alerts that catch problems before they hit revenue.",
+      "CPA, appointment-to-show ratio, LTV, channel ROI - the 12 metrics we put on every client's real-time dashboard, plus the alerts that catch problems before they hit revenue.",
     metaDescription:
-      'The 12-metric healthcare marketing dashboard we deploy for every clinic — CPA, show ratio, LTV, channel ROI — plus the alerts that catch revenue leaks early.',
+      'The 12-metric healthcare marketing dashboard we deploy for every clinic - CPA, show ratio, LTV, channel ROI - plus the alerts that catch revenue leaks early.',
     author: 'David Kim',
     authorRole: 'Automation Architect',
     illustration: DashboardArt,
@@ -470,7 +470,7 @@ export const BLOG_POSTS: BlogPostData[] = [
     takeaways: [
       { label: 'High-acuity CPC', value: '$48', desc: 'Median click price for symptom-led searches like "chest pain near me" in a competitive metro.' },
       { label: 'Generic CPC', value: '$12', desc: 'Baseline ER-near-me terms. Cheaper, broader, and far less correlated with actual visits.' },
-      { label: 'Convert ratio', value: '6×', desc: 'High-acuity terms convert roughly six times better — when the segmentation is honest.' },
+      { label: 'Convert ratio', value: '6×', desc: 'High-acuity terms convert roughly six times better - when the segmentation is honest.' },
     ],
     sections: [
       { num: '01', title: 'Separate intent buckets', desc: 'Symptom-led, location-led, and insurance-led searches need different ads, different pages, and different bids.' },

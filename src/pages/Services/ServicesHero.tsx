@@ -140,7 +140,7 @@ const ServicesHero = () => {
       <AnimatedBackground variant="aurora" intensity="subtle" />
       <div className="container-shell">
         <div className="svc-grid">
-          {/* CENTER stage — title + CTAs */}
+          {/* CENTER stage - title + CTAs */}
           <div className="svc-stage">
             <h1 id="svc-title" className="svc-h1 reveal d2">
               Healthcare
@@ -191,7 +191,7 @@ const ServicesHero = () => {
             </div>
           </div>
 
-          {/* ORBIT — premium 3D platform card + revolving pills (moved
+          {/* ORBIT - premium 3D platform card + revolving pills (moved
               here from Home). Uses the same .ho-* classes as Home so all
               styling is shared. The outer .svc-orbit wrapper just gives
               it the right grid-column placement on this page. */}
@@ -238,7 +238,7 @@ const ServicesHero = () => {
             </div>
           </div>
 
-          {/* BOTTOM — meta strip + sub paragraph */}
+          {/* BOTTOM - meta strip + sub paragraph */}
           <div className="svc-sub-row reveal d4">
             <div className="svc-meta">
               <span className="svc-meta-label">HIPAA-Compliant</span>

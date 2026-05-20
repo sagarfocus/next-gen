@@ -165,7 +165,7 @@ const BookingModal = ({ open, onClose }: BookingModalProps) => {
               ? [
                   'Calendar invite + agenda within 1 business hour',
                   'A 1-page audit preview the morning of the call',
-                  'No prep needed — bring your top 2 questions',
+                  'No prep needed - bring your top 2 questions',
                 ]
               : [
                   'Personalized funnel audit',

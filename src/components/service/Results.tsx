@@ -11,7 +11,7 @@ interface ResultsProps {
 }
 
 /**
- * Asymmetric Swiss layout — first stat rendered as an oversized hero metric on a
+ * Asymmetric Swiss layout - first stat rendered as an oversized hero metric on a
  * dark panel; remaining stats stacked as supporting tiles on the right. Replaces
  * the previous 4-column glass strip so adjacent service pages no longer share
  * an identical visual rhythm.
@@ -24,7 +24,7 @@ const Results = ({ stats }: ResultsProps) => {
     <section className="sv-section sv-results">
       <div className="container-shell">
         <SectionHead
-          num="03 — Results"
+          num="03 - Results"
           title={
             <>
               Real numbers, <em>real practices.</em>

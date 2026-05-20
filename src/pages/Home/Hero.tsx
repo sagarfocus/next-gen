@@ -109,7 +109,7 @@ const Hero = ({ children }: HeroProps) => {
 
       <div className="container-shell">
         <div className="hero-grid">
-          {/* LEFT — copy + CTAs */}
+          {/* LEFT - copy + CTAs */}
           <div className="hero-content">
             <div className="hero-eyebrow reveal d1">
               <span className="hero-pulse" aria-hidden="true" />
@@ -147,14 +147,14 @@ const Hero = ({ children }: HeroProps) => {
             </div>
           </div>
 
-          {/* RIGHT — simpler N+ orbit (moved here from Services). The
+          {/* RIGHT - simpler N+ orbit (moved here from Services). The
               warm cream gradient backdrop + dashed rings come from
               .hero-svc-orbit-wrap so the page keeps the same warm
               feel the orbital area had on the Services hero. */}
           <Parallax as="div" speed={0.04} className="hero-visual hero-svc-orbit-wrap reveal d3" aria-hidden="true">
             <div className="svc-orbit" aria-hidden="true">
               <div className="svc-orbit-hub">
-                {/* Floating social bubbles — drift inside the circle behind
+                {/* Floating social bubbles - drift inside the circle behind
                     the central N+ mark. Pure decoration, aria-hidden. */}
                 {HUB_BUBBLES.map(({ slot, tone, ariaLabel, icon }) => (
                   <span

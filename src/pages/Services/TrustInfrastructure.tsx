@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import type { ReactElement } from 'react';
+import { Link } from 'react-router-dom';
 import BookingModal from '../../components/BookingModal';
 
 interface TrustCardData {
@@ -10,6 +11,7 @@ interface TrustCardData {
   title: string;
   text: string;
   bullets: string[];
+  to: string;
 }
 
 const StarShieldIcon = () => (
@@ -69,26 +71,28 @@ const TRUST_CARDS: TrustCardData[] = [
     icon: <StarShieldIcon />,
     tag: 'Patient Trust',
     title: 'Reputation Management',
-    text: 'Active monitoring and response across Google, Healthgrades, and Vitals — turning patient feedback into a competitive advantage.',
+    text: 'Active monitoring and response across Google, Healthgrades, and Vitals - turning patient feedback into a competitive advantage.',
     bullets: [
       'Review monitoring & response automation',
       'Sentiment analysis dashboards',
       'HIPAA-compliant response templates',
       'Multi-platform reputation scoring',
     ],
+    to: '/reviews-reputation',
   },
   {
     ariaId: 'trust-2',
     icon: <ShieldCheckIcon />,
     tag: 'Compliance',
     title: 'HIPAA-Compliant Web Design',
-    text: 'Secure, accessible websites engineered for the healthcare standard — encrypted forms, BAA-ready hosting, and ADA accessibility.',
+    text: 'Secure, accessible websites engineered for the healthcare standard - encrypted forms, BAA-ready hosting, and ADA accessibility.',
     bullets: [
       'SSL encryption & secure form handling',
       'BAA-ready hosting infrastructure',
       'WCAG 2.1 AA accessibility compliance',
       'Annual security audits & updates',
     ],
+    to: '/hipaa-compliance',
   },
 ];
 
@@ -103,7 +107,7 @@ const TrustInfrastructure = () => {
     >
       <div className="container-shell">
         <div className="trust-grid">
-          {/* LEFT — sticky header */}
+          {/* LEFT - sticky header */}
           <div className="trust-head">
             <span className="trust-eyebrow">Trust &amp; Infrastructure</span>
             <h2 id="trust-title" className="trust-h2">
@@ -111,7 +115,7 @@ const TrustInfrastructure = () => {
             </h2>
             <p className="trust-sub">
               Your digital presence must convey the same level of clinical
-              excellence and security as your physical facility &mdash;
+              excellence and security as your physical facility -
               engineered for trust, accessibility, and compliance from day one.
             </p>
             <button
@@ -141,11 +145,12 @@ const TrustInfrastructure = () => {
             </button>
           </div>
 
-          {/* RIGHT — 2 cards */}
+          {/* RIGHT - 2 cards */}
           <div className="trust-cards">
-            {TRUST_CARDS.map(({ featured, ariaId, icon, tag, title, text, bullets }) => (
-              <article
+            {TRUST_CARDS.map(({ featured, ariaId, icon, tag, title, text, bullets, to }) => (
+              <Link
                 key={ariaId}
+                to={to}
                 className={`trust-card${featured ? ' is-featured' : ''}`}
                 aria-labelledby={ariaId}
               >
@@ -167,7 +172,7 @@ const TrustInfrastructure = () => {
                     <li key={b}>{b}</li>
                   ))}
                 </ul>
-              </article>
+              </Link>
             ))}
           </div>
         </div>

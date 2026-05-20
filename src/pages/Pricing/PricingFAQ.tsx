@@ -13,7 +13,7 @@ const FAQS: FAQItem[] = [
     a: (
       <>
         Every tier covers the full growth stack we&rsquo;re running on your
-        behalf &mdash;{' '}
+        behalf -{' '}
         <strong>
           strategy, local SEO, Google Business Profile management, paid media
           management on Google &amp; Meta, content production, server-side
@@ -32,7 +32,7 @@ const FAQS: FAQItem[] = [
     a: (
       <>
         <strong>Ad spend is separate.</strong> The retainer covers our team
-        time &mdash; strategy, creative, campaign builds, optimisation,
+        time - strategy, creative, campaign builds, optimisation,
         tracking, and reporting. Ad budget is billed directly to your card by
         Google and Meta so you keep full ownership of the accounts, the audit
         trail, and the historical data. Typical starting ad budgets run{' '}
@@ -46,7 +46,7 @@ const FAQS: FAQItem[] = [
     q: 'What is the minimum contract length and can I cancel?',
     a: (
       <>
-        We ask for a <strong>90-day initial commitment</strong> &mdash; SEO,
+        We ask for a <strong>90-day initial commitment</strong> - SEO,
         review velocity, and audience-warming work need at least that to
         compound and prove out. After day 90 you&rsquo;re on a{' '}
         <strong>30-day rolling agreement</strong>, cancel anytime with written
@@ -57,7 +57,7 @@ const FAQS: FAQItem[] = [
     ),
   },
   {
-    q: 'How is Scale Elite priced — what makes it “custom”?',
+    q: 'How is Scale Elite priced - what makes it “custom”?',
     a: (
       <>
         Scale Elite is for <strong>multi-location groups, DSOs, and
@@ -81,7 +81,7 @@ const FAQS: FAQItem[] = [
         cross retainer break-even on net-new patient revenue between{' '}
         <strong>month 2 and month 4</strong>; SEO and content compound through
         month 6+. We model the LTV-to-spend math during onboarding and put a{' '}
-        <strong>specific revenue target on every quarter</strong> &mdash; if
+        <strong>specific revenue target on every quarter</strong> - if
         we miss the target two quarters in a row, the next quarter is on us.
       </>
     ),
@@ -130,14 +130,14 @@ const PricingFAQ = () => {
             <p className="faq-intro">
               What the retainer actually covers, how ad spend works, what
               you&rsquo;re committing to, and when the math typically pays
-              back &mdash; written for the people signing the cheque.
+              back - written for the people signing the cheque.
             </p>
 
             <div className="still-card">
               <h3>Not sure which tier fits?</h3>
               <p>
                 Send us your current ad spend, patient LTV, and the one number
-                you&rsquo;d most like to move &mdash; we&rsquo;ll recommend
+                you&rsquo;d most like to move - we&rsquo;ll recommend
                 Starter, Growth, or Scale on the call. No template proposals.
               </p>
               <p>

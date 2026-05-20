@@ -90,7 +90,7 @@ const Navbar = () => {
           <Link
             to="/"
             className="flex items-center"
-            aria-label="TheNextGen Healthcare Marketing — Home"
+            aria-label="TheNextGen Healthcare Marketing - Home"
           >
             <img
               src={logoSrc}
@@ -218,7 +218,7 @@ const Navbar = () => {
               </svg>
             </button>
 
-            {/* Hamburger — shown below lg */}
+            {/* Hamburger - shown below lg */}
             <button
               type="button"
               className="nav-icon-btn lg:hidden"
@@ -246,7 +246,7 @@ const Navbar = () => {
 
     </header>
 
-      {/* Mobile menu drawer — rendered as a SIBLING of <header> (not inside).
+      {/* Mobile menu drawer - rendered as a SIBLING of <header> (not inside).
           The header has a backdrop-filter which would otherwise scope our
           `position: fixed` drawer to the header's bounding box, hiding the
           menu items entirely. */}

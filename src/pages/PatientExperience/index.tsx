@@ -116,7 +116,7 @@ const Touchpoints = () => (
           <ul className="space-y-2 text-[13px] text-body mt-auto">
             {t.list.map((l) => (
               <li key={l} className="flex gap-2 items-baseline">
-                <span className="text-line">—</span>
+                <span className="text-line">-</span>
                 <span>{l}</span>
               </li>
             ))}

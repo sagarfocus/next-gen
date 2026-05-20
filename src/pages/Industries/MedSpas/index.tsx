@@ -27,24 +27,24 @@ const BREADCRUMB_SCHEMA = {
 
 const FAQS: ServiceFAQItem[] = [
   {
-    q: 'Patients usually find us on Instagram — do we still need Google Ads and SEO?',
+    q: 'Patients usually find us on Instagram - do we still need Google Ads and SEO?',
     a: 'Yes, but for different stages. Instagram and TikTok create demand; Google captures it the moment someone types "lip filler near me." Without the search layer, the demand you built leaks to whichever competitor ranks above you. We run them as one system, not two.',
   },
   {
     q: 'How do you measure LTV when most patients pay cash and procedures happen months apart?',
-    a: 'We pipe booking, treatment, and POS data into one customer record, then attribute LTV at 90 / 180 / 365 day windows. Treatments that look low-margin on first visit often unlock the highest LTV — that\'s the signal worth bidding behind.',
+    a: 'We pipe booking, treatment, and POS data into one customer record, then attribute LTV at 90 / 180 / 365 day windows. Treatments that look low-margin on first visit often unlock the highest LTV - that\'s the signal worth bidding behind.',
   },
   {
     q: 'Are before/after photos compliant in paid ads?',
-    a: 'Yes — when you have signed photo releases, when the photo isn\'t paired with promises of identical results, and when Meta\'s policies for cosmetic claims are followed precisely. We audit your release library before any creative goes live.',
+    a: 'Yes - when you have signed photo releases, when the photo isn\'t paired with promises of identical results, and when Meta\'s policies for cosmetic claims are followed precisely. We audit your release library before any creative goes live.',
   },
   {
-    q: 'What about retention — the second and third visit is where the money is?',
+    q: 'What about retention - the second and third visit is where the money is?',
     a: 'A retention drip ships alongside acquisition. Post-visit care, recall sequences for time-sensitive treatments (Botox at 4 months, lasers at 6), and a membership offer pitched at the right moment. We measure 90-day rebook rate as a primary KPI.',
   },
   {
     q: 'How do you handle competitive metros with 30+ med-spas in five miles?',
-    a: 'We differentiate on niche, not breadth — we pick the two treatments where your team has a clear edge and dominate the search and social space around them. Wide positioning loses to narrow positioning in saturated metros every time.',
+    a: 'We differentiate on niche, not breadth - we pick the two treatments where your team has a clear edge and dominate the search and social space around them. Wide positioning loses to narrow positioning in saturated metros every time.',
   },
 ];
 
@@ -146,7 +146,7 @@ const STATS: BigNumber[] = [
 const SCHEMA = {
   '@context': 'https://schema.org',
   '@type': 'Service',
-  name: 'MedSpas & Wellness Brands — Marketing',
+  name: 'MedSpas & Wellness Brands - Marketing',
   serviceType: 'Healthcare Marketing',
   audience: 'MedSpas, aesthetic clinics, IV therapy, wellness brands',
 };
@@ -166,7 +166,7 @@ const MedSpas = () => {
       <Numbers stats={STATS} />
       <ServiceFAQ
         items={FAQS}
-        serviceName="MedSpas & Aesthetics — Marketing"
+        serviceName="MedSpas & Aesthetics - Marketing"
         title="The five questions med-spa owners ask before signing."
         sectionNum="05"
       />
@@ -179,7 +179,7 @@ const MedSpas = () => {
       <IndustryCTA
         tag="Talk to us"
         title={<>Ready to fill your consult calendar?</>}
-        body="A 30-minute call. We'll show you what your funnel looks like today and the closest case study from this library — whether you sign with us or not."
+        body="A 30-minute call. We'll show you what your funnel looks like today and the closest case study from this library - whether you sign with us or not."
       />
 
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(SCHEMA) }} />

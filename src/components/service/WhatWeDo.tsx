@@ -19,7 +19,7 @@ const ToneD = '#2D3748'; // charcoal
 const ACCENTS = [ToneA, ToneB, ToneC, ToneA, ToneB, ToneD];
 
 /**
- * Bento layout — 1 hero card (2x2 desktop), 4 supporting cards (1x1), and a final
+ * Bento layout - 1 hero card (2x2 desktop), 4 supporting cards (1x1), and a final
  * outcome chip card. Solid surfaces, no backdrop-filter, strong icon panels and a
  * thin accent rail on each card. Mobile collapses to a single column.
  */
@@ -31,7 +31,7 @@ const WhatWeDo = ({ cards }: WhatWeDoProps) => {
     <section className="sv-section sv-do sv-do-bento">
       <div className="container-shell">
         <SectionHead
-          num="01 — What we do"
+          num="01 - What we do"
           title={
             <>
               Six ways we <em>move the needle.</em>
@@ -54,7 +54,7 @@ const WhatWeDo = ({ cards }: WhatWeDoProps) => {
           }}
           className="bento-grid"
         >
-          {/* HERO CARD — 6 columns × 2 rows on desktop */}
+          {/* HERO CARD - 6 columns × 2 rows on desktop */}
           {hero ? (
             <article
               style={{
@@ -143,7 +143,7 @@ const WhatWeDo = ({ cards }: WhatWeDoProps) => {
             </article>
           ) : null}
 
-          {/* SUPPORTING CARDS — 3 columns × 1 row each, total 6 columns, 2 rows */}
+          {/* SUPPORTING CARDS - 3 columns × 1 row each, total 6 columns, 2 rows */}
           {rest.slice(0, 4).map((c, idx) => {
             const accent = ACCENTS[(idx + 1) % ACCENTS.length];
             return (
@@ -216,7 +216,7 @@ const WhatWeDo = ({ cards }: WhatWeDoProps) => {
             );
           })}
 
-          {/* OUTCOME CHIP CARD — last item, full width strip */}
+          {/* OUTCOME CHIP CARD - last item, full width strip */}
           {rest[4] ? (
             <article
               style={{

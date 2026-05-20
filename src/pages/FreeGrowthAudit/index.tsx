@@ -3,7 +3,7 @@ import type { ReactNode } from 'react';
 import { Parallax, AnimatedBackground, MotionButton, MotionCard } from '../../lib/motion';
 
 /* ============================================================
-   FREE GROWTH AUDIT — bespoke design
+   FREE GROWTH AUDIT - bespoke design
    Layout: asymmetric hero, stats rail, bento grid, timeline,
    pact strip, sticky-feeling closing card. Not the editorial
    template shared by the rest of the site.
@@ -80,7 +80,7 @@ const Hero = () => (
           </h1>
           <p className="fga-lede">
             A senior strategist audits your healthcare practice&rsquo;s acquisition
-            stack — visibility, funnel, paid spend — and hands you the ranked
+            stack - visibility, funnel, paid spend - and hands you the ranked
             ninety-day fix as a PDF. Yours to keep.
           </p>
           <div className="fga-cta-row">
@@ -164,7 +164,7 @@ const StatsRail = () => {
     {
       num: '4',
       label: 'Deliverables',
-      desc: 'Score, leak map, paid review, 90-day plan — all in one PDF.',
+      desc: 'Score, leak map, paid review, 90-day plan - all in one PDF.',
       chip: 'Yours to keep',
       tone: 'gold2',
       icon: (
@@ -177,8 +177,14 @@ const StatsRail = () => {
     },
   ];
   return (
-    <section className="fga-stats" aria-label="At a glance">
+    <section className="fga-stats" aria-labelledby="fga-stats-title">
       <div className="container-shell">
+        <header className="fga-section-head">
+          <span className="fga-section-tag">At a glance</span>
+          <h2 id="fga-stats-title" className="fga-section-h2">
+            Free, fast, and yours to keep.
+          </h2>
+        </header>
         <div className="fga-stats-grid">
           {stats.map((s) => (
             <article key={s.label} className={`fga-stat-card tone-${s.tone}`}>
@@ -216,7 +222,7 @@ const Bento = () => (
           <div className="fga-tile-eyebrow">01 · Score</div>
           <h3 className="fga-tile-h">Visibility Score</h3>
           <p className="fga-tile-p">
-            Local Pack, organic, AI Overviews, reviews — scored 0&ndash;100 against
+            Local Pack, organic, AI Overviews, reviews - scored 0&ndash;100 against
             your top-3 local competitors.
           </p>
           <div className="fga-tile-viz">
@@ -250,7 +256,7 @@ const Bento = () => (
           <div className="fga-tile-eyebrow">03 · Spend</div>
           <h3 className="fga-tile-h">Paid Media Review</h3>
           <p className="fga-tile-p">
-            Wasted spend flagged. Audiences to cut. Campaigns to scale — with the CAC math.
+            Wasted spend flagged. Audiences to cut. Campaigns to scale - with the CAC math.
           </p>
         </MotionCard>
 
@@ -276,9 +282,9 @@ const Timeline = () => {
   const days: { d: string; t: string; n: string }[] = [
     { d: 'DAY 0',  t: 'You apply',      n: 'Two-minute form. URL, baseline numbers, your focus.' },
     { d: 'DAY 1',  t: 'We accept',      n: 'Email within an hour. Audit folder shared with you.' },
-    { d: 'DAY 3',  t: 'Deep audit',     n: 'Site, GBP, ad accounts, competitors — under the hood.' },
+    { d: 'DAY 3',  t: 'Deep audit',     n: 'Site, GBP, ad accounts, competitors - under the hood.' },
     { d: 'DAY 5',  t: 'The call',       n: 'A 45-minute walk-through. Recorded. Plan PDF in hand.' },
-    { d: 'DAY 5+', t: 'You decide',     n: 'Run the plan yourself, hire any agency — no pitch from us.' },
+    { d: 'DAY 5+', t: 'You decide',     n: 'Run the plan yourself, hire any agency - no pitch from us.' },
   ];
   return (
     <section className="fga-timeline-section" aria-labelledby="fga-timeline-title">
@@ -312,7 +318,7 @@ const Timeline = () => {
 const Pact = () => {
   const promises: { k: string; v: ReactNode }[] = [
     { k: 'No upsell on the call.',  v: <>The plan ships either way. We do not pitch you on the audit call. Promise.</> },
-    { k: 'Run by a strategist.',    v: <>A senior growth lead does the audit — not a sales rep with a template.</> },
+    { k: 'Run by a strategist.',    v: <>A senior growth lead does the audit - not a sales rep with a template.</> },
     { k: 'Yours to keep.',          v: <>The PDF is yours. Take it to any agency, or run it yourself.</> },
   ];
   return (
@@ -351,12 +357,12 @@ const Pact = () => {
 
 const Compare = () => {
   const rows: { label: string; us: string; them: string }[] = [
-    { label: 'Cost',         us: '$0 — yours either way',           them: '$2,500 – $8,000 upfront' },
+    { label: 'Cost',         us: '$0 - yours either way',           them: '$2,500 – $8,000 upfront' },
     { label: 'Turnaround',   us: '5 business days',                 them: '2 – 3 weeks' },
     { label: 'Run by',       us: 'Senior growth strategist',        them: 'Account exec with a template' },
     { label: 'Industry fit', us: 'Healthcare-only playbook',        them: 'Generic agency framework' },
     { label: 'The call',     us: '45-min working plan walk-through',them: 'Sales pitch in disguise' },
-    { label: 'Deliverable',  us: 'PDF yours to keep — agency or not', them: 'Locked behind a retainer' },
+    { label: 'Deliverable',  us: 'PDF yours to keep - agency or not', them: 'Locked behind a retainer' },
   ];
   return (
     <section className="fga-compare" aria-labelledby="fga-compare-title">
@@ -368,7 +374,7 @@ const Compare = () => {
           </h2>
           <p className="fga-compare-lede">
             Most agency audits exist to sell you the agency. Ours exists so you
-            know exactly what to do next — whether you hire us or not.
+            know exactly what to do next - whether you hire us or not.
           </p>
         </header>
 
@@ -420,7 +426,7 @@ const Outcomes = () => {
     {
       metric: '−$8.4k',
       metricLabel: 'Wasted spend / mo',
-      context: 'Broad-match keyword bleed and overlapping audiences across three ad accounts — cut in the first 30 days.',
+      context: 'Broad-match keyword bleed and overlapping audiences across three ad accounts - cut in the first 30 days.',
       practice: 'Urgent care · DFW',
     },
     {
@@ -442,10 +448,10 @@ const Outcomes = () => {
         <header className="fga-section-head fga-outcomes-head">
           <span className="fga-section-tag">Proof, not promises</span>
           <h2 id="fga-outcomes-title" className="fga-section-h2">
-            What past recipients did with the plan.
+            Real numbers. Real practices.
           </h2>
           <p className="fga-outcomes-lede">
-            Real numbers from healthcare practices who ran the audit themselves —
+            Healthcare practices that ran the audit themselves -
             most without ever hiring an agency.
           </p>
         </header>
@@ -546,7 +552,7 @@ const FAQ_SCHEMA = {
       name: 'Who runs the audit?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'A senior growth strategist on our team — not a templated report and not a sales representative.',
+        text: 'A senior growth strategist on our team - not a templated report and not a sales representative.',
       },
     },
   ],
@@ -556,10 +562,10 @@ const FreeGrowthAudit = () => (
   <main className="fga-page">
     <Hero />
     <StatsRail />
+    <Compare />
     <Bento />
     <Timeline />
     <Pact />
-    <Compare />
     <Outcomes />
     <Closing />
 

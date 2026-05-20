@@ -38,14 +38,14 @@ const ContactSection = () => {
             Find us in Irving, Texas.
           </h2>
           <p className="contact-sub">
-            Stop by the office or reach our team anytime &mdash; we&rsquo;re
+            Stop by the office or reach our team anytime - we&rsquo;re
             happy to walk you through the Clinic Growth&nbsp;OS in person or
             over a call.
           </p>
         </div>
 
         <div className="contact-grid">
-          {/* LEFT — Map */}
+          {/* LEFT - Map */}
           <div className="contact-map">
             <span className="map-chip">Office Location</span>
             <iframe
@@ -56,11 +56,11 @@ const ContactSection = () => {
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              title="TheNextGen Healthcare Marketing — 3001 Skyway Circle N, Irving, TX 75038"
+              title="TheNextGen Healthcare Marketing - 3001 Skyway Circle N, Irving, TX 75038"
             />
           </div>
 
-          {/* RIGHT — Info card */}
+          {/* RIGHT - Info card */}
           <div className="contact-info">
             <div className="ci-head">
               <span className="ci-eyebrow">Headquarters</span>

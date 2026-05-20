@@ -56,7 +56,7 @@ const DO_CARDS: DoCard[] = [
   { name: 'SEO Blogs', desc: 'Patient-intent articles, clinically reviewed, ranked organically.', icon: <PinIcon /> },
   { name: 'Landing Pages', desc: 'Procedure pages and condition deep-dives that convert search traffic.', icon: <LinkIcon /> },
   { name: 'Authority Building', desc: 'Editorial-grade pieces that earn backlinks from medical sites.', icon: <FileIcon /> },
-  { name: 'Content Strategy', desc: 'Topic clusters, internal linking, refresh cadence — built to compound.', icon: <NetworkIcon /> },
+  { name: 'Content Strategy', desc: 'Topic clusters, internal linking, refresh cadence - built to compound.', icon: <NetworkIcon /> },
   { name: 'Clinician Review', desc: 'Every health claim reviewed by a licensed clinician before publish.', icon: <StarIcon /> },
   { name: 'Performance Tracking', desc: 'Traffic, rankings, bookings tracked per piece.', icon: <ChartIcon /> },
 ];
@@ -116,12 +116,12 @@ const TIMELINE: TimelineRow[] = [
   {
     marker: 'Quarter 2',
     label: 'Long-tail compounding',
-    detail: 'Two pillars + four supporting pieces per month. The cluster around each pillar starts ranking on its own — long-tail traffic doubles, then triples.',
+    detail: 'Two pillars + four supporting pieces per month. The cluster around each pillar starts ranking on its own - long-tail traffic doubles, then triples.',
   },
   {
     marker: 'Quarter 3',
     label: 'AEO + AI answer panels',
-    detail: 'We instrument each article for AI surfacing — definitive answers, citable stats, FAQPage schema. Visibility starts landing in AI search overviews.',
+    detail: 'We instrument each article for AI surfacing - definitive answers, citable stats, FAQPage schema. Visibility starts landing in AI search overviews.',
   },
   {
     marker: 'Quarter 4',
@@ -141,7 +141,7 @@ const FAQS: ServiceFAQItem[] = [
   },
   {
     q: 'Do you write the location pages too?',
-    a: 'Yes, and they are usually the highest-converting page type. Each location page is bespoke — no spun copy. We layer in real photography, real reviews, and locally-relevant condition coverage.',
+    a: 'Yes, and they are usually the highest-converting page type. Each location page is bespoke - no spun copy. We layer in real photography, real reviews, and locally-relevant condition coverage.',
   },
   {
     q: 'What about HIPAA when we use real patient stories?',
@@ -185,7 +185,7 @@ const ContentMarketing = () => {
         variant="timeline"
         eyebrow="The four-quarter ramp"
         title="When the content engine starts running on its own."
-        intro="Content marketing is a compounding asset — it underperforms in months 1–3 and pays back in months 6–18. Here is the curve we expect to see."
+        intro="Content marketing is a compounding asset - it underperforms in months 1–3 and pays back in months 6–18. Here is the curve we expect to see."
         timeline={TIMELINE}
       />
       <ServiceFAQ
@@ -198,14 +198,14 @@ const ContentMarketing = () => {
         variant="editorial"
         eyebrow="Editorial planning session"
         title="One quarter of content, mapped in 30 minutes."
-        description="Bring your top service lines — we walk out with a quarter's worth of pillar topics, the supporting cluster, and the AEO surface for each piece."
+        description="Bring your top service lines - we walk out with a quarter's worth of pillar topics, the supporting cluster, and the AEO surface for each piece."
         primaryTo="/free-growth-audit"
         primaryLabel="Map the quarter"
         secondaryTo="/aeo-schema"
         secondaryLabel="See AEO + schema"
         bullets={[
           'Live editorial calendar built on your service lines, not ours.',
-          'Pillar / supporting / FAQ split — no theory, just the next moves.',
+          'Pillar / supporting / FAQ split - no theory, just the next moves.',
           'Walk away with the plan, even if we never publish a word for you.',
         ]}
       />

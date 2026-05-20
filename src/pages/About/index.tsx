@@ -39,9 +39,9 @@ const About = () => {
   return (
     <>
       <AboutHero />
-      <ServicesSpectrum />
       <Genesis />
       <Mission />
+      <ServicesSpectrum />
       <Infrastructure />
       <Team />
       <AboutFAQ />

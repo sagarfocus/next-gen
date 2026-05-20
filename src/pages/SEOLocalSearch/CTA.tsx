@@ -9,7 +9,7 @@ const CTA = () => {
           <h2 className="sl-cta-title">Get a 12-page audit of your practice.</h2>
           <p className="sl-cta-desc">
             Submit your website. We&rsquo;ll send back the three
-            highest-leverage moves you could make this quarter &mdash; whether
+            highest-leverage moves you could make this quarter - whether
             you sign with us or not.
           </p>
           <Link to="/contact" className="sl-btn-primary">

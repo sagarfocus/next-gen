@@ -34,7 +34,7 @@ const InquiryForm = () => {
       <h3 className="ct-form-title">Send us a message</h3>
       <p className="ct-form-text">
         Have a question, a complaint, or need help choosing the right service
-        for your practice? Feel free to contact us &mdash; we typically reply in
+        for your practice? Feel free to contact us - we typically reply in
         under 4 hours.
       </p>
 

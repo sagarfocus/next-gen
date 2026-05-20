@@ -10,7 +10,7 @@ interface SpecialtiesProps {
 const ACCENTS = ['#576DB5', '#8FBC8F', '#B38B6D', '#576DB5', '#8FBC8F', '#B38B6D'];
 
 const SpecialtyIcon = ({ idx, color }: { idx: number; color: string }) => {
-  // 6 distinct minimal motifs — each card gets a visual marker without
+  // 6 distinct minimal motifs - each card gets a visual marker without
   // needing a separate icon library or per-row asset.
   switch (idx % 6) {
     case 0:

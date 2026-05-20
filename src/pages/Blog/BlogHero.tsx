@@ -344,7 +344,7 @@ const BlogHero = () => {
               </h2>
               <p className="bl-feat-excerpt">
                 After analyzing $10M+ in healthcare ad spend across 200+ Texas
-                practices, we&rsquo;ve compiled the actual CPA ranges &mdash;
+                practices, we&rsquo;ve compiled the actual CPA ranges -
                 plus the 4 levers that consistently bring it down.
               </p>
               <div className="bl-feat-meta">

@@ -88,7 +88,7 @@ const CaseStudies = ({ cases }: CaseStudiesProps) => {
     <section className="sv-section sv-cases">
       <div className="container-shell">
         <SectionHead
-          num="05 — Case studies"
+          num="05 - Case studies"
           title={
             <>
               Six recent <em>engagements.</em>

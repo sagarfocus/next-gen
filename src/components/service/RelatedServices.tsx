@@ -35,7 +35,7 @@ const ArrowRight = () => (
 const RelatedServices = ({
   sectionNum = '06',
   title = 'Pair this with another lever.',
-  intro = 'These services compound when run together — pick the next layer that matches your bottleneck.',
+  intro = 'These services compound when run together - pick the next layer that matches your bottleneck.',
   items,
 }: RelatedServicesProps) => {
   return (
@@ -43,7 +43,7 @@ const RelatedServices = ({
       <div className="container-shell">
         <div className="sv-sec-head">
           <div>
-            <div className="sv-sec-num">{sectionNum} — Related services</div>
+            <div className="sv-sec-num">{sectionNum} - Related services</div>
             <h2 id="sv-related-title" className="sv-sec-title">
               {title}
             </h2>
@@ -94,6 +94,13 @@ const RelatedServices = ({
                     letterSpacing: '0.18em',
                     textTransform: 'uppercase',
                     color: '#B38B6D',
+                    padding: '6px 12px',
+                    background: 'rgba(255, 255, 255, 0.55)',
+                    backdropFilter: 'blur(10px) saturate(140%)',
+                    WebkitBackdropFilter: 'blur(10px) saturate(140%)',
+                    border: '1px solid rgba(179, 139, 109, 0.28)',
+                    borderRadius: 999,
+                    boxShadow: '0 1px 0 rgba(255, 255, 255, 0.6) inset, 0 6px 16px -10px rgba(179, 139, 109, 0.25)',
                   }}
                 >
                   {item.tag}

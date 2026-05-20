@@ -13,12 +13,12 @@ const WORKFLOWS = [
     n: '01',
     name: 'Patient Intake',
     summary: 'Web form → EHR record in under 90 seconds.',
-    desc: 'Patients fill one HIPAA-aware form. We push to the EHR, verify insurance in real time, route the chart to the right provider, and SMS-confirm the appointment slot — all without a single staff touch.',
+    desc: 'Patients fill one HIPAA-aware form. We push to the EHR, verify insurance in real time, route the chart to the right provider, and SMS-confirm the appointment slot - all without a single staff touch.',
   },
   {
     n: '02',
     name: 'Appointment Reminders',
-    summary: 'SMS, email, voice — adaptive cadence.',
+    summary: 'SMS, email, voice - adaptive cadence.',
     desc: 'A three-touch reminder ladder calibrated to no-show risk per patient. Confirmations and reschedules write back to the EHR live, so the schedule stays clean without front-desk intervention.',
   },
   {
@@ -43,7 +43,7 @@ const WORKFLOWS = [
     n: '06',
     name: 'Recall + Wellness',
     summary: 'Time-based and clinical recall.',
-    desc: 'Pulls due dates from the EHR (annuals, follow-ups, screenings), runs the nurture cadence, and books the patient back in — without involving staff until the appointment is on the books.',
+    desc: 'Pulls due dates from the EHR (annuals, follow-ups, screenings), runs the nurture cadence, and books the patient back in - without involving staff until the appointment is on the books.',
   },
 ];
 
@@ -69,7 +69,7 @@ const METRICS = [
 ];
 
 const PROCESS = [
-  { k: 'Audit',  d: 'Two-hour working session. Map every system that touches a patient — surface the five highest-leverage automation candidates.' },
+  { k: 'Audit',  d: 'Two-hour working session. Map every system that touches a patient - surface the five highest-leverage automation candidates.' },
   { k: 'Pilot',  d: 'Ship one workflow end-to-end. EHR-connected, BAA-covered, logged. Pilot stays in production from day one, never a sandbox.' },
   { k: 'Scale',  d: 'Add the remaining four workflows over six weeks. Each rolls live with a documented run-book and a named owner on your team.' },
   { k: 'Govern', d: 'Quarterly review of audit logs, payer changes, and EHR upgrades. The system stays compliant as your stack evolves.' },
@@ -127,8 +127,8 @@ const Hero = () => (
             <span className="text-line italic">that the clinic actually runs on</span>.
           </h1>
           <p className="mt-7 text-body text-[17px] leading-[1.65] max-w-[58ch]">
-            Six production-ready workflows — intake, reminders, reviews, insurance,
-            AI triage, and recall — built on a BAA-covered stack, connected to your EHR.
+            Six production-ready workflows - intake, reminders, reviews, insurance,
+            AI triage, and recall - built on a BAA-covered stack, connected to your EHR.
             Not templates. Operations.
           </p>
         </div>
@@ -234,7 +234,7 @@ const Stack = () => (
           <ul className="space-y-2 text-[13px] text-body mt-auto">
             {s.list.map((l) => (
               <li key={l} className="flex gap-2 items-baseline">
-                <span className="text-line">—</span>
+                <span className="text-line">-</span>
                 <span>{l}</span>
               </li>
             ))}
@@ -313,7 +313,7 @@ const Closing = () => (
       </h3>
       <p className="mt-6 text-white/75 text-[16px] leading-[1.6] max-w-[58ch]">
         We do not ship a pilot without a documented run-book and a named owner on your team.
-        Book the audit, walk away with the plan — pilot only if it pays for itself in week one.
+        Book the audit, walk away with the plan - pilot only if it pays for itself in week one.
       </p>
       <div className="mt-10 flex flex-wrap items-center gap-5">
         <Link to="/contact" className="btn-primary">
@@ -341,7 +341,7 @@ const SERVICE_SCHEMA = {
     url: 'https://thenextgenhealth.com',
   },
   description:
-    'HIPAA-aware automation for healthcare practices: patient intake, appointment reminders, review capture, insurance verification, AI triage, and recall — built on a BAA-covered stack and connected to your EHR.',
+    'HIPAA-aware automation for healthcare practices: patient intake, appointment reminders, review capture, insurance verification, AI triage, and recall - built on a BAA-covered stack and connected to your EHR.',
   areaServed: 'United States',
   offers: {
     '@type': 'Offer',

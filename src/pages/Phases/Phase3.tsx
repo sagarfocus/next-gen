@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 
 /**
- * Phase 3 — Swiss layout #3: Editorial spread with display headline
+ * Phase 3 - Swiss layout #3: Editorial spread with display headline
  * Oversized type, ruled timeline, drop-cap intro, big stats.
  */
 const Phase3 = () => {
@@ -388,7 +388,7 @@ const Phase3 = () => {
           text-align: center;
         }
 
-        /* === Channel mix — 4-column live-channel grid === */
+        /* === Channel mix - 4-column live-channel grid === */
         .ph3-channels {
           margin: clamp(72px, 9vw, 128px) 0 0;
         }
@@ -485,7 +485,7 @@ const Phase3 = () => {
           color: #576DB5;
         }
 
-        /* === Day-30 hand-off deliverables — visual card grid === */
+        /* === Day-30 hand-off deliverables - visual card grid === */
         .ph3-handoff {
           margin: clamp(72px, 9vw, 128px) 0 0;
           padding-top: clamp(32px, 4vw, 56px);
@@ -685,8 +685,8 @@ const Phase3 = () => {
 
         <header className="ph3-masthead">
           <span className="a">/ 03</span>
-          <span className="b">Phase Three — Launch &amp; Accelerate</span>
-          <span className="c">Day 01 — Day 30</span>
+          <span className="b">Phase Three - Launch &amp; Accelerate</span>
+          <span className="c">Day 01 - Day 30</span>
           <span className="d">Live Ops</span>
         </header>
 
@@ -698,7 +698,7 @@ const Phase3 = () => {
           <aside className="ph3-body-aside" aria-label="Run sheet">
             <div className="pair">
               <span className="k">Duration</span>
-              <span className="v">Day 1 — Day 30</span>
+              <span className="v">Day 1 - Day 30</span>
             </div>
             <div className="pair">
               <span className="k">Surface</span>
@@ -718,7 +718,7 @@ const Phase3 = () => {
             <p>
               The launch is the quietest moment of the whole engagement.
               Strategy is set. Infrastructure is wired. Tracking is live. What
-              changes is the volume — search visibility flips on, paid media
+              changes is the volume - search visibility flips on, paid media
               moves into the highest-converting service lines, and your front
               desk starts taking calls that came from a known channel.
             </p>
@@ -732,7 +732,7 @@ const Phase3 = () => {
               By day fourteen, the editorial calendar is publishing on
               schedule. By day twenty-one, the first cohort of paid media
               creative has been replaced with what the data preferred. By day
-              thirty, the inquiry volume curve has bent — and the front-desk
+              thirty, the inquiry volume curve has bent - and the front-desk
               workload has shifted from cold calls to qualified bookings.
             </p>
             <p>
@@ -815,7 +815,7 @@ const Phase3 = () => {
                 <line x1="1140" y1="60" x2="1140" y2="360" />
               </g>
 
-              {/* milestone dots — sit on the curve */}
+              {/* milestone dots - sit on the curve */}
               <g>
                 <circle cx="80" cy="340" r="9" fill="#FFFFFF" />
                 <circle cx="80" cy="340" r="5" fill="#576DB5" />
@@ -949,7 +949,7 @@ const Phase3 = () => {
               <span className="d">Day 21</span>
               <strong>Creative refresh</strong>
               <p>
-                First paid-media cohort replaced with what the data preferred —
+                First paid-media cohort replaced with what the data preferred -
                 cost-per-booking begins tightening.
               </p>
             </li>
@@ -993,7 +993,7 @@ const Phase3 = () => {
                   <path d="M13 2 L4 14 H12 L11 22 L20 10 H12 Z" />
                 </svg>
               </div>
-              <div className="d">Day 01 — 07</div>
+              <div className="d">Day 01 - 07</div>
               <div className="t">Switch on.</div>
               <p className="x">
                 Search optimizations push live, paid media spends turn on with
@@ -1008,7 +1008,7 @@ const Phase3 = () => {
                   <path d="M7 14l4-4 4 3 5-6" />
                 </svg>
               </div>
-              <div className="d">Day 08 — 14</div>
+              <div className="d">Day 08 - 14</div>
               <div className="t">First read.</div>
               <p className="x">
                 Channel-level baselines locked. First creative rotation.
@@ -1023,7 +1023,7 @@ const Phase3 = () => {
                   <polyline points="16 7 22 7 22 13" />
                 </svg>
               </div>
-              <div className="d">Day 15 — 21</div>
+              <div className="d">Day 15 - 21</div>
               <div className="t">Bend the curve.</div>
               <p className="x">
                 Budget reallocation toward the highest cost-per-booking
@@ -1039,11 +1039,11 @@ const Phase3 = () => {
                   <line x1="12" y1="22.08" x2="12" y2="12" />
                 </svg>
               </div>
-              <div className="d">Day 22 — 30</div>
+              <div className="d">Day 22 - 30</div>
               <div className="t">Hand-off.</div>
               <p className="x">
                 Documented playbook delivered. Dashboard becomes the weekly
-                operating cadence. Phase 4 — Scale — begins.
+                operating cadence. Phase 4 - Scale - begins.
               </p>
             </div>
           </div>
@@ -1100,7 +1100,7 @@ const Phase3 = () => {
           <div className="head">
             <h2 id="ph3-handoff-title">What you receive on day 30.</h2>
             <p>
-              A working system you own &mdash; not slides, not a deck. Each
+              A working system you own - not slides, not a deck. Each
               deliverable below ships before Phase 4 begins.
             </p>
           </div>

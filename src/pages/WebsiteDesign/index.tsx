@@ -54,10 +54,10 @@ const ChartIcon = () => (
 
 const DO_CARDS: DoCard[] = [
   { name: 'UX Design', desc: 'Patient journey maps drive every layout, click target, and copy choice.', icon: <PinIcon /> },
-  { name: 'Conversion Design', desc: 'Hero, proof, offer, CTA — every section earns its scroll.', icon: <LinkIcon /> },
+  { name: 'Conversion Design', desc: 'Hero, proof, offer, CTA - every section earns its scroll.', icon: <LinkIcon /> },
   { name: 'Speed Optimization', desc: 'Sub-2s loads on 4G, image pipeline, lazy-load, edge cached.', icon: <FileIcon /> },
-  { name: 'Mobile-First', desc: "70% of patient traffic is mobile — that's where the design starts.", icon: <NetworkIcon /> },
-  { name: 'CMS & Handoff', desc: 'Built on Webflow, WordPress, or Shopify — your team owns it after.', icon: <StarIcon /> },
+  { name: 'Mobile-First', desc: "70% of patient traffic is mobile - that's where the design starts.", icon: <NetworkIcon /> },
+  { name: 'CMS & Handoff', desc: 'Built on Webflow, WordPress, or Shopify - your team owns it after.', icon: <StarIcon /> },
   { name: 'Accessibility', desc: 'WCAG AA compliant by default. Healthcare requires it.', icon: <ChartIcon /> },
 ];
 
@@ -138,7 +138,7 @@ const COMPARISON: ComparisonRow[] = [
   {
     label: 'Editing experience',
     before: 'Editing requires the agency every time.',
-    after: 'Headless CMS — your team ships copy without dev help.',
+    after: 'Headless CMS - your team ships copy without dev help.',
   },
 ];
 
@@ -161,7 +161,7 @@ const FAQS: ServiceFAQItem[] = [
   },
   {
     q: 'Who owns the site after launch?',
-    a: 'You do. Code, design files, hosting account, domain — all in your name from day one. We can manage hosting and updates as a retainer, or hand off cleanly.',
+    a: 'You do. Code, design files, hosting account, domain - all in your name from day one. We can manage hosting and updates as a retainer, or hand off cleanly.',
   },
 ];
 
@@ -210,7 +210,7 @@ const WebsiteDesign = () => {
         variant="editorial"
         eyebrow="Build readiness audit"
         title="See exactly what your next site has to clear."
-        description="A short call where we open your current site live, score it against the five vectors above, and hand you the gap list — even if you build it with someone else."
+        description="A short call where we open your current site live, score it against the five vectors above, and hand you the gap list - even if you build it with someone else."
         primaryTo="/free-growth-audit"
         primaryLabel="Get the gap list"
         secondaryTo="/case-studies"

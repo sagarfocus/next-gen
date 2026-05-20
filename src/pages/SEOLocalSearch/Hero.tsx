@@ -16,7 +16,7 @@ const Hero = () => {
             </h1>
             <p className="sl-hero-lede">
               Healthcare-only SEO and local search. Built around how patients
-              actually look for clinics &mdash; and how Google decides who
+              actually look for clinics - and how Google decides who
               shows up first.
             </p>
             <div className="sl-hero-ctas">

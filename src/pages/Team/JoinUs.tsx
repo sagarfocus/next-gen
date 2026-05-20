@@ -19,7 +19,7 @@ const JoinUs = () => {
             <p className="tm-cta-text">
               Every engagement starts with a free 30-minute strategy call. We
               audit your current funnel and walk away with three concrete
-              moves &mdash; whether you sign with us or not.
+              moves - whether you sign with us or not.
             </p>
             <Link to="/contact" className="tm-cta-link">
               Book a strategy call

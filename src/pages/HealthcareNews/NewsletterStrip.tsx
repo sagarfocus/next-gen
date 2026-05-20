@@ -27,7 +27,7 @@ const NewsletterStrip = () => {
             </h2>
             <p className="ns-desc">
               Every Friday morning we send the five stories your peers in
-              private practice are actually reading &mdash; plus one new
+              private practice are actually reading - plus one new
               automation template, free.
             </p>
           </div>

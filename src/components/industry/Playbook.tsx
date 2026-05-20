@@ -20,7 +20,7 @@ const Playbook = ({ steps }: PlaybookProps) => {
               <em>step by step.</em>
             </h2>
             <p className="iv-playbook-sub">
-              The same shape every engagement &mdash; tuned for this vertical.
+              The same shape every engagement - tuned for this vertical.
             </p>
           </header>
 

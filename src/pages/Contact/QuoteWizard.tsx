@@ -249,7 +249,7 @@ const QuoteWizard = () => {
 
           {/* STEP 1: Facility */}
           <div className={`ct-step${step === 1 ? ' is-active' : ''}`}>
-            <span className="ct-step-tag">Step 01 &mdash; Facility Type</span>
+            <span className="ct-step-tag">Step 01 - Facility Type</span>
             <h2 id="quote-title" className="ct-step-title">
               Which type of facility do you operate?
             </h2>
@@ -271,12 +271,12 @@ const QuoteWizard = () => {
 
           {/* STEP 2: Scale */}
           <div className={`ct-step${step === 2 ? ' is-active' : ''}`}>
-            <span className="ct-step-tag">Step 02 &mdash; Scale Metrics</span>
+            <span className="ct-step-tag">Step 02 - Scale Metrics</span>
             <h2 className="ct-step-title">
               How many physical locations do you operate?
             </h2>
             <p className="ct-step-sub">
-              Scale changes everything &mdash; from local SEO strategy to
+              Scale changes everything - from local SEO strategy to
               multi-location reputation systems.
             </p>
             <div className="ct-choices cols-4" role="radiogroup">
@@ -293,7 +293,7 @@ const QuoteWizard = () => {
 
           {/* STEP 3: Budget */}
           <div className={`ct-step${step === 3 ? ' is-active' : ''}`}>
-            <span className="ct-step-tag">Step 03 &mdash; Financial Qualifier</span>
+            <span className="ct-step-tag">Step 03 - Financial Qualifier</span>
             <h2 className="ct-step-title">
               Current or projected monthly ad spend?
             </h2>
@@ -315,12 +315,12 @@ const QuoteWizard = () => {
 
           {/* STEP 4: Goals */}
           <div className={`ct-step${step === 4 ? ' is-active' : ''}`}>
-            <span className="ct-step-tag">Step 04 &mdash; Primary Objectives</span>
+            <span className="ct-step-tag">Step 04 - Primary Objectives</span>
             <h2 className="ct-step-title">
               What are your main growth objectives?
             </h2>
             <p className="ct-step-sub">
-              Select all that apply &mdash; we&rsquo;ll prioritize the right
+              Select all that apply - we&rsquo;ll prioritize the right
               tactics in your custom roadmap.
             </p>
             <div className="ct-choices cols-3" role="group">
@@ -337,13 +337,13 @@ const QuoteWizard = () => {
 
           {/* STEP 5: Contact */}
           <div className={`ct-step${step === 5 ? ' is-active' : ''}`}>
-            <span className="ct-step-tag">Step 05 &mdash; Your Contact</span>
+            <span className="ct-step-tag">Step 05 - Your Contact</span>
             <h2 className="ct-step-title">
               Where should we send your custom roadmap?
             </h2>
             <p className="ct-step-sub">
               We&rsquo;ll send your tailored growth plan and pricing within 4
-              business hours &mdash; straight to your inbox.
+              business hours - straight to your inbox.
             </p>
             <div className="ct-fields">
               <div className="ct-field">

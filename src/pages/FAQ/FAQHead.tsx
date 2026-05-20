@@ -43,7 +43,7 @@ const FAQHead = () => {
               <span className="ph-issue">38 questions · 5 sections · Updated monthly</span>
             </div>
             <h1 className="ph-title">
-              Compliance, pricing, onboarding — answered by the team.
+              Compliance, pricing, onboarding - answered by the team.
             </h1>
             <p
               style={{
@@ -54,7 +54,7 @@ const FAQHead = () => {
                 color: '#4A5568',
               }}
             >
-              Every question below comes from a real practice owner — not a
+              Every question below comes from a real practice owner - not a
               generic FAQ template. We refresh this page every month with the
               questions we hear most often during audits and onboarding.
             </p>

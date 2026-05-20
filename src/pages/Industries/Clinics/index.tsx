@@ -27,7 +27,7 @@ const BREADCRUMB_SCHEMA = {
 
 const FAQS: ServiceFAQItem[] = [
   {
-    q: 'We have multiple locations under one brand — should each have its own marketing footprint?',
+    q: 'We have multiple locations under one brand - should each have its own marketing footprint?',
     a: 'Yes. Each clinic gets its own Google Business Profile, a per-location landing page with that clinic\'s photos, providers, and insurance list, and a per-location review program. Google penalizes duplicate location pages, and patients can\'t tell which clinic is closest if they all look identical.',
   },
   {
@@ -36,7 +36,7 @@ const FAQS: ServiceFAQItem[] = [
   },
   {
     q: 'What about referral relationships with specialists?',
-    a: 'Specialist referral pages are a separate content track. We build provider-to-provider trust pages, attend referral events with you, and instrument referral attribution back to the originating clinic — so you know which relationships actually drive volume.',
+    a: 'Specialist referral pages are a separate content track. We build provider-to-provider trust pages, attend referral events with you, and instrument referral attribution back to the originating clinic - so you know which relationships actually drive volume.',
   },
   {
     q: 'How do you stay HIPAA-safe when reporting?',
@@ -64,7 +64,7 @@ const RELATED: RelatedServiceLink[] = [
   {
     to: '/case-studies/primary-care-seo-roi',
     name: 'Primary care SEO ROI · case study',
-    blurb: 'The full engagement, the levers, and the numbers — read the case study.',
+    blurb: 'The full engagement, the levers, and the numbers - read the case study.',
     tag: 'Proof',
   },
 ];
@@ -163,7 +163,7 @@ const STATS: BigNumber[] = [
 const SCHEMA = {
   '@context': 'https://schema.org',
   '@type': 'Service',
-  name: 'Clinics & Multi-Specialty Practices — Marketing',
+  name: 'Clinics & Multi-Specialty Practices - Marketing',
   serviceType: 'Healthcare Marketing',
   audience: 'Family practices, multi-specialty groups, clinical networks',
 };
@@ -174,7 +174,7 @@ const Clinics = () => {
       <IndustryHero
         tag="Clinical"
         title={<>Patient flow for clinics, <em>engineered.</em></>}
-        lede="From single-location family practices to multi-location specialty networks — search, paid, and retention systems built for clinical reality."
+        lede="From single-location family practices to multi-location specialty networks - search, paid, and retention systems built for clinical reality."
         illustration={Illustration}
         quickStats={QUICK_STATS}
       />
@@ -183,7 +183,7 @@ const Clinics = () => {
       <Numbers stats={STATS} />
       <ServiceFAQ
         items={FAQS}
-        serviceName="Clinics & Multi-Specialty Practices — Marketing"
+        serviceName="Clinics & Multi-Specialty Practices - Marketing"
         title="How clinic owners size up a multi-location engagement."
         sectionNum="05"
       />
@@ -191,12 +191,12 @@ const Clinics = () => {
         items={RELATED}
         sectionNum="06"
         title="Pair the playbook with the right levers."
-        intro="Clinic networks compound when these three layers run together — Local SEO for discovery, GBP for the front door, and proof from a peer engagement."
+        intro="Clinic networks compound when these three layers run together - Local SEO for discovery, GBP for the front door, and proof from a peer engagement."
       />
       <IndustryCTA
         tag="Talk to us"
         title={<>Ready to scale the clinic, the right way?</>}
-        body="A 30-minute call. We audit your current setup and share the closest case study from this library — whether you sign with us or not."
+        body="A 30-minute call. We audit your current setup and share the closest case study from this library - whether you sign with us or not."
       />
 
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(SCHEMA) }} />

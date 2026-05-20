@@ -16,7 +16,7 @@ const FAQS: FAQItem[] = [
     a: (
       <>
         Most clients see <strong>tangible movement within 30 days</strong>{' '}
-        &mdash; improved Google Business Profile visibility, faster page loads,
+        - improved Google Business Profile visibility, faster page loads,
         and the first paid-media leads. Sustained organic growth from SEO
         typically compounds across months 3&ndash;6 as content, backlinks, and
         on-page work mature.
@@ -29,7 +29,7 @@ const FAQS: FAQItem[] = [
     a: (
       <>
         Yes. We follow HIPAA-aware practices across tracking, ad targeting,
-        intake forms, and reporting &mdash; including server-side conversion
+        intake forms, and reporting - including server-side conversion
         tracking, compliant pixel use, and BAA-ready vendor selection where
         applicable. We are not a covered entity, so we work alongside your
         compliance officer to ensure end-to-end alignment.
@@ -54,7 +54,7 @@ const FAQS: FAQItem[] = [
       <>
         Strategy, execution, and reporting across SEO, paid media (Google
         &amp; Meta), social, content, automation, and weekly optimization
-        &mdash; plus a dedicated growth lead and a real-time analytics
+        - plus a dedicated growth lead and a real-time analytics
         dashboard. Every plan is tailored to your goals; nothing is bolted on.
       </>
     ),
@@ -66,7 +66,7 @@ const FAQS: FAQItem[] = [
         No long lock-ins. We recommend a{' '}
         <strong>minimum 90-day engagement</strong> so the system has time to
         compound, but month-to-month options are available after the initial
-        setup phase. Cancel, downgrade, or scale anytime &mdash; no hidden fees.
+        setup phase. Cancel, downgrade, or scale anytime - no hidden fees.
       </>
     ),
   },
@@ -114,7 +114,7 @@ const FAQ = ({ onBook }: FAQProps) => {
             </h2>
             <p className="faq-intro">
               Everything you need to know about working with TheNextGen
-              &mdash; from compliance and reporting to timelines and engagement
+              - from compliance and reporting to timelines and engagement
               length.
             </p>
 
@@ -127,7 +127,7 @@ const FAQ = ({ onBook }: FAQProps) => {
                 help.
               </p>
               <p>
-                Reach out anytime &mdash; we&rsquo;ll walk you through every
+                Reach out anytime - we&rsquo;ll walk you through every
                 detail to make sure you get the most out of our platform.
               </p>
               <button

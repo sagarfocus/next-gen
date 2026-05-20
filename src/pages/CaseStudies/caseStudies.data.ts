@@ -92,7 +92,7 @@ export const CASE_STUDIES: CaseStudy[] = [
         label: 'Strategy',
         headline: 'Own the high-acuity moments and force the bid math to flip.',
         narrative:
-          'We narrowed targeting to a tight set of high-acuity, high-urgency search terms — chest pain, broken bone, severe abdominal — and rebuilt three location landing pages around the patient decision moment. The goal was not more clicks; it was a tighter funnel: the right search at the right radius, with a page that loaded fast and answered the only three questions a panicked patient is asking.',
+          'We narrowed targeting to a tight set of high-acuity, high-urgency search terms - chest pain, broken bone, severe abdominal - and rebuilt three location landing pages around the patient decision moment. The goal was not more clicks; it was a tighter funnel: the right search at the right radius, with a page that loaded fast and answered the only three questions a panicked patient is asking.',
         tactics: [
           'Tightened keyword set from 480 to 64 high-intent terms',
           'Rebuilt three location pages with sub-1.5s mobile load',
@@ -180,7 +180,7 @@ export const CASE_STUDIES: CaseStudy[] = [
         label: 'Execution',
         headline: 'Rebrand without breaking what already worked.',
         narrative:
-          'We rolled out one clinic at a time over nine months — the lowest-performing first, the highest-performing last — to protect revenue while the playbook stabilized. Each clinic went through the same forty-day cutover: brand assets, site, GBP, ads, review system, then a two-week monitoring window before moving to the next.',
+          'We rolled out one clinic at a time over nine months - the lowest-performing first, the highest-performing last - to protect revenue while the playbook stabilized. Each clinic went through the same forty-day cutover: brand assets, site, GBP, ads, review system, then a two-week monitoring window before moving to the next.',
         tactics: [
           'Forty-day cutover protocol, one clinic at a time',
           'Lowest-performing locations migrated first',
@@ -221,7 +221,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     engagement: '8-month rebrand',
     started: 'Q3 2023',
     brief:
-      'A single-location aesthetic clinic with a credentialed surgeon and a top-quartile patient outcome record — but a brand that read like a Groupon storefront. They were getting volume, but the average ticket was suppressed and the consult-to-procedure rate was stuck below industry baseline. We treated this as a positioning problem, not a traffic problem.',
+      'A single-location aesthetic clinic with a credentialed surgeon and a top-quartile patient outcome record - but a brand that read like a Groupon storefront. They were getting volume, but the average ticket was suppressed and the consult-to-procedure rate was stuck below industry baseline. We treated this as a positioning problem, not a traffic problem.',
     secondary: [
       { value: '+25%', label: 'Average ticket value' },
       { value: '+120%', label: 'Qualified leads' },
@@ -232,7 +232,7 @@ export const CASE_STUDIES: CaseStudy[] = [
         label: 'Challenge',
         headline: 'A premium operator wearing a discount uniform.',
         narrative:
-          'The surgeon was board-certified, fellowship-trained, and operating on patients who could comfortably pay full-price elsewhere. But every patient touchpoint — site, social, intake forms, financing UI — signaled budget. Leads were plentiful and price-sensitive, and the consult team was burning time on patients who would never convert above the entry-tier procedure.',
+          'The surgeon was board-certified, fellowship-trained, and operating on patients who could comfortably pay full-price elsewhere. But every patient touchpoint - site, social, intake forms, financing UI - signaled budget. Leads were plentiful and price-sensitive, and the consult team was burning time on patients who would never convert above the entry-tier procedure.',
         tactics: [
           'Avg lead-to-consult: $42; consult-to-procedure: 29%',
           'Site lead form asked for budget in the second field',
@@ -244,7 +244,7 @@ export const CASE_STUDIES: CaseStudy[] = [
         label: 'Strategy',
         headline: 'Reposition for the patient who is already shopping at the top.',
         narrative:
-          'We rebuilt the brand around outcomes, not price. New photography, new identity system, new consult flow that started with the surgeon, not the package. The site led with the surgical philosophy, the recovery experience, and the credentialing — financing was pushed to a single section, present but no longer the headline.',
+          'We rebuilt the brand around outcomes, not price. New photography, new identity system, new consult flow that started with the surgeon, not the package. The site led with the surgical philosophy, the recovery experience, and the credentialing - financing was pushed to a single section, present but no longer the headline.',
         tactics: [
           'Identity system rebuilt around outcomes-first language',
           'New lead form qualifies for procedure, not budget',
@@ -297,7 +297,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     engagement: '12-month build',
     started: 'Q4 2022',
     brief:
-      'A two-physician family medicine practice that had quietly served three neighborhoods for fourteen years. Patient roster was steady but aging, and new-patient inquiries had drifted toward zero. The practice did not want to advertise — they wanted to be discoverable when someone in the neighborhood actually started looking.',
+      'A two-physician family medicine practice that had quietly served three neighborhoods for fourteen years. Patient roster was steady but aging, and new-patient inquiries had drifted toward zero. The practice did not want to advertise - they wanted to be discoverable when someone in the neighborhood actually started looking.',
     secondary: [
       { value: '$300K', label: 'Net new annual revenue' },
       { value: '+412%', label: 'Organic traffic' },
@@ -330,9 +330,9 @@ export const CASE_STUDIES: CaseStudy[] = [
       },
       {
         label: 'Execution',
-        headline: 'Slow, compounding, almost boring — and then a step change.',
+        headline: 'Slow, compounding, almost boring - and then a step change.',
         narrative:
-          'Months one through four were entirely fundamentals: schema, GBP, location pages, reviews. The content engine started in month five at four articles per month and stayed there for the rest of the year. Traffic was flat through month seven, then doubled in month eight, then doubled again in month ten — the classic SEO compounding curve.',
+          'Months one through four were entirely fundamentals: schema, GBP, location pages, reviews. The content engine started in month five at four articles per month and stayed there for the rest of the year. Traffic was flat through month seven, then doubled in month eight, then doubled again in month ten - the classic SEO compounding curve.',
         tactics: [
           'Months 1–4: technical fixes + GBP + location pages',
           'Months 5–12: four physician-reviewed articles per month',
@@ -373,7 +373,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     engagement: '7-month rebuild',
     started: 'Q1 2024',
     brief:
-      'A growing outpatient therapy practice with strong inbound demand but a retention problem: patients booked an intake, came for a first session, and disappeared within three weeks. Acquisition cost was rising every quarter to compensate. The leak was not in marketing — it was in the gap between scheduling and care.',
+      'A growing outpatient therapy practice with strong inbound demand but a retention problem: patients booked an intake, came for a first session, and disappeared within three weeks. Acquisition cost was rising every quarter to compensate. The leak was not in marketing - it was in the gap between scheduling and care.',
     secondary: [
       { value: '2×', label: 'Patient retention' },
       { value: '−40%', label: 'Marketing spend' },
@@ -408,7 +408,7 @@ export const CASE_STUDIES: CaseStudy[] = [
         label: 'Execution',
         headline: 'Build it small, ship it weekly, watch the no-show rate.',
         narrative:
-          'We shipped the sequence in week three, then iterated weekly based on the no-show data and clinician feedback. The first six weeks were almost entirely about tone — patients in this category need very different language than a dental reminder. By month four the no-show rate was halved; by month seven the marketing budget could come down because each patient was now worth meaningfully more.',
+          'We shipped the sequence in week three, then iterated weekly based on the no-show data and clinician feedback. The first six weeks were almost entirely about tone - patients in this category need very different language than a dental reminder. By month four the no-show rate was halved; by month seven the marketing budget could come down because each patient was now worth meaningfully more.',
         tactics: [
           'Weekly iteration on subject lines and open windows',
           'Clinician review of every message before send',
@@ -449,7 +449,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     engagement: '5-month focused push',
     started: 'Q2 2024',
     brief:
-      'A single-location general dentistry practice in a dense, competitive market. Patient experience was excellent — 4.9-star reviews from existing patients — but new-patient inquiries had plateaued. The practice was buried below three competitors in the local pack despite ranking organically. The path forward was not more content; it was local-pack mechanics, done with discipline.',
+      'A single-location general dentistry practice in a dense, competitive market. Patient experience was excellent - 4.9-star reviews from existing patients - but new-patient inquiries had plateaued. The practice was buried below three competitors in the local pack despite ranking organically. The path forward was not more content; it was local-pack mechanics, done with discipline.',
     secondary: [
       { value: '+70%', label: 'Appointment bookings' },
       { value: '4.9★', label: 'Average rating' },
@@ -472,7 +472,7 @@ export const CASE_STUDIES: CaseStudy[] = [
         label: 'Strategy',
         headline: 'Win the local pack the boring, methodical way.',
         narrative:
-          'There was no clever tactic here — local pack is mechanics. We rebuilt the GBP service catalog, cleaned and standardized every citation, and installed a review-request cadence wired into the patient management system that fired exactly forty-five minutes after the appointment was marked complete. That last detail was the unlock.',
+          'There was no clever tactic here - local pack is mechanics. We rebuilt the GBP service catalog, cleaned and standardized every citation, and installed a review-request cadence wired into the patient management system that fired exactly forty-five minutes after the appointment was marked complete. That last detail was the unlock.',
         tactics: [
           'Full GBP rebuild: services, attributes, Q&A, posts',
           'Citation cleanup across 218 directories, NAP standardized',
@@ -484,7 +484,7 @@ export const CASE_STUDIES: CaseStudy[] = [
         label: 'Execution',
         headline: 'Five months, one tactic at a time, no detours.',
         narrative:
-          'We resisted the urge to layer paid or content on top. The practice already had organic traffic — they did not need more, they needed the map. Month one was GBP, months two and three were citations, months four and five were review velocity and response. By month five the practice was sitting at #1 for their three priority keywords and the new-patient phone was ringing on a different rhythm.',
+          'We resisted the urge to layer paid or content on top. The practice already had organic traffic - they did not need more, they needed the map. Month one was GBP, months two and three were citations, months four and five were review velocity and response. By month five the practice was sitting at #1 for their three priority keywords and the new-patient phone was ringing on a different rhythm.',
         tactics: [
           'Month 1: GBP rebuild + photo refresh + Q&A seeding',
           'Months 2–3: citation cleanup across 218 directories',

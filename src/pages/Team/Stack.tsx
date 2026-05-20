@@ -153,7 +153,7 @@ const Stack = () => {
           </h2>
           <p className="tm-st-lede">
             Thirty-plus tools, grouped by the part of the funnel they own. No
-            screenshots of vendor logos for credibility theatre &mdash; this is
+            screenshots of vendor logos for credibility theatre - this is
             what the team logs into on Monday morning.
           </p>
         </header>

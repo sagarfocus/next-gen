@@ -20,7 +20,7 @@ const IndustriesHero = ({ onBook }: IndustriesHeroProps) => {
             <p className="ind-lede">
               We don&rsquo;t do generic. From freestanding ERs to MedSpas, we
               build patient-acquisition systems engineered for the specific
-              dynamics of your vertical &mdash; high-acuity urgency, walk-in
+              dynamics of your vertical - high-acuity urgency, walk-in
               convenience, or longevity-driven retention.
             </p>
 

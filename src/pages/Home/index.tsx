@@ -22,7 +22,7 @@ const FAQ_SCHEMA = {
       name: 'How quickly will I see results from your healthcare marketing?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Most clients see tangible movement within 30 days — improved Google Business Profile visibility, faster page loads, and the first paid-media leads. Sustained organic growth from SEO typically compounds across months 3–6 as content, backlinks, and on-page work mature.',
+        text: 'Most clients see tangible movement within 30 days - improved Google Business Profile visibility, faster page loads, and the first paid-media leads. Sustained organic growth from SEO typically compounds across months 3–6 as content, backlinks, and on-page work mature.',
       },
     },
     {
@@ -30,7 +30,7 @@ const FAQ_SCHEMA = {
       name: 'Are your campaigns and tools HIPAA-aware?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Yes. We follow HIPAA-aware practices across tracking, ad targeting, intake forms, and reporting — including server-side conversion tracking, compliant pixel use, and BAA-ready vendor selection where applicable. We are not a covered entity, so we work alongside your compliance officer to ensure end-to-end alignment.',
+        text: 'Yes. We follow HIPAA-aware practices across tracking, ad targeting, intake forms, and reporting - including server-side conversion tracking, compliant pixel use, and BAA-ready vendor selection where applicable. We are not a covered entity, so we work alongside your compliance officer to ensure end-to-end alignment.',
       },
     },
     {
@@ -46,7 +46,7 @@ const FAQ_SCHEMA = {
       name: "What's included in your monthly engagement?",
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Strategy, execution, and reporting across SEO, paid media (Google & Meta), social, content, automation, and weekly optimization — plus a dedicated growth lead and a real-time analytics dashboard. Every plan is tailored to your goals; nothing is bolted on.',
+        text: 'Strategy, execution, and reporting across SEO, paid media (Google & Meta), social, content, automation, and weekly optimization - plus a dedicated growth lead and a real-time analytics dashboard. Every plan is tailored to your goals; nothing is bolted on.',
       },
     },
     {
@@ -54,7 +54,7 @@ const FAQ_SCHEMA = {
       name: 'Do I need a long-term contract to work with you?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'No long lock-ins. We recommend a minimum 90-day engagement so the system has time to compound, but month-to-month options are available after the initial setup phase. Cancel, downgrade, or scale anytime — no hidden fees.',
+        text: 'No long lock-ins. We recommend a minimum 90-day engagement so the system has time to compound, but month-to-month options are available after the initial setup phase. Cancel, downgrade, or scale anytime - no hidden fees.',
       },
     },
   ],
@@ -106,13 +106,13 @@ const Home = () => {
       <Hero>
         <CertStrip />
       </Hero>
-      <Process />
-      <Results />
       <AboutUs />
       <Advantages />
-      <Methodology />
       <Services />
       <Industries />
+      <Process />
+      <Methodology />
+      <Results />
       <Testimonials />
       <FAQ onBook={openBooking} />
       <ContactSection />

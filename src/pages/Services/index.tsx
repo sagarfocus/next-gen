@@ -27,7 +27,7 @@ const Services = () => {
         ariaTitleId="pillar-1-title"
         eyebrow="Engineering"
         title={<>Custom Software &amp; Vibe Coding.</>}
-        sub="Tailored systems built on top of your marketing engine — from patient portals to API integrations that move clinical data securely."
+        sub="Tailored systems built on top of your marketing engine - from patient portals to API integrations that move clinical data securely."
         panes={CUSTOM_SOFTWARE_PANES}
       />
       <Pillars
@@ -35,7 +35,7 @@ const Services = () => {
         ariaTitleId="pillar-2-title"
         eyebrow="Automation"
         title={<>Automation &amp; AI for Clinical Workflows.</>}
-        sub="Intelligent systems that handle routine clinical operations — freeing your staff to focus on patients, not paperwork."
+        sub="Intelligent systems that handle routine clinical operations - freeing your staff to focus on patients, not paperwork."
         panes={AUTOMATION_PANES}
       />
       <FeaturePair />

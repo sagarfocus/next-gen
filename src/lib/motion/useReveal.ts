@@ -13,7 +13,7 @@ interface UseRevealOptions {
  * One-shot scroll-reveal hook. Attaches an IntersectionObserver to the
  * returned ref and flips `inView` to true the first time the element
  * crosses the threshold. Disconnects immediately after to avoid any
- * ongoing work — animations only run once per page load.
+ * ongoing work - animations only run once per page load.
  */
 export const useReveal = <T extends HTMLElement = HTMLElement>(
   opts: UseRevealOptions = {},

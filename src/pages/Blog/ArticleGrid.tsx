@@ -54,7 +54,7 @@ const ARTICLES: Article[] = [
     readTime: '6 min read',
     title: 'Why your urgent care CPA is probably 30% too high.',
     excerpt:
-      'The 4 most common bidding mistakes we see in urgent care Google Ads accounts — and the audit checklist we use to identify them in the first 24 hours.',
+      'The 4 most common bidding mistakes we see in urgent care Google Ads accounts - and the audit checklist we use to identify them in the first 24 hours.',
     author: 'Marcus Rodriguez',
     illustration: (
       <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -92,7 +92,7 @@ const ARTICLES: Article[] = [
     readTime: '5 min read',
     title: 'Automating Google reviews without violating HIPAA.',
     excerpt:
-      "Patient testimonials are 10x more powerful than ad copy — but most review automation tools quietly break HIPAA. Here's the stack we use instead.",
+      "Patient testimonials are 10x more powerful than ad copy - but most review automation tools quietly break HIPAA. Here's the stack we use instead.",
     author: 'Sarah Chen',
     illustration: (
       <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -115,7 +115,7 @@ const ARTICLES: Article[] = [
     readTime: '9 min read',
     title: 'The 7 Google Business Profile signals that move map rankings.',
     excerpt:
-      'After managing 200+ Google Business Profiles across Texas, these are the 7 signals that actually correlate with local-pack ranking improvement — ranked by leverage.',
+      'After managing 200+ Google Business Profiles across Texas, these are the 7 signals that actually correlate with local-pack ranking improvement - ranked by leverage.',
     author: 'Marcus Rodriguez',
     illustration: (
       <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -174,7 +174,7 @@ const ARTICLES: Article[] = [
     readTime: '7 min read',
     title: 'The MedSpa LTV playbook: turning $300 facials into $4K patients.',
     excerpt:
-      "High-LTV MedSpa marketing isn't about cheaper acquisition — it's about better post-purchase journey. Here's the email + SMS + remarketing stack we deploy on day one.",
+      "High-LTV MedSpa marketing isn't about cheaper acquisition - it's about better post-purchase journey. Here's the email + SMS + remarketing stack we deploy on day one.",
     author: 'Marcus Rodriguez',
     illustration: (
       <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -197,7 +197,7 @@ const ARTICLES: Article[] = [
     readTime: '6 min read',
     title: 'Wait-time marketing: the urgent care advantage no one is using.',
     excerpt:
-      'Why publishing real-time wait times publicly converts 23% better than promoting "convenience" or "walk-in welcome" — and the technical stack to do it safely.',
+      'Why publishing real-time wait times publicly converts 23% better than promoting "convenience" or "walk-in welcome" - and the technical stack to do it safely.',
     author: 'Sarah Chen',
     illustration: (
       <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -224,7 +224,7 @@ const ARTICLES: Article[] = [
     readTime: '8 min read',
     title: 'The healthcare marketing dashboard every clinic should run.',
     excerpt:
-      "CPA, appointment-to-show ratio, LTV, channel ROI — the 12 metrics we put on every client's real-time dashboard, plus the alerts that catch problems before they hit revenue.",
+      "CPA, appointment-to-show ratio, LTV, channel ROI - the 12 metrics we put on every client's real-time dashboard, plus the alerts that catch problems before they hit revenue.",
     author: 'David Kim',
     illustration: (
       <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">

@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 
 /**
- * Phase 1 — Swiss layout: Numerical anchor + visual audit modules.
+ * Phase 1 - Swiss layout: Numerical anchor + visual audit modules.
  * Body focuses on SEO-perspective audit dimensions with inline SVG
  * illustrations so each section is self-explanatory.
  */
@@ -383,7 +383,7 @@ const Phase1 = () => {
           margin: 0;
           max-width: 56ch;
         }
-        /* Horizontal funnel — one row per stage. Bar width = absolute %
+        /* Horizontal funnel - one row per stage. Bar width = absolute %
            of starting clicks, so the visual collapse equals the data. */
         .ph1-funnel {
           display: flex;
@@ -598,9 +598,10 @@ const Phase1 = () => {
         .ph1-deliv {
           margin-top: clamp(72px, 9vw, 112px);
           padding: clamp(32px, 4vw, 48px);
-          background: #2D3748;
-          color: #F1F2F4;
-          border-radius: 14px;
+          background: linear-gradient(90deg, #DDD9E5 0%, #DDE3DC 50%, #EFE7CD 100%);
+          color: #1A2438;
+          border-radius: 18px;
+          box-shadow: 0 30px 80px -50px rgba(45, 55, 72, 0.22);
         }
         .ph1-deliv-head {
           display: grid;
@@ -609,14 +610,14 @@ const Phase1 = () => {
           align-items: end;
           margin-bottom: 28px;
           padding-bottom: 22px;
-          border-bottom: 1px solid rgba(241,242,244,0.16);
+          border-bottom: 1px solid rgba(26, 36, 56, 0.16);
         }
         .ph1-deliv-head .lbl {
           font-size: 11px;
           font-weight: 700;
           letter-spacing: 0.28em;
           text-transform: uppercase;
-          color: #B38B6D;
+          color: #8B6B4C;
         }
         .ph1-deliv-head h2 {
           font-size: clamp(24px, 2.2vw, 32px);
@@ -624,7 +625,7 @@ const Phase1 = () => {
           line-height: 1.2;
           letter-spacing: -0.018em;
           margin: 0;
-          color: #fff;
+          color: #1A2438;
         }
         .ph1-deliv-grid {
           display: grid;
@@ -632,27 +633,37 @@ const Phase1 = () => {
           gap: 20px;
         }
         .ph1-deliv-item {
-          padding: 18px 18px 22px;
-          border: 1px solid rgba(241,242,244,0.14);
-          border-radius: 8px;
-          background: rgba(255,255,255,0.03);
+          padding: 22px 20px 24px;
+          border: 1px solid rgba(26, 36, 56, 0.10);
+          border-radius: 14px;
+          background: #FFFFFF;
+          box-shadow: 0 8px 24px -16px rgba(45, 55, 72, 0.18);
+          transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+        .ph1-deliv-item:hover {
+          transform: translateY(-3px);
+          border-color: rgba(179, 139, 109, 0.45);
+          box-shadow: 0 18px 36px -20px rgba(45, 55, 72, 0.28);
         }
         .ph1-deliv-item .ic {
-          width: 36px; height: 36px;
+          width: 38px; height: 38px;
           margin-bottom: 14px;
-          color: #B38B6D;
+          color: #8B6B4C;
+          padding: 7px;
+          background: rgba(179, 139, 109, 0.12);
+          border-radius: 9px;
         }
         .ph1-deliv-item h4 {
-          font-size: 15px;
+          font-size: 15.5px;
           font-weight: 700;
-          color: #fff;
+          color: #1A2438;
           margin: 0 0 6px;
           letter-spacing: -0.01em;
         }
         .ph1-deliv-item p {
-          font-size: 12.8px;
+          font-size: 13px;
           line-height: 1.55;
-          color: rgba(241,242,244,0.7);
+          color: rgba(26, 36, 56, 0.70);
           margin: 0;
         }
 
@@ -741,7 +752,7 @@ const Phase1 = () => {
         <div className="ph1-meta-row">
           <span>Phase</span>
           <span>Discovery &amp; Audit</span>
-          <span>Week 01 — 02</span>
+          <span>Week 01 - 02</span>
           <span>Deliverable: Audit Report</span>
         </div>
 
@@ -759,7 +770,7 @@ const Phase1 = () => {
             <p className="ph1-lede">
               A two-week forensic of every search, ad, and front-desk surface
               your clinic owns. We don&rsquo;t guess where patients are leaking
-              — we measure it, then we hand you a prioritized scorecard with
+              - we measure it, then we hand you a prioritized scorecard with
               the exact dollar value of each fix.
             </p>
             <div className="ph1-tags">
@@ -775,11 +786,11 @@ const Phase1 = () => {
         {/* ============ Scorecard mockup ============ */}
         <section className="ph1-card-block">
           <div className="ph1-card-text">
-            <span className="lbl">/ 01 — The Output</span>
+            <span className="lbl">/ 01 - The Output</span>
             <h2>One scorecard. Every dimension scored against the highest-converting competitor in your radius.</h2>
             <p>
               Each surface gets a number, a verdict, and a remediation cost.
-              No 80-slide deck — a single page your team can act on within an
+              No 80-slide deck - a single page your team can act on within an
               hour of reading it.
             </p>
           </div>
@@ -787,7 +798,7 @@ const Phase1 = () => {
           <div className="ph1-mock" role="img" aria-label="Audit scorecard preview">
             <div className="ph1-mock-bar">
               <i /><i /><i />
-              <span className="name">Audit Scorecard — Q.SAMPLE</span>
+              <span className="name">Audit Scorecard - Q.SAMPLE</span>
             </div>
             <div className="ph1-mock-grid">
               <div className="ph1-mock-row">
@@ -811,7 +822,7 @@ const Phase1 = () => {
                 <div className="bar"><i style={{ width: '12%' }} /></div>
               </div>
               <div className="ph1-mock-row">
-                <div className="k">Paid CPL — Google</div>
+                <div className="k">Paid CPL - Google</div>
                 <div className="v">$184<em className="bad">+38%</em></div>
                 <div className="bar"><i style={{ width: '82%' }} /></div>
               </div>
@@ -826,8 +837,8 @@ const Phase1 = () => {
 
         {/* ============ Audit dimensions ============ */}
         <div className="ph1-section-label">
-          <span>/ 02 — The Audit</span>
-          <h2>Six dimensions. Each one a documented source of patient leak — or a documented growth lever.</h2>
+          <span>/ 02 - The Audit</span>
+          <h2>Six dimensions. Each one a documented source of patient leak - or a documented growth lever.</h2>
         </div>
 
         <div className="ph1-dims">
@@ -862,7 +873,7 @@ const Phase1 = () => {
           <Dim
             num="05"
             title="Conversion path"
-            text="The friction between &lsquo;clicked the ad&rsquo; and &lsquo;booked the appointment&rsquo; — measured per service line."
+            text="The friction between &lsquo;clicked the ad&rsquo; and &lsquo;booked the appointment&rsquo; - measured per service line."
             signals={['Form drop-off', 'Page CR%', 'CTA contrast', 'Trust signals']}
             illustration={<CroSvg />}
           />
@@ -878,12 +889,12 @@ const Phase1 = () => {
         {/* ============ Funnel visualization ============ */}
         <section className="ph1-funnel-wrap">
           <div className="ph1-funnel-head">
-            <span className="lbl">/ 03 — The Leak Map</span>
+            <span className="lbl">/ 03 - The Leak Map</span>
             <h2>The single visualization that gets every audit signed off in one meeting.</h2>
             <p>
               We trace 100 search clicks through every step until they become
               booked patients. The widest drop-off is where your next dollar
-              goes — and your scorecard tells you how much it&rsquo;s worth.
+              goes - and your scorecard tells you how much it&rsquo;s worth.
             </p>
           </div>
           <div className="ph1-funnel" aria-label="Funnel leakage from 100 clicks to 8 bookings">
@@ -962,27 +973,27 @@ const Phase1 = () => {
         {/* ============ Timeline ============ */}
         <section className="ph1-tl">
           <div className="ph1-tl-head">
-            <span className="lbl">/ 04 — The Run</span>
+            <span className="lbl">/ 04 - The Run</span>
             <h2>Two weeks. Four checkpoints. Nothing skipped.</h2>
           </div>
           <div className="ph1-tl-grid">
             <div className="ph1-tl-cell active">
-              <div className="day">Day 01 — 03</div>
+              <div className="day">Day 01 - 03</div>
               <div className="ttl">Access &amp; intake</div>
               <p className="txt">GA4, GSC, GBP, ad accounts, call platform, CRM. Read-only handover, signed in 24h.</p>
             </div>
             <div className="ph1-tl-cell">
-              <div className="day">Day 04 — 07</div>
+              <div className="day">Day 04 - 07</div>
               <div className="ttl">Crawl &amp; baseline</div>
               <p className="txt">Full technical crawl, rank tracking, competitor delta, paid account excavation.</p>
             </div>
             <div className="ph1-tl-cell">
-              <div className="day">Day 08 — 11</div>
+              <div className="day">Day 08 - 11</div>
               <div className="ttl">Funnel mapping</div>
               <p className="txt">Form, call, and desk instrumentation; every step in the journey is timed and counted.</p>
             </div>
             <div className="ph1-tl-cell">
-              <div className="day">Day 12 — 14</div>
+              <div className="day">Day 12 - 14</div>
               <div className="ttl">Scorecard &amp; readout</div>
               <p className="txt">Single-page scorecard, prioritized fix list with dollar values, 60-minute walk-through.</p>
             </div>
@@ -992,7 +1003,7 @@ const Phase1 = () => {
         {/* ============ Deliverables ============ */}
         <section className="ph1-deliv">
           <div className="ph1-deliv-head">
-            <span className="lbl">/ 05 — What You Get</span>
+            <span className="lbl">/ 05 - What You Get</span>
             <h2>Four artifacts. Your team owns all of them on day fourteen.</h2>
           </div>
           <div className="ph1-deliv-grid">
@@ -1014,7 +1025,7 @@ const Phase1 = () => {
             <div className="ph1-deliv-item">
               <IconChart className="ic" />
               <h4>Competitor delta</h4>
-              <p>The exact gap — keyword, rank, and review — to the leader in your radius.</p>
+              <p>The exact gap - keyword, rank, and review - to the leader in your radius.</p>
             </div>
           </div>
         </section>
@@ -1022,7 +1033,7 @@ const Phase1 = () => {
         <div className="ph1-foot">
           <span className="ph1-foot-side">End of Phase 01</span>
           <Link to="/methodology/phase-2" className="ph1-next">
-            <span className="ph1-next-label">Next — Phase 02</span>
+            <span className="ph1-next-label">Next - Phase 02</span>
             <span className="ph1-next-title">
               Strategy &amp; Infrastructure Build →
             </span>

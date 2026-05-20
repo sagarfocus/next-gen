@@ -72,7 +72,7 @@ const CheckCell = () => (
   </span>
 );
 
-const DashCell = () => <span className="pr-cell-dash">&mdash;</span>;
+const DashCell = () => <span className="pr-cell-dash">-</span>;
 
 const ComparisonTable = () => {
   return (
@@ -84,7 +84,7 @@ const ComparisonTable = () => {
             See exactly what each tier includes.
           </h2>
           <p className="pr-section-sub">
-            Side-by-side breakdown across all features &mdash; from foundational
+            Side-by-side breakdown across all features - from foundational
             SEO to enterprise-grade infrastructure and dedicated development
             teams.
           </p>

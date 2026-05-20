@@ -54,7 +54,7 @@ const ChartIcon = () => (
 
 const DO_CARDS: DoCard[] = [
   { name: 'Campaign Setup', desc: 'Account architecture, audience layers, ad groups built around real patient intent.', icon: <PinIcon /> },
-  { name: 'Conversion Tracking', desc: 'Phone, form, booking — every patient action attributed back to its first ad click.', icon: <LinkIcon /> },
+  { name: 'Conversion Tracking', desc: 'Phone, form, booking - every patient action attributed back to its first ad click.', icon: <LinkIcon /> },
   { name: 'ROI Optimization', desc: 'Bid strategy, negative keywords, budget pacing tuned weekly against ROAS targets.', icon: <FileIcon /> },
   { name: 'Creative Testing', desc: 'Multi-variant headlines and visuals A/B tested every two weeks.', icon: <NetworkIcon /> },
   { name: 'Audience Segmentation', desc: 'In-market, custom-intent, and remarketing layers tuned to clinic specialties.', icon: <StarIcon /> },
@@ -144,11 +144,11 @@ const FAQS: ServiceFAQItem[] = [
   },
   {
     q: 'Will running Google Ads conflict with our HIPAA obligations?',
-    a: 'No — but the default Google tag will. We deploy a HIPAA-aware tracking layer that strips PHI from URLs, parameters, and form payloads before any data leaves your site, and we sign BAAs with every downstream tool that touches the lead.',
+    a: 'No - but the default Google tag will. We deploy a HIPAA-aware tracking layer that strips PHI from URLs, parameters, and form payloads before any data leaves your site, and we sign BAAs with every downstream tool that touches the lead.',
   },
   {
     q: 'Do you require a 12-month contract?',
-    a: 'No. We run month-to-month after a short 90-day ramp. Most clients stay because the dashboard makes the spend defensible — not because the contract forces them to.',
+    a: 'No. We run month-to-month after a short 90-day ramp. Most clients stay because the dashboard makes the spend defensible - not because the contract forces them to.',
   },
   {
     q: 'How do you decide what to bid on?',
@@ -156,7 +156,7 @@ const FAQS: ServiceFAQItem[] = [
   },
   {
     q: 'Can you take over an existing Google Ads account?',
-    a: 'Yes. We import history, preserve learning, and audit the structure before we touch the bids. You keep ownership of the account — we just operate it.',
+    a: 'Yes. We import history, preserve learning, and audit the structure before we touch the bids. You keep ownership of the account - we just operate it.',
   },
 ];
 
@@ -192,7 +192,7 @@ const GoogleAds = () => {
         variant="timeline"
         eyebrow="Inside the first 90 days"
         title="What the account looks like, week by week."
-        intro="Most clinics inherit a Google Ads account that has been bleeding for months. Here is the order we stabilize it in — same playbook on every engagement."
+        intro="Most clinics inherit a Google Ads account that has been bleeding for months. Here is the order we stabilize it in - same playbook on every engagement."
         timeline={TIMELINE}
       />
       <ServiceFAQ
@@ -211,7 +211,7 @@ const GoogleAds = () => {
         secondaryTo="/case-studies"
         secondaryLabel="See ad-account case studies"
         bullets={[
-          'Live screen-share — your numbers, not a generic deck.',
+          'Live screen-share - your numbers, not a generic deck.',
           'A 1-page written summary you can forward to your team.',
           'Free, whether or not you decide to engage us afterwards.',
         ]}

@@ -53,9 +53,9 @@ const ChartIcon = () => (
 );
 
 const DO_CARDS: DoCard[] = [
-  { name: 'Automation Flows', desc: 'Onboarding, recall, win-back, post-visit — sequenced and live in your CRM.', icon: <PinIcon /> },
+  { name: 'Automation Flows', desc: 'Onboarding, recall, win-back, post-visit - sequenced and live in your CRM.', icon: <PinIcon /> },
   { name: 'Campaign Design', desc: 'Mobile-first, brand-aligned, accessible templates that convert on every device.', icon: <LinkIcon /> },
-  { name: 'Segmentation', desc: 'Behavior, demographics, treatment history — every email matches the patient.', icon: <FileIcon /> },
+  { name: 'Segmentation', desc: 'Behavior, demographics, treatment history - every email matches the patient.', icon: <FileIcon /> },
   { name: 'Conversion Tracking', desc: 'Booking attribution from email to chair, end-to-end.', icon: <NetworkIcon /> },
   { name: 'HIPAA Compliance', desc: 'BAA-covered tooling, PHI minimization, encrypted delivery.', icon: <StarIcon /> },
   { name: 'Live Reporting', desc: 'Open, click, booking, and revenue tracked per campaign.', icon: <ChartIcon /> },
@@ -123,7 +123,7 @@ const TIMELINE: TimelineRow[] = [
   {
     marker: 'Week 2',
     label: 'Welcome + post-visit live',
-    detail: 'The two highest-leverage sequences ship first — they target the moments of strongest patient intent, where open and reply rates concentrate.',
+    detail: 'The two highest-leverage sequences ship first - they target the moments of strongest patient intent, where open and reply rates concentrate.',
   },
   {
     marker: 'Week 3',
@@ -140,15 +140,15 @@ const TIMELINE: TimelineRow[] = [
 const FAQS: ServiceFAQItem[] = [
   {
     q: 'Are healthcare email drips actually HIPAA-compliant?',
-    a: 'They can be — when the platform signs a BAA, when PHI is never carried in the message body, and when consent is captured the right way. We build every drip on that footing and document the trail so an audit reads cleanly.',
+    a: 'They can be - when the platform signs a BAA, when PHI is never carried in the message body, and when consent is captured the right way. We build every drip on that footing and document the trail so an audit reads cleanly.',
   },
   {
     q: 'What kind of open and click rates should we expect?',
-    a: 'Lifecycle drips (new patient, post-visit, re-engagement) outperform promotional sends because the moment of intent is right. We grade every campaign against the right cohort — not a generic industry average — and share the benchmark band in the kickoff audit.',
+    a: 'Lifecycle drips (new patient, post-visit, re-engagement) outperform promotional sends because the moment of intent is right. We grade every campaign against the right cohort - not a generic industry average - and share the benchmark band in the kickoff audit.',
   },
   {
     q: 'How is this different from our EHR’s built-in messaging?',
-    a: 'EHR messaging is transactional — reminders and confirmations. Drip campaigns are relationship layers built on top: education, reactivation, win-back, referral. They run in parallel without duplicating sends.',
+    a: 'EHR messaging is transactional - reminders and confirmations. Drip campaigns are relationship layers built on top: education, reactivation, win-back, referral. They run in parallel without duplicating sends.',
   },
   {
     q: 'How long does it take to launch?',
@@ -156,7 +156,7 @@ const FAQS: ServiceFAQItem[] = [
   },
   {
     q: 'What happens to deliverability when we scale?',
-    a: 'We warm sending IPs, segment by engagement, and prune inactive contacts every 90 days. Deliverability is treated as an active KPI — not a passive metric — so growth never silently degrades inbox placement.',
+    a: 'We warm sending IPs, segment by engagement, and prune inactive contacts every 90 days. Deliverability is treated as an active KPI - not a passive metric - so growth never silently degrades inbox placement.',
   },
 ];
 
@@ -213,7 +213,7 @@ const EmailCampaigns = () => {
         bullets={[
           'BAA + deliverability check on every tool you use today.',
           'Three drip-sequence picks ranked by realistic time-to-revenue.',
-          'Free of charge — even if we never sign an engagement.',
+          'Free of charge - even if we never sign an engagement.',
         ]}
       />
 

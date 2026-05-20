@@ -83,7 +83,7 @@ const AboutUs = () => {
       <div className="container-shell">
         <span className="ah-eyebrow">About Us</span>
 
-        {/* ROW 1 — Title left, trust meta above paragraph on right */}
+        {/* ROW 1 - Title left, trust meta above paragraph on right */}
         <div className="ah-intro">
           <div className="ah-intro-left">
             <h2 id="ah-title" className="ah-title">
@@ -105,13 +105,13 @@ const AboutUs = () => {
             <p className="ah-intro-text">
               We help healthcare practices grow faster with marketing systems
               built specifically for clinics, medspas, and wellness brands
-              &mdash; HIPAA-aware, ROI-tracked, and engineered to compound
+              - HIPAA-aware, ROI-tracked, and engineered to compound
               month over month so your patient pipeline never goes quiet.
             </p>
           </div>
         </div>
 
-        {/* ROW 2 — Gallery with feature card and floating overlays */}
+        {/* ROW 2 - Gallery with feature card and floating overlays */}
         <div className="ah-gallery">
           <div className="ah-gallery-left">
             <div className="ah-img ah-img-secondary">
@@ -123,13 +123,13 @@ const AboutUs = () => {
               </span>
               <h3 className="ah-feature-title">Healthcare Growth Engine</h3>
               <p className="ah-feature-desc">
-                Integrated SEO, paid media, and automation &mdash; every
+                Integrated SEO, paid media, and automation - every
                 channel optimized for patient acquisition and retention.
               </p>
               <Link
-                to="/about"
+                to="/healthcare-growth-engine"
                 className="ah-feature-arrow"
-                aria-label="Learn more about our growth engine"
+                aria-label="Learn more about the Healthcare Growth Engine"
               >
                 <ArrowIcon />
               </Link>
@@ -153,7 +153,7 @@ const AboutUs = () => {
           </div>
         </div>
 
-        {/* ROW 3 — Collaboration block */}
+        {/* ROW 3 - Collaboration block */}
         <div className="ah-collab">
           <div className="ah-collab-left">
             <h3 className="ah-collab-title">
@@ -162,7 +162,7 @@ const AboutUs = () => {
             <p className="ah-collab-text">
               We embed inside your team so strategy, execution, and reporting
               move as one. Every decision is grounded in patient data and
-              real revenue impact &mdash; not vanity metrics.
+              real revenue impact - not vanity metrics.
             </p>
             <div className="ah-pillars">
               <article className="ah-pillar">
@@ -198,7 +198,7 @@ const AboutUs = () => {
                   Collaboration is the Key of Success
                 </h4>
                 <p className="ah-float-quote-text">
-                  Embedded growth partners &mdash; not vendors.
+                  Embedded growth partners - not vendors.
                 </p>
               </div>
               <Link to="/about" className="ah-cta">

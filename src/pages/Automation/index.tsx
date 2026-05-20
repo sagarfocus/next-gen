@@ -17,11 +17,11 @@ const Automation = () => {
     <>
       <AutomationHero onBook={openBooking} />
       <WhatIsAutomation />
+      <UseCases />
       <SolutionsLibrary />
+      <HowItWorks />
       <ImpactBanner />
       <TemplatesSlider />
-      <UseCases />
-      <HowItWorks />
 
       <BookingModal open={bookingOpen} onClose={closeBooking} />
     </>

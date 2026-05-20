@@ -11,49 +11,49 @@ interface TrendCard {
 
 const CARDS: TrendCard[] = [
   {
-    to: '/blog/analytics',
+    to: '/healthcare-news/ai-imaging-diagnostic-errors',
     cat: 'Research',
     title: 'AI imaging tool cuts radiology errors 47%',
     meta: 'May 1, 2026 · 9 min',
   },
   {
-    to: '/blog/ai-chatbot',
+    to: '/healthcare-news/telemedicine-q1-record',
     cat: 'Telehealth',
     title: 'Mental-health visits hit a new Q1 record',
     meta: 'Apr 29 · 6 min',
   },
   {
-    to: '/medical-automation',
+    to: '/healthcare-news/voice-ai-front-desks',
     cat: 'Operations',
     title: 'Voice-AI front desks land in 38 hospitals',
     meta: 'Apr 28 · 5 min',
   },
   {
-    to: '/blog/reviews',
+    to: '/healthcare-news/patient-reviews-search-weight',
     cat: 'Marketing',
     title: 'Why patient reviews carry 3× more SEO weight',
     meta: 'Apr 27 · 7 min',
   },
   {
-    to: '/blog/hipaa-tracking',
+    to: '/healthcare-news/hipaa-pitfalls-2026',
     cat: 'Compliance',
     title: 'Five HIPAA pitfalls every marketer must know',
     meta: 'Apr 25 · 9 min',
   },
   {
-    to: '/automation',
+    to: '/healthcare-news/ehr-sms-no-show-reduction',
     cat: 'Automation',
     title: 'EHR-connected SMS cut no-shows by 40%',
     meta: 'Apr 24 · 5 min',
   },
   {
-    to: '/case-studies/urgent-care-patient-acquisition',
+    to: '/healthcare-news/texas-clinic-n8n-workflows',
     cat: 'Case Study',
     title: 'Texas clinic reclaims 18 hrs a week with N8N',
     meta: 'Apr 22 · 7 min',
   },
   {
-    to: '/blog/ads-cost',
+    to: '/healthcare-news/medspa-roas-2026',
     cat: 'Paid Ads',
     title: 'What healthy ROAS looks like for med-spas',
     meta: 'Apr 20 · 6 min',

@@ -118,7 +118,7 @@ const Terms = () => (
     contact={{ email: 'hello@thenextgenhealth.com' }}
     sections={SECTIONS}
     breadcrumb="Terms"
-    metaDescription="Terms of Use for TheNextGen Healthcare Marketing — site content, acceptable use, engagements, disclaimers, and governing law."
+    metaDescription="Terms of Use for TheNextGen Healthcare Marketing - site content, acceptable use, engagements, disclaimers, and governing law."
     canonicalPath="/terms"
   />
 );

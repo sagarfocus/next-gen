@@ -20,9 +20,9 @@ export interface VignetteMetric {
 /**
  * Three discrete Swiss-design variants for per-service "Scenario" sections.
  *
- *   timeline   — vertical ramp (Day 0 → Day 30 → Day 90 etc.)
- *   comparison — left/right table contrasting status quo with engagement
- *   sketch     — neutral third-person scenario sketch (no attribution, no quote)
+ *   timeline   - vertical ramp (Day 0 → Day 30 → Day 90 etc.)
+ *   comparison - left/right table contrasting status quo with engagement
+ *   sketch     - neutral third-person scenario sketch (no attribution, no quote)
  *
  * Important: this component must never render fabricated client quotes or
  * proof attributions. Use the `sketch` variant for descriptive scenarios.
@@ -36,11 +36,11 @@ interface ServiceScenarioProps {
   timeline?: TimelineRow[];
   comparison?: ComparisonRow[];
   sketch?: {
-    /** Third-person scenario sketch — no quotes, no attribution. */
+    /** Third-person scenario sketch - no quotes, no attribution. */
     narrative: string;
     /** Neutral context label (e.g. "Typical multi-location engagement"). */
     contextLabel: string;
-    /** Benchmark tiles — frame as ranges or targets, not client outcomes. */
+    /** Benchmark tiles - frame as ranges or targets, not client outcomes. */
     benchmarks: VignetteMetric[];
   };
 }
@@ -65,7 +65,7 @@ const ServiceScenario = ({
         <div className="sv-sec-head">
           <div>
             <div className="sv-sec-num">
-              {sectionNum} &mdash; {eyebrow}
+              {sectionNum} - {eyebrow}
             </div>
             <h2 id="sv-scenario-title" className="sv-sec-title">
               {title}

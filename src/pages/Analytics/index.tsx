@@ -54,7 +54,7 @@ const ChartIcon = () => (
 
 const DO_CARDS: DoCard[] = [
   { name: 'Dashboard Setup', desc: 'Live dashboards pulling from Ads, GA4, GBP, CRM, and your booking system.', icon: <PinIcon /> },
-  { name: 'Conversion Tracking', desc: 'Phone, form, booking, revenue — every patient action attributed end-to-end.', icon: <LinkIcon /> },
+  { name: 'Conversion Tracking', desc: 'Phone, form, booking, revenue - every patient action attributed end-to-end.', icon: <LinkIcon /> },
   { name: 'Funnel Analysis', desc: 'Where patients drop off, which channels convert, what to fix next.', icon: <FileIcon /> },
   { name: 'Reporting', desc: 'Weekly Loom walkthroughs, monthly written report, quarterly strategy retros.', icon: <NetworkIcon /> },
   { name: 'Predictive Analytics', desc: 'Forecast next-quarter bookings and revenue from current pipeline.', icon: <StarIcon /> },
@@ -122,7 +122,7 @@ const COMPARISON: ComparisonRow[] = [
   },
   {
     label: 'Attribution model',
-    before: 'Last-click only — paid steals credit from SEO.',
+    before: 'Last-click only - paid steals credit from SEO.',
     after: 'Multi-touch, with assisted conversions weighted to channel.',
   },
   {
@@ -197,7 +197,7 @@ const Analytics = () => {
         variant="comparison"
         eyebrow="What changes the day you switch"
         title="From three half-truths to one number you can defend."
-        intro="The biggest analytics win is not a new chart — it is the moment leadership trusts the same number. Here is the gap most clinics close in 30 days."
+        intro="The biggest analytics win is not a new chart - it is the moment leadership trusts the same number. Here is the gap most clinics close in 30 days."
         comparison={COMPARISON}
       />
       <ServiceFAQ
@@ -210,7 +210,7 @@ const Analytics = () => {
         variant="band"
         eyebrow="Dashboard audit · No commitment"
         title="Stop trusting three different totals."
-        description="Send us your current stack and we will map the gaps inside one working session — no slide deck, no pitch."
+        description="Send us your current stack and we will map the gaps inside one working session - no slide deck, no pitch."
         primaryTo="/free-growth-audit"
         primaryLabel="Request audit"
       />

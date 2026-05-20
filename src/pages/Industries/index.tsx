@@ -38,8 +38,8 @@ const Industries = () => {
     <>
       <IndustriesHero onBook={openBooking} />
       <IndustriesOverview />
-      <IndustryDeepDive />
       <AllIndustries />
+      <IndustryDeepDive />
       <IndustriesFAQ onBook={openBooking} />
 
       <BookingModal open={bookingOpen} onClose={closeBooking} />

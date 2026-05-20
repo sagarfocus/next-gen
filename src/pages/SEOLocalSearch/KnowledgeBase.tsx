@@ -4,7 +4,7 @@ const KnowledgeBase = () => {
       <div className="container-shell">
         <div className="sl-sec-head">
           <div>
-            <div className="sl-sec-num">01 — Knowledge base</div>
+            <div className="sl-sec-num">01 - Knowledge base</div>
             <h2 className="sl-sec-title">
               What &ldquo;local search&rdquo; <em>really</em> is.
             </h2>
@@ -27,7 +27,7 @@ const KnowledgeBase = () => {
               Most clinic patients click in the Map Pack. To rank there,
               Google measures three things:{' '}
               <strong>relevance, distance, and prominence.</strong> Our job is
-              to engineer all three &mdash; without breaking HIPAA.
+              to engineer all three - without breaking HIPAA.
             </p>
             <p>
               Showing up everywhere else (regular results, condition-specific

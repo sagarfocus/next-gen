@@ -26,7 +26,7 @@ const AutomationHero = ({ onBook }: AutomationHeroProps) => {
             <p className="au-lede">
               Save your front desk 20+ hours a week. Drop in battle-tested
               workflows for patient intake, reminders, reviews, insurance
-              verification, and AI chat &mdash; HIPAA-aware, free, and live in
+              verification, and AI chat - HIPAA-aware, free, and live in
               your clinic in under an hour.
             </p>
 

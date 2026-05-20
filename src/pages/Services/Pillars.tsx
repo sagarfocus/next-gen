@@ -114,7 +114,7 @@ export const CUSTOM_SOFTWARE_PANES: PillarPane[] = [
     listSub: 'Secure portals for intake, records, and telehealth.',
     detailTitle: 'Custom Patient Portals',
     detailText:
-      'Secure, branded portals built around your clinical workflows — intake, records access, prescription requests, and telehealth all in one place. Designed to reduce front-desk load while improving patient experience.',
+      'Secure, branded portals built around your clinical workflows - intake, records access, prescription requests, and telehealth all in one place. Designed to reduce front-desk load while improving patient experience.',
     bullets: [
       <>
         <strong>HIPAA-aware</strong> data handling and BAA-ready hosting
@@ -129,7 +129,7 @@ export const CUSTOM_SOFTWARE_PANES: PillarPane[] = [
         <strong>Records &amp; results</strong> accessible on any device
       </>,
     ],
-    foot: 'Build — Week 4–8',
+    foot: 'Build - Week 4–8',
   },
   {
     id: 'p1-2',
@@ -154,7 +154,7 @@ export const CUSTOM_SOFTWARE_PANES: PillarPane[] = [
         <strong>Webhook orchestration</strong> with retry &amp; observability
       </>,
     ],
-    foot: 'Integration — Week 6–12',
+    foot: 'Integration - Week 6–12',
   },
 ];
 
@@ -167,7 +167,7 @@ export const AUTOMATION_PANES: PillarPane[] = [
     listSub: 'Secure, conversational intake that verifies insurance and obtains consent.',
     detailTitle: 'AI Intake Automation',
     detailText:
-      'Conversational intake that handles new-patient onboarding 24/7 — verifies insurance eligibility in real time, obtains digital consent, and routes complete records to your EHR before the appointment.',
+      'Conversational intake that handles new-patient onboarding 24/7 - verifies insurance eligibility in real time, obtains digital consent, and routes complete records to your EHR before the appointment.',
     bullets: [
       <>
         <strong>Real-time eligibility</strong> checks against major payers
@@ -179,10 +179,10 @@ export const AUTOMATION_PANES: PillarPane[] = [
         <strong>Multi-language</strong> support for diverse patient bases
       </>,
       <>
-        <strong>EHR sync</strong> — intake lands in the chart, not a PDF
+        <strong>EHR sync</strong> - intake lands in the chart, not a PDF
       </>,
     ],
-    foot: 'Live — Day 14–21',
+    foot: 'Live - Day 14–21',
   },
   {
     id: 'p2-2',
@@ -192,7 +192,7 @@ export const AUTOMATION_PANES: PillarPane[] = [
     listSub: 'Real-time availability and reminders to reduce no-shows.',
     detailTitle: 'Automated Scheduling',
     detailText:
-      'Real-time availability surfaces directly on your site, ad landing pages, and Google Business Profile. Smart reminders — SMS, email, and voice — cut no-show rates dramatically without adding staff.',
+      'Real-time availability surfaces directly on your site, ad landing pages, and Google Business Profile. Smart reminders - SMS, email, and voice - cut no-show rates dramatically without adding staff.',
     bullets: [
       <>
         <strong>Real-time slots</strong> synced to provider calendars
@@ -207,6 +207,6 @@ export const AUTOMATION_PANES: PillarPane[] = [
         <strong>No-show prediction</strong> flags high-risk appointments
       </>,
     ],
-    foot: 'Live — Day 7–14',
+    foot: 'Live - Day 7–14',
   },
 ];

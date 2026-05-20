@@ -48,7 +48,7 @@ const ProblemOutcome = ({ pains, outcomes }: ProblemOutcomeProps) => {
     <section className="sv-section sv-po">
       <div className="container-shell">
         <SectionHead
-          num="01 — Problem → Outcome"
+          num="01 - Problem → Outcome"
           title={
             <>
               From <em>stuck</em> to scaling.

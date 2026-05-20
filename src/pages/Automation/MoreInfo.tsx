@@ -11,7 +11,7 @@ const buildWalkthroughMailto = (form: HTMLFormElement) => {
   const task = String(data.get('task') ?? '').trim();
   const message = String(data.get('message') ?? '').trim();
 
-  const subject = `Automation walkthrough request${clinic ? ` — ${clinic}` : ''}`;
+  const subject = `Automation walkthrough request${clinic ? ` - ${clinic}` : ''}`;
   const body = [
     name ? `Name: ${name}` : null,
     email ? `Email: ${email}` : null,
@@ -30,7 +30,7 @@ const PILLARS = [
   {
     num: '01',
     title: 'Workflow first',
-    desc: 'Every automation maps a real clinical workflow — intake, follow-up, reminders, billing — not a generic SaaS use case.',
+    desc: 'Every automation maps a real clinical workflow - intake, follow-up, reminders, billing - not a generic SaaS use case.',
   },
   {
     num: '02',
@@ -57,7 +57,7 @@ const SOLUTIONS = [
   {
     tag: 'Front Desk',
     title: 'Patient intake & verification',
-    desc: 'Forms, insurance capture, eligibility checks, and chart prep — all complete before the patient walks in.',
+    desc: 'Forms, insurance capture, eligibility checks, and chart prep - all complete before the patient walks in.',
     to: '/medical-automation',
   },
   {
@@ -83,7 +83,7 @@ const STEPS = [
   {
     num: '02',
     title: 'Build',
-    desc: 'We configure templates inside your stack — EHR, PM, calendar, messaging.',
+    desc: 'We configure templates inside your stack - EHR, PM, calendar, messaging.',
   },
   {
     num: '03',
@@ -149,7 +149,7 @@ const MoreInfo = () => {
               <p className="amih-lede">
                 A practitioner&rsquo;s guide to deploying patient-facing
                 automation without breaking compliance, scope, or your front
-                desk&rsquo;s sanity &mdash; written by the team behind 200+
+                desk&rsquo;s sanity - written by the team behind 200+
                 live clinical workflows.
               </p>
               <div className="amih-hero-cta">
@@ -216,11 +216,11 @@ const MoreInfo = () => {
             <div className="amih-about-copy">
               <span className="amih-section-label">/ 02 &nbsp; What you get</span>
               <h2 id="amih-about-title" className="amih-h2">
-                Built for clinics that move fast — without breaking what works.
+                Built for clinics that move fast - without breaking what works.
               </h2>
               <p className="amih-about-lede">
                 Every automation we ship sits on top of your existing PM, EHR,
-                and calendar — never in place of them. Same data of record,
+                and calendar - never in place of them. Same data of record,
                 same vendors, far less manual work.
               </p>
               <ul className="amih-check-list">
@@ -313,7 +313,7 @@ const MoreInfo = () => {
                 live in your stack.
               </p>
               <ul className="amih-cta-list">
-                <li>No deck, no pitch — just a working session.</li>
+                <li>No deck, no pitch - just a working session.</li>
                 <li>Includes a one-page summary you can share internally.</li>
                 <li>Free, even if you decide not to work with us.</li>
               </ul>

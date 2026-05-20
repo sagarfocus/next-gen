@@ -141,7 +141,7 @@ const CaseStudiesCarousel = () => {
           </div>
           <p className="cs-sub">
             Six recent engagements across primary care, specialty, and urgent
-            care. Tap into any card for the full breakdown &mdash; or swipe
+            care. Tap into any card for the full breakdown - or swipe
             through with the controls below.
           </p>
         </div>

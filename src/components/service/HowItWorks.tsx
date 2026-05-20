@@ -22,7 +22,7 @@ const HowItWorks = ({ steps, durations }: HowItWorksProps) => {
     <section className="sv-section sv-how" id="how">
       <div className="container-shell">
         <SectionHead
-          num="02 — How it works"
+          num="02 - How it works"
           title={
             <>
               Four phases. <em>Sixty days.</em>

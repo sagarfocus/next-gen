@@ -53,11 +53,11 @@ const ChartIcon = () => (
 );
 
 const DO_CARDS: DoCard[] = [
-  { name: 'Visual Identity', desc: 'Logo, color, type — built around how patients should feel in the waiting room.', icon: <PinIcon /> },
-  { name: 'Messaging', desc: 'Voice, tone, taglines — clinically honest, warmly human.', icon: <LinkIcon /> },
+  { name: 'Visual Identity', desc: 'Logo, color, type - built around how patients should feel in the waiting room.', icon: <PinIcon /> },
+  { name: 'Messaging', desc: 'Voice, tone, taglines - clinically honest, warmly human.', icon: <LinkIcon /> },
   { name: 'Positioning', desc: "What you stand for, who you're not, why you're different.", icon: <FileIcon /> },
-  { name: 'Brand System', desc: 'Tokens, components, rules — applied across web, print, social, and clinic.', icon: <NetworkIcon /> },
-  { name: 'Patient Experience', desc: 'Signage, intake forms, post-visit touchpoints — branded end-to-end.', icon: <StarIcon /> },
+  { name: 'Brand System', desc: 'Tokens, components, rules - applied across web, print, social, and clinic.', icon: <NetworkIcon /> },
+  { name: 'Patient Experience', desc: 'Signage, intake forms, post-visit touchpoints - branded end-to-end.', icon: <StarIcon /> },
   { name: 'Brand Guidelines', desc: 'Documented system your team can apply without us in the room.', icon: <ChartIcon /> },
 ];
 
@@ -124,7 +124,7 @@ const BENCHMARKS: BenchmarkTile[] = [
 const FAQS: ServiceFAQItem[] = [
   {
     q: 'Will a rebrand actually move bookings, or just look prettier?',
-    a: 'A rebrand alone won’t move bookings. A rebrand paired with a redesigned site, ad creative, and review flow does — because patient trust signals get re-tuned across every touchpoint at once. We sequence the work so the lift is measurable.',
+    a: 'A rebrand alone won’t move bookings. A rebrand paired with a redesigned site, ad creative, and review flow does - because patient trust signals get re-tuned across every touchpoint at once. We sequence the work so the lift is measurable.',
   },
   {
     q: 'How disruptive is this for a multi-location practice?',
@@ -132,11 +132,11 @@ const FAQS: ServiceFAQItem[] = [
   },
   {
     q: 'Can you keep our existing name?',
-    a: 'Most engagements keep the name and refresh the system — mark, color, type, tone, photography. Full renames are rare and we’ll talk you out of one unless legal or M&A forces it.',
+    a: 'Most engagements keep the name and refresh the system - mark, color, type, tone, photography. Full renames are rare and we’ll talk you out of one unless legal or M&A forces it.',
   },
   {
     q: 'What deliverables do we own at the end?',
-    a: 'Source files in Figma and Illustrator, a guideline PDF, a templated asset library, and the master logo lockups. You keep editing rights — no platform lock-in.',
+    a: 'Source files in Figma and Illustrator, a guideline PDF, a templated asset library, and the master logo lockups. You keep editing rights - no platform lock-in.',
   },
   {
     q: 'How is this different from a freelance designer?',
@@ -175,12 +175,12 @@ const Branding = () => {
       <ServiceScenario
         variant="sketch"
         eyebrow="How an engagement runs"
-        title="What a rebrand actually moves — without the slide-deck claims."
+        title="What a rebrand actually moves - without the slide-deck claims."
         intro="A rebrand only earns its keep when it makes the rest of the marketing system faster to ship. Below is a neutral sketch of how we sequence the work, and the targets we plan against."
         sketch={{
           contextLabel: 'Typical multi-location engagement',
           narrative:
-            'We start with the patient-facing pages because that is where the system is graded first. Logo, palette, and type get tested against live landing pages — not on a moodboard. By the time signage and printables ship, the digital surface has already been pressure-tested across paid creative and the booking flow.',
+            'We start with the patient-facing pages because that is where the system is graded first. Logo, palette, and type get tested against live landing pages - not on a moodboard. By the time signage and printables ship, the digital surface has already been pressure-tested across paid creative and the booking flow.',
           benchmarks: BENCHMARKS,
         }}
       />
@@ -194,7 +194,7 @@ const Branding = () => {
         variant="band"
         eyebrow="Brand-system intro call"
         title="Pressure-test your identity in 30 minutes."
-        description="We look at your live touchpoints together — site, ads, social, signage — and tell you whether you need a refresh, a rebuild, or just a template kit."
+        description="We look at your live touchpoints together - site, ads, social, signage - and tell you whether you need a refresh, a rebuild, or just a template kit."
         primaryTo="/contact"
         primaryLabel="Start the conversation"
       />
