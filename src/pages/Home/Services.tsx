@@ -183,33 +183,33 @@ const Services = () => {
       <div className="container-shell">
         <div className="services-head">
           <span className="services-eyebrow">Services</span>
-          <div className="services-text">
-            <h2 id="services-title" className="services-h2">
-              Marketing built for healthcare practices.
-            </h2>
+          <h2 id="services-title" className="services-h2">
+            Marketing built for healthcare practices.
+          </h2>
+          <div className="services-aside">
+            <Link to="/services" className="all-link">
+              View all services
+              <span className="ico" aria-hidden="true">
+                <svg
+                  width={14}
+                  height={14}
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth={2.2}
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <line x1="7" y1="17" x2="17" y2="7" />
+                  <polyline points="7 7 17 7 17 17" />
+                </svg>
+              </span>
+            </Link>
             <p className="services-sub">
               Six core capabilities - one integrated growth engine for
               clinics, medspas, and wellness brands.
             </p>
           </div>
-          <Link to="/services" className="all-link">
-            View all services
-            <span className="ico" aria-hidden="true">
-              <svg
-                width={14}
-                height={14}
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth={2.2}
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <line x1="7" y1="17" x2="17" y2="7" />
-                <polyline points="7 7 17 7 17 17" />
-              </svg>
-            </span>
-          </Link>
         </div>
 
         <div className="services-track-wrap">

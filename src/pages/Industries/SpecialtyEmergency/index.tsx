@@ -2,6 +2,8 @@ import IndustryHero from '../../../components/industry/IndustryHero';
 import Specialties from '../../../components/industry/Specialties';
 import Playbook from '../../../components/industry/Playbook';
 import Numbers from '../../../components/industry/Numbers';
+import IndustryPrinciples from '../../../components/industry/IndustryPrinciples';
+import IndustrySnapshots from '../../../components/industry/IndustrySnapshots';
 import IndustryCTA from '../../../components/industry/IndustryCTA';
 import ServiceFAQ from '../../../components/service/ServiceFAQ';
 import RelatedServices from '../../../components/service/RelatedServices';
@@ -9,8 +11,14 @@ import type { QuickStat } from '../../../components/industry/IndustryHero';
 import type { SpecialtyRow } from '../../../components/industry/Specialties';
 import type { PlayStep } from '../../../components/industry/Playbook';
 import type { BigNumber } from '../../../components/industry/Numbers';
+import type { Principle } from '../../../components/industry/IndustryPrinciples';
+import type { Snapshot } from '../../../components/industry/IndustrySnapshots';
 import type { ServiceFAQItem } from '../../../components/service/ServiceFAQ';
 import type { RelatedServiceLink } from '../../../components/service/RelatedServices';
+import emergencyHero from '../../../assets/er.png';
+import snapUrgent from '../../../assets/urgentcare.png';
+import snapFreestanding from '../../../assets/freestanding er.png';
+import snapSpecialty from '../../../assets/opthalmology.png';
 
 const ORIGIN =
   typeof window !== 'undefined' ? window.location.origin : 'https://thenextgenhealth.com';
@@ -70,52 +78,7 @@ const RELATED: RelatedServiceLink[] = [
 ];
 
 const Illustration = (
-  <svg viewBox="0 0 600 750" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-    <defs>
-      <linearGradient id="spBg" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0%" stopColor="#3F4F66" />
-        <stop offset="60%" stopColor="#2D3748" />
-        <stop offset="100%" stopColor="#1F2837" />
-      </linearGradient>
-      <radialGradient id="spHalo" cx="50%" cy="40%" r="60%">
-        <stop offset="0%" stopColor="#576DB5" stopOpacity=".30" />
-        <stop offset="100%" stopColor="#576DB5" stopOpacity="0" />
-      </radialGradient>
-    </defs>
-    <rect width="600" height="750" fill="url(#spBg)" />
-    <rect width="600" height="750" fill="url(#spHalo)" />
-    <g stroke="rgba(255,255,255,.05)" strokeWidth="1">
-      <line x1="0" y1="180" x2="600" y2="180" />
-      <line x1="0" y1="380" x2="600" y2="380" />
-      <line x1="0" y1="580" x2="600" y2="580" />
-      <line x1="200" y1="0" x2="200" y2="750" />
-      <line x1="400" y1="0" x2="400" y2="750" />
-    </g>
-    <path
-      d="M 20 380 L 100 380 L 130 380 L 150 320 L 175 440 L 200 280 L 220 380 L 280 380 L 310 380 L 330 330 L 355 430 L 380 380 L 580 380"
-      fill="none"
-      stroke="#576DB5"
-      strokeWidth="2.4"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-    <g transform="translate(300, 540)">
-      <circle r="55" fill="none" stroke="#fff" strokeOpacity=".4" strokeWidth="2" />
-      <circle r="80" fill="none" stroke="#576DB5" strokeWidth="2" strokeDasharray="3 5" />
-      <circle r="22" fill="rgba(255,255,255,.18)" stroke="#fff" strokeWidth="1.5" />
-      <circle r="6" fill="#fff" />
-      <path d="M -50 -30 Q -100 -120 -150 -160" fill="none" stroke="rgba(255,255,255,.5)" strokeWidth="1.5" strokeLinecap="round" />
-      <path d="M 50 -30 Q 100 -120 150 -160" fill="none" stroke="rgba(255,255,255,.5)" strokeWidth="1.5" strokeLinecap="round" />
-      <circle cx="-150" cy="-160" r="6" fill="#B38B6D" />
-      <circle cx="150" cy="-160" r="6" fill="#B38B6D" />
-    </g>
-    <g fill="#576DB5" opacity=".7">
-      <path d="M50 80 h10 v3 h-10 z M54 76 h2 v11 h-2 z" />
-      <path d="M540 220 h10 v3 h-10 z M544 216 h2 v11 h-2 z" />
-      <path d="M30 620 h10 v3 h-10 z M34 616 h2 v11 h-2 z" />
-    </g>
-    <text x="36" y="36" fontFamily="Plus Jakarta Sans, sans-serif" fontSize="10" fontWeight="700" fill="rgba(255,255,255,.55)" letterSpacing="3">FIG. C · ACUITY</text>
-  </svg>
+  <img src={emergencyHero} alt="Emergency room interior" loading="eager" decoding="async" />
 );
 
 const QUICK_STATS: QuickStat[] = [
@@ -138,6 +101,42 @@ const STEPS: PlayStep[] = [
   { name: 'Compliance framework', body: 'HIPAA-safe tracking, ad-copy review, and consent flows shipped before anything goes live.' },
   { name: 'Visibility & capture', body: 'Local Pack dominance, ER landing pages, and specialty SEO running across the catchment area.' },
   { name: 'Optimization & governance', body: 'Weekly bid tuning, monthly retro, quarterly clinical-governance review.' },
+];
+
+const SNAPSHOTS: Snapshot[] = [
+  {
+    image: snapUrgent,
+    label: 'Wait-time pages',
+    caption: 'Real-time wait calls, geo-routing, and single-tap navigation that consistently outperform generic location pages.',
+  },
+  {
+    image: snapFreestanding,
+    label: 'Freestanding ER launches',
+    caption: 'Six-week launch sequence - GBP, schema, paid, wait-time page, and review pipeline ready for opening day.',
+  },
+  {
+    image: snapSpecialty,
+    label: 'Specialty deep-dives',
+    caption: 'Condition-plus-symptom long-tail SEO and EmergencyMedicalService schema the hospital can\'t outbid.',
+  },
+];
+
+const PRINCIPLES: Principle[] = [
+  {
+    title: 'Compliance-first launches',
+    body: 'HIPAA review, server-side conversions, and BAA-covered tooling go in before a single paid dollar ships. Compliance is the gate every campaign passes through, not a cleanup pass.',
+    accent: '#576DB5',
+  },
+  {
+    title: 'Acuity-aware audiences',
+    body: 'We compete on condition-plus-symptom long-tail searches the hospital can\'t outbid - and tune creative for the moment a patient is choosing where to go right now.',
+    accent: '#B38B6D',
+  },
+  {
+    title: 'Wait-time as conversion engine',
+    body: 'Real-time wait pages, geo-routing to the nearest location, and single-tap navigation outperform generic location pages on booking rate every audit we\'ve run.',
+    accent: '#8FBC8F',
+  },
 ];
 
 const STATS: BigNumber[] = [
@@ -166,8 +165,19 @@ const SpecialtyEmergency = () => {
         quickStats={QUICK_STATS}
       />
       <Specialties rows={SPECIALTIES} />
+      <IndustrySnapshots
+        items={SNAPSHOTS}
+        eyebrow="In practice"
+        title={<>The high-acuity stack, <em>in real deployment.</em></>}
+      />
       <Playbook steps={STEPS} />
       <Numbers stats={STATS} />
+      <IndustryPrinciples
+        items={PRINCIPLES}
+        sectionNum="04"
+        title={<>How we work for <em>high-acuity care.</em></>}
+        intro="Three operating principles that make the difference between high-acuity marketing that scales and high-acuity marketing that gets pulled offline."
+      />
       <ServiceFAQ
         items={FAQS}
         serviceName="Specialty & Emergency Care - Marketing"

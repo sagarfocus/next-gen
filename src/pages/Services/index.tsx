@@ -2,11 +2,10 @@ import { useState } from 'react';
 import ServicesHero from './ServicesHero';
 import WhoWeServe from './WhoWeServe';
 import ServicesList from './ServicesList';
+import Process from './Process';
 import TrustInfrastructure from './TrustInfrastructure';
 import Pillars, { CUSTOM_SOFTWARE_PANES, AUTOMATION_PANES } from './Pillars';
 import FeaturePair from './FeaturePair';
-import Process from './Process';
-import Testimonials from './Testimonials';
 import ServicesFAQ from './ServicesFAQ';
 import CTABanner from './CTABanner';
 import BookingModal from '../../components/BookingModal';
@@ -21,6 +20,7 @@ const Services = () => {
       <ServicesHero />
       <WhoWeServe />
       <ServicesList />
+      <Process />
       <TrustInfrastructure />
       <Pillars
         id="custom-software"
@@ -39,8 +39,6 @@ const Services = () => {
         panes={AUTOMATION_PANES}
       />
       <FeaturePair />
-      <Process />
-      <Testimonials />
       <ServicesFAQ onBook={openBooking} />
       <CTABanner onBook={openBooking} />
 

@@ -243,12 +243,6 @@ const ServicesSpectrum = () => {
             </article>
           ))}
         </div>
-
-        <div className="ab-spec-closing">
-          We also provide offline channels including print design and field
-          marketing. Our proven results and detailed case studies show how this
-          integrated approach delivers measurable patient acquisition growth.
-        </div>
       </div>
     </section>
   );

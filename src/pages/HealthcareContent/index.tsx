@@ -1,5 +1,6 @@
-import { Link } from 'react-router-dom';
 import Breadcrumb from '../../components/Breadcrumb';
+import Section from '../../components/editorial/Section';
+import EditorialCTA from '../../components/editorial/EditorialCTA';
 
 const HEAD_META = [
   { label: 'Format',     value: 'Editorial, evidence-led' },
@@ -43,24 +44,6 @@ const PROCESS = [
   { k: 'Review',  d: 'Clinician review with redlines. Citations added. Schema attached. Edit cycle is 48 hours.' },
   { k: 'Publish', d: 'Pre-launch QA, indexing checks, internal linking, and a 30-day performance retrospective.' },
 ];
-
-const Section = ({ no, title, kicker, children }: { no: string; title: string; kicker?: string; children: React.ReactNode }) => (
-  <section className="border-t border-line-faint">
-    <div className="container-shell py-[clamp(56px,8vw,112px)]">
-      <div className="grid lg:grid-cols-12 gap-x-12 gap-y-10">
-        <div className="lg:col-span-3">
-          <div className="flex items-baseline gap-3">
-            <span className="text-line font-mono text-[13px] tracking-[0.18em]">{no}</span>
-            <span className="h-px flex-1 bg-line-soft" />
-          </div>
-          <h2 className="mt-4 text-heading text-[clamp(22px,2vw,30px)] font-bold tracking-[-0.02em] leading-[1.1]">{title}</h2>
-          {kicker && <p className="mt-3 text-muted text-[14px] leading-[1.55] max-w-[34ch]">{kicker}</p>}
-        </div>
-        <div className="lg:col-span-9">{children}</div>
-      </div>
-    </div>
-  </section>
-);
 
 const Hero = () => (
   <section className="ph-page-head">
@@ -156,26 +139,15 @@ const Process = () => (
 
 const Closing = () => (
   <Section no="04" title="Start with the editorial brief" kicker="A working session, a content audit, and a 6-month editorial map. Fixed-fee.">
-    <div className="bg-bg-soft p-10 sm:p-14 border-t-4 border-line">
-      <div className="grid lg:grid-cols-12 gap-10 items-end">
-        <div className="lg:col-span-8">
-          <div className="font-mono text-[12px] tracking-[0.2em] text-line uppercase">The Brief</div>
-          <h3 className="mt-5 text-heading text-[clamp(30px,3.5vw,46px)] font-extrabold leading-[1.05] tracking-[-0.026em] max-w-[20ch]">
-            We do not pitch content. We build it.
-          </h3>
-          <p className="mt-5 text-body text-[16px] leading-[1.65] max-w-[56ch]">
-            Before any content goes live, we run a working session with your clinical lead and
-            return a 6-month editorial map. If we are not the right fit, you keep the map.
-          </p>
-        </div>
-        <div className="lg:col-span-4 flex flex-col gap-3 lg:items-end">
-          <Link to="/contact" className="btn-primary">Book the brief →</Link>
-          <Link to="/case-studies" className="text-heading text-[14px] font-medium underline-offset-4 hover:underline">
-            See content case studies
-          </Link>
-        </div>
-      </div>
-    </div>
+    <EditorialCTA
+      eyebrow="The Brief"
+      title="We do not pitch content. We build it."
+      description="Before any content goes live, we run a working session with your clinical lead and return a 6-month editorial map. If we are not the right fit, you keep the map."
+      primaryHref="/contact"
+      primaryLabel="Book the brief →"
+      secondaryHref="/case-studies"
+      secondaryLabel="See content case studies"
+    />
   </Section>
 );
 

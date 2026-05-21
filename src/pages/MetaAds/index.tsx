@@ -1,5 +1,6 @@
-import { Link } from 'react-router-dom';
 import Breadcrumb from '../../components/Breadcrumb';
+import Section from '../../components/editorial/Section';
+import EditorialCTA from '../../components/editorial/EditorialCTA';
 
 const HEAD_META = [
   { label: 'Platforms',  value: 'IG · FB · WhatsApp' },
@@ -30,24 +31,6 @@ const RESULTS = [
   { k: 'ROAS',     v: '4.6×',  desc: 'Tracked return on Meta spend in aesthetic and dental verticals.' },
   { k: 'Quality',  v: '+62%',  desc: 'Improvement in lead-to-booked rate after pre-qualifying filters.' },
 ];
-
-const Section = ({ no, title, kicker, children }: { no: string; title: string; kicker?: string; children: React.ReactNode }) => (
-  <section className="border-t border-line-faint">
-    <div className="container-shell py-[clamp(56px,8vw,112px)]">
-      <div className="grid lg:grid-cols-12 gap-x-12 gap-y-10">
-        <div className="lg:col-span-3">
-          <div className="flex items-baseline gap-3">
-            <span className="text-line font-mono text-[13px] tracking-[0.18em]">{no}</span>
-            <span className="h-px flex-1 bg-line-soft" />
-          </div>
-          <h2 className="mt-4 text-heading text-[clamp(22px,2vw,30px)] font-bold tracking-[-0.02em] leading-[1.1]">{title}</h2>
-          {kicker && <p className="mt-3 text-muted text-[14px] leading-[1.55] max-w-[34ch]">{kicker}</p>}
-        </div>
-        <div className="lg:col-span-9">{children}</div>
-      </div>
-    </div>
-  </section>
-);
 
 const Hero = () => (
   <section className="ph-page-head">
@@ -141,29 +124,15 @@ const Results = () => (
 
 const Closing = () => (
   <Section no="04" title="Audit your Meta account" kicker="A two-week fixed-fee audit with a no-pitch readout. Whatever the verdict, you keep the audit.">
-    <div className="bg-cta text-white p-10 sm:p-14 relative overflow-hidden">
-      <div className="absolute -right-16 -top-16 w-72 h-72 rounded-full bg-white/10" />
-      <div className="absolute right-8 top-8 font-mono text-[11px] tracking-[0.22em] text-white/70">
-        META · CAPI · 2026
-      </div>
-      <div className="relative">
-        <h3 className="text-[clamp(32px,4vw,52px)] font-extrabold leading-[1.02] tracking-[-0.028em] max-w-[20ch]">
-          We audit before we sell.
-        </h3>
-        <p className="mt-6 text-white/85 text-[16px] leading-[1.65] max-w-[58ch]">
-          Plug us in for two weeks. We deliver a forensic look at your spend, creative,
-          audiences, and event quality. We will tell you if the answer is &ldquo;keep it in house.&rdquo;
-        </p>
-        <div className="mt-10 flex flex-wrap items-center gap-5">
-          <Link to="/contact" className="inline-flex items-center gap-2 px-5 py-3 rounded-[10px] bg-white text-cta font-semibold text-sm shadow-sm hover:bg-bg transition">
-            Start the audit →
-          </Link>
-          <Link to="/case-studies" className="text-white/85 text-[14px] font-medium underline-offset-4 hover:underline">
-            See Meta case studies
-          </Link>
-        </div>
-      </div>
-    </div>
+    <EditorialCTA
+      eyebrow="Meta · CAPI · 2026"
+      title="We audit before we sell."
+      description="Plug us in for two weeks. We deliver a forensic look at your spend, creative, audiences, and event quality. We will tell you if the answer is keep it in house."
+      primaryHref="/contact"
+      primaryLabel="Start the audit →"
+      secondaryHref="/case-studies"
+      secondaryLabel="See Meta case studies"
+    />
   </Section>
 );
 

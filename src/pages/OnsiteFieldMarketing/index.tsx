@@ -1,5 +1,6 @@
-import { Link } from 'react-router-dom';
 import Breadcrumb from '../../components/Breadcrumb';
+import Section from '../../components/editorial/Section';
+import EditorialCTA from '../../components/editorial/EditorialCTA';
 
 const HEAD_META = [
   { label: 'Channel',  value: 'In-person · Field' },
@@ -55,42 +56,6 @@ const PROCESS = [
   { k: 'Activate', d: 'Weekly cadence of events and visits across your metro. Live reporting from the field - every lead, every booked visit.' },
   { k: 'Compound', d: 'Quarterly review of channel ROAS. Cut the low performers, double the winners. The territory plan compounds month over month.' },
 ];
-
-const SectionHead = ({ no, title, kicker }: { no: string; title: string; kicker?: string }) => (
-  <div className="lg:col-span-3">
-    <div className="flex items-baseline gap-3">
-      <span className="text-line font-mono text-[13px] tracking-[0.18em]">{no}</span>
-      <span className="h-px flex-1 bg-line-soft" />
-    </div>
-    <h2 className="mt-4 text-heading text-[clamp(22px,2vw,30px)] font-bold tracking-[-0.02em] leading-[1.1]">
-      {title}
-    </h2>
-    {kicker && (
-      <p className="mt-3 text-muted text-[14px] leading-[1.55] max-w-[34ch]">{kicker}</p>
-    )}
-  </div>
-);
-
-const Section = ({
-  no,
-  title,
-  kicker,
-  children,
-}: {
-  no: string;
-  title: string;
-  kicker?: string;
-  children: React.ReactNode;
-}) => (
-  <section className="border-t border-line-faint">
-    <div className="container-shell py-[clamp(56px,8vw,112px)]">
-      <div className="grid lg:grid-cols-12 gap-x-12 gap-y-10">
-        <SectionHead no={no} title={title} kicker={kicker} />
-        <div className="lg:col-span-9">{children}</div>
-      </div>
-    </div>
-  </section>
-);
 
 const Hero = () => (
   <section className="ph-page-head">
@@ -254,30 +219,15 @@ const Closing = () => (
     title="Book a territory walk"
     kicker="One-hour working session. We map your service area, surface the highest-yield channels, and price a 90-day pilot."
   >
-    <div className="bg-heading text-white p-10 sm:p-14 relative overflow-hidden">
-      <div className="absolute left-0 bottom-0 w-full h-[5px] bg-gradient-to-r from-accent-soft via-line to-cta" />
-      <div className="font-mono text-[12px] tracking-[0.22em] text-line uppercase">
-        Territory Walk · No Cost
-      </div>
-      <h3 className="mt-5 text-[clamp(32px,4vw,52px)] font-extrabold leading-[1.02] tracking-[-0.028em] max-w-[22ch]">
-        Doors open faster when someone is there to open them.
-      </h3>
-      <p className="mt-6 text-white/75 text-[16px] leading-[1.6] max-w-[58ch]">
-        We will not staff a single booth without a territory plan and a defined ROAS target.
-        Book the walk, walk away with the plan - pilot only if the math holds up.
-      </p>
-      <div className="mt-10 flex flex-wrap items-center gap-5">
-        <Link to="/contact" className="btn-primary">
-          Book the walk →
-        </Link>
-        <Link
-          to="/case-studies"
-          className="text-white/85 text-[14px] font-medium underline-offset-4 hover:underline"
-        >
-          See field case studies
-        </Link>
-      </div>
-    </div>
+    <EditorialCTA
+      eyebrow="Territory Walk · No Cost"
+      title="Doors open faster when someone is there to open them."
+      description="We will not staff a single booth without a territory plan and a defined ROAS target. Book the walk, walk away with the plan - pilot only if the math holds up."
+      primaryHref="/contact"
+      primaryLabel="Book the walk →"
+      secondaryHref="/case-studies"
+      secondaryLabel="See field case studies"
+    />
   </Section>
 );
 

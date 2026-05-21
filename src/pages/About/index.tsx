@@ -2,6 +2,7 @@ import AboutHero from './AboutHero';
 import ServicesSpectrum from './ServicesSpectrum';
 import Genesis from './Genesis';
 import Mission from './Mission';
+import Methodology from './Methodology';
 import Infrastructure from './Infrastructure';
 import Team from './Team';
 import AboutFAQ from './AboutFAQ';
@@ -42,6 +43,7 @@ const About = () => {
       <Genesis />
       <Mission />
       <ServicesSpectrum />
+      <Methodology />
       <Infrastructure />
       <Team />
       <AboutFAQ />

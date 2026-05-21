@@ -1,6 +1,9 @@
 import Hero from './Hero';
+import Problem from './Problem';
 import Pillars from './Pillars';
 import Methodology from './Methodology';
+import Solution from './Solution';
+import Dealing from './Dealing';
 import Proof from './Proof';
 import CTA from './CTA';
 
@@ -25,8 +28,11 @@ const SEOLocalSearch = () => {
   return (
     <>
       <Hero />
+      <Problem />
       <Pillars />
       <Methodology />
+      <Solution />
+      <Dealing />
       <Proof />
       <CTA />
 

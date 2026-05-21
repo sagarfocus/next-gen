@@ -19,7 +19,7 @@ const Methodology = () => {
       <div className="container-shell">
         <div className="sl-sec-head">
           <div>
-            <div className="sl-sec-num">02 - Methodology</div>
+            <div className="sl-sec-num">03 - Methodology</div>
             <h2 className="sl-sec-title">
               Five phases over <em>60 days.</em>
             </h2>

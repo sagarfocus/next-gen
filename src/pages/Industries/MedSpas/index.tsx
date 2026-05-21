@@ -2,6 +2,8 @@ import IndustryHero from '../../../components/industry/IndustryHero';
 import Specialties from '../../../components/industry/Specialties';
 import Playbook from '../../../components/industry/Playbook';
 import Numbers from '../../../components/industry/Numbers';
+import IndustryPrinciples from '../../../components/industry/IndustryPrinciples';
+import IndustrySnapshots from '../../../components/industry/IndustrySnapshots';
 import IndustryCTA from '../../../components/industry/IndustryCTA';
 import ServiceFAQ from '../../../components/service/ServiceFAQ';
 import RelatedServices from '../../../components/service/RelatedServices';
@@ -9,8 +11,14 @@ import type { QuickStat } from '../../../components/industry/IndustryHero';
 import type { SpecialtyRow } from '../../../components/industry/Specialties';
 import type { PlayStep } from '../../../components/industry/Playbook';
 import type { BigNumber } from '../../../components/industry/Numbers';
+import type { Principle } from '../../../components/industry/IndustryPrinciples';
+import type { Snapshot } from '../../../components/industry/IndustrySnapshots';
 import type { ServiceFAQItem } from '../../../components/service/ServiceFAQ';
 import type { RelatedServiceLink } from '../../../components/service/RelatedServices';
+import medspasHero from '../../../assets/spamed.png';
+import snapMedspa from '../../../assets/Medspa.png';
+import snapAesthetic from '../../../assets/plasticsurgery.png';
+import snapDerm from '../../../assets/dermatology.png';
 
 const ORIGIN =
   typeof window !== 'undefined' ? window.location.origin : 'https://thenextgenhealth.com';
@@ -70,48 +78,7 @@ const RELATED: RelatedServiceLink[] = [
 ];
 
 const Illustration = (
-  <svg viewBox="0 0 600 750" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-    <defs>
-      <linearGradient id="msBg" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0%" stopColor="#B38B6D" />
-        <stop offset="60%" stopColor="#8B6F55" />
-        <stop offset="100%" stopColor="#2D3748" />
-      </linearGradient>
-      <radialGradient id="msHalo" cx="50%" cy="35%" r="60%">
-        <stop offset="0%" stopColor="#fff" stopOpacity=".22" />
-        <stop offset="100%" stopColor="#fff" stopOpacity="0" />
-      </radialGradient>
-    </defs>
-    <rect width="600" height="750" fill="url(#msBg)" />
-    <rect width="600" height="750" fill="url(#msHalo)" />
-    <g stroke="rgba(255,255,255,.06)" strokeWidth="1">
-      <line x1="0" y1="180" x2="600" y2="180" />
-      <line x1="0" y1="380" x2="600" y2="380" />
-      <line x1="0" y1="580" x2="600" y2="580" />
-      <line x1="200" y1="0" x2="200" y2="750" />
-      <line x1="400" y1="0" x2="400" y2="750" />
-    </g>
-    <g transform="translate(300, 380)">
-      <circle r="180" fill="none" stroke="rgba(255,255,255,.20)" strokeWidth="1" strokeDasharray="4 8" />
-      <circle r="130" fill="none" stroke="rgba(255,255,255,.30)" strokeWidth="1" strokeDasharray="4 8" />
-      <circle r="80" fill="rgba(255,255,255,.12)" stroke="rgba(255,255,255,.45)" strokeWidth="1.2" />
-      <circle r="60" fill="none" stroke="rgba(255,255,255,.65)" strokeWidth="1" />
-      <g>
-        <path d="M0 -50 Q 30 -10 0 30 Q -30 -10 0 -50 Z" fill="rgba(143,188,143,.55)" transform="rotate(0)" />
-        <path d="M0 -50 Q 30 -10 0 30 Q -30 -10 0 -50 Z" fill="rgba(143,188,143,.55)" transform="rotate(72)" />
-        <path d="M0 -50 Q 30 -10 0 30 Q -30 -10 0 -50 Z" fill="rgba(143,188,143,.55)" transform="rotate(144)" />
-        <path d="M0 -50 Q 30 -10 0 30 Q -30 -10 0 -50 Z" fill="rgba(143,188,143,.55)" transform="rotate(216)" />
-        <path d="M0 -50 Q 30 -10 0 30 Q -30 -10 0 -50 Z" fill="rgba(143,188,143,.55)" transform="rotate(288)" />
-        <circle r="8" fill="#fff" />
-      </g>
-    </g>
-    <g fill="#fff" opacity=".7">
-      <path d="M80 110 L 84 120 L 94 124 L 84 128 L 80 138 L 76 128 L 66 124 L 76 120 Z" />
-      <path d="M520 90 L 523 97 L 530 100 L 523 103 L 520 110 L 517 103 L 510 100 L 517 97 Z" opacity=".7" />
-      <path d="M540 580 L 544 590 L 554 594 L 544 598 L 540 608 L 536 598 L 526 594 L 536 590 Z" opacity=".5" />
-    </g>
-    <text x="36" y="36" fontFamily="Plus Jakarta Sans, sans-serif" fontSize="10" fontWeight="700" fill="rgba(255,255,255,.65)" letterSpacing="3">FIG. B · AESTHETIC</text>
-  </svg>
+  <img src={medspasHero} alt="MedSpa treatment room" loading="eager" decoding="async" />
 );
 
 const QUICK_STATS: QuickStat[] = [
@@ -134,6 +101,42 @@ const STEPS: PlayStep[] = [
   { name: 'Audience & creative system', body: 'Custom audience model and premium creative library built for your treatments and price point.' },
   { name: 'Consult-to-treatment flow', body: 'High-converting consult forms, tracking, and reminder automation deployed and tuned weekly.' },
   { name: 'Membership & retention', body: 'Email + SMS sequences for upgrades, recall, referrals, and review collection.' },
+];
+
+const SNAPSHOTS: Snapshot[] = [
+  {
+    image: snapMedspa,
+    label: 'Consult-to-treatment flow',
+    caption: 'High-converting consult forms, reminder automation, and a path that turns first visits into members.',
+  },
+  {
+    image: snapAesthetic,
+    label: 'Aesthetic creative library',
+    caption: 'Treatment-specific Meta creative, before/after assets, and seasonal angles tuned weekly.',
+  },
+  {
+    image: snapDerm,
+    label: 'Premium positioning',
+    caption: 'Procedure pages, photography, and reputation systems that earn the price your treatments deserve.',
+  },
+];
+
+const PRINCIPLES: Principle[] = [
+  {
+    title: 'LTV-weighted bidding',
+    body: 'Bids are set against the 365-day patient value, not first-visit margin. Treatments that look low-margin on day one often unlock the highest LTV - and the bids follow that signal.',
+    accent: '#B38B6D',
+  },
+  {
+    title: 'Compliance-safe creative',
+    body: 'Every before/after asset passes a Meta + FTC review before the creative goes live. Release library, claims, and disclaimers audited up front - never as cleanup.',
+    accent: '#576DB5',
+  },
+  {
+    title: 'Retention as primary KPI',
+    body: '90-day rebook rate is reported alongside acquisition cost. The second visit is where the economics turn - and retention sequences run from week one, not month six.',
+    accent: '#8FBC8F',
+  },
 ];
 
 const STATS: BigNumber[] = [
@@ -162,8 +165,19 @@ const MedSpas = () => {
         quickStats={QUICK_STATS}
       />
       <Specialties rows={SPECIALTIES} />
+      <IndustrySnapshots
+        items={SNAPSHOTS}
+        eyebrow="In practice"
+        title={<>The aesthetic funnel, <em>visualized.</em></>}
+      />
       <Playbook steps={STEPS} />
       <Numbers stats={STATS} />
+      <IndustryPrinciples
+        items={PRINCIPLES}
+        sectionNum="04"
+        title={<>How we work for <em>aesthetics.</em></>}
+        intro="Three operating principles that distinguish a med-spa engagement from a generic agency rollout - measured against LTV, compliance, and rebook rate from day one."
+      />
       <ServiceFAQ
         items={FAQS}
         serviceName="MedSpas & Aesthetics - Marketing"

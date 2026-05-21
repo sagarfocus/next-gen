@@ -1,6 +1,10 @@
 import type { ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 
+import phase1Img from '../../assets/analytics and report.png';
+import phase2Img from '../../assets/strategy planning.png';
+import phase3Img from '../../assets/paidmedia.png';
+
 interface Phase {
   num: string;
   phase: string;
@@ -8,6 +12,7 @@ interface Phase {
   body: ReactNode;
   foot: string;
   href: string;
+  image: string;
 }
 
 const PHASES: Phase[] = [
@@ -16,6 +21,7 @@ const PHASES: Phase[] = [
     phase: 'Phase 1',
     title: 'Discovery & Technical Audit',
     href: '/methodology/phase-1',
+    image: phase1Img,
     body: (
       <>
         We conduct a comprehensive audit of your existing digital infrastructure
@@ -32,6 +38,7 @@ const PHASES: Phase[] = [
     phase: 'Phase 2',
     title: 'Strategy & Infrastructure Build',
     href: '/methodology/phase-2',
+    image: phase2Img,
     body: (
       <>
         We design your custom growth strategy mapping service-specific keywords,
@@ -48,6 +55,7 @@ const PHASES: Phase[] = [
     phase: 'Phase 3',
     title: 'Launch & Accelerate',
     href: '/methodology/phase-3',
+    image: phase3Img,
     body: (
       <>
         Within the first 30 days, we launch SEO optimizations, paid media
@@ -100,22 +108,33 @@ const Methodology = () => {
         </div>
 
         <div className="phase-grid">
-          {PHASES.map(({ num, phase, title, body, foot, href }, i) => (
+          {PHASES.map(({ num, phase, title, body, foot, href, image }, i) => (
             <Link
               key={num}
               to={href}
               className="phase-card"
               aria-labelledby={`phase-${i + 1}`}
             >
-              <div className="phase-tag">
-                <span className="num">{num}</span>
-                <span>{phase}</span>
+              <img
+                className="phase-bg"
+                src={image}
+                alt=""
+                loading="lazy"
+                decoding="async"
+                aria-hidden="true"
+              />
+              <span className="phase-overlay" aria-hidden="true" />
+              <div className="phase-content">
+                <div className="phase-tag">
+                  <span className="num">{num}</span>
+                  <span>{phase}</span>
+                </div>
+                <h3 id={`phase-${i + 1}`} className="phase-title">
+                  {title}
+                </h3>
+                <p className="phase-text">{body}</p>
+                <div className="phase-foot">{foot}</div>
               </div>
-              <h3 id={`phase-${i + 1}`} className="phase-title">
-                {title}
-              </h3>
-              <p className="phase-text">{body}</p>
-              <div className="phase-foot">{foot}</div>
               <PhaseArrow />
             </Link>
           ))}

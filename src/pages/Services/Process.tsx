@@ -1,120 +1,181 @@
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Autoplay } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import imgDiscovery from '../../assets/analytics and report.png';
-import imgRoadmap from '../../assets/strategy planning.png';
-import imgBuild from '../../assets/websitedesign.png';
-import imgLaunch from '../../assets/paidmedia.png';
-import imgCompound from '../../assets/recall+.png';
+import { useEffect, useRef } from 'react';
+import { useReducedMotion } from '../../lib/motion';
 
-interface Step {
+/*
+ * GSAP is lazy-loaded inside useEffect below, ONLY when:
+ *   - the Process section actually mounts (route hit)
+ *   - viewport > 900px (desktop)
+ *   - prefers-reduced-motion is NOT set
+ *
+ * Result: GSAP + ScrollTrigger (~120 KB minified) are split into a
+ * separate chunk and never fetched on mobile or under reduced motion.
+ */
+
+interface ProcessStep {
   num: string;
-  phase: string;
-  when: string;
   title: string;
   desc: string;
-  img: string;
+  active?: boolean;
 }
 
-const STEPS: Step[] = [
+const STEPS: ProcessStep[] = [
   {
-    num: '01',
-    phase: 'Discovery',
-    when: 'Week 01',
-    title: 'Audit the funnel end-to-end.',
-    desc: 'Read-only access to GA4, GSC, GBP, the ad accounts, the call platform, and the CRM. We map what is actually happening before we propose a single change.',
-    img: imgDiscovery,
+    num: '/01',
+    title: 'Discovery & Audit',
+    desc: 'We dive into your current marketing, identify gaps, and learn about your patients.',
   },
   {
-    num: '02',
-    phase: 'Roadmap',
-    when: 'Week 02',
-    title: 'Lock the 90-day plan.',
-    desc: 'A single page that names the three things that will move revenue this quarter, the team shipping each, and the metric each one will be judged against.',
-    img: imgRoadmap,
+    num: '/02',
+    title: 'Custom Strategy',
+    desc: 'You get a tailored marketing plan based on real data, not guesswork.',
   },
   {
-    num: '03',
-    phase: 'Build',
-    when: 'Weeks 03 – 06',
-    title: 'Ship the systems.',
-    desc: 'Tracking rebuilt server-side. Pages, schema, ad creative, automations, and the dashboard go in. One craftsperson per discipline - no juniors, no handoffs.',
-    img: imgBuild,
+    num: '/03',
+    title: 'Build & Setup',
+    desc: 'We deploy your tech stack - landing pages, tracking, automation, and dashboards.',
   },
   {
-    num: '04',
-    phase: 'Launch',
-    when: 'Week 07',
-    title: 'Go live and calibrate.',
-    desc: 'Spend turns on in measured tiers. We hold daily standups for the first two weeks, then a single weekly Loom + live dashboard from there on out.',
-    img: imgLaunch,
+    num: '/04',
+    title: 'Launch',
+    desc: 'We execute campaigns across every channel - search, social, and email.',
+    active: true,
   },
   {
-    num: '05',
-    phase: 'Compound',
-    when: 'Month 03+',
-    title: 'Compound what works.',
-    desc: 'Quarterly re-forecasts. Channel mix tilts toward what is paying back. The retainer adapts - every line item earns its place on the next quarter\'s plan.',
-    img: imgCompound,
+    num: '/05',
+    title: 'Optimize',
+    desc: 'We run A/B tests, analyze results, and refine your campaigns weekly.',
+  },
+  {
+    num: '/06',
+    title: 'Scale',
+    desc: 'When we find what works, we double down to boost your patient volume.',
   },
 ];
 
 const Process = () => {
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const pathRef = useRef<SVGPathElement | null>(null);
+  const reduced = useReducedMotion();
+
+  useEffect(() => {
+    if (reduced) return;
+    if (typeof window === 'undefined') return;
+    // Skip GSAP entirely on small / touch viewports - keep page light
+    if (window.matchMedia('(max-width: 900px)').matches) return;
+    if (window.matchMedia('(pointer: coarse)').matches) return;
+
+    const section = sectionRef.current;
+    const path = pathRef.current;
+    if (!section || !path) return;
+
+    let cleanup: (() => void) | undefined;
+    let cancelled = false;
+
+    (async () => {
+      // Dynamic imports - Vite splits these into a separate chunk that
+      // never reaches mobile / reduced-motion users.
+      const [{ default: gsap }, { ScrollTrigger }] = await Promise.all([
+        import('gsap'),
+        import('gsap/ScrollTrigger'),
+      ]);
+      if (cancelled) return;
+
+      gsap.registerPlugin(ScrollTrigger);
+
+      const length = path.getTotalLength();
+      path.style.strokeDasharray = `${length}`;
+      path.style.strokeDashoffset = `${length}`;
+
+      const steps = section.querySelectorAll<HTMLElement>('.step-circle');
+      steps.forEach((s) => {
+        gsap.set(s, { opacity: 0.55, scale: 0.96 });
+      });
+
+      const ctx = gsap.context(() => {
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: section,
+            start: 'top 78%',
+            toggleActions: 'play none none reverse',
+          },
+        });
+
+        tl.to(path, {
+          strokeDashoffset: 0,
+          duration: 4.5,
+          ease: 'power1.inOut',
+        }, 0);
+
+        steps.forEach((s, i) => {
+          tl.to(
+            s,
+            { opacity: 1, scale: 1, duration: 0.9, ease: 'power2.out' },
+            0.3 + i * 0.6,
+          );
+        });
+      }, section);
+
+      cleanup = () => ctx.revert();
+    })();
+
+    return () => {
+      cancelled = true;
+      cleanup?.();
+    };
+  }, [reduced]);
+
   return (
-    <section className="tm-section tm-process">
+    <section
+      ref={sectionRef}
+      className="process-section"
+      id="process"
+      aria-labelledby="process-title"
+    >
       <div className="container-shell">
-        <div className="tm-marker">
-          <span className="tm-marker-num">04</span>
-          <span>Our Process</span>
-          <span className="tm-marker-line" />
-          <span className="tm-marker-meta">Signing → Shipping</span>
+        <div className="process-head">
+          <span className="process-eyebrow">Our Process</span>
+          <h2 id="process-title" className="process-h2">
+            A clear path from audit to scale.
+          </h2>
+          <p className="process-intro">
+            A repeatable, data-driven system designed for clinics, medspas, and
+            wellness brands ready to grow predictably.
+          </p>
         </div>
 
-        <header className="tm-pc-head">
-          <h2 className="tm-pc-h2">
-            From handshake <em>to first lift,</em>
-            <br />
-            in five stages.
-          </h2>
-          <p className="tm-pc-lede">
-            Five stages, week by week.
-          </p>
-        </header>
+        <ol className="process-steps process-steps--curved">
+          {/* Decorative wave connector - GSAP scrubs strokeDashoffset to draw it on scroll */}
+          <svg
+            className="process-curve"
+            viewBox="0 0 1200 200"
+            preserveAspectRatio="none"
+            aria-hidden="true"
+          >
+            <path
+              ref={pathRef}
+              d="M 100 60 C 200 60, 200 140, 300 140 S 400 60, 500 60 S 600 140, 700 140 S 800 60, 900 60 S 1000 140, 1100 140"
+              fill="none"
+              stroke="#B38B6D"
+              strokeWidth="1.6"
+              strokeLinecap="round"
+              opacity="0.75"
+            />
+          </svg>
 
-        <Swiper
-          className="tm-pc-swiper"
-          modules={[Navigation, Autoplay]}
-          navigation
-          loop
-          autoplay={{
-            delay: 5000,
-            pauseOnMouseEnter: true,
-            disableOnInteraction: false,
-          }}
-          slidesPerView={1}
-          spaceBetween={16}
-          aria-label="Engagement process, five stages"
-        >
-          {STEPS.map((s) => (
-            <SwiperSlide key={s.num} className="tm-pc-slide">
-              <div
-                className="tm-pc-slide-img"
-                style={{ backgroundImage: `url(${s.img})` }}
-                aria-hidden="true"
-              />
-              <div className="tm-pc-slide-shade" aria-hidden="true" />
-              <div className="tm-pc-slide-content">
-                <span className="tm-pc-slide-phase">
-                  <span className="tm-pc-slide-dot" aria-hidden="true" />
-                  {s.phase} · {s.when}
+          {STEPS.map(({ num, title, desc, active }) => (
+            <li key={num} className={`step${active ? ' is-active' : ''}`}>
+              <div className="step-circle" aria-hidden="true">
+                <span>
+                  <span className="step-num">{num}</span>
+                  <span className="step-title-visible">{title}</span>
                 </span>
-                <h3 className="tm-pc-slide-title">{s.title}</h3>
-                <p className="tm-pc-slide-desc">{s.desc}</p>
               </div>
-            </SwiperSlide>
+              {/* Screen-reader-only heading; the visible title above is hidden via aria-hidden */}
+              <h3 className="sr-only">{title}</h3>
+              <p className="step-desc">{desc}</p>
+            </li>
           ))}
-        </Swiper>
+        </ol>
       </div>
     </section>
   );

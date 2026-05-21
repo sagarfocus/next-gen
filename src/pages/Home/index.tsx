@@ -1,11 +1,9 @@
 import { useState } from 'react';
 import Hero from './Hero';
 import CertStrip from './CertStrip';
-import Process from './Process';
 import Results from './Results';
 import AboutUs from './AboutUs';
 import Advantages from './Advantages';
-import Methodology from './Methodology';
 import Services from './Services';
 import FAQ from './FAQ';
 import Testimonials from './Testimonials';
@@ -110,8 +108,6 @@ const Home = () => {
       <Advantages />
       <Services />
       <Industries />
-      <Process />
-      <Methodology />
       <Results />
       <Testimonials />
       <FAQ onBook={openBooking} />
