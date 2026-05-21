@@ -24,21 +24,6 @@ const IMG = {
   studio: nextHeroImg2,
 };
 
-const TAGS = [
-  'SEO',
-  'Google Ads',
-  'Meta Ads',
-  'Branding',
-  'Web Design',
-  'Content',
-  'Automation',
-  'Field Marketing',
-  'Reviews',
-  'AI Triage',
-  'Local Pack',
-  'Schema',
-];
-
 const STATS = [
   { v: '200+',   l: 'Practices grown' },
   { v: '$24M+',  l: 'Pipeline moved' },
@@ -161,18 +146,6 @@ const Hero = () => (
           </div>
         </Parallax>
       </div>
-    </div>
-  </section>
-);
-
-const Marquee = () => (
-  <section className="ow-marquee" aria-hidden="true">
-    <div className="ow-marquee-track">
-      {[...TAGS, ...TAGS].map((t, i) => (
-        <span key={`${t}-${i}`} className="ow-mq-item">
-          <span className="ow-mq-dot" /> {t}
-        </span>
-      ))}
     </div>
   </section>
 );
@@ -501,7 +474,6 @@ const _noopNode: ReactNode = null;
 const OurWork = () => (
   <main className="ow-page">
     <Hero />
-    <Marquee />
     <Stats />
     <Capabilities />
     <Industries />
