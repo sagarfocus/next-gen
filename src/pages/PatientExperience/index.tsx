@@ -1,3 +1,4 @@
+import type { JSX } from 'react';
 import Breadcrumb from '../../components/Breadcrumb';
 import Section from '../../components/editorial/Section';
 import EditorialCTA from '../../components/editorial/EditorialCTA';

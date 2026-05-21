@@ -1,3 +1,4 @@
+import type { JSX } from 'react';
 import Breadcrumb from '../../components/Breadcrumb';
 import Section from '../../components/editorial/Section';
 import EditorialCTA from '../../components/editorial/EditorialCTA';
@@ -108,13 +109,6 @@ const GovernIcon = () => <svg {...ICON}><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1
 const PROCESS_ICON: Record<ProcessKey, () => JSX.Element> = {
   audit: AuditIcon, pilot: PilotIcon, scale: ScaleIcon, govern: GovernIcon,
 };
-
-/* arrow used between trigger/workflow/outcome */
-const ArrowRight = () => (
-  <svg width={18} height={10} viewBox="0 0 18 10" fill="none" aria-hidden="true" className="text-line">
-    <path d="M0 5h16M12 1l4 4-4 4" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
-  </svg>
-);
 
 /* ---------------- HERO ---------------- */
 
