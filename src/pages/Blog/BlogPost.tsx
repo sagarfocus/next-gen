@@ -1,17 +1,70 @@
 import { useEffect } from 'react';
-import type { ReactNode } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import Breadcrumb from '../../components/Breadcrumb';
-import { AnimatedBackground } from '../../lib/motion';
 import { getPostBySlug, BLOG_POSTS } from './posts';
 import type { BlogPostData } from './posts';
 
+/* Category-relevant cover photography for the hero. */
+import imgCompliance from '../../assets/patientidentities.png';
+import imgPaid from '../../assets/paidmedia.png';
+import imgReputation from '../../assets/recall+.png';
+import imgSeo from '../../assets/Local Search.png';
+import imgAutomation from '../../assets/medicalautomation.png';
+import imgMedspa from '../../assets/Medspa.png';
+import imgUrgent from '../../assets/urgentcare.png';
+import imgAnalytics from '../../assets/analytics and report.png';
+import imgFsed from '../../assets/freestandingemergency.png';
+import imgDefault from '../../assets/healthcareimg3.png';
+
 /* ============================================================
-   BLOG POST — Hero-only detail page.
-   Asymmetric 12-column grid. Numbered sections. Massive type.
-   Brand palette: ink #1A2438, gold #B38B6D, sage #8FBC8F,
-   paper #FAFAF6, line rgba(26,36,56,.10).
+   BLOG POST — Editorial detail page (hero-only).
+   Mirrors HealthcareNews/NewsDetail hero pattern:
+   category pill, massive title, lede, byline, story-brief card,
+   full-bleed cover image with EDITORIAL tag.
    ============================================================ */
+
+const COLORS = {
+  navy:  '#1A2438',
+  body:  '#4A5568',
+  muted: '#718096',
+  mint:  '#EBF4DD',
+};
+
+const FEATURE_IMAGES: Record<string, string> = {
+  compliance: imgCompliance,
+  paid: imgPaid,
+  reputation: imgReputation,
+  seo: imgSeo,
+  automation: imgAutomation,
+  medspa: imgMedspa,
+  urgent: imgUrgent,
+  analytics: imgAnalytics,
+  fsed: imgFsed,
+};
+
+/* Tone palette mirrors bpx-theme-* CSS variables, but inlined so the
+   hero pill, brief card accent, and avatar can read them directly. */
+type ThemeTone = 'periwinkle' | 'sage' | 'tan' | 'rose' | 'ink';
+const TONE_COLORS: Record<ThemeTone, { hex: string; soft: string }> = {
+  periwinkle: { hex: '#576DB5', soft: 'rgba(87, 109, 181, 0.12)' },
+  sage:       { hex: '#4F7A4F', soft: 'rgba(143, 188, 143, 0.18)' },
+  tan:        { hex: '#B38B6D', soft: 'rgba(179, 139, 109, 0.16)' },
+  rose:       { hex: '#C13E4A', soft: 'rgba(225, 80, 92, 0.14)'   },
+  ink:        { hex: '#2D3748', soft: 'rgba(45, 55, 72, 0.10)'    },
+};
+const CATEGORY_TONE: Record<string, ThemeTone> = {
+  compliance: 'periwinkle',
+  paid:       'tan',
+  reputation: 'tan',
+  seo:        'sage',
+  automation: 'periwinkle',
+  medspa:     'sage',
+  urgent:     'rose',
+  analytics:  'sage',
+  fsed:       'rose',
+};
+const toneForPost = (post: BlogPostData) =>
+  TONE_COLORS[CATEGORY_TONE[post.cat] ?? 'ink'];
 
 const ArrowRight = ({ size = 14 }: { size?: number }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.4} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -19,83 +72,6 @@ const ArrowRight = ({ size = 14 }: { size?: number }) => (
     <polyline points="12 5 19 12 12 19" />
   </svg>
 );
-
-const ClockIcon = ({ size = 13 }: { size?: number }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-    <circle cx="12" cy="12" r="9" />
-    <path d="M12 7v5l3 2" />
-  </svg>
-);
-
-/* Icon library — topic-relevant SVGs assigned to blog categories below. */
-const ico = (props: { size?: number; children: ReactNode }) => (
-  <svg width={props.size ?? 14} height={props.size ?? 14} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-    {props.children}
-  </svg>
-);
-
-const StarIcon    = () => ico({ children: <path d="M12 2 L 14.6 9 L 22 9.5 L 16.5 14 L 18 21.5 L 12 17.5 L 6 21.5 L 7.5 14 L 2 9.5 L 9.4 9 Z" /> });
-const ShieldIcon  = () => ico({ children: <><path d="M12 3l8 3v6c0 5-3.5 8.5-8 9-4.5-.5-8-4-8-9V6l8-3z" /><path d="m9 12 2 2 4-4" /></> });
-const LockIcon    = () => ico({ children: <><rect x="4" y="11" width="16" height="10" rx="2" /><path d="M8 11V7a4 4 0 0 1 8 0v4" /></> });
-const DocIcon     = () => ico({ children: <><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z" /><path d="M14 3v5h5" /><path d="M9 13l2 2 4-4" /></> });
-const ChartIcon   = () => ico({ children: <><line x1="6" y1="20" x2="6" y2="14" /><line x1="12" y1="20" x2="12" y2="8" /><line x1="18" y1="20" x2="18" y2="11" /></> });
-const TargetIcon  = () => ico({ children: <><circle cx="12" cy="12" r="9" /><circle cx="12" cy="12" r="5" /><circle cx="12" cy="12" r="1.6" /></> });
-const DollarIcon  = () => ico({ children: <><line x1="12" y1="3" x2="12" y2="21" /><path d="M17 7H10a3 3 0 0 0 0 6h4a3 3 0 0 1 0 6H7" /></> });
-const ChatIcon    = () => ico({ children: <path d="M21 12a8 8 0 0 1-11.5 7.2L4 21l1.8-5A8 8 0 1 1 21 12z" /> });
-const TrendIcon   = () => ico({ children: <><polyline points="3 17 9 11 13 15 21 7" /><polyline points="15 7 21 7 21 13" /></> });
-const PinIcon     = () => ico({ children: <><path d="M12 22s8-7.5 8-13a8 8 0 0 0-16 0c0 5.5 8 13 8 13z" /><circle cx="12" cy="9" r="2.6" /></> });
-const SearchIcon  = () => ico({ children: <><circle cx="11" cy="11" r="7" /><line x1="21" y1="21" x2="16" y2="16" /></> });
-const GlobeIcon   = () => ico({ children: <><circle cx="12" cy="12" r="9" /><path d="M3 12h18" /><path d="M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18" /></> });
-const CogIcon     = () => ico({ children: <><circle cx="12" cy="12" r="3" /><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 0 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1A1.7 1.7 0 0 0 4.6 15a1.7 1.7 0 0 0-1.5-1H3a2 2 0 0 1 0-4h.1A1.7 1.7 0 0 0 4.6 9a1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 0 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 0 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z" /></> });
-const BoltIcon    = () => ico({ children: <polygon points="13 2 4 14 12 14 11 22 20 10 12 10 13 2" /> });
-const FlowIcon    = () => ico({ children: <><rect x="3" y="3" width="6" height="6" rx="1" /><rect x="15" y="15" width="6" height="6" rx="1" /><path d="M9 6h6a3 3 0 0 1 3 3v6" /></> });
-const HeartIcon   = () => ico({ children: <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" /> });
-const SparkleIcon = () => ico({ children: <><path d="M12 3v18M3 12h18" /><path d="M5 5l14 14M19 5L5 19" /></> });
-const PulseIcon   = () => ico({ children: <polyline points="2 12 6 12 9 4 15 20 18 12 22 12" /> });
-const PlusIcon    = () => ico({ children: <><path d="M12 5v14M5 12h14" /></> });
-const HospitalIcon= () => ico({ children: <><rect x="4" y="6" width="16" height="14" rx="2" /><path d="M12 10v8M8 14h8" /><path d="M9 6V3h6v3" /></> });
-
-/* Wrap the first digit-run in the title with a tan accent span for visual emphasis. */
-const formatTitleWithAccent = (title: string): ReactNode[] => {
-  const parts = title.split(/(\d+)/);
-  let accented = false;
-  return parts.map((part, i) => {
-    if (!accented && /^\d+$/.test(part)) {
-      accented = true;
-      return <span key={i} className="bpx-h1-accent">{part}</span>;
-    }
-    return part;
-  });
-};
-
-/* Per-category theme: tone color + 3 topic-relevant icons for the floating cards.
-   When the user opens a post, the hero's accent + icons match the category. */
-type ThemeTone = 'periwinkle' | 'sage' | 'tan' | 'rose' | 'ink';
-type IconComponent = (props: { size?: number }) => ReactNode;
-
-interface CategoryTheme {
-  tone: ThemeTone;
-  icons: [IconComponent, IconComponent, IconComponent];
-  label: string;
-}
-const CATEGORY_THEMES: Record<string, CategoryTheme> = {
-  compliance: { tone: 'periwinkle', icons: [ShieldIcon, LockIcon, DocIcon],       label: 'Compliance · HIPAA'    },
-  paid:       { tone: 'tan',        icons: [ChartIcon, TargetIcon, DollarIcon],   label: 'Paid Media'             },
-  reputation: { tone: 'tan',        icons: [StarIcon, ChatIcon, TrendIcon],       label: 'Reviews & Reputation'   },
-  seo:        { tone: 'sage',       icons: [PinIcon, SearchIcon, GlobeIcon],      label: 'Local SEO'              },
-  automation: { tone: 'periwinkle', icons: [CogIcon, BoltIcon, FlowIcon],         label: 'Automation & AI'        },
-  medspa:     { tone: 'sage',       icons: [HeartIcon, SparkleIcon, StarIcon],    label: 'MedSpa Marketing'       },
-  urgent:     { tone: 'rose',       icons: [ClockIcon, PulseIcon, PlusIcon],      label: 'Urgent Care'            },
-  analytics:  { tone: 'sage',       icons: [ChartIcon, TrendIcon, TargetIcon],    label: 'Analytics'              },
-  fsed:       { tone: 'rose',       icons: [PulseIcon, PlusIcon, HospitalIcon],   label: 'FSED'                   },
-};
-const DEFAULT_THEME: CategoryTheme = {
-  tone: 'ink',
-  icons: [StarIcon, ChartIcon, TargetIcon],
-  label: 'Article',
-};
-const themeForPost = (post: BlogPostData): CategoryTheme =>
-  CATEGORY_THEMES[post.cat] ?? DEFAULT_THEME;
 
 const ORIGIN =
   typeof window !== 'undefined' ? window.location.origin : 'https://thenextgenhealth.com';
@@ -179,119 +155,169 @@ const useDocumentMeta = (post: BlogPostData | undefined) => {
   }, [post]);
 };
 
-/* ----- Section: Hero (asymmetric 12-col, Swiss header, topic-themed) ----- */
-const Hero = ({ post, postId }: { post: BlogPostData; postId: string }) => {
-  const theme = themeForPost(post);
-  const [Icon1, Icon2, Icon3] = theme.icons;
-  // First 3 takeaway labels become floating mini-cards around the illustration.
-  const floatCards = post.takeaways.slice(0, 3);
-  const floatIcons = [<Icon1 key="i1" />, <Icon2 key="i2" />, <Icon3 key="i3" />];
+/* ─── Tone-coloured category pill ─── */
+const CategoryPill = ({ post }: { post: BlogPostData }) => {
+  const t = toneForPost(post);
   return (
-    <section className={`bpx-hero bpx-theme-${theme.tone}`} aria-labelledby="bpx-hero-title">
-      <AnimatedBackground variant="aurora" intensity="subtle" />
+    <span
+      className="inline-flex items-center gap-2 rounded-full font-mono font-bold tracking-[0.18em] uppercase px-3 py-1.5 text-[11px]"
+      style={{ background: t.soft, color: t.hex }}
+    >
+      <span className="w-1.5 h-1.5 rounded-full" style={{ background: t.hex }} aria-hidden="true" />
+      {post.catLabel}
+    </span>
+  );
+};
+
+/* ─── Section: Hero ─── */
+const Hero = ({ post }: { post: BlogPostData }) => {
+  const t = toneForPost(post);
+  const brief = post.takeaways[0];
+  const supporting = post.takeaways[1];
+  const cover = FEATURE_IMAGES[post.cat] ?? imgDefault;
+
+  return (
+    <section className="ph-page-head">
       <div className="container-shell">
-        {/* Top meta strip: breadcrumb + chips */}
-        <div className="bpx-hero-meta">
-          <Breadcrumb items={[{ label: 'Blog', to: '/blog' }, { label: post.catLabel }]} />
-          <div className="bpx-hero-chips" aria-hidden="true">
-            <span className="bpx-hero-chip is-tag">
-              <span className="bpx-hero-chip-dot" />
-              Article
-            </span>
-            <span className="bpx-hero-chip is-meta">
-              <ClockIcon />
-              {post.readTime}
-            </span>
-            <span className="bpx-hero-chip is-mono">ID {postId}</span>
+        <Breadcrumb items={[{ label: 'Blog', to: '/blog' }, { label: post.catLabel }]} />
+
+        <div className="mt-8 grid lg:grid-cols-12 gap-x-12 gap-y-12">
+          <div className="lg:col-span-7">
+            <CategoryPill post={post} />
+            <h1
+              className="mt-6 font-extrabold leading-[1.02] tracking-[-0.034em] text-[clamp(34px,5vw,68px)]"
+              style={{ color: COLORS.navy }}
+            >
+              {post.title}
+            </h1>
+            <p className="mt-7 text-[18px] leading-[1.65] max-w-[60ch]" style={{ color: COLORS.body }}>
+              {post.excerpt}
+            </p>
+
+            <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3 text-[13px]" style={{ color: COLORS.muted }}>
+              <div className="flex items-center gap-3">
+                <span
+                  className="inline-grid place-items-center w-9 h-9 rounded-full font-mono text-[12px] font-bold"
+                  style={{ background: t.soft, color: t.hex }}
+                  aria-hidden="true"
+                >
+                  {initialsOf(post.author)}
+                </span>
+                <span>
+                  By <strong style={{ color: COLORS.navy }}>{post.author}</strong>
+                </span>
+              </div>
+              <span className="opacity-30">·</span>
+              <span>{post.date}</span>
+              <span className="opacity-30">·</span>
+              <span>{post.readTime}</span>
+            </div>
+          </div>
+
+          {/* Right-side: story-brief card with tone accent */}
+          <div className="lg:col-span-5">
+            <div
+              className="relative rounded-[24px] p-8 overflow-hidden border"
+              style={{
+                background: COLORS.mint,
+                borderColor: 'rgba(26, 36, 56, 0.10)',
+              }}
+            >
+              <span
+                className="absolute top-0 left-0 right-0 h-1"
+                style={{ background: t.hex }}
+                aria-hidden="true"
+              />
+              <div className="font-mono text-[11px] tracking-[0.22em] uppercase font-bold" style={{ color: t.hex }}>
+                Story brief
+              </div>
+              <h2 className="mt-3 text-[20px] font-extrabold tracking-[-0.018em] leading-[1.18]" style={{ color: COLORS.navy }}>
+                {brief.label}: {brief.value}
+              </h2>
+              {brief.desc && (
+                <p className="mt-4 text-[14px] leading-[1.6]" style={{ color: COLORS.body }}>
+                  {brief.desc}
+                </p>
+              )}
+              {supporting && (
+                <p className="mt-3 text-[13.5px] leading-[1.6]" style={{ color: COLORS.muted }}>
+                  {supporting.desc}
+                </p>
+              )}
+              <div
+                className="mt-6 pt-5 border-t flex items-center gap-2 text-[10.5px] uppercase tracking-[0.20em] font-bold"
+                style={{ borderColor: 'rgba(26, 36, 56, 0.10)', color: t.hex }}
+              >
+                <span className="w-1.5 h-1.5 rounded-full" style={{ background: t.hex }} />
+                {post.takeaways.length} key takeaways below
+              </div>
+            </div>
           </div>
         </div>
 
-        <div className="bpx-hero-grid">
-          <aside className="bpx-hero-rail" aria-hidden="true">
-            <span className="bpx-rail-label">FILED</span>
-            <span className="bpx-rail-value">{post.catLabel}</span>
-            <span className="bpx-rail-line" />
-            <span className="bpx-rail-label">READ</span>
-            <span className="bpx-rail-value">{post.readTime}</span>
-            <span className="bpx-rail-line" />
-            <span className="bpx-rail-label">ID</span>
-            <span className="bpx-rail-value bpx-rail-mono">{postId}</span>
-          </aside>
-
-          <header className="bpx-hero-copy">
-            <span className="bpx-eyebrow">
-              <span className="bpx-eyebrow-dot" />
-              Article · {post.catLabel}
-            </span>
-            <h1 id="bpx-hero-title" className="bpx-h1">
-              {formatTitleWithAccent(post.title)}
-            </h1>
-            <p className="bpx-lede">{post.excerpt}</p>
-
-            <div className="bpx-byline">
-              <span className="bpx-author-avatar" aria-hidden="true">{initialsOf(post.author)}</span>
-              <div className="bpx-byline-meta">
-                <span className="bpx-byline-name">{post.author}</span>
-                <span className="bpx-byline-role">{post.authorRole}</span>
-              </div>
-              <span className="bpx-byline-sep" aria-hidden="true" />
-              <div className="bpx-byline-meta">
-                <span className="bpx-byline-label">Published</span>
-                <span className="bpx-byline-value">{post.date}</span>
-              </div>
-            </div>
-          </header>
-
-          <figure className="bpx-hero-art" aria-hidden="true">
-            <div className="bpx-hero-art-stage">
-              <span className="bpx-hero-art-pattern" aria-hidden="true" />
-              <div className="bpx-hero-art-frame">{post.illustration}</div>
-              {floatCards.map((card, i) => (
-                <span
-                  key={card.label}
-                  className={`bpx-hero-art-float bpx-float-${i + 1}`}
-                >
-                  <span className="bpx-hero-art-float-ico">{floatIcons[i]}</span>
-                  <span className="bpx-hero-art-float-text">{card.label}</span>
-                </span>
-              ))}
-            </div>
-            <figcaption className="bpx-hero-art-caption">
-              FIG. 01 — {post.catLabel}
-            </figcaption>
-          </figure>
+        {/* Full-bleed cover image */}
+        <div
+          className="mt-12 lg:mt-16 relative rounded-[28px] overflow-hidden border aspect-[21/9] shadow-[0_28px_60px_-32px_rgba(45,55,72,0.32)]"
+          style={{ borderColor: 'rgba(26, 36, 56, 0.10)' }}
+        >
+          <img
+            src={cover}
+            alt=""
+            loading="eager"
+            decoding="async"
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+          <div
+            className="absolute inset-0 pointer-events-none"
+            style={{ background: 'linear-gradient(180deg, rgba(26, 36, 56, 0) 60%, rgba(26, 36, 56, 0.35) 100%)' }}
+          />
+          <div
+            className="absolute bottom-5 right-5 inline-flex items-center gap-2 px-3 py-1.5 rounded-full backdrop-blur-md"
+            style={{ background: 'rgba(255, 255, 255, 0.18)', border: '1px solid rgba(255, 255, 255, 0.25)' }}
+          >
+            <span className="font-mono text-[10.5px] tracking-[0.18em] uppercase text-white font-bold">Editorial</span>
+          </div>
         </div>
       </div>
     </section>
   );
 };
 
-/* ----- Not found ----- */
+/* ─── Not found ─── */
 const NotFoundBlock = () => (
-  <main className="bpx" id="bpx-top">
-    <section className="bpx-hero">
-      <div className="container-shell">
-        <Breadcrumb items={[{ label: 'Blog', to: '/blog' }, { label: 'Article not found' }]} />
-        <div className="bpx-empty">
-          <span className="bpx-eyebrow">
-            <span className="bpx-eyebrow-dot" />
-            404 · Missing article
-          </span>
-          <h1 className="bpx-h1">We could not find that article.</h1>
-          <p className="bpx-lede">
-            The post you tried to open may have moved or been retired.
-            Browse the full library below.
-          </p>
-          <Link to="/blog" className="bpx-btn bpx-btn-primary">
-            Back to all articles <ArrowRight />
-          </Link>
-        </div>
+  <main className="ph-page-head">
+    <div className="container-shell py-24">
+      <Breadcrumb items={[{ label: 'Blog', to: '/blog' }, { label: 'Article not found' }]} />
+      <div className="mt-10 max-w-[60ch]">
+        <span
+          className="inline-flex items-center gap-2 rounded-full font-mono font-bold tracking-[0.18em] uppercase px-3 py-1.5 text-[11px]"
+          style={{ background: TONE_COLORS.ink.soft, color: TONE_COLORS.ink.hex }}
+        >
+          <span className="w-1.5 h-1.5 rounded-full" style={{ background: TONE_COLORS.ink.hex }} />
+          404 · Missing article
+        </span>
+        <h1
+          className="mt-6 font-extrabold leading-[1.02] tracking-[-0.034em] text-[clamp(34px,5vw,68px)]"
+          style={{ color: COLORS.navy }}
+        >
+          We could not find that article.
+        </h1>
+        <p className="mt-7 text-[18px] leading-[1.65]" style={{ color: COLORS.body }}>
+          The post you tried to open may have moved or been retired. Browse the full library below.
+        </p>
+        <Link
+          to="/blog"
+          className="mt-8 inline-flex items-center gap-2 px-5 py-3 rounded-full font-mono text-[12px] uppercase tracking-[0.18em] font-bold text-white"
+          style={{ background: COLORS.navy }}
+        >
+          Back to all articles <ArrowRight />
+        </Link>
       </div>
-    </section>
+    </div>
   </main>
 );
 
-/* ----- Main page ----- */
+/* ─── Main page ─── */
 const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>();
   const post = getPostBySlug(slug);
@@ -303,9 +329,9 @@ const BlogPost = () => {
   const postId = `NG-${String(idx + 1).padStart(3, '0')}`;
 
   return (
-    <main className="bpx" id="bpx-top">
+    <main className="bpx" id="bpx-top" data-post-id={postId}>
       <article>
-        <Hero post={post} postId={postId} />
+        <Hero post={post} />
 
         <script
           type="application/ld+json"
