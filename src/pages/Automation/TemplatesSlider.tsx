@@ -6,7 +6,7 @@ import {
   useState,
 } from 'react';
 import type { CSSProperties, KeyboardEvent, ReactElement, TouchEvent } from 'react';
-import { ArrowIcon, ChevronRightIcon, ClockIcon } from '../../components/icons';
+import { ArrowIcon, ChevronRightIcon, ClockIcon } from '@/components/icons';
 
 interface Template {
   desc: string;

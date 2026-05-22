@@ -1,4 +1,4 @@
-import { CheckIcon, XIcon } from '../../components/icons';
+import { CheckIcon, XIcon } from '@/components/icons';
 import { COVERAGE } from './data';
 
 const Coverage = () => (

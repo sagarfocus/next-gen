@@ -1,4 +1,4 @@
-import { ClockIcon } from '../../../components/icons';
+import { ClockIcon } from '@/components/icons';
 
 const Handoff = () => (
   <section className="ph3-handoff" aria-labelledby="ph3-handoff-title">

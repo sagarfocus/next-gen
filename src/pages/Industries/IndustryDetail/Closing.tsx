@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
-import { MotionButton } from '../../../lib/motion';
-import { ArrowIcon } from '../../../components/icons';
-import type { IndustryDetailEntry } from '../../../content/industries/details.data';
+import { MotionButton } from '@/lib/motion';
+import { ArrowIcon } from '@/components/icons';
+import type { IndustryDetailEntry } from '@/content/industries/details.data';
 
 const Closing = ({ entry }: { entry: IndustryDetailEntry }) => (
   <section className="ow-close" aria-labelledby="ind-detail-close-title">

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import type { ReactNode } from 'react';
-import type { PillarPane } from '../../content/services/pillars';
+import type { PillarPane } from '@/content/services/pillars';
 
 interface PillarsProps {
   id: string;

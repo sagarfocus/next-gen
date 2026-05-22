@@ -1,5 +1,5 @@
-import { ArrowIcon } from '../../components/icons';
-import { FAQS } from '../../content/industries/faqs';
+import { ArrowIcon } from '@/components/icons';
+import { FAQS } from '@/content/industries/faqs';
 
 interface FAQProps {
   onBook: () => void;

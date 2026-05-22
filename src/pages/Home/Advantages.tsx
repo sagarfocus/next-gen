@@ -1,4 +1,4 @@
-import { CountUp } from '../../lib/motion';
+import { CountUp } from '@/lib/motion';
 import advantagesImg from '../../assets/our-advantage.png';
 
 interface AdvantageStat {

@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import ctaImg from '../../assets/healthcare-3.png';
-import { ArrowIcon } from '../../components/icons';
+import { ArrowIcon } from '@/components/icons';
 
 const CTA = () => (
   <section className="gtx-cta">

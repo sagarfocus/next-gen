@@ -1,5 +1,5 @@
-import Section from '../../components/editorial/Section';
-import EditorialCTA from '../../components/editorial/EditorialCTA';
+import Section from '@/components/editorial/Section';
+import EditorialCTA from '@/components/editorial/EditorialCTA';
 
 const Closing = () => (
   <Section

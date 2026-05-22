@@ -1,4 +1,4 @@
-import { STATS } from '../../content/pricing/roi-stats';
+import { STATS } from '@/content/pricing/roi-stats';
 
 const AutomationROI = () => {
   return (

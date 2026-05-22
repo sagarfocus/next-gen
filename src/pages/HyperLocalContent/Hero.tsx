@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 
 import heroImg from '../../assets/local-search.png';
-import { ArrowIcon } from '../../components/icons';
+import { ArrowIcon } from '@/components/icons';
 import { PinIcon, CompassIcon } from './icons';
 import { MARKERS } from './data';
 

@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import builtForClinic from '../../../assets/built-for-clinic.png';
-import { ArrowIcon, CheckIcon } from '../../../components/icons';
+import { ArrowIcon, CheckIcon } from '@/components/icons';
 import { CHECKLIST } from './data';
 
 const About = () => (

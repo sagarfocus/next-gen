@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
-import Breadcrumb from '../../../components/Breadcrumb';
-import { AnimatedBackground } from '../../../lib/motion';
-import { ArrowIcon } from '../../../components/icons';
+import Breadcrumb from '@/components/Breadcrumb';
+import { AnimatedBackground } from '@/lib/motion';
+import { ArrowIcon } from '@/components/icons';
 import { CategoryArt } from './data';
 
 const Hero = ({ filter, visibleCount }: { filter: string; visibleCount: number }) => (

@@ -1,4 +1,4 @@
-import type { ServiceFAQItem } from '../../components/service/ServiceFAQ';
+import type { ServiceFAQItem } from '@/components/service/ServiceFAQ';
 
 export const FAQS: ServiceFAQItem[] = [
   {

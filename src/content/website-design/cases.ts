@@ -1,4 +1,4 @@
-import type { CaseCard } from '../../components/service/CaseStudies';
+import type { CaseCard } from '@/components/service/CaseStudies';
 
 export const CASES: CaseCard[] = [
   {

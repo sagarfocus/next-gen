@@ -1,5 +1,5 @@
-import DetailSectionHead from '../../../components/DetailSectionHead';
-import type { IndustryDetailEntry } from '../../../content/industries/details.data';
+import DetailSectionHead from '@/components/DetailSectionHead';
+import type { IndustryDetailEntry } from '@/content/industries/details.data';
 
 const FAQ = ({ entry }: { entry: IndustryDetailEntry }) => (
   <section className="ow-detail-faq" aria-labelledby="ind-detail-faq-title">

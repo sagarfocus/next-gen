@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
-import { useReducedMotion } from '../../lib/motion';
-import { STEPS } from '../../content/services/process';
+import { useReducedMotion } from '@/lib/motion';
+import { STEPS } from '@/content/services/process';
 
 /*
  * GSAP is lazy-loaded inside useEffect below, ONLY when:

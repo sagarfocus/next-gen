@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { ArrowIcon } from '../../components/icons';
+import { ArrowIcon } from '@/components/icons';
 import { QUARTERS, QUARTER_ICONS, QUARTER_TONES } from './data';
 
 const Quarters = () => (

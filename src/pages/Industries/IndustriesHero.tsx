@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
-import { Parallax, AnimatedBackground } from '../../lib/motion';
-import { ArrowIcon } from '../../components/icons';
+import { Parallax, AnimatedBackground } from '@/lib/motion';
+import { ArrowIcon } from '@/components/icons';
 
 interface IndustriesHeroProps {
   onBook: () => void;

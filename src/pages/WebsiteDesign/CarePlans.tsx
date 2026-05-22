@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
-import SectionHead from '../../components/service/SectionHead';
-import { ArrowIcon, CheckIcon } from '../../components/icons';
-import { CARE_PLANS } from '../../content/website-design/care-plans';
+import SectionHead from '@/components/service/SectionHead';
+import { ArrowIcon, CheckIcon } from '@/components/icons';
+import { CARE_PLANS } from '@/content/website-design/care-plans';
 
 const ToneA = '#576DB5';
 const ToneC = '#B38B6D';

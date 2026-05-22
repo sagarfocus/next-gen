@@ -1,5 +1,5 @@
 import type { ReactElement } from 'react';
-import { ClockIcon } from '../../components/icons';
+import { ClockIcon } from '@/components/icons';
 
 interface SubCard {
   num: string;

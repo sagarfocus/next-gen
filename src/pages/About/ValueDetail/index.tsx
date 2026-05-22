@@ -1,7 +1,7 @@
 import { useParams, Navigate } from 'react-router-dom';
 import { useEffect } from 'react';
-import DetailNarrative from '../../../components/DetailNarrative';
-import { VALUE_ENTRIES, findValue } from '../../../content/about/values.data';
+import DetailNarrative from '@/components/DetailNarrative';
+import { VALUE_ENTRIES, findValue } from '@/content/about/values.data';
 import Hero from './Hero';
 import Body from './Body';
 import FAQ from './FAQ';

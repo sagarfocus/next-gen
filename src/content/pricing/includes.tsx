@@ -1,5 +1,5 @@
 import type { ReactElement, ReactNode } from 'react';
-import { UsersIcon } from '../../components/icons';
+import { UsersIcon } from '@/components/icons';
 
 export interface IncludeCard {
   tag: string;

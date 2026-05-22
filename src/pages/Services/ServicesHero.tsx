@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
-import { AnimatedBackground } from '../../lib/motion';
+import { AnimatedBackground } from '@/lib/motion';
 import logoSrc from '../../assets/the-nextgen-logo.png';
-import { ArrowIcon } from '../../components/icons';
-import { ORBIT_PILLS, CAPABILITIES } from '../../content/services/hero';
+import { ArrowIcon } from '@/components/icons';
+import { ORBIT_PILLS, CAPABILITIES } from '@/content/services/hero';
 
 const ServicesHero = () => {
   return (

@@ -1,6 +1,6 @@
 import { useParams, Navigate } from 'react-router-dom';
 import { useEffect } from 'react';
-import DetailNarrative from '../../../components/DetailNarrative';
+import DetailNarrative from '@/components/DetailNarrative';
 import { findDetail, type DetailKind } from '../details.data';
 import Hero from './Hero';
 import Body from './Body';

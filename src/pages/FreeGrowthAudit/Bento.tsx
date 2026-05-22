@@ -1,4 +1,4 @@
-import { MotionCard } from '../../lib/motion';
+import { MotionCard } from '@/lib/motion';
 
 const Bento = () => (
   <section className="fga-bento-section" aria-labelledby="fga-bento-title">

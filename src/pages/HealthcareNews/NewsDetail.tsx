@@ -1,5 +1,5 @@
 import { useParams, Navigate } from 'react-router-dom';
-import Breadcrumb from '../../components/Breadcrumb';
+import Breadcrumb from '@/components/Breadcrumb';
 import {
   NEWS_ARTICLES,
   newsBySlug,

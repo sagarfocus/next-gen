@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
-import { ArrowIcon, CheckIcon } from '../../components/icons';
-import { CARDS } from '../../content/about/infrastructure';
+import { ArrowIcon, CheckIcon } from '@/components/icons';
+import { CARDS } from '@/content/about/infrastructure';
 
 const Infrastructure = () => {
   return (

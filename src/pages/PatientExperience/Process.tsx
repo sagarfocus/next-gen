@@ -1,5 +1,5 @@
-import Section from '../../components/editorial/Section';
-import { Reveal } from '../../lib/motion';
+import Section from '@/components/editorial/Section';
+import { Reveal } from '@/lib/motion';
 import { PROCESS, PROCESS_ICON } from './data';
 
 const Process = () => (

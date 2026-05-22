@@ -8,7 +8,7 @@ import imgMedspa from '../../../assets/medspa.png';
 import imgUrgent from '../../../assets/urgent-care.png';
 import imgAnalytics from '../../../assets/analytics-and-report.png';
 import imgFsed from '../../../assets/freestanding-emergency.png';
-import type { BlogPostData } from '../../../content/blog/posts';
+import type { BlogPostData } from '@/content/blog/posts';
 
 export const COLORS = {
   navy:  '#1A2438',

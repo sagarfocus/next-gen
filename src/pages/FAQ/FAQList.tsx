@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import type { ChangeEvent } from 'react';
-import { CATEGORIES } from '../../content/faq/categories';
+import { CATEGORIES } from '@/content/faq/categories';
 
 
 const SearchIcon = () => (

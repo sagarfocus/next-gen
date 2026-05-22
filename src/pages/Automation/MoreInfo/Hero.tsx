@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
-import Breadcrumb from '../../../components/Breadcrumb';
+import Breadcrumb from '@/components/Breadcrumb';
 import moreInfoBanner from '../../../assets/more-info-banner.png';
-import { ArrowIcon } from '../../../components/icons';
+import { ArrowIcon } from '@/components/icons';
 
 const Hero = () => (
   <section className="amih-hero" aria-labelledby="amih-hero-title">

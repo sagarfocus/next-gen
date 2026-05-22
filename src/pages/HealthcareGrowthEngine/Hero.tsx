@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
-import Breadcrumb from '../../components/Breadcrumb';
-import { ArrowIcon } from '../../components/icons';
+import Breadcrumb from '@/components/Breadcrumb';
+import { ArrowIcon } from '@/components/icons';
 import imgHero from '../../assets/futuristic-healthcare.png';
 import { HEAD_META, HERO_PULSE } from './data';
 

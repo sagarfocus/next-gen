@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ChevronDownIcon } from '../../components/icons';
+import { ChevronDownIcon } from '@/components/icons';
 import { Section } from './helpers';
 import { FAQS } from './data';
 

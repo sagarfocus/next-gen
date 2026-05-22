@@ -1,4 +1,4 @@
-import { CheckIcon } from '../../components/icons';
+import { CheckIcon } from '@/components/icons';
 interface SolutionItem {
   num: string;
   name: string;

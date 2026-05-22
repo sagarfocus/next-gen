@@ -1,6 +1,6 @@
-import Breadcrumb from '../../components/Breadcrumb';
-import Section from '../../components/editorial/Section';
-import EditorialCTA from '../../components/editorial/EditorialCTA';
+import Breadcrumb from '@/components/Breadcrumb';
+import Section from '@/components/editorial/Section';
+import EditorialCTA from '@/components/editorial/EditorialCTA';
 
 const HEAD_META = [
   { label: 'Platforms',  value: 'IG · FB · WhatsApp' },

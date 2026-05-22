@@ -1,7 +1,7 @@
 import type { ReactNode, ReactElement } from 'react';
 import { Link } from 'react-router-dom';
-import { MotionButton, Parallax } from '../../lib/motion';
-import { ArrowIcon } from '../../components/icons';
+import { MotionButton, Parallax } from '@/lib/motion';
+import { ArrowIcon } from '@/components/icons';
 
 interface HeroProps {
   children?: ReactNode;

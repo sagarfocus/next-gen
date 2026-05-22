@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
 
 import jayPhoto from '../../assets/jay-1.webp';
-import { ArrowIcon } from '../../components/icons';
-import { FOUNDER_CREDS } from '../../content/about/team';
+import { ArrowIcon } from '@/components/icons';
+import { FOUNDER_CREDS } from '@/content/about/team';
 
 const Team = () => {
   return (

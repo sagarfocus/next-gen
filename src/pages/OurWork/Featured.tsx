@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { MotionCard } from '../../lib/motion';
+import { MotionCard } from '@/lib/motion';
 import { ENGAGEMENT_DETAILS, detailHref } from './details.data';
 import { ENGAGEMENT_DELTAS, ENGAGEMENT_HEADLINES, ENGAGEMENT_SECTORS } from './data';
 

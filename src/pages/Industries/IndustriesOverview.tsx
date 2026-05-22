@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
-import { CARDS } from '../../content/industries/overview';
-import { industryDetailHref } from '../../content/industries/details.data';
-import { ArrowIcon } from '../../components/icons';
+import { CARDS } from '@/content/industries/overview';
+import { industryDetailHref } from '@/content/industries/details.data';
+import { ArrowIcon } from '@/components/icons';
 
 const IndustriesOverview = () => (
   <section className="ind-overview" aria-labelledby="ind-ov-title">

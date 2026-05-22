@@ -1,5 +1,5 @@
-import type { DoCard } from '../../components/service/WhatWeDo';
-import { ChartIcon, FileIcon, LinkIcon, NetworkIcon, PinIcon, StarIcon } from '../../components/icons';
+import type { DoCard } from '@/components/service/WhatWeDo';
+import { ChartIcon, FileIcon, LinkIcon, NetworkIcon, PinIcon, StarIcon } from '@/components/icons';
 
 export const DO_CARDS: DoCard[] = [
   { name: 'UX Design', desc: 'Patient journey maps drive every layout, click target, and copy choice.', icon: <PinIcon /> },

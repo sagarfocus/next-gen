@@ -1,5 +1,5 @@
-import Breadcrumb from '../../../components/Breadcrumb';
-import type { BlogPostData } from '../../../content/blog/posts';
+import Breadcrumb from '@/components/Breadcrumb';
+import type { BlogPostData } from '@/content/blog/posts';
 import imgDefault from '../../../assets/healthcare-3.png';
 import { COLORS, FEATURE_IMAGES, toneForPost, initialsOf } from './data';
 

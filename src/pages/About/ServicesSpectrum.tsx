@@ -1,4 +1,4 @@
-import { PILLARS } from '../../content/about/services-spectrum';
+import { PILLARS } from '@/content/about/services-spectrum';
 
 const ServicesSpectrum = () => {
   return (

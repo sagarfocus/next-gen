@@ -1,4 +1,4 @@
-import type { NarrativeBlock } from '../../../components/DetailNarrative';
+import type { NarrativeBlock } from '@/components/DetailNarrative';
 import {
   ENGAGEMENT_DETAILS,
   INDUSTRY_DETAILS,

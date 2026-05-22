@@ -1,6 +1,6 @@
 import { Fragment, useRef, useState } from 'react';
 import type { ReactElement } from 'react';
-import { ArrowIcon, ClockIcon } from '../../components/icons';
+import { ArrowIcon, ClockIcon } from '@/components/icons';
 
 interface Choice {
   value: string;

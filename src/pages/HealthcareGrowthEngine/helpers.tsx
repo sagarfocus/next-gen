@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { ArrowIcon } from '../../components/icons';
+import { ArrowIcon } from '@/components/icons';
 import type { StackGroupExt } from './data';
 
 /* ---------- LAYOUT PRIMITIVE ---------- */

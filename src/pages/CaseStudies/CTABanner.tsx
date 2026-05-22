@@ -1,4 +1,4 @@
-import { ArrowIcon } from '../../components/icons';
+import { ArrowIcon } from '@/components/icons';
 const CTABanner = () => {
   return (
     <section className="cs-cta-banner">

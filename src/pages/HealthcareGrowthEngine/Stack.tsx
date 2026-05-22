@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { ChevronRightIcon } from '../../components/icons';
+import { ChevronRightIcon } from '@/components/icons';
 import { StackCard } from './helpers';
 import { STACK_GROUPS } from './data';
 

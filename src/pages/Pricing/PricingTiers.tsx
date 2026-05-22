@@ -1,5 +1,5 @@
-import { ArrowIcon, CheckIcon, XIcon } from '../../components/icons';
-import { TIERS } from '../../content/pricing/tiers';
+import { ArrowIcon, CheckIcon, XIcon } from '@/components/icons';
+import { TIERS } from '@/content/pricing/tiers';
 
 const PricingTiers = () => {
   return (

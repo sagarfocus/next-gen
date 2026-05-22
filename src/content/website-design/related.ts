@@ -1,4 +1,4 @@
-import type { RelatedServiceLink } from '../../components/service/RelatedServices';
+import type { RelatedServiceLink } from '@/components/service/RelatedServices';
 
 export const RELATED: RelatedServiceLink[] = [
   {

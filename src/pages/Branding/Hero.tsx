@@ -1,78 +1,118 @@
-import ServiceHero from '../../components/service/ServiceHero';
-
-const TrendingUp = () => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.2} strokeLinecap="round" strokeLinejoin="round">
-    <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
-    <polyline points="17 6 23 6 23 12" />
-  </svg>
-);
-
-const PaletteIcon = () => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
-    <circle cx="13.5" cy="6.5" r="2.5" />
-    <circle cx="17.5" cy="10.5" r="2.5" />
-    <circle cx="8.5" cy="7.5" r="2.5" />
-    <circle cx="6.5" cy="12.5" r="2.5" />
-    <path d="M12 22a10 10 0 0 1 0-20" />
-  </svg>
-);
-
-const MainCard = () => (
-  <>
-    <div className="sv-h3d-bar">
-      <PaletteIcon />
-      Brand system · v1
-    </div>
-    <div className="sv-h3d-pack-tag">Identity guide</div>
-    <div className="sv-h3d-swatch-row">
-      <div className="sv-h3d-swatch cta" />
-      <div className="sv-h3d-swatch sage" />
-      <div className="sv-h3d-swatch line" />
-      <div className="sv-h3d-swatch heading" />
-    </div>
-    <div className="sv-h3d-typo-display">Plus Jakarta</div>
-    <div className="sv-h3d-typo-meta">Display · Body · Caption</div>
-    <div className="sv-h3d-stat">
-      <span className="sv-h3d-stat-label">Recall lift</span>
-      <span className="sv-h3d-stat-val up">+62%</span>
-    </div>
-    <div className="sv-h3d-stat">
-      <span className="sv-h3d-stat-label">Trust score</span>
-      <span className="sv-h3d-stat-val up">A+</span>
-    </div>
-  </>
-);
+import { Link } from 'react-router-dom';
+import { ArrowIcon } from '@/components/icons';
 
 const Hero = () => {
   return (
-    <ServiceHero
-      crumb="Branding"
-      title={
-        <>
-          Branding that actually drives <em>real growth.</em>
-        </>
-      }
-      lede="Built for healthcare. Designed for results."
-      metric={{
-        icon: <TrendingUp />,
-        num: (
-          <>
-            +62<em>%</em>
-          </>
-        ),
-        label: 'Recall lift',
-      }}
-      keyword={<>★ Premium positioning</>}
-      rankBadge={{
-        num: (
-          <>
-            A<em>+</em>
-          </>
-        ),
-        label: 'Trust score',
-      }}
-      mainCard={<MainCard />}
-    />
+    <section className="br-hero">
+      <div className="container-shell">
+        <div className="br-hero-grid">
+          <div>
+            <div className="br-hero-crumb">
+              <Link to="/services">Services</Link>
+              <span className="sep">/</span>
+              <span className="cur">Brand Identity &amp; Design</span>
+            </div>
+            <span className="br-hero-eyebrow">
+              <span className="dot" /> Design-led · Healthcare-only
+            </span>
+            <h1 className="br-hero-title">
+              A brand that <em>earns trust</em> the moment a patient sees it.
+            </h1>
+            <p className="br-hero-lede">
+              Identity, voice, system, application - built around how
+              patients should feel in the waiting room, not how the logo
+              looks on a moodboard. Clinically honest, warmly human, and
+              pressure-tested against the marketing campaigns it has to
+              power.
+            </p>
+
+            <div className="br-hero-ctas">
+              <Link to="/contact" className="sl-btn-primary">
+                Pressure-test your brand
+                <ArrowIcon />
+              </Link>
+              <a href="#deliverables" className="sl-btn-ghost">
+                See deliverables
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.4} strokeLinecap="round" strokeLinejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7" />
+                  <polyline points="7 7 17 7 17 17" />
+                </svg>
+              </a>
+            </div>
+
+            <ul className="br-hero-bullets">
+              <li>
+                <span className="br-hero-check" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={3} strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
+                </span>
+                Tested on live ads + booking flow before sign-off
+              </li>
+              <li>
+                <span className="br-hero-check" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={3} strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
+                </span>
+                You own every source file. Figma + Illustrator.
+              </li>
+              <li>
+                <span className="br-hero-check" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={3} strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
+                </span>
+                Phased rollout · no clinic ever closes for a brand update
+              </li>
+            </ul>
+          </div>
+
+          <div className="br-hero-mock" aria-hidden="true">
+            <div className="br-hero-board">
+              <div className="br-hero-board-tag">Brand system · v1.0</div>
+
+              <div className="br-hero-mark">
+                <div className="br-hero-monogram">
+                  <span>Bayview</span>
+                  <span>Health</span>
+                </div>
+              </div>
+
+              <div className="br-hero-palette">
+                <span className="sw p1"><em>Plum</em><i>#5B2C5C</i></span>
+                <span className="sw p2"><em>Gold</em><i>#D4A95C</i></span>
+                <span className="sw p3"><em>Mist</em><i>#F5E6D3</i></span>
+                <span className="sw p4"><em>Ink</em><i>#1A2438</i></span>
+              </div>
+
+              <div className="br-hero-type">
+                <span className="serif">Aa</span>
+                <div className="meta">
+                  <span className="font">Canela Text · 56 / 60</span>
+                  <span className="font sub">Inter · 14 / 20</span>
+                </div>
+              </div>
+
+              <div className="br-hero-card">
+                <div className="ic">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.29 1.51 4.04 3 5.5l7 7z" />
+                  </svg>
+                </div>
+                <div>
+                  <span className="kicker">Patient promise</span>
+                  <span className="copy">Care that knows your name before you say it.</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="br-hero-tag t1">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.2}><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" /></svg>
+              +62% brand recall
+            </div>
+            <div className="br-hero-tag t2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.2}><path d="M9 12l2 2 4-4" /><circle cx="12" cy="12" r="10" /></svg>
+              A+ trust score
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 };
 

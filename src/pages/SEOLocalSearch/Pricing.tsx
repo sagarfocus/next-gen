@@ -1,4 +1,4 @@
-import { ArrowIcon, CheckIcon } from '../../components/icons';
+import { ArrowIcon, CheckIcon } from '@/components/icons';
 interface Tier {
   name: string;
   price: string;

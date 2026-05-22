@@ -6,7 +6,7 @@
  * with library types like `react-router-dom`'s `Link`). Import via the
  * barrel for consistency:
  *
- *   import { CheckIcon } from '../../components/icons';
+ *   import { CheckIcon } from '@/components/icons';
  *
  * All icons share the `IconProps` signature defined in `./types`.
  */

@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
-import Breadcrumb from '../../../components/Breadcrumb';
-import { ArrowIcon } from '../../../components/icons';
+import Breadcrumb from '@/components/Breadcrumb';
+import { ArrowIcon } from '@/components/icons';
 import { COLORS, TONE_COLORS } from './data';
 
 /* ─── Not found ─── */

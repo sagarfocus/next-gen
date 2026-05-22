@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
-import { MotionButton } from '../../lib/motion';
-import { ArrowIcon } from '../../components/icons';
+import { MotionButton } from '@/lib/motion';
+import { ArrowIcon } from '@/components/icons';
 
 const Closing = () => (
   <section className="fga-close" aria-labelledby="fga-close-title">

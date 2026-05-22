@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
-import { VALUE_ENTRIES, valueDetailHref } from '../../content/about/values.data';
-import { ArrowIcon } from '../../components/icons';
+import { VALUE_ENTRIES, valueDetailHref } from '@/content/about/values.data';
+import { ArrowIcon } from '@/components/icons';
 
 const Mission = () => (
   <section className="ab-mission" aria-labelledby="ab-mission-title">

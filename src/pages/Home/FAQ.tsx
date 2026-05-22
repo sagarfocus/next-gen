@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import { ArrowIcon } from '../../components/icons';
+import { ArrowIcon } from '@/components/icons';
 
 interface FAQItem {
   q: string;

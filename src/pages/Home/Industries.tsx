@@ -1,5 +1,5 @@
 import type { ReactElement } from 'react';
-import { Parallax } from '../../lib/motion';
+import { Parallax } from '@/lib/motion';
 
 interface IndustryTag {
   slot: 't1' | 't2' | 't3' | 't4' | 't5' | 't6';

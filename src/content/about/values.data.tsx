@@ -1,5 +1,5 @@
 import type { ReactElement, ReactNode } from 'react';
-import { CheckIcon, XIcon } from '../../components/icons';
+import { CheckIcon, XIcon } from '@/components/icons';
 
 export interface ValueFAQ {
   q: string;

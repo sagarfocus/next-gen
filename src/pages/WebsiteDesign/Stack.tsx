@@ -1,5 +1,5 @@
-import SectionHead from '../../components/service/SectionHead';
-import { STACK_GROUPS } from '../../content/website-design/stack';
+import SectionHead from '@/components/service/SectionHead';
+import { STACK_GROUPS } from '@/content/website-design/stack';
 
 const ToneA = '#576DB5';
 const ToneC = '#B38B6D';

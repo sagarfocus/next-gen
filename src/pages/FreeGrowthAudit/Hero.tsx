@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
-import { Parallax, AnimatedBackground, MotionButton } from '../../lib/motion';
-import { ArrowIcon } from '../../components/icons';
+import { Parallax, AnimatedBackground, MotionButton } from '@/lib/motion';
+import { ArrowIcon } from '@/components/icons';
 
 const DocumentVisual = () => (
   <div className="fga-doc">

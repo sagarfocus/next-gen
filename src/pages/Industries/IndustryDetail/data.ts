@@ -1,5 +1,5 @@
-import type { NarrativeBlock } from '../../../components/DetailNarrative';
-import type { IndustryDetailEntry } from '../../../content/industries/details.data';
+import type { NarrativeBlock } from '@/components/DetailNarrative';
+import type { IndustryDetailEntry } from '@/content/industries/details.data';
 
 export const buildIndustryNarrative = (entry: IndustryDetailEntry): { about: NarrativeBlock; approach: NarrativeBlock } => ({
   about: {

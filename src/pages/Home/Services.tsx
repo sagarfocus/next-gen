@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { MotionCard, useReducedMotion } from '../../lib/motion';
-import { HOME_SERVICES, HOME_SERVICES_HEAD } from '../../content/home/services';
+import { MotionCard, useReducedMotion } from '@/lib/motion';
+import { HOME_SERVICES, HOME_SERVICES_HEAD } from '@/content/home/services';
 
 /*
  * Premium scroll-pinned horizontal slider.

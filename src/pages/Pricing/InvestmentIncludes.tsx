@@ -1,5 +1,5 @@
-import { CheckIcon } from '../../components/icons';
-import { CARDS } from '../../content/pricing/includes';
+import { CheckIcon } from '@/components/icons';
+import { CARDS } from '@/content/pricing/includes';
 
 const InvestmentIncludes = () => {
   return (

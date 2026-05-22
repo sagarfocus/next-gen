@@ -1,6 +1,6 @@
 import LegalPage from './LegalPage';
 import type { LegalSection } from './LegalPage';
-import { SITE } from '../../content/site';
+import { SITE } from '@/content/site';
 
 const P = ({ children }: { children: React.ReactNode }) => (
   <p style={{ margin: '0 0 14px' }}>{children}</p>

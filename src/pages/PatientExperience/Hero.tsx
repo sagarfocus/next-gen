@@ -1,4 +1,4 @@
-import Breadcrumb from '../../components/Breadcrumb';
+import Breadcrumb from '@/components/Breadcrumb';
 import { HEAD_META, JOURNEY, STAGE_ICON } from './data';
 
 const Hero = () => (

@@ -1,5 +1,5 @@
-import DetailSectionHead from '../../../components/DetailSectionHead';
-import type { ValueEntry } from '../../../content/about/values.data';
+import DetailSectionHead from '@/components/DetailSectionHead';
+import type { ValueEntry } from '@/content/about/values.data';
 
 const FAQ = ({ entry }: { entry: ValueEntry }) => (
   <section className="ow-detail-faq" aria-labelledby="ab-value-faq-title">

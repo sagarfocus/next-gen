@@ -1,4 +1,4 @@
-import { PRINCIPLES } from '../../content/about/principles';
+import { PRINCIPLES } from '@/content/about/principles';
 
 const Genesis = () => {
   return (

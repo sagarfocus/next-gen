@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
-import { AnimatedBackground } from '../../../lib/motion';
-import { ArrowIcon, CheckIcon, XIcon } from '../../../components/icons';
-import type { ValueEntry } from '../../../content/about/values.data';
+import { AnimatedBackground } from '@/lib/motion';
+import { ArrowIcon, CheckIcon, XIcon } from '@/components/icons';
+import type { ValueEntry } from '@/content/about/values.data';
 
 interface HeroProps {
   entry: ValueEntry;

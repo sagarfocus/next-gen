@@ -1,4 +1,4 @@
-import { AnimatedBackground } from '../../lib/motion';
+import { AnimatedBackground } from '@/lib/motion';
 
 const ContactHero = () => {
   return (

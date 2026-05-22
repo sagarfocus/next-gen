@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { CARDS } from '../../content/services/who-we-serve';
+import { CARDS } from '@/content/services/who-we-serve';
 
 const CardArrow = () => (
   <span className="serve-arrow" aria-hidden="true">

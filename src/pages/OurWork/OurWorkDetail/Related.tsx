@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
-import { MotionCard } from '../../../lib/motion';
-import DetailSectionHead from '../../../components/DetailSectionHead';
+import { MotionCard } from '@/lib/motion';
+import DetailSectionHead from '@/components/DetailSectionHead';
 import { detailHref, type DetailEntry } from '../details.data';
 import { KIND_GROUP, KIND_LABEL_PLURAL, KIND_RELATED_INTRO, PAREN_TYPE_LABEL } from './data';
 

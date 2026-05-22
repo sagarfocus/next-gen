@@ -1,4 +1,4 @@
-import Breadcrumb from '../../components/Breadcrumb';
+import Breadcrumb from '@/components/Breadcrumb';
 import heroImg from '../../assets/futuristic-healthcare.png';
 import { COLORS, STATS } from './data';
 

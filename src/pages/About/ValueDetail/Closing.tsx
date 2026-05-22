@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
-import { MotionButton } from '../../../lib/motion';
-import { ArrowIcon } from '../../../components/icons';
-import type { ValueEntry } from '../../../content/about/values.data';
+import { MotionButton } from '@/lib/motion';
+import { ArrowIcon } from '@/components/icons';
+import type { ValueEntry } from '@/content/about/values.data';
 
 const Closing = ({ entry }: { entry: ValueEntry }) => (
   <section className="ow-close" aria-labelledby="ab-value-close-title">

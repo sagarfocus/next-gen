@@ -1,4 +1,4 @@
-import { ArrowIcon } from '../../../components/icons';
+import { ArrowIcon } from '@/components/icons';
 import { buildWalkthroughMailto } from './data';
 
 const CTA = () => (

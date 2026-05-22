@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 
 import ctaImg from '../../../assets/built-for-clinic.png';
-import { ArrowIcon } from '../../../components/icons';
+import { ArrowIcon } from '@/components/icons';
 
 const CTA = () => (
   <section className="gtx-cta">

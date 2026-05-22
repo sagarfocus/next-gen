@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { ArrowIcon } from '../../components/icons';
+import { ArrowIcon } from '@/components/icons';
 
 const JoinUs = () => {
   return (

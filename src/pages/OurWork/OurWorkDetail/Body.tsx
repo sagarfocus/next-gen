@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
-import DetailSectionHead from '../../../components/DetailSectionHead';
-import { ArrowIcon } from '../../../components/icons';
+import DetailSectionHead from '@/components/DetailSectionHead';
+import { ArrowIcon } from '@/components/icons';
 import { type DetailEntry } from '../details.data';
 import { KIND_BODY_INTRO } from './data';
 

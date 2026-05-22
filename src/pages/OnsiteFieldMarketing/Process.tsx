@@ -1,4 +1,4 @@
-import Section from '../../components/editorial/Section';
+import Section from '@/components/editorial/Section';
 import { PROCESS } from './data';
 
 const Process = () => (

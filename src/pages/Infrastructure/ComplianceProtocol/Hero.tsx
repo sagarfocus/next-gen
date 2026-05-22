@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 
 import heroImg from '../../../assets/patient-identities.png';
-import { ArrowIcon } from '../../../components/icons';
+import { ArrowIcon } from '@/components/icons';
 
 const Hero = () => (
   <section className="gtx-hero">

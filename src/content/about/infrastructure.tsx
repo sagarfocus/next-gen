@@ -1,5 +1,5 @@
 import type { ReactElement } from 'react';
-import { ClockIcon, UsersIcon } from '../../components/icons';
+import { ClockIcon, UsersIcon } from '@/components/icons';
 
 export interface InfraCard {
   featured?: boolean;

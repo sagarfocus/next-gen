@@ -1,4 +1,4 @@
-import type { HowStep } from '../../components/service/HowItWorks';
+import type { HowStep } from '@/components/service/HowItWorks';
 
 export const STEPS: HowStep[] = [
   { num: '01', name: 'Audit', desc: 'Performance, UX, and conversion benchmark on the current site.' },

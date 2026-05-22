@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
-import Breadcrumb from '../../components/Breadcrumb';
-import { ArrowIcon } from '../../components/icons';
-import { META_ROWS } from '../../content/faq/meta';
+import Breadcrumb from '@/components/Breadcrumb';
+import { ArrowIcon } from '@/components/icons';
+import { META_ROWS } from '@/content/faq/meta';
 
 const FAQHead = () => {
   return (

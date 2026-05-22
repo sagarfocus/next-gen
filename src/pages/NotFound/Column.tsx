@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { ArrowIcon } from '../../components/icons';
+import { ArrowIcon } from '@/components/icons';
 import type { RecoveryLink } from './links';
 
 const Column = ({ title, links }: { title: string; links: RecoveryLink[] }) => (

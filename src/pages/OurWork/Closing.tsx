@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
-import { Parallax, MotionButton } from '../../lib/motion';
-import { ArrowIcon } from '../../components/icons';
+import { Parallax, MotionButton } from '@/lib/motion';
+import { ArrowIcon } from '@/components/icons';
 import { IMG } from './data';
 
 const Closing = () => (

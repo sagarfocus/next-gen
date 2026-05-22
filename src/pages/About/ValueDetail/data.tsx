@@ -1,9 +1,9 @@
 import type { ReactElement } from 'react';
-import type { NarrativeBlock } from '../../../components/DetailNarrative';
+import type { NarrativeBlock } from '@/components/DetailNarrative';
 import healthcareImg1 from '../../../assets/healthcare-1.png';
 import healthcareImg2 from '../../../assets/healthcare-2.png';
 import strategyImg from '../../../assets/strategy-planning.png';
-import { valueDetailHref, type ValueEntry } from '../../../content/about/values.data';
+import { valueDetailHref, type ValueEntry } from '@/content/about/values.data';
 
 export const VALUE_IMAGES: Record<string, { about: string; approach: string }> = {
   'patient-first-marketing': { about: healthcareImg1, approach: healthcareImg2 },

@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
-import SectionHead from '../../components/service/SectionHead';
-import { ArrowIcon } from '../../components/icons';
-import { INDUSTRIES } from '../../content/website-design/industries';
+import SectionHead from '@/components/service/SectionHead';
+import { ArrowIcon } from '@/components/icons';
+import { INDUSTRIES } from '@/content/website-design/industries';
 
 const ToneC = '#B38B6D';
 const ToneInk = '#2D3748';

@@ -9,8 +9,8 @@ import FAQ from './FAQ';
 import Testimonials from './Testimonials';
 import Industries from './Industries';
 import ContactSection from './ContactSection';
-import BookingModal from '../../components/BookingModal';
-import { SITE } from '../../content/site';
+import BookingModal from '@/components/BookingModal';
+import { SITE } from '@/content/site';
 
 const FAQ_SCHEMA = {
   '@context': 'https://schema.org',

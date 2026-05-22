@@ -5,11 +5,11 @@ import ServicesList from './ServicesList';
 import Process from './Process';
 import TrustInfrastructure from './TrustInfrastructure';
 import Pillars from './Pillars';
-import { CUSTOM_SOFTWARE_PANES, AUTOMATION_PANES } from '../../content/services/pillars';
+import { CUSTOM_SOFTWARE_PANES, AUTOMATION_PANES } from '@/content/services/pillars';
 import FeaturePair from './FeaturePair';
 import ServicesFAQ from './ServicesFAQ';
 import CTABanner from './CTABanner';
-import BookingModal from '../../components/BookingModal';
+import BookingModal from '@/components/BookingModal';
 
 const Services = () => {
   const [bookingOpen, setBookingOpen] = useState(false);

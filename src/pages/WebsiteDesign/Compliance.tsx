@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
-import SectionHead from '../../components/service/SectionHead';
-import { ArrowIcon, CheckIcon } from '../../components/icons';
-import { COMPLIANCE_PILLARS } from '../../content/website-design/compliance';
+import SectionHead from '@/components/service/SectionHead';
+import { ArrowIcon, CheckIcon } from '@/components/icons';
+import { COMPLIANCE_PILLARS } from '@/content/website-design/compliance';
 
 const ToneA = '#576DB5';
 const ToneC = '#B38B6D';

@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { CASE_STUDIES } from '../caseStudies.data';
-import { ArrowOutIcon } from '../../../components/icons';
+import { ArrowOutIcon } from '@/components/icons';
 import { ArrowLeft } from './icons';
 
 const NotFoundCase = () => (

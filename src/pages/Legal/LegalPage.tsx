@@ -1,5 +1,5 @@
 import { useEffect, type ReactNode } from 'react';
-import Breadcrumb from '../../components/Breadcrumb';
+import Breadcrumb from '@/components/Breadcrumb';
 
 export interface LegalSection {
   heading: string;

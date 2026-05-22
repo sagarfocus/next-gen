@@ -1,5 +1,5 @@
-import { AnimatedBackground } from '../../lib/motion';
-import { ORBIT_PILLS } from '../../content/about/hero';
+import { AnimatedBackground } from '@/lib/motion';
+import { ORBIT_PILLS } from '@/content/about/hero';
 
 const AboutHero = () => {
   return (

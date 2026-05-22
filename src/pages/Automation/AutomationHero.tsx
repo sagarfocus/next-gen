@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
-import Breadcrumb from '../../components/Breadcrumb';
+import Breadcrumb from '@/components/Breadcrumb';
 import futuristicHealthcare from '../../assets/futuristic-healthcare.png';
-import { ArrowIcon } from '../../components/icons';
+import { ArrowIcon } from '@/components/icons';
 
 interface AutomationHeroProps {
   onBook: () => void;

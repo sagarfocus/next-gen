@@ -1,4 +1,4 @@
-import { ArrowIcon } from '../../../components/icons';
+import { ArrowIcon } from '@/components/icons';
 
 export const ArrowLeft = () => (
   <svg

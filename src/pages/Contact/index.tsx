@@ -1,7 +1,7 @@
 import ContactHero from './ContactHero';
 import QuoteWizard from './QuoteWizard';
 import ContactInfo from './ContactInfo';
-import { SITE } from '../../content/site';
+import { SITE } from '@/content/site';
 
 const LOCAL_BUSINESS_SCHEMA = {
   '@context': 'https://schema.org',

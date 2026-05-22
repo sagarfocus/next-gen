@@ -1,5 +1,5 @@
 import { Fragment } from 'react';
-import { GROUPS } from '../../content/pricing/comparison';
+import { GROUPS } from '@/content/pricing/comparison';
 
 const CheckCell = () => (
   <span className="pr-cell-check">

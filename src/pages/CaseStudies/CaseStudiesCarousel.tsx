@@ -8,7 +8,7 @@ import {
 import type { CSSProperties, KeyboardEvent, TouchEvent } from 'react';
 import { Link } from 'react-router-dom';
 import { CASE_STUDIES } from './caseStudies.data';
-import { ArrowIcon, ArrowOutIcon } from '../../components/icons';
+import { ArrowIcon, ArrowOutIcon } from '@/components/icons';
 
 const CARDS = CASE_STUDIES;
 

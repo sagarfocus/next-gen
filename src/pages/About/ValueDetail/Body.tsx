@@ -1,5 +1,5 @@
-import DetailSectionHead from '../../../components/DetailSectionHead';
-import type { ValueEntry } from '../../../content/about/values.data';
+import DetailSectionHead from '@/components/DetailSectionHead';
+import type { ValueEntry } from '@/content/about/values.data';
 import { BODY_CARD_META } from './data';
 
 const Body = ({ entry }: { entry: ValueEntry }) => (

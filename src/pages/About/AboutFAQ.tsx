@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowIcon } from '../../components/icons';
-import { FAQS } from '../../content/about/faqs';
+import { ArrowIcon } from '@/components/icons';
+import { FAQS } from '@/content/about/faqs';
 
 const FAQChevron = () => (
   <span className="faq-chev" aria-hidden="true">

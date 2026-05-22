@@ -1,10 +1,10 @@
 import { useEffect, useRef, useState } from 'react';
 import type { CSSProperties } from 'react';
-import { ChevronRightIcon } from '../../components/icons';
+import { ChevronRightIcon } from '@/components/icons';
 import {
   HOME_TESTIMONIALS,
   HOME_TESTIMONIALS_HEAD,
-} from '../../content/home/testimonials';
+} from '@/content/home/testimonials';
 
 const QuoteMark = () => (
   <span className="testi-mark" aria-hidden="true">

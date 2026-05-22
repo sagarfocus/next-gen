@@ -1,5 +1,5 @@
-import { ArrowIcon } from '../../components/icons';
-import { SITE } from '../../content/site';
+import { ArrowIcon } from '@/components/icons';
+import { SITE } from '@/content/site';
 
 const MAP_EMBED_URL =
   'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3350.9323492505287!2d-96.98322979999999!3d32.8735093!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864e82728572860b%3A0xd7e7c0a9ee1d6a04!2s3001%20Skyway%20Cir%20N%2C%20Irving%2C%20TX%2075038%2C%20USA!5e0!3m2!1sen!2snp!4v1777236289640!5m2!1sen!2snp';

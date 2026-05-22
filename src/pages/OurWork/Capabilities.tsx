@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { MotionCard } from '../../lib/motion';
+import { MotionCard } from '@/lib/motion';
 import { CAPABILITY_DETAILS, detailHref } from './details.data';
 import { CAPABILITY_STATS, CAPABILITY_TAGS } from './data';
 

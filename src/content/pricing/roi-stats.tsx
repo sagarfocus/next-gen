@@ -1,5 +1,5 @@
 import type { ReactElement, ReactNode } from 'react';
-import { ClockIcon } from '../../components/icons';
+import { ClockIcon } from '@/components/icons';
 
 export interface Stat {
   num: ReactNode;

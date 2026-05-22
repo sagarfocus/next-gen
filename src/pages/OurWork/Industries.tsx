@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useEffect, useRef, useState } from 'react';
 import { INDUSTRY_DETAILS, INDUSTRY_ICONS, detailHref } from './details.data';
-import { ArrowIcon } from '../../components/icons';
+import { ArrowIcon } from '@/components/icons';
 
 const Industries = () => {
   const sectionRef = useRef<HTMLElement>(null);

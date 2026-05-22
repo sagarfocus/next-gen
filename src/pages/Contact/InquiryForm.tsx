@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import type { FormEvent } from 'react';
-import { ChevronDownIcon } from '../../components/icons';
+import { ChevronDownIcon } from '@/components/icons';
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 

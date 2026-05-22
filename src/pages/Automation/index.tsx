@@ -6,7 +6,7 @@ import ImpactBanner from './ImpactBanner';
 import TemplatesSlider from './TemplatesSlider';
 import UseCases from './UseCases';
 import HowItWorks from './HowItWorks';
-import BookingModal from '../../components/BookingModal';
+import BookingModal from '@/components/BookingModal';
 
 const Automation = () => {
   const [bookingOpen, setBookingOpen] = useState(false);

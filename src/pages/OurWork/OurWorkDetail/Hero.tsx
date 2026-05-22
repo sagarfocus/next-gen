@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
-import { AnimatedBackground } from '../../../lib/motion';
-import { ArrowIcon, CheckIcon } from '../../../components/icons';
+import { AnimatedBackground } from '@/lib/motion';
+import { ArrowIcon, CheckIcon } from '@/components/icons';
 import { INDUSTRY_ICONS, type DetailEntry } from '../details.data';
 
 interface DetailHeroProps {

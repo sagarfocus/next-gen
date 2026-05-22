@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
-import { ArrowIcon } from '../../components/icons';
-import { FAQS } from '../../content/services/faqs';
+import { ArrowIcon } from '@/components/icons';
+import { FAQS } from '@/content/services/faqs';
 
 interface FAQProps {
   onBook: () => void;

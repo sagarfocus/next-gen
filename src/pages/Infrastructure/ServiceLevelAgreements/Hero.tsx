@@ -2,7 +2,7 @@ import type { CSSProperties } from 'react';
 import { Link } from 'react-router-dom';
 
 import heroImg from '../../../assets/analytics-and-report.png';
-import { ArrowIcon } from '../../../components/icons';
+import { ArrowIcon } from '@/components/icons';
 import Gauge from './Gauge';
 
 const Hero = () => (

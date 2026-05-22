@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import BookingModal from '../../components/BookingModal';
-import { ArrowIcon } from '../../components/icons';
-import { TRUST_CARDS } from '../../content/services/trust';
+import BookingModal from '@/components/BookingModal';
+import { ArrowIcon } from '@/components/icons';
+import { TRUST_CARDS } from '@/content/services/trust';
 
 const TrustInfrastructure = () => {
   const [bookingOpen, setBookingOpen] = useState(false);

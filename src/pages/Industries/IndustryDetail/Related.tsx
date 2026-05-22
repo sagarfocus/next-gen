@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom';
-import { MotionCard } from '../../../lib/motion';
-import DetailSectionHead from '../../../components/DetailSectionHead';
+import { MotionCard } from '@/lib/motion';
+import DetailSectionHead from '@/components/DetailSectionHead';
 import {
   INDUSTRY_DETAIL_ENTRIES,
   industryDetailHref,
   type IndustryDetailEntry,
-} from '../../../content/industries/details.data';
+} from '@/content/industries/details.data';
 
 const Related = ({ entry }: { entry: IndustryDetailEntry }) => {
   const others = INDUSTRY_DETAIL_ENTRIES.filter((d) => d.slug !== entry.slug).slice(0, 3);

@@ -1,7 +1,7 @@
 import type { ReactElement } from 'react';
 import { Link } from 'react-router-dom';
 import NewsThumb from './NewsThumb';
-import { ArrowIcon } from '../../components/icons';
+import { ArrowIcon } from '@/components/icons';
 
 interface LatestItem {
   to: string;

@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-import { PHASES } from '../../content/about/methodology';
+import { PHASES } from '@/content/about/methodology';
 
 const PhaseArrow = () => (
   <span className="phase-arrow" aria-hidden="true">

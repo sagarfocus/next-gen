@@ -1,4 +1,4 @@
-import { SITE } from '../../../content/site';
+import { SITE } from '@/content/site';
 
 export const buildWalkthroughMailto = (form: HTMLFormElement) => {
   const data = new FormData(form);

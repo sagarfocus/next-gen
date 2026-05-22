@@ -1,4 +1,4 @@
-import { ROWS, SOCIALS } from '../../content/contact/help';
+import { ROWS, SOCIALS } from '@/content/contact/help';
 
 const HelpCard = () => {
   return (

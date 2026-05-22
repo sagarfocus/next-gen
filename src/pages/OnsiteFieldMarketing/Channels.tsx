@@ -1,4 +1,4 @@
-import Section from '../../components/editorial/Section';
+import Section from '@/components/editorial/Section';
 import { FIELD_CHANNELS } from './data';
 
 const Channels = () => (

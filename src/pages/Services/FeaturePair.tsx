@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { ROW_1, ROW_2, type PairCard } from '../../content/services/feature-pairs';
+import { ROW_1, ROW_2, type PairCard } from '@/content/services/feature-pairs';
 
 const PairArrow = () => (
   <svg

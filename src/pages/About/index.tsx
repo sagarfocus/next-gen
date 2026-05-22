@@ -6,7 +6,7 @@ import Methodology from './Methodology';
 import Infrastructure from './Infrastructure';
 import Team from './Team';
 import AboutFAQ from './AboutFAQ';
-import { SITE } from '../../content/site';
+import { SITE } from '@/content/site';
 
 const ORGANIZATION_SCHEMA = {
   '@context': 'https://schema.org',

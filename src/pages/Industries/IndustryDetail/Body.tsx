@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
-import DetailSectionHead from '../../../components/DetailSectionHead';
-import { ArrowIcon } from '../../../components/icons';
-import type { IndustryDetailEntry } from '../../../content/industries/details.data';
+import DetailSectionHead from '@/components/DetailSectionHead';
+import { ArrowIcon } from '@/components/icons';
+import type { IndustryDetailEntry } from '@/content/industries/details.data';
 
 const Body = ({ entry }: { entry: IndustryDetailEntry }) => {
   const lede = entry.longBody[0] ?? '';

@@ -1,4 +1,4 @@
-import Breadcrumb from '../../components/Breadcrumb';
+import Breadcrumb from '@/components/Breadcrumb';
 
 const Hero = () => (
   <section className="ph-page-head">

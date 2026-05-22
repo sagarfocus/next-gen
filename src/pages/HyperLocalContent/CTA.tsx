@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 
 import ctaImg from '../../assets/healthcare-7.png';
-import { ArrowIcon } from '../../components/icons';
+import { ArrowIcon } from '@/components/icons';
 import { PinIcon, CompassIcon } from './icons';
 
 const CTA = () => (

@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react';
 import type { ChangeEvent, ReactElement } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowIcon, ChevronRightIcon, ClockIcon } from '../../components/icons';
+import { ArrowIcon, ChevronRightIcon, ClockIcon } from '@/components/icons';
 
 interface Article {
   href: string;

@@ -1,5 +1,5 @@
 import { useParams } from 'react-router-dom';
-import { getPostBySlug, BLOG_POSTS } from '../../../content/blog/posts';
+import { getPostBySlug, BLOG_POSTS } from '@/content/blog/posts';
 import Hero from './Hero';
 import NotFoundBlock from './NotFoundBlock';
 import { useDocumentMeta, buildBlogPostSchema, buildBreadcrumbSchema } from './data';

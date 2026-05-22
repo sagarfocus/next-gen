@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
-import { AnimatedBackground } from '../../../lib/motion';
-import { ArrowIcon, CheckIcon } from '../../../components/icons';
-import type { IndustryDetailEntry } from '../../../content/industries/details.data';
+import { AnimatedBackground } from '@/lib/motion';
+import { ArrowIcon, CheckIcon } from '@/components/icons';
+import type { IndustryDetailEntry } from '@/content/industries/details.data';
 
 interface HeroProps {
   entry: IndustryDetailEntry;

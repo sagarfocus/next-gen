@@ -1,4 +1,4 @@
-import DetailSectionHead from '../../../components/DetailSectionHead';
+import DetailSectionHead from '@/components/DetailSectionHead';
 import { type DetailEntry } from '../details.data';
 import { KIND_FAQ_INTRO } from './data';
 

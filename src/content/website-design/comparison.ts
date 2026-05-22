@@ -1,4 +1,4 @@
-import type { ComparisonRow } from '../../components/service/ServiceScenario';
+import type { ComparisonRow } from '@/components/service/ServiceScenario';
 
 export const COMPARISON: ComparisonRow[] = [
   {

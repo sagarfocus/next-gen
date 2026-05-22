@@ -1,4 +1,4 @@
-import Breadcrumb from '../../components/Breadcrumb';
+import Breadcrumb from '@/components/Breadcrumb';
 import heroImg from '../../assets/local-search.png';
 import { COLORS, STATS } from './data';
 

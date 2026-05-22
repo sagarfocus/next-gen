@@ -1,5 +1,5 @@
-import Section from '../../components/editorial/Section';
-import { CountUp } from '../../lib/motion';
+import Section from '@/components/editorial/Section';
+import { CountUp } from '@/lib/motion';
 import { METRICS } from './data';
 
 const Metrics = () => (

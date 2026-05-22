@@ -1,5 +1,5 @@
 import { Link, useLocation } from 'react-router-dom';
-import { ArrowIcon } from '../../components/icons';
+import { ArrowIcon } from '@/components/icons';
 
 const Hero = () => {
   const location = useLocation();

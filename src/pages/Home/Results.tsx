@@ -1,5 +1,5 @@
-import { CountUp } from '../../lib/motion';
-import { ArrowIcon } from '../../components/icons';
+import { CountUp } from '@/lib/motion';
+import { ArrowIcon } from '@/components/icons';
 
 interface SmallStat {
   tag: string;

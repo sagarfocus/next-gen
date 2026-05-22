@@ -1,4 +1,4 @@
-import type { ResultStat } from '../../components/service/Results';
+import type { ResultStat } from '@/components/service/Results';
 
 export const STATS: ResultStat[] = [
   {

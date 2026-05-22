@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
-import { MotionCard } from '../../../lib/motion';
-import DetailSectionHead from '../../../components/DetailSectionHead';
-import { ArrowIcon } from '../../../components/icons';
-import { VALUE_ENTRIES, valueDetailHref, type ValueEntry } from '../../../content/about/values.data';
+import { MotionCard } from '@/lib/motion';
+import DetailSectionHead from '@/components/DetailSectionHead';
+import { ArrowIcon } from '@/components/icons';
+import { VALUE_ENTRIES, valueDetailHref, type ValueEntry } from '@/content/about/values.data';
 
 const Related = ({ entry }: { entry: ValueEntry }) => {
   const others = VALUE_ENTRIES.filter((v) => v.slug !== entry.slug);

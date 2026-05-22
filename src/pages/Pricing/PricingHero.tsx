@@ -1,5 +1,5 @@
-import Breadcrumb from '../../components/Breadcrumb';
-import { AnimatedBackground } from '../../lib/motion';
+import Breadcrumb from '@/components/Breadcrumb';
+import { AnimatedBackground } from '@/lib/motion';
 
 const PricingHero = () => {
   return (

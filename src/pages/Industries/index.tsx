@@ -4,8 +4,8 @@ import IndustriesOverview from './IndustriesOverview';
 import IndustryDeepDive from './IndustryDeepDive';
 import AllIndustries from './AllIndustries';
 import IndustriesFAQ from './IndustriesFAQ';
-import BookingModal from '../../components/BookingModal';
-import { SITE } from '../../content/site';
+import BookingModal from '@/components/BookingModal';
+import { SITE } from '@/content/site';
 
 const LOCAL_BUSINESS_SCHEMA = {
   '@context': 'https://schema.org',

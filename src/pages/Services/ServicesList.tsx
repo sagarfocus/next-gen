@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ChevronDownIcon } from '../../components/icons';
-import { SERVICES } from '../../content/services/list';
+import { ChevronDownIcon } from '@/components/icons';
+import { SERVICES } from '@/content/services/list';
 
 const CardArrow = () => (
   <span className="svc-card-arrow" aria-hidden="true">
