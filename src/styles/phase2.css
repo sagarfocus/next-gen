@@ -1,5 +1,3 @@
-const Styles = () => (
-  <style>{`
         .ph2-root {
           background: #F1F2F4;
           color: #1A1F2C;
@@ -579,7 +577,3 @@ const Styles = () => (
           .ph2-gantt-days .d { display: none; }
           .ph2-gantt-bar { font-size: 11.5px; }
         }
-      `}</style>
-);
-
-export default Styles;

@@ -1,4 +1,4 @@
-import Styles from './Styles';
+import '../../../styles/phase3.css';
 import Hero from './Hero';
 import Body from './Body';
 import Arc from './Arc';
@@ -14,8 +14,6 @@ import End from './End';
  */
 const Phase3 = () => (
   <main className="ph3-root">
-    <Styles />
-
     <div className="ph3-wrap">
       <Hero />
       <Body />

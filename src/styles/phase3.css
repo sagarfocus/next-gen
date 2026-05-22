@@ -1,5 +1,3 @@
-const Styles = () => (
-  <style>{`
         .ph3-root {
           background: #FAFAF8;
           color: #1A1F2C;
@@ -668,7 +666,3 @@ const Styles = () => (
           .ph3-tline { grid-template-columns: 1fr; }
           .ph3-handoff ul { grid-template-columns: 1fr; }
         }
-      `}</style>
-);
-
-export default Styles;

@@ -1,92 +1,150 @@
-import ServiceHero from '../../components/service/ServiceHero';
-
-const TrendingUp = () => (
-  <svg
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth={2.2}
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
-    <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
-    <polyline points="17 6 23 6 23 12" />
-  </svg>
-);
-
-const MailIcon = () => (
-  <svg
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth={2}
-  >
-    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-    <polyline points="22,6 12,13 2,6" />
-  </svg>
-);
-
-const MainCard = () => (
-  <>
-    <div className="sv-h3d-bar">
-      <MailIcon />
-      Active drip · Recall
-    </div>
-    <div className="sv-h3d-pack-tag">Live performance</div>
-
-    <div className="sv-h3d-email">
-      <div className="sv-h3d-email-subj">Your follow-up appointment</div>
-      <div className="sv-h3d-email-prev">
-        Hi {'{first_name}'}, we noticed it&rsquo;s been 6 months since your last visit...
-      </div>
-    </div>
-
-    <div className="sv-h3d-meter">
-      <div className="sv-h3d-meter-lbl">Open rate</div>
-      <div className="sv-h3d-meter-bar">
-        <div className="sv-h3d-meter-fill" style={{ width: '68%' }} />
-      </div>
-      <div className="sv-h3d-meter-val">68%</div>
-    </div>
-
-    <div className="sv-h3d-meter">
-      <div className="sv-h3d-meter-lbl">Click rate</div>
-      <div className="sv-h3d-meter-bar">
-        <div className="sv-h3d-meter-fill" style={{ width: '24%' }} />
-      </div>
-      <div className="sv-h3d-meter-val">24%</div>
-    </div>
-
-    <div className="sv-h3d-stat" style={{ marginTop: '6px' }}>
-      <span className="sv-h3d-stat-label">Bookings</span>
-      <span className="sv-h3d-stat-val up">+47 this month</span>
-    </div>
-  </>
-);
+import { Link } from 'react-router-dom';
+import { ArrowIcon } from '../../components/icons';
 
 const Hero = () => {
   return (
-    <ServiceHero
-      crumb="Email Campaigns"
-      title={
-        <>
-          Email Campaigns that actually drives <em>real growth.</em>
-        </>
-      }
-      lede="Built for healthcare. Designed for results."
-      metric={{
-        icon: <TrendingUp />,
-        num: (
-          <>
-            68<em>%</em>
-          </>
-        ),
-        label: 'Open rate',
-      }}
-      keyword={<>★ 24% click rate</>}
-      rankBadge={{ num: '+47', label: 'Bookings / mo' }}
-      mainCard={<MainCard />}
-    />
+    <section className="em-hero">
+      <div className="container-shell">
+        <div className="em-hero-grid">
+          <div>
+            <div className="em-hero-crumb">
+              <Link to="/services">Services</Link>
+              <span className="sep">/</span>
+              <span className="cur">Email Drip Campaigns</span>
+            </div>
+            <span className="em-hero-eyebrow">
+              <span className="dot" /> BAA-covered ESPs · Healthcare-only
+            </span>
+            <h1 className="em-hero-title">
+              Email that brings <em>patients back to the chair.</em>
+            </h1>
+            <p className="em-hero-lede">
+              Welcome flows, post-visit follow-up, recall reminders, win-back
+              drips, referral asks, and newsletters - run on BAA-covered
+              ESPs, segmented by treatment history, attributed to booked
+              revenue. Owned by you, operated by us, never a one-off send.
+            </p>
+
+            <div className="em-hero-ctas">
+              <Link to="/contact" className="sl-btn-primary">
+                Map your drip engine
+                <ArrowIcon />
+              </Link>
+              <a href="#flows" className="sl-btn-ghost">
+                See flow types
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.4} strokeLinecap="round" strokeLinejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7" />
+                  <polyline points="7 7 17 7 17 17" />
+                </svg>
+              </a>
+            </div>
+
+            <ul className="em-hero-bullets">
+              <li>
+                <span className="em-hero-check" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={3} strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
+                </span>
+                BAA signed with every ESP we use
+              </li>
+              <li>
+                <span className="em-hero-check" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={3} strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
+                </span>
+                4 flows live inside 21 days
+              </li>
+              <li>
+                <span className="em-hero-check" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={3} strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
+                </span>
+                Booked revenue attributed per send
+              </li>
+            </ul>
+          </div>
+
+          <div className="em-hero-mock" aria-hidden="true">
+            <div className="em-hero-inbox">
+              <div className="em-hero-inbox-bar">
+                <span className="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.2}><line x1="3" y1="12" x2="21" y2="12" /><line x1="3" y1="6" x2="21" y2="6" /><line x1="3" y1="18" x2="21" y2="18" /></svg></span>
+                <div className="em-hero-search">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}><circle cx="11" cy="11" r="8" /><line x1="21" y1="21" x2="16.65" y2="16.65" /></svg>
+                  Search mail
+                </div>
+                <span className="badge">12 new</span>
+              </div>
+
+              <div className="em-hero-folders">
+                <span className="f active"><span className="dot" />Inbox <em>12</em></span>
+                <span className="f">Starred</span>
+                <span className="f">Promotions</span>
+              </div>
+
+              <ul className="em-hero-list">
+                <li className="em-hero-row unread">
+                  <span className="em-hero-avatar a1" />
+                  <div className="em-hero-row-body">
+                    <div className="em-hero-row-top">
+                      <span className="em-hero-sender">Dr. Marin · Coastal Dental</span>
+                      <span className="em-hero-time">9:42 am</span>
+                    </div>
+                    <span className="em-hero-subj">Your cleaning is due - here&rsquo;s a 60-second booking link</span>
+                    <span className="em-hero-prev">Hi Sarah - it&rsquo;s been 5 months since your last visit. We have Tuesday and Thursday morning slots open this week...</span>
+                  </div>
+                  <span className="em-hero-tag t-recall">Recall</span>
+                </li>
+
+                <li className="em-hero-row unread">
+                  <span className="em-hero-avatar a2" />
+                  <div className="em-hero-row-body">
+                    <div className="em-hero-row-top">
+                      <span className="em-hero-sender">Bayview Health</span>
+                      <span className="em-hero-time">Yesterday</span>
+                    </div>
+                    <span className="em-hero-subj">Welcome to the practice - 3 things to know before your first visit</span>
+                    <span className="em-hero-prev">We&rsquo;re glad you chose Bayview. Here&rsquo;s what to expect at your appointment, what to bring, and how to reach us if you need...</span>
+                  </div>
+                  <span className="em-hero-tag t-welcome">Welcome</span>
+                </li>
+
+                <li className="em-hero-row">
+                  <span className="em-hero-avatar a3" />
+                  <div className="em-hero-row-body">
+                    <div className="em-hero-row-top">
+                      <span className="em-hero-sender">North Vision Care</span>
+                      <span className="em-hero-time">2 days</span>
+                    </div>
+                    <span className="em-hero-subj">A friend who needs us? You earn $25 - they save $50</span>
+                    <span className="em-hero-prev">Thanks again for trusting us with your eye care. If anyone in your circle is looking for a new provider...</span>
+                  </div>
+                  <span className="em-hero-tag t-referral">Referral</span>
+                </li>
+
+                <li className="em-hero-row">
+                  <span className="em-hero-avatar a4" />
+                  <div className="em-hero-row-body">
+                    <div className="em-hero-row-top">
+                      <span className="em-hero-sender">Lakeside MedSpa</span>
+                      <span className="em-hero-time">3 days</span>
+                    </div>
+                    <span className="em-hero-subj">We miss you - a quick check-in (and a tip for spring)</span>
+                    <span className="em-hero-prev">It&rsquo;s been a while since we&rsquo;ve seen you, and we wanted to reach out personally. No pressure...</span>
+                  </div>
+                  <span className="em-hero-tag t-winback">Win-back</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="em-hero-tag-pill t1">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.2}><polyline points="23 6 13.5 15.5 8.5 10.5 1 18" /><polyline points="17 6 23 6 23 12" /></svg>
+              68% open
+            </div>
+            <div className="em-hero-tag-pill t2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.2}><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.96.37 1.9.74 2.79a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.89.37 1.83.62 2.79.74A2 2 0 0 1 22 16.92z" /></svg>
+              47+ bookings / mo
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 };
 

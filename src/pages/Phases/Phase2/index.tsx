@@ -1,4 +1,4 @@
-import Styles from './Styles';
+import '../../../styles/phase2.css';
 import Hero from './Hero';
 import Modules from './Modules';
 import Stack from './Stack';
@@ -11,8 +11,6 @@ import Strip from './Strip';
  */
 const Phase2 = () => (
   <main className="ph2-root">
-    <Styles />
-
     <div className="ph2-wrap">
       <Hero />
       <Modules />

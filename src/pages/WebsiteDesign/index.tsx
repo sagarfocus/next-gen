@@ -1,7 +1,11 @@
+import { useEffect } from 'react';
+
 import Hero from './Hero';
 import Stack from './Stack';
 import Compliance from './Compliance';
 import Industries from './Industries';
+import CarePlans from './CarePlans';
+import Packages from './Packages';
 import WhatWeDo from '../../components/service/WhatWeDo';
 import HowItWorks from '../../components/service/HowItWorks';
 import Results from '../../components/service/Results';
@@ -20,7 +24,64 @@ import { RELATED } from '../../content/website-design/related';
 import { CASES } from '../../content/website-design/cases';
 import { SERVICE_SCHEMA, FAQ_SCHEMA, BREADCRUMB_SCHEMA } from '../../content/website-design/schema';
 
+const PAGE_TITLE = 'Healthcare Website Design & Development | TheNextGen';
+const PAGE_DESC =
+  'Custom healthcare websites that convert. HIPAA-aware, WCAG 2.2 AA, sub-2s LCP. Built for clinics, MedSpas, and specialty groups. Free design audit.';
+const CANONICAL_PATH = '/services/website-design-dev';
+
 const WebsiteDesign = () => {
+  useEffect(() => {
+    const prevTitle = document.title;
+    document.title = PAGE_TITLE;
+
+    const ensureMeta = (selector: string, attrs: Record<string, string>) => {
+      let el = document.head.querySelector<HTMLMetaElement>(selector);
+      if (!el) {
+        el = document.createElement('meta');
+        for (const [k, v] of Object.entries(attrs)) el.setAttribute(k, v);
+        document.head.appendChild(el);
+      }
+      return el;
+    };
+
+    const desc = ensureMeta('meta[name="description"]', { name: 'description' });
+    const prevDesc = desc.getAttribute('content');
+    desc.setAttribute('content', PAGE_DESC);
+
+    const ogTitle = ensureMeta('meta[property="og:title"]', { property: 'og:title' });
+    const prevOgTitle = ogTitle.getAttribute('content');
+    ogTitle.setAttribute('content', PAGE_TITLE);
+
+    const ogDesc = ensureMeta('meta[property="og:description"]', { property: 'og:description' });
+    const prevOgDesc = ogDesc.getAttribute('content');
+    ogDesc.setAttribute('content', PAGE_DESC);
+
+    const ogType = ensureMeta('meta[property="og:type"]', { property: 'og:type' });
+    const prevOgType = ogType.getAttribute('content');
+    ogType.setAttribute('content', 'website');
+
+    let canonical = document.head.querySelector<HTMLLinkElement>('link[rel="canonical"]');
+    let createdCanonical = false;
+    if (!canonical) {
+      canonical = document.createElement('link');
+      canonical.setAttribute('rel', 'canonical');
+      document.head.appendChild(canonical);
+      createdCanonical = true;
+    }
+    const prevCanon = canonical.getAttribute('href');
+    canonical.setAttribute('href', `${window.location.origin}${CANONICAL_PATH}`);
+
+    return () => {
+      document.title = prevTitle;
+      if (prevDesc !== null) desc.setAttribute('content', prevDesc);
+      if (prevOgTitle !== null) ogTitle.setAttribute('content', prevOgTitle);
+      if (prevOgDesc !== null) ogDesc.setAttribute('content', prevOgDesc);
+      if (prevOgType !== null) ogType.setAttribute('content', prevOgType);
+      if (createdCanonical) canonical!.remove();
+      else if (prevCanon !== null) canonical!.setAttribute('href', prevCanon);
+    };
+  }, []);
+
   return (
     <>
       <Hero />
@@ -38,6 +99,8 @@ const WebsiteDesign = () => {
       <Stack />
       <Compliance />
       <Industries />
+      <CarePlans />
+      <Packages />
       <ServiceFAQ
         items={FAQS}
         serviceName="Healthcare Website Design & Development"

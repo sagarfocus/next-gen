@@ -1,4 +1,4 @@
-import Styles from './Styles';
+import '../../../styles/phase1.css';
 import Hero from './Hero';
 import Scorecard from './Scorecard';
 import Dimensions from './Dimensions';
@@ -14,8 +14,6 @@ import Foot from './Foot';
  */
 const Phase1 = () => (
   <main className="ph1-root">
-    <Styles />
-
     <div className="ph1-wrap">
       <Hero />
       <Scorecard />
