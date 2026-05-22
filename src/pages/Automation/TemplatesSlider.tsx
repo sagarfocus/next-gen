@@ -6,6 +6,7 @@ import {
   useState,
 } from 'react';
 import type { CSSProperties, KeyboardEvent, ReactElement, TouchEvent } from 'react';
+import { ArrowIcon, ChevronRightIcon, ClockIcon } from '../../components/icons';
 
 interface Template {
   desc: string;
@@ -36,10 +37,7 @@ const TEMPLATES: Template[] = [
     title: 'Appointment Reminder & No-Show Recovery',
     nodes: '8 nodes · N8N workflow',
     icon: (
-      <svg width={22} height={22} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round">
-        <circle cx="12" cy="12" r="10" />
-        <polyline points="12 6 12 12 16 14" />
-      </svg>
+      <ClockIcon size={22} />
     ),
   },
   {
@@ -288,18 +286,7 @@ const TemplatesSlider = () => {
                 disabled={index >= maxIndex}
                 aria-label="Next templates"
               >
-                <svg
-                  width={16}
-                  height={16}
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth={2.2}
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <polyline points="9 18 15 12 9 6" />
-                </svg>
+                <ChevronRightIcon size={16} />
               </button>
             </div>
           </div>
@@ -309,20 +296,7 @@ const TemplatesSlider = () => {
           <p>Need a custom workflow for your specific EHR or practice?</p>
           <a href="/contact" className="au-btn au-btn-primary">
             Request Custom Template
-            <svg
-              width={13}
-              height={13}
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth={2.4}
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              aria-hidden="true"
-            >
-              <line x1="5" y1="12" x2="19" y2="12" />
-              <polyline points="12 5 19 12 12 19" />
-            </svg>
+            <ArrowIcon size={13} />
           </a>
         </div>
       </div>

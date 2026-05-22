@@ -1,5 +1,6 @@
 import { Fragment, useRef, useState } from 'react';
 import type { ReactElement } from 'react';
+import { ArrowIcon, ClockIcon } from '../../components/icons';
 
 interface Choice {
   value: string;
@@ -23,10 +24,7 @@ const ICON_BOLT = (
   </svg>
 );
 const ICON_CLOCK = (
-  <svg width={20} height={20} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round">
-    <circle cx="12" cy="12" r="10" />
-    <polyline points="12 6 12 12 16 14" />
-  </svg>
+  <ClockIcon size={20} />
 );
 const ICON_HEART = (
   <svg width={20} height={20} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round">
@@ -97,10 +95,7 @@ const ICON_CHECK = (
   </svg>
 );
 const ICON_ARROW_RIGHT = (
-  <svg width={14} height={14} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.4} strokeLinecap="round" strokeLinejoin="round">
-    <line x1="5" y1="12" x2="19" y2="12" />
-    <polyline points="12 5 19 12 12 19" />
-  </svg>
+  <ArrowIcon size={14} />
 );
 const ICON_ARROW_LEFT = (
   <svg width={14} height={14} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">

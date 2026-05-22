@@ -1,39 +1,10 @@
 import { useEffect, useRef, useState } from 'react';
 import type { CSSProperties } from 'react';
-
-interface Testimonial {
-  initials: string;
-  text: string;
-  name: string;
-  title: string;
-}
-
-const TESTIMONIALS: Testimonial[] = [
-  {
-    initials: 'SC',
-    text: 'TheNextGen rebuilt our entire patient pipeline. In 90 days, consults tripled and our cost per lead dropped by half.',
-    name: 'Dr. Sarah Chen',
-    title: 'Owner, Beverly Hills MedSpa',
-  },
-  {
-    initials: 'MR',
-    text: 'Their HIPAA-aware paid media let us scale with confidence. We’ve seen consistent month-over-month growth for over a year.',
-    name: 'Mark Reynolds',
-    title: 'Practice Director, Premier Dental',
-  },
-  {
-    initials: 'ER',
-    text: 'Every decision is backed by clear reporting. The weekly optimization keeps our funnel sharp and our team aligned.',
-    name: 'Dr. Emily Rodriguez',
-    title: 'Founder, Wellness Collective',
-  },
-  {
-    initials: 'JP',
-    text: 'They understand healthcare. Compliance was seamless and ROI showed up in our very first quarter.',
-    name: 'James Park',
-    title: 'CEO, Urgent Care Network',
-  },
-];
+import { ChevronRightIcon } from '../../components/icons';
+import {
+  HOME_TESTIMONIALS,
+  HOME_TESTIMONIALS_HEAD,
+} from '../../content/home/testimonials';
 
 const QuoteMark = () => (
   <span className="testi-mark" aria-hidden="true">
@@ -66,19 +37,7 @@ const ChevronLeft = () => (
 );
 
 const ChevronRight = () => (
-  <svg
-    width={18}
-    height={18}
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth={2}
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    aria-hidden="true"
-  >
-    <polyline points="9 18 15 12 9 6" />
-  </svg>
+  <ChevronRightIcon size={18} strokeWidth={2} />
 );
 
 const Testimonials = () => {
@@ -142,19 +101,16 @@ const Testimonials = () => {
     >
       <div className="container-shell">
         <div className="testi-head">
-          <span className="testi-eyebrow">Testimonials</span>
+          <span className="testi-eyebrow">{HOME_TESTIMONIALS_HEAD.eyebrow}</span>
           <h2 id="testi-title" className="testi-h2">
-            Trusted by healthcare leaders.
+            {HOME_TESTIMONIALS_HEAD.title}
           </h2>
-          <p className="testi-sub">
-            Join the practices that have transformed their patient acquisition
-            with TheNextGen.
-          </p>
+          <p className="testi-sub">{HOME_TESTIMONIALS_HEAD.sub}</p>
         </div>
 
         <div className="testi-track-wrap">
           <div className="testi-track" ref={trackRef}>
-            {TESTIMONIALS.map(({ initials, text, name, title }) => (
+            {HOME_TESTIMONIALS.map(({ initials, text, name, title }) => (
               <article key={name} className="testi-card">
                 <QuoteMark />
                 <p className="testi-text">{text}</p>

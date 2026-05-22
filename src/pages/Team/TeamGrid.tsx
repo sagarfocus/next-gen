@@ -1,11 +1,11 @@
 import shreePhoto from '../../assets/shree-gauli.png';
-import bikashPhoto from '../../assets/bikash-neupane-P8v2nMWX.png';
-import sonuPhoto from '../../assets/sagar-dongol-G5GPLIyG.png';
-import bijeshPhoto from '../../assets/bijesh-khadgi-DPyt6Qkz.png';
-import sumitPhoto from '../../assets/sumit-sharma-HnVUkwl7.png';
-import rahulPhoto from '../../assets/rahul-roy-B61XUb_I.png';
-import bidhitshaPhoto from '../../assets/bidhitsha-khadka-BhV_Y1ex.png';
-import sagarPhoto from '../../assets/sagar-timalsina-BFG2qcdc.png';
+import bikashPhoto from '../../assets/bikash-neupane.png';
+import sonuPhoto from '../../assets/sagar-dongol.png';
+import bijeshPhoto from '../../assets/bijesh-khadgi.png';
+import sumitPhoto from '../../assets/sumit-sharma.png';
+import rahulPhoto from '../../assets/rahul-roy.png';
+import bidhitshaPhoto from '../../assets/bidhitsha-khadka.png';
+import sagarPhoto from '../../assets/sagar-timalsina.png';
 
 interface Member {
   name: string;

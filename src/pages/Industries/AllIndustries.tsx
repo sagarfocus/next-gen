@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-import { INDUSTRY_DETAIL_ENTRIES, industryDetailHref } from './details.data';
+import { INDUSTRY_DETAIL_ENTRIES, industryDetailHref } from '../../content/industries/details.data';
 
 const HeartIcon = () => (
   <svg

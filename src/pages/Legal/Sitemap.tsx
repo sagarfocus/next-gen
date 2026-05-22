@@ -30,7 +30,7 @@ const GROUPS: SitemapGroup[] = [
     title: 'Services',
     links: [
       { to: '/services', label: 'All services' },
-      { to: '/services/seo-local-search', label: 'SEO & local search' },
+      { to: '/services/seo', label: 'SEO Services' },
       { to: '/services/google-ads', label: 'Google Ads' },
       { to: '/services/google-business-profile', label: 'Google Business Profile' },
       { to: '/services/social-media-marketing', label: 'Social media marketing' },

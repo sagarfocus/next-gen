@@ -1,5 +1,6 @@
 import LegalPage from './LegalPage';
 import type { LegalSection } from './LegalPage';
+import { SITE } from '../../content/site';
 
 const P = ({ children }: { children: React.ReactNode }) => (
   <p style={{ margin: '0 0 14px' }}>{children}</p>
@@ -115,7 +116,7 @@ const Terms = () => (
     summary="The terms that apply when you use this site and the relationship between this site and the engagements we sign with healthcare clients."
     effectiveDate="January 1, 2026"
     reviewedDate="May 1, 2026"
-    contact={{ email: 'hello@thenextgenhealth.com' }}
+    contact={{ email: SITE.email }}
     sections={SECTIONS}
     breadcrumb="Terms"
     metaDescription="Terms of Use for TheNextGen Healthcare Marketing - site content, acceptable use, engagements, disclaimers, and governing law."

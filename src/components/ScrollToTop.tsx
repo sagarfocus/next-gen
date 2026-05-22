@@ -6,10 +6,38 @@ const ScrollToTop = () => {
   const { pathname, hash } = useLocation();
 
   useEffect(() => {
-    // Don't override anchor-link navigation (Lenis handles those separately).
-    if (hash) return;
-
     const lenis = getLenis();
+
+    if (hash) {
+      // SPA hash navigation: the browser won't auto-scroll because the URL
+      // change happens via pushState. Find the target and scroll to it. Retry
+      // a couple of frames so the destination DOM has time to mount.
+      const id = decodeURIComponent(hash.slice(1));
+      if (!id) return;
+
+      let cancelled = false;
+      let attempts = 0;
+      const tryScroll = () => {
+        if (cancelled) return;
+        const el = document.getElementById(id);
+        if (el) {
+          if (lenis) {
+            lenis.scrollTo(el, { offset: -80, immediate: true, force: true });
+          } else {
+            const top =
+              el.getBoundingClientRect().top + window.scrollY - 80;
+            window.scrollTo({ top, left: 0, behavior: 'auto' });
+          }
+          return;
+        }
+        if (attempts++ < 20) requestAnimationFrame(tryScroll);
+      };
+      requestAnimationFrame(tryScroll);
+      return () => {
+        cancelled = true;
+      };
+    }
+
     if (lenis) {
       // Use Lenis's authoritative scrollTo so we don't fight its internal
       // scroll state. `immediate: true` avoids the easing animation on

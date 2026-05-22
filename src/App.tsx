@@ -7,6 +7,7 @@ import Home from './pages/Home';
 import About from './pages/About';
 import ValueDetail from './pages/About/ValueDetail';
 import Services from './pages/Services';
+import SEO from './pages/SEO';
 import SEOLocalSearch from './pages/SEOLocalSearch';
 import GoogleBusinessProfile from './pages/GoogleBusinessProfile';
 import GoogleAds from './pages/GoogleAds';
@@ -78,6 +79,7 @@ const App = () => {
         <Route path="/about" element={<About />} />
         <Route path="/about/value/:slug" element={<ValueDetail />} />
         <Route path="/services" element={<Services />} />
+        <Route path="/services/seo" element={<SEO />} />
         <Route path="/services/seo-local-search" element={<SEOLocalSearch />} />
         <Route path="/services/google-business-profile" element={<GoogleBusinessProfile />} />
         <Route path="/services/google-ads" element={<GoogleAds />} />

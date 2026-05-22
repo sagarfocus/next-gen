@@ -1,5 +1,6 @@
 import { Fragment } from 'react';
 import { Link } from 'react-router-dom';
+import { ChevronRightIcon } from './icons';
 
 export interface BreadcrumbItem {
   label: string;
@@ -12,21 +13,6 @@ interface BreadcrumbProps {
   section?: string;
 }
 
-const ChevronRight = () => (
-  <svg
-    width={10}
-    height={10}
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth={2.4}
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    aria-hidden="true"
-  >
-    <polyline points="9 18 15 12 9 6" />
-  </svg>
-);
 
 // Path-aware breadcrumb. New callers pass `items` (each can be a link or label).
 // Legacy callers passing only `current` (and optionally `section`) keep working
@@ -49,7 +35,7 @@ const Breadcrumb = ({ current, items, section = 'Resources' }: BreadcrumbProps) 
           return (
             <Fragment key={`${item.label}-${idx}`}>
               <li aria-hidden="true">
-                <ChevronRight />
+                <ChevronRightIcon size={10} strokeWidth={2.4} />
               </li>
               <li>
                 {isLast ? (

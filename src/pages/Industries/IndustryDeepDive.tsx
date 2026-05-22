@@ -1,4 +1,5 @@
 import type { ReactElement } from 'react';
+import { ClockIcon } from '../../components/icons';
 
 interface SubCard {
   num: string;
@@ -31,22 +32,6 @@ const ERIcon = () => (
     strokeLinejoin="round"
   >
     <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
-  </svg>
-);
-
-const ClockIcon = () => (
-  <svg
-    width={26}
-    height={26}
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth={1.7}
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
-    <circle cx="12" cy="12" r="10" />
-    <polyline points="12 6 12 12 16 14" />
   </svg>
 );
 
@@ -107,7 +92,7 @@ const BLOCKS: IndustryBlock[] = [
     num: '02',
     badge: 'Walk-In Volume',
     iconClass: 'ind-block-icon',
-    icon: <ClockIcon />,
+    icon: <ClockIcon size={26} strokeWidth={1.7} />,
     title: <>Urgent Care &amp; Walk-in Clinics</>,
     desc: 'Convenience-driven patient acquisition built for high-volume throughput, transparency, and reputation at scale.',
     tags: ['Volume', 'Reviews', 'Wait Times'],

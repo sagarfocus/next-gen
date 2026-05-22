@@ -1,4 +1,5 @@
 import SectionHead from './SectionHead';
+import { CheckIcon } from '../icons';
 
 export interface PainPoint {
   title: string;
@@ -30,18 +31,6 @@ const AlertIcon = () => (
   </svg>
 );
 
-const Check = () => (
-  <svg
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth={3}
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
-    <polyline points="20 6 9 17 4 12" />
-  </svg>
-);
 
 const ProblemOutcome = ({ pains, outcomes }: ProblemOutcomeProps) => {
   return (
@@ -81,7 +70,7 @@ const ProblemOutcome = ({ pains, outcomes }: ProblemOutcomeProps) => {
             <h3>Measurable, predictable, repeatable growth.</h3>
             {outcomes.map((o) => (
               <div key={o.label} className="sv-po-out-line">
-                <Check />
+                <CheckIcon />
                 <span>{o.label}</span>
                 <strong>{o.value}</strong>
               </div>

@@ -2,23 +2,8 @@ import type { ReactElement } from 'react';
 import { Link } from 'react-router-dom';
 import Breadcrumb from '../../components/Breadcrumb';
 import { AnimatedBackground } from '../../lib/motion';
+import { ArrowIcon } from '../../components/icons';
 
-const ArrowRight = () => (
-  <svg
-    width={11}
-    height={11}
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth={2.4}
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    aria-hidden="true"
-  >
-    <line x1="5" y1="12" x2="19" y2="12" />
-    <polyline points="12 5 19 12 12 19" />
-  </svg>
-);
 
 interface SideCard {
   href: string;
@@ -363,7 +348,7 @@ const BlogHero = () => {
                 <h3 className="bl-latest-title">Latest</h3>
                 <a href="#bl-grid" className="bl-latest-link">
                   See all
-                  <ArrowRight />
+                  <ArrowIcon size={11} />
                 </a>
               </div>
 

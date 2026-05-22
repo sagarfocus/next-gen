@@ -1,22 +1,6 @@
 import { Link } from 'react-router-dom';
+import { ArrowIcon } from '../icons';
 
-const Arrow = () => (
-  <svg
-    width={14}
-    height={14}
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth={2.4}
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    aria-hidden="true"
-    style={{ flexShrink: 0 }}
-  >
-    <line x1="5" y1="12" x2="19" y2="12" />
-    <polyline points="12 5 19 12 12 19" />
-  </svg>
-);
 
 export type ServiceCTAVariant = 'panel' | 'band' | 'editorial';
 
@@ -65,7 +49,7 @@ const ServiceCTA = ({
             </div>
             <Link to={primaryTo} className="sv-cta-band-btn">
               {primaryLabel}
-              <Arrow />
+              <ArrowIcon size={14} />
             </Link>
           </div>
         </div>
@@ -99,7 +83,7 @@ const ServiceCTA = ({
               <div className="sv-cta-editorial-actions">
                 <Link to={primaryTo}>
                   {primaryLabel}
-                  <Arrow />
+                  <ArrowIcon size={14} />
                 </Link>
                 {secondaryTo && secondaryLabel ? (
                   <Link to={secondaryTo}>{secondaryLabel}</Link>
@@ -122,7 +106,7 @@ const ServiceCTA = ({
           <p className="sv-cta-desc">{description}</p>
           <Link to={primaryTo} className="sv-btn-primary">
             {primaryLabel}
-            <Arrow />
+            <ArrowIcon size={14} />
           </Link>
         </div>
       </div>

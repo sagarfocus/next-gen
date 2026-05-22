@@ -1,6 +1,7 @@
 import type { ReactElement } from 'react';
 import { Link } from 'react-router-dom';
 import NewsThumb from './NewsThumb';
+import { ArrowIcon } from '../../components/icons';
 
 interface LatestItem {
   to: string;
@@ -118,19 +119,6 @@ const POPULAR: PopularItem[] = [
 
 const FEATURED_MAIN_TO = '/healthcare-news/texas-clinic-n8n-workflows';
 
-const ArrowRight = () => (
-  <svg
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth={2.2}
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
-    <line x1="5" y1="12" x2="19" y2="12" />
-    <polyline points="12 5 19 12 12 19" />
-  </svg>
-);
 
 const TrendIcon = () => (
   <svg
@@ -177,7 +165,7 @@ const NewsThreeColumn = () => {
               title="Latest News"
               to="/blog"
               linkLabel="All"
-              icon={<ArrowRight />}
+              icon={<ArrowIcon strokeWidth={2.2} />}
             />
             {LATEST.map((item) => (
               <Link key={item.to} className="latest-item" to={item.to}>
@@ -203,7 +191,7 @@ const NewsThreeColumn = () => {
               title="Featured News"
               to="/case-studies"
               linkLabel="All"
-              icon={<ArrowRight />}
+              icon={<ArrowIcon strokeWidth={2.2} />}
             />
 
             <Link className="featured-main" to={FEATURED_MAIN_TO}>

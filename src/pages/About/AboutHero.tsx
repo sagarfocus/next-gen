@@ -1,13 +1,5 @@
 import { AnimatedBackground } from '../../lib/motion';
-
-const ORBIT_PILLS: { cls: string; label: string }[] = [
-  { cls: 'p1', label: 'Patient Acquisition' },
-  { cls: 'p2', label: 'HIPAA Compliance' },
-  { cls: 'p3', label: 'Local SEO' },
-  { cls: 'p4', label: 'Automation & AI' },
-  { cls: 'p5', label: 'Reputation' },
-  { cls: 'p6', label: 'Brand Strategy' },
-];
+import { ORBIT_PILLS } from '../../content/about/hero';
 
 const AboutHero = () => {
   return (

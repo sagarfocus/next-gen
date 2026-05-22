@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react';
 import type { CSSProperties } from 'react';
+import { ArrowIcon } from '../../components/icons';
 
 interface Result {
   emoji: string;
@@ -220,17 +221,7 @@ const Proof = () => {
               onClick={() => go(1)}
               disabled={index >= maxIndex}
             >
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth={2}
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <line x1="5" y1="12" x2="19" y2="12" />
-                <polyline points="12 5 19 12 12 19" />
-              </svg>
+              <ArrowIcon strokeWidth={2} />
             </button>
           </div>
         </div>

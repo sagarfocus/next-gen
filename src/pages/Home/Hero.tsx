@@ -1,6 +1,7 @@
 import type { ReactNode, ReactElement } from 'react';
 import { Link } from 'react-router-dom';
 import { MotionButton, Parallax } from '../../lib/motion';
+import { ArrowIcon } from '../../components/icons';
 
 interface HeroProps {
   children?: ReactNode;
@@ -131,18 +132,12 @@ const Hero = ({ children }: HeroProps) => {
             <div className="hero-cta-row reveal d4">
               <MotionButton to="/free-growth-audit" className="m-btn-cta hero-mbtn">
                 Get a Free Growth Audit
-                <svg width={16} height={16} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                  <line x1="5" y1="12" x2="19" y2="12" />
-                  <polyline points="12 5 19 12 12 19" />
-                </svg>
+                <ArrowIcon strokeWidth={2} />
               </MotionButton>
 
               <Link to="/our-work" className="link-secondary">
                 See Our Work
-                <svg width={14} height={14} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                  <line x1="5" y1="12" x2="19" y2="12" />
-                  <polyline points="12 5 19 12 12 19" />
-                </svg>
+                <ArrowIcon size={14} strokeWidth={2} />
               </Link>
             </div>
           </div>

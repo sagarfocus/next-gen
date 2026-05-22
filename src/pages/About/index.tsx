@@ -6,13 +6,14 @@ import Methodology from './Methodology';
 import Infrastructure from './Infrastructure';
 import Team from './Team';
 import AboutFAQ from './AboutFAQ';
+import { SITE } from '../../content/site';
 
 const ORGANIZATION_SCHEMA = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
-  name: 'TheNextGen Healthcare Marketing',
-  url: 'https://thenextgenhealth.com',
-  logo: 'https://thenextgenhealth.com/logo.png',
+  name: SITE.legalName,
+  url: SITE.url,
+  logo: `${SITE.url}/logo.png`,
   founder: {
     '@type': 'Person',
     name: 'Sarah Chen',
@@ -21,19 +22,15 @@ const ORGANIZATION_SCHEMA = {
   foundingDate: '2019',
   address: {
     '@type': 'PostalAddress',
-    streetAddress: '3001 Skyway Circle N',
-    addressLocality: 'Irving',
-    addressRegion: 'TX',
-    postalCode: '75038',
-    addressCountry: 'US',
+    streetAddress: SITE.address.street,
+    addressLocality: SITE.address.city,
+    addressRegion: SITE.address.region,
+    postalCode: SITE.address.postalCode,
+    addressCountry: SITE.address.country,
   },
-  telephone: '+1-972-848-1153',
-  email: 'hello@thenextgenhealth.com',
-  sameAs: [
-    'https://instagram.com/thenextgenhealth',
-    'https://facebook.com/thenextgenhealth',
-    'https://linkedin.com/company/thenextgenhealth',
-  ],
+  telephone: SITE.phone.intl,
+  email: SITE.email,
+  sameAs: [SITE.social.instagram, SITE.social.facebook, SITE.social.linkedin],
 };
 
 const About = () => {

@@ -1,3 +1,4 @@
+import { ArrowIcon, CheckIcon } from '../../components/icons';
 interface Tier {
   name: string;
   price: string;
@@ -55,32 +56,7 @@ const TIERS: Tier[] = [
   },
 ];
 
-const Check = () => (
-  <svg
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth={2.4}
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
-    <polyline points="20 6 9 17 4 12" />
-  </svg>
-);
 
-const ArrowRight = () => (
-  <svg
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth={2.4}
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
-    <line x1="5" y1="12" x2="19" y2="12" />
-    <polyline points="12 5 19 12 12 19" />
-  </svg>
-);
 
 const Pricing = () => {
   return (
@@ -116,14 +92,14 @@ const Pricing = () => {
               <ul className="sl-pr-list">
                 {t.features.map((f) => (
                   <li key={f}>
-                    <Check />
+                    <CheckIcon />
                     {f}
                   </li>
                 ))}
               </ul>
               <a href={t.href} className="sl-pr-btn">
                 {t.cta}
-                <ArrowRight />
+                <ArrowIcon />
               </a>
             </div>
           ))}

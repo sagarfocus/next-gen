@@ -1,36 +1,7 @@
 import { Link } from 'react-router-dom';
 import Breadcrumb from '../../components/Breadcrumb';
-
-interface MetaRow {
-  label: string;
-  value: string;
-}
-
-const META_ROWS: MetaRow[] = [
-  {
-    label: 'Sections',
-    value: 'Getting Started · Pricing · Services · Compliance · Reporting',
-  },
-  { label: 'Updated', value: 'May 2026' },
-  { label: 'Avg. response', value: 'Under 4 hours' },
-];
-
-const ArrowRight = () => (
-  <svg
-    width={12}
-    height={12}
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth={2.2}
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    aria-hidden="true"
-  >
-    <line x1="5" y1="12" x2="19" y2="12" />
-    <polyline points="12 5 19 12 12 19" />
-  </svg>
-);
+import { ArrowIcon } from '../../components/icons';
+import { META_ROWS } from '../../content/faq/meta';
 
 const FAQHead = () => {
   return (
@@ -81,7 +52,7 @@ const FAQHead = () => {
                   letterSpacing: '-0.005em',
                 }}
               >
-                Browse all questions <ArrowRight />
+                Browse all questions <ArrowIcon size={12} strokeWidth={2.2} />
               </a>
               <Link
                 to="/contact"
@@ -97,7 +68,7 @@ const FAQHead = () => {
                   fontWeight: 600,
                 }}
               >
-                Can&rsquo;t find yours? Ask us <ArrowRight />
+                Can&rsquo;t find yours? Ask us <ArrowIcon size={12} strokeWidth={2.2} />
               </Link>
             </div>
           </div>

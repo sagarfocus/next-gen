@@ -1,5 +1,12 @@
 import { Link } from 'react-router-dom';
 import logoSrc from '../assets/the-nextgen-logo.png';
+import { SITE } from '../content/site';
+import {
+  FOOTER_COMPANY,
+  FOOTER_LEGAL,
+  FOOTER_SERVICES,
+} from '../content/navigation';
+import { ArrowIcon } from './icons';
 
 const Footer = () => {
   const handleNewsletterSubmit: React.FormEventHandler<HTMLFormElement> = (e) => {
@@ -9,7 +16,7 @@ const Footer = () => {
     if (!email) return;
     const subject = 'Subscribe - TheNextGen weekly brief';
     const body = `Please add this address to the weekly brief: ${email}`;
-    window.location.href = `mailto:hello@thenextgenhealth.com?subject=${encodeURIComponent(
+    window.location.href = `mailto:${SITE.email}?subject=${encodeURIComponent(
       subject,
     )}&body=${encodeURIComponent(body)}`;
     e.currentTarget.reset();
@@ -24,22 +31,21 @@ const Footer = () => {
             <Link
               to="/"
               className="inline-block"
-              aria-label="TheNextGen Healthcare Marketing - Home"
+              aria-label={`${SITE.name} - Home`}
             >
               <img
                 src={logoSrc}
-                alt="TheNextGen Healthcare Marketing"
+                alt={SITE.name}
                 className="h-[80px] w-auto block select-none"
                 draggable={false}
               />
             </Link>
             <p className="text-[14px] leading-[1.65] text-body m-0 max-w-[38ch]">
-              Full-service healthcare marketing agency. SEO, Google Ads, social
-              media, website design, and HIPAA-compliant automation for clinics.
+              {SITE.description}
             </p>
             <div className="flex gap-2.5 mt-1" aria-label="Social media">
               <a
-                href="https://instagram.com/thenextgenhealth"
+                href={SITE.social.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
@@ -62,7 +68,7 @@ const Footer = () => {
                 </svg>
               </a>
               <a
-                href="https://facebook.com/thenextgenhealth"
+                href={SITE.social.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Facebook"
@@ -83,7 +89,7 @@ const Footer = () => {
                 </svg>
               </a>
               <a
-                href="https://linkedin.com/company/thenextgenhealth"
+                href={SITE.social.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"
@@ -112,15 +118,13 @@ const Footer = () => {
           <div className="flex flex-col gap-[18px]">
             <h4 className="ft-h">Services</h4>
             <ul className="list-none m-0 p-0 flex flex-col gap-[11px]">
-              <li><Link to="/services/seo-local-search" className="ft-list-link">SEO &amp; Local Search</Link></li>
-              <li><Link to="/services/google-ads" className="ft-list-link">Google Ads</Link></li>
-              <li><Link to="/services/social-media-marketing" className="ft-list-link">Social Media</Link></li>
-              <li><Link to="/services/website-design-dev" className="ft-list-link">Website Design</Link></li>
-              <li><Link to="/services/email-drip-campaigns" className="ft-list-link">Email Campaigns</Link></li>
-              <li><Link to="/services/content-copywriting" className="ft-list-link">Content Marketing</Link></li>
-              <li><Link to="/services/google-business-profile" className="ft-list-link">Google Business Profile</Link></li>
-              <li><Link to="/services/analytics-reporting" className="ft-list-link">Analytics</Link></li>
-              <li><Link to="/services/brand-identity-design" className="ft-list-link">Branding</Link></li>
+              {FOOTER_SERVICES.map((link) => (
+                <li key={link.to}>
+                  <Link to={link.to} className="ft-list-link">
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -128,13 +132,13 @@ const Footer = () => {
           <div className="flex flex-col gap-[18px]">
             <h4 className="ft-h">Company</h4>
             <ul className="list-none m-0 p-0 flex flex-col gap-[11px]">
-              <li><Link to="/about" className="ft-list-link">About</Link></li>
-              <li><Link to="/faq" className="ft-list-link">FAQ</Link></li>
-              <li><Link to="/free-growth-audit" className="ft-list-link">Free Growth Audit</Link></li>
-              <li><Link to="/pricing" className="ft-list-link">Pricing</Link></li>
-              <li><Link to="/blog" className="ft-list-link">Blog</Link></li>
-              <li><Link to="/industries" className="ft-list-link">Industries</Link></li>
-              <li><Link to="/team" className="ft-list-link">Team</Link></li>
+              {FOOTER_COMPANY.map((link) => (
+                <li key={link.to}>
+                  <Link to={link.to} className="ft-list-link">
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -144,24 +148,24 @@ const Footer = () => {
             <ul className="list-none m-0 p-0 flex flex-col gap-[11px]">
               <li>
                 <a
-                  href="https://www.google.com/maps/place/3001+Skyway+Cir+N,+Irving,+TX+75038"
+                  href={SITE.address.mapsUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="ft-list-link"
                 >
-                  3001 Skyway Circle&nbsp;N
+                  {SITE.address.street}
                   <br />
-                  Irving, TX&nbsp;75038
+                  {`${SITE.address.city}, ${SITE.address.region} ${SITE.address.postalCode}`}
                 </a>
               </li>
               <li>
-                <a href="mailto:hello@thenextgenhealth.com" className="ft-list-link">
-                  hello@thenextgenhealth.com
+                <a href={`mailto:${SITE.email}`} className="ft-list-link">
+                  {SITE.email}
                 </a>
               </li>
               <li>
-                <a href="tel:+19728481153" className="ft-list-link">
-                  +1 (972) 848&ndash;1153
+                <a href={`tel:${SITE.phone.tel}`} className="ft-list-link">
+                  {SITE.phone.display}
                 </a>
               </li>
             </ul>
@@ -187,20 +191,7 @@ const Footer = () => {
                 />
                 <button type="submit">
                   Subscribe
-                  <svg
-                    width={11}
-                    height={11}
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth={2.4}
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    aria-hidden="true"
-                  >
-                    <line x1="5" y1="12" x2="19" y2="12" />
-                    <polyline points="12 5 19 12 12 19" />
-                  </svg>
+                  <ArrowIcon size={11} />
                 </button>
               </form>
             </div>
@@ -209,20 +200,19 @@ const Footer = () => {
 
         {/* Bottom row */}
         <div className="ft-bottom-row">
-          <span>&copy; 2026 TheNextGen Healthcare Marketing. All rights reserved.</span>
+          <span>
+            &copy; {SITE.copyrightYear} {SITE.legalName}. All rights reserved.
+          </span>
           <div className="flex gap-[22px] flex-wrap">
-            <Link to="/privacy" className="text-muted transition-colors hover:text-heading">
-              Privacy
-            </Link>
-            <Link to="/terms" className="text-muted transition-colors hover:text-heading">
-              Terms
-            </Link>
-            <Link to="/sitemap" className="text-muted transition-colors hover:text-heading">
-              Sitemap
-            </Link>
-            <Link to="/accessibility" className="text-muted transition-colors hover:text-heading">
-              Accessibility
-            </Link>
+            {FOOTER_LEGAL.map((link) => (
+              <Link
+                key={link.to}
+                to={link.to}
+                className="text-muted transition-colors hover:text-heading"
+              >
+                {link.label}
+              </Link>
+            ))}
           </div>
         </div>
       </div>

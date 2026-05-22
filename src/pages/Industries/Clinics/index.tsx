@@ -15,10 +15,10 @@ import type { Principle } from '../../../components/industry/IndustryPrinciples'
 import type { Snapshot } from '../../../components/industry/IndustrySnapshots';
 import type { ServiceFAQItem } from '../../../components/service/ServiceFAQ';
 import type { RelatedServiceLink } from '../../../components/service/RelatedServices';
-import clinicsHero from '../../../assets/primary care\'.png';
-import snapBooking from '../../../assets/bookingfirstwebsite.png';
-import snapRecall from '../../../assets/recall+.png';
-import snapDental from '../../../assets/dentalimg.png';
+import clinicsHero from '../../../assets/primary-care.png';
+import snapBooking from '../../../assets/booking-first-website.png';
+import snapRecall from '../../../assets/recall-plus.png';
+import snapDental from '../../../assets/dental-detail.png';
 
 const ORIGIN =
   typeof window !== 'undefined' ? window.location.origin : 'https://thenextgenhealth.com';
@@ -58,9 +58,9 @@ const FAQS: ServiceFAQItem[] = [
 
 const RELATED: RelatedServiceLink[] = [
   {
-    to: '/services/seo-local-search',
-    name: 'Local SEO',
-    blurb: 'Win the map pack in every catchment area your clinics serve.',
+    to: '/services/seo',
+    name: 'SEO Services',
+    blurb: 'Win the map pack and organic SERPs in every catchment area your clinics serve.',
     tag: 'Strategy',
   },
   {

@@ -1,23 +1,23 @@
 import type { ReactNode } from 'react';
 import { createElement } from 'react';
-import imgER from '../../assets/freestandingemergency.png';
-import imgUrgent from '../../assets/urgentcare.png';
-import imgMedspa from '../../assets/Medspa.png';
+import imgER from '../../assets/freestanding-emergency.png';
+import imgUrgent from '../../assets/urgent-care.png';
+import imgMedspa from '../../assets/medspa.png';
 import imgDental from '../../assets/dental.png';
-import imgMental from '../../assets/mental health.png';
+import imgMental from '../../assets/mental-health.png';
 import imgPediatrics from '../../assets/dermatology.png';
-import imgChiro from '../../assets/chiropratic.png';
-import imgPrimary from '../../assets/primary care\'.png';
-import imgNetworks from '../../assets/medicalautomation.png';
-import imgLocalSearch from '../../assets/Local Search.png';
-import imgBookingWeb from '../../assets/bookingfirstwebsite.png';
-import imgFrontDeskAutomation from '../../assets/automation frontedesk.png';
+import imgChiro from '../../assets/chiropractic.png';
+import imgPrimary from '../../assets/primary-care.png';
+import imgNetworks from '../../assets/medical-automation.png';
+import imgLocalSearch from '../../assets/local-search.png';
+import imgBookingWeb from '../../assets/booking-first-website.png';
+import imgFrontDeskAutomation from '../../assets/automation-front-desk.png';
 import imgFeatER from '../../assets/er.png';
-import imgFeatSpaMed from '../../assets/spamed.png';
-import imgFeatDental from '../../assets/dentalimg.png';
-import imgPaidMedia from '../../assets/paidmedia.png';
-import imgPatientIdentities from '../../assets/patientidentities.png';
-import imgRecall from '../../assets/recall+.png';
+import imgFeatSpaMed from '../../assets/med-spa-banner.png';
+import imgFeatDental from '../../assets/dental-detail.png';
+import imgPaidMedia from '../../assets/paid-media.png';
+import imgPatientIdentities from '../../assets/patient-identities.png';
+import imgRecall from '../../assets/recall-plus.png';
 
 export type DetailKind = 'engagement' | 'industry' | 'capability';
 

@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom';
-import healthcareimg1 from '../../assets/healthcareimg1.png';
-import healthcareimg2 from '../../assets/healthcareimg2.png';
-import healthcareimg3 from '../../assets/healthcareimg3.png';
-import healthcareimg4 from '../../assets/healthcareimg4.png';
-import healthcareimg5 from '../../assets/healthcareimg5.png';
-import healthcareimg6 from '../../assets/healthcareimg6.png';
-import healthcareimg7 from '../../assets/healthcareimg7.png';
+import healthcareimg1 from '../../assets/healthcare-1.png';
+import healthcareimg2 from '../../assets/healthcare-2.png';
+import healthcareimg3 from '../../assets/healthcare-3.png';
+import healthcareimg4 from '../../assets/healthcare-4.png';
+import healthcareimg5 from '../../assets/healthcare-5.png';
+import healthcareimg6 from '../../assets/healthcare-6.png';
+import healthcareimg7 from '../../assets/healthcare-7.png';
 
 const WhatIsAutomation = () => {
   return (

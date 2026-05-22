@@ -1,5 +1,6 @@
 import LegalPage from './LegalPage';
 import type { LegalSection } from './LegalPage';
+import { SITE } from '../../content/site';
 
 const P = ({ children }: { children: React.ReactNode }) => (
   <p style={{ margin: '0 0 14px' }}>{children}</p>
@@ -63,8 +64,8 @@ const SECTIONS: LegalSection[] = [
       <P>
         If you encounter a barrier on this site or on any site we have built,
         email{' '}
-        <a href="mailto:hello@thenextgenhealth.com" style={{ color: '#576DB5' }}>
-          hello@thenextgenhealth.com
+        <a href={`mailto:${SITE.email}`} style={{ color: '#576DB5' }}>
+          {SITE.email}
         </a>{' '}
         with the page URL and a short description. We respond within two
         business days and aim to fix critical issues within ten.
@@ -80,7 +81,7 @@ const Accessibility = () => (
     summary="How TheNextGen Healthcare Marketing builds, tests, and maintains accessible experiences for this site and every client site we ship."
     effectiveDate="January 1, 2026"
     reviewedDate="May 1, 2026"
-    contact={{ email: 'hello@thenextgenhealth.com' }}
+    contact={{ email: SITE.email }}
     sections={SECTIONS}
     breadcrumb="Accessibility"
     metaDescription="Accessibility Statement for TheNextGen Healthcare Marketing - WCAG 2.2 AA commitment, testing process, and how to report a barrier."

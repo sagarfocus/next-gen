@@ -1,13 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { MotionCard, useReducedMotion } from '../../lib/motion';
-
-import seoImg from '../../assets/Seo&localsearch.png';
-import socialImg from '../../assets/socialmediamarketing.png';
-import adsImg from '../../assets/googleads.png';
-import fieldImg from '../../assets/onsitefieldmarkting.png';
-import autoImg from '../../assets/medicalautomation.png';
-import emailImg from "../../assets/email&dripcamping'.png";
+import { HOME_SERVICES, HOME_SERVICES_HEAD } from '../../content/home/services';
 
 /*
  * Premium scroll-pinned horizontal slider.
@@ -20,66 +14,6 @@ import emailImg from "../../assets/email&dripcamping'.png";
  * Mobile / touch / reduced motion fall back to the original native
  * `overflow-x: auto` snap-scroll behavior - no scroll hijacking.
  */
-
-interface ServiceCardData {
-  tag: string;
-  title: string;
-  sub: string;
-  ariaLabel: string;
-  image: string;
-  to: string;
-}
-
-const SERVICES: ServiceCardData[] = [
-  {
-    tag: 'Search',
-    title: 'SEO & Local Search',
-    sub: 'Rank for the searches that bring patients to your door.',
-    ariaLabel: 'SEO and Local Search',
-    image: seoImg,
-    to: '/services/seo-local-search',
-  },
-  {
-    tag: 'Social',
-    title: 'Social Media Marketing',
-    sub: 'Show up where your patients spend their time - consistently.',
-    ariaLabel: 'Social Media Marketing',
-    image: socialImg,
-    to: '/services/social-media-marketing',
-  },
-  {
-    tag: 'Paid Media',
-    title: 'Google Ads & Paid Search',
-    sub: 'High-intent traffic, tightly tracked, ROI-optimized weekly.',
-    ariaLabel: 'Google Ads and Paid Search',
-    image: adsImg,
-    to: '/services/google-ads',
-  },
-  {
-    tag: 'Field',
-    title: 'Onsite Field Marketing',
-    sub: 'In-clinic activations and community presence that convert locally.',
-    ariaLabel: 'Onsite Field Marketing',
-    image: fieldImg,
-    to: '/onsite-field-marketing',
-  },
-  {
-    tag: 'Automation',
-    title: 'Medical Automation',
-    sub: 'n8n & custom workflows that handle intake, follow-up, and reporting.',
-    ariaLabel: 'Medical Automation',
-    image: autoImg,
-    to: '/medical-automation',
-  },
-  {
-    tag: 'Lifecycle',
-    title: 'Email & Drip Campaigns',
-    sub: 'Nurture leads, recover no-shows, and re-engage past patients.',
-    ariaLabel: 'Email and Drip Campaigns',
-    image: emailImg,
-    to: '/services/email-drip-campaigns',
-  },
-];
 
 const CardArrow = () => (
   <span className="card-arrow" aria-hidden="true">
@@ -182,13 +116,13 @@ const Services = () => {
     >
       <div className="container-shell">
         <div className="services-head">
-          <span className="services-eyebrow">Services</span>
+          <span className="services-eyebrow">{HOME_SERVICES_HEAD.eyebrow}</span>
           <h2 id="services-title" className="services-h2">
-            Marketing built for healthcare practices.
+            {HOME_SERVICES_HEAD.title}
           </h2>
           <div className="services-aside">
-            <Link to="/services" className="all-link">
-              View all services
+            <Link to={HOME_SERVICES_HEAD.allLinkTo} className="all-link">
+              {HOME_SERVICES_HEAD.allLinkText}
               <span className="ico" aria-hidden="true">
                 <svg
                   width={14}
@@ -205,16 +139,13 @@ const Services = () => {
                 </svg>
               </span>
             </Link>
-            <p className="services-sub">
-              Six core capabilities - one integrated growth engine for
-              clinics, medspas, and wellness brands.
-            </p>
+            <p className="services-sub">{HOME_SERVICES_HEAD.sub}</p>
           </div>
         </div>
 
         <div className="services-track-wrap">
           <div className="services-grid" ref={trackRef}>
-            {SERVICES.map(({ tag, title, sub, ariaLabel, image, to }) => (
+            {HOME_SERVICES.map(({ tag, title, sub, ariaLabel, image, to }) => (
               <MotionCard
                 key={title}
                 naked

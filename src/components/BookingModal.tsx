@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
+import { ArrowIcon, ChevronRightIcon } from './icons';
 
 interface BookingModalProps {
   open: boolean;
@@ -342,19 +343,7 @@ const BookingModal = ({ open, onClose }: BookingModalProps) => {
               >
                 <span>Close</span>
                 <span className="ico" aria-hidden="true">
-                  <svg
-                    width={14}
-                    height={14}
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth={2.4}
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <line x1="5" y1="12" x2="19" y2="12" />
-                    <polyline points="12 5 19 12 12 19" />
-                  </svg>
+                  <ArrowIcon size={14} />
                 </span>
               </button>
             </div>
@@ -397,18 +386,7 @@ const BookingModal = ({ open, onClose }: BookingModalProps) => {
                 }
                 aria-label="Next month"
               >
-                <svg
-                  width={14}
-                  height={14}
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth={2.2}
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <polyline points="9 18 15 12 9 6" />
-                </svg>
+                <ChevronRightIcon />
               </button>
             </div>
           </div>
@@ -494,19 +472,7 @@ const BookingModal = ({ open, onClose }: BookingModalProps) => {
           >
             <span>{confirmLabel}</span>
             <span className="ico" aria-hidden="true">
-              <svg
-                width={14}
-                height={14}
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth={2.4}
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <line x1="5" y1="12" x2="19" y2="12" />
-                <polyline points="12 5 19 12 12 19" />
-              </svg>
+              <ArrowIcon size={14} />
             </span>
           </button>
             </>

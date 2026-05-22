@@ -16,9 +16,9 @@ import type { Snapshot } from '../../../components/industry/IndustrySnapshots';
 import type { ServiceFAQItem } from '../../../components/service/ServiceFAQ';
 import type { RelatedServiceLink } from '../../../components/service/RelatedServices';
 import emergencyHero from '../../../assets/er.png';
-import snapUrgent from '../../../assets/urgentcare.png';
-import snapFreestanding from '../../../assets/freestanding er.png';
-import snapSpecialty from '../../../assets/opthalmology.png';
+import snapUrgent from '../../../assets/urgent-care.png';
+import snapFreestanding from '../../../assets/freestanding-er.png';
+import snapSpecialty from '../../../assets/ophthalmology.png';
 
 const ORIGIN =
   typeof window !== 'undefined' ? window.location.origin : 'https://thenextgenhealth.com';

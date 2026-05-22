@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react';
 import type { ChangeEvent, ReactElement } from 'react';
 import { Link } from 'react-router-dom';
+import { ArrowIcon, ChevronRightIcon, ClockIcon } from '../../components/icons';
 
 interface Article {
   href: string;
@@ -301,22 +302,6 @@ const CalendarIcon = () => (
   </svg>
 );
 
-const ClockIcon = () => (
-  <svg
-    width={11}
-    height={11}
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth={1.8}
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
-    <circle cx="12" cy="12" r="10" />
-    <polyline points="12 6 12 12 16 14" />
-  </svg>
-);
-
 const UserIcon = () => (
   <svg
     viewBox="0 0 24 24"
@@ -331,22 +316,6 @@ const UserIcon = () => (
   </svg>
 );
 
-const ArrowRight = () => (
-  <svg
-    width={11}
-    height={11}
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth={2.4}
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    aria-hidden="true"
-  >
-    <line x1="5" y1="12" x2="19" y2="12" />
-    <polyline points="12 5 19 12 12 19" />
-  </svg>
-);
 
 const ArticleGrid = () => {
   const [activeCat, setActiveCat] = useState('all');
@@ -440,7 +409,7 @@ const ArticleGrid = () => {
                       </span>
                       <span className="dot" />
                       <span className="item">
-                        <ClockIcon />
+                        <ClockIcon size={11} />
                         {article.readTime}
                       </span>
                     </div>
@@ -455,7 +424,7 @@ const ArticleGrid = () => {
                       </div>
                       <span className="bl-card-cta">
                         Read more
-                        <ArrowRight />
+                        <ArrowIcon size={11} />
                       </span>
                     </div>
                   </div>
@@ -484,18 +453,7 @@ const ArticleGrid = () => {
             <button className="bl-pg-btn">3</button>
             <button className="bl-pg-btn">4</button>
             <button className="bl-pg-btn bl-pg-arrow" aria-label="Next page">
-              <svg
-                width={14}
-                height={14}
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth={2.2}
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <polyline points="9 18 15 12 9 6" />
-              </svg>
+              <ChevronRightIcon />
             </button>
           </nav>
         </div>

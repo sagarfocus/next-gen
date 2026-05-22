@@ -1,4 +1,5 @@
 import { CountUp } from '../../lib/motion';
+import { ArrowIcon } from '../../components/icons';
 
 interface SmallStat {
   tag: string;
@@ -37,22 +38,6 @@ const SMALL_STATS: SmallStat[] = [
   },
 ];
 
-const ArrowIcon = ({ size = 14 }: { size?: number }) => (
-  <svg
-    width={size}
-    height={size}
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth={1.8}
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    aria-hidden="true"
-  >
-    <line x1="7" y1="17" x2="17" y2="7" />
-    <polyline points="7 7 17 7 17 17" />
-  </svg>
-);
 
 const Results = () => {
   return (
@@ -313,7 +298,7 @@ const Results = () => {
               optimized funnel and creative refresh.
             </p>
             <span className="stat-arrow" aria-hidden="true">
-              <ArrowIcon size={16} />
+              <ArrowIcon size={16} strokeWidth={1.8} />
             </span>
           </article>
 
@@ -337,7 +322,7 @@ const Results = () => {
                 </p>
                 <p className="stat-label">{label}</p>
                 <span className="stat-card-arrow">
-                  <ArrowIcon />
+                  <ArrowIcon size={14} strokeWidth={1.8} />
                 </span>
               </article>
             ))}

@@ -1,20 +1,20 @@
-import healthcareimg1 from '../../assets/healthcareimg1.png';
-import healthcareimg2 from '../../assets/healthcareimg2.png';
-import healthcareimg3 from '../../assets/healthcareimg3.png';
-import healthcareimg4 from '../../assets/healthcareimg4.png';
-import healthcareimg5 from '../../assets/healthcareimg5.png';
-import healthcareimg6 from '../../assets/healthcareimg6.png';
-import healthcareimg7 from '../../assets/healthcareimg7.png';
-import analyticsImg from '../../assets/analytics and report.png';
-import recallImg from '../../assets/recall+.png';
-import patientIdentitiesImg from '../../assets/patientidentities.png';
-import futuristicImg from '../../assets/Futuristic healthcare.png';
-import ouradvantageImg from '../../assets/ouradvanbtage.png';
-import bookingWebsiteImg from '../../assets/bookingfirstwebsite.png';
-import builtForClinicImg from '../../assets/builtforclinic.png';
-import medSpaImg from '../../assets/spamed.png';
+import healthcareimg1 from '../../assets/healthcare-1.png';
+import healthcareimg2 from '../../assets/healthcare-2.png';
+import healthcareimg3 from '../../assets/healthcare-3.png';
+import healthcareimg4 from '../../assets/healthcare-4.png';
+import healthcareimg5 from '../../assets/healthcare-5.png';
+import healthcareimg6 from '../../assets/healthcare-6.png';
+import healthcareimg7 from '../../assets/healthcare-7.png';
+import analyticsImg from '../../assets/analytics-and-report.png';
+import recallImg from '../../assets/recall-plus.png';
+import patientIdentitiesImg from '../../assets/patient-identities.png';
+import futuristicImg from '../../assets/futuristic-healthcare.png';
+import ouradvantageImg from '../../assets/our-advantage.png';
+import bookingWebsiteImg from '../../assets/booking-first-website.png';
+import builtForClinicImg from '../../assets/built-for-clinic.png';
+import medSpaImg from '../../assets/med-spa-banner.png';
 import dentalImg from '../../assets/dental.png';
-import emailImg from '../../assets/email&dripcamping\'.png';
+import emailImg from '../../assets/email-drip-campaigns.png';
 
 /* ============================================================
    HEALTHCARE NEWS — article data store.
@@ -89,7 +89,7 @@ export const NEWS_ARTICLES: NewsArticle[] = [
     ctaTitle: 'Want help connecting clinical AI to your marketing funnel?',
     ctaBody:
       'We build the patient-facing landing pages, schema, and reporting layer that translate clinical investment into booked visits.',
-    ctaTo: '/services/seo-local-search',
+    ctaTo: '/services/seo',
     ctaLabel: 'See the SEO programme',
   },
   {
@@ -346,8 +346,8 @@ export const NEWS_ARTICLES: NewsArticle[] = [
     ctaTitle: 'Forecast demand. Capture it locally.',
     ctaBody:
       'We connect operational forecasting to local-search demand capture, so the foot traffic matches the inventory on the shelf.',
-    ctaTo: '/services/seo-local-search',
-    ctaLabel: 'See local SEO',
+    ctaTo: '/services/seo',
+    ctaLabel: 'See the SEO programme',
   },
   {
     slug: 'texas-clinic-n8n-workflows',

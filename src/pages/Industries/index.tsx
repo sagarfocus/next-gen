@@ -5,28 +5,25 @@ import IndustryDeepDive from './IndustryDeepDive';
 import AllIndustries from './AllIndustries';
 import IndustriesFAQ from './IndustriesFAQ';
 import BookingModal from '../../components/BookingModal';
+import { SITE } from '../../content/site';
 
 const LOCAL_BUSINESS_SCHEMA = {
   '@context': 'https://schema.org',
   '@type': 'LocalBusiness',
-  name: 'TheNextGen Healthcare Marketing',
-  image: 'https://thenextgenhealth.com/og-image.jpg',
-  telephone: '+1-972-848-1153',
-  email: 'hello@thenextgenhealth.com',
-  url: 'https://thenextgenhealth.com',
+  name: SITE.legalName,
+  image: `${SITE.url}/og-image.jpg`,
+  telephone: SITE.phone.intl,
+  email: SITE.email,
+  url: SITE.url,
   address: {
     '@type': 'PostalAddress',
-    streetAddress: '3001 Skyway Circle N',
-    addressLocality: 'Irving',
-    addressRegion: 'TX',
-    postalCode: '75038',
-    addressCountry: 'US',
+    streetAddress: SITE.address.street,
+    addressLocality: SITE.address.city,
+    addressRegion: SITE.address.region,
+    postalCode: SITE.address.postalCode,
+    addressCountry: SITE.address.country,
   },
-  sameAs: [
-    'https://instagram.com/thenextgenhealth',
-    'https://facebook.com/thenextgenhealth',
-    'https://linkedin.com/company/thenextgenhealth',
-  ],
+  sameAs: [SITE.social.instagram, SITE.social.facebook, SITE.social.linkedin],
 };
 
 const Industries = () => {

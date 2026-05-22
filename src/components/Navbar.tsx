@@ -1,27 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import logoSrc from '../assets/the-nextgen-logo.png';
-
-interface ResourceLink {
-  to: string;
-  label: string;
-  desc: string;
-}
-
-const RESOURCES: ResourceLink[] = [
-  { to: '/blog', label: 'Blog', desc: "Practitioner's brief, weekly tactics" },
-  { to: '/case-studies', label: 'Case Studies', desc: 'Real client growth stories' },
-  { to: '/healthcare-news', label: 'Healthcare News', desc: 'HIPAA & industry updates' },
-  { to: '/automation', label: 'Automation', desc: 'AI workflows & integrations' },
-  { to: '/pricing', label: 'Pricing', desc: 'Transparent engagement plans' },
-];
-
-const PRIMARY_LINKS: { to: string; label: string }[] = [
-  { to: '/services', label: 'Services' },
-  { to: '/industries', label: 'Industries' },
-  { to: '/about', label: 'About' },
-  { to: '/contact', label: 'Contact Us' },
-];
+import { SITE } from '../content/site';
+import { NAV_PRIMARY, NAV_RESOURCES } from '../content/navigation';
+import { ChevronDownIcon } from './icons';
 
 const Navbar = () => {
   const [resourcesOpen, setResourcesOpen] = useState(false);
@@ -90,11 +72,11 @@ const Navbar = () => {
           <Link
             to="/"
             className="flex items-center"
-            aria-label="TheNextGen Healthcare Marketing - Home"
+            aria-label={`${SITE.name} - Home`}
           >
             <img
               src={logoSrc}
-              alt="TheNextGen Healthcare Marketing"
+              alt={SITE.name}
               className="h-14 sm:h-[88px] w-auto block select-none"
               draggable={false}
             />
@@ -102,18 +84,16 @@ const Navbar = () => {
 
           {/* Center menu (hidden below 1024px) */}
           <div className="hidden lg:flex justify-center gap-1.5" role="menubar">
-            <Link to="/services" className="nav-link" role="menuitem">
-              Services
-            </Link>
-            <Link to="/industries" className="nav-link" role="menuitem">
-              Industries
-            </Link>
-            <Link to="/about" className="nav-link" role="menuitem">
-              About
-            </Link>
-            <Link to="/contact" className="nav-link" role="menuitem">
-              Contact Us
-            </Link>
+            {NAV_PRIMARY.map((link) => (
+              <Link
+                key={link.to}
+                to={link.to}
+                className="nav-link"
+                role="menuitem"
+              >
+                {link.label}
+              </Link>
+            ))}
 
             {/* Resources dropdown */}
             <div ref={resourcesRef} className="nav-dropdown">
@@ -126,25 +106,12 @@ const Navbar = () => {
                 onClick={() => setResourcesOpen((o) => !o)}
               >
                 Resources
-                <svg
-                  className={`nav-drop-chev${resourcesOpen ? ' is-open' : ''}`}
-                  width={18}
-                  height={18}
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth={3}
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <polyline points="6 9 12 15 18 9" />
-                </svg>
+                <ChevronDownIcon strokeWidth={3} />
               </button>
 
               {resourcesOpen && (
                 <div className="nav-dropdown-panel" role="menu">
-                  {RESOURCES.map((item) => (
+                  {NAV_RESOURCES.map((item) => (
                     <Link
                       key={item.to}
                       to={item.to}
@@ -185,20 +152,7 @@ const Navbar = () => {
                 <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
               </svg>
               EN
-              <svg
-                className="text-muted"
-                width={11}
-                height={11}
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth={2.2}
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                aria-hidden="true"
-              >
-                <polyline points="6 9 12 15 18 9" />
-              </svg>
+              <ChevronDownIcon size={11} className="text-muted" />
             </button>
 
             <button type="button" className="nav-icon-btn hidden sm:grid" aria-label="Account">
@@ -273,7 +227,7 @@ const Navbar = () => {
           />
           <div className="container-shell py-6 flex flex-col gap-7 relative">
             <ul className="flex flex-col list-none m-0 p-0">
-              {PRIMARY_LINKS.map((link) => (
+              {NAV_PRIMARY.map((link) => (
                 <li key={link.to}>
                   <Link
                     to={link.to}
@@ -304,7 +258,7 @@ const Navbar = () => {
                 Resources
               </div>
               <ul className="flex flex-col list-none m-0 p-0">
-                {RESOURCES.map((r) => (
+                {NAV_RESOURCES.map((r) => (
                   <li key={r.to}>
                     <Link
                       to={r.to}

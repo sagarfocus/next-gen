@@ -1,13 +1,8 @@
 import { Link } from 'react-router-dom';
 
 import jayPhoto from '../../assets/jay-1.webp';
-
-const FOUNDER_CREDS = [
-  'HIPAA Certified',
-  'Google Premier Partner',
-  '15 Years Healthcare',
-  'AAFP Speaker',
-];
+import { ArrowIcon } from '../../components/icons';
+import { FOUNDER_CREDS } from '../../content/about/team';
 
 const Team = () => {
   return (
@@ -63,18 +58,7 @@ const Team = () => {
         <div className="ab-team-cta-wrap">
           <Link to="/team" className="ab-team-cta">
             See all teams
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth={2.4}
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              aria-hidden="true"
-            >
-              <line x1="5" y1="12" x2="19" y2="12" />
-              <polyline points="12 5 19 12 12 19" />
-            </svg>
+            <ArrowIcon />
           </Link>
         </div>
       </div>

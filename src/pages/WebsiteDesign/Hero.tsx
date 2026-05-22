@@ -55,10 +55,10 @@ const Hero = () => {
       crumb="Website Design"
       title={
         <>
-          Website Design that actually drives <em>real growth.</em>
+          Websites that move <em>patients,</em> not just pixels.
         </>
       }
-      lede="Built for healthcare. Designed for results."
+      lede="Healthcare-specialized design - accessibility-defensible, HIPAA-aware, and built to convert on day one."
       metric={{
         icon: <TrendingUp />,
         num: (

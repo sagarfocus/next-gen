@@ -1,25 +1,10 @@
 import { Link } from 'react-router-dom';
 
-import aboutImg1 from '../../assets/healthcareimg1.png';
-import aboutImg2 from '../../assets/healthcareimg2.png';
-import aboutImg3 from '../../assets/healthcareimg3.png';
+import aboutImg1 from '../../assets/healthcare-1.png';
+import aboutImg2 from '../../assets/healthcare-2.png';
+import aboutImg3 from '../../assets/healthcare-3.png';
+import { ArrowIcon } from '../../components/icons';
 
-const ArrowIcon = () => (
-  <svg
-    width={14}
-    height={14}
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth={2}
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    aria-hidden="true"
-  >
-    <line x1="7" y1="17" x2="17" y2="7" />
-    <polyline points="7 7 17 7 17 17" />
-  </svg>
-);
 
 const LeafIcon = () => (
   <svg
@@ -131,7 +116,7 @@ const AboutUs = () => {
                 className="ah-feature-arrow"
                 aria-label="Learn more about the Healthcare Growth Engine"
               >
-                <ArrowIcon />
+                <ArrowIcon size={14} strokeWidth={2} />
               </Link>
             </article>
           </div>
@@ -146,7 +131,7 @@ const AboutUs = () => {
               <Link to="/about" className="ah-float-link">
                 Learn More
                 <span className="ah-float-link-ico" aria-hidden="true">
-                  <ArrowIcon />
+                  <ArrowIcon size={14} strokeWidth={2} />
                 </span>
               </Link>
             </div>
@@ -204,7 +189,7 @@ const AboutUs = () => {
               <Link to="/about" className="ah-cta">
                 More About Us
                 <span className="ah-cta-ico" aria-hidden="true">
-                  <ArrowIcon />
+                  <ArrowIcon size={14} strokeWidth={2} />
                 </span>
               </Link>
             </div>

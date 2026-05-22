@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { ArrowIcon } from './icons';
 
 export interface NarrativeBlock {
   eyebrow: string;
@@ -15,22 +16,6 @@ interface DetailNarrativeProps {
   approach: NarrativeBlock;
 }
 
-const ArrowRight = () => (
-  <svg
-    width={14}
-    height={14}
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth={2.4}
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    aria-hidden="true"
-  >
-    <line x1="5" y1="12" x2="19" y2="12" />
-    <polyline points="12 5 19 12 12 19" />
-  </svg>
-);
 
 const DetailNarrative = ({ about, approach }: DetailNarrativeProps) => (
   <>
@@ -45,7 +30,7 @@ const DetailNarrative = ({ about, approach }: DetailNarrativeProps) => (
             <p className="dn-body">{about.body}</p>
             <Link to={about.ctaTo} className="dn-cta">
               {about.ctaText}
-              <ArrowRight />
+              <ArrowIcon size={14} />
             </Link>
           </div>
           <figure className="dn-image dn-image-round" aria-hidden="true">
@@ -69,7 +54,7 @@ const DetailNarrative = ({ about, approach }: DetailNarrativeProps) => (
             <p className="dn-body">{approach.body}</p>
             <Link to={approach.ctaTo} className="dn-cta">
               {approach.ctaText}
-              <ArrowRight />
+              <ArrowIcon size={14} />
             </Link>
           </div>
         </div>

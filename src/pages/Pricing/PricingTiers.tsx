@@ -1,145 +1,5 @@
-interface Tier {
-  featured?: boolean;
-  badge?: string;
-  name: string;
-  amount: string;
-  period?: string;
-  tagline: string;
-  bestFor: string;
-  ctaLabel: string;
-  ctaHref: string;
-  includesLabel: string;
-  includes: string[];
-  notLabel?: string;
-  notIncluded?: string[];
-  notesLabel?: string;
-  notes?: string[];
-}
-
-const TIERS: Tier[] = [
-  {
-    name: 'Starter Care',
-    amount: '$5,000',
-    period: '/ month',
-    tagline:
-      'Perfect for elective procedures and high-research patient journeys.',
-    bestFor:
-      'Single-location clinics ready to build their digital foundation.',
-    ctaLabel: 'Get Started',
-    ctaHref: '/contact',
-    includesLabel: 'Package Includes',
-    includes: [
-      'Advanced SEO & Local Search Optimization',
-      'Google My Business Management',
-      'Targeted Google Ads & Meta Campaigns',
-      'AI Chatbot & Call Tracking Setup',
-      'Monthly Strategy & Performance Reports',
-      'Content Creation & Social Media',
-    ],
-    notLabel: 'Not Included',
-    notIncluded: [
-      'Advanced AI call handling',
-      'Multi-location campaigns',
-      'Custom software development',
-    ],
-  },
-  {
-    featured: true,
-    badge: 'Most Popular',
-    name: 'Growth Pro',
-    amount: '$10,000',
-    period: '/ month',
-    tagline:
-      'High-acuity, rapid-response systems for immediate-need facilities.',
-    bestFor: 'Clinics ready to scale acquisition fast.',
-    ctaLabel: 'Get Started',
-    ctaHref: '/contact',
-    includesLabel: 'Everything in Starter, plus',
-    includes: [
-      'High-Budget Google Ads Management',
-      'Advanced AI Call Handling & Triage',
-      'Real-Time Insurance Verification Bots',
-      'Priority Support & Rapid SLA Response',
-      'Multi-Location Campaign Orchestration',
-      '24/7 Performance Monitoring',
-      'Dedicated Account Manager',
-    ],
-    notLabel: 'Not Included',
-    notIncluded: [
-      'Custom software development',
-      'Multi-state network management',
-    ],
-  },
-  {
-    name: 'Scale Elite',
-    amount: 'Custom',
-    tagline: 'Comprehensive growth engine for large healthcare networks.',
-    bestFor: 'Multi-location teams needing advanced automation.',
-    ctaLabel: 'Get Started',
-    ctaHref: '/contact',
-    includesLabel: 'Everything in Pro, plus',
-    includes: [
-      'Custom Software Development',
-      'HIPAA-Compliant API Integrations',
-      'Multi-State Network Management',
-      'Advanced Analytics & BI Dashboards',
-      'Custom Automation Workflows',
-      'White-Glove Onboarding',
-      'Dedicated Development Team',
-      'Enterprise SLA & Support',
-    ],
-    notesLabel: 'Pricing Notes',
-    notes: ['Custom-scoped per network size', 'Dedicated implementation lead'],
-  },
-];
-
-const CheckIcon = () => (
-  <svg
-    width={10}
-    height={10}
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth={3.2}
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
-    <polyline points="20 6 9 17 4 12" />
-  </svg>
-);
-
-const XIcon = () => (
-  <svg
-    width={9}
-    height={9}
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth={3}
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
-    <line x1="18" y1="6" x2="6" y2="18" />
-    <line x1="6" y1="6" x2="18" y2="18" />
-  </svg>
-);
-
-const ArrowRight = () => (
-  <svg
-    width={13}
-    height={13}
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth={2.4}
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    aria-hidden="true"
-  >
-    <line x1="5" y1="12" x2="19" y2="12" />
-    <polyline points="12 5 19 12 12 19" />
-  </svg>
-);
+import { ArrowIcon, CheckIcon, XIcon } from '../../components/icons';
+import { TIERS } from '../../content/pricing/tiers';
 
 const PricingTiers = () => {
   return (
@@ -186,7 +46,7 @@ const PricingTiers = () => {
                 rel="noopener noreferrer"
               >
                 {tier.ctaLabel}
-                <ArrowRight />
+                <ArrowIcon size={13} />
               </a>
 
               <span className="pr-tier-section-label">
@@ -196,7 +56,7 @@ const PricingTiers = () => {
                 {tier.includes.map((item) => (
                   <li key={item}>
                     <span className="check">
-                      <CheckIcon />
+                      <CheckIcon size={10} strokeWidth={3.2} />
                     </span>
                     {item}
                   </li>
@@ -211,7 +71,7 @@ const PricingTiers = () => {
                     {tier.notIncluded.map((item) => (
                       <li key={item}>
                         <span className="x">
-                          <XIcon />
+                          <XIcon size={9} />
                         </span>
                         {item}
                       </li>
@@ -230,7 +90,7 @@ const PricingTiers = () => {
                     {tier.notes.map((item) => (
                       <li key={item}>
                         <span className="check">
-                          <CheckIcon />
+                          <CheckIcon size={10} strokeWidth={3.2} />
                         </span>
                         {item}
                       </li>

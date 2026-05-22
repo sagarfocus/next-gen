@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import type { FormEvent } from 'react';
+import { ChevronDownIcon } from '../../components/icons';
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -91,19 +92,7 @@ const InquiryForm = () => {
           <div className="iq-phone-wrap">
             <button type="button" className="iq-cc" aria-label="Country code">
               +1
-              <svg
-                width={10}
-                height={10}
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth={2.2}
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                aria-hidden="true"
-              >
-                <polyline points="6 9 12 15 18 9" />
-              </svg>
+              <ChevronDownIcon size={10} />
             </button>
             <input
               className="iq-input iq-phone-input"

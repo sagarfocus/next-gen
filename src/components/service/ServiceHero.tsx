@@ -1,5 +1,6 @@
 import type { ReactElement, ReactNode } from 'react';
 import { Link } from 'react-router-dom';
+import { ArrowIcon } from '../icons';
 
 interface ServiceHeroProps {
   crumbRoot?: { label: string; href: string };
@@ -19,19 +20,6 @@ interface ServiceHeroProps {
   mainCard: ReactNode;
 }
 
-const ArrowRight = () => (
-  <svg
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth={2.4}
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
-    <line x1="5" y1="12" x2="19" y2="12" />
-    <polyline points="12 5 19 12 12 19" />
-  </svg>
-);
 
 const ArrowDiag = () => (
   <svg
@@ -86,7 +74,7 @@ const ServiceHero = ({
             <div className="sv-hero-ctas">
               <a href="#audit" className="sv-btn-primary">
                 Get Free Audit
-                <ArrowRight />
+                <ArrowIcon />
               </a>
               <a href="#how" className="sv-btn-ghost">
                 See how it works

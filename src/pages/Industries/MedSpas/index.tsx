@@ -15,9 +15,9 @@ import type { Principle } from '../../../components/industry/IndustryPrinciples'
 import type { Snapshot } from '../../../components/industry/IndustrySnapshots';
 import type { ServiceFAQItem } from '../../../components/service/ServiceFAQ';
 import type { RelatedServiceLink } from '../../../components/service/RelatedServices';
-import medspasHero from '../../../assets/spamed.png';
-import snapMedspa from '../../../assets/Medspa.png';
-import snapAesthetic from '../../../assets/plasticsurgery.png';
+import medspasHero from '../../../assets/med-spa-banner.png';
+import snapMedspa from '../../../assets/medspa.png';
+import snapAesthetic from '../../../assets/plastic-surgery.png';
 import snapDerm from '../../../assets/dermatology.png';
 
 const ORIGIN =

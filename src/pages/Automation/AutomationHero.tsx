@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import Breadcrumb from '../../components/Breadcrumb';
-import futuristicHealthcare from '../../assets/Futuristic healthcare.png';
+import futuristicHealthcare from '../../assets/futuristic-healthcare.png';
+import { ArrowIcon } from '../../components/icons';
 
 interface AutomationHeroProps {
   onBook: () => void;
@@ -33,20 +34,7 @@ const AutomationHero = ({ onBook }: AutomationHeroProps) => {
             <div className="au-cta-row">
               <Link to="/automation/templates" className="au-btn au-btn-primary au-btn-hero">
                 Get the templates
-                <svg
-                  width={13}
-                  height={13}
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth={2.4}
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <line x1="5" y1="12" x2="19" y2="12" />
-                  <polyline points="12 5 19 12 12 19" />
-                </svg>
+                <ArrowIcon size={13} />
               </Link>
               <button
                 type="button"

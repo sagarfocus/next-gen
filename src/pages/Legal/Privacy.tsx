@@ -1,5 +1,6 @@
 import LegalPage from './LegalPage';
 import type { LegalSection } from './LegalPage';
+import { SITE } from '../../content/site';
 
 const P = ({ children }: { children: React.ReactNode }) => (
   <p style={{ margin: '0 0 14px' }}>{children}</p>
@@ -95,8 +96,8 @@ const SECTIONS: LegalSection[] = [
         <P>
           You can request access to, correction of, or deletion of any personal
           information you have provided. Email{' '}
-          <a href="mailto:hello@thenextgenhealth.com" style={{ color: '#576DB5' }}>
-            hello@thenextgenhealth.com
+          <a href={`mailto:${SITE.email}`} style={{ color: '#576DB5' }}>
+            {SITE.email}
           </a>{' '}
           and we will respond within 10 business days.
         </P>
@@ -124,7 +125,7 @@ const Privacy = () => (
     summary="How TheNextGen Healthcare Marketing collects, uses, and protects information when you visit this site or engage us as a marketing partner."
     effectiveDate="January 1, 2026"
     reviewedDate="May 1, 2026"
-    contact={{ email: 'hello@thenextgenhealth.com' }}
+    contact={{ email: SITE.email }}
     sections={SECTIONS}
     breadcrumb="Privacy"
     metaDescription="Privacy Policy for TheNextGen Healthcare Marketing - what we collect, how we use it, sub-processors, and your rights."
