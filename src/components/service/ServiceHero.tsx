@@ -20,7 +20,6 @@ interface ServiceHeroProps {
   mainCard: ReactNode;
 }
 
-
 const ArrowDiag = () => (
   <svg
     viewBox="0 0 24 24"

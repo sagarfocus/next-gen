@@ -12,8 +12,8 @@ const Loop = () => (
           Four steps. <em>Re-run annually.</em>
         </h2>
         <p className="gtx-sec-sub">
-          Same working method every year, with a remediation register
-          that closes findings inside 60 days.
+          Same working method every year, with a remediation register that closes findings inside 60
+          days.
         </p>
       </header>
 
@@ -22,9 +22,7 @@ const Loop = () => (
           <li key={step.num} className="hcp-loop-step">
             <div className="hcp-loop-marker">
               <span className="hcp-loop-num">{step.num}</span>
-              {i < STEPS.length - 1 && (
-                <span className="hcp-loop-connector" aria-hidden="true" />
-              )}
+              {i < STEPS.length - 1 && <span className="hcp-loop-connector" aria-hidden="true" />}
             </div>
             <div className="hcp-loop-body">
               <span className="hcp-loop-label">{step.label}</span>

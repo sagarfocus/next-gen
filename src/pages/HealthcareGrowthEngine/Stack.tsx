@@ -36,7 +36,11 @@ const Stack = () => {
       if (!isDown) return;
       isDown = false;
       track.style.cursor = '';
-      try { track.releasePointerCapture(e.pointerId); } catch { /* ignore */ }
+      try {
+        track.releasePointerCapture(e.pointerId);
+      } catch {
+        /* ignore */
+      }
       if (moved) {
         const blocker = (ev: Event) => {
           ev.stopPropagation();
@@ -54,7 +58,10 @@ const Stack = () => {
 
     const onScroll = () => {
       const max = track.scrollWidth - track.clientWidth;
-      if (max <= 0) { setProgress(0); return; }
+      if (max <= 0) {
+        setProgress(0);
+        return;
+      }
       setProgress(Math.min(1, Math.max(0, track.scrollLeft / max)));
     };
     track.addEventListener('scroll', onScroll, { passive: true });
@@ -86,10 +93,13 @@ const Stack = () => {
         </div>
         <div className="grid lg:grid-cols-12 gap-x-12 gap-y-6 items-end mb-12 lg:mb-16">
           <h2 className="lg:col-span-7 text-heading font-extrabold leading-[0.96] tracking-[-0.038em] text-[clamp(36px,5.4vw,74px)]">
-            One stack across<br />every clinic surface.
+            One stack across
+            <br />
+            every clinic surface.
           </h2>
           <p className="lg:col-span-4 lg:col-start-9 text-body text-[15px] leading-[1.65] max-w-[42ch]">
-            Analytics, acquisition, automation, and clinical systems — instrumented under one roof so every booked visit traces back to the surface that produced it.
+            Analytics, acquisition, automation, and clinical systems — instrumented under one roof
+            so every booked visit traces back to the surface that produced it.
           </p>
         </div>
 
@@ -126,7 +136,17 @@ const Stack = () => {
                 aria-label="Previous category"
                 className="w-11 h-11 rounded-full border border-line-faint text-heading grid place-items-center transition-all hover:border-line hover:bg-bg"
               >
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.4"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  aria-hidden="true"
+                >
                   <polyline points="15 18 9 12 15 6" />
                 </svg>
               </button>
@@ -143,9 +163,8 @@ const Stack = () => {
         </div>
 
         <p className="mt-10 text-muted text-[13px] leading-[1.6] max-w-[64ch]">
-          Don&apos;t see your tool? We integrate with most modern PMS, EHR, CRM, and
-          front-desk stacks via native APIs, Zapier, or Make. We bring instrumentation,
-          not new vendors.
+          Don&apos;t see your tool? We integrate with most modern PMS, EHR, CRM, and front-desk
+          stacks via native APIs, Zapier, or Make. We bring instrumentation, not new vendors.
         </p>
       </div>
     </section>

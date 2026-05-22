@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import { ArrowIcon } from '../icons';
 
-
 export type ServiceCTAVariant = 'panel' | 'band' | 'editorial';
 
 interface ServiceCTAProps {

@@ -26,7 +26,9 @@ const Related = ({ entry }: { entry: ValueEntry }) => {
                 aria-label={`Read more about ${r.title}`}
               >
                 <span className="ab-value-related-num">{r.num}</span>
-                <span className="ab-value-related-icon" aria-hidden="true">{r.icon}</span>
+                <span className="ab-value-related-icon" aria-hidden="true">
+                  {r.icon}
+                </span>
                 <h3 className="ab-value-related-title">{r.title}</h3>
                 <p className="ab-value-related-blurb">{r.blurb}</p>
                 <span className="ab-value-related-cta">

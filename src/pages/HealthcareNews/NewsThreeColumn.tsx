@@ -119,7 +119,6 @@ const POPULAR: PopularItem[] = [
 
 const FEATURED_MAIN_TO = '/healthcare-news/texas-clinic-n8n-workflows';
 
-
 const TrendIcon = () => (
   <svg
     viewBox="0 0 24 24"
@@ -170,11 +169,7 @@ const NewsThreeColumn = () => {
             {LATEST.map((item) => (
               <Link key={item.to} className="latest-item" to={item.to}>
                 <div className="latest-img">
-                  <NewsThumb
-                    category={item.cat}
-                    seed={`latest-${item.to}`}
-                    aspect="square"
-                  />
+                  <NewsThumb category={item.cat} seed={`latest-${item.to}`} aspect="square" />
                 </div>
                 <div>
                   <span className="latest-cat">{item.cat}</span>
@@ -203,17 +198,14 @@ const NewsThreeColumn = () => {
                   caption="Long Read · Practice Operations"
                 />
               </div>
-              <span className="featured-item-cat">
-                Long Read · Practice Operations
-              </span>
+              <span className="featured-item-cat">Long Read · Practice Operations</span>
               <h3 className="featured-main-title">
-                The real cost of manual patient intake - and how clinics
-                are cutting it in half
+                The real cost of manual patient intake - and how clinics are cutting it in half
               </h3>
               <p className="featured-main-desc">
-                An eight-week investigation across 60 clinics reveals where
-                front-desk hours actually go, and which automation patterns
-                deliver measurable ROI within the first quarter.
+                An eight-week investigation across 60 clinics reveals where front-desk hours
+                actually go, and which automation patterns deliver measurable ROI within the first
+                quarter.
               </p>
               <div className="hg-byline">
                 <span>
@@ -237,12 +229,7 @@ const NewsThreeColumn = () => {
 
           {/* COL 3: Most Popular */}
           <div className="tc-col">
-            <ColumnHead
-              title="Most Popular"
-              to="/blog"
-              linkLabel="Trending"
-              icon={<TrendIcon />}
-            />
+            <ColumnHead title="Most Popular" to="/blog" linkLabel="Trending" icon={<TrendIcon />} />
             {POPULAR.map((item) => (
               <Link key={item.to} className="pop-item" to={item.to}>
                 <span className="pop-num">{item.num}</span>

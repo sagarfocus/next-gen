@@ -24,7 +24,10 @@ const Featured = () => (
               <div className="ow-feat-art ow-feat-art--photo" aria-hidden="true">
                 <img src={e.img} alt="" loading="lazy" />
                 <div className="ow-feat-art-shade" />
-                <span className="ow-feat-delta">{ENGAGEMENT_DELTAS[i]}<small>%</small></span>
+                <span className="ow-feat-delta">
+                  {ENGAGEMENT_DELTAS[i]}
+                  <small>%</small>
+                </span>
               </div>
               <div className="ow-feat-body">
                 <span className="ow-feat-sector">{ENGAGEMENT_SECTORS[i]}</span>
@@ -35,7 +38,9 @@ const Featured = () => (
                     <strong>{e.metric.v}</strong>
                     <span>{e.metric.l}</span>
                   </div>
-                  <span className="ow-feat-arrow" aria-hidden="true">↗</span>
+                  <span className="ow-feat-arrow" aria-hidden="true">
+                    ↗
+                  </span>
                 </div>
               </div>
             </Link>

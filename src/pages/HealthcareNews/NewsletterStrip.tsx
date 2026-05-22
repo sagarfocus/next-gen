@@ -23,13 +23,10 @@ const NewsletterStrip = () => {
         <div className="ns-grid">
           <div>
             <div className="ns-eyebrow">The Weekly Brief</div>
-            <h2 className="ns-title">
-              One healthcare-marketing email each Friday. No filler.
-            </h2>
+            <h2 className="ns-title">One healthcare-marketing email each Friday. No filler.</h2>
             <p className="ns-desc">
-              Every Friday morning we send the five stories your peers in
-              private practice are actually reading - plus one new
-              automation template, free.
+              Every Friday morning we send the five stories your peers in private practice are
+              actually reading - plus one new automation template, free.
             </p>
           </div>
           <form className="ns-form" onSubmit={handleSubmit} noValidate>
@@ -48,8 +45,7 @@ const NewsletterStrip = () => {
               </button>
             </div>
             <p className="ns-fine">
-              Issue №048 ships Friday. Unsubscribe in one click. No tracking
-              pixels.
+              Issue №048 ships Friday. Unsubscribe in one click. No tracking pixels.
             </p>
           </form>
         </div>

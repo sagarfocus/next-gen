@@ -17,8 +17,8 @@ const Closing = ({ entry }: { entry: IndustryDetailEntry }) => (
             for <em>your</em> {entry.label.toLowerCase()} practice?
           </h2>
           <p className="ow-close-p">
-            The five-day audit hands you a real ranked plan for your practice -
-            yours to keep, agency or not.
+            The five-day audit hands you a real ranked plan for your practice - yours to keep,
+            agency or not.
           </p>
           <div className="ow-close-cta">
             <MotionButton to="/free-growth-audit" className="ow-cta-primary ow-cta-primary--light">

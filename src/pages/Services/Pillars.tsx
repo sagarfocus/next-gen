@@ -15,11 +15,7 @@ const Pillars = ({ id, ariaTitleId, eyebrow, title, sub, panes }: PillarsProps) 
   const [activeId, setActiveId] = useState(panes[0]?.id ?? '');
 
   return (
-    <section
-      className="pillars-section"
-      id={id}
-      aria-labelledby={ariaTitleId}
-    >
+    <section className="pillars-section" id={id} aria-labelledby={ariaTitleId}>
       <div className="container-shell">
         <div className="pillars-head">
           <span className="pillars-eyebrow">{eyebrow}</span>

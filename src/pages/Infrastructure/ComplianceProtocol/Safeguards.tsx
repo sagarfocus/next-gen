@@ -12,8 +12,8 @@ const Safeguards = () => (
           Three categories of controls, <em>mapped to the rule.</em>
         </h2>
         <p className="gtx-sec-sub">
-          Every protocol maps to one of the HIPAA Security Rule's three
-          safeguard categories under 45 CFR § 164 Subpart C.
+          Every protocol maps to one of the HIPAA Security Rule's three safeguard categories under
+          45 CFR § 164 Subpart C.
         </p>
       </header>
 
@@ -23,7 +23,9 @@ const Safeguards = () => (
             <span className="cpx-safeguard-num" aria-hidden="true">
               /{String(i + 1).padStart(2, '0')}
             </span>
-            <span className="cpx-safeguard-icon" aria-hidden="true">{s.icon}</span>
+            <span className="cpx-safeguard-icon" aria-hidden="true">
+              {s.icon}
+            </span>
             <h3 className="cpx-safeguard-title">{s.tier}</h3>
             <p className="cpx-safeguard-desc">{s.description}</p>
             <ul className="cpx-safeguard-list">

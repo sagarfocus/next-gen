@@ -28,11 +28,13 @@ const Closing = () => (
             Begin with the audit. Decide later.
           </h2>
           <p className="mt-6 text-heading/75 text-[15.5px] leading-[1.65] max-w-[44ch]">
-            A two-week, fixed-fee diagnostic that returns a forensic plan whether you continue
-            with us or not. If we move forward, the audit fee credits against month one.
+            A two-week, fixed-fee diagnostic that returns a forensic plan whether you continue with
+            us or not. If we move forward, the audit fee credits against month one.
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-6">
-            <Link to="/contact" className="btn-primary">Start the audit →</Link>
+            <Link to="/contact" className="btn-primary">
+              Start the audit →
+            </Link>
             <Link
               to="/case-studies"
               className="text-heading/80 text-[14px] font-medium underline-offset-4 hover:underline"

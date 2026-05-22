@@ -59,9 +59,18 @@ export const CASE_STUDIES: CaseStudy[] = [
     metricNum: '+45%',
     metricLbl: 'Patient Visits',
     blocks: [
-      { label: 'Challenge', text: 'Limited local visibility competing against large hospital systems.' },
-      { label: 'Solution', text: 'Local SEO dominance + Google Ads targeting high-acuity keywords.' },
-      { label: 'Results', text: '45% increase in patient visits within 6 months, $800K+ additional annual revenue.' },
+      {
+        label: 'Challenge',
+        text: 'Limited local visibility competing against large hospital systems.',
+      },
+      {
+        label: 'Solution',
+        text: 'Local SEO dominance + Google Ads targeting high-acuity keywords.',
+      },
+      {
+        label: 'Results',
+        text: '45% increase in patient visits within 6 months, $800K+ additional annual revenue.',
+      },
     ],
     location: 'Dallas Metro, TX',
     specialty: '24/7 Emergency Care',
@@ -121,8 +130,7 @@ export const CASE_STUDIES: CaseStudy[] = [
       { value: '6.2×', label: 'Return on ad spend', change: 'up from 1.9× baseline' },
     ],
     quote: {
-      text:
-        'For the first time we could point to a specific keyword, a specific page, and a specific patient walking in the door. The marketing finally felt like part of the operation, not a line item we argued about every month.',
+      text: 'For the first time we could point to a specific keyword, a specific page, and a specific patient walking in the door. The marketing finally felt like part of the operation, not a line item we argued about every month.',
       author: 'Director of Operations',
       role: 'Dallas Metro ER network',
     },
@@ -137,7 +145,10 @@ export const CASE_STUDIES: CaseStudy[] = [
     blocks: [
       { label: 'Challenge', text: 'Brand not recognized, losing patients to competitors.' },
       { label: 'Solution', text: 'Comprehensive market strategy + location-specific campaigns.' },
-      { label: 'Results', text: '3× increase in appointments, 60% reduction in cost-per-acquisition.' },
+      {
+        label: 'Results',
+        text: '3× increase in appointments, 60% reduction in cost-per-acquisition.',
+      },
     ],
     location: 'Greater Houston, TX',
     specialty: 'Walk-in Urgent Care',
@@ -197,8 +208,7 @@ export const CASE_STUDIES: CaseStudy[] = [
       { value: '4.8★', label: 'Network rating', change: 'up from 3.7★ avg' },
     ],
     quote: {
-      text:
-        'We were running seven small marketing teams pretending to be one company. Now we are one company that happens to know every street corner it sits on. The math finally works.',
+      text: 'We were running seven small marketing teams pretending to be one company. Now we are one company that happens to know every street corner it sits on. The math finally works.',
       author: 'Chief Growth Officer',
       role: 'Houston urgent care group',
     },
@@ -212,8 +222,14 @@ export const CASE_STUDIES: CaseStudy[] = [
     metricLbl: 'Lead Growth',
     blocks: [
       { label: 'Challenge', text: 'Competing on price, needed premium positioning.' },
-      { label: 'Solution', text: 'Brand identity + targeted social media for high-ticket procedures.' },
-      { label: 'Results', text: '120% increase in qualified leads, 25% higher average transaction value.' },
+      {
+        label: 'Solution',
+        text: 'Brand identity + targeted social media for high-ticket procedures.',
+      },
+      {
+        label: 'Results',
+        text: '120% increase in qualified leads, 25% higher average transaction value.',
+      },
     ],
     location: 'Austin, TX',
     specialty: 'Aesthetic & Plastic Surgery',
@@ -273,8 +289,7 @@ export const CASE_STUDIES: CaseStudy[] = [
       { value: '+38%', label: 'Lifetime value', change: 'on 12-month cohort' },
     ],
     quote: {
-      text:
-        'I stopped meeting patients in the consult room who had already decided I was a price tag. The brand did the qualifying before the chair did. That changed every part of the day.',
+      text: 'I stopped meeting patients in the consult room who had already decided I was a price tag. The brand did the qualifying before the chair did. That changed every part of the day.',
       author: 'Founding Surgeon',
       role: 'Austin aesthetic clinic',
     },
@@ -288,8 +303,14 @@ export const CASE_STUDIES: CaseStudy[] = [
     metricLbl: 'SEO ROI',
     blocks: [
       { label: 'Challenge', text: 'Invisible in search results for "doctor near me".' },
-      { label: 'Solution', text: 'Local SEO fundamentals + content marketing for patient education.' },
-      { label: 'Results', text: '500%+ ROI, $300K+ annual additional revenue from organic traffic.' },
+      {
+        label: 'Solution',
+        text: 'Local SEO fundamentals + content marketing for patient education.',
+      },
+      {
+        label: 'Results',
+        text: '500%+ ROI, $300K+ annual additional revenue from organic traffic.',
+      },
     ],
     location: 'San Antonio, TX',
     specialty: 'Family Medicine',
@@ -349,8 +370,7 @@ export const CASE_STUDIES: CaseStudy[] = [
       { value: '142', label: 'Ranking keywords', change: 'page 1, up from 4' },
     ],
     quote: {
-      text:
-        'We did not want a slick campaign. We wanted to be the practice someone’s neighbor recommends, and then the one Google confirms. That is exactly what the year produced.',
+      text: 'We did not want a slick campaign. We wanted to be the practice someone’s neighbor recommends, and then the one Google confirms. That is exactly what the year produced.',
       author: 'Senior Partner',
       role: 'San Antonio family medicine',
     },
@@ -365,7 +385,10 @@ export const CASE_STUDIES: CaseStudy[] = [
     blocks: [
       { label: 'Challenge', text: 'High patient acquisition costs, poor retention.' },
       { label: 'Solution', text: 'Email automation + patient education content strategy.' },
-      { label: 'Results', text: '2× patient retention rate, 40% reduction in marketing spend needed.' },
+      {
+        label: 'Results',
+        text: '2× patient retention rate, 40% reduction in marketing spend needed.',
+      },
     ],
     location: 'Dallas, TX',
     specialty: 'Outpatient Mental Health',
@@ -425,8 +448,7 @@ export const CASE_STUDIES: CaseStudy[] = [
       { value: '92%', label: 'Sequence open rate', change: 'across 14-day flow' },
     ],
     quote: {
-      text:
-        'The most powerful thing we did was not send an offer or a discount. We just told patients, in the right voice, that we knew this was hard and we were ready for them. Retention followed.',
+      text: 'The most powerful thing we did was not send an offer or a discount. We just told patients, in the right voice, that we knew this was hard and we were ready for them. Retention followed.',
       author: 'Clinical Director',
       role: 'Dallas therapy practice',
     },
@@ -501,13 +523,11 @@ export const CASE_STUDIES: CaseStudy[] = [
       { value: '−54%', label: 'Cost per new patient', change: 'organic-driven' },
     ],
     quote: {
-      text:
-        'The reviews and the patients were always there. We just made sure Google could count them. Five months of doing the unsexy work, and the map finally agreed with what our patients already knew.',
+      text: 'The reviews and the patients were always there. We just made sure Google could count them. Five months of doing the unsexy work, and the map finally agreed with what our patients already knew.',
       author: 'Practice Owner',
       role: 'Irving general dentistry',
     },
   },
 ];
 
-export const findCaseStudy = (id: string | undefined) =>
-  CASE_STUDIES.find((c) => c.id === id);
+export const findCaseStudy = (id: string | undefined) => CASE_STUDIES.find((c) => c.id === id);

@@ -29,7 +29,9 @@ const Hero = ({ entry, numLabel }: HeroProps) => (
 
         <div className="ow-ind-modal-body">
           <span className="ow-ind-modal-tag">Industry · {entry.meta}</span>
-          <h1 id="ind-detail-title" className="ow-ind-modal-title">{entry.label}</h1>
+          <h1 id="ind-detail-title" className="ow-ind-modal-title">
+            {entry.label}
+          </h1>
           <p className="ow-ind-modal-blurb">{entry.meta}</p>
           <p className="ow-ind-modal-desc">{entry.description}</p>
 

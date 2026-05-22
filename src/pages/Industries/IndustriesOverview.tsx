@@ -12,9 +12,8 @@ const IndustriesOverview = () => (
           We currently serve three healthcare verticals.
         </h2>
         <p className="ind-ov-sub">
-          Each industry has its own patient psychology, regulatory landscape,
-          and acquisition dynamics. We build playbooks - not templates
-          - for each one.
+          Each industry has its own patient psychology, regulatory landscape, and acquisition
+          dynamics. We build playbooks - not templates - for each one.
         </p>
         <a href="#deep-dive" className="ind-ov-link">
           Explore industry deep-dives
@@ -34,12 +33,7 @@ const IndustriesOverview = () => (
             aria-label={`Read more about ${card.titleText}`}
           >
             <div className="ind-ov-img has-img">
-              <img
-                src={card.image}
-                alt={card.imageAlt}
-                loading="lazy"
-                decoding="async"
-              />
+              <img src={card.image} alt={card.imageAlt} loading="lazy" decoding="async" />
               <span className="ind-ov-arrow" aria-hidden="true">
                 <ArrowIcon size={14} strokeWidth={2} />
               </span>

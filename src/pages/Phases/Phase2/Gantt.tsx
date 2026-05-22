@@ -16,7 +16,9 @@ const GanttBar = ({ kind, start, end, label }: GanttBarProps) => {
       }}
     >
       <span dangerouslySetInnerHTML={{ __html: label }} />
-      <span className="d-meta">D{String(start).padStart(2, '0')}–{String(end).padStart(2, '0')}</span>
+      <span className="d-meta">
+        D{String(start).padStart(2, '0')}–{String(end).padStart(2, '0')}
+      </span>
     </div>
   );
 };
@@ -27,8 +29,14 @@ const Gantt = () => (
       <span className="lbl">/ 04</span>
       <h2 id="ph2-gantt-title">Two tracks. Fourteen days. One shipping day.</h2>
       <div className="leg">
-        <span><i className="strategy" />Strategy</span>
-        <span><i className="build" />Build</span>
+        <span>
+          <i className="strategy" />
+          Strategy
+        </span>
+        <span>
+          <i className="build" />
+          Build
+        </span>
       </div>
     </div>
 
@@ -44,8 +52,7 @@ const Gantt = () => (
 
       <div className="ph2-gantt-track">
         <div className="track-name">
-          / A
-          <em>Strategy</em>
+          / A<em>Strategy</em>
         </div>
         <div className="ph2-gantt-bars">
           <GanttBar kind="strategy" start={1} end={4} label="Keyword &amp; persona map" />
@@ -57,8 +64,7 @@ const Gantt = () => (
 
       <div className="ph2-gantt-track">
         <div className="track-name">
-          / B
-          <em>Build</em>
+          / B<em>Build</em>
         </div>
         <div className="ph2-gantt-bars">
           <GanttBar kind="build" start={2} end={6} label="Tracking &amp; tag setup" />

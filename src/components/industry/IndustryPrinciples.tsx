@@ -20,10 +20,7 @@ const IndustryPrinciples = ({
   intro,
 }: IndustryPrinciplesProps) => {
   return (
-    <section
-      className="iv-section iv-principles"
-      aria-labelledby="iv-principle-title"
-    >
+    <section className="iv-section iv-principles" aria-labelledby="iv-principle-title">
       <div className="container-shell">
         <header className="iv-principles-head">
           <div className="iv-principles-head-left">
@@ -42,9 +39,7 @@ const IndustryPrinciples = ({
               className="iv-principle-card"
               style={{ ['--iv-principle-accent' as string]: p.accent }}
             >
-              <span className="iv-principle-num">
-                {String(i + 1).padStart(2, '0')}
-              </span>
+              <span className="iv-principle-num">{String(i + 1).padStart(2, '0')}</span>
               <h3 className="iv-principle-name">{p.title}</h3>
               <p className="iv-principle-body">{p.body}</p>
             </article>

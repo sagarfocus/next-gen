@@ -38,11 +38,17 @@ const Hero = ({ post }: { post: BlogPostData }) => {
             >
               {post.title}
             </h1>
-            <p className="mt-7 text-[18px] leading-[1.65] max-w-[60ch]" style={{ color: COLORS.body }}>
+            <p
+              className="mt-7 text-[18px] leading-[1.65] max-w-[60ch]"
+              style={{ color: COLORS.body }}
+            >
               {post.excerpt}
             </p>
 
-            <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3 text-[13px]" style={{ color: COLORS.muted }}>
+            <div
+              className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3 text-[13px]"
+              style={{ color: COLORS.muted }}
+            >
               <div className="flex items-center gap-3">
                 <span
                   className="inline-grid place-items-center w-9 h-9 rounded-full font-mono text-[12px] font-bold"
@@ -76,10 +82,16 @@ const Hero = ({ post }: { post: BlogPostData }) => {
                 style={{ background: t.hex }}
                 aria-hidden="true"
               />
-              <div className="font-mono text-[11px] tracking-[0.22em] uppercase font-bold" style={{ color: t.hex }}>
+              <div
+                className="font-mono text-[11px] tracking-[0.22em] uppercase font-bold"
+                style={{ color: t.hex }}
+              >
                 Story brief
               </div>
-              <h2 className="mt-3 text-[20px] font-extrabold tracking-[-0.018em] leading-[1.18]" style={{ color: COLORS.navy }}>
+              <h2
+                className="mt-3 text-[20px] font-extrabold tracking-[-0.018em] leading-[1.18]"
+                style={{ color: COLORS.navy }}
+              >
                 {brief.label}: {brief.value}
               </h2>
               {brief.desc && (
@@ -117,13 +129,21 @@ const Hero = ({ post }: { post: BlogPostData }) => {
           />
           <div
             className="absolute inset-0 pointer-events-none"
-            style={{ background: 'linear-gradient(180deg, rgba(26, 36, 56, 0) 60%, rgba(26, 36, 56, 0.35) 100%)' }}
+            style={{
+              background:
+                'linear-gradient(180deg, rgba(26, 36, 56, 0) 60%, rgba(26, 36, 56, 0.35) 100%)',
+            }}
           />
           <div
             className="absolute bottom-5 right-5 inline-flex items-center gap-2 px-3 py-1.5 rounded-full backdrop-blur-md"
-            style={{ background: 'rgba(255, 255, 255, 0.18)', border: '1px solid rgba(255, 255, 255, 0.25)' }}
+            style={{
+              background: 'rgba(255, 255, 255, 0.18)',
+              border: '1px solid rgba(255, 255, 255, 0.25)',
+            }}
           >
-            <span className="font-mono text-[10.5px] tracking-[0.18em] uppercase text-white font-bold">Editorial</span>
+            <span className="font-mono text-[10.5px] tracking-[0.18em] uppercase text-white font-bold">
+              Editorial
+            </span>
           </div>
         </div>
       </div>

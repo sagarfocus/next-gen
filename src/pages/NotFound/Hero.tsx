@@ -34,9 +34,14 @@ const Hero = () => {
               maxWidth: '60ch',
             }}
           >
-            The address <code style={{ background: 'rgba(45,55,72,0.06)', padding: '2px 8px', borderRadius: 6 }}>{location.pathname}</code>{' '}
-            doesn&rsquo;t match a live route on TheNextGen. Pick a destination
-            below - or jump straight to a free growth audit.
+            The address{' '}
+            <code
+              style={{ background: 'rgba(45,55,72,0.06)', padding: '2px 8px', borderRadius: 6 }}
+            >
+              {location.pathname}
+            </code>{' '}
+            doesn&rsquo;t match a live route on TheNextGen. Pick a destination below - or jump
+            straight to a free growth audit.
           </p>
           <div
             style={{

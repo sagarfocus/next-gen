@@ -17,8 +17,8 @@ const Closing = ({ entry }: { entry: ValueEntry }) => (
             who works <em>this way</em>?
           </h2>
           <p className="ow-close-p">
-            Start with the five-day audit. A real ranked plan for your practice,
-            yours to keep — held to the same principles you just read.
+            Start with the five-day audit. A real ranked plan for your practice, yours to keep —
+            held to the same principles you just read.
           </p>
           <div className="ow-close-cta">
             <MotionButton to="/free-growth-audit" className="ow-cta-primary ow-cta-primary--light">

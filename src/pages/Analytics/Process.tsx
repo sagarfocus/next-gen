@@ -1,12 +1,54 @@
-interface Phase { num: string; name: string; desc: string; time: string; deliver: string }
+interface Phase {
+  num: string;
+  name: string;
+  desc: string;
+  time: string;
+  deliver: string;
+}
 
 const PHASES: Phase[] = [
-  { num: '01', name: 'Stack audit', desc: 'Every tool catalogued. Tracking gaps documented. PHI exposure mapped. BAAs verified or queued for renegotiation.', time: 'Week 1', deliver: 'Tracking gap report' },
-  { num: '02', name: 'Schema lock', desc: 'KPI taxonomy + dimension model. The shared vocabulary the dashboard uses across Ads, GA4, CRM, EHR, booking - so totals match wherever you click.', time: 'Week 2', deliver: 'KPI dictionary + dim model' },
-  { num: '03', name: 'Tracking deploy', desc: 'Server-side conversion APIs, hashed-ID matching, UTM standards, call tracking. PHI-scrubbing at every join.', time: 'Week 3-4', deliver: 'Clean conversion stack' },
-  { num: '04', name: 'Dashboard build', desc: 'Live executive dashboard in Looker Studio (or your BI tool). Drill-through to source. Anomaly alerts wired. Team trained on it.', time: 'Week 4-5', deliver: 'Live dashboard + training' },
-  { num: '05', name: 'Reporting cadence', desc: 'Weekly Loom walkthrough, monthly written read-out, quarterly strategy retro. The narrative around the numbers.', time: 'Week 6+', deliver: 'Weekly + monthly + quarterly' },
-  { num: '06', name: 'Optimize + forecast', desc: 'Attribution-model refits, predictive forecast (next-quarter bookings + revenue), cohort + LTV deepening.', time: 'Month 3+', deliver: 'Quarterly forecast' },
+  {
+    num: '01',
+    name: 'Stack audit',
+    desc: 'Every tool catalogued. Tracking gaps documented. PHI exposure mapped. BAAs verified or queued for renegotiation.',
+    time: 'Week 1',
+    deliver: 'Tracking gap report',
+  },
+  {
+    num: '02',
+    name: 'Schema lock',
+    desc: 'KPI taxonomy + dimension model. The shared vocabulary the dashboard uses across Ads, GA4, CRM, EHR, booking - so totals match wherever you click.',
+    time: 'Week 2',
+    deliver: 'KPI dictionary + dim model',
+  },
+  {
+    num: '03',
+    name: 'Tracking deploy',
+    desc: 'Server-side conversion APIs, hashed-ID matching, UTM standards, call tracking. PHI-scrubbing at every join.',
+    time: 'Week 3-4',
+    deliver: 'Clean conversion stack',
+  },
+  {
+    num: '04',
+    name: 'Dashboard build',
+    desc: 'Live executive dashboard in Looker Studio (or your BI tool). Drill-through to source. Anomaly alerts wired. Team trained on it.',
+    time: 'Week 4-5',
+    deliver: 'Live dashboard + training',
+  },
+  {
+    num: '05',
+    name: 'Reporting cadence',
+    desc: 'Weekly Loom walkthrough, monthly written read-out, quarterly strategy retro. The narrative around the numbers.',
+    time: 'Week 6+',
+    deliver: 'Weekly + monthly + quarterly',
+  },
+  {
+    num: '06',
+    name: 'Optimize + forecast',
+    desc: 'Attribution-model refits, predictive forecast (next-quarter bookings + revenue), cohort + LTV deepening.',
+    time: 'Month 3+',
+    deliver: 'Quarterly forecast',
+  },
 ];
 
 const Process = () => {

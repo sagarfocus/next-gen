@@ -24,9 +24,7 @@ export const CARDS: InfraCard[] = [
       'Social Media Manager',
     ],
     to: '/infrastructure/growth-team',
-    icon: (
-      <UsersIcon />
-    ),
+    icon: <UsersIcon />,
   },
   {
     tag: 'Compliance Protocol',
@@ -66,8 +64,6 @@ export const CARDS: InfraCard[] = [
       'Documented Escalation Paths',
     ],
     to: '/infrastructure/service-level-agreements',
-    icon: (
-      <ClockIcon size={26} strokeWidth={1.7} />
-    ),
+    icon: <ClockIcon size={26} strokeWidth={1.7} />,
   },
 ];

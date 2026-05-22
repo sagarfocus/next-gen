@@ -23,11 +23,10 @@ export const PHASES: Phase[] = [
     image: phase1Img,
     body: (
       <>
-        We conduct a comprehensive audit of your existing digital infrastructure
-        - website performance, SEO health, Google Business Profile
-        optimization, paid media efficiency, and front-desk call handling
-        capacity. This reveals exactly where patients are being lost in your
-        funnel.
+        We conduct a comprehensive audit of your existing digital infrastructure - website
+        performance, SEO health, Google Business Profile optimization, paid media efficiency, and
+        front-desk call handling capacity. This reveals exactly where patients are being lost in
+        your funnel.
       </>
     ),
     foot: 'Audit - Week 1–2',
@@ -40,11 +39,10 @@ export const PHASES: Phase[] = [
     image: phase2Img,
     body: (
       <>
-        We design your custom growth strategy mapping service-specific keywords,
-        competitive positioning, and patient journey touchpoints. Simultaneously,
-        our development team deploys the automation infrastructure - AI
-        chatbots, digital intake forms, call tracking, and real-time analytics
-        dashboards.
+        We design your custom growth strategy mapping service-specific keywords, competitive
+        positioning, and patient journey touchpoints. Simultaneously, our development team deploys
+        the automation infrastructure - AI chatbots, digital intake forms, call tracking, and
+        real-time analytics dashboards.
       </>
     ),
     foot: 'Build - Week 3–4',
@@ -57,10 +55,9 @@ export const PHASES: Phase[] = [
     image: phase3Img,
     body: (
       <>
-        Within the first 30 days, we launch SEO optimizations, paid media
-        campaigns across Google and Meta, social media content calendars, and
-        healthcare content publishing. You will see tangible operational
-        changes in patient inquiry volume and front-desk efficiency from week
+        Within the first 30 days, we launch SEO optimizations, paid media campaigns across Google
+        and Meta, social media content calendars, and healthcare content publishing. You will see
+        tangible operational changes in patient inquiry volume and front-desk efficiency from week
         one.
       </>
     ),

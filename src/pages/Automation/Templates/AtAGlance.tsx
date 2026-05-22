@@ -5,10 +5,12 @@ const AtAGlance = () => (
     <div className="container-shell">
       <header className="adv-head det-head">
         <span className="adv-eyebrow">/ 01 &nbsp; At a glance</span>
-        <h2 id="atx-glance-title" className="adv-h2">The library, in three numbers.</h2>
+        <h2 id="atx-glance-title" className="adv-h2">
+          The library, in three numbers.
+        </h2>
         <p className="adv-intro">
-          What the library is worth — measured in setup hours, payback days,
-          and front-desk time recovered every week.
+          What the library is worth — measured in setup hours, payback days, and front-desk time
+          recovered every week.
         </p>
       </header>
       <div className="atx-glance-grid">

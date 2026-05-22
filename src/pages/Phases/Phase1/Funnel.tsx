@@ -4,9 +4,9 @@ const Funnel = () => (
       <span className="lbl">/ 03 - The Leak Map</span>
       <h2>The single visualization that gets every audit signed off in one meeting.</h2>
       <p>
-        We trace 100 search clicks through every step until they become
-        booked patients. The widest drop-off is where your next dollar
-        goes - and your scorecard tells you how much it&rsquo;s worth.
+        We trace 100 search clicks through every step until they become booked patients. The widest
+        drop-off is where your next dollar goes - and your scorecard tells you how much it&rsquo;s
+        worth.
       </p>
     </div>
     <div className="ph1-funnel" aria-label="Funnel leakage from 100 clicks to 8 bookings">
@@ -16,7 +16,10 @@ const Funnel = () => (
         <div className="bar">
           <div className="fill" style={{ width: '100%' }} />
         </div>
-        <div className="num"><span className="count">100</span><span className="of">/ 100</span></div>
+        <div className="num">
+          <span className="count">100</span>
+          <span className="of">/ 100</span>
+        </div>
       </div>
 
       <div className="ph1-drop">
@@ -31,7 +34,10 @@ const Funnel = () => (
         <div className="bar">
           <div className="fill" style={{ width: '84%' }} />
         </div>
-        <div className="num"><span className="count">84</span><span className="of">/ 100</span></div>
+        <div className="num">
+          <span className="count">84</span>
+          <span className="of">/ 100</span>
+        </div>
       </div>
 
       <div className="ph1-drop is-leak">
@@ -47,7 +53,10 @@ const Funnel = () => (
         <div className="bar">
           <div className="fill" style={{ width: '52%' }} />
         </div>
-        <div className="num"><span className="count">52</span><span className="of">/ 100</span></div>
+        <div className="num">
+          <span className="count">52</span>
+          <span className="of">/ 100</span>
+        </div>
       </div>
 
       <div className="ph1-drop">
@@ -62,7 +71,10 @@ const Funnel = () => (
         <div className="bar">
           <div className="fill" style={{ width: '19%' }} />
         </div>
-        <div className="num"><span className="count">19</span><span className="of">/ 100</span></div>
+        <div className="num">
+          <span className="count">19</span>
+          <span className="of">/ 100</span>
+        </div>
       </div>
 
       <div className="ph1-drop">
@@ -77,7 +89,10 @@ const Funnel = () => (
         <div className="bar">
           <div className="fill" style={{ width: '8%' }} />
         </div>
-        <div className="num"><span className="count">08</span><span className="of">/ 100</span></div>
+        <div className="num">
+          <span className="count">08</span>
+          <span className="of">/ 100</span>
+        </div>
       </div>
     </div>
   </section>

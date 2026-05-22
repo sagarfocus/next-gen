@@ -17,9 +17,8 @@ const SECTIONS: LegalSection[] = [
       <>
         <P>
           TheNextGen Healthcare Marketing (&ldquo;we,&rdquo; &ldquo;us,&rdquo; or
-          &ldquo;TheNextGen&rdquo;) operates this website and the marketing
-          services described on it. We are a Texas-based agency working
-          exclusively with healthcare organizations.
+          &ldquo;TheNextGen&rdquo;) operates this website and the marketing services described on
+          it. We are a Texas-based agency working exclusively with healthcare organizations.
         </P>
       </>
     ),
@@ -36,9 +35,8 @@ const SECTIONS: LegalSection[] = [
           <li>Aggregated, de-identified usage analytics via privacy-respecting tooling.</li>
         </UL>
         <P>
-          We do <strong>not</strong> intentionally collect Protected Health
-          Information (PHI). If you contact us about your practice, please omit
-          patient identifiers from the message.
+          We do <strong>not</strong> intentionally collect Protected Health Information (PHI). If
+          you contact us about your practice, please omit patient identifiers from the message.
         </P>
       </>
     ),
@@ -51,11 +49,11 @@ const SECTIONS: LegalSection[] = [
           <li>To respond to inquiries and schedule strategy calls.</li>
           <li>To deliver the newsletter you signed up for.</li>
           <li>To improve the site, content, and service offerings.</li>
-          <li>To send invoices, contracts, and service communications under an executed engagement.</li>
+          <li>
+            To send invoices, contracts, and service communications under an executed engagement.
+          </li>
         </UL>
-        <P>
-          We do not sell, rent, or trade personal information to third parties.
-        </P>
+        <P>We do not sell, rent, or trade personal information to third parties.</P>
       </>
     ),
   },
@@ -64,10 +62,9 @@ const SECTIONS: LegalSection[] = [
     body: (
       <>
         <P>
-          The site uses first-party cookies for session continuity and a
-          privacy-respecting analytics package to understand which content is
-          useful. You can disable cookies in your browser without losing core
-          site functionality.
+          The site uses first-party cookies for session continuity and a privacy-respecting
+          analytics package to understand which content is useful. You can disable cookies in your
+          browser without losing core site functionality.
         </P>
       </>
     ),
@@ -77,9 +74,8 @@ const SECTIONS: LegalSection[] = [
     body: (
       <>
         <P>
-          When we engage with clients, we may rely on the following categories
-          of sub-processors. Each is covered by a written agreement (and, where
-          PHI is in scope, a BAA):
+          When we engage with clients, we may rely on the following categories of sub-processors.
+          Each is covered by a written agreement (and, where PHI is in scope, a BAA):
         </P>
         <UL>
           <li>Cloud hosting and CDN (e.g., Vercel, Cloudflare).</li>
@@ -94,8 +90,8 @@ const SECTIONS: LegalSection[] = [
     body: (
       <>
         <P>
-          You can request access to, correction of, or deletion of any personal
-          information you have provided. Email{' '}
+          You can request access to, correction of, or deletion of any personal information you have
+          provided. Email{' '}
           <a href={`mailto:${SITE.email}`} style={{ color: '#576DB5' }}>
             {SITE.email}
           </a>{' '}
@@ -109,9 +105,8 @@ const SECTIONS: LegalSection[] = [
     body: (
       <>
         <P>
-          We may update this policy as our services evolve. Material changes
-          will be flagged at the top of this page for at least 30 days before
-          taking effect.
+          We may update this policy as our services evolve. Material changes will be flagged at the
+          top of this page for at least 30 days before taking effect.
         </P>
       </>
     ),

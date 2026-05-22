@@ -11,7 +11,7 @@ const FACTORS: Factor[] = [
     letter: 'P',
     name: 'Proximity',
     weight: 'Lever 1',
-    desc: 'How close the searcher is to your clinic. The only lever you can\'t move - but the one you can engineer around with service-area strategy and multi-location coverage.',
+    desc: "How close the searcher is to your clinic. The only lever you can't move - but the one you can engineer around with service-area strategy and multi-location coverage.",
     examples: ['Service-area radius', 'Multi-location footprint', 'Driving-time targeting'],
   },
   {
@@ -26,7 +26,11 @@ const FACTORS: Factor[] = [
     name: 'Authority (Prominence)',
     weight: 'Lever 3',
     desc: 'How well-known, well-cited, and well-reviewed you are on the open web. Backlinks, citations, brand search volume, review velocity - all feed the prominence score.',
-    examples: ['Citation count + consistency', 'Review velocity + quality', 'Branded search volume'],
+    examples: [
+      'Citation count + consistency',
+      'Review velocity + quality',
+      'Branded search volume',
+    ],
   },
   {
     letter: 'A',
@@ -68,13 +72,11 @@ const HowMapRanksWork = () => {
         </div>
 
         <p className="gb-how-intro">
-          Google&rsquo;s Local Pack - the three map results above the
-          organic listings - is decided by four signals. Most clinics
-          assume <strong>proximity</strong> dominates (it doesn&rsquo;t).
-          The three you actually control - <strong>relevance</strong>,
-          <strong> authority</strong>, and <strong>activity</strong> -
-          determine whether your clinic shows up to a patient one mile
-          away or your competitor two blocks closer.
+          Google&rsquo;s Local Pack - the three map results above the organic listings - is decided
+          by four signals. Most clinics assume <strong>proximity</strong> dominates (it
+          doesn&rsquo;t). The three you actually control - <strong>relevance</strong>,
+          <strong> authority</strong>, and <strong>activity</strong> - determine whether your clinic
+          shows up to a patient one mile away or your competitor two blocks closer.
         </p>
 
         <div className="gb-how-formula">
@@ -88,7 +90,9 @@ const HowMapRanksWork = () => {
         <div className="gb-how-grid">
           {FACTORS.map((f, i) => (
             <article key={f.name + i} className="gb-how-card" data-pos={i}>
-              <div className="gb-how-letter" aria-hidden="true">{f.letter}</div>
+              <div className="gb-how-letter" aria-hidden="true">
+                {f.letter}
+              </div>
               <div className="gb-how-meta">
                 <h3 className="gb-how-name">{f.name}</h3>
                 <span className="gb-how-weight">{f.weight}</span>
@@ -97,7 +101,9 @@ const HowMapRanksWork = () => {
               <ul className="gb-how-examples">
                 {f.examples.map((e) => (
                   <li key={e}>
-                    <span className="gb-how-bullet" aria-hidden="true">→</span>
+                    <span className="gb-how-bullet" aria-hidden="true">
+                      →
+                    </span>
                     {e}
                   </li>
                 ))}
@@ -109,13 +115,11 @@ const HowMapRanksWork = () => {
         <div className="gb-how-callout">
           <div className="gb-how-callout-eyebrow">Why this matters for healthcare</div>
           <p>
-            Healthcare is the most competitive Local Pack category on the
-            internet. A primary care clinic in a city competes against 50+
-            providers within a 3-mile radius. Proximity alone won&rsquo;t
-            win you the top three. We see clinics rank #1 from <em>2.5
-            miles away</em> regularly - because we&rsquo;ve engineered
-            the other three signals harder than the proximity advantage
-            of their nearest competitor.
+            Healthcare is the most competitive Local Pack category on the internet. A primary care
+            clinic in a city competes against 50+ providers within a 3-mile radius. Proximity alone
+            won&rsquo;t win you the top three. We see clinics rank #1 from <em>2.5 miles away</em>{' '}
+            regularly - because we&rsquo;ve engineered the other three signals harder than the
+            proximity advantage of their nearest competitor.
           </p>
         </div>
       </div>

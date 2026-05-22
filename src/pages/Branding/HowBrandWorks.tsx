@@ -12,13 +12,17 @@ const PILLARS: Pillar[] = [
     name: 'Recognition',
     weight: 'Pillar 1',
     desc: 'How fast a patient identifies you - the mark, the color, the typographic feel - across signage, ads, and a SERP result. Built by repetition + distinctiveness.',
-    examples: ['Distinctive primary mark', 'Ownable color palette', 'Recognizable typographic signature'],
+    examples: [
+      'Distinctive primary mark',
+      'Ownable color palette',
+      'Recognizable typographic signature',
+    ],
   },
   {
     letter: 'R',
     name: 'Reputation',
     weight: 'Pillar 2',
-    desc: 'What\'s already in the patient\'s head before they read a single word. Built by reviews, referrals, press, and the patient experiences the brand stands behind.',
+    desc: "What's already in the patient's head before they read a single word. Built by reviews, referrals, press, and the patient experiences the brand stands behind.",
     examples: ['Review volume + velocity', 'Provider press mentions', 'Patient-story library'],
   },
   {
@@ -26,14 +30,22 @@ const PILLARS: Pillar[] = [
     name: 'Consistency',
     weight: 'Pillar 3',
     desc: 'The brand showing up the same way on a Google ad, a TikTok reel, an exam-room wall, and a printed referral pad. The pillar most clinics fail at first.',
-    examples: ['Design tokens enforced everywhere', 'Voice rules in every brief', 'Photography looking like one shoot'],
+    examples: [
+      'Design tokens enforced everywhere',
+      'Voice rules in every brief',
+      'Photography looking like one shoot',
+    ],
   },
   {
     letter: 'R',
     name: 'Resonance',
     weight: 'Pillar 4',
     desc: 'How the brand makes the patient feel - calm, capable, cared for. The pillar that turns a one-visit booking into a 10-year relationship + a referral engine.',
-    examples: ['Patient-promise statement', 'Tone calibrated to specialty', 'Emotional benefit framing'],
+    examples: [
+      'Patient-promise statement',
+      'Tone calibrated to specialty',
+      'Emotional benefit framing',
+    ],
   },
 ];
 
@@ -68,12 +80,11 @@ const HowBrandWorks = () => {
         </div>
 
         <p className="br-how-intro">
-          A new logo will not save a clinic that&rsquo;s leaking trust on
-          its review pages, its voicemail, or its waiting-room signage.
-          <strong> Brand equity</strong> is the compounding output of four
-          pillars working together - recognition, reputation, consistency,
-          resonance. Healthcare brands that win build all four; brands that
-          stall ship a beautiful Figma file and stop there.
+          A new logo will not save a clinic that&rsquo;s leaking trust on its review pages, its
+          voicemail, or its waiting-room signage.
+          <strong> Brand equity</strong> is the compounding output of four pillars working together
+          - recognition, reputation, consistency, resonance. Healthcare brands that win build all
+          four; brands that stall ship a beautiful Figma file and stop there.
         </p>
 
         <div className="br-how-formula">
@@ -87,7 +98,9 @@ const HowBrandWorks = () => {
         <div className="br-how-grid">
           {PILLARS.map((p, i) => (
             <article key={p.name + i} className="br-how-card" data-pos={i}>
-              <div className="br-how-letter" aria-hidden="true">{p.letter}</div>
+              <div className="br-how-letter" aria-hidden="true">
+                {p.letter}
+              </div>
               <div className="br-how-meta">
                 <h3 className="br-how-name">{p.name}</h3>
                 <span className="br-how-weight">{p.weight}</span>
@@ -96,7 +109,9 @@ const HowBrandWorks = () => {
               <ul className="br-how-examples">
                 {p.examples.map((e) => (
                   <li key={e}>
-                    <span className="br-how-bullet" aria-hidden="true">→</span>
+                    <span className="br-how-bullet" aria-hidden="true">
+                      →
+                    </span>
                     {e}
                   </li>
                 ))}
@@ -108,13 +123,11 @@ const HowBrandWorks = () => {
         <div className="br-how-callout">
           <div className="br-how-callout-eyebrow">Why this matters for healthcare</div>
           <p>
-            Healthcare is the highest-stakes category a brand can operate
-            in. A patient choosing between two dermatologists isn&rsquo;t
-            comparing logos - they&rsquo;re comparing trust signals built
-            from <em>recognition + reputation + consistency + resonance</em>.
-            We build all four in parallel. The logo is the easy part; the
-            system that keeps the brand honest across 50+ touchpoints is
-            what actually moves bookings.
+            Healthcare is the highest-stakes category a brand can operate in. A patient choosing
+            between two dermatologists isn&rsquo;t comparing logos - they&rsquo;re comparing trust
+            signals built from <em>recognition + reputation + consistency + resonance</em>. We build
+            all four in parallel. The logo is the easy part; the system that keeps the brand honest
+            across 50+ touchpoints is what actually moves bookings.
           </p>
         </div>
       </div>

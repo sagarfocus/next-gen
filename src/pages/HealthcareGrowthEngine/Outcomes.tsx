@@ -15,10 +15,13 @@ const Outcomes = () => {
         </div>
         <div className="grid lg:grid-cols-12 gap-x-12 gap-y-6 items-end mb-12 lg:mb-16">
           <h2 className="lg:col-span-7 text-heading font-extrabold leading-[0.96] tracking-[-0.038em] text-[clamp(36px,5.4vw,74px)]">
-            What the engine<br />actually produces.
+            What the engine
+            <br />
+            actually produces.
           </h2>
           <p className="lg:col-span-4 lg:col-start-9 text-body text-[15.5px] leading-[1.65] max-w-[44ch]">
-            Aggregate outcomes across practices currently running on the engine — updated quarterly with anonymised, weighted data from active clients.
+            Aggregate outcomes across practices currently running on the engine — updated quarterly
+            with anonymised, weighted data from active clients.
           </p>
         </div>
 
@@ -38,12 +41,7 @@ const Outcomes = () => {
                 </span>
               </div>
               <span className="text-heading text-[clamp(48px,5.2vw,80px)] font-extrabold leading-[0.92] tracking-[-0.038em]">
-                <CountUp
-                  value={o.num}
-                  prefix={o.prefix}
-                  suffix={o.suffix}
-                  trigger={inView}
-                />
+                <CountUp value={o.num} prefix={o.prefix} suffix={o.suffix} trigger={inView} />
               </span>
               <span className="text-heading text-[16px] leading-[1.35] font-semibold tracking-[-0.008em]">
                 {o.l}
@@ -56,8 +54,8 @@ const Outcomes = () => {
         </div>
 
         <p className="mt-10 text-body text-[15px] leading-[1.65] max-w-[68ch]">
-          Sample weighted across single-location, multi-location, and FSER clients running
-          ≥ 6 months on the engine. Individual results vary by category and geography.
+          Sample weighted across single-location, multi-location, and FSER clients running ≥ 6
+          months on the engine. Individual results vary by category and geography.
         </p>
       </div>
     </section>

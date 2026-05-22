@@ -12,8 +12,7 @@ const Specs = () => (
           Six protocols. <em>One commitment.</em>
         </h2>
         <p className="gtx-sec-sub">
-          The complete list of compliance specifications referenced in every
-          BAA we sign.
+          The complete list of compliance specifications referenced in every BAA we sign.
         </p>
       </header>
 

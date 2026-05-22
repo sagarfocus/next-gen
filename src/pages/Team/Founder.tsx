@@ -31,24 +31,20 @@ const Founder = () => {
               <span className="tm-founder-cred">CPA</span>
               <span className="tm-founder-cred">CTC</span>
             </div>
-            <p className="tm-founder-role">
-              Practitioner-owner, healthcare growth strategist.
+            <p className="tm-founder-role">Practitioner-owner, healthcare growth strategist.</p>
+            <p className="tm-founder-bio">
+              Jay built TheNextGen on a single thesis: healthcare deserves a marketing partner that
+              understands clinical reality, financial accountability, and HIPAA - not a generalist
+              agency that treats clinics like e-commerce stores.
             </p>
             <p className="tm-founder-bio">
-              Jay built TheNextGen on a single thesis: healthcare deserves a
-              marketing partner that understands clinical reality, financial
-              accountability, and HIPAA - not a generalist agency that
-              treats clinics like e-commerce stores.
-            </p>
-            <p className="tm-founder-bio">
-              As a CPA and Certified Tax Coach, he brings a rare blend of
-              operational rigor and revenue discipline to every engagement
-              - making sure marketing investment maps directly to
-              practice profitability.
+              As a CPA and Certified Tax Coach, he brings a rare blend of operational rigor and
+              revenue discipline to every engagement - making sure marketing investment maps
+              directly to practice profitability.
             </p>
             <p className="tm-founder-quote">
-              We measure ourselves in booked appointments and patient lifetime
-              value - not impressions.
+              We measure ourselves in booked appointments and patient lifetime value - not
+              impressions.
             </p>
           </div>
         </div>

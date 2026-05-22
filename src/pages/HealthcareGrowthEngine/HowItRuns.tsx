@@ -34,7 +34,8 @@ const HowItRuns = () => {
           </div>
           <div className="lg:col-span-4">
             <p className="text-body text-[15.5px] leading-[1.65] max-w-[42ch]">
-              One loop, repeated. Measure → prioritise → operate → compound. The cadence is the product.
+              One loop, repeated. Measure → prioritise → operate → compound. The cadence is the
+              product.
             </p>
           </div>
         </div>
@@ -45,7 +46,10 @@ const HowItRuns = () => {
           onMouseLeave={() => setPaused(false)}
         >
           {/* Horizontal connector with animated progress */}
-          <div aria-hidden="true" className="hidden md:block absolute left-0 right-0 top-[27px] px-[12.5%]">
+          <div
+            aria-hidden="true"
+            className="hidden md:block absolute left-0 right-0 top-[27px] px-[12.5%]"
+          >
             <div className="relative h-px bg-line-soft">
               <span
                 className="absolute top-0 left-0 h-px bg-heading transition-[width] duration-700 ease-out"
@@ -59,44 +63,49 @@ const HowItRuns = () => {
           </div>
 
           <ol className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-8 md:gap-x-8 relative">
-          {STAGES.map((s, i) => {
-            const isActive = active === i;
-            return (
-              <li
-                key={s.n}
-                onClick={() => { setActive(i); setPaused(true); }}
-                aria-current={isActive}
-                className="relative flex flex-col gap-4 cursor-pointer"
-              >
-                <div
-                  className={`relative w-14 h-14 rounded-[14px] border grid place-items-center transition-all duration-500 ${
-                    isActive
-                      ? 'border-line bg-line text-white -translate-y-0.5'
-                      : 'border-line-faint bg-bg text-line'
-                  }`}
+            {STAGES.map((s, i) => {
+              const isActive = active === i;
+              return (
+                <li
+                  key={s.n}
+                  onClick={() => {
+                    setActive(i);
+                    setPaused(true);
+                  }}
+                  aria-current={isActive}
+                  className="relative flex flex-col gap-4 cursor-pointer"
                 >
-                  <span className="w-5 h-5 block">{s.icon}</span>
-                </div>
-                <div className="flex flex-col gap-2">
-                  <div className="flex items-baseline gap-3 flex-wrap">
-                    <span className="font-mono text-[12px] text-line tracking-[0.18em] font-semibold">{s.n}</span>
-                    <h4
-                      className={`text-[22px] font-bold tracking-[-0.02em] transition-colors duration-500 ${
-                        isActive ? 'text-heading' : 'text-heading/80'
-                      }`}
-                    >
-                      {s.k}.
-                    </h4>
+                  <div
+                    className={`relative w-14 h-14 rounded-[14px] border grid place-items-center transition-all duration-500 ${
+                      isActive
+                        ? 'border-line bg-line text-white -translate-y-0.5'
+                        : 'border-line-faint bg-bg text-line'
+                    }`}
+                  >
+                    <span className="w-5 h-5 block">{s.icon}</span>
                   </div>
-                  <span className="text-muted text-[11.5px] uppercase tracking-[0.18em] font-semibold border border-line-faint rounded-full px-2.5 py-0.5 self-start">
-                    {s.cadence}
-                  </span>
-                  <p className="text-body text-[14.5px] leading-[1.65]">{s.d}</p>
-                </div>
-              </li>
-            );
-          })}
-        </ol>
+                  <div className="flex flex-col gap-2">
+                    <div className="flex items-baseline gap-3 flex-wrap">
+                      <span className="font-mono text-[12px] text-line tracking-[0.18em] font-semibold">
+                        {s.n}
+                      </span>
+                      <h4
+                        className={`text-[22px] font-bold tracking-[-0.02em] transition-colors duration-500 ${
+                          isActive ? 'text-heading' : 'text-heading/80'
+                        }`}
+                      >
+                        {s.k}.
+                      </h4>
+                    </div>
+                    <span className="text-muted text-[11.5px] uppercase tracking-[0.18em] font-semibold border border-line-faint rounded-full px-2.5 py-0.5 self-start">
+                      {s.cadence}
+                    </span>
+                    <p className="text-body text-[14.5px] leading-[1.65]">{s.d}</p>
+                  </div>
+                </li>
+              );
+            })}
+          </ol>
 
           {/* Mobile progress dots */}
           <div className="md:hidden mt-6 flex items-center justify-center gap-1.5">
@@ -104,7 +113,10 @@ const HowItRuns = () => {
               <button
                 key={s.n}
                 type="button"
-                onClick={() => { setActive(i); setPaused(true); }}
+                onClick={() => {
+                  setActive(i);
+                  setPaused(true);
+                }}
                 aria-label={`Show ${s.k}`}
                 aria-current={active === i}
                 className={`h-1.5 rounded-full transition-all duration-300 ${

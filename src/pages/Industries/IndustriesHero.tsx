@@ -15,14 +15,12 @@ const IndustriesHero = ({ onBook }: IndustriesHeroProps) => {
           <div className="ind-hero-text">
             <span className="ind-eyebrow">Industries We Serve</span>
             <h1 id="ind-title" className="ind-h1">
-              Healthcare marketing tailored to your{' '}
-              <span className="accent">specialty</span>.
+              Healthcare marketing tailored to your <span className="accent">specialty</span>.
             </h1>
             <p className="ind-lede">
-              We don&rsquo;t do generic. From freestanding ERs to MedSpas, we
-              build patient-acquisition systems engineered for the specific
-              dynamics of your vertical - high-acuity urgency, walk-in
-              convenience, or longevity-driven retention.
+              We don&rsquo;t do generic. From freestanding ERs to MedSpas, we build
+              patient-acquisition systems engineered for the specific dynamics of your vertical -
+              high-acuity urgency, walk-in convenience, or longevity-driven retention.
             </p>
 
             <div className="ind-hero-cta">
@@ -59,21 +57,15 @@ const IndustriesHero = ({ onBook }: IndustriesHeroProps) => {
             </div>
 
             <div className="ind-trust">
-              <span className="ind-trust-label">
-                Trusted by 200+ Texas Practices
-              </span>
+              <span className="ind-trust-label">Trusted by 200+ Texas Practices</span>
               <div className="ind-trust-stats">
                 <span className="ind-trust-stat">
                   <span className="ind-trust-stat-num">3+</span>
-                  <span className="ind-trust-stat-label">
-                    Specialty Verticals
-                  </span>
+                  <span className="ind-trust-stat-label">Specialty Verticals</span>
                 </span>
                 <span className="ind-trust-stat">
                   <span className="ind-trust-stat-num">$10M+</span>
-                  <span className="ind-trust-stat-label">
-                    Ad Spend Managed
-                  </span>
+                  <span className="ind-trust-stat-label">Ad Spend Managed</span>
                 </span>
                 <span className="ind-trust-stat">
                   <span className="ind-trust-stat-num">3&times;</span>
@@ -160,8 +152,7 @@ const IndustriesHero = ({ onBook }: IndustriesHeroProps) => {
               <div className="fc2-head">Specialty Match</div>
               <div className="fc2-stat">98%</div>
               <p className="fc2-text">
-                Of campaigns matched to industry-specific patient acquisition
-                models.
+                Of campaigns matched to industry-specific patient acquisition models.
               </p>
             </div>
 

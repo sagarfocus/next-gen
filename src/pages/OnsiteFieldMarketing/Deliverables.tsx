@@ -11,9 +11,7 @@ const Deliverables = () => (
       {DELIVERABLES.map((d, i) => (
         <div key={d.tag} className="bg-bg p-6 flex flex-col gap-4">
           <div className="flex items-baseline justify-between">
-            <span className="font-mono text-[11px] text-line tracking-[0.18em]">
-              0{i + 1}.
-            </span>
+            <span className="font-mono text-[11px] text-line tracking-[0.18em]">0{i + 1}.</span>
             <span className="text-[9px] uppercase tracking-[0.18em] text-muted font-semibold">
               Surface
             </span>

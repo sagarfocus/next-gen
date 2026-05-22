@@ -68,11 +68,7 @@ const renderCard = (card: TrendCard, ariaHidden: boolean) => (
     tabIndex={ariaHidden ? -1 : undefined}
   >
     <div className="trend-img">
-      <NewsThumb
-        category={card.cat}
-        seed={`trend-${card.to}`}
-        aspect="landscape"
-      />
+      <NewsThumb category={card.cat} seed={`trend-${card.to}`} aspect="landscape" />
     </div>
     <span className="trend-cat">{card.cat}</span>
     <h3 className="trend-title">{card.title}</h3>
@@ -92,8 +88,8 @@ const TrendingRail = () => {
             the trending articles
           </h2>
           <p className="trending-sub">
-            Hover any card to pause the rail and click through. New stories drop
-            every Friday in our weekly brief.
+            Hover any card to pause the rail and click through. New stories drop every Friday in our
+            weekly brief.
           </p>
         </div>
       </div>

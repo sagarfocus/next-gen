@@ -19,11 +19,10 @@ const Hero = () => {
               One dashboard. <em>One number you can defend.</em>
             </h1>
             <p className="an-hero-lede">
-              We unify Google Ads, Meta, GA4, Search Console, GBP, CRM, EHR,
-              call tracking, and your booking system into a single live
-              dashboard - with HIPAA-aware tracking, multi-touch attribution,
-              and the one number leadership has been asking for: did the
-              marketing pay off?
+              We unify Google Ads, Meta, GA4, Search Console, GBP, CRM, EHR, call tracking, and your
+              booking system into a single live dashboard - with HIPAA-aware tracking, multi-touch
+              attribution, and the one number leadership has been asking for: did the marketing pay
+              off?
             </p>
 
             <div className="an-hero-ctas">
@@ -33,7 +32,14 @@ const Hero = () => {
               </Link>
               <a href="#sources" className="sl-btn-ghost">
                 See data sources
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.4} strokeLinecap="round" strokeLinejoin="round">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth={2.4}
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
                   <line x1="7" y1="17" x2="17" y2="7" />
                   <polyline points="7 7 17 7 17 17" />
                 </svg>
@@ -43,19 +49,46 @@ const Hero = () => {
             <ul className="an-hero-bullets">
               <li>
                 <span className="an-hero-check" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={3} strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth={3}
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
                 </span>
                 10+ source systems, one source of truth
               </li>
               <li>
                 <span className="an-hero-check" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={3} strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth={3}
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
                 </span>
                 Booked revenue attribution per channel
               </li>
               <li>
                 <span className="an-hero-check" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={3} strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth={3}
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
                 </span>
                 PHI-free · BAA-covered · audit-ready
               </li>
@@ -83,12 +116,16 @@ const Hero = () => {
                   </div>
                   <div className="kpi">
                     <span className="lbl">Attributed revenue</span>
-                    <span className="val">$847<em>K</em></span>
+                    <span className="val">
+                      $847<em>K</em>
+                    </span>
                     <span className="dlt up">↑ 38%</span>
                   </div>
                   <div className="kpi">
                     <span className="lbl">Blended CPA</span>
-                    <span className="val">$28<em>.40</em></span>
+                    <span className="val">
+                      $28<em>.40</em>
+                    </span>
                     <span className="dlt up">↓ 42%</span>
                   </div>
                 </div>
@@ -104,9 +141,27 @@ const Hero = () => {
                   </div>
                   <div className="chart-canvas">
                     <svg viewBox="0 0 280 90" preserveAspectRatio="none">
-                      <path d="M0,70 C30,65 50,55 80,50 C110,45 140,40 170,32 C200,24 230,18 280,12" fill="none" stroke="#0EA5E9" strokeWidth="2.2" strokeLinecap="round" />
-                      <path d="M0,80 C30,76 60,72 100,68 C140,64 180,55 220,46 C250,40 270,35 280,30" fill="none" stroke="#10B981" strokeWidth="2.2" strokeLinecap="round" />
-                      <path d="M0,85 C40,80 80,78 120,74 C160,70 200,64 240,58 C260,55 280,52 280,50" fill="none" stroke="#A78BFA" strokeWidth="2.2" strokeLinecap="round" />
+                      <path
+                        d="M0,70 C30,65 50,55 80,50 C110,45 140,40 170,32 C200,24 230,18 280,12"
+                        fill="none"
+                        stroke="#0EA5E9"
+                        strokeWidth="2.2"
+                        strokeLinecap="round"
+                      />
+                      <path
+                        d="M0,80 C30,76 60,72 100,68 C140,64 180,55 220,46 C250,40 270,35 280,30"
+                        fill="none"
+                        stroke="#10B981"
+                        strokeWidth="2.2"
+                        strokeLinecap="round"
+                      />
+                      <path
+                        d="M0,85 C40,80 80,78 120,74 C160,70 200,64 240,58 C260,55 280,52 280,50"
+                        fill="none"
+                        stroke="#A78BFA"
+                        strokeWidth="2.2"
+                        strokeLinecap="round"
+                      />
                       <circle cx="280" cy="12" r="3.5" fill="#0EA5E9" />
                       <circle cx="280" cy="30" r="3.5" fill="#10B981" />
                       <circle cx="280" cy="50" r="3.5" fill="#A78BFA" />
@@ -140,11 +195,17 @@ const Hero = () => {
             </div>
 
             <div className="an-hero-tag t1">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.2}><polyline points="23 6 13.5 15.5 8.5 10.5 1 18" /><polyline points="17 6 23 6 23 12" /></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.2}>
+                <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
+                <polyline points="17 6 23 6 23 12" />
+              </svg>
               4.2× ROAS
             </div>
             <div className="an-hero-tag t2">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.2}><path d="M9 12l2 2 4-4" /><circle cx="12" cy="12" r="10" /></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.2}>
+                <path d="M9 12l2 2 4-4" />
+                <circle cx="12" cy="12" r="10" />
+              </svg>
               HIPAA-safe
             </div>
           </div>

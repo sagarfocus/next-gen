@@ -9,16 +9,25 @@ const Playbook = ({ study }: { study: CaseStudy }) => (
           How we got from week zero to the headline number.
         </h2>
         <p className="csd-playbook-sub">
-          A three-phase narrative - what was broken, what we decided, and
-          what shipped. No reverse-engineered storytelling. Pulled directly
-          from the engagement notes.
+          A three-phase narrative - what was broken, what we decided, and what shipped. No
+          reverse-engineered storytelling. Pulled directly from the engagement notes.
         </p>
       </header>
 
       <ol className="csd-phases">
         {study.phases.map((phase, i) => {
           const phaseIcon = (
-            <svg width={20} height={20} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.9} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+            <svg
+              width={20}
+              height={20}
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth={1.9}
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
+            >
               {i === 0 && (
                 <>
                   <path d="M12 9v4" />
@@ -50,7 +59,9 @@ const Playbook = ({ study }: { study: CaseStudy }) => (
               </div>
               <div className="csd-phase-body">
                 <span className="csd-phase-label">
-                  <span className="csd-phase-label-ico" aria-hidden="true">{phaseIcon}</span>
+                  <span className="csd-phase-label-ico" aria-hidden="true">
+                    {phaseIcon}
+                  </span>
                   {phase.label}
                 </span>
                 <h3 className="csd-phase-headline">{phase.headline}</h3>

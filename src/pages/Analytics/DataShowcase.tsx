@@ -1,10 +1,35 @@
-interface Stat { num: string; unit?: string; label: string; sub: string }
+interface Stat {
+  num: string;
+  unit?: string;
+  label: string;
+  sub: string;
+}
 
 const STATS: Stat[] = [
-  { num: '100', unit: '%', label: 'Channel attribution', sub: 'Every spend dollar tied to an outcome' },
-  { num: '−85', unit: '%', label: 'Reporting time saved', sub: 'From 6h of screenshots to one shared link' },
-  { num: '$12', unit: 'M+', label: 'Healthcare revenue tracked', sub: 'Across 90+ multi-location engagements' },
-  { num: '47', unit: '+', label: 'Live dashboards deployed', sub: 'Custom per engagement · no templates' },
+  {
+    num: '100',
+    unit: '%',
+    label: 'Channel attribution',
+    sub: 'Every spend dollar tied to an outcome',
+  },
+  {
+    num: '−85',
+    unit: '%',
+    label: 'Reporting time saved',
+    sub: 'From 6h of screenshots to one shared link',
+  },
+  {
+    num: '$12',
+    unit: 'M+',
+    label: 'Healthcare revenue tracked',
+    sub: 'Across 90+ multi-location engagements',
+  },
+  {
+    num: '47',
+    unit: '+',
+    label: 'Live dashboards deployed',
+    sub: 'Custom per engagement · no templates',
+  },
 ];
 
 const KPIS = [

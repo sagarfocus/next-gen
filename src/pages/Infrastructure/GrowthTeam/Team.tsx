@@ -12,8 +12,8 @@ const Team = () => (
           Six senior specialists. <em>One mission.</em>
         </h2>
         <p className="gtx-sec-sub">
-          Healthcare-fluent operators with named accountability for
-          the numbers that move your panel.
+          Healthcare-fluent operators with named accountability for the numbers that move your
+          panel.
         </p>
       </header>
 
@@ -33,7 +33,9 @@ const Team = () => (
               <p className="gtx-team-card-pitch">{role.pitch}</p>
               <div className="gtx-team-card-tags">
                 {role.owns.map((o) => (
-                  <span key={o} className="gtx-team-card-tag">{o}</span>
+                  <span key={o} className="gtx-team-card-tag">
+                    {o}
+                  </span>
                 ))}
               </div>
             </div>

@@ -34,7 +34,11 @@ const TARGETS: AutoTarget[] = [
 
   // Section headers - universal
   { selector: 'section h2', variant: 'up' },
-  { selector: 'section header > *, section .section-head > *, section .sv-sec-head > *', variant: 'up', stagger: 80 },
+  {
+    selector: 'section header > *, section .section-head > *, section .sv-sec-head > *',
+    variant: 'up',
+    stagger: 80,
+  },
   // Home-specific section heads (eyebrow + h2 + intro cascade)
   { selector: '.services-head > *', variant: 'up', stagger: 90 },
   { selector: '.process-head > *', variant: 'up', stagger: 90 },
@@ -60,7 +64,11 @@ const TARGETS: AutoTarget[] = [
   { selector: '.faq-item', variant: 'up', stagger: 50 },
   { selector: '.cs-card', variant: 'up', stagger: 90 },
   { selector: '.blog-grid > *, .blog-card', variant: 'up', stagger: 80 },
-  { selector: '.au-pillars > *, .au-features > *, .au-uc-grid > *, .au-templates > *', variant: 'up', stagger: 90 },
+  {
+    selector: '.au-pillars > *, .au-features > *, .au-uc-grid > *, .au-templates > *',
+    variant: 'up',
+    stagger: 90,
+  },
   { selector: '.sl-pillars > *, .sl-pillars-grid > *', variant: 'up', stagger: 90 },
   { selector: '.tm-team > *', variant: 'up', stagger: 90 },
   { selector: '.ind-stats > *', variant: 'up', stagger: 90 },
@@ -110,7 +118,7 @@ const attachObserver = (elements: Element[], baseDelay: number, stagger: number)
         }
       }
     },
-    { threshold: 0.12, rootMargin: '0px 0px -6% 0px' },
+    { threshold: 0.12, rootMargin: '0px 0px -6% 0px' }
   );
 
   elements.forEach((el, i) => {

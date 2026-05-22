@@ -17,9 +17,9 @@ const Hero = () => (
             <span className="text-line italic">measurably</span>.
           </h1>
           <p className="mt-7 text-body text-[17px] leading-[1.65] max-w-[58ch]">
-            Healthcare grows where doors open in person. We run the booth, walk the territory,
-            and book the referral lunch - then attribute every lead back to first-visit revenue
-            in your dashboard. Field marketing, accountable to the same numbers as paid media.
+            Healthcare grows where doors open in person. We run the booth, walk the territory, and
+            book the referral lunch - then attribute every lead back to first-visit revenue in your
+            dashboard. Field marketing, accountable to the same numbers as paid media.
           </p>
         </div>
         <div className="lg:col-span-4">

@@ -28,9 +28,8 @@ const BlogNewsletter = () => {
                 Get healthcare growth tactics in your inbox.
               </h2>
               <p className="bl-news-text">
-                One field-tested patient acquisition tactic, HIPAA update, or
-                case study every Tuesday morning. Read by 4,000+ practice
-                managers across Texas. No fluff, no spam.
+                One field-tested patient acquisition tactic, HIPAA update, or case study every
+                Tuesday morning. Read by 4,000+ practice managers across Texas. No fluff, no spam.
               </p>
             </div>
 

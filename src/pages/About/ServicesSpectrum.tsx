@@ -10,8 +10,8 @@ const ServicesSpectrum = () => {
             From digital patient acquisition to operational automation.
           </h2>
           <p className="ab-spec-sub">
-            We cover every aspect of clinical growth - the full spectrum
-            of healthcare marketing under one operating system.
+            We cover every aspect of clinical growth - the full spectrum of healthcare marketing
+            under one operating system.
           </p>
         </div>
 

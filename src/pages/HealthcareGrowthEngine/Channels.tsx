@@ -14,12 +14,15 @@ const Channels = () => (
             Channels · 02
           </div>
           <h2 className="text-heading font-extrabold tracking-[-0.03em] leading-[1.04] text-[clamp(36px,4.6vw,68px)]">
-            Three channels,<br />one engine.
+            Three channels,
+            <br />
+            one engine.
           </h2>
         </div>
         <div className="lg:col-span-5 lg:pt-20">
           <p className="text-body text-[15px] leading-[1.65] max-w-[44ch]">
-            Each channel earns its weight; together they compound. One growth lead, one number, one funnel.
+            Each channel earns its weight; together they compound. One growth lead, one number, one
+            funnel.
           </p>
         </div>
       </div>
@@ -52,7 +55,10 @@ const Channels = () => (
               <p className="text-body text-[14.5px] leading-[1.55]">{c.body}</p>
               <ul className="grid grid-cols-2 gap-y-2 gap-x-3 pt-1">
                 {c.bullets.map((b) => (
-                  <li key={b} className="flex items-start gap-2 text-heading text-[12.5px] font-semibold tracking-[-0.005em]">
+                  <li
+                    key={b}
+                    className="flex items-start gap-2 text-heading text-[12.5px] font-semibold tracking-[-0.005em]"
+                  >
                     <span className="mt-1.5 h-1 w-1 rounded-full bg-line shrink-0" />
                     {b}
                   </li>

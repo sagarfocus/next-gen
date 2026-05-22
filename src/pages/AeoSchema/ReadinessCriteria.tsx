@@ -13,21 +13,39 @@ const ReadinessCriteria = () => (
 
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">
         {READINESS.map((r, i) => (
-          <article key={r.k} className="relative bg-white rounded-[22px] border p-8 flex flex-col gap-5 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_24px_48px_-28px_rgba(45,55,72,0.22)]" style={{ borderColor: 'rgba(26, 36, 56, 0.10)' }}>
+          <article
+            key={r.k}
+            className="relative bg-white rounded-[22px] border p-8 flex flex-col gap-5 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_24px_48px_-28px_rgba(45,55,72,0.22)]"
+            style={{ borderColor: 'rgba(26, 36, 56, 0.10)' }}
+          >
             <div className="flex items-center justify-between">
-              <span className="inline-grid place-items-center w-14 h-14 rounded-[14px]" style={{ background: COLORS.ctaSoft, color: COLORS.cta }}>
+              <span
+                className="inline-grid place-items-center w-14 h-14 rounded-[14px]"
+                style={{ background: COLORS.ctaSoft, color: COLORS.cta }}
+              >
                 <span className="w-7 h-7 block">{r.icon}</span>
               </span>
-              <span className="inline-grid place-items-center w-9 h-9 rounded-full border font-mono text-[12px] font-bold" style={{ borderColor: COLORS.cta, color: COLORS.cta }}>
+              <span
+                className="inline-grid place-items-center w-9 h-9 rounded-full border font-mono text-[12px] font-bold"
+                style={{ borderColor: COLORS.cta, color: COLORS.cta }}
+              >
                 0{i + 1}
               </span>
             </div>
-            <h3 className="text-[26px] font-extrabold tracking-[-0.02em] leading-[1.08]" style={{ color: COLORS.navy }}>
+            <h3
+              className="text-[26px] font-extrabold tracking-[-0.02em] leading-[1.08]"
+              style={{ color: COLORS.navy }}
+            >
               {r.k}
               <span style={{ color: COLORS.cta }}>.</span>
             </h3>
-            <p className="text-[14.5px] leading-[1.6]" style={{ color: COLORS.body }}>{r.d}</p>
-            <div className="mt-2 pt-4 border-t inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.18em] font-bold" style={{ borderColor: 'rgba(26, 36, 56, 0.08)', color: COLORS.sage }}>
+            <p className="text-[14.5px] leading-[1.6]" style={{ color: COLORS.body }}>
+              {r.d}
+            </p>
+            <div
+              className="mt-2 pt-4 border-t inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.18em] font-bold"
+              style={{ borderColor: 'rgba(26, 36, 56, 0.08)', color: COLORS.sage }}
+            >
               <span className="w-1.5 h-1.5 rounded-full" style={{ background: COLORS.sage }} />
               Pre-flight gate
             </div>

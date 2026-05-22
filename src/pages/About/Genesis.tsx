@@ -16,13 +16,36 @@ const Genesis = () => {
                     </linearGradient>
                   </defs>
 
-                  <circle cx="60" cy="120" r="34" fill="rgba(87,109,181,.10)" stroke="#576DB5" strokeWidth="1.5" />
+                  <circle
+                    cx="60"
+                    cy="120"
+                    r="34"
+                    fill="rgba(87,109,181,.10)"
+                    stroke="#576DB5"
+                    strokeWidth="1.5"
+                  />
                   <rect x="48" y="111" width="24" height="3" rx="1" fill="#576DB5" />
                   <rect x="48" y="118" width="18" height="3" rx="1" fill="#576DB5" opacity=".7" />
                   <rect x="48" y="125" width="22" height="3" rx="1" fill="#576DB5" opacity=".5" />
 
-                  <circle cx="180" cy="120" r="34" fill="rgba(143,188,143,.14)" stroke="#8FBC8F" strokeWidth="1.5" />
-                  <rect x="166" y="108" width="28" height="20" rx="2" fill="none" stroke="#8FBC8F" strokeWidth="1.4" />
+                  <circle
+                    cx="180"
+                    cy="120"
+                    r="34"
+                    fill="rgba(143,188,143,.14)"
+                    stroke="#8FBC8F"
+                    strokeWidth="1.5"
+                  />
+                  <rect
+                    x="166"
+                    y="108"
+                    width="28"
+                    height="20"
+                    rx="2"
+                    fill="none"
+                    stroke="#8FBC8F"
+                    strokeWidth="1.4"
+                  />
                   <line x1="166" y1="115" x2="194" y2="115" stroke="#8FBC8F" strokeWidth="1.2" />
                   <circle cx="170" cy="111" r="1.2" fill="#8FBC8F" />
 
@@ -37,7 +60,14 @@ const Genesis = () => {
                     opacity=".7"
                   />
 
-                  <circle cx="120" cy="120" r="22" fill="rgba(255,255,255,.92)" stroke="#B38B6D" strokeWidth="1.8" />
+                  <circle
+                    cx="120"
+                    cy="120"
+                    r="22"
+                    fill="rgba(255,255,255,.92)"
+                    stroke="#B38B6D"
+                    strokeWidth="1.8"
+                  />
                   <circle cx="120" cy="120" r="6" fill="#B38B6D" />
 
                   <text
@@ -136,19 +166,15 @@ const Genesis = () => {
               Transcending the vendor relationship.
             </h2>
             <p>
-              Traditional agencies were{' '}
-              <strong>actively harming high-volume clinics</strong>. Driving
-              thousands of inquiries to Freestanding ERs and Urgent Cares while
-              inadvertently crushing the front desk. Marketing was
-              &ldquo;working,&rdquo; but the clinic was failing to process the
-              volume.
+              Traditional agencies were <strong>actively harming high-volume clinics</strong>.
+              Driving thousands of inquiries to Freestanding ERs and Urgent Cares while
+              inadvertently crushing the front desk. Marketing was &ldquo;working,&rdquo; but the
+              clinic was failing to process the volume.
             </p>
             <p>
-              So we became <strong>operational integrators</strong>. We
-              don&rsquo;t just run Google Ads - we build the AI chatbots
-              that answer them. We don&rsquo;t just do Local SEO - we
-              build the digital intake forms that process the patients who
-              find you.
+              So we became <strong>operational integrators</strong>. We don&rsquo;t just run Google
+              Ads - we build the AI chatbots that answer them. We don&rsquo;t just do Local SEO - we
+              build the digital intake forms that process the patients who find you.
             </p>
 
             <div className="ab-gen-principles">

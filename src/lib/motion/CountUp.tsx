@@ -53,7 +53,7 @@ export const CountUp = ({
           minimumFractionDigits: decimals,
           maximumFractionDigits: decimals,
         })
-      : (reduced ? to : 0).toFixed(decimals),
+      : (reduced ? to : 0).toFixed(decimals)
   );
 
   useEffect(() => {

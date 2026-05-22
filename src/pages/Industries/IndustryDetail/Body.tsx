@@ -37,7 +37,9 @@ const Body = ({ entry }: { entry: IndustryDetailEntry }) => {
             <div className="ow-body-stack-content">
               {restParas.length > 0 ? (
                 restParas.map((p, i) => (
-                  <p key={i} className="ow-body-stack-text">{p}</p>
+                  <p key={i} className="ow-body-stack-text">
+                    {p}
+                  </p>
                 ))
               ) : (
                 <p className="ow-body-stack-text">{lede}</p>

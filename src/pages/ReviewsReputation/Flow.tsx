@@ -11,8 +11,8 @@ const Flow = () => (
         title={
           <>
             The Detect <span className="text-line">→</span> Sort{' '}
-            <span className="text-line">→</span> Respond{' '}
-            <span className="text-line">→</span> Report loop.
+            <span className="text-line">→</span> Respond <span className="text-line">→</span> Report
+            loop.
           </>
         }
         kicker="Four steps. Sentiment-aware throughout. Compliant with HIPAA non-disclosure. The loop runs daily and reports weekly to clinic leadership."
@@ -22,8 +22,7 @@ const Flow = () => (
       <div
         className="relative rounded-[24px] p-6 sm:p-10 lg:p-14"
         style={{
-          background:
-            'linear-gradient(90deg, #DDD9E5 0%, #DDE3DC 50%, #EFE7CD 100%)',
+          background: 'linear-gradient(90deg, #DDD9E5 0%, #DDE3DC 50%, #EFE7CD 100%)',
         }}
       >
         {/* Feature visual — system at work, set inside the gradient panel */}

@@ -18,9 +18,8 @@ const Hero = () => (
             The complete playbook for healthcare automation.
           </h1>
           <p className="amih-lede">
-            A practitioner&rsquo;s guide to deploying patient-facing
-            automation without breaking compliance, scope, or your front
-            desk&rsquo;s sanity - written by the team behind 200+
+            A practitioner&rsquo;s guide to deploying patient-facing automation without breaking
+            compliance, scope, or your front desk&rsquo;s sanity - written by the team behind 200+
             live clinical workflows.
           </p>
           <div className="amih-hero-cta">

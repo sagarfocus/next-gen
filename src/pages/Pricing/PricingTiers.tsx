@@ -11,26 +11,19 @@ const PricingTiers = () => {
             Three tiers. One philosophy: outcomes over hours.
           </h2>
           <p className="pr-section-sub">
-            All retainers are HIPAA-compliant by default with a 30-day launch
-            sprint. Choose the tier that matches your scale and growth velocity.
+            All retainers are HIPAA-compliant by default with a 30-day launch sprint. Choose the
+            tier that matches your scale and growth velocity.
           </p>
         </div>
 
         <div className="pr-tiers-grid">
           {TIERS.map((tier) => (
-            <article
-              key={tier.name}
-              className={`pr-tier${tier.featured ? ' is-featured' : ''}`}
-            >
-              {tier.badge && (
-                <span className="pr-tier-badge">{tier.badge}</span>
-              )}
+            <article key={tier.name} className={`pr-tier${tier.featured ? ' is-featured' : ''}`}>
+              {tier.badge && <span className="pr-tier-badge">{tier.badge}</span>}
               <span className="pr-tier-name">{tier.name}</span>
               <div className="pr-tier-price">
                 <span className="pr-tier-amount">{tier.amount}</span>
-                {tier.period && (
-                  <span className="pr-tier-period">{tier.period}</span>
-                )}
+                {tier.period && <span className="pr-tier-period">{tier.period}</span>}
               </div>
               <p className="pr-tier-tagline">{tier.tagline}</p>
 
@@ -49,9 +42,7 @@ const PricingTiers = () => {
                 <ArrowIcon size={13} />
               </a>
 
-              <span className="pr-tier-section-label">
-                {tier.includesLabel}
-              </span>
+              <span className="pr-tier-section-label">{tier.includesLabel}</span>
               <ul className="pr-tier-list">
                 {tier.includes.map((item) => (
                   <li key={item}>
@@ -83,9 +74,7 @@ const PricingTiers = () => {
               {tier.notes && tier.notes.length > 0 && (
                 <>
                   <div className="pr-tier-divider" />
-                  <span className="pr-tier-section-label">
-                    {tier.notesLabel}
-                  </span>
+                  <span className="pr-tier-section-label">{tier.notesLabel}</span>
                   <ul className="pr-tier-list">
                     {tier.notes.map((item) => (
                       <li key={item}>

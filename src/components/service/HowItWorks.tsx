@@ -43,12 +43,8 @@ const HowItWorks = ({ steps, durations }: HowItWorksProps) => {
               <span className="sv-vstep-label">Phase {s.num}</span>
               <h3 className="sv-vstep-name">{s.name}</h3>
               <p className="sv-vstep-desc">{s.desc}</p>
-              {durations?.[i] ? (
-                <span className="sv-vstep-duration">{durations[i]}</span>
-              ) : null}
-              {i < steps.length - 1 ? (
-                <span className="sv-vstep-rail" aria-hidden="true" />
-              ) : null}
+              {durations?.[i] ? <span className="sv-vstep-duration">{durations[i]}</span> : null}
+              {i < steps.length - 1 ? <span className="sv-vstep-rail" aria-hidden="true" /> : null}
             </li>
           ))}
         </ol>

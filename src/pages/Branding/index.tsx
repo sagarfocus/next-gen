@@ -19,14 +19,24 @@ const SERVICE_SCHEMA = {
   '@type': 'Service',
   name: 'Healthcare Brand Identity & Design',
   serviceType: 'Brand Identity Design',
-  category: ['Visual Identity', 'Voice & Messaging', 'Positioning', 'Brand System', 'Patient Experience', 'Brand Guidelines'],
+  category: [
+    'Visual Identity',
+    'Voice & Messaging',
+    'Positioning',
+    'Brand System',
+    'Patient Experience',
+    'Brand Guidelines',
+  ],
   provider: {
     '@type': 'Organization',
     name: 'TheNextGen Healthcare Marketing',
     url: 'https://thenextgen.example.com',
   },
   areaServed: { '@type': 'Country', name: 'United States' },
-  audience: { '@type': 'Audience', audienceType: 'Healthcare practices, clinics, hospital networks, MSO consolidations' },
+  audience: {
+    '@type': 'Audience',
+    audienceType: 'Healthcare practices, clinics, hospital networks, MSO consolidations',
+  },
 };
 
 const FAQ_SCHEMA = {
@@ -45,7 +55,12 @@ const BREADCRUMB_SCHEMA = {
   itemListElement: [
     { '@type': 'ListItem', position: 1, name: 'Home', item: '/' },
     { '@type': 'ListItem', position: 2, name: 'Services', item: '/services' },
-    { '@type': 'ListItem', position: 3, name: 'Brand Identity & Design', item: '/services/brand-identity-design' },
+    {
+      '@type': 'ListItem',
+      position: 3,
+      name: 'Brand Identity & Design',
+      item: '/services/brand-identity-design',
+    },
   ],
 };
 
@@ -67,9 +82,18 @@ const Branding = () => {
       <FAQ />
       <CTA />
 
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(SERVICE_SCHEMA) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_SCHEMA) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(BREADCRUMB_SCHEMA) }} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(SERVICE_SCHEMA) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_SCHEMA) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(BREADCRUMB_SCHEMA) }}
+      />
     </>
   );
 };

@@ -25,7 +25,7 @@ const Templates = () => {
   const [filter, setFilter] = useState<'All' | Category>('All');
   const visible = useMemo(
     () => (filter === 'All' ? TEMPLATES : TEMPLATES.filter((t) => t.cat === filter)),
-    [filter],
+    [filter]
   );
 
   return (

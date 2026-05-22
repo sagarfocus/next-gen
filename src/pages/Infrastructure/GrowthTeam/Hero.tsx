@@ -25,10 +25,9 @@ const Hero = () => (
             <em> embedded into your clinic.</em>
           </h1>
           <p className="gtx-hero-lede">
-            Not a freelancer. Not a generalist agency. Six dedicated
-            specialists - each healthcare-fluent, each on-staff for the
-            engagement - running your patient acquisition the way an
-            in-house team would.
+            Not a freelancer. Not a generalist agency. Six dedicated specialists - each
+            healthcare-fluent, each on-staff for the engagement - running your patient acquisition
+            the way an in-house team would.
           </p>
           <div className="gtx-hero-ctas">
             <Link to="/contact" className="gtx-btn-primary">

@@ -45,14 +45,7 @@ const TONE_BY_CATEGORY: Record<string, Tone> = {
   'Case Study': 'copper',
 };
 
-type Motif =
-  | 'orbit'
-  | 'pulse'
-  | 'columns'
-  | 'rule'
-  | 'square'
-  | 'split'
-  | 'arrow';
+type Motif = 'orbit' | 'pulse' | 'columns' | 'rule' | 'square' | 'split' | 'arrow';
 
 const motifFor = (category: string, seed: number): Motif => {
   // Deterministic mapping so the same article always renders the same motif.
@@ -75,7 +68,15 @@ const renderMotif = (motif: Motif, palette: TonePalette): ReactElement => {
       return (
         <g>
           <circle cx="100" cy="50" r="22" fill="none" stroke={accent} strokeWidth="1.2" />
-          <circle cx="100" cy="50" r="32" fill="none" stroke={fade} strokeWidth="1" strokeDasharray="3 5" />
+          <circle
+            cx="100"
+            cy="50"
+            r="32"
+            fill="none"
+            stroke={fade}
+            strokeWidth="1"
+            strokeDasharray="3 5"
+          />
           <circle cx="100" cy="50" r="6" fill={ink} />
           <circle cx="128" cy="50" r="3" fill={accent} />
           <line x1="40" y1="78" x2="160" y2="78" stroke={fade} strokeWidth="0.8" />
@@ -132,7 +133,15 @@ const renderMotif = (motif: Motif, palette: TonePalette): ReactElement => {
         <g>
           <rect x="34" y="26" width="64" height="44" fill={fade} />
           <rect x="102" y="26" width="64" height="44" fill={accent} />
-          <line x1="100" y1="20" x2="100" y2="76" stroke={ink} strokeWidth="1.2" strokeDasharray="2 3" />
+          <line
+            x1="100"
+            y1="20"
+            x2="100"
+            y2="76"
+            stroke={ink}
+            strokeWidth="1.2"
+            strokeDasharray="2 3"
+          />
           <line x1="34" y1="78" x2="166" y2="78" stroke={ink} strokeWidth="0.8" />
         </g>
       );
@@ -173,12 +182,7 @@ interface NewsThumbProps {
   caption?: string;
 }
 
-const NewsThumb = ({
-  category,
-  seed,
-  aspect = 'landscape',
-  caption,
-}: NewsThumbProps) => {
+const NewsThumb = ({ category, seed, aspect = 'landscape', caption }: NewsThumbProps) => {
   const tone = TONE_BY_CATEGORY[category] ?? 'periwinkle';
   const palette = PALETTES[tone];
   const motif = motifFor(category, hash(seed));

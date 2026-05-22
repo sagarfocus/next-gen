@@ -51,14 +51,12 @@ const NewsHeroGrid = () => {
             </div>
             <span className="hg-cat">Research</span>
             <h2 className="hg-main-title">
-              AI-driven imaging tool cuts diagnostic errors by 47% in multi-site
-              hospital trial
+              AI-driven imaging tool cuts diagnostic errors by 47% in multi-site hospital trial
             </h2>
             <p className="hg-main-desc">
-              A 14-month study across nine US hospital networks reports the
-              largest measured drop in radiology misreads of the decade.
-              Researchers credit a hybrid model combining federated learning
-              with structured clinician feedback loops.
+              A 14-month study across nine US hospital networks reports the largest measured drop in
+              radiology misreads of the decade. Researchers credit a hybrid model combining
+              federated learning with structured clinician feedback loops.
             </p>
             <div className="hg-byline">
               <span>
@@ -73,11 +71,7 @@ const NewsHeroGrid = () => {
 
           <div className="hg-side">
             {SIDE_ARTICLES.map((article) => (
-              <Link
-                key={article.to}
-                className="hg-side-item"
-                to={article.to}
-              >
+              <Link key={article.to} className="hg-side-item" to={article.to}>
                 <div className="hg-side-img">
                   <NewsThumb
                     category={article.cat}

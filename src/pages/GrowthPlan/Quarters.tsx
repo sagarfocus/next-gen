@@ -13,7 +13,9 @@ const Quarters = () => (
           The plan, on{' '}
           <span
             className="bg-clip-text text-transparent"
-            style={{ backgroundImage: 'linear-gradient(90deg, #B38B6D 0%, #8FBC8F 50%, #576DB5 100%)' }}
+            style={{
+              backgroundImage: 'linear-gradient(90deg, #B38B6D 0%, #8FBC8F 50%, #576DB5 100%)',
+            }}
           >
             one page
           </span>

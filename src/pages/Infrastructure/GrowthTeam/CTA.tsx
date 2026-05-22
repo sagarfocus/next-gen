@@ -22,9 +22,8 @@ const CTA = () => (
             Want to meet the team that would <em>run your account?</em>
           </h2>
           <p>
-            A 30-minute call. We introduce the senior specialists who
-            would be assigned to your practice - by name, by hours,
-            by responsibility. No pitch deck.
+            A 30-minute call. We introduce the senior specialists who would be assigned to your
+            practice - by name, by hours, by responsibility. No pitch deck.
           </p>
           <Link to="/contact" className="gtx-btn-primary">
             Schedule the introduction

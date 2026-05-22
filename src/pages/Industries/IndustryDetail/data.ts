@@ -1,7 +1,9 @@
 import type { NarrativeBlock } from '@/components/DetailNarrative';
 import type { IndustryDetailEntry } from '@/content/industries/details.data';
 
-export const buildIndustryNarrative = (entry: IndustryDetailEntry): { about: NarrativeBlock; approach: NarrativeBlock } => ({
+export const buildIndustryNarrative = (
+  entry: IndustryDetailEntry
+): { about: NarrativeBlock; approach: NarrativeBlock } => ({
   about: {
     eyebrow: `About ${entry.label}`,
     title: `${entry.label} marketing, built around the patients your practice was made for.`,

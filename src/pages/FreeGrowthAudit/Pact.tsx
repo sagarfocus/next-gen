@@ -2,9 +2,15 @@ import type { ReactNode } from 'react';
 
 const Pact = () => {
   const promises: { k: string; v: ReactNode }[] = [
-    { k: 'No upsell on the call.',  v: <>The plan ships either way. We do not pitch you on the audit call. Promise.</> },
-    { k: 'Run by a strategist.',    v: <>A senior growth lead does the audit - not a sales rep with a template.</> },
-    { k: 'Yours to keep.',          v: <>The PDF is yours. Take it to any agency, or run it yourself.</> },
+    {
+      k: 'No upsell on the call.',
+      v: <>The plan ships either way. We do not pitch you on the audit call. Promise.</>,
+    },
+    {
+      k: 'Run by a strategist.',
+      v: <>A senior growth lead does the audit - not a sales rep with a template.</>,
+    },
+    { k: 'Yours to keep.', v: <>The PDF is yours. Take it to any agency, or run it yourself.</> },
   ];
   return (
     <section className="fga-pact" aria-labelledby="fga-pact-title">

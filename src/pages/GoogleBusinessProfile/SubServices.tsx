@@ -1,16 +1,61 @@
 import { Link } from 'react-router-dom';
 
-interface SubLink { to: string; name: string; desc: string; tag: string }
+interface SubLink {
+  to: string;
+  name: string;
+  desc: string;
+  tag: string;
+}
 
 const LINKS: SubLink[] = [
-  { to: '/citation-building', name: 'Citation Building', desc: 'Lock NAP consistency across 70+ directories. The authority signal that feeds GBP rank.', tag: 'Local' },
-  { to: '/reviews-reputation', name: 'Reviews & Reputation', desc: 'Compound the GBP signal that moves the map ranking the fastest. Request automation + HIPAA-safe responses.', tag: 'Trust' },
-  { to: '/services/seo', name: 'SEO Services', desc: 'Layer GBP into a full Local Pack + organic strategy. Map + organic share the same authority signals.', tag: 'Search' },
-  { to: '/services/google-ads', name: 'Google Ads + LSA', desc: 'Local Services Ads sit above the map. Pair GBP with paid local to dominate the SERP top.', tag: 'Paid' },
-  { to: '/services/content-copywriting', name: 'Content & Copywriting', desc: 'Location pages, service-line pages, and the editorial fuel that powers GBP posts.', tag: 'Editorial' },
-  { to: '/services/website-design-dev', name: 'Website + Landing Pages', desc: 'Where the GBP link lands. Service-line pages that match the patient\'s search intent.', tag: 'Foundation' },
-  { to: '/aeo-schema', name: 'AEO & Schema', desc: 'LocalBusiness + MedicalBusiness schema that reinforces every GBP claim to Google.', tag: 'AI Search' },
-  { to: '/hyperlocal-content', name: 'Hyperlocal Content', desc: 'City + neighborhood content that builds the local authority signal Google uses to rank GBP.', tag: 'Local' },
+  {
+    to: '/citation-building',
+    name: 'Citation Building',
+    desc: 'Lock NAP consistency across 70+ directories. The authority signal that feeds GBP rank.',
+    tag: 'Local',
+  },
+  {
+    to: '/reviews-reputation',
+    name: 'Reviews & Reputation',
+    desc: 'Compound the GBP signal that moves the map ranking the fastest. Request automation + HIPAA-safe responses.',
+    tag: 'Trust',
+  },
+  {
+    to: '/services/seo',
+    name: 'SEO Services',
+    desc: 'Layer GBP into a full Local Pack + organic strategy. Map + organic share the same authority signals.',
+    tag: 'Search',
+  },
+  {
+    to: '/services/google-ads',
+    name: 'Google Ads + LSA',
+    desc: 'Local Services Ads sit above the map. Pair GBP with paid local to dominate the SERP top.',
+    tag: 'Paid',
+  },
+  {
+    to: '/services/content-copywriting',
+    name: 'Content & Copywriting',
+    desc: 'Location pages, service-line pages, and the editorial fuel that powers GBP posts.',
+    tag: 'Editorial',
+  },
+  {
+    to: '/services/website-design-dev',
+    name: 'Website + Landing Pages',
+    desc: "Where the GBP link lands. Service-line pages that match the patient's search intent.",
+    tag: 'Foundation',
+  },
+  {
+    to: '/aeo-schema',
+    name: 'AEO & Schema',
+    desc: 'LocalBusiness + MedicalBusiness schema that reinforces every GBP claim to Google.',
+    tag: 'AI Search',
+  },
+  {
+    to: '/hyperlocal-content',
+    name: 'Hyperlocal Content',
+    desc: 'City + neighborhood content that builds the local authority signal Google uses to rank GBP.',
+    tag: 'Local',
+  },
 ];
 
 const SubServices = () => {
@@ -37,7 +82,14 @@ const SubServices = () => {
               <div className="gb-sub-top">
                 <span className="gb-sub-tag">{l.tag}</span>
                 <span className="gb-sub-arrow" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.2} strokeLinecap="round" strokeLinejoin="round">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth={2.2}
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
                     <line x1="7" y1="17" x2="17" y2="7" />
                     <polyline points="7 7 17 7 17 17" />
                   </svg>

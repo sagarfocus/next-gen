@@ -13,12 +13,7 @@ const About = () => (
             <span className="amih-frame-block amih-frame-block--a" />
             <span className="amih-frame-block amih-frame-block--b" />
             <span className="amih-frame-block amih-frame-block--c" />
-            <img
-              src={builtForClinic}
-              alt=""
-              className="amih-frame-img"
-              loading="lazy"
-            />
+            <img src={builtForClinic} alt="" className="amih-frame-img" loading="lazy" />
             <div className="amih-frame-tag">
               <span>Live workflow</span>
               <strong>Patient intake</strong>
@@ -32,9 +27,8 @@ const About = () => (
             Built for clinics that move fast - without breaking what works.
           </h2>
           <p className="amih-about-lede">
-            Every automation we ship sits on top of your existing PM, EHR,
-            and calendar - never in place of them. Same data of record,
-            same vendors, far less manual work.
+            Every automation we ship sits on top of your existing PM, EHR, and calendar - never in
+            place of them. Same data of record, same vendors, far less manual work.
           </p>
           <ul className="amih-check-list">
             {CHECKLIST.map((item) => (

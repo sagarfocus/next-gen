@@ -1,8 +1,8 @@
 export const HEAD_META = [
-  { label: 'Channel',  value: 'In-person · Field' },
-  { label: 'Geo',      value: 'DFW + 4 metros' },
-  { label: 'Cadence',  value: 'Weekly activations' },
-  { label: 'Updated',  value: 'May 2026' },
+  { label: 'Channel', value: 'In-person · Field' },
+  { label: 'Geo', value: 'DFW + 4 metros' },
+  { label: 'Cadence', value: 'Weekly activations' },
+  { label: 'Updated', value: 'May 2026' },
 ];
 
 export const FIELD_CHANNELS = [
@@ -33,24 +33,58 @@ export const FIELD_CHANNELS = [
 ];
 
 export const DELIVERABLES = [
-  { tag: 'Field Ops',     list: ['Territory mapping', 'Booth + collateral kit', 'Trained brand ambassadors'] },
-  { tag: 'Lead Capture',  list: ['Tablet intake forms', 'QR-coded print', 'Live CRM sync'] },
-  { tag: 'Reporting',     list: ['Daily activation report', 'Cost per qualified lead', 'Booked-visit attribution'] },
-  { tag: 'Compliance',    list: ['HIPAA-aware intake', 'Consent capture', 'Photo + media releases'] },
+  {
+    tag: 'Field Ops',
+    list: ['Territory mapping', 'Booth + collateral kit', 'Trained brand ambassadors'],
+  },
+  { tag: 'Lead Capture', list: ['Tablet intake forms', 'QR-coded print', 'Live CRM sync'] },
+  {
+    tag: 'Reporting',
+    list: ['Daily activation report', 'Cost per qualified lead', 'Booked-visit attribution'],
+  },
+  { tag: 'Compliance', list: ['HIPAA-aware intake', 'Consent capture', 'Photo + media releases'] },
 ];
 
 export const METRICS = [
-  { v: '320+',   k: 'Activations / yr',   d: 'Field events run for healthcare clients across DFW, Austin, Houston, and surrounding metros.' },
-  { v: '$68',    k: 'Cost / qualified lead', d: 'Median cost per consult-ready lead from on-site activations across 2025 cohorts.' },
-  { v: '4.1×',   k: 'ROAS',               d: 'Median return on field marketing spend, blended across community + B2B channels.' },
-  { v: '11 days', k: 'Time to ramp',      d: 'From signed contract to first activated booth, including staffing and collateral.' },
+  {
+    v: '320+',
+    k: 'Activations / yr',
+    d: 'Field events run for healthcare clients across DFW, Austin, Houston, and surrounding metros.',
+  },
+  {
+    v: '$68',
+    k: 'Cost / qualified lead',
+    d: 'Median cost per consult-ready lead from on-site activations across 2025 cohorts.',
+  },
+  {
+    v: '4.1×',
+    k: 'ROAS',
+    d: 'Median return on field marketing spend, blended across community + B2B channels.',
+  },
+  {
+    v: '11 days',
+    k: 'Time to ramp',
+    d: 'From signed contract to first activated booth, including staffing and collateral.',
+  },
 ];
 
 export const PROCESS = [
-  { k: 'Map',      d: 'Audit your service area, payer mix, and current referral graph. Surface the 10 highest-yield community + B2B touchpoints.' },
-  { k: 'Build',    d: 'Design the booth, collateral, intake flow, and CRM hand-off. Train the territory reps on your tone, services, and compliance.' },
-  { k: 'Activate', d: 'Weekly cadence of events and visits across your metro. Live reporting from the field - every lead, every booked visit.' },
-  { k: 'Compound', d: 'Quarterly review of channel ROAS. Cut the low performers, double the winners. The territory plan compounds month over month.' },
+  {
+    k: 'Map',
+    d: 'Audit your service area, payer mix, and current referral graph. Surface the 10 highest-yield community + B2B touchpoints.',
+  },
+  {
+    k: 'Build',
+    d: 'Design the booth, collateral, intake flow, and CRM hand-off. Train the territory reps on your tone, services, and compliance.',
+  },
+  {
+    k: 'Activate',
+    d: 'Weekly cadence of events and visits across your metro. Live reporting from the field - every lead, every booked visit.',
+  },
+  {
+    k: 'Compound',
+    d: 'Quarterly review of channel ROAS. Cut the low performers, double the winners. The territory plan compounds month over month.',
+  },
 ];
 
 export const SERVICE_SCHEMA = {

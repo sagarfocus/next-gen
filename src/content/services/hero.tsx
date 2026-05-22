@@ -108,12 +108,22 @@ const ChatIcon = () => (
 );
 
 export const ORBIT_PILLS: OrbitPill[] = [
-  { slot: 'o1', label: 'SEO & Local', sub: 'Rank higher. Get found locally.', icon: <SearchIcon /> },
-  { slot: 'o2', label: 'Paid Media',  sub: 'Targeted campaigns. Measurable.', icon: <ChartIcon /> },
-  { slot: 'o3', label: 'Branding',    sub: 'A memorable brand that converts.', icon: <StarIcon /> },
-  { slot: 'o4', label: 'Automation',  sub: 'Streamline. Nurture. Scale.',     icon: <SettingsIcon /> },
-  { slot: 'o5', label: 'Web Design',  sub: 'High-performance sites that convert.', icon: <LayoutIcon /> },
-  { slot: 'o6', label: 'Content',     sub: 'Editorial that educates patients.', icon: <ChatIcon /> },
+  {
+    slot: 'o1',
+    label: 'SEO & Local',
+    sub: 'Rank higher. Get found locally.',
+    icon: <SearchIcon />,
+  },
+  { slot: 'o2', label: 'Paid Media', sub: 'Targeted campaigns. Measurable.', icon: <ChartIcon /> },
+  { slot: 'o3', label: 'Branding', sub: 'A memorable brand that converts.', icon: <StarIcon /> },
+  { slot: 'o4', label: 'Automation', sub: 'Streamline. Nurture. Scale.', icon: <SettingsIcon /> },
+  {
+    slot: 'o5',
+    label: 'Web Design',
+    sub: 'High-performance sites that convert.',
+    icon: <LayoutIcon />,
+  },
+  { slot: 'o6', label: 'Content', sub: 'Editorial that educates patients.', icon: <ChatIcon /> },
 ];
 
 export const CAPABILITIES = [

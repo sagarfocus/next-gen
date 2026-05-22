@@ -3,11 +3,7 @@ import { ArrowIcon } from '@/components/icons';
 import { SOLUTIONS } from './data';
 
 const Solutions = () => (
-  <section
-    className="amih-solutions"
-    id="amih-solutions"
-    aria-labelledby="amih-solutions-title"
-  >
+  <section className="amih-solutions" id="amih-solutions" aria-labelledby="amih-solutions-title">
     <div className="container-shell">
       <header className="amih-section-head amih-section-head--split">
         <div>
@@ -17,8 +13,8 @@ const Solutions = () => (
           </h2>
         </div>
         <p className="amih-section-sub">
-          We start with whichever lane has the biggest leak in your
-          clinic. The other two layer in once the first is running clean.
+          We start with whichever lane has the biggest leak in your clinic. The other two layer in
+          once the first is running clean.
         </p>
       </header>
       <div className="amih-solutions-grid">

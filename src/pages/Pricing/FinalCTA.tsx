@@ -11,9 +11,9 @@ const FinalCTA = () => {
             Let&rsquo;s build your <em>patient pipeline</em>.
           </h2>
           <p className="pr-cta-text">
-            Get a free 30-minute consultation with a senior practitioner.
-            We&rsquo;ll audit your current funnel, recommend the right tier for
-            your scale, and outline a custom roadmap - no commitment.
+            Get a free 30-minute consultation with a senior practitioner. We&rsquo;ll audit your
+            current funnel, recommend the right tier for your scale, and outline a custom roadmap -
+            no commitment.
           </p>
           <div className="pr-cta-actions">
             <Link to="/contact" className="pr-cta-pri">

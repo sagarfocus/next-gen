@@ -24,10 +24,9 @@ const Hero = () => (
             <em> under HIPAA.</em>
           </h1>
           <p className="gtx-hero-lede">
-            HIPAA is not a checkbox. It is a working discipline that
-            touches every system a patient inquiry passes through.
-            Here is how we organise it - from forms and hosting to
-            ad platforms and analytics.
+            HIPAA is not a checkbox. It is a working discipline that touches every system a patient
+            inquiry passes through. Here is how we organise it - from forms and hosting to ad
+            platforms and analytics.
           </p>
           <div className="gtx-hero-ctas">
             <Link to="/contact" className="gtx-btn-primary">
@@ -52,7 +51,16 @@ const Hero = () => (
         <li className="hcp-cred tone-sage">
           <div className="hcp-cred-head">
             <span className="hcp-cred-icon" aria-hidden="true">
-              <svg width={20} height={20} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round">
+              <svg
+                width={20}
+                height={20}
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth={1.8}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
                 <path d="M12 2 L 4 6 V 12 C 4 16.5 7.5 20.7 12 22 C 16.5 20.7 20 16.5 20 12 V 6 Z" />
                 <path d="M9 12 L 11 14 L 15 10" />
               </svg>
@@ -63,13 +71,24 @@ const Hero = () => (
             <span className="hcp-cred-label">Framework</span>
             <strong className="hcp-cred-value">HIPAA + HITECH</strong>
           </div>
-          <span className="hcp-cred-seal" aria-hidden="true">CERTIFIED</span>
+          <span className="hcp-cred-seal" aria-hidden="true">
+            CERTIFIED
+          </span>
         </li>
 
         <li className="hcp-cred tone-periwinkle">
           <div className="hcp-cred-head">
             <span className="hcp-cred-icon" aria-hidden="true">
-              <svg width={20} height={20} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round">
+              <svg
+                width={20}
+                height={20}
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth={1.8}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
                 <path d="M3 12a9 9 0 1 0 3-6.7" />
                 <path d="M3 4v5h5" />
               </svg>
@@ -80,13 +99,24 @@ const Hero = () => (
             <span className="hcp-cred-label">Review cadence</span>
             <strong className="hcp-cred-value">Annually</strong>
           </div>
-          <span className="hcp-cred-seal" aria-hidden="true">EXTERNAL</span>
+          <span className="hcp-cred-seal" aria-hidden="true">
+            EXTERNAL
+          </span>
         </li>
 
         <li className="hcp-cred tone-tan">
           <div className="hcp-cred-head">
             <span className="hcp-cred-icon" aria-hidden="true">
-              <svg width={20} height={20} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round">
+              <svg
+                width={20}
+                height={20}
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth={1.8}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
                 <path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z" />
                 <path d="M14 3v5h5" />
                 <path d="M9 13l2 2 4-4" />
@@ -98,13 +128,24 @@ const Hero = () => (
             <span className="hcp-cred-label">Hosting + every vendor</span>
             <strong className="hcp-cred-value">BAA-covered</strong>
           </div>
-          <span className="hcp-cred-seal" aria-hidden="true">SIGNED</span>
+          <span className="hcp-cred-seal" aria-hidden="true">
+            SIGNED
+          </span>
         </li>
 
         <li className="hcp-cred tone-ink">
           <div className="hcp-cred-head">
             <span className="hcp-cred-icon" aria-hidden="true">
-              <svg width={20} height={20} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round">
+              <svg
+                width={20}
+                height={20}
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth={1.8}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
                 <rect x="3" y="5" width="18" height="16" rx="2" />
                 <path d="M3 10h18M8 3v4M16 3v4" />
               </svg>
@@ -115,7 +156,9 @@ const Hero = () => (
             <span className="hcp-cred-label">Last independent audit</span>
             <strong className="hcp-cred-value">Mar 2026</strong>
           </div>
-          <span className="hcp-cred-seal" aria-hidden="true">VERIFIED</span>
+          <span className="hcp-cred-seal" aria-hidden="true">
+            VERIFIED
+          </span>
         </li>
       </ul>
     </div>

@@ -25,10 +25,9 @@ const Hero = () => (
           Technical Audit.
         </h1>
         <p className="ph1-lede">
-          A two-week forensic of every search, ad, and front-desk surface
-          your clinic owns. We don&rsquo;t guess where patients are leaking
-          - we measure it, then we hand you a prioritized scorecard with
-          the exact dollar value of each fix.
+          A two-week forensic of every search, ad, and front-desk surface your clinic owns. We
+          don&rsquo;t guess where patients are leaking - we measure it, then we hand you a
+          prioritized scorecard with the exact dollar value of each fix.
         </p>
         <div className="ph1-tags">
           <span className="ph1-tag">Technical SEO</span>

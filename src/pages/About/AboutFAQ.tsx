@@ -10,10 +10,11 @@ const FAQChevron = () => (
   </span>
 );
 
-
 const AboutFAQ = () => {
   const defaultIndex = FAQS.findIndex((f) => f.defaultOpen);
-  const [openIndex, setOpenIndex] = useState<number | null>(defaultIndex >= 0 ? defaultIndex : null);
+  const [openIndex, setOpenIndex] = useState<number | null>(
+    defaultIndex >= 0 ? defaultIndex : null
+  );
 
   return (
     <section className="faq-section" id="faq" aria-labelledby="ab-faq-title">
@@ -26,22 +27,19 @@ const AboutFAQ = () => {
               Asked <span className="accent-text">Questions</span>.
             </h2>
             <p className="faq-intro">
-              Everything you need to know about working with TheNextGen -
-              from compliance and reporting to clinic specialties and engagement
-              models.
+              Everything you need to know about working with TheNextGen - from compliance and
+              reporting to clinic specialties and engagement models.
             </p>
 
             <div className="still-card">
               <h3>Still have questions?</h3>
               <p>
-                Every healthcare practice has different operational realities
-                and compliance edges. If there&rsquo;s anything you&rsquo;d like
-                to clarify about how we work, pricing, or fit, our team is here
-                to help.
+                Every healthcare practice has different operational realities and compliance edges.
+                If there&rsquo;s anything you&rsquo;d like to clarify about how we work, pricing, or
+                fit, our team is here to help.
               </p>
               <p>
-                Reach out anytime - we&rsquo;ll walk you through every
-                detail before any commitment.
+                Reach out anytime - we&rsquo;ll walk you through every detail before any commitment.
               </p>
               <Link to="/contact" className="btn-primary">
                 Contact Us

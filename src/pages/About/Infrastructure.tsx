@@ -12,9 +12,9 @@ const Infrastructure = () => {
             An entire department, integrated into your clinic.
           </h2>
           <p className="ab-infra-sub">
-            When you partner with us, you aren&rsquo;t getting a single
-            freelancer. You are integrating an entire department of specialized
-            medical growth experts into your clinic operations.
+            When you partner with us, you aren&rsquo;t getting a single freelancer. You are
+            integrating an entire department of specialized medical growth experts into your clinic
+            operations.
           </p>
         </div>
 

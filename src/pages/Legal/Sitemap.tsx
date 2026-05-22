@@ -150,9 +150,9 @@ const Sitemap = () => {
                 maxWidth: '64ch',
               }}
             >
-              The full site index - services, industries, methodology, automation,
-              infrastructure, and resources. Useful for navigation, share-able
-              for stakeholders, and indexed for search engines.
+              The full site index - services, industries, methodology, automation, infrastructure,
+              and resources. Useful for navigation, share-able for stakeholders, and indexed for
+              search engines.
             </p>
           </div>
         </div>

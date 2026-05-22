@@ -27,8 +27,8 @@ const AllIndustries = () => (
           Explore All Industries We Serve.
         </h2>
         <p className="all-ind-sub">
-          Deep-dive into our tailored marketing strategies for each healthcare
-          specialty - from urgent care to plastic surgery.
+          Deep-dive into our tailored marketing strategies for each healthcare specialty - from
+          urgent care to plastic surgery.
         </p>
         <div className="all-ind-count">
           <span className="num">10 Specialties</span>
@@ -48,12 +48,7 @@ const AllIndustries = () => (
               aria-label={`Read more about ${row.label}`}
             >
               <div className="all-ind-card-img">
-                <img
-                  src={row.image}
-                  alt={row.label}
-                  loading="lazy"
-                  decoding="async"
-                />
+                <img src={row.image} alt={row.label} loading="lazy" decoding="async" />
               </div>
               <div className="all-ind-card-body">
                 <div className="all-ind-card-head">

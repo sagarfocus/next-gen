@@ -1,10 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import type { CSSProperties } from 'react';
 import { ChevronRightIcon } from '@/components/icons';
-import {
-  HOME_TESTIMONIALS,
-  HOME_TESTIMONIALS_HEAD,
-} from '@/content/home/testimonials';
+import { HOME_TESTIMONIALS, HOME_TESTIMONIALS_HEAD } from '@/content/home/testimonials';
 
 const QuoteMark = () => (
   <span className="testi-mark" aria-hidden="true">
@@ -36,9 +33,7 @@ const ChevronLeft = () => (
   </svg>
 );
 
-const ChevronRight = () => (
-  <ChevronRightIcon size={18} strokeWidth={2} />
-);
+const ChevronRight = () => <ChevronRightIcon size={18} strokeWidth={2} />;
 
 const Testimonials = () => {
   const trackRef = useRef<HTMLDivElement>(null);
@@ -73,10 +68,8 @@ const Testimonials = () => {
     return card.getBoundingClientRect().width + gap;
   };
 
-  const handlePrev = () =>
-    trackRef.current?.scrollBy({ left: -step(), behavior: 'smooth' });
-  const handleNext = () =>
-    trackRef.current?.scrollBy({ left: step(), behavior: 'smooth' });
+  const handlePrev = () => trackRef.current?.scrollBy({ left: -step(), behavior: 'smooth' });
+  const handleNext = () => trackRef.current?.scrollBy({ left: step(), behavior: 'smooth' });
 
   useEffect(() => {
     const track = trackRef.current;
@@ -94,11 +87,7 @@ const Testimonials = () => {
   }, []);
 
   return (
-    <section
-      className="testi-section"
-      id="testimonials"
-      aria-labelledby="testi-title"
-    >
+    <section className="testi-section" id="testimonials" aria-labelledby="testi-title">
       <div className="container-shell">
         <div className="testi-head">
           <span className="testi-eyebrow">{HOME_TESTIMONIALS_HEAD.eyebrow}</span>
@@ -129,11 +118,7 @@ const Testimonials = () => {
           </div>
         </div>
 
-        <div
-          className="testi-nav"
-          role="group"
-          aria-label="Testimonial slider navigation"
-        >
+        <div className="testi-nav" role="group" aria-label="Testimonial slider navigation">
           <button
             type="button"
             className="nav-chev prev"

@@ -38,8 +38,8 @@ const ServicesList = () => {
             Our Services.
           </h2>
           <p className="svc-list-sub">
-            Everything your healthcare practice needs to own the digital space
-            - from search visibility to brand identity.
+            Everything your healthcare practice needs to own the digital space - from search
+            visibility to brand identity.
           </p>
           <div className="svc-list-all">
             <span>12 Capabilities</span>

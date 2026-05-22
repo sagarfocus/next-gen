@@ -10,10 +10,10 @@ export interface Marker {
   label: string;
 }
 export const MARKERS: Marker[] = [
-  { value: '6',       label: 'Texas metros covered'   },
-  { value: '380+',    label: 'Active geo pages'        },
-  { value: '14 pos.', label: 'Median ranking lift'     },
-  { value: '60 days', label: 'Audit-to-launch window'  },
+  { value: '6', label: 'Texas metros covered' },
+  { value: '380+', label: 'Active geo pages' },
+  { value: '14 pos.', label: 'Median ranking lift' },
+  { value: '60 days', label: 'Audit-to-launch window' },
 ];
 
 export interface Why {
@@ -52,12 +52,54 @@ export interface Metro {
   img: string;
 }
 export const METROS: Metro[] = [
-  { code: 'TX-001', name: 'Dallas',      pages: 42, coord: '32.78°N · 96.80°W', signal: 'Highest concentration of FSED demand. Densest review volume.',   img: dallasImg     },
-  { code: 'TX-002', name: 'Houston',     pages: 51, coord: '29.76°N · 95.37°W', signal: 'Multi-site urgent care competition. Long-tail wins outweigh aggregate.', img: houstonImg   },
-  { code: 'TX-003', name: 'Austin',      pages: 38, coord: '30.27°N · 97.74°W', signal: 'Aesthetic and concierge categories. Higher LTV per visit.',     img: austinImg    },
-  { code: 'TX-004', name: 'San Antonio', pages: 34, coord: '29.42°N · 98.49°W', signal: 'Primary care and Medicare advantage cohorts.',                 img: sanAntonioImg},
-  { code: 'TX-005', name: 'Fort Worth',  pages: 29, coord: '32.75°N · 97.33°W', signal: 'Suburban family medicine. Recall and continuity drive value.', img: fortWorthImg },
-  { code: 'TX-006', name: 'El Paso',     pages: 22, coord: '31.76°N · 106.49°W',signal: 'Bilingual content opportunity. Lower competition on Spanish terms.', img: elPasoImg },
+  {
+    code: 'TX-001',
+    name: 'Dallas',
+    pages: 42,
+    coord: '32.78°N · 96.80°W',
+    signal: 'Highest concentration of FSED demand. Densest review volume.',
+    img: dallasImg,
+  },
+  {
+    code: 'TX-002',
+    name: 'Houston',
+    pages: 51,
+    coord: '29.76°N · 95.37°W',
+    signal: 'Multi-site urgent care competition. Long-tail wins outweigh aggregate.',
+    img: houstonImg,
+  },
+  {
+    code: 'TX-003',
+    name: 'Austin',
+    pages: 38,
+    coord: '30.27°N · 97.74°W',
+    signal: 'Aesthetic and concierge categories. Higher LTV per visit.',
+    img: austinImg,
+  },
+  {
+    code: 'TX-004',
+    name: 'San Antonio',
+    pages: 34,
+    coord: '29.42°N · 98.49°W',
+    signal: 'Primary care and Medicare advantage cohorts.',
+    img: sanAntonioImg,
+  },
+  {
+    code: 'TX-005',
+    name: 'Fort Worth',
+    pages: 29,
+    coord: '32.75°N · 97.33°W',
+    signal: 'Suburban family medicine. Recall and continuity drive value.',
+    img: fortWorthImg,
+  },
+  {
+    code: 'TX-006',
+    name: 'El Paso',
+    pages: 22,
+    coord: '31.76°N · 106.49°W',
+    signal: 'Bilingual content opportunity. Lower competition on Spanish terms.',
+    img: elPasoImg,
+  },
 ];
 
 export interface Block {
@@ -67,9 +109,24 @@ export interface Block {
   marker: string;
 }
 export const ANATOMY: Block[] = [
-  { num: '01', k: 'Hero',     d: 'Neighbourhood name written the way a resident speaks it. Driving distance from a landmark people actually use.', marker: 'Spoken local'   },
-  { num: '02', k: 'Services', d: 'A service mix specific to that catchment. The downtown clinic is not the suburbs clinic - its page should not be either.', marker: 'Catchment-specific' },
-  { num: '03', k: 'Proof',    d: 'Reviews from patients in that ZIP, photos of the building locals recognise, the names of partner pharmacies nearby.', marker: 'ZIP-bound proof' },
+  {
+    num: '01',
+    k: 'Hero',
+    d: 'Neighbourhood name written the way a resident speaks it. Driving distance from a landmark people actually use.',
+    marker: 'Spoken local',
+  },
+  {
+    num: '02',
+    k: 'Services',
+    d: 'A service mix specific to that catchment. The downtown clinic is not the suburbs clinic - its page should not be either.',
+    marker: 'Catchment-specific',
+  },
+  {
+    num: '03',
+    k: 'Proof',
+    d: 'Reviews from patients in that ZIP, photos of the building locals recognise, the names of partner pharmacies nearby.',
+    marker: 'ZIP-bound proof',
+  },
 ];
 
 export const SCHEMA = {

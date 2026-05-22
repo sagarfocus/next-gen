@@ -19,12 +19,7 @@ const PairArrow = () => (
 );
 
 const renderCard = ({ ariaId, bg, tag, title, desc, to }: PairCard) => (
-  <Link
-    key={ariaId}
-    to={to}
-    className="pair-card"
-    aria-labelledby={ariaId}
-  >
+  <Link key={ariaId} to={to} className="pair-card" aria-labelledby={ariaId}>
     <div className="pair-bg">{bg}</div>
     <div className="pair-overlay" />
     <span className="reg-w tl" />
@@ -55,8 +50,8 @@ const FeaturePair = () => {
             Own your local search - from map pack to AI Overviews.
           </h2>
           <p className="pair-sub">
-            A four-pillar approach to local search visibility, structured data,
-            and AI-driven discovery for your healthcare practice.
+            A four-pillar approach to local search visibility, structured data, and AI-driven
+            discovery for your healthcare practice.
           </p>
         </div>
 

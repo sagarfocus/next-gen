@@ -20,14 +20,7 @@ const MONTHS = [
   'November',
   'December',
 ];
-const SAMPLE_TIMES = [
-  '9:00 AM',
-  '10:00 AM',
-  '11:30 AM',
-  '1:00 PM',
-  '2:30 PM',
-  '4:00 PM',
-];
+const SAMPLE_TIMES = ['9:00 AM', '10:00 AM', '11:30 AM', '1:00 PM', '2:30 PM', '4:00 PM'];
 
 const startOfDay = (d: Date) => {
   const x = new Date(d);
@@ -37,9 +30,7 @@ const startOfDay = (d: Date) => {
 
 const BookingModal = ({ open, onClose }: BookingModalProps) => {
   const today = useMemo(() => startOfDay(new Date()), []);
-  const [view, setView] = useState(
-    () => new Date(today.getFullYear(), today.getMonth(), 1),
-  );
+  const [view, setView] = useState(() => new Date(today.getFullYear(), today.getMonth(), 1));
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
   const [selectedTime, setSelectedTime] = useState<string | null>(null);
   const [confirmed, setConfirmed] = useState(false);
@@ -68,15 +59,10 @@ const BookingModal = ({ open, onClose }: BookingModalProps) => {
   }, [open]);
 
   const isAtCurrentMonth =
-    view.getFullYear() === today.getFullYear() &&
-    view.getMonth() === today.getMonth();
+    view.getFullYear() === today.getFullYear() && view.getMonth() === today.getMonth();
 
   const firstDay = new Date(view.getFullYear(), view.getMonth(), 1).getDay();
-  const daysInMonth = new Date(
-    view.getFullYear(),
-    view.getMonth() + 1,
-    0,
-  ).getDate();
+  const daysInMonth = new Date(view.getFullYear(), view.getMonth() + 1, 0).getDate();
 
   const handleSelectDate = (date: Date) => {
     setSelectedDate(date);
@@ -116,12 +102,7 @@ const BookingModal = ({ open, onClose }: BookingModalProps) => {
       }}
     >
       <div className="modal" role="document">
-        <button
-          type="button"
-          className="modal-close"
-          onClick={onClose}
-          aria-label="Close booking"
-        >
+        <button type="button" className="modal-close" onClick={onClose} aria-label="Close booking">
           <svg
             width={14}
             height={14}
@@ -138,9 +119,7 @@ const BookingModal = ({ open, onClose }: BookingModalProps) => {
         </button>
 
         <aside className="modal-info">
-          <span className="modal-eyebrow">
-            {confirmed ? 'Hold confirmed' : 'Free 30-min Call'}
-          </span>
+          <span className="modal-eyebrow">{confirmed ? 'Hold confirmed' : 'Free 30-min Call'}</span>
           <h3 id="modalTitle" className="modal-title">
             {confirmed
               ? 'You’re on the calendar.'
@@ -150,14 +129,13 @@ const BookingModal = ({ open, onClose }: BookingModalProps) => {
             {confirmed ? (
               <>
                 We&rsquo;ve reserved <strong>{formattedDate}</strong> at{' '}
-                <strong>{selectedTime}</strong>. A confirmation email with the
-                call link will arrive within the next business hour.
+                <strong>{selectedTime}</strong>. A confirmation email with the call link will arrive
+                within the next business hour.
               </>
             ) : (
               <>
-                We&rsquo;ll review your current funnel, identify quick-win
-                opportunities, and outline a custom growth roadmap for your
-                practice.
+                We&rsquo;ll review your current funnel, identify quick-win opportunities, and
+                outline a custom growth roadmap for your practice.
               </>
             )}
           </p>
@@ -336,11 +314,7 @@ const BookingModal = ({ open, onClose }: BookingModalProps) => {
                   </div>
                 </div>
               </div>
-              <button
-                type="button"
-                className="cal-confirm"
-                onClick={onClose}
-              >
+              <button type="button" className="cal-confirm" onClick={onClose}>
                 <span>Close</span>
                 <span className="ico" aria-hidden="true">
                   <ArrowIcon size={14} />
@@ -349,132 +323,121 @@ const BookingModal = ({ open, onClose }: BookingModalProps) => {
             </div>
           ) : (
             <>
-          <div className="cal-head">
-            <span className="cal-month">
-              {MONTHS[view.getMonth()]} {view.getFullYear()}
-            </span>
-            <div className="cal-nav">
-              <button
-                type="button"
-                onClick={() =>
-                  setView(
-                    new Date(view.getFullYear(), view.getMonth() - 1, 1),
-                  )
-                }
-                disabled={isAtCurrentMonth}
-                aria-label="Previous month"
-              >
-                <svg
-                  width={14}
-                  height={14}
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth={2.2}
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <polyline points="15 18 9 12 15 6" />
-                </svg>
-              </button>
-              <button
-                type="button"
-                onClick={() =>
-                  setView(
-                    new Date(view.getFullYear(), view.getMonth() + 1, 1),
-                  )
-                }
-                aria-label="Next month"
-              >
-                <ChevronRightIcon />
-              </button>
-            </div>
-          </div>
-
-          <div className="cal-weekdays">
-            <span>Sun</span>
-            <span>Mon</span>
-            <span>Tue</span>
-            <span>Wed</span>
-            <span>Thu</span>
-            <span>Fri</span>
-            <span>Sat</span>
-          </div>
-
-          <div className="cal-grid" role="grid" aria-label="Available dates">
-            {Array.from({ length: firstDay }).map((_, i) => (
-              <button
-                key={`blank-${i}`}
-                className="cal-day is-empty"
-                disabled
-                tabIndex={-1}
-                aria-hidden="true"
-              />
-            ))}
-            {Array.from({ length: daysInMonth }, (_, i) => i + 1).map((d) => {
-              const date = new Date(view.getFullYear(), view.getMonth(), d);
-              const isPast = date < today;
-              const dayOfWeek = date.getDay();
-              const isWeekend = dayOfWeek === 0 || dayOfWeek === 6;
-              const isToday = date.getTime() === today.getTime();
-              const isSelected =
-                selectedDate?.getTime() === date.getTime();
-              const disabled = isPast || isWeekend;
-
-              const cls = [
-                'cal-day',
-                isPast && 'is-past',
-                !isPast && isWeekend && 'is-disabled',
-                isToday && 'is-today',
-                isSelected && 'is-selected',
-              ]
-                .filter(Boolean)
-                .join(' ');
-
-              return (
-                <button
-                  key={d}
-                  type="button"
-                  className={cls}
-                  disabled={disabled}
-                  onClick={() => handleSelectDate(date)}
-                >
-                  {d}
-                </button>
-              );
-            })}
-          </div>
-
-          <div className="cal-times" aria-label="Available time slots">
-            {selectedDate ? (
-              SAMPLE_TIMES.map((t) => (
-                <button
-                  key={t}
-                  type="button"
-                  className={`cal-time${selectedTime === t ? ' is-selected' : ''}`}
-                  onClick={() => setSelectedTime(t)}
-                >
-                  {t}
-                </button>
-              ))
-            ) : (
-              <div className="cal-times-empty">
-                Pick a date to see available times
+              <div className="cal-head">
+                <span className="cal-month">
+                  {MONTHS[view.getMonth()]} {view.getFullYear()}
+                </span>
+                <div className="cal-nav">
+                  <button
+                    type="button"
+                    onClick={() => setView(new Date(view.getFullYear(), view.getMonth() - 1, 1))}
+                    disabled={isAtCurrentMonth}
+                    aria-label="Previous month"
+                  >
+                    <svg
+                      width={14}
+                      height={14}
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth={2.2}
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <polyline points="15 18 9 12 15 6" />
+                    </svg>
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setView(new Date(view.getFullYear(), view.getMonth() + 1, 1))}
+                    aria-label="Next month"
+                  >
+                    <ChevronRightIcon />
+                  </button>
+                </div>
               </div>
-            )}
-          </div>
 
-          <button
-            type="button"
-            className="cal-confirm"
-            disabled={!selectedDate || !selectedTime}
-            onClick={handleConfirm}
-          >
-            <span>{confirmLabel}</span>
-            <span className="ico" aria-hidden="true">
-              <ArrowIcon size={14} />
-            </span>
-          </button>
+              <div className="cal-weekdays">
+                <span>Sun</span>
+                <span>Mon</span>
+                <span>Tue</span>
+                <span>Wed</span>
+                <span>Thu</span>
+                <span>Fri</span>
+                <span>Sat</span>
+              </div>
+
+              <div className="cal-grid" role="grid" aria-label="Available dates">
+                {Array.from({ length: firstDay }).map((_, i) => (
+                  <button
+                    key={`blank-${i}`}
+                    className="cal-day is-empty"
+                    disabled
+                    tabIndex={-1}
+                    aria-hidden="true"
+                  />
+                ))}
+                {Array.from({ length: daysInMonth }, (_, i) => i + 1).map((d) => {
+                  const date = new Date(view.getFullYear(), view.getMonth(), d);
+                  const isPast = date < today;
+                  const dayOfWeek = date.getDay();
+                  const isWeekend = dayOfWeek === 0 || dayOfWeek === 6;
+                  const isToday = date.getTime() === today.getTime();
+                  const isSelected = selectedDate?.getTime() === date.getTime();
+                  const disabled = isPast || isWeekend;
+
+                  const cls = [
+                    'cal-day',
+                    isPast && 'is-past',
+                    !isPast && isWeekend && 'is-disabled',
+                    isToday && 'is-today',
+                    isSelected && 'is-selected',
+                  ]
+                    .filter(Boolean)
+                    .join(' ');
+
+                  return (
+                    <button
+                      key={d}
+                      type="button"
+                      className={cls}
+                      disabled={disabled}
+                      onClick={() => handleSelectDate(date)}
+                    >
+                      {d}
+                    </button>
+                  );
+                })}
+              </div>
+
+              <div className="cal-times" aria-label="Available time slots">
+                {selectedDate ? (
+                  SAMPLE_TIMES.map((t) => (
+                    <button
+                      key={t}
+                      type="button"
+                      className={`cal-time${selectedTime === t ? ' is-selected' : ''}`}
+                      onClick={() => setSelectedTime(t)}
+                    >
+                      {t}
+                    </button>
+                  ))
+                ) : (
+                  <div className="cal-times-empty">Pick a date to see available times</div>
+                )}
+              </div>
+
+              <button
+                type="button"
+                className="cal-confirm"
+                disabled={!selectedDate || !selectedTime}
+                onClick={handleConfirm}
+              >
+                <span>{confirmLabel}</span>
+                <span className="ico" aria-hidden="true">
+                  <ArrowIcon size={14} />
+                </span>
+              </button>
             </>
           )}
         </div>

@@ -23,7 +23,10 @@ const Hero = () => (
         <div className="lg:col-span-4">
           <div className="border-t-2 border-heading">
             {HEAD_META.map((row) => (
-              <div key={row.label} className="grid grid-cols-2 py-3 border-b border-line-faint text-[14px]">
+              <div
+                key={row.label}
+                className="grid grid-cols-2 py-3 border-b border-line-faint text-[14px]"
+              >
                 <span className="text-muted font-medium">{row.label}</span>
                 <span className="text-heading font-semibold text-right">{row.value}</span>
               </div>

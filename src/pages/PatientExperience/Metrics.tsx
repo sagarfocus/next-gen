@@ -21,7 +21,9 @@ const Metrics = () => (
               duration={2}
             />
           </div>
-          <div className="text-[10px] uppercase tracking-[0.18em] text-muted font-semibold">{m.k}</div>
+          <div className="text-[10px] uppercase tracking-[0.18em] text-muted font-semibold">
+            {m.k}
+          </div>
           <p className="text-body text-[13px] leading-[1.55] mt-1 max-w-[28ch]">{m.d}</p>
         </div>
       ))}

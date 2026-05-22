@@ -17,10 +17,9 @@ const Hero = () => (
           Strategy &amp; <em>Infrastructure</em>&nbsp;Build.
         </h1>
         <p className="ph2-lede">
-          Two parallel tracks. Strategy maps the route - service-specific
-          keywords, competitor wedges, and the patient journey for each
-          persona. The build track wires the infrastructure underneath so
-          every lead becomes a tracked, attributable event.
+          Two parallel tracks. Strategy maps the route - service-specific keywords, competitor
+          wedges, and the patient journey for each persona. The build track wires the infrastructure
+          underneath so every lead becomes a tracked, attributable event.
         </p>
         <div className="ph2-stat">
           <div className="ph2-stat-big">14d</div>

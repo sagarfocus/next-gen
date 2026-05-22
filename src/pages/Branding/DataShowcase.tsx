@@ -1,10 +1,35 @@
-interface Stat { num: string; unit?: string; label: string; sub: string }
+interface Stat {
+  num: string;
+  unit?: string;
+  label: string;
+  sub: string;
+}
 
 const STATS: Stat[] = [
-  { num: '+62', unit: '%', label: 'Brand recall lift', sub: 'Aided recall · 6 months post-launch · 40-client cohort' },
-  { num: 'A', unit: '+', label: 'Avg trust score', sub: 'Independent patient survey · post-engagement' },
-  { num: '+38', unit: '%', label: 'Conversion lift', sub: 'Site + ad creative re-tuned to new identity' },
-  { num: '100', unit: '%', label: 'Touchpoint coverage', sub: 'Documented across web · print · clinic · social' },
+  {
+    num: '+62',
+    unit: '%',
+    label: 'Brand recall lift',
+    sub: 'Aided recall · 6 months post-launch · 40-client cohort',
+  },
+  {
+    num: 'A',
+    unit: '+',
+    label: 'Avg trust score',
+    sub: 'Independent patient survey · post-engagement',
+  },
+  {
+    num: '+38',
+    unit: '%',
+    label: 'Conversion lift',
+    sub: 'Site + ad creative re-tuned to new identity',
+  },
+  {
+    num: '100',
+    unit: '%',
+    label: 'Touchpoint coverage',
+    sub: 'Documented across web · print · clinic · social',
+  },
 ];
 
 const SIGNALS = [

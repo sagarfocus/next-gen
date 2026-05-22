@@ -10,7 +10,11 @@ export interface PairCard {
 }
 
 const GbpBg = (
-  <svg viewBox="0 0 800 550" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+  <svg
+    viewBox="0 0 800 550"
+    xmlns="http://www.w3.org/2000/svg"
+    preserveAspectRatio="xMidYMid slice"
+  >
     <defs>
       <linearGradient id="gbpBg" x1="0" y1="0" x2="1" y2="1">
         <stop offset="0%" stopColor="#576DB5" />
@@ -44,19 +48,49 @@ const GbpBg = (
       <path d="M540 0 Q 560 220 580 440 T 600 550" />
     </g>
     <circle cx="540" cy="180" r="100" fill="rgba(143,188,143,.10)" />
-    <circle cx="540" cy="180" r="64" fill="none" stroke="rgba(143,188,143,.45)" strokeWidth="1" strokeDasharray="3 6" />
-    <path d="M540 110 C 568 110 588 130 588 158 C 588 196 540 245 540 245 C 540 245 492 196 492 158 C 492 130 512 110 540 110 Z" fill="#fff" />
+    <circle
+      cx="540"
+      cy="180"
+      r="64"
+      fill="none"
+      stroke="rgba(143,188,143,.45)"
+      strokeWidth="1"
+      strokeDasharray="3 6"
+    />
+    <path
+      d="M540 110 C 568 110 588 130 588 158 C 588 196 540 245 540 245 C 540 245 492 196 492 158 C 492 130 512 110 540 110 Z"
+      fill="#fff"
+    />
     <circle cx="540" cy="158" r="14" fill="#576DB5" />
-    <path d="M533 158 L 538 163 L 548 153" fill="none" stroke="#fff" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />
+    <path
+      d="M533 158 L 538 163 L 548 153"
+      fill="none"
+      stroke="#fff"
+      strokeWidth="2.4"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
     <circle cx="200" cy="160" r="6" fill="#B38B6D" />
-    <circle cx="200" cy="160" r="14" fill="none" stroke="#B38B6D" strokeOpacity=".5" strokeWidth="1" />
+    <circle
+      cx="200"
+      cy="160"
+      r="14"
+      fill="none"
+      stroke="#B38B6D"
+      strokeOpacity=".5"
+      strokeWidth="1"
+    />
     <circle cx="320" cy="320" r="5" fill="#8FBC8F" />
     <circle cx="660" cy="380" r="5" fill="#8FBC8F" />
   </svg>
 );
 
 const CitationBg = (
-  <svg viewBox="0 0 800 550" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+  <svg
+    viewBox="0 0 800 550"
+    xmlns="http://www.w3.org/2000/svg"
+    preserveAspectRatio="xMidYMid slice"
+  >
     <defs>
       <linearGradient id="citBg" x1="0" y1="0" x2="1" y2="1">
         <stop offset="0%" stopColor="#2D3748" />
@@ -81,17 +115,65 @@ const CitationBg = (
     </g>
     <g>
       <circle cx="180" cy="160" r="22" fill="#2D3748" stroke="#B38B6D" strokeWidth="1.5" />
-      <text x="180" y="166" fontFamily="Plus Jakarta Sans, sans-serif" fontSize="11" fontWeight="700" fill="#fff" textAnchor="middle">.com</text>
+      <text
+        x="180"
+        y="166"
+        fontFamily="Plus Jakarta Sans, sans-serif"
+        fontSize="11"
+        fontWeight="700"
+        fill="#fff"
+        textAnchor="middle"
+      >
+        .com
+      </text>
       <circle cx="620" cy="140" r="22" fill="#2D3748" stroke="#B38B6D" strokeWidth="1.5" />
-      <text x="620" y="146" fontFamily="Plus Jakarta Sans, sans-serif" fontSize="11" fontWeight="700" fill="#fff" textAnchor="middle">.org</text>
+      <text
+        x="620"
+        y="146"
+        fontFamily="Plus Jakarta Sans, sans-serif"
+        fontSize="11"
+        fontWeight="700"
+        fill="#fff"
+        textAnchor="middle"
+      >
+        .org
+      </text>
       <circle cx="120" cy="380" r="22" fill="#2D3748" stroke="#B38B6D" strokeWidth="1.5" />
-      <text x="120" y="386" fontFamily="Plus Jakarta Sans, sans-serif" fontSize="11" fontWeight="700" fill="#fff" textAnchor="middle">.net</text>
+      <text
+        x="120"
+        y="386"
+        fontFamily="Plus Jakarta Sans, sans-serif"
+        fontSize="11"
+        fontWeight="700"
+        fill="#fff"
+        textAnchor="middle"
+      >
+        .net
+      </text>
       <circle cx="660" cy="400" r="22" fill="#2D3748" stroke="#B38B6D" strokeWidth="1.5" />
-      <text x="660" y="406" fontFamily="Plus Jakarta Sans, sans-serif" fontSize="11" fontWeight="700" fill="#fff" textAnchor="middle">.io</text>
+      <text
+        x="660"
+        y="406"
+        fontFamily="Plus Jakarta Sans, sans-serif"
+        fontSize="11"
+        fontWeight="700"
+        fill="#fff"
+        textAnchor="middle"
+      >
+        .io
+      </text>
       <circle cx="280" cy="450" r="14" fill="#B38B6D" />
       <circle cx="540" cy="460" r="14" fill="#B38B6D" />
     </g>
-    <circle cx="400" cy="280" r="60" fill="none" stroke="rgba(143,188,143,.30)" strokeWidth="1" strokeDasharray="3 5" />
+    <circle
+      cx="400"
+      cy="280"
+      r="60"
+      fill="none"
+      stroke="rgba(143,188,143,.30)"
+      strokeWidth="1"
+      strokeDasharray="3 5"
+    />
     <circle cx="400" cy="280" r="44" fill="#8FBC8F" />
     <g fill="#2D3748">
       <rect x="384" y="266" width="32" height="3" rx="1" />
@@ -102,7 +184,11 @@ const CitationBg = (
 );
 
 const HyperLocalBg = (
-  <svg viewBox="0 0 800 550" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+  <svg
+    viewBox="0 0 800 550"
+    xmlns="http://www.w3.org/2000/svg"
+    preserveAspectRatio="xMidYMid slice"
+  >
     <defs>
       <linearGradient id="hlBg" x1="0" y1="0" x2="1" y2="1">
         <stop offset="0%" stopColor="#3A4556" />
@@ -134,17 +220,77 @@ const HyperLocalBg = (
     </g>
     <g>
       <circle cx="280" cy="200" r="6" fill="#fff" />
-      <text x="280" y="184" fontFamily="Plus Jakarta Sans, sans-serif" fontSize="10" fontWeight="700" fill="rgba(255,255,255,.7)" textAnchor="middle" letterSpacing="2">DALLAS</text>
+      <text
+        x="280"
+        y="184"
+        fontFamily="Plus Jakarta Sans, sans-serif"
+        fontSize="10"
+        fontWeight="700"
+        fill="rgba(255,255,255,.7)"
+        textAnchor="middle"
+        letterSpacing="2"
+      >
+        DALLAS
+      </text>
       <circle cx="280" cy="200" r="14" fill="none" stroke="rgba(255,255,255,.35)" strokeWidth="1" />
       <circle cx="500" cy="180" r="9" fill="#8FBC8F" />
-      <text x="500" y="160" fontFamily="Plus Jakarta Sans, sans-serif" fontSize="11" fontWeight="700" fill="#fff" textAnchor="middle" letterSpacing="2">IRVING</text>
-      <circle cx="500" cy="180" r="22" fill="none" stroke="#8FBC8F" strokeOpacity=".5" strokeWidth="1" />
-      <circle cx="500" cy="180" r="34" fill="none" stroke="#8FBC8F" strokeOpacity=".25" strokeWidth="1" />
+      <text
+        x="500"
+        y="160"
+        fontFamily="Plus Jakarta Sans, sans-serif"
+        fontSize="11"
+        fontWeight="700"
+        fill="#fff"
+        textAnchor="middle"
+        letterSpacing="2"
+      >
+        IRVING
+      </text>
+      <circle
+        cx="500"
+        cy="180"
+        r="22"
+        fill="none"
+        stroke="#8FBC8F"
+        strokeOpacity=".5"
+        strokeWidth="1"
+      />
+      <circle
+        cx="500"
+        cy="180"
+        r="34"
+        fill="none"
+        stroke="#8FBC8F"
+        strokeOpacity=".25"
+        strokeWidth="1"
+      />
       <circle cx="600" cy="320" r="6" fill="#fff" />
-      <text x="600" y="346" fontFamily="Plus Jakarta Sans, sans-serif" fontSize="10" fontWeight="700" fill="rgba(255,255,255,.7)" textAnchor="middle" letterSpacing="2">PLANO</text>
+      <text
+        x="600"
+        y="346"
+        fontFamily="Plus Jakarta Sans, sans-serif"
+        fontSize="10"
+        fontWeight="700"
+        fill="rgba(255,255,255,.7)"
+        textAnchor="middle"
+        letterSpacing="2"
+      >
+        PLANO
+      </text>
       <circle cx="600" cy="320" r="14" fill="none" stroke="rgba(255,255,255,.35)" strokeWidth="1" />
       <circle cx="380" cy="380" r="6" fill="#fff" />
-      <text x="380" y="406" fontFamily="Plus Jakarta Sans, sans-serif" fontSize="10" fontWeight="700" fill="rgba(255,255,255,.7)" textAnchor="middle" letterSpacing="2">FRISCO</text>
+      <text
+        x="380"
+        y="406"
+        fontFamily="Plus Jakarta Sans, sans-serif"
+        fontSize="10"
+        fontWeight="700"
+        fill="rgba(255,255,255,.7)"
+        textAnchor="middle"
+        letterSpacing="2"
+      >
+        FRISCO
+      </text>
       <circle cx="380" cy="380" r="14" fill="none" stroke="rgba(255,255,255,.35)" strokeWidth="1" />
       <circle cx="220" cy="350" r="5" fill="#B38B6D" />
       <circle cx="660" cy="220" r="5" fill="#B38B6D" />
@@ -154,7 +300,11 @@ const HyperLocalBg = (
 );
 
 const AeoBg = (
-  <svg viewBox="0 0 800 550" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+  <svg
+    viewBox="0 0 800 550"
+    xmlns="http://www.w3.org/2000/svg"
+    preserveAspectRatio="xMidYMid slice"
+  >
     <defs>
       <linearGradient id="aeoBg" x1="0" y1="0" x2="1" y2="1">
         <stop offset="0%" stopColor="#576DB5" />
@@ -177,17 +327,105 @@ const AeoBg = (
       <line x1="580" y1="240" x2="640" y2="380" />
     </g>
     <g>
-      <rect x="320" y="90" width="160" height="60" rx="14" fill="#fff" stroke="#B38B6D" strokeWidth="1.4" />
-      <text x="400" y="115" fontFamily="Plus Jakarta Sans, sans-serif" fontSize="11" fontWeight="700" fill="#576DB5" textAnchor="middle" letterSpacing="2">SCHEMA ROOT</text>
-      <text x="400" y="138" fontFamily="Plus Jakarta Sans, sans-serif" fontSize="13" fontWeight="700" fill="#2D3748" textAnchor="middle" letterSpacing="-.4">MedicalOrganization</text>
+      <rect
+        x="320"
+        y="90"
+        width="160"
+        height="60"
+        rx="14"
+        fill="#fff"
+        stroke="#B38B6D"
+        strokeWidth="1.4"
+      />
+      <text
+        x="400"
+        y="115"
+        fontFamily="Plus Jakarta Sans, sans-serif"
+        fontSize="11"
+        fontWeight="700"
+        fill="#576DB5"
+        textAnchor="middle"
+        letterSpacing="2"
+      >
+        SCHEMA ROOT
+      </text>
+      <text
+        x="400"
+        y="138"
+        fontFamily="Plus Jakarta Sans, sans-serif"
+        fontSize="13"
+        fontWeight="700"
+        fill="#2D3748"
+        textAnchor="middle"
+        letterSpacing="-.4"
+      >
+        MedicalOrganization
+      </text>
     </g>
     <g>
-      <rect x="160" y="220" width="120" height="40" rx="10" fill="rgba(143,188,143,.25)" stroke="#8FBC8F" strokeWidth="1" />
-      <text x="220" y="245" fontFamily="Plus Jakarta Sans, sans-serif" fontSize="11" fontWeight="700" fill="#fff" textAnchor="middle">Service</text>
-      <rect x="340" y="220" width="120" height="40" rx="10" fill="rgba(143,188,143,.25)" stroke="#8FBC8F" strokeWidth="1" />
-      <text x="400" y="245" fontFamily="Plus Jakarta Sans, sans-serif" fontSize="11" fontWeight="700" fill="#fff" textAnchor="middle">FAQPage</text>
-      <rect x="520" y="220" width="120" height="40" rx="10" fill="rgba(143,188,143,.25)" stroke="#8FBC8F" strokeWidth="1" />
-      <text x="580" y="245" fontFamily="Plus Jakarta Sans, sans-serif" fontSize="11" fontWeight="700" fill="#fff" textAnchor="middle">Physician</text>
+      <rect
+        x="160"
+        y="220"
+        width="120"
+        height="40"
+        rx="10"
+        fill="rgba(143,188,143,.25)"
+        stroke="#8FBC8F"
+        strokeWidth="1"
+      />
+      <text
+        x="220"
+        y="245"
+        fontFamily="Plus Jakarta Sans, sans-serif"
+        fontSize="11"
+        fontWeight="700"
+        fill="#fff"
+        textAnchor="middle"
+      >
+        Service
+      </text>
+      <rect
+        x="340"
+        y="220"
+        width="120"
+        height="40"
+        rx="10"
+        fill="rgba(143,188,143,.25)"
+        stroke="#8FBC8F"
+        strokeWidth="1"
+      />
+      <text
+        x="400"
+        y="245"
+        fontFamily="Plus Jakarta Sans, sans-serif"
+        fontSize="11"
+        fontWeight="700"
+        fill="#fff"
+        textAnchor="middle"
+      >
+        FAQPage
+      </text>
+      <rect
+        x="520"
+        y="220"
+        width="120"
+        height="40"
+        rx="10"
+        fill="rgba(143,188,143,.25)"
+        stroke="#8FBC8F"
+        strokeWidth="1"
+      />
+      <text
+        x="580"
+        y="245"
+        fontFamily="Plus Jakarta Sans, sans-serif"
+        fontSize="11"
+        fontWeight="700"
+        fill="#fff"
+        textAnchor="middle"
+      >
+        Physician
+      </text>
     </g>
     <g fill="#B38B6D">
       <circle cx="160" cy="380" r="10" />
@@ -197,21 +435,64 @@ const AeoBg = (
     </g>
     <g fill="#fff">
       <path d="M120 100 L 124 110 L 134 114 L 124 118 L 120 128 L 116 118 L 106 114 L 116 110 Z" />
-      <path d="M680 110 L 683 117 L 690 120 L 683 123 L 680 130 L 677 123 L 670 120 L 677 117 Z" opacity=".7" />
-      <path d="M700 460 L 703 467 L 710 470 L 703 473 L 700 480 L 697 473 L 690 470 L 697 467 Z" opacity=".6" />
+      <path
+        d="M680 110 L 683 117 L 690 120 L 683 123 L 680 130 L 677 123 L 670 120 L 677 117 Z"
+        opacity=".7"
+      />
+      <path
+        d="M700 460 L 703 467 L 710 470 L 703 473 L 700 480 L 697 473 L 690 470 L 697 467 Z"
+        opacity=".6"
+      />
     </g>
-    <text x="400" y="470" fontFamily="Plus Jakarta Sans, sans-serif" fontSize="11" fontWeight="700" fill="rgba(255,255,255,.5)" textAnchor="middle" letterSpacing="3">
+    <text
+      x="400"
+      y="470"
+      fontFamily="Plus Jakarta Sans, sans-serif"
+      fontSize="11"
+      fontWeight="700"
+      fill="rgba(255,255,255,.5)"
+      textAnchor="middle"
+      letterSpacing="3"
+    >
       JSON-LD · AI OVERVIEWS · VOICE
     </text>
   </svg>
 );
 
 export const ROW_1: PairCard[] = [
-  { ariaId: 'card-gbp', bg: GbpBg, tag: 'Local Pack', title: 'Google Business Profile', desc: 'Complete optimization and weekly management of your GBP to secure Local Pack rankings.', to: '/services/google-business-profile' },
-  { ariaId: 'card-citation', bg: CitationBg, tag: 'Authority', title: 'Citation Building', desc: 'Establishing authoritative backlinks and consistent NAP data across healthcare directories.', to: '/citation-building' },
+  {
+    ariaId: 'card-gbp',
+    bg: GbpBg,
+    tag: 'Local Pack',
+    title: 'Google Business Profile',
+    desc: 'Complete optimization and weekly management of your GBP to secure Local Pack rankings.',
+    to: '/services/google-business-profile',
+  },
+  {
+    ariaId: 'card-citation',
+    bg: CitationBg,
+    tag: 'Authority',
+    title: 'Citation Building',
+    desc: 'Establishing authoritative backlinks and consistent NAP data across healthcare directories.',
+    to: '/citation-building',
+  },
 ];
 
 export const ROW_2: PairCard[] = [
-  { ariaId: 'card-hl', bg: HyperLocalBg, tag: 'Geo-Targeted', title: 'Hyper-Local Content', desc: 'Creating programmatic landing pages for surrounding Texas municipalities and suburbs.', to: '/hyper-local-content' },
-  { ariaId: 'card-aeo', bg: AeoBg, tag: 'AI Search', title: 'AEO & Schema', desc: 'Structuring data for AI Overviews and voice search dominance in the medical sector.', to: '/aeo-schema' },
+  {
+    ariaId: 'card-hl',
+    bg: HyperLocalBg,
+    tag: 'Geo-Targeted',
+    title: 'Hyper-Local Content',
+    desc: 'Creating programmatic landing pages for surrounding Texas municipalities and suburbs.',
+    to: '/hyper-local-content',
+  },
+  {
+    ariaId: 'card-aeo',
+    bg: AeoBg,
+    tag: 'AI Search',
+    title: 'AEO & Schema',
+    desc: 'Structuring data for AI Overviews and voice search dominance in the medical sector.',
+    to: '/aeo-schema',
+  },
 ];

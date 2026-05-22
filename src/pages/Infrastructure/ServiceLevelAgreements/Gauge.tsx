@@ -1,14 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 
-const Gauge = ({
-  pct,
-  color,
-  delay = 0,
-}: {
-  pct: number;
-  color: string;
-  delay?: number;
-}) => {
+const Gauge = ({ pct, color, delay = 0 }: { pct: number; color: string; delay?: number }) => {
   const radius = 30;
   const circ = 2 * Math.PI * radius;
   const target = (pct / 100) * circ;
@@ -80,14 +72,7 @@ const Gauge = ({
   return (
     <div className="slax-gauge-svg-wrap" ref={wrapRef}>
       <svg viewBox="0 0 76 76" width={76} height={76} aria-hidden="true">
-        <circle
-          cx="38"
-          cy="38"
-          r={radius}
-          fill="none"
-          stroke="#E2E8F0"
-          strokeWidth="6"
-        />
+        <circle cx="38" cy="38" r={radius} fill="none" stroke="#E2E8F0" strokeWidth="6" />
         <circle
           cx="38"
           cy="38"
@@ -102,8 +87,8 @@ const Gauge = ({
         />
         <circle
           className={live ? 'slax-gauge-dot is-live' : 'slax-gauge-dot'}
-          cx={38 + radius * Math.cos((2 * Math.PI * (dash / circ)) - Math.PI / 2)}
-          cy={38 + radius * Math.sin((2 * Math.PI * (dash / circ)) - Math.PI / 2)}
+          cx={38 + radius * Math.cos(2 * Math.PI * (dash / circ) - Math.PI / 2)}
+          cy={38 + radius * Math.sin(2 * Math.PI * (dash / circ) - Math.PI / 2)}
           r={3.4}
           fill={color}
         />

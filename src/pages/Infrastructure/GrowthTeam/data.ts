@@ -21,7 +21,8 @@ export const ROLES: Role[] = [
     num: '01',
     name: 'Shree Gauli',
     title: 'SEO & AEO Strategist',
-    pitch: 'Senior strategist for organic search and answer-engine optimisation. Knows YMYL ranking nuance cold.',
+    pitch:
+      'Senior strategist for organic search and answer-engine optimisation. Knows YMYL ranking nuance cold.',
     ships: [
       'Technical SEO + Core Web Vitals',
       'Local pack and service-area architecture',
@@ -35,7 +36,8 @@ export const ROLES: Role[] = [
     num: '02',
     name: 'Bikash Neupane',
     title: 'Medical Content Writer',
-    pitch: 'Trained healthcare writer - not a generalist with a thesaurus. Writes to patient intent and clinician credibility.',
+    pitch:
+      'Trained healthcare writer - not a generalist with a thesaurus. Writes to patient intent and clinician credibility.',
     ships: [
       'Service-line landing copy + provider bios',
       'Pillar content + condition deep-dives',
@@ -49,7 +51,8 @@ export const ROLES: Role[] = [
     num: '03',
     name: 'Sonu Sagar Dangol',
     title: 'Social Media Manager',
-    pitch: 'Builds the patient-facing voice across Instagram, TikTok, YouTube Shorts, and LinkedIn - calendar your front desk can sustain.',
+    pitch:
+      'Builds the patient-facing voice across Instagram, TikTok, YouTube Shorts, and LinkedIn - calendar your front desk can sustain.',
     ships: [
       'Monthly content calendar, 4 platforms',
       'Shot lists for in-clinic capture days',
@@ -63,7 +66,8 @@ export const ROLES: Role[] = [
     num: '04',
     name: 'Sumit Sharma',
     title: 'Account Director',
-    pitch: 'Your single point of accountability. Runs weekly standups, monthly reviews, quarterly forecasts against panel goals.',
+    pitch:
+      'Your single point of accountability. Runs weekly standups, monthly reviews, quarterly forecasts against panel goals.',
     ships: [
       'Weekly performance reports + forecasts',
       'Monthly strategy review',
@@ -77,7 +81,8 @@ export const ROLES: Role[] = [
     num: '05',
     name: 'Rahul Roy',
     title: 'Dedicated Ads Manager',
-    pitch: 'Owns every paid dollar across Google, Meta, and programmatic. Healthcare-fluent, HIPAA-aware, accountable for CAC.',
+    pitch:
+      'Owns every paid dollar across Google, Meta, and programmatic. Healthcare-fluent, HIPAA-aware, accountable for CAC.',
     ships: [
       'Weekly campaign builds, audiences, creative briefs',
       'Daily bid + budget management',
@@ -91,7 +96,8 @@ export const ROLES: Role[] = [
     num: '06',
     name: 'Bijesh Khadgi',
     title: 'Web & Conversion Engineer',
-    pitch: 'A developer who treats your site as the highest-leverage asset in the funnel. Speed, accessibility, instrumentation.',
+    pitch:
+      'A developer who treats your site as the highest-leverage asset in the funnel. Speed, accessibility, instrumentation.',
     ships: [
       'Page-speed and a11y remediation',
       'Booking-funnel drop-off instrumentation',
@@ -104,11 +110,11 @@ export const ROLES: Role[] = [
 ];
 
 export const CADENCE: { day: string; event: string; note: string }[] = [
-  { day: 'MON', event: 'Sprint planning + KPI review',  note: '60 min · cross-functional'  },
-  { day: 'TUE', event: 'Ads + SEO standups',            note: '30 min · per discipline'    },
-  { day: 'WED', event: 'Creative review + content QA',  note: 'Async + 45 min sync'        },
-  { day: 'THU', event: 'Build day - no meetings',       note: 'Focused execution'          },
-  { day: 'FRI', event: 'Weekly performance report',     note: 'Ships by 5pm local'         },
+  { day: 'MON', event: 'Sprint planning + KPI review', note: '60 min · cross-functional' },
+  { day: 'TUE', event: 'Ads + SEO standups', note: '30 min · per discipline' },
+  { day: 'WED', event: 'Creative review + content QA', note: 'Async + 45 min sync' },
+  { day: 'THU', event: 'Build day - no meetings', note: 'Focused execution' },
+  { day: 'FRI', event: 'Weekly performance report', note: 'Ships by 5pm local' },
 ];
 
 export const SCHEMA = {

@@ -11,9 +11,8 @@ const ContactHero = () => {
           <span className="accent">We&rsquo;ll respond in 4 hours.</span>
         </h1>
         <p className="ct-hero-lede reveal d3">
-          Answer 4 quick questions about your facility, scale, budget, and goals
-          - we&rsquo;ll send a custom marketing roadmap within one
-          business half-day.
+          Answer 4 quick questions about your facility, scale, budget, and goals - we&rsquo;ll send
+          a custom marketing roadmap within one business half-day.
         </p>
       </div>
     </section>

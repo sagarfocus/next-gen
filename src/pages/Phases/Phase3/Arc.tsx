@@ -2,12 +2,10 @@ const Arc = () => (
   <section className="ph3-arc" aria-labelledby="ph3-arc-title">
     <header className="ph3-arc-head">
       <span className="ph3-arc-eyebrow">The 30-day arc</span>
-      <h2 id="ph3-arc-title">
-        From quiet launch to a curve that bends.
-      </h2>
+      <h2 id="ph3-arc-title">From quiet launch to a curve that bends.</h2>
       <p>
-        Four milestones, mapped against inquiry volume. Each marker is a
-        concrete shift in what the engagement is doing that week.
+        Four milestones, mapped against inquiry volume. Each marker is a concrete shift in what the
+        engagement is doing that week.
       </p>
     </header>
 
@@ -93,11 +91,7 @@ const Arc = () => (
         </g>
 
         {/* milestone labels above the curve */}
-        <g
-          fontFamily="'Plus Jakarta Sans', sans-serif"
-          fontWeight="700"
-          fill="#FFFFFF"
-        >
+        <g fontFamily="'Plus Jakarta Sans', sans-serif" fontWeight="700" fill="#FFFFFF">
           <text x="80" y="318" fontSize="11" letterSpacing="3" fill="#B38B6D">
             DAY 01
           </text>
@@ -116,14 +110,7 @@ const Arc = () => (
           <text x="780" y="118" fontSize="14">
             Creative refresh
           </text>
-          <text
-            x="1140"
-            y="28"
-            fontSize="11"
-            letterSpacing="3"
-            fill="#B38B6D"
-            textAnchor="end"
-          >
+          <text x="1140" y="28" fontSize="11" letterSpacing="3" fill="#B38B6D" textAnchor="end">
             DAY 30
           </text>
           <text x="1140" y="8" fontSize="14" textAnchor="end">
@@ -139,7 +126,9 @@ const Arc = () => (
           letterSpacing="2.6"
           fill="rgba(255,255,255,0.55)"
         >
-          <text x="60" y="392">DAY 01</text>
+          <text x="60" y="392">
+            DAY 01
+          </text>
           <text x="480" y="392" textAnchor="middle">
             DAY 14
           </text>
@@ -179,8 +168,7 @@ const Arc = () => (
         </text>
       </svg>
       <figcaption>
-        Illustrative. Actual curve depends on baseline volume, vertical
-        and seasonality.
+        Illustrative. Actual curve depends on baseline volume, vertical and seasonality.
       </figcaption>
     </figure>
 
@@ -189,32 +177,29 @@ const Arc = () => (
         <span className="d">Day 01</span>
         <strong>Visibility goes live</strong>
         <p>
-          Search and paid switch on together; the dashboard starts
-          logging its first attributed bookings.
+          Search and paid switch on together; the dashboard starts logging its first attributed
+          bookings.
         </p>
       </li>
       <li style={{ ['--ph3-marker' as string]: '#8FBC8F' }}>
         <span className="d">Day 14</span>
         <strong>Editorial cadence</strong>
-        <p>
-          The 90-day calendar is publishing on schedule. Long-tail
-          rankings begin to compound.
-        </p>
+        <p>The 90-day calendar is publishing on schedule. Long-tail rankings begin to compound.</p>
       </li>
       <li style={{ ['--ph3-marker' as string]: '#B38B6D' }}>
         <span className="d">Day 21</span>
         <strong>Creative refresh</strong>
         <p>
-          First paid-media cohort replaced with what the data preferred -
-          cost-per-booking begins tightening.
+          First paid-media cohort replaced with what the data preferred - cost-per-booking begins
+          tightening.
         </p>
       </li>
       <li style={{ ['--ph3-marker' as string]: '#B38B6D' }}>
         <span className="d">Day 30</span>
         <strong>Volume bends</strong>
         <p>
-          Inquiry curve has bent upward; front-desk workload has shifted
-          from cold calls to qualified bookings.
+          Inquiry curve has bent upward; front-desk workload has shifted from cold calls to
+          qualified bookings.
         </p>
       </li>
     </ol>

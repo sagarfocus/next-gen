@@ -19,8 +19,8 @@ const Closing = () => (
             Want to be in this list <em>next year</em>?
           </h2>
           <p className="ow-close-p">
-            We take a small number of new engagements each quarter. If your
-            practice is ready, the audit gets you a real plan in five days.
+            We take a small number of new engagements each quarter. If your practice is ready, the
+            audit gets you a real plan in five days.
           </p>
           <div className="ow-close-cta">
             <MotionButton to="/free-growth-audit" className="ow-cta-primary ow-cta-primary--light">

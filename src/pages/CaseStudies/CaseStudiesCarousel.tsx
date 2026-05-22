@@ -1,10 +1,4 @@
-import {
-  useCallback,
-  useEffect,
-  useLayoutEffect,
-  useRef,
-  useState,
-} from 'react';
+import { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react';
 import type { CSSProperties, KeyboardEvent, TouchEvent } from 'react';
 import { Link } from 'react-router-dom';
 import { CASE_STUDIES } from './caseStudies.data';
@@ -17,7 +11,6 @@ const visibleForWidth = (w: number) => {
   if (w <= 1024) return 2;
   return 3;
 };
-
 
 const ArrowLeft = () => (
   <svg
@@ -33,14 +26,12 @@ const ArrowLeft = () => (
   </svg>
 );
 
-const ArrowRight = () => (
-  <ArrowIcon strokeWidth={2} />
-);
+const ArrowRight = () => <ArrowIcon strokeWidth={2} />;
 
 const CaseStudiesCarousel = () => {
   const [index, setIndex] = useState(0);
   const [visible, setVisible] = useState(() =>
-    typeof window === 'undefined' ? 3 : visibleForWidth(window.innerWidth),
+    typeof window === 'undefined' ? 3 : visibleForWidth(window.innerWidth)
   );
   const trackRef = useRef<HTMLDivElement>(null);
   const cardRef = useRef<HTMLAnchorElement>(null);
@@ -73,8 +64,7 @@ const CaseStudiesCarousel = () => {
     const card = cardRef.current;
     if (!track || !card) return;
     const cw = card.getBoundingClientRect().width;
-    const gapStr =
-      getComputedStyle(track).columnGap || getComputedStyle(track).gap;
+    const gapStr = getComputedStyle(track).columnGap || getComputedStyle(track).gap;
     const gap = parseInt(gapStr, 10) || 24;
     track.style.transform = `translateX(-${index * (cw + gap)}px)`;
   }, [index, visible]);
@@ -83,7 +73,7 @@ const CaseStudiesCarousel = () => {
     (delta: number) => {
       setIndex((i) => Math.max(0, Math.min(maxIndex, i + delta)));
     },
-    [maxIndex],
+    [maxIndex]
   );
 
   const onKey = (e: KeyboardEvent<HTMLDivElement>) => {
@@ -113,28 +103,16 @@ const CaseStudiesCarousel = () => {
         <div className="cs-head">
           <div>
             <div className="cs-eyebrow">Case Library · 6 of 38</div>
-            <h2 className="cs-title">
-              Real growth, real numbers, real practices.
-            </h2>
+            <h2 className="cs-title">Real growth, real numbers, real practices.</h2>
           </div>
           <p className="cs-sub">
-            Six recent engagements across primary care, specialty, and urgent
-            care. Tap into any card for the full breakdown - or swipe
-            through with the controls below.
+            Six recent engagements across primary care, specialty, and urgent care. Tap into any
+            card for the full breakdown - or swipe through with the controls below.
           </p>
         </div>
 
-        <div
-          className="cs-slider"
-          tabIndex={0}
-          onKeyDown={onKey}
-          aria-roledescription="carousel"
-        >
-          <div
-            className="cs-track-wrap"
-            onTouchStart={onTouchStart}
-            onTouchEnd={onTouchEnd}
-          >
+        <div className="cs-slider" tabIndex={0} onKeyDown={onKey} aria-roledescription="carousel">
+          <div className="cs-track-wrap" onTouchStart={onTouchStart} onTouchEnd={onTouchEnd}>
             <div className="cs-track" ref={trackRef}>
               {CARDS.map((card, i) => (
                 <Link

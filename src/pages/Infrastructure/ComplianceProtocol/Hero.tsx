@@ -25,10 +25,9 @@ const Hero = () => (
             <em> documented and audited.</em>
           </h1>
           <p className="gtx-hero-lede">
-            Every engagement runs on a HIPAA-aligned stack: BAA-covered tools,
-            encrypted intake, PHI-safe analytics, audited logs. This page
-            summarises the protocols stakeholders, legal teams, and security
-            reviewers ask for before BAA execution.
+            Every engagement runs on a HIPAA-aligned stack: BAA-covered tools, encrypted intake,
+            PHI-safe analytics, audited logs. This page summarises the protocols stakeholders, legal
+            teams, and security reviewers ask for before BAA execution.
           </p>
           <div className="gtx-hero-ctas">
             <Link to="/contact" className="gtx-btn-primary">

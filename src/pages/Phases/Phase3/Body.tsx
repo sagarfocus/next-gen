@@ -21,29 +21,25 @@ const Body = () => (
 
     <div className="ph3-body-main">
       <p>
-        The launch is the quietest moment of the whole engagement.
-        Strategy is set. Infrastructure is wired. Tracking is live. What
-        changes is the volume - search visibility flips on, paid media
-        moves into the highest-converting service lines, and your front
-        desk starts taking calls that came from a known channel.
+        The launch is the quietest moment of the whole engagement. Strategy is set. Infrastructure
+        is wired. Tracking is live. What changes is the volume - search visibility flips on, paid
+        media moves into the highest-converting service lines, and your front desk starts taking
+        calls that came from a known channel.
       </p>
       <p>
-        From day one, every booked patient has an attribution path.
-        Every campaign has a cost-per-booking. Every week, we move budget
-        away from the channels that aren&rsquo;t producing and toward
-        the ones that are.
+        From day one, every booked patient has an attribution path. Every campaign has a
+        cost-per-booking. Every week, we move budget away from the channels that aren&rsquo;t
+        producing and toward the ones that are.
       </p>
       <p>
-        By day fourteen, the editorial calendar is publishing on
-        schedule. By day twenty-one, the first cohort of paid media
-        creative has been replaced with what the data preferred. By day
-        thirty, the inquiry volume curve has bent - and the front-desk
-        workload has shifted from cold calls to qualified bookings.
+        By day fourteen, the editorial calendar is publishing on schedule. By day twenty-one, the
+        first cohort of paid media creative has been replaced with what the data preferred. By day
+        thirty, the inquiry volume curve has bent - and the front-desk workload has shifted from
+        cold calls to qualified bookings.
       </p>
       <p>
-        The deliverable at the end of Phase 3 isn&rsquo;t a deck. It is
-        a working system, owned by your clinic, with a documented
-        playbook for every channel that&rsquo;s producing patients.
+        The deliverable at the end of Phase 3 isn&rsquo;t a deck. It is a working system, owned by
+        your clinic, with a documented playbook for every channel that&rsquo;s producing patients.
       </p>
     </div>
   </section>

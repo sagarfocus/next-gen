@@ -9,20 +9,28 @@ import {
 } from '../details.data';
 
 export const KIND_BODY_INTRO: Record<DetailKind, (entry: DetailEntry) => string> = {
-  engagement: () => 'Three paragraphs that map the challenge, the rebuild, and the outcome — written by the strategist who shipped the work.',
-  industry: () => 'The patient psychology, the regulatory edges, and the funnel mechanics that make this vertical its own discipline.',
-  capability: () => 'How this discipline runs inside the Focus growth operating system — and why it compounds when the other five run alongside it.',
+  engagement: () =>
+    'Three paragraphs that map the challenge, the rebuild, and the outcome — written by the strategist who shipped the work.',
+  industry: () =>
+    'The patient psychology, the regulatory edges, and the funnel mechanics that make this vertical its own discipline.',
+  capability: () =>
+    'How this discipline runs inside the Focus growth operating system — and why it compounds when the other five run alongside it.',
 };
 
 export const KIND_FAQ_INTRO: Record<DetailKind, string> = {
-  engagement: 'The same questions every leadership team raises about an engagement like this — answered up front so the discovery call moves faster.',
-  industry: 'Recurring questions from practice owners and growth leads in this vertical — answered before the first conversation.',
-  capability: 'Common questions about how this discipline runs, how it is reported, and how it integrates with the rest of the stack.',
+  engagement:
+    'The same questions every leadership team raises about an engagement like this — answered up front so the discovery call moves faster.',
+  industry:
+    'Recurring questions from practice owners and growth leads in this vertical — answered before the first conversation.',
+  capability:
+    'Common questions about how this discipline runs, how it is reported, and how it integrates with the rest of the stack.',
 };
 
 export const KIND_RELATED_INTRO: Record<DetailKind, string> = {
-  engagement: 'Three sibling engagements from the same quarter — different verticals, same operating cadence.',
-  industry: 'Other healthcare verticals running the same growth operating system, tuned to their patient psychology.',
+  engagement:
+    'Three sibling engagements from the same quarter — different verticals, same operating cadence.',
+  industry:
+    'Other healthcare verticals running the same growth operating system, tuned to their patient psychology.',
   capability: 'The other disciplines this capability shares a calendar and growth lead with.',
 };
 
@@ -47,7 +55,8 @@ export const KIND_LABEL_PLURAL: Record<DetailKind, string> = {
 const ABOUT_HEADLINE: Record<DetailKind, (entry: DetailEntry) => string> = {
   engagement: (e) => `${e.title}, a focused engagement built around healthcare growth.`,
   industry: (e) => `${e.title} marketing, built around the verticals patients actually search for.`,
-  capability: (e) => `${e.title.replace(/\.$/, '')} — a discipline inside the Focus growth operating system.`,
+  capability: (e) =>
+    `${e.title.replace(/\.$/, '')} — a discipline inside the Focus growth operating system.`,
 };
 
 const APPROACH_HEADLINE: Record<DetailKind, (entry: DetailEntry) => string> = {
@@ -56,7 +65,9 @@ const APPROACH_HEADLINE: Record<DetailKind, (entry: DetailEntry) => string> = {
   capability: () => 'Our unique approach is what sets this discipline apart.',
 };
 
-export const buildNarrativeBlocks = (entry: DetailEntry): { about: NarrativeBlock; approach: NarrativeBlock } => {
+export const buildNarrativeBlocks = (
+  entry: DetailEntry
+): { about: NarrativeBlock; approach: NarrativeBlock } => {
   const aboutBody =
     entry.longBody[0] ||
     entry.description ||
@@ -103,7 +114,8 @@ export const buildSchema = (entry: DetailEntry) => {
     '@context': 'https://schema.org',
     '@type': 'Service',
     name: entry.title,
-    serviceType: entry.kind === 'industry' ? 'Healthcare marketing services for ' + entry.title : entry.title,
+    serviceType:
+      entry.kind === 'industry' ? 'Healthcare marketing services for ' + entry.title : entry.title,
     description: entry.description,
     provider: {
       '@type': 'LocalBusiness',

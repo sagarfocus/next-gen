@@ -36,11 +36,11 @@ const BREADCRUMB_SCHEMA = {
 const FAQS: ServiceFAQItem[] = [
   {
     q: 'We have multiple locations under one brand - should each have its own marketing footprint?',
-    a: 'Yes. Each clinic gets its own Google Business Profile, a per-location landing page with that clinic\'s photos, providers, and insurance list, and a per-location review program. Google penalizes duplicate location pages, and patients can\'t tell which clinic is closest if they all look identical.',
+    a: "Yes. Each clinic gets its own Google Business Profile, a per-location landing page with that clinic's photos, providers, and insurance list, and a per-location review program. Google penalizes duplicate location pages, and patients can't tell which clinic is closest if they all look identical.",
   },
   {
     q: 'How do you handle providers who come and go?',
-    a: 'Provider bios live in a central directory with structured data. When someone joins, we publish a bio, wire the schema, and roll them into the next month\'s content calendar. When someone leaves, we redirect their page to a relevant service line within 24 hours so SEO authority doesn\'t leak.',
+    a: "Provider bios live in a central directory with structured data. When someone joins, we publish a bio, wire the schema, and roll them into the next month's content calendar. When someone leaves, we redirect their page to a relevant service line within 24 hours so SEO authority doesn't leak.",
   },
   {
     q: 'What about referral relationships with specialists?',
@@ -82,42 +82,93 @@ const Illustration = (
 );
 
 const QUICK_STATS: QuickStat[] = [
-  { num: (<>+85<em>%</em></>), label: 'New patient inquiries' },
-  { num: (<>4<em>×</em></>), label: 'Provider listings ranked' },
-  { num: (<>92<em>%</em></>), label: 'Retention rate' },
+  {
+    num: (
+      <>
+        +85<em>%</em>
+      </>
+    ),
+    label: 'New patient inquiries',
+  },
+  {
+    num: (
+      <>
+        4<em>×</em>
+      </>
+    ),
+    label: 'Provider listings ranked',
+  },
+  {
+    num: (
+      <>
+        92<em>%</em>
+      </>
+    ),
+    label: 'Retention rate',
+  },
 ];
 
 const SPECIALTIES: SpecialtyRow[] = [
-  { name: 'Family practice', desc: 'Local search and recall systems for general primary-care offices.' },
-  { name: 'Cardiology', desc: 'Specialist-referral pages, condition deep-dives, and reputation systems.' },
+  {
+    name: 'Family practice',
+    desc: 'Local search and recall systems for general primary-care offices.',
+  },
+  {
+    name: 'Cardiology',
+    desc: 'Specialist-referral pages, condition deep-dives, and reputation systems.',
+  },
   { name: 'Dental', desc: 'Multi-location GBP, treatment SEO, and review automation.' },
-  { name: 'Pediatrics', desc: 'Family-tailored content, vaccine schedules, and parent-targeted ads.' },
-  { name: 'Dermatology', desc: 'Procedure-page SEO, before/after libraries, and elective lead capture.' },
-  { name: 'Multi-specialty groups', desc: 'Provider directories, hub-and-spoke SEO, and unified analytics.' },
+  {
+    name: 'Pediatrics',
+    desc: 'Family-tailored content, vaccine schedules, and parent-targeted ads.',
+  },
+  {
+    name: 'Dermatology',
+    desc: 'Procedure-page SEO, before/after libraries, and elective lead capture.',
+  },
+  {
+    name: 'Multi-specialty groups',
+    desc: 'Provider directories, hub-and-spoke SEO, and unified analytics.',
+  },
 ];
 
 const STEPS: PlayStep[] = [
-  { name: 'Provider & location audit', body: 'Every site, every listing, every clinician page reviewed against demand in the catchment area.' },
-  { name: 'Foundation reset', body: 'GBP rebuild, schema, provider bios, and insurance/service pages shipped first.' },
-  { name: 'Acquisition stack', body: 'Search + paid layered by intent, with per-location attribution to the booking.' },
-  { name: 'Retention engine', body: 'Recall, referral, and review programs running quietly in the background every month.' },
+  {
+    name: 'Provider & location audit',
+    body: 'Every site, every listing, every clinician page reviewed against demand in the catchment area.',
+  },
+  {
+    name: 'Foundation reset',
+    body: 'GBP rebuild, schema, provider bios, and insurance/service pages shipped first.',
+  },
+  {
+    name: 'Acquisition stack',
+    body: 'Search + paid layered by intent, with per-location attribution to the booking.',
+  },
+  {
+    name: 'Retention engine',
+    body: 'Recall, referral, and review programs running quietly in the background every month.',
+  },
 ];
 
 const SNAPSHOTS: Snapshot[] = [
   {
     image: snapBooking,
     label: 'Per-location landing',
-    caption: 'Each clinic ships with its own location page, photos, providers, insurance list, and booking flow.',
+    caption:
+      'Each clinic ships with its own location page, photos, providers, insurance list, and booking flow.',
   },
   {
     image: snapRecall,
     label: 'Recall in motion',
-    caption: 'Automated recall and referral sequences run quietly in the background every single month.',
+    caption:
+      'Automated recall and referral sequences run quietly in the background every single month.',
   },
   {
     image: snapDental,
     label: 'Specialty depth',
-    caption: 'Provider directories and treatment SEO stacked deep enough to win competitive metros.',
+    caption:
+      'Provider directories and treatment SEO stacked deep enough to win competitive metros.',
   },
 ];
 
@@ -140,10 +191,42 @@ const PRINCIPLES: Principle[] = [
 ];
 
 const STATS: BigNumber[] = [
-  { num: (<>+85<em>%</em></>), label: 'NEW INQUIRIES', caption: 'YoY lift across the first six months of engagement.' },
-  { num: (<>$1.2M<em>+</em></>), label: 'ADDED REVENUE', caption: 'Average added annual revenue per multi-location group.' },
-  { num: (<>4<em>×</em></>), label: 'LISTINGS RANKED', caption: 'Top-3 Map Pack across the four largest local terms.' },
-  { num: (<>92<em>%</em></>), label: 'RECALL RATE', caption: 'Automated recall/referral programs running month over month.' },
+  {
+    num: (
+      <>
+        +85<em>%</em>
+      </>
+    ),
+    label: 'NEW INQUIRIES',
+    caption: 'YoY lift across the first six months of engagement.',
+  },
+  {
+    num: (
+      <>
+        $1.2M<em>+</em>
+      </>
+    ),
+    label: 'ADDED REVENUE',
+    caption: 'Average added annual revenue per multi-location group.',
+  },
+  {
+    num: (
+      <>
+        4<em>×</em>
+      </>
+    ),
+    label: 'LISTINGS RANKED',
+    caption: 'Top-3 Map Pack across the four largest local terms.',
+  },
+  {
+    num: (
+      <>
+        92<em>%</em>
+      </>
+    ),
+    label: 'RECALL RATE',
+    caption: 'Automated recall/referral programs running month over month.',
+  },
 ];
 
 const SCHEMA = {
@@ -159,7 +242,11 @@ const Clinics = () => {
     <>
       <IndustryHero
         tag="Clinical"
-        title={<>Patient flow for clinics, <em>engineered.</em></>}
+        title={
+          <>
+            Patient flow for clinics, <em>engineered.</em>
+          </>
+        }
         lede="From single-location family practices to multi-location specialty networks - search, paid, and retention systems built for clinical reality."
         illustration={Illustration}
         quickStats={QUICK_STATS}
@@ -168,14 +255,22 @@ const Clinics = () => {
       <IndustrySnapshots
         items={SNAPSHOTS}
         eyebrow="In practice"
-        title={<>What clinic engagements <em>actually ship.</em></>}
+        title={
+          <>
+            What clinic engagements <em>actually ship.</em>
+          </>
+        }
       />
       <Playbook steps={STEPS} />
       <Numbers stats={STATS} />
       <IndustryPrinciples
         items={PRINCIPLES}
         sectionNum="04"
-        title={<>How we work for <em>clinic networks.</em></>}
+        title={
+          <>
+            How we work for <em>clinic networks.</em>
+          </>
+        }
         intro="Three operating principles that show up in every clinic engagement - they keep multi-location work from sliding back into single-location habits."
       />
       <ServiceFAQ
@@ -196,7 +291,10 @@ const Clinics = () => {
         body="A 30-minute call. We audit your current setup and share the closest case study from this library - whether you sign with us or not."
       />
 
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(SCHEMA) }} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(SCHEMA) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(BREADCRUMB_SCHEMA) }}

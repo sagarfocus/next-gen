@@ -126,8 +126,8 @@ const UseCases = () => {
             running in production
           </h2>
           <p className="uc-sub">
-            Three workflows our partner clinics rely on every day. Click any
-            case to see what runs under the hood.
+            Three workflows our partner clinics rely on every day. Click any case to see what runs
+            under the hood.
           </p>
         </div>
 

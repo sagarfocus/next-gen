@@ -45,7 +45,9 @@ const Related = ({ entry }: { entry: DetailEntry }) => {
                       <strong>{r.metric.v}</strong>
                       <span>{r.metric.l}</span>
                     </div>
-                    <span className="ow-feat-arrow" aria-hidden="true">↗</span>
+                    <span className="ow-feat-arrow" aria-hidden="true">
+                      ↗
+                    </span>
                   </div>
                 </div>
               </Link>

@@ -24,8 +24,7 @@ const ScrollToTop = () => {
           if (lenis) {
             lenis.scrollTo(el, { offset: -80, immediate: true, force: true });
           } else {
-            const top =
-              el.getBoundingClientRect().top + window.scrollY - 80;
+            const top = el.getBoundingClientRect().top + window.scrollY - 80;
             window.scrollTo({ top, left: 0, behavior: 'auto' });
           }
           return;

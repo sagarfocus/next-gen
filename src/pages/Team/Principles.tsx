@@ -40,7 +40,7 @@ const PRINCIPLES: Principle[] = [
     num: '06',
     label: 'Measurement',
     title: 'Revenue, not vanity.',
-    desc: 'Form fills are not bookings. Bookings are not revenue. Every dashboard rolls up to booked-and-attended visits - the only metric that ever paid anyone\'s salary.',
+    desc: "Form fills are not bookings. Bookings are not revenue. Every dashboard rolls up to booked-and-attended visits - the only metric that ever paid anyone's salary.",
   },
 ];
 
@@ -73,9 +73,8 @@ const Principles = () => {
               <span className="tm-pr-meta-v">2026.05</span>
             </div>
             <p className="tm-pr-meta-note">
-              Operating principles aren&rsquo;t marketing copy. They&rsquo;re
-              the constraints we apply to every retainer, every quarter - even
-              when the room is asking us to bend them.
+              Operating principles aren&rsquo;t marketing copy. They&rsquo;re the constraints we
+              apply to every retainer, every quarter - even when the room is asking us to bend them.
             </p>
           </div>
         </header>

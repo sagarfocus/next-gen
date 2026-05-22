@@ -22,9 +22,8 @@ const CTA = () => (
             Want the full <em>documentation pack?</em>
           </h2>
           <p>
-            Includes our BAA template, vendor registry, incident response
-            runbook, and the latest independent compliance audit - delivered
-            to your legal team within one business day.
+            Includes our BAA template, vendor registry, incident response runbook, and the latest
+            independent compliance audit - delivered to your legal team within one business day.
           </p>
           <Link to="/contact" className="gtx-btn-primary">
             Request documentation

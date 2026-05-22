@@ -17,8 +17,8 @@ const Closing = ({ entry }: { entry: DetailEntry }) => (
             for <em>your</em> practice?
           </h2>
           <p className="ow-close-p">
-            We take a small number of new engagements each quarter. The five-day audit
-            gets you a real, ranked plan - yours to keep, agency or not.
+            We take a small number of new engagements each quarter. The five-day audit gets you a
+            real, ranked plan - yours to keep, agency or not.
           </p>
           <div className="ow-close-cta">
             <MotionButton to="/free-growth-audit" className="ow-cta-primary ow-cta-primary--light">

@@ -7,51 +7,58 @@ export const IMG = {
 };
 
 export const STATS = [
-  { v: '200+',   l: 'Practices grown' },
-  { v: '$24M+',  l: 'Pipeline moved' },
-  { v: '47M',    l: 'Impressions delivered' },
-  { v: '4.1×',   l: 'Median ROAS' },
+  { v: '200+', l: 'Practices grown' },
+  { v: '$24M+', l: 'Pipeline moved' },
+  { v: '47M', l: 'Impressions delivered' },
+  { v: '4.1×', l: 'Median ROAS' },
 ];
 
-export const CAPABILITY_TAGS = ['Discovery', 'Acquisition', 'Brand', 'Web', 'Lifecycle', 'Operations'] as const;
+export const CAPABILITY_TAGS = [
+  'Discovery',
+  'Acquisition',
+  'Brand',
+  'Web',
+  'Lifecycle',
+  'Operations',
+] as const;
 
 /* Per-card stat triplet — three quick facts shown at the bottom of each card.
    Order matches CAPABILITY_DETAILS / CAPABILITY_TAGS. */
 export const CAPABILITY_STATS: { v: string; l: string }[][] = [
   // 01 Local search systems · Discovery
   [
-    { v: '90 d',     l: 'Time to lift' },
+    { v: '90 d', l: 'Time to lift' },
     { v: 'Map Pack', l: 'Channel' },
     { v: 'Compound', l: 'Trajectory' },
   ],
   // 02 Paid media · Acquisition
   [
-    { v: '7 d',           l: 'To live' },
+    { v: '7 d', l: 'To live' },
     { v: 'Google + Meta', l: 'Platforms' },
-    { v: 'Pay-back',      l: 'Goal' },
+    { v: 'Pay-back', l: 'Goal' },
   ],
   // 03 Identities · Brand
   [
-    { v: '6 wk',           l: 'Sprint' },
+    { v: '6 wk', l: 'Sprint' },
     { v: 'Visual + Voice', l: 'Scope' },
-    { v: 'Refresh',        l: 'Outcome' },
+    { v: 'Refresh', l: 'Outcome' },
   ],
   // 04 Booking-first websites · Web
   [
-    { v: '8 wk',          l: 'Build' },
+    { v: '8 wk', l: 'Build' },
     { v: 'Booking-first', l: 'Approach' },
-    { v: 'Convert',       l: 'Focus' },
+    { v: 'Convert', l: 'Focus' },
   ],
   // 05 Recall + nurture · Lifecycle
   [
-    { v: '30 d',      l: 'Setup' },
+    { v: '30 d', l: 'Setup' },
     { v: 'Automated', l: 'Type' },
-    { v: 'Retain',    l: 'Goal' },
+    { v: 'Retain', l: 'Goal' },
   ],
   // 06 Automations · Operations
   [
-    { v: '21 d',      l: 'Install' },
-    { v: 'EHR-link',  l: 'Integration' },
+    { v: '21 d', l: 'Install' },
+    { v: 'EHR-link', l: 'Integration' },
     { v: 'AI Triage', l: 'Layer' },
   ],
 ];

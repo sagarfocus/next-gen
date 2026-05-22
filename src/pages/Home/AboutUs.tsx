@@ -5,7 +5,6 @@ import aboutImg2 from '../../assets/healthcare-2.png';
 import aboutImg3 from '../../assets/healthcare-3.png';
 import { ArrowIcon } from '@/components/icons';
 
-
 const LeafIcon = () => (
   <svg
     width={18}
@@ -60,11 +59,7 @@ const TargetIcon = () => (
 
 const AboutUs = () => {
   return (
-    <section
-      className="ah-section"
-      id="about-us"
-      aria-labelledby="ah-title"
-    >
+    <section className="ah-section" id="about-us" aria-labelledby="ah-title">
       <div className="container-shell">
         <span className="ah-eyebrow">About Us</span>
 
@@ -88,10 +83,9 @@ const AboutUs = () => {
               </div>
             </div>
             <p className="ah-intro-text">
-              We help healthcare practices grow faster with marketing systems
-              built specifically for clinics, medspas, and wellness brands
-              - HIPAA-aware, ROI-tracked, and engineered to compound
-              month over month so your patient pipeline never goes quiet.
+              We help healthcare practices grow faster with marketing systems built specifically for
+              clinics, medspas, and wellness brands - HIPAA-aware, ROI-tracked, and engineered to
+              compound month over month so your patient pipeline never goes quiet.
             </p>
           </div>
         </div>
@@ -108,8 +102,8 @@ const AboutUs = () => {
               </span>
               <h3 className="ah-feature-title">Healthcare Growth Engine</h3>
               <p className="ah-feature-desc">
-                Integrated SEO, paid media, and automation - every
-                channel optimized for patient acquisition and retention.
+                Integrated SEO, paid media, and automation - every channel optimized for patient
+                acquisition and retention.
               </p>
               <Link
                 to="/healthcare-growth-engine"
@@ -141,13 +135,10 @@ const AboutUs = () => {
         {/* ROW 3 - Collaboration block */}
         <div className="ah-collab">
           <div className="ah-collab-left">
-            <h3 className="ah-collab-title">
-              Collaborate to build a patient-first growth system.
-            </h3>
+            <h3 className="ah-collab-title">Collaborate to build a patient-first growth system.</h3>
             <p className="ah-collab-text">
-              We embed inside your team so strategy, execution, and reporting
-              move as one. Every decision is grounded in patient data and
-              real revenue impact - not vanity metrics.
+              We embed inside your team so strategy, execution, and reporting move as one. Every
+              decision is grounded in patient data and real revenue impact - not vanity metrics.
             </p>
             <div className="ah-pillars">
               <article className="ah-pillar">
@@ -179,12 +170,8 @@ const AboutUs = () => {
             <div className="ah-img ah-img-hero">
               <img src={aboutImg3} alt="" loading="lazy" decoding="async" />
               <div className="ah-float-quote">
-                <h4 className="ah-float-quote-title">
-                  Collaboration is the Key of Success
-                </h4>
-                <p className="ah-float-quote-text">
-                  Embedded growth partners - not vendors.
-                </p>
+                <h4 className="ah-float-quote-title">Collaboration is the Key of Success</h4>
+                <p className="ah-float-quote-text">Embedded growth partners - not vendors.</p>
               </div>
               <Link to="/about" className="ah-cta">
                 More About Us

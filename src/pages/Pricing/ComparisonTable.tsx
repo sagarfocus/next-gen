@@ -30,9 +30,8 @@ const ComparisonTable = () => {
             See exactly what each tier includes.
           </h2>
           <p className="pr-section-sub">
-            Side-by-side breakdown across all features - from foundational
-            SEO to enterprise-grade infrastructure and dedicated development
-            teams.
+            Side-by-side breakdown across all features - from foundational SEO to enterprise-grade
+            infrastructure and dedicated development teams.
           </p>
         </div>
 

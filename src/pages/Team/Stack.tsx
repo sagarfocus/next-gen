@@ -21,7 +21,15 @@ const CLUSTERS: Cluster[] = [
     title: 'Audit & data.',
     blurb: 'How we read the funnel before we touch it.',
     icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.6} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth={1.6}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        aria-hidden="true"
+      >
         <circle cx="11" cy="11" r="7" />
         <line x1="21" y1="21" x2="16.65" y2="16.65" />
       </svg>
@@ -41,7 +49,15 @@ const CLUSTERS: Cluster[] = [
     title: 'Paid media & SEO.',
     blurb: 'Channels that move bookings the same week, and the ones that compound.',
     icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.6} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth={1.6}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        aria-hidden="true"
+      >
         <path d="M3 12h4l3-8 4 16 3-8h4" />
       </svg>
     ),
@@ -60,7 +76,15 @@ const CLUSTERS: Cluster[] = [
     title: 'Site & creative.',
     blurb: 'Where clicks turn into booked, attended visits.',
     icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.6} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth={1.6}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        aria-hidden="true"
+      >
         <rect x="3" y="3" width="18" height="18" rx="2.5" />
         <path d="M3 9h18M9 21V9" />
       </svg>
@@ -80,7 +104,15 @@ const CLUSTERS: Cluster[] = [
     title: 'HIPAA-aware data.',
     blurb: 'Server-side measurement that survives the Meta + FTC review.',
     icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.6} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth={1.6}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        aria-hidden="true"
+      >
         <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
       </svg>
     ),
@@ -99,7 +131,15 @@ const CLUSTERS: Cluster[] = [
     title: 'Workflows & AI.',
     blurb: 'The systems that let the front desk run lighter.',
     icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.6} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth={1.6}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        aria-hidden="true"
+      >
         <circle cx="12" cy="12" r="3" />
         <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.6 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.6a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82c.18.43.61.73 1.08.78H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z" />
       </svg>
@@ -119,7 +159,15 @@ const CLUSTERS: Cluster[] = [
     title: 'EHR & ops.',
     blurb: 'We integrate into the systems the practice already runs on.',
     icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.6} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth={1.6}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        aria-hidden="true"
+      >
         <rect x="4" y="3" width="16" height="18" rx="2" />
         <line x1="12" y1="8" x2="12" y2="16" />
         <line x1="8" y1="12" x2="16" y2="12" />
@@ -152,9 +200,8 @@ const Stack = () => {
             The <em>actual stack</em> behind every shipped retainer.
           </h2>
           <p className="tm-st-lede">
-            Thirty-plus tools, grouped by the part of the funnel they own. No
-            screenshots of vendor logos for credibility theatre - this is
-            what the team logs into on Monday morning.
+            Thirty-plus tools, grouped by the part of the funnel they own. No screenshots of vendor
+            logos for credibility theatre - this is what the team logs into on Monday morning.
           </p>
         </header>
 
@@ -162,7 +209,9 @@ const Stack = () => {
           {CLUSTERS.map((c) => (
             <article key={c.num} className="tm-st-card">
               <div className="tm-st-card-head">
-                <span className="tm-st-icon" aria-hidden="true">{c.icon}</span>
+                <span className="tm-st-icon" aria-hidden="true">
+                  {c.icon}
+                </span>
                 <div className="tm-st-card-meta">
                   <span className="tm-st-num">{c.num}</span>
                   <span className="tm-st-label">{c.label}</span>

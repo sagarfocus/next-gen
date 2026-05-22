@@ -15,8 +15,8 @@ export const CARDS: IncludeCard[] = [
     title: 'An entire growth department.',
     text: (
       <>
-        Dedicated Ads Manager, SEO Strategist, Medical Content Writer, and
-        Social Media Manager - not isolated freelancers.
+        Dedicated Ads Manager, SEO Strategist, Medical Content Writer, and Social Media Manager -
+        not isolated freelancers.
       </>
     ),
     bullets: [
@@ -24,18 +24,15 @@ export const CARDS: IncludeCard[] = [
       'Healthcare-fluent from day one',
       'Real analytics infrastructure',
     ],
-    icon: (
-      <UsersIcon size={22} strokeWidth={1.8} />
-    ),
+    icon: <UsersIcon size={22} strokeWidth={1.8} />,
   },
   {
     tag: '30-Day Launch Sprint',
     title: 'Tangible results in month one.',
     text: (
       <>
-        Technical audit, CRM/EHR integration, HIPAA-compliant call tracking,
-        AI chatbot deployment, and first campaign launches - all in 30
-        days.
+        Technical audit, CRM/EHR integration, HIPAA-compliant call tracking, AI chatbot deployment,
+        and first campaign launches - all in 30 days.
       </>
     ),
     bullets: [
@@ -63,15 +60,11 @@ export const CARDS: IncludeCard[] = [
     title: 'Compliance built in, not billed extra.',
     text: (
       <>
-        BAAs signed at signup, encrypted servers, secure data routing -
-        full HIPAA compliance with zero hidden fees.
+        BAAs signed at signup, encrypted servers, secure data routing - full HIPAA compliance with
+        zero hidden fees.
       </>
     ),
-    bullets: [
-      'BAAs included by default',
-      'Encrypted data infrastructure',
-      'See case studies',
-    ],
+    bullets: ['BAAs included by default', 'Encrypted data infrastructure', 'See case studies'],
     icon: (
       <svg
         width={22}

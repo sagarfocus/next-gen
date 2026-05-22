@@ -29,7 +29,12 @@ const BREADCRUMB_SCHEMA = {
   itemListElement: [
     { '@type': 'ListItem', position: 1, name: 'Home', item: `${ORIGIN}/` },
     { '@type': 'ListItem', position: 2, name: 'Industries', item: `${ORIGIN}/industries` },
-    { '@type': 'ListItem', position: 3, name: 'MedSpas & Aesthetics', item: `${ORIGIN}/industries/medspas` },
+    {
+      '@type': 'ListItem',
+      position: 3,
+      name: 'MedSpas & Aesthetics',
+      item: `${ORIGIN}/industries/medspas`,
+    },
   ],
 };
 
@@ -40,11 +45,11 @@ const FAQS: ServiceFAQItem[] = [
   },
   {
     q: 'How do you measure LTV when most patients pay cash and procedures happen months apart?',
-    a: 'We pipe booking, treatment, and POS data into one customer record, then attribute LTV at 90 / 180 / 365 day windows. Treatments that look low-margin on first visit often unlock the highest LTV - that\'s the signal worth bidding behind.',
+    a: "We pipe booking, treatment, and POS data into one customer record, then attribute LTV at 90 / 180 / 365 day windows. Treatments that look low-margin on first visit often unlock the highest LTV - that's the signal worth bidding behind.",
   },
   {
     q: 'Are before/after photos compliant in paid ads?',
-    a: 'Yes - when you have signed photo releases, when the photo isn\'t paired with promises of identical results, and when Meta\'s policies for cosmetic claims are followed precisely. We audit your release library before any creative goes live.',
+    a: "Yes - when you have signed photo releases, when the photo isn't paired with promises of identical results, and when Meta's policies for cosmetic claims are followed precisely. We audit your release library before any creative goes live.",
   },
   {
     q: 'What about retention - the second and third visit is where the money is?',
@@ -82,42 +87,93 @@ const Illustration = (
 );
 
 const QUICK_STATS: QuickStat[] = [
-  { num: (<>4.5<em>×</em></>), label: 'Average ROAS' },
-  { num: (<>+180<em>%</em></>), label: 'Qualified leads' },
-  { num: (<>−40<em>%</em></>), label: 'Cost per booking' },
+  {
+    num: (
+      <>
+        4.5<em>×</em>
+      </>
+    ),
+    label: 'Average ROAS',
+  },
+  {
+    num: (
+      <>
+        +180<em>%</em>
+      </>
+    ),
+    label: 'Qualified leads',
+  },
+  {
+    num: (
+      <>
+        −40<em>%</em>
+      </>
+    ),
+    label: 'Cost per booking',
+  },
 ];
 
 const SPECIALTIES: SpecialtyRow[] = [
-  { name: 'MedSpa', desc: 'Membership programs, social-led acquisition, and consult-to-treatment funnels.' },
-  { name: 'Aesthetics', desc: 'Procedure-page SEO, before/after galleries, and reputation systems.' },
-  { name: 'Injectables', desc: 'High-frequency Meta creative tied to seasonal demand and add-on offers.' },
+  {
+    name: 'MedSpa',
+    desc: 'Membership programs, social-led acquisition, and consult-to-treatment funnels.',
+  },
+  {
+    name: 'Aesthetics',
+    desc: 'Procedure-page SEO, before/after galleries, and reputation systems.',
+  },
+  {
+    name: 'Injectables',
+    desc: 'High-frequency Meta creative tied to seasonal demand and add-on offers.',
+  },
   { name: 'IV therapy', desc: 'Location-based campaigns with package & membership bundles.' },
-  { name: 'Wellness clinics', desc: 'Longevity and concierge-style retention sequences for high-LTV members.' },
-  { name: 'Boutique fitness + recovery', desc: 'Social-first acquisition and class-booking funnels.' },
+  {
+    name: 'Wellness clinics',
+    desc: 'Longevity and concierge-style retention sequences for high-LTV members.',
+  },
+  {
+    name: 'Boutique fitness + recovery',
+    desc: 'Social-first acquisition and class-booking funnels.',
+  },
 ];
 
 const STEPS: PlayStep[] = [
-  { name: 'Brand & funnel audit', body: 'Brand, creative, audience, and booking funnel reviewed against your service mix and goal CPL.' },
-  { name: 'Audience & creative system', body: 'Custom audience model and premium creative library built for your treatments and price point.' },
-  { name: 'Consult-to-treatment flow', body: 'High-converting consult forms, tracking, and reminder automation deployed and tuned weekly.' },
-  { name: 'Membership & retention', body: 'Email + SMS sequences for upgrades, recall, referrals, and review collection.' },
+  {
+    name: 'Brand & funnel audit',
+    body: 'Brand, creative, audience, and booking funnel reviewed against your service mix and goal CPL.',
+  },
+  {
+    name: 'Audience & creative system',
+    body: 'Custom audience model and premium creative library built for your treatments and price point.',
+  },
+  {
+    name: 'Consult-to-treatment flow',
+    body: 'High-converting consult forms, tracking, and reminder automation deployed and tuned weekly.',
+  },
+  {
+    name: 'Membership & retention',
+    body: 'Email + SMS sequences for upgrades, recall, referrals, and review collection.',
+  },
 ];
 
 const SNAPSHOTS: Snapshot[] = [
   {
     image: snapMedspa,
     label: 'Consult-to-treatment flow',
-    caption: 'High-converting consult forms, reminder automation, and a path that turns first visits into members.',
+    caption:
+      'High-converting consult forms, reminder automation, and a path that turns first visits into members.',
   },
   {
     image: snapAesthetic,
     label: 'Aesthetic creative library',
-    caption: 'Treatment-specific Meta creative, before/after assets, and seasonal angles tuned weekly.',
+    caption:
+      'Treatment-specific Meta creative, before/after assets, and seasonal angles tuned weekly.',
   },
   {
     image: snapDerm,
     label: 'Premium positioning',
-    caption: 'Procedure pages, photography, and reputation systems that earn the price your treatments deserve.',
+    caption:
+      'Procedure pages, photography, and reputation systems that earn the price your treatments deserve.',
   },
 ];
 
@@ -140,10 +196,42 @@ const PRINCIPLES: Principle[] = [
 ];
 
 const STATS: BigNumber[] = [
-  { num: (<>4.5<em>×</em></>), label: 'AVERAGE ROAS', caption: 'Return on ad spend across multi-channel campaigns in the first 90 days.' },
-  { num: (<>+180<em>%</em></>), label: 'QUALIFIED LEADS', caption: 'Lift in pre-qualified consult requests after audience and creative rework.' },
-  { num: (<>−40<em>%</em></>), label: 'COST PER BOOKING', caption: 'Reduction in cost per consult through funnel and bid optimization.' },
-  { num: (<>$3.8M<em>+</em></>), label: 'ANNUAL REVENUE LIFT', caption: 'Typical added annual revenue across the engagement portfolio.' },
+  {
+    num: (
+      <>
+        4.5<em>×</em>
+      </>
+    ),
+    label: 'AVERAGE ROAS',
+    caption: 'Return on ad spend across multi-channel campaigns in the first 90 days.',
+  },
+  {
+    num: (
+      <>
+        +180<em>%</em>
+      </>
+    ),
+    label: 'QUALIFIED LEADS',
+    caption: 'Lift in pre-qualified consult requests after audience and creative rework.',
+  },
+  {
+    num: (
+      <>
+        −40<em>%</em>
+      </>
+    ),
+    label: 'COST PER BOOKING',
+    caption: 'Reduction in cost per consult through funnel and bid optimization.',
+  },
+  {
+    num: (
+      <>
+        $3.8M<em>+</em>
+      </>
+    ),
+    label: 'ANNUAL REVENUE LIFT',
+    caption: 'Typical added annual revenue across the engagement portfolio.',
+  },
 ];
 
 const SCHEMA = {
@@ -159,7 +247,11 @@ const MedSpas = () => {
     <>
       <IndustryHero
         tag="Aesthetic"
-        title={<>Aesthetic patients, <em>on demand.</em></>}
+        title={
+          <>
+            Aesthetic patients, <em>on demand.</em>
+          </>
+        }
         lede="High-volume social, Meta campaigns, and conversion-engineered websites built for elective and aesthetic services."
         illustration={Illustration}
         quickStats={QUICK_STATS}
@@ -168,14 +260,22 @@ const MedSpas = () => {
       <IndustrySnapshots
         items={SNAPSHOTS}
         eyebrow="In practice"
-        title={<>The aesthetic funnel, <em>visualized.</em></>}
+        title={
+          <>
+            The aesthetic funnel, <em>visualized.</em>
+          </>
+        }
       />
       <Playbook steps={STEPS} />
       <Numbers stats={STATS} />
       <IndustryPrinciples
         items={PRINCIPLES}
         sectionNum="04"
-        title={<>How we work for <em>aesthetics.</em></>}
+        title={
+          <>
+            How we work for <em>aesthetics.</em>
+          </>
+        }
         intro="Three operating principles that distinguish a med-spa engagement from a generic agency rollout - measured against LTV, compliance, and rebook rate from day one."
       />
       <ServiceFAQ
@@ -196,7 +296,10 @@ const MedSpas = () => {
         body="A 30-minute call. We'll show you what your funnel looks like today and the closest case study from this library - whether you sign with us or not."
       />
 
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(SCHEMA) }} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(SCHEMA) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(BREADCRUMB_SCHEMA) }}

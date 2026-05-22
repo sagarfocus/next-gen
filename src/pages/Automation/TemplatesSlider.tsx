@@ -1,10 +1,4 @@
-import {
-  useCallback,
-  useEffect,
-  useLayoutEffect,
-  useRef,
-  useState,
-} from 'react';
+import { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react';
 import type { CSSProperties, KeyboardEvent, ReactElement, TouchEvent } from 'react';
 import { ArrowIcon, ChevronRightIcon, ClockIcon } from '@/components/icons';
 
@@ -23,7 +17,16 @@ const TEMPLATES: Template[] = [
     title: 'Patient Intake Automation',
     nodes: '7 nodes · N8N workflow',
     icon: (
-      <svg width={22} height={22} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round">
+      <svg
+        width={22}
+        height={22}
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth={1.8}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
         <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
         <polyline points="14 2 14 8 20 8" />
         <line x1="9" y1="13" x2="15" y2="13" />
@@ -36,9 +39,7 @@ const TEMPLATES: Template[] = [
     tags: ['SMS', 'Reminders', 'No-Shows'],
     title: 'Appointment Reminder & No-Show Recovery',
     nodes: '8 nodes · N8N workflow',
-    icon: (
-      <ClockIcon size={22} />
-    ),
+    icon: <ClockIcon size={22} />,
   },
   {
     desc: 'Sentiment-based routing: happy patients receive a Google review request, others get a private feedback form. Reputation management runs itself, no manual triage needed.',
@@ -46,7 +47,16 @@ const TEMPLATES: Template[] = [
     title: 'Google Review Collection',
     nodes: '8 nodes · N8N workflow',
     icon: (
-      <svg width={22} height={22} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round">
+      <svg
+        width={22}
+        height={22}
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth={1.8}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
         <polygon points="12 2 15 9 22 9 17 14 19 21 12 17 5 21 7 14 2 9 9 9 12 2" />
       </svg>
     ),
@@ -57,7 +67,16 @@ const TEMPLATES: Template[] = [
     title: 'Insurance Verification Bot',
     nodes: '9 nodes · N8N workflow',
     icon: (
-      <svg width={22} height={22} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round">
+      <svg
+        width={22}
+        height={22}
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth={1.8}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
         <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
         <polyline points="9 12 11 14 15 10" />
       </svg>
@@ -69,7 +88,16 @@ const TEMPLATES: Template[] = [
     title: 'AI Chatbot Lead Capture',
     nodes: '10 nodes · N8N workflow',
     icon: (
-      <svg width={22} height={22} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round">
+      <svg
+        width={22}
+        height={22}
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth={1.8}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
         <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
         <line x1="9" y1="10" x2="9.01" y2="10" />
         <line x1="15" y1="10" x2="15.01" y2="10" />
@@ -82,7 +110,16 @@ const TEMPLATES: Template[] = [
     title: 'Social Media Auto-Poster',
     nodes: '9 nodes · N8N workflow',
     icon: (
-      <svg width={22} height={22} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round">
+      <svg
+        width={22}
+        height={22}
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth={1.8}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
         <circle cx="12" cy="12" r="3" />
         <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z" />
       </svg>
@@ -97,7 +134,16 @@ const QuoteIcon = () => (
 );
 
 const DownloadIcon = () => (
-  <svg width={14} height={14} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.2} strokeLinecap="round" strokeLinejoin="round">
+  <svg
+    width={14}
+    height={14}
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth={2.2}
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
     <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
     <polyline points="7 10 12 15 17 10" />
     <line x1="12" y1="15" x2="12" y2="3" />
@@ -109,7 +155,7 @@ const visibleForWidth = (w: number) => (w <= 1024 ? 1 : 2);
 const TemplatesSlider = () => {
   const [index, setIndex] = useState(0);
   const [visible, setVisible] = useState(() =>
-    typeof window === 'undefined' ? 2 : visibleForWidth(window.innerWidth),
+    typeof window === 'undefined' ? 2 : visibleForWidth(window.innerWidth)
   );
   const trackRef = useRef<HTMLDivElement>(null);
   const cardRef = useRef<HTMLElement>(null);
@@ -140,8 +186,7 @@ const TemplatesSlider = () => {
     const card = cardRef.current;
     if (!track || !card) return;
     const cw = card.getBoundingClientRect().width;
-    const gapStr =
-      getComputedStyle(track).columnGap || getComputedStyle(track).gap;
+    const gapStr = getComputedStyle(track).columnGap || getComputedStyle(track).gap;
     const gap = parseInt(gapStr, 10) || 64;
     track.style.transform = `translateX(-${index * (cw + gap)}px)`;
   }, [index, visible]);
@@ -150,7 +195,7 @@ const TemplatesSlider = () => {
     (delta: number) => {
       setIndex((i) => Math.max(0, Math.min(maxIndex, i + delta)));
     },
-    [maxIndex],
+    [maxIndex]
   );
 
   const onKey = (e: KeyboardEvent<HTMLDivElement>) => {
@@ -200,9 +245,8 @@ const TemplatesSlider = () => {
             </h2>
           </div>
           <p className="right reveal d2">
-            Download ready-to-import JSON workflow files. Each template is a
-            complete automation - just connect your credentials and
-            activate.
+            Download ready-to-import JSON workflow files. Each template is a complete automation -
+            just connect your credentials and activate.
           </p>
         </div>
 
@@ -212,18 +256,10 @@ const TemplatesSlider = () => {
           onKeyDown={onKey}
           aria-roledescription="carousel"
         >
-          <div
-            className="slider-track-wrap"
-            onTouchStart={onTouchStart}
-            onTouchEnd={onTouchEnd}
-          >
+          <div className="slider-track-wrap" onTouchStart={onTouchStart} onTouchEnd={onTouchEnd}>
             <div className="slider-track" ref={trackRef}>
               {TEMPLATES.map((tpl, i) => (
-                <article
-                  key={tpl.title}
-                  ref={i === 0 ? cardRef : undefined}
-                  className="tpl-card"
-                >
+                <article key={tpl.title} ref={i === 0 ? cardRef : undefined} className="tpl-card">
                   <div className="tpl-quote" aria-hidden="true">
                     <QuoteIcon />
                   </div>
@@ -253,10 +289,7 @@ const TemplatesSlider = () => {
 
           <div className="slider-controls">
             <div className="slider-progress" aria-hidden="true">
-              <div
-                className="slider-fill"
-                style={{ width: fillWidth } as CSSProperties}
-              />
+              <div className="slider-fill" style={{ width: fillWidth } as CSSProperties} />
             </div>
             <div className="slider-btns">
               <button

@@ -21,11 +21,7 @@ const CardArrow = () => (
 
 const WhoWeServe = () => {
   return (
-    <section
-      className="serve-section"
-      id="who-we-serve"
-      aria-labelledby="serve-title"
-    >
+    <section className="serve-section" id="who-we-serve" aria-labelledby="serve-title">
       <div className="container-shell">
         <div className="serve-head">
           <span className="serve-eyebrow">Who We Serve</span>
@@ -33,8 +29,8 @@ const WhoWeServe = () => {
             Built for healthcare practices that want to lead.
           </h2>
           <p className="serve-sub">
-            We exclusively serve healthcare practices that want to dominate
-            their market - from solo medspas to multi-location networks.
+            We exclusively serve healthcare practices that want to dominate their market - from solo
+            medspas to multi-location networks.
           </p>
         </div>
 

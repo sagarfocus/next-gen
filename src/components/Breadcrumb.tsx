@@ -13,14 +13,11 @@ interface BreadcrumbProps {
   section?: string;
 }
 
-
 // Path-aware breadcrumb. New callers pass `items` (each can be a link or label).
 // Legacy callers passing only `current` (and optionally `section`) keep working
 // as Home > Resources > current.
 const Breadcrumb = ({ current, items, section = 'Resources' }: BreadcrumbProps) => {
-  const trail: BreadcrumbItem[] = items
-    ? items
-    : [{ label: section }, { label: current ?? '' }];
+  const trail: BreadcrumbItem[] = items ? items : [{ label: section }, { label: current ?? '' }];
 
   const lastIdx = trail.length - 1;
 

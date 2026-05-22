@@ -1,12 +1,47 @@
-interface Mistake { num: string; bad: string; cost: string; fix: string }
+interface Mistake {
+  num: string;
+  bad: string;
+  cost: string;
+  fix: string;
+}
 
 const MISTAKES: Mistake[] = [
-  { num: '01', bad: 'Logo-first thinking', cost: 'Beautiful mark, zero behavior change. The rebrand earns nothing in 12 months.', fix: 'Positioning first. Identity second. System third. Rollout last - never in reverse order.' },
-  { num: '02', bad: 'Designing on moodboards, not surfaces', cost: 'Brand looks great in Figma. Falls apart on the live booking page + ad creative.', fix: 'Every round shown on live patient-facing surfaces. No isolated Figma approval.' },
-  { num: '03', bad: 'No design tokens, no system', cost: 'Two months in, every page slowly drifts. Brand inconsistency on every channel.', fix: 'Token-first build (color, type, spacing, motion). Enforced via Figma + dev handoff.' },
-  { num: '04', bad: 'Stock photography in healthcare', cost: 'Patient trust drops 30-50%. Identical stock photo shows up at a competitor clinic.', fix: 'Quarterly real-photo capture. Clinician + patient (consent) photography. No stock.' },
-  { num: '05', bad: 'No voice + tone framework', cost: 'Front desk sounds different from ads. Provider bios sound different from social.', fix: 'Voice framework + 3-axis tone matrix + sample copy. One brand voice, every touchpoint.' },
-  { num: '06', bad: 'Big-bang launch, signage included', cost: 'Multi-location practice closes for 2 days. Lost revenue + patient confusion.', fix: 'Digital first · clinic-printables next · signage last. Phased rollout · zero downtime.' },
+  {
+    num: '01',
+    bad: 'Logo-first thinking',
+    cost: 'Beautiful mark, zero behavior change. The rebrand earns nothing in 12 months.',
+    fix: 'Positioning first. Identity second. System third. Rollout last - never in reverse order.',
+  },
+  {
+    num: '02',
+    bad: 'Designing on moodboards, not surfaces',
+    cost: 'Brand looks great in Figma. Falls apart on the live booking page + ad creative.',
+    fix: 'Every round shown on live patient-facing surfaces. No isolated Figma approval.',
+  },
+  {
+    num: '03',
+    bad: 'No design tokens, no system',
+    cost: 'Two months in, every page slowly drifts. Brand inconsistency on every channel.',
+    fix: 'Token-first build (color, type, spacing, motion). Enforced via Figma + dev handoff.',
+  },
+  {
+    num: '04',
+    bad: 'Stock photography in healthcare',
+    cost: 'Patient trust drops 30-50%. Identical stock photo shows up at a competitor clinic.',
+    fix: 'Quarterly real-photo capture. Clinician + patient (consent) photography. No stock.',
+  },
+  {
+    num: '05',
+    bad: 'No voice + tone framework',
+    cost: 'Front desk sounds different from ads. Provider bios sound different from social.',
+    fix: 'Voice framework + 3-axis tone matrix + sample copy. One brand voice, every touchpoint.',
+  },
+  {
+    num: '06',
+    bad: 'Big-bang launch, signage included',
+    cost: 'Multi-location practice closes for 2 days. Lost revenue + patient confusion.',
+    fix: 'Digital first · clinic-printables next · signage last. Phased rollout · zero downtime.',
+  },
 ];
 
 const CommonMistakes = () => {

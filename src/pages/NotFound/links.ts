@@ -12,9 +12,21 @@ export const POPULAR_DESTINATIONS: RecoveryLink[] = [
 ];
 
 export const POPULAR_SERVICES: RecoveryLink[] = [
-  { to: '/services/seo', label: 'SEO Services', hint: 'Technical, on-page, local, AEO - one team.' },
-  { to: '/services/google-ads', label: 'Google Ads', hint: 'Search · PMax · YouTube · LSA - one team.' },
-  { to: '/services/website-design-dev', label: 'Website design', hint: 'Fast, on-brand, HIPAA-aware.' },
+  {
+    to: '/services/seo',
+    label: 'SEO Services',
+    hint: 'Technical, on-page, local, AEO - one team.',
+  },
+  {
+    to: '/services/google-ads',
+    label: 'Google Ads',
+    hint: 'Search · PMax · YouTube · LSA - one team.',
+  },
+  {
+    to: '/services/website-design-dev',
+    label: 'Website design',
+    hint: 'Fast, on-brand, HIPAA-aware.',
+  },
   { to: '/medical-automation', label: 'Medical automation', hint: 'Reclaim front-desk hours.' },
 ];
 

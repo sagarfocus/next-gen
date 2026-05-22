@@ -11,10 +11,10 @@ import imgFsed from '../../../assets/freestanding-emergency.png';
 import type { BlogPostData } from '@/content/blog/posts';
 
 export const COLORS = {
-  navy:  '#1A2438',
-  body:  '#4A5568',
+  navy: '#1A2438',
+  body: '#4A5568',
   muted: '#718096',
-  mint:  '#EBF4DD',
+  mint: '#EBF4DD',
 };
 
 export const FEATURE_IMAGES: Record<string, string> = {
@@ -34,25 +34,23 @@ export const FEATURE_IMAGES: Record<string, string> = {
 export type ThemeTone = 'periwinkle' | 'sage' | 'tan' | 'rose' | 'ink';
 export const TONE_COLORS: Record<ThemeTone, { hex: string; soft: string }> = {
   periwinkle: { hex: '#576DB5', soft: 'rgba(87, 109, 181, 0.12)' },
-  sage:       { hex: '#4F7A4F', soft: 'rgba(143, 188, 143, 0.18)' },
-  tan:        { hex: '#B38B6D', soft: 'rgba(179, 139, 109, 0.16)' },
-  rose:       { hex: '#C13E4A', soft: 'rgba(225, 80, 92, 0.14)'   },
-  ink:        { hex: '#2D3748', soft: 'rgba(45, 55, 72, 0.10)'    },
+  sage: { hex: '#4F7A4F', soft: 'rgba(143, 188, 143, 0.18)' },
+  tan: { hex: '#B38B6D', soft: 'rgba(179, 139, 109, 0.16)' },
+  rose: { hex: '#C13E4A', soft: 'rgba(225, 80, 92, 0.14)' },
+  ink: { hex: '#2D3748', soft: 'rgba(45, 55, 72, 0.10)' },
 };
 export const CATEGORY_TONE: Record<string, ThemeTone> = {
   compliance: 'periwinkle',
-  paid:       'tan',
+  paid: 'tan',
   reputation: 'tan',
-  seo:        'sage',
+  seo: 'sage',
   automation: 'periwinkle',
-  medspa:     'sage',
-  urgent:     'rose',
-  analytics:  'sage',
-  fsed:       'rose',
+  medspa: 'sage',
+  urgent: 'rose',
+  analytics: 'sage',
+  fsed: 'rose',
 };
-export const toneForPost = (post: BlogPostData) =>
-  TONE_COLORS[CATEGORY_TONE[post.cat] ?? 'ink'];
-
+export const toneForPost = (post: BlogPostData) => TONE_COLORS[CATEGORY_TONE[post.cat] ?? 'ink'];
 
 export const ORIGIN =
   typeof window !== 'undefined' ? window.location.origin : 'https://thenextgenhealth.com';

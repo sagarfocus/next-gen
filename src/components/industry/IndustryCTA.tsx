@@ -13,7 +13,9 @@ const IndustryCTA = ({ tag, title, body }: IndustryCTAProps) => {
     <section className="iv-cta" aria-labelledby="iv-cta-title">
       <div className="iv-cta-inner">
         <span className="iv-cta-tag">{tag}</span>
-        <h2 id="iv-cta-title" className="iv-cta-title">{title}</h2>
+        <h2 id="iv-cta-title" className="iv-cta-title">
+          {title}
+        </h2>
         <p className="iv-cta-body">{body}</p>
         <Link to="/contact" className="iv-cta-btn">
           Book a strategy call

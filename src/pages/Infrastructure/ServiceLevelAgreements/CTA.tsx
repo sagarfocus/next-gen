@@ -21,9 +21,8 @@ const CTA = () => (
             Want the SLA written into <em>your engagement?</em>
           </h2>
           <p>
-            Every contract ships with these terms attached. Schedule a
-            review and we'll walk through the redline with your legal team -
-            line by line, before signing.
+            Every contract ships with these terms attached. Schedule a review and we'll walk through
+            the redline with your legal team - line by line, before signing.
           </p>
           <Link to="/contact" className="gtx-btn-primary">
             Schedule SLA review

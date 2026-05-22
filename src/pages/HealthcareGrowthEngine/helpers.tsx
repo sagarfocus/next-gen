@@ -178,14 +178,24 @@ export const ToolTile = ({
       </div>
 
       <div>
-        <div className="text-white font-extrabold text-[22px] tracking-[-0.02em] leading-tight">{name}</div>
+        <div className="text-white font-extrabold text-[22px] tracking-[-0.02em] leading-tight">
+          {name}
+        </div>
         <div className="text-white/65 text-[12.5px] leading-[1.5] mt-1.5 max-w-[34ch]">{use}</div>
       </div>
     </div>
   </div>
 );
 
-export const StackCard = ({ group, idx, total }: { group: StackGroupExt; idx: number; total: number }) => {
+export const StackCard = ({
+  group,
+  idx,
+  total,
+}: {
+  group: StackGroupExt;
+  idx: number;
+  total: number;
+}) => {
   const [active, setActive] = useState(0);
 
   return (
@@ -201,13 +211,7 @@ export const StackCard = ({ group, idx, total }: { group: StackGroupExt; idx: nu
             }`}
             aria-hidden={i !== active}
           >
-            <ToolTile
-              name={t.name}
-              mark={t.mark}
-              use={t.use}
-              idx={i}
-              category={group.label}
-            />
+            <ToolTile name={t.name} mark={t.mark} use={t.use} idx={i} category={group.label} />
           </div>
         ))}
 
@@ -221,7 +225,9 @@ export const StackCard = ({ group, idx, total }: { group: StackGroupExt; idx: nu
           <span className="w-4 h-4 block">{group.icon}</span>
         </span>
         <div className="flex flex-col min-w-0">
-          <span className="text-heading text-[13px] font-bold uppercase tracking-[0.18em]">{group.label}</span>
+          <span className="text-heading text-[13px] font-bold uppercase tracking-[0.18em]">
+            {group.label}
+          </span>
           <span className="text-muted text-[11.5px] leading-tight truncate">{group.tagline}</span>
         </div>
       </div>

@@ -42,14 +42,12 @@ export const HOME_ADVANTAGES_CARDS_LEFT: readonly HomeAdvantageCard[] = [
   {
     icon: 'hand',
     title: 'Everything under one roof',
-    desc:
-      'SEO, paid media, content, automation, and reporting - one team, one source of truth. No vendor stitching, no finger-pointing across agencies.',
+    desc: 'SEO, paid media, content, automation, and reporting - one team, one source of truth. No vendor stitching, no finger-pointing across agencies.',
   },
   {
     icon: 'manager',
     title: 'Your dedicated growth lead',
-    desc:
-      'A single accountable strategist who owns your roadmap, runs weekly reviews, and is reachable when patient volume needs to move now - not next sprint.',
+    desc: 'A single accountable strategist who owns your roadmap, runs weekly reviews, and is reachable when patient volume needs to move now - not next sprint.',
   },
 ];
 
@@ -57,13 +55,11 @@ export const HOME_ADVANTAGES_CARDS_RIGHT: readonly HomeAdvantageCard[] = [
   {
     icon: 'price',
     title: 'Fixed pricing & clear timelines',
-    desc:
-      'Transparent monthly plans with milestones you can map to your board. No surprise invoices, no buried retainer creep - what you sign is what you pay.',
+    desc: 'Transparent monthly plans with milestones you can map to your board. No surprise invoices, no buried retainer creep - what you sign is what you pay.',
   },
   {
     icon: 'shield',
     title: 'HIPAA-aware specialists',
-    desc:
-      'Every campaign, pixel, and intake form is built by healthcare-trained operators using BAA-ready stacks and server-side tracking. Compliance is the default, not an afterthought.',
+    desc: 'Every campaign, pixel, and intake form is built by healthcare-trained operators using BAA-ready stacks and server-side tracking. Compliance is the default, not an afterthought.',
   },
 ];

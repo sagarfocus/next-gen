@@ -28,70 +28,60 @@ export const HOME_FAQS: readonly HomeFaqItem[] = [
     q: 'How quickly will I see results from your healthcare marketing?',
     a: (
       <>
-        Most clients see <strong>tangible movement within 30 days</strong>{' '}
-        - improved Google Business Profile visibility, faster page loads,
-        and the first paid-media leads. Sustained organic growth from SEO
-        typically compounds across months 3&ndash;6 as content, backlinks, and
-        on-page work mature.
+        Most clients see <strong>tangible movement within 30 days</strong> - improved Google
+        Business Profile visibility, faster page loads, and the first paid-media leads. Sustained
+        organic growth from SEO typically compounds across months 3&ndash;6 as content, backlinks,
+        and on-page work mature.
       </>
     ),
-    text:
-      'Most clients see tangible movement within 30 days - improved Google Business Profile visibility, faster page loads, and the first paid-media leads. Sustained organic growth from SEO typically compounds across months 3–6 as content, backlinks, and on-page work mature.',
+    text: 'Most clients see tangible movement within 30 days - improved Google Business Profile visibility, faster page loads, and the first paid-media leads. Sustained organic growth from SEO typically compounds across months 3–6 as content, backlinks, and on-page work mature.',
     defaultOpen: true,
   },
   {
     q: 'Are your campaigns and tools HIPAA-aware?',
     a: (
       <>
-        Yes. We follow HIPAA-aware practices across tracking, ad targeting,
-        intake forms, and reporting - including server-side conversion
-        tracking, compliant pixel use, and BAA-ready vendor selection where
-        applicable. We are not a covered entity, so we work alongside your
+        Yes. We follow HIPAA-aware practices across tracking, ad targeting, intake forms, and
+        reporting - including server-side conversion tracking, compliant pixel use, and BAA-ready
+        vendor selection where applicable. We are not a covered entity, so we work alongside your
         compliance officer to ensure end-to-end alignment.
       </>
     ),
-    text:
-      'Yes. We follow HIPAA-aware practices across tracking, ad targeting, intake forms, and reporting - including server-side conversion tracking, compliant pixel use, and BAA-ready vendor selection where applicable. We are not a covered entity, so we work alongside your compliance officer to ensure end-to-end alignment.',
+    text: 'Yes. We follow HIPAA-aware practices across tracking, ad targeting, intake forms, and reporting - including server-side conversion tracking, compliant pixel use, and BAA-ready vendor selection where applicable. We are not a covered entity, so we work alongside your compliance officer to ensure end-to-end alignment.',
   },
   {
     q: 'What size practices do you typically work with?',
     a: (
       <>
         From <strong>single-location clinics and medspas</strong> to{' '}
-        <strong>multi-location healthcare networks</strong>. Our methodology
-        scales: smaller practices benefit from the full Clinic Growth OS, while
-        larger networks plug us into existing teams to amplify performance and
-        reporting.
+        <strong>multi-location healthcare networks</strong>. Our methodology scales: smaller
+        practices benefit from the full Clinic Growth OS, while larger networks plug us into
+        existing teams to amplify performance and reporting.
       </>
     ),
-    text:
-      'From single-location clinics and medspas to multi-location healthcare networks. Our methodology scales: smaller practices benefit from the full Clinic Growth OS, while larger networks plug us into existing teams to amplify performance and reporting.',
+    text: 'From single-location clinics and medspas to multi-location healthcare networks. Our methodology scales: smaller practices benefit from the full Clinic Growth OS, while larger networks plug us into existing teams to amplify performance and reporting.',
   },
   {
     q: "What's included in your monthly engagement?",
     a: (
       <>
-        Strategy, execution, and reporting across SEO, paid media (Google
-        &amp; Meta), social, content, automation, and weekly optimization
-        - plus a dedicated growth lead and a real-time analytics
-        dashboard. Every plan is tailored to your goals; nothing is bolted on.
+        Strategy, execution, and reporting across SEO, paid media (Google &amp; Meta), social,
+        content, automation, and weekly optimization - plus a dedicated growth lead and a real-time
+        analytics dashboard. Every plan is tailored to your goals; nothing is bolted on.
       </>
     ),
-    text:
-      'Strategy, execution, and reporting across SEO, paid media (Google & Meta), social, content, automation, and weekly optimization - plus a dedicated growth lead and a real-time analytics dashboard. Every plan is tailored to your goals; nothing is bolted on.',
+    text: 'Strategy, execution, and reporting across SEO, paid media (Google & Meta), social, content, automation, and weekly optimization - plus a dedicated growth lead and a real-time analytics dashboard. Every plan is tailored to your goals; nothing is bolted on.',
   },
   {
     q: 'Do I need a long-term contract to work with you?',
     a: (
       <>
-        No long lock-ins. We recommend a{' '}
-        <strong>minimum 90-day engagement</strong> so the system has time to
-        compound, but month-to-month options are available after the initial
-        setup phase. Cancel, downgrade, or scale anytime - no hidden fees.
+        No long lock-ins. We recommend a <strong>minimum 90-day engagement</strong> so the system
+        has time to compound, but month-to-month options are available after the initial setup
+        phase. Cancel, downgrade, or scale anytime - no hidden fees.
       </>
     ),
-    text:
-      'No long lock-ins. We recommend a minimum 90-day engagement so the system has time to compound, but month-to-month options are available after the initial setup phase. Cancel, downgrade, or scale anytime - no hidden fees.',
+    text: 'No long lock-ins. We recommend a minimum 90-day engagement so the system has time to compound, but month-to-month options are available after the initial setup phase. Cancel, downgrade, or scale anytime - no hidden fees.',
   },
 ];
 

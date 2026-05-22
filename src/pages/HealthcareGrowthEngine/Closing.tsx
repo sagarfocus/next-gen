@@ -19,7 +19,8 @@ const Closing = () => (
         </div>
         <div className="lg:col-span-5 lg:pt-16">
           <p className="text-body text-[clamp(16px,1.35vw,19px)] leading-[1.55] max-w-[44ch]">
-            Two-week forensic of every search, ad, and front-desk surface your clinic owns. Yours to keep.
+            Two-week forensic of every search, ad, and front-desk surface your clinic owns. Yours to
+            keep.
           </p>
         </div>
       </div>
@@ -40,14 +41,32 @@ const Closing = () => (
             See the engine on your own funnel.
           </h3>
           <p className="mt-5 text-heading/80 text-[15.5px] leading-[1.6] max-w-[50ch]">
-            We hand you a one-page scorecard, a funnel leak map, and a prioritised
-            fix list with dollar values. Yours to keep — take it to any agency or
-            run it yourself.
+            We hand you a one-page scorecard, a funnel leak map, and a prioritised fix list with
+            dollar values. Yours to keep — take it to any agency or run it yourself.
           </p>
           <ul className="mt-7 grid sm:grid-cols-2 gap-x-6 gap-y-2 max-w-[40ch]">
-            {['9-surface scorecard', 'Funnel leak map', 'Dollar-priced fixes', 'No signup, no card'].map((b) => (
-              <li key={b} className="flex items-center gap-2 text-heading/85 text-[14px] font-medium">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" className="text-heading" aria-hidden="true">
+            {[
+              '9-surface scorecard',
+              'Funnel leak map',
+              'Dollar-priced fixes',
+              'No signup, no card',
+            ].map((b) => (
+              <li
+                key={b}
+                className="flex items-center gap-2 text-heading/85 text-[14px] font-medium"
+              >
+                <svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.6"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="text-heading"
+                  aria-hidden="true"
+                >
                   <polyline points="20 6 9 17 4 12" />
                 </svg>
                 {b}

@@ -12,16 +12,9 @@ interface IndustrySnapshotsProps {
   title?: ReactNode;
 }
 
-const IndustrySnapshots = ({
-  items,
-  eyebrow = 'In practice',
-  title,
-}: IndustrySnapshotsProps) => {
+const IndustrySnapshots = ({ items, eyebrow = 'In practice', title }: IndustrySnapshotsProps) => {
   return (
-    <section
-      className="iv-section iv-snapshots"
-      aria-labelledby="iv-snap-title"
-    >
+    <section className="iv-section iv-snapshots" aria-labelledby="iv-snap-title">
       <div className="container-shell">
         <header className="iv-snap-head">
           <span className="iv-snap-eyebrow">{eyebrow}</span>
@@ -34,19 +27,12 @@ const IndustrySnapshots = ({
           {items.map((s, i) => (
             <figure key={i} className="iv-snap-card">
               <div className="iv-snap-img">
-                <img
-                  src={s.image}
-                  alt={s.label}
-                  loading="lazy"
-                  decoding="async"
-                />
+                <img src={s.image} alt={s.label} loading="lazy" decoding="async" />
               </div>
               <div className="iv-snap-overlay" aria-hidden="true" />
               <figcaption className="iv-snap-cap">
                 <span className="iv-snap-label">
-                  <span className="iv-snap-idx">
-                    {String(i + 1).padStart(2, '0')}
-                  </span>
+                  <span className="iv-snap-idx">{String(i + 1).padStart(2, '0')}</span>
                   {s.label}
                 </span>
                 <p className="iv-snap-body">{s.caption}</p>

@@ -26,7 +26,9 @@ const FrictionMap = () => {
               <div key={f.stage} className="contents">
                 {/* before bar (right-anchored) */}
                 <div className="flex items-center gap-3 justify-end">
-                  <span className="text-body text-[13px] tabular-nums w-9 text-right">{f.before}%</span>
+                  <span className="text-body text-[13px] tabular-nums w-9 text-right">
+                    {f.before}%
+                  </span>
                   <div className="h-[10px] bg-line-faint rounded-l-full overflow-hidden w-full max-w-[260px]">
                     <div
                       className="h-full bg-cta/80 ml-auto rounded-l-full"

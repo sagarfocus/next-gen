@@ -21,10 +21,8 @@ export const TIERS: Tier[] = [
     name: 'Starter Care',
     amount: '$5,000',
     period: '/ month',
-    tagline:
-      'Perfect for elective procedures and high-research patient journeys.',
-    bestFor:
-      'Single-location clinics ready to build their digital foundation.',
+    tagline: 'Perfect for elective procedures and high-research patient journeys.',
+    bestFor: 'Single-location clinics ready to build their digital foundation.',
     ctaLabel: 'Get Started',
     ctaHref: '/contact',
     includesLabel: 'Package Includes',
@@ -49,8 +47,7 @@ export const TIERS: Tier[] = [
     name: 'Growth Pro',
     amount: '$10,000',
     period: '/ month',
-    tagline:
-      'High-acuity, rapid-response systems for immediate-need facilities.',
+    tagline: 'High-acuity, rapid-response systems for immediate-need facilities.',
     bestFor: 'Clinics ready to scale acquisition fast.',
     ctaLabel: 'Get Started',
     ctaHref: '/contact',
@@ -65,10 +62,7 @@ export const TIERS: Tier[] = [
       'Dedicated Account Manager',
     ],
     notLabel: 'Not Included',
-    notIncluded: [
-      'Custom software development',
-      'Multi-state network management',
-    ],
+    notIncluded: ['Custom software development', 'Multi-state network management'],
   },
   {
     name: 'Scale Elite',

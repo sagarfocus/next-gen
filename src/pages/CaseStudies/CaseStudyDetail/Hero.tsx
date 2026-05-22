@@ -18,12 +18,7 @@ const Hero = ({ study, ordinal, total }: HeroProps) => (
     </div>
 
     <div className="container-shell csd-hero-shell">
-      <Breadcrumb
-        items={[
-          { label: 'Case studies', to: '/case-studies' },
-          { label: study.name },
-        ]}
-      />
+      <Breadcrumb items={[{ label: 'Case studies', to: '/case-studies' }, { label: study.name }]} />
       <div className="csd-topnav">
         <Link to="/case-studies#cs-all" className="csd-back">
           <ArrowLeft /> Case library

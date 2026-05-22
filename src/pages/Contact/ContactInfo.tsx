@@ -12,8 +12,8 @@ const ContactInfo = () => {
             Prefer email or a quick message?
           </h2>
           <p className="ct-info-sub">
-            Send us a general inquiry, subscribe for healthcare marketing
-            insights, or reach our team directly through the channels below.
+            Send us a general inquiry, subscribe for healthcare marketing insights, or reach our
+            team directly through the channels below.
           </p>
         </div>
 

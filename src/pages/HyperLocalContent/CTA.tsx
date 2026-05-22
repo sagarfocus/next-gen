@@ -24,10 +24,9 @@ const CTA = () => (
             Find the neighbourhoods <em>you are invisible in.</em>
           </h2>
           <p className="hlc-cta-text">
-            The audit identifies the municipalities your practice already
-            draws from but does not rank for, scored against expected query
-            volume. Use it to commission a build - or keep the findings
-            as a working SEO roadmap.
+            The audit identifies the municipalities your practice already draws from but does not
+            rank for, scored against expected query volume. Use it to commission a build - or keep
+            the findings as a working SEO roadmap.
           </p>
           <div className="hlc-cta-ctas">
             <Link to="/contact" className="hlc-btn-primary">

@@ -23,13 +23,11 @@ const Hero = () => (
             Service Level Agreements
           </span>
           <h1 className="gtx-hero-title">
-            Response time as a
-            <em> measurable commitment.</em>
+            Response time as a<em> measurable commitment.</em>
           </h1>
           <p className="gtx-hero-lede">
-            Every engagement ships with a written SLA. Severity tiers,
-            response targets, monitoring, and escalation paths - documented
-            before the first dollar moves and held to weekly.
+            Every engagement ships with a written SLA. Severity tiers, response targets, monitoring,
+            and escalation paths - documented before the first dollar moves and held to weekly.
           </p>
           <div className="gtx-hero-ctas">
             <Link to="/contact" className="gtx-btn-primary">

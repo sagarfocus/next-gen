@@ -15,10 +15,9 @@ const CTA = () => {
               Score every location&rsquo;s profile against the five vectors.
             </h2>
             <p className="gb-cta-desc">
-              Send us the profiles you manage. We hand back a scored gap
-              report inside three business days - completeness, categories,
-              reviews, photos, activity - per location. Yours to keep,
-              whether or not we ever work together.
+              Send us the profiles you manage. We hand back a scored gap report inside three
+              business days - completeness, categories, reviews, photos, activity - per location.
+              Yours to keep, whether or not we ever work together.
             </p>
             <div className="gb-cta-ctas">
               <Link to="/contact" className="sl-btn-primary">
@@ -27,7 +26,14 @@ const CTA = () => {
               </Link>
               <Link to="/case-studies" className="sl-btn-ghost">
                 See case studies
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.4} strokeLinecap="round" strokeLinejoin="round">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth={2.4}
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
                   <line x1="7" y1="17" x2="17" y2="7" />
                   <polyline points="7 7 17 7 17 17" />
                 </svg>
@@ -41,11 +47,15 @@ const CTA = () => {
               <span className="gb-cta-stat-lbl">Avg map-pack position · primary keywords</span>
             </div>
             <div className="gb-cta-stat">
-              <span className="gb-cta-stat-num">218<em>%</em></span>
+              <span className="gb-cta-stat-num">
+                218<em>%</em>
+              </span>
               <span className="gb-cta-stat-lbl">Direction-request lift · first 90 days</span>
             </div>
             <div className="gb-cta-stat">
-              <span className="gb-cta-stat-num">110<em>+</em></span>
+              <span className="gb-cta-stat-num">
+                110<em>+</em>
+              </span>
               <span className="gb-cta-stat-lbl">Healthcare locations managed</span>
             </div>
           </div>

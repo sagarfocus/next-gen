@@ -113,9 +113,8 @@ const EditorialProcess = () => {
             How every article gets to your inbox.
           </h2>
           <p className="bl-process-sub">
-            Beyond just publishing tactics, we build each piece around real
-            client work - from raw insight to peer-reviewed, HIPAA-checked,
-            practitioner-tested content.
+            Beyond just publishing tactics, we build each piece around real client work - from raw
+            insight to peer-reviewed, HIPAA-checked, practitioner-tested content.
           </p>
 
           <div className="bl-process-range">

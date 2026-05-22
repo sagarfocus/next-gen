@@ -35,7 +35,9 @@ const Faq = () => {
                 </span>
                 <span
                   className={`shrink-0 w-9 h-9 rounded-full border border-line-faint grid place-items-center text-line transition-all duration-300 ${
-                    open ? 'bg-heading text-white border-heading rotate-180' : 'group-hover:border-line'
+                    open
+                      ? 'bg-heading text-white border-heading rotate-180'
+                      : 'group-hover:border-line'
                   }`}
                   aria-hidden="true"
                 >

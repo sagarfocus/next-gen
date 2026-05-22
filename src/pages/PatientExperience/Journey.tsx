@@ -36,10 +36,7 @@ const Journey = () => (
                       <span className="text-heading tabular-nums">{j.risk}%</span>
                     </div>
                     <div className="mt-1.5 h-[3px] bg-line-faint rounded-full overflow-hidden">
-                      <div
-                        className="h-full bg-cta"
-                        style={{ width: `${j.risk * 2.4}%` }}
-                      />
+                      <div className="h-full bg-cta" style={{ width: `${j.risk * 2.4}%` }} />
                     </div>
                   </div>
                 </li>

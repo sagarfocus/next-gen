@@ -1,11 +1,7 @@
 import { Link } from 'react-router-dom';
 import logoSrc from '../assets/the-nextgen-logo.png';
 import { SITE } from '../content/site';
-import {
-  FOOTER_COMPANY,
-  FOOTER_LEGAL,
-  FOOTER_SERVICES,
-} from '../content/navigation';
+import { FOOTER_COMPANY, FOOTER_LEGAL, FOOTER_SERVICES } from '../content/navigation';
 import { ArrowIcon } from './icons';
 
 const Footer = () => {
@@ -17,7 +13,7 @@ const Footer = () => {
     const subject = 'Subscribe - TheNextGen weekly brief';
     const body = `Please add this address to the weekly brief: ${email}`;
     window.location.href = `mailto:${SITE.email}?subject=${encodeURIComponent(
-      subject,
+      subject
     )}&body=${encodeURIComponent(body)}`;
     e.currentTarget.reset();
   };
@@ -28,11 +24,7 @@ const Footer = () => {
         <div className="ft-grid">
           {/* Brand block */}
           <div className="ft-brand-block flex flex-col gap-[22px] max-w-[360px]">
-            <Link
-              to="/"
-              className="inline-block"
-              aria-label={`${SITE.name} - Home`}
-            >
+            <Link to="/" className="inline-block" aria-label={`${SITE.name} - Home`}>
               <img
                 src={logoSrc}
                 alt={SITE.name}

@@ -4,7 +4,6 @@ import Breadcrumb from '@/components/Breadcrumb';
 import { AnimatedBackground } from '@/lib/motion';
 import { ArrowIcon } from '@/components/icons';
 
-
 interface SideCard {
   href: string;
   cls: string;
@@ -74,8 +73,24 @@ const RIGHT_SIDE: SideCard[] = [
     meta: 'Apr 18, 2026 · 6 min read',
     illustration: (
       <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <line x1="20" y1="80" x2="20" y2="22" stroke="#2D3748" strokeWidth="1.5" strokeLinecap="round" />
-        <line x1="20" y1="80" x2="80" y2="80" stroke="#2D3748" strokeWidth="1.5" strokeLinecap="round" />
+        <line
+          x1="20"
+          y1="80"
+          x2="20"
+          y2="22"
+          stroke="#2D3748"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+        />
+        <line
+          x1="20"
+          y1="80"
+          x2="80"
+          y2="80"
+          stroke="#2D3748"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+        />
         <polyline
           points="28,68 40,52 52,58 64,38 76,28"
           fill="none"
@@ -140,10 +155,30 @@ const LATEST: LatestItem[] = [
       <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         <g transform="translate(50, 50)">
           <path d="M0 -22 Q 11 -4 0 14 Q -11 -4 0 -22 Z" fill="#8FBC8F" />
-          <path d="M0 -22 Q 11 -4 0 14 Q -11 -4 0 -22 Z" fill="#8FBC8F" opacity=".75" transform="rotate(72)" />
-          <path d="M0 -22 Q 11 -4 0 14 Q -11 -4 0 -22 Z" fill="#8FBC8F" opacity=".55" transform="rotate(144)" />
-          <path d="M0 -22 Q 11 -4 0 14 Q -11 -4 0 -22 Z" fill="#8FBC8F" opacity=".75" transform="rotate(216)" />
-          <path d="M0 -22 Q 11 -4 0 14 Q -11 -4 0 -22 Z" fill="#8FBC8F" opacity=".55" transform="rotate(288)" />
+          <path
+            d="M0 -22 Q 11 -4 0 14 Q -11 -4 0 -22 Z"
+            fill="#8FBC8F"
+            opacity=".75"
+            transform="rotate(72)"
+          />
+          <path
+            d="M0 -22 Q 11 -4 0 14 Q -11 -4 0 -22 Z"
+            fill="#8FBC8F"
+            opacity=".55"
+            transform="rotate(144)"
+          />
+          <path
+            d="M0 -22 Q 11 -4 0 14 Q -11 -4 0 -22 Z"
+            fill="#8FBC8F"
+            opacity=".75"
+            transform="rotate(216)"
+          />
+          <path
+            d="M0 -22 Q 11 -4 0 14 Q -11 -4 0 -22 Z"
+            fill="#8FBC8F"
+            opacity=".55"
+            transform="rotate(288)"
+          />
           <circle r="6" fill="#576DB5" />
         </g>
       </svg>
@@ -201,9 +236,32 @@ const LATEST: LatestItem[] = [
           strokeWidth="3"
           strokeDasharray="3 4"
         />
-        <circle cx="50" cy="50" r="22" fill="rgba(87,109,181,.10)" stroke="#576DB5" strokeWidth="2.5" />
-        <line x1="50" y1="50" x2="50" y2="32" stroke="#576DB5" strokeWidth="3" strokeLinecap="round" />
-        <line x1="50" y1="50" x2="65" y2="58" stroke="#8FBC8F" strokeWidth="3" strokeLinecap="round" />
+        <circle
+          cx="50"
+          cy="50"
+          r="22"
+          fill="rgba(87,109,181,.10)"
+          stroke="#576DB5"
+          strokeWidth="2.5"
+        />
+        <line
+          x1="50"
+          y1="50"
+          x2="50"
+          y2="32"
+          stroke="#576DB5"
+          strokeWidth="3"
+          strokeLinecap="round"
+        />
+        <line
+          x1="50"
+          y1="50"
+          x2="65"
+          y2="58"
+          stroke="#8FBC8F"
+          strokeWidth="3"
+          strokeLinecap="round"
+        />
       </svg>
     ),
   },
@@ -259,9 +317,9 @@ const BlogHero = () => {
             <span className="accent">practitioners</span>.
           </h1>
           <p className="bl-mast-lede">
-            <strong>Field-tested tactics, not theory.</strong> Patient
-            acquisition strategies, HIPAA updates, and growth case studies from
-            the team that&rsquo;s helped 200+ Texas practices scale.
+            <strong>Field-tested tactics, not theory.</strong> Patient acquisition strategies, HIPAA
+            updates, and growth case studies from the team that&rsquo;s helped 200+ Texas practices
+            scale.
           </p>
         </div>
 
@@ -317,8 +375,24 @@ const BlogHero = () => {
                 <circle cx="147" cy="88" r="3" fill="#B38B6D" />
                 <circle cx="173" cy="72" r="3" fill="#B38B6D" />
                 <g transform="translate(190, 50)">
-                  <line x1="-6" y1="0" x2="6" y2="0" stroke="#8FBC8F" strokeWidth="2" strokeLinecap="round" />
-                  <line x1="0" y1="-6" x2="0" y2="6" stroke="#8FBC8F" strokeWidth="2" strokeLinecap="round" />
+                  <line
+                    x1="-6"
+                    y1="0"
+                    x2="6"
+                    y2="0"
+                    stroke="#8FBC8F"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                  />
+                  <line
+                    x1="0"
+                    y1="-6"
+                    x2="0"
+                    y2="6"
+                    stroke="#8FBC8F"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                  />
                 </g>
               </svg>
             </div>
@@ -328,9 +402,9 @@ const BlogHero = () => {
                 The new Cost Per Acquisition benchmarks for healthcare in 2026.
               </h2>
               <p className="bl-feat-excerpt">
-                After analyzing $10M+ in healthcare ad spend across 200+ Texas
-                practices, we&rsquo;ve compiled the actual CPA ranges -
-                plus the 4 levers that consistently bring it down.
+                After analyzing $10M+ in healthcare ad spend across 200+ Texas practices,
+                we&rsquo;ve compiled the actual CPA ranges - plus the 4 levers that consistently
+                bring it down.
               </p>
               <div className="bl-feat-meta">
                 <span>Apr 28, 2026</span>

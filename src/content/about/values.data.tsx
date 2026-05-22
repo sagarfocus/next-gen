@@ -25,7 +25,6 @@ export interface ValueEntry {
   faqs: ValueFAQ[];
 }
 
-
 export const VALUE_ENTRIES: ValueEntry[] = [
   {
     slug: 'patient-first-marketing',
@@ -34,19 +33,40 @@ export const VALUE_ENTRIES: ValueEntry[] = [
     blurb: 'Connect the right patient to the right provider — never manipulate either.',
     text: 'Every campaign must serve the patient as much as the practice. We never employ dark patterns, misleading claims, or non-compliant advertising tactics. Marketing should connect the right patient to the right provider at the right time.',
     icon: (
-      <svg width={26} height={26} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.7} strokeLinecap="round" strokeLinejoin="round">
+      <svg
+        width={26}
+        height={26}
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth={1.7}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
         <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
       </svg>
     ),
     visual: (
       <div className="ab-value-visual ab-value-visual-compare" aria-hidden="true">
         <div className="ab-vv-row ab-vv-row-bad">
-          <span className="ab-vv-chip ab-vv-chip-bad"><XIcon />Dark patterns</span>
-          <span className="ab-vv-chip ab-vv-chip-bad"><XIcon />Fake urgency</span>
+          <span className="ab-vv-chip ab-vv-chip-bad">
+            <XIcon />
+            Dark patterns
+          </span>
+          <span className="ab-vv-chip ab-vv-chip-bad">
+            <XIcon />
+            Fake urgency
+          </span>
         </div>
         <div className="ab-vv-row ab-vv-row-good">
-          <span className="ab-vv-chip ab-vv-chip-good"><CheckIcon />Right patient</span>
-          <span className="ab-vv-chip ab-vv-chip-good"><CheckIcon />Right time</span>
+          <span className="ab-vv-chip ab-vv-chip-good">
+            <CheckIcon />
+            Right patient
+          </span>
+          <span className="ab-vv-chip ab-vv-chip-good">
+            <CheckIcon />
+            Right time
+          </span>
         </div>
       </div>
     ),
@@ -96,7 +116,16 @@ export const VALUE_ENTRIES: ValueEntry[] = [
     blurb: 'Patients booked and revenue earned — not impressions and reach.',
     text: 'We track actual patient registrations and revenue impact - not vanity metrics like impressions or reach. Our analytics dashboards show Cost Per Acquisition, appointment-to-show ratios, and real ROI tied to your bottom line.',
     icon: (
-      <svg width={26} height={26} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.7} strokeLinecap="round" strokeLinejoin="round">
+      <svg
+        width={26}
+        height={26}
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth={1.7}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
         <line x1="12" y1="20" x2="12" y2="10" />
         <line x1="18" y1="20" x2="18" y2="4" />
         <line x1="6" y1="20" x2="6" y2="16" />
@@ -166,7 +195,16 @@ export const VALUE_ENTRIES: ValueEntry[] = [
     blurb: 'BAAs everywhere. Encryption everywhere. Compliance as foundation.',
     text: 'We sign Business Associate Agreements (BAAs) with every client. Our infrastructure - from encrypted forms to secure hosting - is designed to protect patient data at every touchpoint. Compliance is not a feature; it is the foundation.',
     icon: (
-      <svg width={26} height={26} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.7} strokeLinecap="round" strokeLinejoin="round">
+      <svg
+        width={26}
+        height={26}
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth={1.7}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
         <path d="M12 2 L 4 6 V 12 C 4 16.5 7.5 20.7 12 22 C 16.5 20.7 20 16.5 20 12 V 6 Z" />
         <path d="M9 12 L 11 14 L 15 10" />
       </svg>
@@ -174,20 +212,47 @@ export const VALUE_ENTRIES: ValueEntry[] = [
     visual: (
       <div className="ab-value-visual ab-value-visual-badges" aria-hidden="true">
         <span className="ab-vv-badge">
-          <svg width={14} height={14} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
+          <svg
+            width={14}
+            height={14}
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth={2}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
             <path d="M12 2 L 4 6 V 12 C 4 16.5 7.5 20.7 12 22 C 16.5 20.7 20 16.5 20 12 V 6 Z" />
           </svg>
           HIPAA Compliant
         </span>
         <span className="ab-vv-badge">
-          <svg width={14} height={14} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
+          <svg
+            width={14}
+            height={14}
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth={2}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
             <path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z" />
             <path d="M14 3v5h5" />
           </svg>
           BAA Signed
         </span>
         <span className="ab-vv-badge">
-          <svg width={14} height={14} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
+          <svg
+            width={14}
+            height={14}
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth={2}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
             <rect x="4" y="11" width="16" height="10" rx="2" />
             <path d="M8 11V7a4 4 0 0 1 8 0v4" />
           </svg>

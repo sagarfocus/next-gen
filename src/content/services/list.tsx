@@ -9,7 +9,7 @@ import contentImg from '../../assets/content-copywriting.png';
 import gbpImg from '../../assets/google-business.png';
 import webImg from '../../assets/website-design.png';
 import brandImg from '../../assets/brand-identity.png';
-import printImg from '../../assets/brochure-print-design.png';
+import emailImg from '../../assets/email-drip-campaigns.png';
 import strategyImg from '../../assets/strategy-planning.png';
 import analyticsImg from '../../assets/analytics-and-report.png';
 
@@ -29,7 +29,15 @@ export interface ServiceItem {
 const SeoCard = (
   <svg viewBox="0 0 320 240" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
     <circle cx="148" cy="118" r="64" fill="none" stroke="#B38B6D" strokeWidth="2.4" />
-    <line x1="194" y1="164" x2="226" y2="196" stroke="#B38B6D" strokeWidth="3.5" strokeLinecap="round" />
+    <line
+      x1="194"
+      y1="164"
+      x2="226"
+      y2="196"
+      stroke="#B38B6D"
+      strokeWidth="3.5"
+      strokeLinecap="round"
+    />
     <circle cx="226" cy="196" r="3" fill="#B38B6D" />
     <path
       d="M148 84 C 162 84 172 94 172 108 C 172 124 148 148 148 148 C 148 148 124 124 124 108 C 124 94 134 84 148 84 Z"
@@ -41,12 +49,54 @@ const SeoCard = (
 
 const AdsCard = (
   <svg viewBox="0 0 320 240" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-    <line x1="60" y1="180" x2="260" y2="180" stroke="#B38B6D" strokeOpacity=".4" strokeWidth="1.4" />
-    <rect x="80" y="140" width="32" height="40" rx="4" fill="#fff" stroke="#B38B6D" strokeWidth="1.6" />
-    <rect x="124" y="115" width="32" height="65" rx="4" fill="#fff" stroke="#B38B6D" strokeWidth="1.6" />
-    <rect x="168" y="90" width="32" height="90" rx="4" fill="#8FBC8F" fillOpacity=".30" stroke="#8FBC8F" strokeWidth="1.6" />
+    <line
+      x1="60"
+      y1="180"
+      x2="260"
+      y2="180"
+      stroke="#B38B6D"
+      strokeOpacity=".4"
+      strokeWidth="1.4"
+    />
+    <rect
+      x="80"
+      y="140"
+      width="32"
+      height="40"
+      rx="4"
+      fill="#fff"
+      stroke="#B38B6D"
+      strokeWidth="1.6"
+    />
+    <rect
+      x="124"
+      y="115"
+      width="32"
+      height="65"
+      rx="4"
+      fill="#fff"
+      stroke="#B38B6D"
+      strokeWidth="1.6"
+    />
+    <rect
+      x="168"
+      y="90"
+      width="32"
+      height="90"
+      rx="4"
+      fill="#8FBC8F"
+      fillOpacity=".30"
+      stroke="#8FBC8F"
+      strokeWidth="1.6"
+    />
     <rect x="212" y="60" width="32" height="120" rx="4" fill="#576DB5" />
-    <path d="M80 70 L 230 70" fill="none" stroke="#B38B6D" strokeWidth="1.6" strokeDasharray="3 4" />
+    <path
+      d="M80 70 L 230 70"
+      fill="none"
+      stroke="#B38B6D"
+      strokeWidth="1.6"
+      strokeDasharray="3 4"
+    />
     <polyline
       points="220,62 230,70 220,78"
       fill="none"
@@ -95,8 +145,28 @@ const SocialCard = (
 
 const ContentCard = (
   <svg viewBox="0 0 320 240" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-    <rect x="98" y="62" width="120" height="138" rx="8" fill="#fff" stroke="#B38B6D" strokeOpacity=".45" strokeWidth="1.5" transform="rotate(-4 158 131)" />
-    <rect x="100" y="60" width="120" height="138" rx="8" fill="#fff" stroke="#B38B6D" strokeWidth="1.8" />
+    <rect
+      x="98"
+      y="62"
+      width="120"
+      height="138"
+      rx="8"
+      fill="#fff"
+      stroke="#B38B6D"
+      strokeOpacity=".45"
+      strokeWidth="1.5"
+      transform="rotate(-4 158 131)"
+    />
+    <rect
+      x="100"
+      y="60"
+      width="120"
+      height="138"
+      rx="8"
+      fill="#fff"
+      stroke="#B38B6D"
+      strokeWidth="1.8"
+    />
     <line x1="118" y1="92" x2="200" y2="92" stroke="#B38B6D" strokeWidth="1.5" opacity=".75" />
     <line x1="118" y1="110" x2="200" y2="110" stroke="#B38B6D" strokeWidth="1.5" opacity=".55" />
     <line x1="118" y1="128" x2="180" y2="128" stroke="#B38B6D" strokeWidth="1.5" opacity=".55" />
@@ -107,9 +177,21 @@ const ContentCard = (
 
 const GbpCard = (
   <svg viewBox="0 0 320 240" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-    <path d="M160 50 C 188 50 208 70 208 98 C 208 132 160 184 160 184 C 160 184 112 132 112 98 C 112 70 132 50 160 50 Z" fill="#fff" stroke="#B38B6D" strokeWidth="1.8" />
+    <path
+      d="M160 50 C 188 50 208 70 208 98 C 208 132 160 184 160 184 C 160 184 112 132 112 98 C 112 70 132 50 160 50 Z"
+      fill="#fff"
+      stroke="#B38B6D"
+      strokeWidth="1.8"
+    />
     <circle cx="160" cy="98" r="16" fill="#576DB5" />
-    <path d="M152 98 L 158 104 L 168 92" fill="none" stroke="#fff" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />
+    <path
+      d="M152 98 L 158 104 L 168 92"
+      fill="none"
+      stroke="#fff"
+      strokeWidth="2.4"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
     <g fill="#8FBC8F">
       <circle cx="120" cy="206" r="3.2" />
       <circle cx="140" cy="206" r="3.2" />
@@ -122,12 +204,31 @@ const GbpCard = (
 
 const WebCard = (
   <svg viewBox="0 0 320 240" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-    <rect x="68" y="56" width="184" height="128" rx="10" fill="#fff" stroke="#B38B6D" strokeWidth="1.8" />
+    <rect
+      x="68"
+      y="56"
+      width="184"
+      height="128"
+      rx="10"
+      fill="#fff"
+      stroke="#B38B6D"
+      strokeWidth="1.8"
+    />
     <line x1="68" y1="84" x2="252" y2="84" stroke="#B38B6D" strokeWidth="1.5" />
     <circle cx="82" cy="70" r="3" fill="#B38B6D" />
     <circle cx="94" cy="70" r="3" fill="#B38B6D" fillOpacity=".55" />
     <circle cx="106" cy="70" r="3" fill="#B38B6D" fillOpacity=".30" />
-    <rect x="86" y="100" width="56" height="68" rx="4" fill="#8FBC8F" fillOpacity=".30" stroke="#8FBC8F" strokeWidth="1.2" />
+    <rect
+      x="86"
+      y="100"
+      width="56"
+      height="68"
+      rx="4"
+      fill="#8FBC8F"
+      fillOpacity=".30"
+      stroke="#8FBC8F"
+      strokeWidth="1.2"
+    />
     <rect x="156" y="100" width="78" height="14" rx="3" fill="#576DB5" fillOpacity=".75" />
     <rect x="156" y="120" width="78" height="6" rx="2" fill="#B38B6D" fillOpacity=".4" />
     <rect x="156" y="132" width="62" height="6" rx="2" fill="#B38B6D" fillOpacity=".3" />
@@ -150,80 +251,336 @@ const BrandCard = (
       letterSpacing="-0.5"
       textAnchor="middle"
     >
-      Aa  Bb  Cc
+      Aa Bb Cc
     </text>
   </svg>
 );
 
-const PrintCard = (
+const EmailCard = (
   <svg viewBox="0 0 320 240" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
     <g transform="translate(70, 60)">
-      <rect x="0" y="0" width="58" height="120" rx="4" fill="#fff" stroke="#B38B6D" strokeWidth="1.6" />
-      <rect x="61" y="0" width="58" height="120" rx="4" fill="#fff" stroke="#B38B6D" strokeWidth="1.6" />
-      <rect x="122" y="0" width="58" height="120" rx="4" fill="#576DB5" />
-      <line x1="10" y1="20" x2="48" y2="20" stroke="#B38B6D" strokeOpacity=".55" strokeWidth="1.2" />
-      <line x1="10" y1="32" x2="42" y2="32" stroke="#B38B6D" strokeOpacity=".4" strokeWidth="1.2" />
-      <rect x="69" y="14" width="42" height="56" rx="2" fill="#8FBC8F" fillOpacity=".35" />
-      <line x1="69" y1="80" x2="111" y2="80" stroke="#B38B6D" strokeOpacity=".5" strokeWidth="1.2" />
-      <line x1="69" y1="92" x2="105" y2="92" stroke="#B38B6D" strokeOpacity=".4" strokeWidth="1.2" />
-      <text x="151" y="38" fontFamily="Plus Jakarta Sans, sans-serif" fontSize="11" fontWeight="700" fill="#fff" textAnchor="middle" letterSpacing="2">
-        CARE
-      </text>
-      <line x1="135" y1="56" x2="167" y2="56" stroke="#fff" strokeOpacity=".7" strokeWidth="1" />
+      <rect
+        x="0"
+        y="0"
+        width="180"
+        height="120"
+        rx="6"
+        fill="#fff"
+        stroke="#B38B6D"
+        strokeWidth="1.8"
+      />
+      <path
+        d="M0 8 L 90 70 L 180 8"
+        fill="none"
+        stroke="#B38B6D"
+        strokeWidth="1.6"
+        strokeOpacity=".7"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <rect x="14" y="84" width="86" height="22" rx="3" fill="#576DB5" />
+      <rect
+        x="108"
+        y="84"
+        width="58"
+        height="6"
+        rx="2"
+        fill="#B38B6D"
+        fillOpacity=".4"
+      />
+      <rect
+        x="108"
+        y="96"
+        width="46"
+        height="6"
+        rx="2"
+        fill="#B38B6D"
+        fillOpacity=".3"
+      />
+      <circle cx="160" cy="-4" r="14" fill="#8FBC8F" fillOpacity=".25" />
+      <circle cx="160" cy="-4" r="8" fill="#8FBC8F" />
+      <path
+        d="M156 -4 L 159 -1 L 164 -7"
+        fill="none"
+        stroke="#fff"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
     </g>
   </svg>
 );
 
 const StrategyCard = (
   <svg viewBox="0 0 320 240" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-    <circle cx="170" cy="120" r="76" fill="none" stroke="#B38B6D" strokeOpacity=".45" strokeWidth="1.5" strokeDasharray="4 6" />
-    <circle cx="170" cy="120" r="50" fill="none" stroke="#B38B6D" strokeOpacity=".7" strokeWidth="1.5" />
+    <circle
+      cx="170"
+      cy="120"
+      r="76"
+      fill="none"
+      stroke="#B38B6D"
+      strokeOpacity=".45"
+      strokeWidth="1.5"
+      strokeDasharray="4 6"
+    />
+    <circle
+      cx="170"
+      cy="120"
+      r="50"
+      fill="none"
+      stroke="#B38B6D"
+      strokeOpacity=".7"
+      strokeWidth="1.5"
+    />
     <circle cx="170" cy="120" r="26" fill="#fff" stroke="#576DB5" strokeWidth="1.8" />
     <circle cx="170" cy="120" r="8" fill="#576DB5" />
-    <line x1="78" y1="50" x2="163" y2="113" stroke="#B38B6D" strokeWidth="2" strokeLinecap="round" />
+    <line
+      x1="78"
+      y1="50"
+      x2="163"
+      y2="113"
+      stroke="#B38B6D"
+      strokeWidth="2"
+      strokeLinecap="round"
+    />
     <polygon points="74,64 74,42 92,52" fill="#B38B6D" />
   </svg>
 );
 
 const FieldCard = (
   <svg viewBox="0 0 320 240" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-    <circle cx="160" cy="130" r="86" fill="none" stroke="#B38B6D" strokeOpacity=".30" strokeWidth="1.2" strokeDasharray="3 5" />
-    <circle cx="160" cy="130" r="58" fill="none" stroke="#B38B6D" strokeOpacity=".5" strokeWidth="1.2" strokeDasharray="3 5" />
-    <rect x="123" y="78" width="74" height="84" rx="3" fill="#fff" stroke="#B38B6D" strokeWidth="1.8" />
+    <circle
+      cx="160"
+      cy="130"
+      r="86"
+      fill="none"
+      stroke="#B38B6D"
+      strokeOpacity=".30"
+      strokeWidth="1.2"
+      strokeDasharray="3 5"
+    />
+    <circle
+      cx="160"
+      cy="130"
+      r="58"
+      fill="none"
+      stroke="#B38B6D"
+      strokeOpacity=".5"
+      strokeWidth="1.2"
+      strokeDasharray="3 5"
+    />
+    <rect
+      x="123"
+      y="78"
+      width="74"
+      height="84"
+      rx="3"
+      fill="#fff"
+      stroke="#B38B6D"
+      strokeWidth="1.8"
+    />
     <rect x="153" y="100" width="14" height="40" fill="#8FBC8F" fillOpacity=".50" />
     <rect x="139" y="113" width="42" height="14" fill="#8FBC8F" fillOpacity=".50" />
-    <rect x="197" y="110" width="40" height="52" rx="2" fill="#576DB5" fillOpacity=".18" stroke="#576DB5" strokeWidth="1.2" />
-    <rect x="83" y="110" width="40" height="52" rx="2" fill="#576DB5" fillOpacity=".18" stroke="#576DB5" strokeWidth="1.2" />
+    <rect
+      x="197"
+      y="110"
+      width="40"
+      height="52"
+      rx="2"
+      fill="#576DB5"
+      fillOpacity=".18"
+      stroke="#576DB5"
+      strokeWidth="1.2"
+    />
+    <rect
+      x="83"
+      y="110"
+      width="40"
+      height="52"
+      rx="2"
+      fill="#576DB5"
+      fillOpacity=".18"
+      stroke="#576DB5"
+      strokeWidth="1.2"
+    />
     <circle cx="160" cy="130" r="5" fill="#576DB5" />
   </svg>
 );
 
 const AnalyticsCard = (
   <svg viewBox="0 0 320 240" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-    <circle cx="160" cy="120" r="60" fill="none" stroke="#B38B6D" strokeWidth="22" strokeDasharray="120 376" transform="rotate(-90 160 120)" />
-    <circle cx="160" cy="120" r="60" fill="none" stroke="#576DB5" strokeWidth="22" strokeDasharray="84 376" strokeDashoffset="-120" transform="rotate(-90 160 120)" />
-    <circle cx="160" cy="120" r="60" fill="none" stroke="#8FBC8F" strokeWidth="22" strokeDasharray="64 376" strokeDashoffset="-204" transform="rotate(-90 160 120)" />
+    <circle
+      cx="160"
+      cy="120"
+      r="60"
+      fill="none"
+      stroke="#B38B6D"
+      strokeWidth="22"
+      strokeDasharray="120 376"
+      transform="rotate(-90 160 120)"
+    />
+    <circle
+      cx="160"
+      cy="120"
+      r="60"
+      fill="none"
+      stroke="#576DB5"
+      strokeWidth="22"
+      strokeDasharray="84 376"
+      strokeDashoffset="-120"
+      transform="rotate(-90 160 120)"
+    />
+    <circle
+      cx="160"
+      cy="120"
+      r="60"
+      fill="none"
+      stroke="#8FBC8F"
+      strokeWidth="22"
+      strokeDasharray="64 376"
+      strokeDashoffset="-204"
+      transform="rotate(-90 160 120)"
+    />
     <circle cx="160" cy="120" r="46" fill="#FAFAF8" />
-    <text x="160" y="116" fontFamily="Plus Jakarta Sans, sans-serif" fontSize="22" fontWeight="700" fill="#2D3748" textAnchor="middle">
+    <text
+      x="160"
+      y="116"
+      fontFamily="Plus Jakarta Sans, sans-serif"
+      fontSize="22"
+      fontWeight="700"
+      fill="#2D3748"
+      textAnchor="middle"
+    >
       87%
     </text>
-    <text x="160" y="136" fontFamily="Plus Jakarta Sans, sans-serif" fontSize="9" fontWeight="700" fill="#718096" textAnchor="middle" letterSpacing="2">
+    <text
+      x="160"
+      y="136"
+      fontFamily="Plus Jakarta Sans, sans-serif"
+      fontSize="9"
+      fontWeight="700"
+      fill="#718096"
+      textAnchor="middle"
+      letterSpacing="2"
+    >
       ROI
     </text>
   </svg>
 );
 
 export const SERVICES: ServiceItem[] = [
-  { ariaId: 'svc-1',  illustration: SeoCard,       image: seoImg,       meta: 'Search',     title: 'SEO Services',                sub: 'Full-suite SEO - technical, on-page, off-page, local, AEO, content.', to: '/services/seo' },
-  { ariaId: 'svc-2',  illustration: AdsCard,       image: adsImg,       meta: 'Paid Media', title: 'Google Ads',                  sub: 'Search · PMax · Display · YouTube · Shopping · LSA - tuned weekly.',     to: '/services/google-ads' },
-  { ariaId: 'svc-3',  illustration: MetaCard,      image: metaImg,      meta: 'Social Ads', title: 'Meta Ads',                    sub: 'Conversion-focused campaigns on Facebook & Instagram.',             to: '/meta-ads' },
-  { ariaId: 'svc-4',  illustration: SocialCard,    image: socialImg,    meta: 'Social',     title: 'Social Media Marketing',      sub: 'Show up where your patients spend their time.',                     to: '/services/social-media-marketing' },
-  { ariaId: 'svc-5',  illustration: ContentCard,   image: contentImg,   meta: 'Content',    title: 'Content & Copywriting',       sub: 'Healthcare content that ranks & converts.',                         to: '/services/content-copywriting' },
-  { ariaId: 'svc-6',  illustration: GbpCard,       image: gbpImg,       meta: 'Local',      title: 'Google Business Profile',     sub: 'Dominate the Local Pack with weekly GBP optimization.',             to: '/services/google-business-profile' },
-  { ariaId: 'svc-7',  illustration: WebCard,       image: webImg,       meta: 'Web',        title: 'Website Design & Development',sub: 'Fast, accessible sites built to convert.',                          to: '/services/website-design-dev',  extra: true },
-  { ariaId: 'svc-8',  illustration: BrandCard,     image: brandImg,     meta: 'Identity',   title: 'Brand Identity Design',       sub: 'Memorable visual systems for healthcare brands.',                   to: '/services/brand-identity-design', extra: true },
-  { ariaId: 'svc-9',  illustration: PrintCard,     image: printImg,     meta: 'Print',      title: 'Brochure & Print Design',     sub: 'Patient-facing print collateral that builds trust.',                to: '/contact',                       extra: true },
-  { ariaId: 'svc-10', illustration: StrategyCard,  image: strategyImg,  meta: 'Strategy',   title: 'Strategy & Planning',         sub: 'Roadmaps grounded in data & clinical reality.',                     to: '/growth-plan',                   extra: true },
-  { ariaId: 'svc-11', illustration: FieldCard,     image: fieldImg,     meta: 'Field',      title: 'Onsite Field Marketing',      sub: 'Community presence that drives walk-in volume.',                    to: '/onsite-field-marketing',        extra: true },
-  { ariaId: 'svc-12', illustration: AnalyticsCard, image: analyticsImg, meta: 'Insights',   title: 'Analytics & Reporting',       sub: 'Real-time dashboards tied to revenue.',                             to: '/services/analytics-reporting',  extra: true },
+  {
+    ariaId: 'svc-1',
+    illustration: SeoCard,
+    image: seoImg,
+    meta: 'Search',
+    title: 'SEO Services',
+    sub: 'Full-suite SEO - technical, on-page, off-page, local, AEO, content.',
+    to: '/services/seo',
+  },
+  {
+    ariaId: 'svc-2',
+    illustration: AdsCard,
+    image: adsImg,
+    meta: 'Paid Media',
+    title: 'Google Ads',
+    sub: 'Search · PMax · Display · YouTube · Shopping · LSA - tuned weekly.',
+    to: '/services/google-ads',
+  },
+  {
+    ariaId: 'svc-3',
+    illustration: MetaCard,
+    image: metaImg,
+    meta: 'Social Ads',
+    title: 'Meta Ads',
+    sub: 'Conversion-focused campaigns on Facebook & Instagram.',
+    to: '/meta-ads',
+  },
+  {
+    ariaId: 'svc-4',
+    illustration: SocialCard,
+    image: socialImg,
+    meta: 'Social',
+    title: 'Social Media Marketing',
+    sub: 'Show up where your patients spend their time.',
+    to: '/services/social-media-marketing',
+  },
+  {
+    ariaId: 'svc-5',
+    illustration: ContentCard,
+    image: contentImg,
+    meta: 'Content',
+    title: 'Content & Copywriting',
+    sub: 'Healthcare content that ranks & converts.',
+    to: '/services/content-copywriting',
+  },
+  {
+    ariaId: 'svc-6',
+    illustration: GbpCard,
+    image: gbpImg,
+    meta: 'Local',
+    title: 'Google Business Profile',
+    sub: 'Dominate the Local Pack with weekly GBP optimization.',
+    to: '/services/google-business-profile',
+  },
+  {
+    ariaId: 'svc-7',
+    illustration: WebCard,
+    image: webImg,
+    meta: 'Web',
+    title: 'Website Design & Development',
+    sub: 'Fast, accessible sites built to convert.',
+    to: '/services/website-design-dev',
+    extra: true,
+  },
+  {
+    ariaId: 'svc-8',
+    illustration: BrandCard,
+    image: brandImg,
+    meta: 'Identity',
+    title: 'Brand Identity Design',
+    sub: 'Memorable visual systems for healthcare brands.',
+    to: '/services/brand-identity-design',
+    extra: true,
+  },
+  {
+    ariaId: 'svc-9',
+    illustration: EmailCard,
+    image: emailImg,
+    meta: 'Lifecycle',
+    title: 'Email Drip Campaigns',
+    sub: 'Welcome · recall · win-back · referral - all BAA-covered.',
+    to: '/services/email-drip-campaigns',
+    extra: true,
+  },
+  {
+    ariaId: 'svc-10',
+    illustration: StrategyCard,
+    image: strategyImg,
+    meta: 'Strategy',
+    title: 'Strategy & Planning',
+    sub: 'Roadmaps grounded in data & clinical reality.',
+    to: '/growth-plan',
+    extra: true,
+  },
+  {
+    ariaId: 'svc-11',
+    illustration: FieldCard,
+    image: fieldImg,
+    meta: 'Field',
+    title: 'Onsite Field Marketing',
+    sub: 'Community presence that drives walk-in volume.',
+    to: '/onsite-field-marketing',
+    extra: true,
+  },
+  {
+    ariaId: 'svc-12',
+    illustration: AnalyticsCard,
+    image: analyticsImg,
+    meta: 'Insights',
+    title: 'Analytics & Reporting',
+    sub: 'Real-time dashboards tied to revenue.',
+    to: '/services/analytics-reporting',
+    extra: true,
+  },
 ];

@@ -18,9 +18,9 @@ const Closing = () => (
             Hand us the inbox. We&rsquo;ll hand back a baseline.
           </h3>
           <p className="mt-6 text-body text-[16px] leading-[1.65] max-w-[56ch]">
-            Connect Google, Yelp, Healthgrades and Zocdoc. We install the listening flow,
-            classify the last 90 days, and deliver a reputation baseline that becomes the
-            starting line for the engagement.
+            Connect Google, Yelp, Healthgrades and Zocdoc. We install the listening flow, classify
+            the last 90 days, and deliver a reputation baseline that becomes the starting line for
+            the engagement.
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-5">
             <Link to="/contact" className="btn-primary">

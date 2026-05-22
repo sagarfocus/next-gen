@@ -7,10 +7,12 @@ const Related = () => (
     <div className="container-shell">
       <header className="adv-head det-head">
         <span className="adv-eyebrow">/ 08 &nbsp; Keep reading</span>
-        <h2 id="atx-related-title" className="adv-h2">More from the automation desk.</h2>
+        <h2 id="atx-related-title" className="adv-h2">
+          More from the automation desk.
+        </h2>
         <p className="adv-intro">
-          Hand-picked resources that extend the library — process, audit, and
-          the operating system the workflows plug into.
+          Hand-picked resources that extend the library — process, audit, and the operating system
+          the workflows plug into.
         </p>
       </header>
       <div className="atx-related-grid">
@@ -20,7 +22,9 @@ const Related = () => (
             <span className="atx-related-cat">{r.cat}</span>
             <h3 className="atx-related-title">{r.title}</h3>
             <p className="atx-related-desc">{r.desc}</p>
-            <span className="atx-related-cta">Read <ArrowIcon size={12} /></span>
+            <span className="atx-related-cta">
+              Read <ArrowIcon size={12} />
+            </span>
           </Link>
         ))}
       </div>

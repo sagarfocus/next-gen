@@ -19,20 +19,45 @@ interface FormData {
 }
 
 const ICON_BOLT = (
-  <svg width={20} height={20} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round">
+  <svg
+    width={20}
+    height={20}
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth={1.8}
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
     <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
   </svg>
 );
-const ICON_CLOCK = (
-  <ClockIcon size={20} />
-);
+const ICON_CLOCK = <ClockIcon size={20} />;
 const ICON_HEART = (
-  <svg width={20} height={20} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round">
+  <svg
+    width={20}
+    height={20}
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth={1.8}
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
     <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
   </svg>
 );
 const ICON_GRID = (
-  <svg width={20} height={20} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round">
+  <svg
+    width={20}
+    height={20}
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth={1.8}
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
     <rect x="3" y="3" width="7" height="7" rx="1" />
     <rect x="14" y="3" width="7" height="7" rx="1" />
     <rect x="3" y="14" width="7" height="7" rx="1" />
@@ -40,42 +65,105 @@ const ICON_GRID = (
   </svg>
 );
 const ICON_PIN = (
-  <svg width={20} height={20} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round">
+  <svg
+    width={20}
+    height={20}
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth={1.8}
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
     <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
     <circle cx="12" cy="10" r="3" />
   </svg>
 );
 const ICON_DOLLAR = (
-  <svg width={20} height={20} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round">
+  <svg
+    width={20}
+    height={20}
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth={1.8}
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
     <line x1="12" y1="1" x2="12" y2="23" />
     <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
   </svg>
 );
 const ICON_PHONE = (
-  <svg width={20} height={20} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round">
+  <svg
+    width={20}
+    height={20}
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth={1.8}
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
     <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
   </svg>
 );
 const ICON_LOCK = (
-  <svg width={20} height={20} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round">
+  <svg
+    width={20}
+    height={20}
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth={1.8}
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
     <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
     <path d="M7 11V7a5 5 0 0 1 10 0v4" />
   </svg>
 );
 const ICON_MAP = (
-  <svg width={20} height={20} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round">
+  <svg
+    width={20}
+    height={20}
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth={1.8}
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
     <polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6" />
     <line x1="8" y1="2" x2="8" y2="18" />
     <line x1="16" y1="6" x2="16" y2="22" />
   </svg>
 );
 const ICON_STAR = (
-  <svg width={20} height={20} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round">
+  <svg
+    width={20}
+    height={20}
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth={1.8}
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
     <polygon points="12 2 15 8.5 22 9.3 17 14.1 18.2 21 12 17.8 5.8 21 7 14.1 2 9.3 9 8.5 12 2" />
   </svg>
 );
 const ICON_CALENDAR = (
-  <svg width={20} height={20} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round">
+  <svg
+    width={20}
+    height={20}
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth={1.8}
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
     <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
     <line x1="16" y1="2" x2="16" y2="6" />
     <line x1="8" y1="2" x2="8" y2="6" />
@@ -83,37 +171,83 @@ const ICON_CALENDAR = (
   </svg>
 );
 const ICON_CHART = (
-  <svg width={20} height={20} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round">
+  <svg
+    width={20}
+    height={20}
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth={1.8}
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
     <line x1="12" y1="20" x2="12" y2="10" />
     <line x1="18" y1="20" x2="18" y2="4" />
     <line x1="6" y1="20" x2="6" y2="16" />
   </svg>
 );
 const ICON_CHECK = (
-  <svg width={11} height={11} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={3.2} strokeLinecap="round" strokeLinejoin="round">
+  <svg
+    width={11}
+    height={11}
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth={3.2}
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
     <polyline points="20 6 9 17 4 12" />
   </svg>
 );
-const ICON_ARROW_RIGHT = (
-  <ArrowIcon size={14} />
-);
+const ICON_ARROW_RIGHT = <ArrowIcon size={14} />;
 const ICON_ARROW_LEFT = (
-  <svg width={14} height={14} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+  <svg
+    width={14}
+    height={14}
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth={2.2}
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    aria-hidden="true"
+  >
     <polyline points="15 18 9 12 15 6" />
   </svg>
 );
 
 const FACILITY_CHOICES: Choice[] = [
-  { value: 'Freestanding ER', label: 'Freestanding ER', meta: 'High-acuity / trauma', icon: ICON_BOLT },
+  {
+    value: 'Freestanding ER',
+    label: 'Freestanding ER',
+    meta: 'High-acuity / trauma',
+    icon: ICON_BOLT,
+  },
   { value: 'Urgent Care', label: 'Urgent Care', meta: 'Walk-in volume', icon: ICON_CLOCK },
-  { value: 'Wellness Clinic', label: 'Wellness Clinic', meta: 'Aesthetic / longevity', icon: ICON_HEART },
-  { value: 'Multi-Specialty', label: 'Multi-Specialty', meta: 'Combined practice', icon: ICON_GRID },
+  {
+    value: 'Wellness Clinic',
+    label: 'Wellness Clinic',
+    meta: 'Aesthetic / longevity',
+    icon: ICON_HEART,
+  },
+  {
+    value: 'Multi-Specialty',
+    label: 'Multi-Specialty',
+    meta: 'Combined practice',
+    icon: ICON_GRID,
+  },
 ];
 
 const SCALE_CHOICES: Choice[] = [
   { value: '1 Location', label: '1 Location', meta: 'Single-site practice', icon: ICON_PIN },
   { value: '2 - 5 Locations', label: '2 – 5 Locations', meta: 'Small group', icon: ICON_PIN },
-  { value: '6 - 10 Locations', label: '6 – 10 Locations', meta: 'Mid-size network', icon: ICON_PIN },
+  {
+    value: '6 - 10 Locations',
+    label: '6 – 10 Locations',
+    meta: 'Mid-size network',
+    icon: ICON_PIN,
+  },
   { value: '10+ Locations', label: '10+ Locations', meta: 'Enterprise', icon: ICON_PIN },
 ];
 
@@ -125,12 +259,42 @@ const BUDGET_CHOICES: Choice[] = [
 ];
 
 const GOAL_CHOICES: Choice[] = [
-  { value: 'Increase Call Volume', label: 'Increase Call Volume', meta: 'More patient inquiries', icon: ICON_PHONE },
-  { value: 'Reduce Front-Desk Load', label: 'Reduce Front-Desk Load', meta: 'AI intake automation', icon: ICON_LOCK },
-  { value: 'Improve Map Rankings', label: 'Improve Map Rankings', meta: 'Local pack visibility', icon: ICON_MAP },
-  { value: 'Automate Reviews', label: 'Automate Reviews', meta: 'Reputation management', icon: ICON_STAR },
-  { value: 'Implement AI Scheduling', label: 'AI Scheduling', meta: 'Automated booking', icon: ICON_CALENDAR },
-  { value: 'Lower Cost Per Acquisition', label: 'Lower Cost Per Acquisition', meta: 'Better ROI on spend', icon: ICON_CHART },
+  {
+    value: 'Increase Call Volume',
+    label: 'Increase Call Volume',
+    meta: 'More patient inquiries',
+    icon: ICON_PHONE,
+  },
+  {
+    value: 'Reduce Front-Desk Load',
+    label: 'Reduce Front-Desk Load',
+    meta: 'AI intake automation',
+    icon: ICON_LOCK,
+  },
+  {
+    value: 'Improve Map Rankings',
+    label: 'Improve Map Rankings',
+    meta: 'Local pack visibility',
+    icon: ICON_MAP,
+  },
+  {
+    value: 'Automate Reviews',
+    label: 'Automate Reviews',
+    meta: 'Reputation management',
+    icon: ICON_STAR,
+  },
+  {
+    value: 'Implement AI Scheduling',
+    label: 'AI Scheduling',
+    meta: 'Automated booking',
+    icon: ICON_CALENDAR,
+  },
+  {
+    value: 'Lower Cost Per Acquisition',
+    label: 'Lower Cost Per Acquisition',
+    meta: 'Better ROI on spend',
+    icon: ICON_CHART,
+  },
 ];
 
 const STEP_LABELS = ['Facility', 'Scale', 'Budget', 'Goals', 'Contact'];
@@ -146,11 +310,7 @@ const ChoiceButton = ({
   selected: boolean;
   onClick: () => void;
 }) => (
-  <button
-    type="button"
-    className={`ct-choice${selected ? ' is-selected' : ''}`}
-    onClick={onClick}
-  >
+  <button type="button" className={`ct-choice${selected ? ' is-selected' : ''}`} onClick={onClick}>
     <span className="ct-choice-ico" aria-hidden="true">
       {choice.icon}
     </span>
@@ -183,9 +343,7 @@ const QuoteWizard = () => {
   const toggleGoal = (value: string) => {
     setData((d) => ({
       ...d,
-      goals: d.goals.includes(value)
-        ? d.goals.filter((g) => g !== value)
-        : [...d.goals, value],
+      goals: d.goals.includes(value) ? d.goals.filter((g) => g !== value) : [...d.goals, value],
     }));
   };
 
@@ -249,8 +407,8 @@ const QuoteWizard = () => {
               Which type of facility do you operate?
             </h2>
             <p className="ct-step-sub">
-              Each specialty has its own patient psychology and acquisition
-              dynamics. We&rsquo;ll match you with the right playbook.
+              Each specialty has its own patient psychology and acquisition dynamics. We&rsquo;ll
+              match you with the right playbook.
             </p>
             <div className="ct-choices cols-4" role="radiogroup">
               {FACILITY_CHOICES.map((c) => (
@@ -267,12 +425,10 @@ const QuoteWizard = () => {
           {/* STEP 2: Scale */}
           <div className={`ct-step${step === 2 ? ' is-active' : ''}`}>
             <span className="ct-step-tag">Step 02 - Scale Metrics</span>
-            <h2 className="ct-step-title">
-              How many physical locations do you operate?
-            </h2>
+            <h2 className="ct-step-title">How many physical locations do you operate?</h2>
             <p className="ct-step-sub">
-              Scale changes everything - from local SEO strategy to
-              multi-location reputation systems.
+              Scale changes everything - from local SEO strategy to multi-location reputation
+              systems.
             </p>
             <div className="ct-choices cols-4" role="radiogroup">
               {SCALE_CHOICES.map((c) => (
@@ -289,12 +445,10 @@ const QuoteWizard = () => {
           {/* STEP 3: Budget */}
           <div className={`ct-step${step === 3 ? ' is-active' : ''}`}>
             <span className="ct-step-tag">Step 03 - Financial Qualifier</span>
-            <h2 className="ct-step-title">
-              Current or projected monthly ad spend?
-            </h2>
+            <h2 className="ct-step-title">Current or projected monthly ad spend?</h2>
             <p className="ct-step-sub">
-              This helps us scope the right channel mix and forecast realistic
-              patient acquisition velocity for your practice.
+              This helps us scope the right channel mix and forecast realistic patient acquisition
+              velocity for your practice.
             </p>
             <div className="ct-choices cols-4" role="radiogroup">
               {BUDGET_CHOICES.map((c) => (
@@ -311,12 +465,10 @@ const QuoteWizard = () => {
           {/* STEP 4: Goals */}
           <div className={`ct-step${step === 4 ? ' is-active' : ''}`}>
             <span className="ct-step-tag">Step 04 - Primary Objectives</span>
-            <h2 className="ct-step-title">
-              What are your main growth objectives?
-            </h2>
+            <h2 className="ct-step-title">What are your main growth objectives?</h2>
             <p className="ct-step-sub">
-              Select all that apply - we&rsquo;ll prioritize the right
-              tactics in your custom roadmap.
+              Select all that apply - we&rsquo;ll prioritize the right tactics in your custom
+              roadmap.
             </p>
             <div className="ct-choices cols-3" role="group">
               {GOAL_CHOICES.map((c) => (
@@ -333,12 +485,10 @@ const QuoteWizard = () => {
           {/* STEP 5: Contact */}
           <div className={`ct-step${step === 5 ? ' is-active' : ''}`}>
             <span className="ct-step-tag">Step 05 - Your Contact</span>
-            <h2 className="ct-step-title">
-              Where should we send your custom roadmap?
-            </h2>
+            <h2 className="ct-step-title">Where should we send your custom roadmap?</h2>
             <p className="ct-step-sub">
-              We&rsquo;ll send your tailored growth plan and pricing within 4
-              business hours - straight to your inbox.
+              We&rsquo;ll send your tailored growth plan and pricing within 4 business hours -
+              straight to your inbox.
             </p>
             <div className="ct-fields">
               <div className="ct-field">
@@ -352,9 +502,7 @@ const QuoteWizard = () => {
                   placeholder="Dr. Jane Smith"
                   autoComplete="name"
                   value={data.name}
-                  onChange={(e) =>
-                    setData((d) => ({ ...d, name: e.target.value }))
-                  }
+                  onChange={(e) => setData((d) => ({ ...d, name: e.target.value }))}
                 />
               </div>
               <div className="ct-field">
@@ -368,9 +516,7 @@ const QuoteWizard = () => {
                   placeholder="jane@yourpractice.com"
                   autoComplete="email"
                   value={data.email}
-                  onChange={(e) =>
-                    setData((d) => ({ ...d, email: e.target.value }))
-                  }
+                  onChange={(e) => setData((d) => ({ ...d, email: e.target.value }))}
                 />
               </div>
             </div>
@@ -379,15 +525,23 @@ const QuoteWizard = () => {
           {/* Success state */}
           <div className={`ct-success${submitted ? ' is-shown' : ''}`}>
             <div className="ct-success-ico" aria-hidden="true">
-              <svg width={40} height={40} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.4} strokeLinecap="round" strokeLinejoin="round">
+              <svg
+                width={40}
+                height={40}
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth={2.4}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
                 <polyline points="20 6 9 17 4 12" />
               </svg>
             </div>
             <h3>Your roadmap is on the way.</h3>
             <p>
-              We&rsquo;ve received your details and will respond within 4
-              business hours with a custom marketing plan tailored to your
-              practice.
+              We&rsquo;ve received your details and will respond within 4 business hours with a
+              custom marketing plan tailored to your practice.
             </p>
           </div>
 
@@ -407,12 +561,7 @@ const QuoteWizard = () => {
                   {ICON_ARROW_LEFT}
                   Back
                 </button>
-                <button
-                  type="button"
-                  className="ct-next"
-                  disabled={!isValid}
-                  onClick={handleNext}
-                >
+                <button type="button" className="ct-next" disabled={!isValid} onClick={handleNext}>
                   <span>{nextLabel}</span>
                   <span className="ico" aria-hidden="true">
                     {ICON_ARROW_RIGHT}

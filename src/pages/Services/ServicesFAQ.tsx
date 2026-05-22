@@ -13,14 +13,9 @@ const FAQChevron = () => (
   </span>
 );
 
-
 const ServicesFAQ = ({ onBook }: FAQProps) => {
   return (
-    <section
-      className="faq-section"
-      id="services-faq"
-      aria-labelledby="svc-faq-title"
-    >
+    <section className="faq-section" id="services-faq" aria-labelledby="svc-faq-title">
       <div className="container-shell">
         <div className="faq-grid">
           <div className="faq-left">
@@ -30,22 +25,19 @@ const ServicesFAQ = ({ onBook }: FAQProps) => {
               <span className="accent-text">Questions</span>.
             </h2>
             <p className="faq-intro">
-              How scope, timelines, ad budgets, compliance, and engagement
-              model actually work when you bring on a healthcare growth
-              partner - written for the people doing the hiring.
+              How scope, timelines, ad budgets, compliance, and engagement model actually work when
+              you bring on a healthcare growth partner - written for the people doing the hiring.
             </p>
 
             <div className="still-card">
               <h3>Need a custom scope?</h3>
               <p>
-                Multi-location group, brand-new launch, or an existing agency
-                you&rsquo;re ready to replace - we&rsquo;ll size the
-                engagement to your stage. No template proposals.
+                Multi-location group, brand-new launch, or an existing agency you&rsquo;re ready to
+                replace - we&rsquo;ll size the engagement to your stage. No template proposals.
               </p>
               <p>
-                One call. We&rsquo;ll audit your current funnel, name the
-                three biggest revenue leaks, and tell you which services would
-                actually move them.
+                One call. We&rsquo;ll audit your current funnel, name the three biggest revenue
+                leaks, and tell you which services would actually move them.
               </p>
               <button
                 type="button"

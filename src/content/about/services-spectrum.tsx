@@ -59,7 +59,11 @@ export const PILLARS: Pillar[] = [
           <path d="M 9 9 L 18 18" stroke="#576DB5" strokeWidth="1.8" strokeLinecap="round" />
         </g>
         <g transform="translate(56, 36)">
-          <path d="M 0 0 C 0 -8 12 -8 12 0 C 12 8 6 12 6 16 C 6 12 0 8 0 0 Z" fill="#8FBC8F" opacity="0.7" />
+          <path
+            d="M 0 0 C 0 -8 12 -8 12 0 C 12 8 6 12 6 16 C 6 12 0 8 0 0 Z"
+            fill="#8FBC8F"
+            opacity="0.7"
+          />
           <circle cx="6" cy="0" r="3" fill="#fff" />
         </g>
       </svg>
@@ -67,7 +71,14 @@ export const PILLARS: Pillar[] = [
     features: [
       {
         icon: (
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth={1.8}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
             <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z" />
             <circle cx="12" cy="10" r="3" />
           </svg>
@@ -77,7 +88,14 @@ export const PILLARS: Pillar[] = [
       },
       {
         icon: (
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth={1.8}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
             <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
           </svg>
         ),
@@ -86,7 +104,14 @@ export const PILLARS: Pillar[] = [
       },
       {
         icon: (
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth={1.8}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
             <circle cx="18" cy="5" r="3" />
             <circle cx="6" cy="12" r="3" />
             <circle cx="18" cy="19" r="3" />
@@ -130,7 +155,15 @@ export const PILLARS: Pillar[] = [
         </defs>
         <rect width="320" height="120" rx="14" fill="url(#ab-spec-ops-grad)" />
         <g transform="translate(24, 22)">
-          <rect width="140" height="76" rx="6" fill="#fff" stroke="#8FBC8F" strokeOpacity="0.45" strokeWidth="1.2" />
+          <rect
+            width="140"
+            height="76"
+            rx="6"
+            fill="#fff"
+            stroke="#8FBC8F"
+            strokeOpacity="0.45"
+            strokeWidth="1.2"
+          />
           <rect width="140" height="14" rx="6" fill="#8FBC8F" fillOpacity="0.18" />
           <circle cx="9" cy="7" r="2" fill="#8FBC8F" />
           <circle cx="17" cy="7" r="2" fill="#B38B6D" />
@@ -141,9 +174,34 @@ export const PILLARS: Pillar[] = [
           <rect x="12" y="60" width="40" height="10" rx="3" fill="#8FBC8F" />
         </g>
         <g transform="translate(184, 22)">
-          <rect width="112" height="76" rx="6" fill="#fff" stroke="#B38B6D" strokeOpacity="0.45" strokeWidth="1.2" />
-          <text x="10" y="22" fontFamily="system-ui, sans-serif" fontSize="9" fontWeight="700" fill="#718096" letterSpacing="1.4">ANALYTICS</text>
-          <polyline points="10,58 28,46 46,52 64,38 82,42 100,28" fill="none" stroke="#576DB5" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+          <rect
+            width="112"
+            height="76"
+            rx="6"
+            fill="#fff"
+            stroke="#B38B6D"
+            strokeOpacity="0.45"
+            strokeWidth="1.2"
+          />
+          <text
+            x="10"
+            y="22"
+            fontFamily="system-ui, sans-serif"
+            fontSize="9"
+            fontWeight="700"
+            fill="#718096"
+            letterSpacing="1.4"
+          >
+            ANALYTICS
+          </text>
+          <polyline
+            points="10,58 28,46 46,52 64,38 82,42 100,28"
+            fill="none"
+            stroke="#576DB5"
+            strokeWidth="1.8"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
           <g fill="#576DB5">
             <circle cx="28" cy="46" r="2" />
             <circle cx="64" cy="38" r="2" />
@@ -156,7 +214,14 @@ export const PILLARS: Pillar[] = [
     features: [
       {
         icon: (
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth={1.8}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
             <rect x="2" y="3" width="20" height="14" rx="2" />
             <line x1="8" y1="21" x2="16" y2="21" />
             <line x1="12" y1="17" x2="12" y2="21" />
@@ -167,7 +232,14 @@ export const PILLARS: Pillar[] = [
       },
       {
         icon: (
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth={1.8}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
             <path d="M12 2l2.3 5.3L20 9l-4 4.2L17 20l-5-2.8L7 20l1-6.8L4 9l5.7-1.7L12 2z" />
           </svg>
         ),
@@ -176,7 +248,14 @@ export const PILLARS: Pillar[] = [
       },
       {
         icon: (
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth={1.8}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
             <line x1="18" y1="20" x2="18" y2="10" />
             <line x1="12" y1="20" x2="12" y2="4" />
             <line x1="6" y1="20" x2="6" y2="14" />

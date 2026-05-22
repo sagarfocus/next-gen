@@ -13,17 +13,14 @@ const Coverage = () => (
           Six Texas metros. <em>Ranked by active pages.</em>
         </h2>
         <p className="hlc-sec-sub">
-          Coverage extends to surrounding municipalities and suburbs.
-          Each metro is its own atlas page.
+          Coverage extends to surrounding municipalities and suburbs. Each metro is its own atlas
+          page.
         </p>
       </header>
 
       <div className="hlc-metro-grid">
         {METROS.map((m, i) => (
-          <article
-            key={m.code}
-            className={`hlc-metro-card${i === 0 ? ' is-feature' : ''}`}
-          >
+          <article key={m.code} className={`hlc-metro-card${i === 0 ? ' is-feature' : ''}`}>
             <div className="hlc-metro-img">
               <img src={m.img} alt="" loading="lazy" decoding="async" />
               <span className="hlc-metro-pages-badge" aria-hidden="true">

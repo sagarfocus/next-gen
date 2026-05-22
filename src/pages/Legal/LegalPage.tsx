@@ -72,10 +72,7 @@ const LegalPage = ({
       >
         <div className="container-shell">
           <Breadcrumb
-            items={[
-              { label: 'Legal', to: '/sitemap' },
-              { label: breadcrumb },
-            ]}
+            items={[{ label: 'Legal', to: '/sitemap' }, { label: breadcrumb }]}
             section="Legal"
           />
           <div style={{ maxWidth: 760 }}>

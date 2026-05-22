@@ -32,7 +32,9 @@ const Hero = ({ entry, numLabel }: DetailHeroProps) => (
 
         <div className="ow-ind-modal-body">
           <span className="ow-ind-modal-tag">{entry.eyebrow}</span>
-          <h1 id="ow-detail-title" className="ow-ind-modal-title">{entry.title}</h1>
+          <h1 id="ow-detail-title" className="ow-ind-modal-title">
+            {entry.title}
+          </h1>
           <p className="ow-ind-modal-blurb">{entry.blurb}</p>
           <p className="ow-ind-modal-desc">{entry.description}</p>
 

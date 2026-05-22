@@ -19,18 +19,22 @@ const Hero = () => (
           </div>
 
           <h1 className="mt-6 text-heading font-extrabold leading-[0.96] tracking-[-0.04em] text-[clamp(44px,6.8vw,92px)]">
-            Patient growth,<br />
+            Patient growth,
+            <br />
             <span className="relative inline-block">
               <span className="text-line">engineered</span>
-              <span className="absolute -bottom-1 left-0 right-0 h-[3px] bg-line/30" aria-hidden="true" />
+              <span
+                className="absolute -bottom-1 left-0 right-0 h-[3px] bg-line/30"
+                aria-hidden="true"
+              />
             </span>
             .
           </h1>
 
           <p className="mt-7 text-body text-[17px] leading-[1.65] max-w-[58ch]">
-            One integrated system across SEO, paid media, and automation —
-            instrumented end-to-end, reviewed weekly, tuned for the economics
-            of a clinic. Built for operators who want a number, not a deck.
+            One integrated system across SEO, paid media, and automation — instrumented end-to-end,
+            reviewed weekly, tuned for the economics of a clinic. Built for operators who want a
+            number, not a deck.
           </p>
 
           <div className="mt-9 flex flex-wrap items-center gap-4">
@@ -45,7 +49,8 @@ const Hero = () => (
               See the channels
             </Link>
             <span className="text-muted text-[13px]">
-              From <strong className="text-heading font-semibold">$2,500/mo</strong> · No 12-month lock-in
+              From <strong className="text-heading font-semibold">$2,500/mo</strong> · No 12-month
+              lock-in
             </span>
           </div>
 
@@ -53,9 +58,13 @@ const Hero = () => (
           <div className="mt-10 grid grid-cols-3 gap-px bg-line-faint border border-line-faint rounded-[14px] overflow-hidden">
             {HERO_PULSE.map((p) => (
               <div key={p.k} className="bg-bg px-5 py-4 flex flex-col gap-1">
-                <span className="text-[11px] uppercase tracking-[0.18em] font-semibold text-muted">{p.k}</span>
+                <span className="text-[11px] uppercase tracking-[0.18em] font-semibold text-muted">
+                  {p.k}
+                </span>
                 <span className="flex items-baseline gap-2">
-                  <span className="text-heading text-[clamp(22px,2.2vw,30px)] font-extrabold tracking-[-0.02em]">{p.v}</span>
+                  <span className="text-heading text-[clamp(22px,2.2vw,30px)] font-extrabold tracking-[-0.02em]">
+                    {p.v}
+                  </span>
                   <span
                     className={`text-[11px] font-bold uppercase tracking-[0.12em] ${
                       p.dir === 'up' ? 'text-[#2F855A]' : 'text-line'

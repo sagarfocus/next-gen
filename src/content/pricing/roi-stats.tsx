@@ -17,9 +17,7 @@ export const STATS: Stat[] = [
     ),
     label: 'Hours Saved Weekly',
     text: 'Per staff member via automated intake.',
-    icon: (
-      <ClockIcon />
-    ),
+    icon: <ClockIcon />,
   },
   {
     num: (

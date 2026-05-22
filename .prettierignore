@@ -1,0 +1,14 @@
+dist/
+node_modules/
+public/
+src/assets/
+src/styles/
+src/pages/EmailCampaigns/
+src/pages/WebsiteDesign/
+src/pages/SEO/
+src/pages/GoogleAds/
+src/pages/SocialMedia/
+src/pages/ContentMarketing/
+src/content/website-design/
+*.css
+package-lock.json

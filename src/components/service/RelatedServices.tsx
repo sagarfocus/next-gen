@@ -15,7 +15,6 @@ interface RelatedServicesProps {
   items: RelatedServiceLink[];
 }
 
-
 const RelatedServices = ({
   sectionNum = '06',
   title = 'Pair this with another lever.',
@@ -84,7 +83,8 @@ const RelatedServices = ({
                     WebkitBackdropFilter: 'blur(10px) saturate(140%)',
                     border: '1px solid rgba(179, 139, 109, 0.28)',
                     borderRadius: 999,
-                    boxShadow: '0 1px 0 rgba(255, 255, 255, 0.6) inset, 0 6px 16px -10px rgba(179, 139, 109, 0.25)',
+                    boxShadow:
+                      '0 1px 0 rgba(255, 255, 255, 0.6) inset, 0 6px 16px -10px rgba(179, 139, 109, 0.25)',
                   }}
                 >
                   {item.tag}

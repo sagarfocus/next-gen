@@ -5,10 +5,12 @@ const WhoFor = () => (
     <div className="container-shell">
       <header className="adv-head det-head">
         <span className="adv-eyebrow">/ 06 &nbsp; Who this is for</span>
-        <h2 id="atx-who-title" className="adv-h2">Three roles the library was written for.</h2>
+        <h2 id="atx-who-title" className="adv-h2">
+          Three roles the library was written for.
+        </h2>
         <p className="adv-intro">
-          The library is one resource, but three readers will pick it up — each
-          one looking for a different boundary, a different number, a different proof.
+          The library is one resource, but three readers will pick it up — each one looking for a
+          different boundary, a different number, a different proof.
         </p>
       </header>
       <div className="atx-who-grid">

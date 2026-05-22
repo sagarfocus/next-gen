@@ -18,7 +18,9 @@ const Body = ({ entry }: { entry: ValueEntry }) => (
           return (
             <article key={i} className={`ab-value-body-card tone-${meta.tone}`}>
               <span className="ab-value-body-num">/{String(i + 1).padStart(2, '0')}</span>
-              <span className="ab-value-body-icon" aria-hidden="true">{meta.icon}</span>
+              <span className="ab-value-body-icon" aria-hidden="true">
+                {meta.icon}
+              </span>
               <h3 className="ab-value-body-title">{meta.title}</h3>
               <p className="ab-value-body-text">{text}</p>
             </article>

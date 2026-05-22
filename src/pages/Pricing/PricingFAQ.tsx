@@ -10,14 +10,9 @@ const FAQChevron = () => (
   </span>
 );
 
-
 const PricingFAQ = () => {
   return (
-    <section
-      className="faq-section pr-faq"
-      id="pricing-faq"
-      aria-labelledby="pr-faq-title"
-    >
+    <section className="faq-section pr-faq" id="pricing-faq" aria-labelledby="pr-faq-title">
       <div className="container-shell">
         <div className="faq-grid">
           <div className="faq-left">
@@ -27,21 +22,20 @@ const PricingFAQ = () => {
               <span className="accent-text">Questions</span>.
             </h2>
             <p className="faq-intro">
-              What the retainer actually covers, how ad spend works, what
-              you&rsquo;re committing to, and when the math typically pays
-              back - written for the people signing the cheque.
+              What the retainer actually covers, how ad spend works, what you&rsquo;re committing
+              to, and when the math typically pays back - written for the people signing the cheque.
             </p>
 
             <div className="still-card">
               <h3>Not sure which tier fits?</h3>
               <p>
-                Send us your current ad spend, patient LTV, and the one number
-                you&rsquo;d most like to move - we&rsquo;ll recommend
-                Starter, Growth, or Scale on the call. No template proposals.
+                Send us your current ad spend, patient LTV, and the one number you&rsquo;d most like
+                to move - we&rsquo;ll recommend Starter, Growth, or Scale on the call. No template
+                proposals.
               </p>
               <p>
-                One 30-minute call. You leave with a tier recommendation, an
-                ad-spend range, and a 90-day revenue target.
+                One 30-minute call. You leave with a tier recommendation, an ad-spend range, and a
+                90-day revenue target.
               </p>
               <Link to="/contact" className="btn-primary">
                 Get a Tier Recommendation

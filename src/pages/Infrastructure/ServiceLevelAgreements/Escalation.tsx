@@ -12,8 +12,8 @@ const Escalation = () => (
           From signal to <em>resolution, in four steps.</em>
         </h2>
         <p className="gtx-sec-sub">
-          Every incident follows the same documented path. You always know
-          which specialist owns the next move.
+          Every incident follows the same documented path. You always know which specialist owns the
+          next move.
         </p>
       </header>
 

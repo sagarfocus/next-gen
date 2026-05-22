@@ -7,19 +7,14 @@ import Body from './Body';
 import FAQ from './FAQ';
 import Related from './Related';
 import Closing from './Closing';
-import {
-  KIND_GROUP,
-  PAREN_TYPE_LABEL,
-  buildNarrativeBlocks,
-  buildSchema,
-  faqSchema,
-} from './data';
+import { KIND_GROUP, PAREN_TYPE_LABEL, buildNarrativeBlocks, buildSchema, faqSchema } from './data';
 
 const OurWorkDetail = () => {
   const { kind, slug } = useParams<{ kind: string; slug: string }>();
-  const validKind = (kind === 'engagement' || kind === 'industry' || kind === 'capability')
-    ? (kind as DetailKind)
-    : null;
+  const validKind =
+    kind === 'engagement' || kind === 'industry' || kind === 'capability'
+      ? (kind as DetailKind)
+      : null;
 
   const entry = validKind && slug ? findDetail(validKind, slug) : undefined;
 

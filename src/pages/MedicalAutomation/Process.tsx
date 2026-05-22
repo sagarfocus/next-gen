@@ -24,7 +24,9 @@ const Process = () => (
                   </div>
                   <div className="flex flex-col">
                     <span className="font-mono text-[12px] text-line tracking-[0.18em]">{p.n}</span>
-                    <span className="text-[10px] uppercase tracking-[0.18em] text-muted font-semibold">{p.week}</span>
+                    <span className="text-[10px] uppercase tracking-[0.18em] text-muted font-semibold">
+                      {p.week}
+                    </span>
                   </div>
                 </div>
                 <h3 className="text-heading text-[24px] font-extrabold tracking-[-0.02em] leading-[1.1]">

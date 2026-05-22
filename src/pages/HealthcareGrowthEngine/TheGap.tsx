@@ -18,7 +18,9 @@ const TheGap = () => (
         <ul className="space-y-4">
           {GAP_ROWS.map((r) => (
             <li key={r.topic} className="flex gap-4 items-start">
-              <span className="shrink-0 w-20 text-[11px] uppercase tracking-[0.18em] text-muted font-bold pt-1">{r.topic}</span>
+              <span className="shrink-0 w-20 text-[11px] uppercase tracking-[0.18em] text-muted font-bold pt-1">
+                {r.topic}
+              </span>
               <span className="text-muted text-[14.5px] leading-[1.55] line-through decoration-line-faint decoration-2">
                 {r.agency}
               </span>
@@ -39,7 +41,9 @@ const TheGap = () => (
         <ul className="space-y-4">
           {GAP_ROWS.map((r) => (
             <li key={r.topic} className="flex gap-4 items-start">
-              <span className="shrink-0 w-20 text-[11px] uppercase tracking-[0.18em] text-line font-bold pt-1">{r.topic}</span>
+              <span className="shrink-0 w-20 text-[11px] uppercase tracking-[0.18em] text-line font-bold pt-1">
+                {r.topic}
+              </span>
               <span className="text-heading text-[14.5px] leading-[1.55] font-medium">
                 {r.engine}
               </span>

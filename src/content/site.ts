@@ -31,8 +31,7 @@ export const SITE = {
     region: 'TX',
     postalCode: '75038',
     country: 'US',
-    mapsUrl:
-      'https://www.google.com/maps/place/3001+Skyway+Cir+N,+Irving,+TX+75038',
+    mapsUrl: 'https://www.google.com/maps/place/3001+Skyway+Cir+N,+Irving,+TX+75038',
   },
   social: {
     instagram: 'https://instagram.com/thenextgenhealth',

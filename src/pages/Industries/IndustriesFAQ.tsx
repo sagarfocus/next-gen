@@ -12,14 +12,9 @@ const FAQChevron = () => (
   </span>
 );
 
-
 const IndustriesFAQ = ({ onBook }: FAQProps) => {
   return (
-    <section
-      className="faq-section"
-      id="industries-faq"
-      aria-labelledby="ind-faq-title"
-    >
+    <section className="faq-section" id="industries-faq" aria-labelledby="ind-faq-title">
       <div className="container-shell">
         <div className="faq-grid">
           <div className="faq-left">
@@ -29,22 +24,20 @@ const IndustriesFAQ = ({ onBook }: FAQProps) => {
               <span className="accent-text">Questions</span>.
             </h2>
             <p className="faq-intro">
-              How we tailor strategy, compliance, and timelines for every
-              healthcare specialty we serve - from high-acuity ER traffic
-              to elective aesthetic acquisition.
+              How we tailor strategy, compliance, and timelines for every healthcare specialty we
+              serve - from high-acuity ER traffic to elective aesthetic acquisition.
             </p>
 
             <div className="still-card">
               <h3>Don&rsquo;t see your specialty?</h3>
               <p>
-                We work across more verticals than we list. If you run a
-                healthcare or wellness practice with patients to acquire,
-                let&rsquo;s talk - we&rsquo;ll tell you honestly whether
-                our playbook fits your specialty.
+                We work across more verticals than we list. If you run a healthcare or wellness
+                practice with patients to acquire, let&rsquo;s talk - we&rsquo;ll tell you honestly
+                whether our playbook fits your specialty.
               </p>
               <p>
-                One call. No pitch deck. We&rsquo;ll audit your current funnel
-                and tell you the three biggest gaps in your vertical.
+                One call. No pitch deck. We&rsquo;ll audit your current funnel and tell you the
+                three biggest gaps in your vertical.
               </p>
               <button
                 type="button"

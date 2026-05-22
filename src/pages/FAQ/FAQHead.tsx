@@ -13,9 +13,7 @@ const FAQHead = () => {
             <div className="ph-eyebrow">
               <span className="ph-issue">38 questions · 5 sections · Updated monthly</span>
             </div>
-            <h1 className="ph-title">
-              Compliance, pricing, onboarding - answered by the team.
-            </h1>
+            <h1 className="ph-title">Compliance, pricing, onboarding - answered by the team.</h1>
             <p
               style={{
                 margin: '18px 0 0',
@@ -25,9 +23,9 @@ const FAQHead = () => {
                 color: '#4A5568',
               }}
             >
-              Every question below comes from a real practice owner - not a
-              generic FAQ template. We refresh this page every month with the
-              questions we hear most often during audits and onboarding.
+              Every question below comes from a real practice owner - not a generic FAQ template. We
+              refresh this page every month with the questions we hear most often during audits and
+              onboarding.
             </p>
             <div
               style={{

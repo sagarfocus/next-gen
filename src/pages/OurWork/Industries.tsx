@@ -36,7 +36,9 @@ const Industries = () => {
       const trackOverflow = Math.max(0, track.scrollWidth - viewportWidth);
       track.style.transform = `translate3d(${-p * trackOverflow}px, 0, 0)`;
       setProgress(p);
-      setActive(Math.min(INDUSTRY_DETAILS.length - 1, Math.round(p * (INDUSTRY_DETAILS.length - 1))));
+      setActive(
+        Math.min(INDUSTRY_DETAILS.length - 1, Math.round(p * (INDUSTRY_DETAILS.length - 1)))
+      );
     };
 
     const onScroll = () => {
@@ -67,9 +69,9 @@ const Industries = () => {
               The clinics this work has shipped for.
             </h2>
             <p className="ow-ind-lede">
-              Single-location practices, multi-site networks, and everything between.
-              Scroll to explore - every vertical has its own pricing model, regulatory
-              edge, and patient journey.
+              Single-location practices, multi-site networks, and everything between. Scroll to
+              explore - every vertical has its own pricing model, regulatory edge, and patient
+              journey.
             </p>
           </header>
         </div>
@@ -94,13 +96,19 @@ const Industries = () => {
                       <div className="ow-ind-card-shade" />
                     </div>
                     <div className="ow-ind-card-top">
-                      <span className="ow-ind-card-num">{String(i + 1).padStart(2, '0')} / {String(INDUSTRY_DETAILS.length).padStart(2, '0')}</span>
-                      <span className="ow-ind-card-icon" aria-hidden="true">{INDUSTRY_ICONS[it.slug]}</span>
+                      <span className="ow-ind-card-num">
+                        {String(i + 1).padStart(2, '0')} /{' '}
+                        {String(INDUSTRY_DETAILS.length).padStart(2, '0')}
+                      </span>
+                      <span className="ow-ind-card-icon" aria-hidden="true">
+                        {INDUSTRY_ICONS[it.slug]}
+                      </span>
                     </div>
                     <div className="ow-ind-card-bottom">
                       <h3 className="ow-ind-card-title">{it.title}</h3>
                       <p className="ow-ind-card-blurb">{it.blurb}</p>
-                      <span className="ow-ind-card-cta">View details
+                      <span className="ow-ind-card-cta">
+                        View details
                         <ArrowIcon size={14} />
                       </span>
                     </div>
@@ -114,7 +122,10 @@ const Industries = () => {
         <div className="container-shell">
           <div className="ow-ind-progress" aria-hidden="true">
             <div className="ow-ind-progress-meta">
-              <span>{String(active + 1).padStart(2, '0')} <em>/ {String(INDUSTRY_DETAILS.length).padStart(2, '0')}</em></span>
+              <span>
+                {String(active + 1).padStart(2, '0')}{' '}
+                <em>/ {String(INDUSTRY_DETAILS.length).padStart(2, '0')}</em>
+              </span>
               <span className="ow-ind-progress-name">{INDUSTRY_DETAILS[active].title}</span>
               <span className="ow-ind-progress-hint">Scroll to advance →</span>
             </div>

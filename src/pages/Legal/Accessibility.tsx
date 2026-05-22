@@ -15,10 +15,9 @@ const SECTIONS: LegalSection[] = [
     heading: 'Our commitment',
     body: (
       <P>
-        Healthcare marketing should be readable by everyone who needs care.
-        TheNextGen Healthcare Marketing commits to ongoing conformance with{' '}
-        <strong>WCAG 2.2 Level AA</strong> across this site and every client
-        site we build.
+        Healthcare marketing should be readable by everyone who needs care. TheNextGen Healthcare
+        Marketing commits to ongoing conformance with <strong>WCAG 2.2 Level AA</strong> across this
+        site and every client site we build.
       </P>
     ),
   },
@@ -29,8 +28,12 @@ const SECTIONS: LegalSection[] = [
         <UL>
           <li>Semantic HTML with one H1 per page and a logical heading order.</li>
           <li>Keyboard-operable navigation, modals, and accordions with visible focus states.</li>
-          <li>Color contrast of at least 4.5:1 for body text, 3:1 for large text and UI components.</li>
-          <li>Descriptive alt text on every meaningful image; decorative images marked aria-hidden.</li>
+          <li>
+            Color contrast of at least 4.5:1 for body text, 3:1 for large text and UI components.
+          </li>
+          <li>
+            Descriptive alt text on every meaningful image; decorative images marked aria-hidden.
+          </li>
           <li>Reduced-motion preferences respected on animations and scrolling effects.</li>
           <li>Form fields with explicit labels, error messages, and ARIA descriptions.</li>
         </UL>
@@ -41,10 +44,9 @@ const SECTIONS: LegalSection[] = [
     heading: 'Testing & tooling',
     body: (
       <P>
-        We run automated accessibility checks on every release with axe-core
-        and Lighthouse, paired with quarterly manual screen-reader audits using
-        NVDA and VoiceOver. Issues are tracked publicly in our internal backlog
-        with named owners and target dates.
+        We run automated accessibility checks on every release with axe-core and Lighthouse, paired
+        with quarterly manual screen-reader audits using NVDA and VoiceOver. Issues are tracked
+        publicly in our internal backlog with named owners and target dates.
       </P>
     ),
   },
@@ -52,9 +54,9 @@ const SECTIONS: LegalSection[] = [
     heading: 'Known limitations',
     body: (
       <P>
-        Some third-party embeds (map widgets, video players) ship their own
-        accessibility behavior. We choose vendors that publish conformance
-        statements; where a gap exists we provide a text alternative.
+        Some third-party embeds (map widgets, video players) ship their own accessibility behavior.
+        We choose vendors that publish conformance statements; where a gap exists we provide a text
+        alternative.
       </P>
     ),
   },
@@ -62,13 +64,12 @@ const SECTIONS: LegalSection[] = [
     heading: 'Report a barrier',
     body: (
       <P>
-        If you encounter a barrier on this site or on any site we have built,
-        email{' '}
+        If you encounter a barrier on this site or on any site we have built, email{' '}
         <a href={`mailto:${SITE.email}`} style={{ color: '#576DB5' }}>
           {SITE.email}
         </a>{' '}
-        with the page URL and a short description. We respond within two
-        business days and aim to fix critical issues within ten.
+        with the page URL and a short description. We respond within two business days and aim to
+        fix critical issues within ten.
       </P>
     ),
   },

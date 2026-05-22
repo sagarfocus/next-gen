@@ -48,18 +48,12 @@ const ServiceFAQ = ({
   };
 
   return (
-    <section
-      className="sl-section sl-faq"
-      aria-labelledby={`svfaq-${sectionNum}-title`}
-    >
+    <section className="sl-section sl-faq" aria-labelledby={`svfaq-${sectionNum}-title`}>
       <div className="container-shell">
         <div className="sl-sec-head">
           <div>
             <div className="sl-sec-num">{sectionNum} - Common questions</div>
-            <h2
-              id={`svfaq-${sectionNum}-title`}
-              className="sl-sec-title"
-            >
+            <h2 id={`svfaq-${sectionNum}-title`} className="sl-sec-title">
               {title}
             </h2>
           </div>
@@ -79,10 +73,7 @@ const ServiceFAQ = ({
             const id = `${sectionNum}.${pad(idx)}`;
             const isOpen = open === id;
             return (
-              <div
-                key={id}
-                className={`sl-faq-item${isOpen ? ' is-open' : ''}`}
-              >
+              <div key={id} className={`sl-faq-item${isOpen ? ' is-open' : ''}`}>
                 <button
                   type="button"
                   className="sl-faq-q"

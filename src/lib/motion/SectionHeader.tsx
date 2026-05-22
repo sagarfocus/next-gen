@@ -33,7 +33,7 @@ export const SectionHeader = ({
     hidden: {},
     show: {
       transition: {
-        staggerChildren: 0.10,
+        staggerChildren: 0.1,
         delayChildren: 0.05,
       },
     },

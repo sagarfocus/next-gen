@@ -11,7 +11,9 @@ const TemplateCard = ({ t, index }: { t: Template; index: number }) => (
     </div>
     <div className="atx-card-body">
       <div className="atx-card-head">
-        <span className="atx-card-mono">FIG. {String(index + 2).padStart(2, '0')} — {t.cat.toUpperCase()}</span>
+        <span className="atx-card-mono">
+          FIG. {String(index + 2).padStart(2, '0')} — {t.cat.toUpperCase()}
+        </span>
         <h3 className="atx-card-title">{t.title}</h3>
         <p className="atx-card-blurb">{t.blurb}</p>
       </div>
@@ -37,7 +39,11 @@ const TemplateCard = ({ t, index }: { t: Template; index: number }) => (
 
       <div className="atx-card-foot">
         <p className="atx-card-pull">&ldquo;{t.pull}&rdquo;</p>
-        <Link to="/free-growth-audit" className="atx-btn atx-btn-primary atx-btn-sm" aria-label={`Get the ${t.title} workflow`}>
+        <Link
+          to="/free-growth-audit"
+          className="atx-btn atx-btn-primary atx-btn-sm"
+          aria-label={`Get the ${t.title} workflow`}
+        >
           Get this workflow <ArrowIcon size={14} />
         </Link>
       </div>
@@ -50,16 +56,20 @@ const Library = ({ visible }: { visible: Template[] }) => (
     <div className="container-shell">
       <header className="adv-head det-head">
         <span className="adv-eyebrow">/ 03 &nbsp; The library</span>
-        <h2 id="atx-list-title" className="adv-h2">Six workflows. Each one shipped as a spec.</h2>
+        <h2 id="atx-list-title" className="adv-h2">
+          Six workflows. Each one shipped as a spec.
+        </h2>
         <p className="adv-intro">
-          Browse the library. Every card has its own nodes, compliance posture,
-          and time-saved baseline — pick the one your clinic will actually use first.
+          Browse the library. Every card has its own nodes, compliance posture, and time-saved
+          baseline — pick the one your clinic will actually use first.
         </p>
       </header>
 
       {visible.length === 0 ? (
         <div className="atx-empty">
-          <span className="atx-empty-icon" aria-hidden="true">∅</span>
+          <span className="atx-empty-icon" aria-hidden="true">
+            ∅
+          </span>
           <p>
             No templates in this category yet —{' '}
             <Link to="/free-growth-audit">request a custom build</Link>.

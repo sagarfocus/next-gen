@@ -15,16 +15,12 @@ interface UseRevealOptions {
  * crosses the threshold. Disconnects immediately after to avoid any
  * ongoing work - animations only run once per page load.
  */
-export const useReveal = <T extends HTMLElement = HTMLElement>(
-  opts: UseRevealOptions = {},
-) => {
+export const useReveal = <T extends HTMLElement = HTMLElement>(opts: UseRevealOptions = {}) => {
   const { threshold = 0.15, rootMargin = '0px 0px -10% 0px', once = true } = opts;
   const ref = useRef<T | null>(null);
   // If IntersectionObserver isn't available (very old browser / SSR fallback),
   // start in the "revealed" state so content is visible.
-  const [inView, setInView] = useState<boolean>(
-    () => typeof IntersectionObserver === 'undefined',
-  );
+  const [inView, setInView] = useState<boolean>(() => typeof IntersectionObserver === 'undefined');
 
   useEffect(() => {
     const node = ref.current;
@@ -43,7 +39,7 @@ export const useReveal = <T extends HTMLElement = HTMLElement>(
           }
         }
       },
-      { threshold, rootMargin },
+      { threshold, rootMargin }
     );
 
     observer.observe(node);

@@ -14,9 +14,8 @@ const Capabilities = () => (
           </h2>
         </div>
         <p className="ow-section-aside">
-          Each capability runs as its own discipline — with a scorecard, a
-          cadence, and an owner — but they share one calendar and one growth
-          lead. That is how the engine stays in sync.
+          Each capability runs as its own discipline — with a scorecard, a cadence, and an owner —
+          but they share one calendar and one growth lead. That is how the engine stays in sync.
         </p>
       </header>
 
@@ -24,12 +23,7 @@ const Capabilities = () => (
         {CAPABILITY_DETAILS.map((cap, i) => {
           const stats = CAPABILITY_STATS[i];
           return (
-            <MotionCard
-              key={cap.slug}
-              naked
-              tilt={4}
-              className="cap-card"
-            >
+            <MotionCard key={cap.slug} naked tilt={4} className="cap-card">
               {/* Image with rounded inner radius */}
               <div className="cap-card-art">
                 <img src={cap.img} alt="" loading="lazy" />
@@ -42,7 +36,16 @@ const Capabilities = () => (
                   <span className="cap-card-tag">{CAPABILITY_TAGS[i]}</span>
                 </div>
                 <span className="cap-card-pin" aria-hidden="true">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
                     <line x1="7" y1="17" x2="17" y2="7" />
                     <polyline points="7 7 17 7 17 17" />
                   </svg>

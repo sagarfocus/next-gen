@@ -22,10 +22,7 @@ const Navbar = () => {
   useEffect(() => {
     if (!resourcesOpen) return;
     const onClick = (e: MouseEvent) => {
-      if (
-        resourcesRef.current &&
-        !resourcesRef.current.contains(e.target as Node)
-      ) {
+      if (resourcesRef.current && !resourcesRef.current.contains(e.target as Node)) {
         setResourcesOpen(false);
       }
     };
@@ -62,143 +59,153 @@ const Navbar = () => {
 
   return (
     <>
-    <header className={`nav-wrap${scrolled ? ' is-scrolled' : ''}`}>
-      <div className="container-shell">
-        <nav
-          className="grid grid-cols-[auto_1fr_auto] items-center gap-3 sm:gap-8 h-16 sm:h-[78px]"
-          aria-label="Primary"
-        >
-          {/* Logo */}
-          <Link
-            to="/"
-            className="flex items-center"
-            aria-label={`${SITE.name} - Home`}
+      <header className={`nav-wrap${scrolled ? ' is-scrolled' : ''}`}>
+        <div className="container-shell">
+          <nav
+            className="grid grid-cols-[auto_1fr_auto] items-center gap-3 sm:gap-8 h-16 sm:h-[78px]"
+            aria-label="Primary"
           >
-            <img
-              src={logoSrc}
-              alt={SITE.name}
-              className="h-14 sm:h-[88px] w-auto block select-none"
-              draggable={false}
-            />
-          </Link>
+            {/* Logo */}
+            <Link to="/" className="flex items-center" aria-label={`${SITE.name} - Home`}>
+              <img
+                src={logoSrc}
+                alt={SITE.name}
+                className="h-14 sm:h-[88px] w-auto block select-none"
+                draggable={false}
+              />
+            </Link>
 
-          {/* Center menu (hidden below 1024px) */}
-          <div className="hidden lg:flex justify-center gap-1.5" role="menubar">
-            {NAV_PRIMARY.map((link) => (
-              <Link
-                key={link.to}
-                to={link.to}
-                className="nav-link"
-                role="menuitem"
-              >
-                {link.label}
-              </Link>
-            ))}
+            {/* Center menu (hidden below 1024px) */}
+            <div className="hidden lg:flex justify-center gap-1.5" role="menubar">
+              {NAV_PRIMARY.map((link) => (
+                <Link key={link.to} to={link.to} className="nav-link" role="menuitem">
+                  {link.label}
+                </Link>
+              ))}
 
-            {/* Resources dropdown */}
-            <div ref={resourcesRef} className="nav-dropdown">
+              {/* Resources dropdown */}
+              <div ref={resourcesRef} className="nav-dropdown">
+                <button
+                  type="button"
+                  className={`nav-link${resourcesOpen ? ' is-open' : ''}`}
+                  role="menuitem"
+                  aria-haspopup="true"
+                  aria-expanded={resourcesOpen}
+                  onClick={() => setResourcesOpen((o) => !o)}
+                >
+                  Resources
+                  <ChevronDownIcon strokeWidth={3} />
+                </button>
+
+                {resourcesOpen && (
+                  <div className="nav-dropdown-panel" role="menu">
+                    {NAV_RESOURCES.map((item) => (
+                      <Link
+                        key={item.to}
+                        to={item.to}
+                        className="nav-dropdown-item"
+                        role="menuitem"
+                        onClick={() => setResourcesOpen(false)}
+                      >
+                        <span className="nav-dropdown-label">{item.label}</span>
+                        <span className="nav-dropdown-desc">{item.desc}</span>
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </div>
+
+            {/* Right cluster: language + account */}
+            <div className="flex items-center gap-2 justify-self-end">
               <button
                 type="button"
-                className={`nav-link${resourcesOpen ? ' is-open' : ''}`}
-                role="menuitem"
-                aria-haspopup="true"
-                aria-expanded={resourcesOpen}
-                onClick={() => setResourcesOpen((o) => !o)}
+                className="nav-pill hidden sm:inline-flex"
+                aria-label="Change language"
               >
-                Resources
-                <ChevronDownIcon strokeWidth={3} />
+                <svg
+                  className="text-line"
+                  width={16}
+                  height={16}
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth={1.7}
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  aria-hidden="true"
+                >
+                  <circle cx="12" cy="12" r="10" />
+                  <line x1="2" y1="12" x2="22" y2="12" />
+                  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                </svg>
+                EN
+                <ChevronDownIcon size={11} className="text-muted" />
               </button>
 
-              {resourcesOpen && (
-                <div className="nav-dropdown-panel" role="menu">
-                  {NAV_RESOURCES.map((item) => (
-                    <Link
-                      key={item.to}
-                      to={item.to}
-                      className="nav-dropdown-item"
-                      role="menuitem"
-                      onClick={() => setResourcesOpen(false)}
-                    >
-                      <span className="nav-dropdown-label">{item.label}</span>
-                      <span className="nav-dropdown-desc">{item.desc}</span>
-                    </Link>
-                  ))}
-                </div>
-              )}
+              <button type="button" className="nav-icon-btn hidden sm:grid" aria-label="Account">
+                <svg
+                  width={18}
+                  height={18}
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth={1.7}
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                  <circle cx="12" cy="7" r="4" />
+                </svg>
+              </button>
+
+              {/* Hamburger - shown below lg */}
+              <button
+                type="button"
+                className="nav-icon-btn lg:hidden"
+                aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
+                aria-expanded={mobileOpen}
+                aria-controls="mobile-menu"
+                onClick={() => setMobileOpen((o) => !o)}
+              >
+                {mobileOpen ? (
+                  <svg
+                    width={20}
+                    height={20}
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    aria-hidden="true"
+                  >
+                    <line x1="18" y1="6" x2="6" y2="18" />
+                    <line x1="6" y1="6" x2="18" y2="18" />
+                  </svg>
+                ) : (
+                  <svg
+                    width={20}
+                    height={20}
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    aria-hidden="true"
+                  >
+                    <line x1="3" y1="7" x2="21" y2="7" />
+                    <line x1="3" y1="12" x2="21" y2="12" />
+                    <line x1="3" y1="17" x2="21" y2="17" />
+                  </svg>
+                )}
+              </button>
             </div>
-          </div>
-
-          {/* Right cluster: language + account */}
-          <div className="flex items-center gap-2 justify-self-end">
-            <button
-              type="button"
-              className="nav-pill hidden sm:inline-flex"
-              aria-label="Change language"
-            >
-              <svg
-                className="text-line"
-                width={16}
-                height={16}
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth={1.7}
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                aria-hidden="true"
-              >
-                <circle cx="12" cy="12" r="10" />
-                <line x1="2" y1="12" x2="22" y2="12" />
-                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
-              </svg>
-              EN
-              <ChevronDownIcon size={11} className="text-muted" />
-            </button>
-
-            <button type="button" className="nav-icon-btn hidden sm:grid" aria-label="Account">
-              <svg
-                width={18}
-                height={18}
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth={1.7}
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                aria-hidden="true"
-              >
-                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-                <circle cx="12" cy="7" r="4" />
-              </svg>
-            </button>
-
-            {/* Hamburger - shown below lg */}
-            <button
-              type="button"
-              className="nav-icon-btn lg:hidden"
-              aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
-              aria-expanded={mobileOpen}
-              aria-controls="mobile-menu"
-              onClick={() => setMobileOpen((o) => !o)}
-            >
-              {mobileOpen ? (
-                <svg width={20} height={20} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                  <line x1="18" y1="6" x2="6" y2="18" />
-                  <line x1="6" y1="6" x2="18" y2="18" />
-                </svg>
-              ) : (
-                <svg width={20} height={20} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                  <line x1="3" y1="7" x2="21" y2="7" />
-                  <line x1="3" y1="12" x2="21" y2="12" />
-                  <line x1="3" y1="17" x2="21" y2="17" />
-                </svg>
-              )}
-            </button>
-          </div>
-        </nav>
-      </div>
-
-    </header>
+          </nav>
+        </div>
+      </header>
 
       {/* Mobile menu drawer - rendered as a SIBLING of <header> (not inside).
           The header has a backdrop-filter which would otherwise scope our
@@ -209,8 +216,7 @@ const Navbar = () => {
           id="mobile-menu"
           className="lg:hidden fixed inset-0 z-40 overflow-y-auto pt-[72px] sm:pt-[96px]"
           style={{
-            background:
-              'linear-gradient(180deg, #F1F2F4 0%, #FAFAF8 100%)',
+            background: 'linear-gradient(180deg, #F1F2F4 0%, #FAFAF8 100%)',
           }}
           role="dialog"
           aria-modal="true"

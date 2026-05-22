@@ -1,12 +1,47 @@
-interface Mistake { num: string; bad: string; cost: string; fix: string }
+interface Mistake {
+  num: string;
+  bad: string;
+  cost: string;
+  fix: string;
+}
 
 const MISTAKES: Mistake[] = [
-  { num: '01', bad: 'Keyword-stuffing the business name', cost: 'Profile suspension. Reinstatement can take 4-12 weeks.', fix: 'Legal business name exactly. Categories carry the relevance signal, not the name.' },
-  { num: '02', bad: 'Shared profile across multiple locations', cost: 'Patients can\'t tell which clinic is nearest. Google penalizes; you lose all locations\' map ranks.', fix: 'One GBP per physical location, each with a unique landing page + phone number.' },
-  { num: '03', bad: 'NAP inconsistency across the web', cost: 'Citation signal collapses. Map rank drops 5-10 positions until cleaned.', fix: 'Lock canonical NAP. Update consistently across 70+ directories quarterly.' },
-  { num: '04', bad: 'Empty services + products fields', cost: 'Lost relevance score on service-specific queries. Competitors with these filled rank above.', fix: 'Every service line listed with description. Updated quarterly.' },
-  { num: '05', bad: 'Replying to negative reviews emotionally', cost: 'Screenshots circulate. New patients see the response, not the resolution.', fix: 'HIPAA-safe template + private channel redirect. Never confirm patient relationship publicly.' },
-  { num: '06', bad: 'Set up once, never updated', cost: 'Activity signal drops to zero. Holiday hours wrong. Photos year-old. Posts blank for 6 months.', fix: 'Weekly posts. Quarterly photo refresh. Monthly hours + holidays. Activity is a ranking signal.' },
+  {
+    num: '01',
+    bad: 'Keyword-stuffing the business name',
+    cost: 'Profile suspension. Reinstatement can take 4-12 weeks.',
+    fix: 'Legal business name exactly. Categories carry the relevance signal, not the name.',
+  },
+  {
+    num: '02',
+    bad: 'Shared profile across multiple locations',
+    cost: "Patients can't tell which clinic is nearest. Google penalizes; you lose all locations' map ranks.",
+    fix: 'One GBP per physical location, each with a unique landing page + phone number.',
+  },
+  {
+    num: '03',
+    bad: 'NAP inconsistency across the web',
+    cost: 'Citation signal collapses. Map rank drops 5-10 positions until cleaned.',
+    fix: 'Lock canonical NAP. Update consistently across 70+ directories quarterly.',
+  },
+  {
+    num: '04',
+    bad: 'Empty services + products fields',
+    cost: 'Lost relevance score on service-specific queries. Competitors with these filled rank above.',
+    fix: 'Every service line listed with description. Updated quarterly.',
+  },
+  {
+    num: '05',
+    bad: 'Replying to negative reviews emotionally',
+    cost: 'Screenshots circulate. New patients see the response, not the resolution.',
+    fix: 'HIPAA-safe template + private channel redirect. Never confirm patient relationship publicly.',
+  },
+  {
+    num: '06',
+    bad: 'Set up once, never updated',
+    cost: 'Activity signal drops to zero. Holiday hours wrong. Photos year-old. Posts blank for 6 months.',
+    fix: 'Weekly posts. Quarterly photo refresh. Monthly hours + holidays. Activity is a ranking signal.',
+  },
 ];
 
 const CommonMistakes = () => {

@@ -21,7 +21,6 @@ export const ROUTES = {
   services: {
     index: '/services',
     seo: '/services/seo',
-    seoLocalSearch: '/services/seo-local-search',
     googleBusinessProfile: '/services/google-business-profile',
     googleAds: '/services/google-ads',
     analyticsReporting: '/services/analytics-reporting',

@@ -184,8 +184,7 @@ const ServiceScenario = ({
                   fontSize: 14,
                   lineHeight: 1.6,
                   color: '#2D3748',
-                  borderTop:
-                    i === 0 ? '0' : '1px solid rgba(45,55,72,0.06)',
+                  borderTop: i === 0 ? '0' : '1px solid rgba(45,55,72,0.06)',
                   gap: 'clamp(16px, 2vw, 32px)',
                 }}
               >

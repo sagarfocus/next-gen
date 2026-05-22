@@ -16,8 +16,18 @@ interface Member {
 
 const MEMBERS: Member[] = [
   { name: 'Shree Gauli', role: 'Sr. Marketing Officer', photo: shreePhoto, tint: 't1' },
-  { name: 'Bikash Neupane', role: 'Marketing / IT Project Manager', photo: bikashPhoto, tint: 't2' },
-  { name: 'Sonu Sagar Dongol', role: 'Paid Ads Specialist / Media Buyer', photo: sonuPhoto, tint: 't3' },
+  {
+    name: 'Bikash Neupane',
+    role: 'Marketing / IT Project Manager',
+    photo: bikashPhoto,
+    tint: 't2',
+  },
+  {
+    name: 'Sonu Sagar Dongol',
+    role: 'Paid Ads Specialist / Media Buyer',
+    photo: sonuPhoto,
+    tint: 't3',
+  },
   { name: 'Bijesh Khadgi', role: 'Social Media Manager', photo: bijeshPhoto, tint: 't4' },
   { name: 'Sumit Sharma', role: 'SEO Manager', photo: sumitPhoto, tint: 't1' },
   { name: 'Rahul Roy', role: 'Content Writer', photo: rahulPhoto, tint: 't2' },

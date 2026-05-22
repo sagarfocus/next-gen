@@ -17,15 +17,22 @@ const Coverage = () => {
             const widthPct = (c.high / max) * 100;
             const lowPct = (c.low / max) * 100;
             return (
-              <div key={c.area} className="grid grid-cols-[auto_minmax(0,1fr)_auto] gap-x-5 items-center">
+              <div
+                key={c.area}
+                className="grid grid-cols-[auto_minmax(0,1fr)_auto] gap-x-5 items-center"
+              >
                 {/* Left: icon + area name */}
                 <div className="flex items-center gap-4 min-w-[150px]">
                   <span className="h-10 w-10 rounded-full border border-line-faint flex items-center justify-center text-heading">
                     <Icon />
                   </span>
                   <div className="flex flex-col">
-                    <span className="text-heading font-bold text-[16px] tracking-[-0.01em]">{c.area}</span>
-                    <span className="text-muted text-[11px] uppercase tracking-[0.16em] font-semibold">{c.one}</span>
+                    <span className="text-heading font-bold text-[16px] tracking-[-0.01em]">
+                      {c.area}
+                    </span>
+                    <span className="text-muted text-[11px] uppercase tracking-[0.16em] font-semibold">
+                      {c.one}
+                    </span>
                   </div>
                 </div>
 

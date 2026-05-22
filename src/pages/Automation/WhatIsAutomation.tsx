@@ -17,11 +17,10 @@ const WhatIsAutomation = () => {
               What is Healthcare Automation?
             </h2>
             <p className="what-text">
-              Healthcare automation is the deployment of intelligent workflows
-              that handle repetitive front-desk, back-office, and
-              patient-communication tasks - directly inside the systems
-              your clinic already runs on. No replacement, no migration. Just
-              less manual work.
+              Healthcare automation is the deployment of intelligent workflows that handle
+              repetitive front-desk, back-office, and patient-communication tasks - directly inside
+              the systems your clinic already runs on. No replacement, no migration. Just less
+              manual work.
             </p>
             <Link to="/automation/more-info" className="more-info">
               <span className="more-info-icon">

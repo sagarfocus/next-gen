@@ -20,15 +20,14 @@ const AutomationHero = ({ onBook }: AutomationHeroProps) => {
             </div>
 
             <h1 className="au-title" id="hero-title">
-              Smarter healthcare <span className="accent">automation</span> for
-              every patient touchpoint.
+              Smarter healthcare <span className="accent">automation</span> for every patient
+              touchpoint.
             </h1>
 
             <p className="au-lede">
-              Save your front desk 20+ hours a week. Drop in battle-tested
-              workflows for patient intake, reminders, reviews, insurance
-              verification, and AI chat - HIPAA-aware, free, and live in
-              your clinic in under an hour.
+              Save your front desk 20+ hours a week. Drop in battle-tested workflows for patient
+              intake, reminders, reviews, insurance verification, and AI chat - HIPAA-aware, free,
+              and live in your clinic in under an hour.
             </p>
 
             <div className="au-cta-row">
@@ -58,12 +57,7 @@ const AutomationHero = ({ onBook }: AutomationHeroProps) => {
           </div>
 
           <div className="au-hero-visual reveal d2" aria-hidden="true">
-            <img
-              src={futuristicHealthcare}
-              alt=""
-              className="h-img"
-              loading="lazy"
-            />
+            <img src={futuristicHealthcare} alt="" className="h-img" loading="lazy" />
           </div>
         </div>
       </div>

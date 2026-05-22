@@ -6,10 +6,19 @@ interface Stat {
 }
 
 const STATS: Stat[] = [
-  { num: '#1', label: 'Avg map-pack position', sub: 'Across primary keyword set · 110+ healthcare locations' },
+  {
+    num: '#1',
+    label: 'Avg map-pack position',
+    sub: 'Across primary keyword set · 110+ healthcare locations',
+  },
   { num: '218', unit: '%', label: 'Direction-request lift', sub: 'First 90 days of optimization' },
   { num: '340', unit: '%', label: 'Profile-view lift', sub: 'Trailing 6-month avg across cohort' },
-  { num: '18', unit: '+', label: 'Reviews / month / location', sub: 'Steady-state after request automation' },
+  {
+    num: '18',
+    unit: '+',
+    label: 'Reviews / month / location',
+    sub: 'Steady-state after request automation',
+  },
 ];
 
 const SIGNALS = [

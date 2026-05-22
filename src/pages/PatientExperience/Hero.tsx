@@ -12,13 +12,14 @@ const Hero = () => (
             UX · Journey · Operations
           </div>
           <h1 className="mt-6 text-heading font-extrabold leading-[0.98] tracking-[-0.038em] text-[clamp(44px,6.4vw,86px)]">
-            The patient journey,<br />
+            The patient journey,
+            <br />
             <span className="text-line italic">designed</span>.
           </h1>
           <p className="mt-7 text-body text-[17px] leading-[1.65] max-w-[58ch]">
             Patient experience is not a brand exercise. It is a working operating system that
-            stretches from a 2 a.m. Google search to a follow-up text a week after a visit.
-            Map it. Audit it. Pilot the fix.
+            stretches from a 2 a.m. Google search to a follow-up text a week after a visit. Map it.
+            Audit it. Pilot the fix.
           </p>
 
           {/* Inline 5-stage primer — gives the visual story before they scroll */}
@@ -47,7 +48,10 @@ const Hero = () => (
         <div className="lg:col-span-4">
           <div className="border-t-2 border-heading">
             {HEAD_META.map((row) => (
-              <div key={row.label} className="grid grid-cols-2 py-3 border-b border-line-faint text-[14px]">
+              <div
+                key={row.label}
+                className="grid grid-cols-2 py-3 border-b border-line-faint text-[14px]"
+              >
                 <span className="text-muted font-medium">{row.label}</span>
                 <span className="text-heading font-semibold text-right">{row.value}</span>
               </div>

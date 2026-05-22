@@ -2,7 +2,6 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import type { ChangeEvent } from 'react';
 import { CATEGORIES } from '@/content/faq/categories';
 
-
 const SearchIcon = () => (
   <svg
     viewBox="0 0 24 24"
@@ -150,19 +149,14 @@ const FAQList = () => {
                   <div className="fp-cat-head">
                     <span className="fp-cat-num">{cat.num}</span>
                     <h2 className="fp-cat-title">{cat.title}</h2>
-                    <span className="fp-cat-count">
-                      {cat.items.length} Q&apos;s
-                    </span>
+                    <span className="fp-cat-count">{cat.items.length} Q&apos;s</span>
                   </div>
 
                   {cat.matches.map((item) => {
                     const key = `${cat.id}:${item.num}`;
                     const isOpen = openKey === key;
                     return (
-                      <div
-                        key={item.num}
-                        className={`fp-item${isOpen ? ' is-open' : ''}`}
-                      >
+                      <div key={item.num} className={`fp-item${isOpen ? ' is-open' : ''}`}>
                         <button
                           type="button"
                           className="fp-q"
@@ -188,8 +182,7 @@ const FAQList = () => {
             {isEmpty && (
               <div className="fp-empty is-visible">
                 <strong>No matches.</strong>
-                Try a broader keyword, or{' '}
-                <a href="/contact">talk to us directly &rarr;</a>
+                Try a broader keyword, or <a href="/contact">talk to us directly &rarr;</a>
               </div>
             )}
           </div>

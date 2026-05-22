@@ -6,12 +6,10 @@ const WhyUs = () => {
       <div className="container-shell">
         <div className="fp-why-head">
           <div className="fp-why-eyebrow">Built for clinics</div>
-          <h2 className="fp-why-title">
-            Tools built to simplify and empower your practice.
-          </h2>
+          <h2 className="fp-why-title">Tools built to simplify and empower your practice.</h2>
           <p className="fp-why-sub">
-            Two systems that turn the loose ends of clinic marketing into a
-            clean, compliant, measurable workflow.
+            Two systems that turn the loose ends of clinic marketing into a clean, compliant,
+            measurable workflow.
           </p>
         </div>
 
@@ -49,9 +47,8 @@ const WhyUs = () => {
               Send appointment confirmations the moment a patient books.
             </h3>
             <p className="fp-card-desc">
-              Our intake automation turns form submissions into EHR records
-              and confirmation messages in under three seconds - no
-              front desk lift, no PHI leakage.
+              Our intake automation turns form submissions into EHR records and confirmation
+              messages in under three seconds - no front desk lift, no PHI leakage.
             </p>
             <span className="fp-btn">
               Learn more
@@ -62,13 +59,10 @@ const WhyUs = () => {
           {/* BL: Text card */}
           <a className="fp-card fp-card-text" href="#feature-2">
             <span className="fp-tag">Practice metrics</span>
-            <h3 className="fp-card-title">
-              Keep your numbers in check with one live dashboard.
-            </h3>
+            <h3 className="fp-card-title">Keep your numbers in check with one live dashboard.</h3>
             <p className="fp-card-desc">
-              CPA, ROAS, no-show rate, and patient lifetime value -
-              refreshed every fifteen minutes from your ad accounts, EHR, and
-              analytics. One screen, no spreadsheets.
+              CPA, ROAS, no-show rate, and patient lifetime value - refreshed every fifteen minutes
+              from your ad accounts, EHR, and analytics. One screen, no spreadsheets.
             </p>
             <span className="fp-btn">
               Learn more
@@ -112,9 +106,7 @@ const WhyUs = () => {
                   </div>
                 </div>
                 <div className="fp-mock-bignum">90%</div>
-                <div className="fp-mock-caption">
-                  Your practice is performing above benchmark.
-                </div>
+                <div className="fp-mock-caption">Your practice is performing above benchmark.</div>
               </div>
             </div>
           </div>

@@ -71,8 +71,7 @@ const Services = () => {
       await new Promise((r) => requestAnimationFrame(r));
       if (cancelled) return;
 
-      const getDistance = () =>
-        Math.max(0, track.scrollWidth - track.clientWidth);
+      const getDistance = () => Math.max(0, track.scrollWidth - track.clientWidth);
 
       const ctx = gsap.context(() => {
         const tween = gsap.to(track, {
@@ -146,25 +145,11 @@ const Services = () => {
         <div className="services-track-wrap">
           <div className="services-grid" ref={trackRef}>
             {HOME_SERVICES.map(({ tag, title, sub, ariaLabel, image, to }) => (
-              <MotionCard
-                key={title}
-                naked
-                tilt={4}
-                className="service-card-tilt"
-              >
-                <Link
-                  to={to}
-                  className="service-card"
-                  aria-label={ariaLabel}
-                >
+              <MotionCard key={title} naked tilt={4} className="service-card-tilt">
+                <Link to={to} className="service-card" aria-label={ariaLabel}>
                   <div className="card-img">
                     <CardArrow />
-                    <img
-                      src={image}
-                      alt={title}
-                      loading="lazy"
-                      decoding="async"
-                    />
+                    <img src={image} alt={title} loading="lazy" decoding="async" />
                   </div>
                   <span className="card-tag">{tag}</span>
                   <h3 className="card-title">{title}</h3>
@@ -174,7 +159,6 @@ const Services = () => {
             ))}
           </div>
         </div>
-
       </div>
     </section>
   );

@@ -114,10 +114,7 @@ const CaseStudies = ({ cases }: CaseStudiesProps) => {
               onTouchEnd={onTouchEnd}
             >
               {cases.map((c) => (
-                <article
-                  key={c.name}
-                  className="sv-cs-card"
-                >
+                <article key={c.name} className="sv-cs-card">
                   <div className="sv-cs-top">
                     <span className="sv-cs-emoji">{c.emoji}</span>
                     <div>

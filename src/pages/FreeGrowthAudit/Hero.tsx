@@ -19,10 +19,26 @@ const DocumentVisual = () => (
         </div>
       </div>
       <div className="fga-doc-bars">
-        <div className="fga-doc-bar"><span style={{ width: '72%' }} /><label>Local Pack</label><strong>72</strong></div>
-        <div className="fga-doc-bar"><span style={{ width: '58%' }} /><label>Organic</label><strong>58</strong></div>
-        <div className="fga-doc-bar"><span style={{ width: '34%' }} /><label>AI Overviews</label><strong>34</strong></div>
-        <div className="fga-doc-bar"><span style={{ width: '81%' }} /><label>Reviews</label><strong>81</strong></div>
+        <div className="fga-doc-bar">
+          <span style={{ width: '72%' }} />
+          <label>Local Pack</label>
+          <strong>72</strong>
+        </div>
+        <div className="fga-doc-bar">
+          <span style={{ width: '58%' }} />
+          <label>Organic</label>
+          <strong>58</strong>
+        </div>
+        <div className="fga-doc-bar">
+          <span style={{ width: '34%' }} />
+          <label>AI Overviews</label>
+          <strong>34</strong>
+        </div>
+        <div className="fga-doc-bar">
+          <span style={{ width: '81%' }} />
+          <label>Reviews</label>
+          <strong>81</strong>
+        </div>
       </div>
       <div className="fga-doc-divider" />
       <div className="fga-doc-row fga-doc-foot">
@@ -36,11 +52,18 @@ const DocumentVisual = () => (
     <div className="fga-chip fga-chip-1">
       <span className="fga-chip-dot" /> Live ranking pull
     </div>
-    <div className="fga-chip fga-chip-2">
-      4 priority moves
-    </div>
+    <div className="fga-chip fga-chip-2">4 priority moves</div>
     <div className="fga-chip fga-chip-3">
-      <svg width={11} height={11} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.6} strokeLinecap="round" strokeLinejoin="round">
+      <svg
+        width={11}
+        height={11}
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth={2.6}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
         <polyline points="20 6 9 17 4 12" />
       </svg>
       PDF you keep
@@ -70,9 +93,9 @@ const Hero = () => (
             <em>before</em> you raise the budget.
           </h1>
           <p className="fga-lede">
-            A senior strategist audits your healthcare practice&rsquo;s acquisition
-            stack - visibility, funnel, paid spend - and hands you the ranked
-            ninety-day fix as a PDF. Yours to keep.
+            A senior strategist audits your healthcare practice&rsquo;s acquisition stack -
+            visibility, funnel, paid spend - and hands you the ranked ninety-day fix as a PDF. Yours
+            to keep.
           </p>
           <div className="fga-cta-row">
             <MotionButton to="/contact" className="fga-cta">

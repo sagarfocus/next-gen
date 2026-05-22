@@ -11,9 +11,8 @@ const CTA = () => (
             Schedule a free 30-minute automation walkthrough.
           </h2>
           <p className="amih-cta-text">
-            Bring your top three manual tasks. We&rsquo;ll show you which
-            template fits, what it ships with, and how fast it can be
-            live in your stack.
+            Bring your top three manual tasks. We&rsquo;ll show you which template fits, what it
+            ships with, and how fast it can be live in your stack.
           </p>
           <ul className="amih-cta-list">
             <li>No deck, no pitch - just a working session.</li>

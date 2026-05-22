@@ -6,16 +6,13 @@ const InvestmentIncludes = () => {
     <section className="pr-includes" aria-labelledby="pr-inc-title">
       <div className="container-shell">
         <div className="pr-section-head">
-          <span className="pr-section-eyebrow">
-            What Your Investment Includes
-          </span>
+          <span className="pr-section-eyebrow">What Your Investment Includes</span>
           <h2 id="pr-inc-title" className="pr-section-h2">
             Not just services. A full-stack growth team.
           </h2>
           <p className="pr-section-sub">
-            Every retainer integrates an entire department of medical growth
-            experts into your clinic - with HIPAA infrastructure and
-            onboarding included.
+            Every retainer integrates an entire department of medical growth experts into your
+            clinic - with HIPAA infrastructure and onboarding included.
           </p>
         </div>
 

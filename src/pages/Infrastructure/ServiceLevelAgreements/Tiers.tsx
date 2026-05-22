@@ -12,9 +12,8 @@ const Tiers = () => (
           Four tiers. <em>Each one contractual.</em>
         </h2>
         <p className="gtx-sec-sub">
-          Every inbound request is triaged to one of four tiers.
-          Acknowledgement and resolution targets are written into the
-          engagement, not assumed.
+          Every inbound request is triaged to one of four tiers. Acknowledgement and resolution
+          targets are written into the engagement, not assumed.
         </p>
       </header>
 

@@ -27,9 +27,8 @@ const Hero = () => (
             One playbook.
           </h1>
           <p className="ow-lede">
-            A retrospective of the marketing, branding, and operations work
-            we have shipped for clinics, medspas, urgent care centers, and
-            multi-location healthcare brands.
+            A retrospective of the marketing, branding, and operations work we have shipped for
+            clinics, medspas, urgent care centers, and multi-location healthcare brands.
           </p>
           <div className="ow-hero-cta">
             <MotionButton to="/contact" className="ow-cta-primary">
@@ -52,7 +51,9 @@ const Hero = () => (
           </figure>
 
           <div className="ow-floater ow-floater-1">
-            <span className="ow-floater-num">+318<small>%</small></span>
+            <span className="ow-floater-num">
+              +318<small>%</small>
+            </span>
             <span className="ow-floater-lbl">Booked visits · 90d</span>
           </div>
           <div className="ow-floater ow-floater-2">

@@ -36,10 +36,9 @@ const Hero = () => (
             A page for every <em>neighbourhood</em> you serve.
           </h1>
           <p className="hlc-hero-lede">
-            Programmatic landing pages - one per municipality, suburb, or
-            catchment your practice draws from. Each is unique, indexable,
-            and built to win the long-tail searches the hospital networks
-            ignore.
+            Programmatic landing pages - one per municipality, suburb, or catchment your practice
+            draws from. Each is unique, indexable, and built to win the long-tail searches the
+            hospital networks ignore.
           </p>
           <div className="hlc-hero-ctas">
             <Link to="/contact" className="hlc-btn-primary">

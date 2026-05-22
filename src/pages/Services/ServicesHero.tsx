@@ -72,7 +72,11 @@ const ServicesHero = () => {
                     <img src={logoSrc} alt="" />
                   </div>
                   <div className="ho-core-divider" />
-                  <div className="ho-core-tag">Healthcare<br />Growth OS</div>
+                  <div className="ho-core-tag">
+                    Healthcare
+                    <br />
+                    Growth OS
+                  </div>
                 </div>
               </div>
 
@@ -104,9 +108,9 @@ const ServicesHero = () => {
               <span className="svc-meta-label">Built for Texas</span>
             </div>
             <p className="svc-sub">
-              We deploy a comprehensive, HIPAA-compliant marketing ecosystem
-              designed to dominate local search, acquire high-acuity patients,
-              and automate your front-desk operations across Texas.
+              We deploy a comprehensive, HIPAA-compliant marketing ecosystem designed to dominate
+              local search, acquire high-acuity patients, and automate your front-desk operations
+              across Texas.
             </p>
           </div>
 

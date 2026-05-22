@@ -59,8 +59,24 @@ const ARTICLES: Article[] = [
     author: 'Marcus Rodriguez',
     illustration: (
       <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <line x1="20" y1="80" x2="20" y2="22" stroke="#2D3748" strokeWidth="1.5" strokeLinecap="round" />
-        <line x1="20" y1="80" x2="80" y2="80" stroke="#2D3748" strokeWidth="1.5" strokeLinecap="round" />
+        <line
+          x1="20"
+          y1="80"
+          x2="20"
+          y2="22"
+          stroke="#2D3748"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+        />
+        <line
+          x1="20"
+          y1="80"
+          x2="80"
+          y2="80"
+          stroke="#2D3748"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+        />
         <polyline
           points="28,68 40,52 52,58 64,38 76,28"
           fill="none"
@@ -104,7 +120,10 @@ const ARTICLES: Article[] = [
           strokeWidth="2.5"
           strokeLinejoin="round"
         />
-        <polygon points="50,28 56,42 72,43 60,55 64,71 50,62 36,71 40,55 28,43 44,42" fill="#8FBC8F" />
+        <polygon
+          points="50,28 56,42 72,43 60,55 64,71 50,62 36,71 40,55 28,43 44,42"
+          fill="#8FBC8F"
+        />
       </svg>
     ),
   },
@@ -181,10 +200,30 @@ const ARTICLES: Article[] = [
       <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         <g transform="translate(50, 50)">
           <path d="M0 -22 Q 11 -4 0 14 Q -11 -4 0 -22 Z" fill="#8FBC8F" transform="rotate(0)" />
-          <path d="M0 -22 Q 11 -4 0 14 Q -11 -4 0 -22 Z" fill="#8FBC8F" opacity=".75" transform="rotate(72)" />
-          <path d="M0 -22 Q 11 -4 0 14 Q -11 -4 0 -22 Z" fill="#8FBC8F" opacity=".55" transform="rotate(144)" />
-          <path d="M0 -22 Q 11 -4 0 14 Q -11 -4 0 -22 Z" fill="#8FBC8F" opacity=".75" transform="rotate(216)" />
-          <path d="M0 -22 Q 11 -4 0 14 Q -11 -4 0 -22 Z" fill="#8FBC8F" opacity=".55" transform="rotate(288)" />
+          <path
+            d="M0 -22 Q 11 -4 0 14 Q -11 -4 0 -22 Z"
+            fill="#8FBC8F"
+            opacity=".75"
+            transform="rotate(72)"
+          />
+          <path
+            d="M0 -22 Q 11 -4 0 14 Q -11 -4 0 -22 Z"
+            fill="#8FBC8F"
+            opacity=".55"
+            transform="rotate(144)"
+          />
+          <path
+            d="M0 -22 Q 11 -4 0 14 Q -11 -4 0 -22 Z"
+            fill="#8FBC8F"
+            opacity=".75"
+            transform="rotate(216)"
+          />
+          <path
+            d="M0 -22 Q 11 -4 0 14 Q -11 -4 0 -22 Z"
+            fill="#8FBC8F"
+            opacity=".55"
+            transform="rotate(288)"
+          />
           <circle r="6" fill="#576DB5" />
         </g>
       </svg>
@@ -238,9 +277,32 @@ const ARTICLES: Article[] = [
           strokeWidth="3"
           strokeDasharray="3 4"
         />
-        <circle cx="50" cy="50" r="22" fill="rgba(87,109,181,.10)" stroke="#576DB5" strokeWidth="2.5" />
-        <line x1="50" y1="50" x2="50" y2="32" stroke="#576DB5" strokeWidth="3" strokeLinecap="round" />
-        <line x1="50" y1="50" x2="65" y2="58" stroke="#8FBC8F" strokeWidth="3" strokeLinecap="round" />
+        <circle
+          cx="50"
+          cy="50"
+          r="22"
+          fill="rgba(87,109,181,.10)"
+          stroke="#576DB5"
+          strokeWidth="2.5"
+        />
+        <line
+          x1="50"
+          y1="50"
+          x2="50"
+          y2="32"
+          stroke="#576DB5"
+          strokeWidth="3"
+          strokeLinecap="round"
+        />
+        <line
+          x1="50"
+          y1="50"
+          x2="65"
+          y2="58"
+          stroke="#8FBC8F"
+          strokeWidth="3"
+          strokeLinecap="round"
+        />
         <circle cx="50" cy="50" r="3" fill="#576DB5" />
       </svg>
     ),
@@ -316,7 +378,6 @@ const UserIcon = () => (
   </svg>
 );
 
-
 const ArticleGrid = () => {
   const [activeCat, setActiveCat] = useState('all');
   const [query, setQuery] = useState('');
@@ -327,10 +388,7 @@ const ArticleGrid = () => {
       const catMatches = activeCat === 'all' || article.cat === activeCat;
       if (!catMatches) return false;
       if (!q) return true;
-      return (
-        article.title.toLowerCase().includes(q) ||
-        article.excerpt.toLowerCase().includes(q)
-      );
+      return article.title.toLowerCase().includes(q) || article.excerpt.toLowerCase().includes(q);
     });
   }, [activeCat, query]);
 
@@ -391,8 +449,7 @@ const ArticleGrid = () => {
           <div className="bl-grid" id="bl-grid">
             {filtered.length === 0 ? (
               <div className="bl-empty">
-                No articles match your search. Try a different keyword or
-                category.
+                No articles match your search. Try a different keyword or category.
               </div>
             ) : (
               filtered.map((article) => (

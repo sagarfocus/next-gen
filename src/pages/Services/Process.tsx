@@ -60,18 +60,18 @@ const Process = () => {
           },
         });
 
-        tl.to(path, {
-          strokeDashoffset: 0,
-          duration: 4.5,
-          ease: 'power1.inOut',
-        }, 0);
+        tl.to(
+          path,
+          {
+            strokeDashoffset: 0,
+            duration: 4.5,
+            ease: 'power1.inOut',
+          },
+          0
+        );
 
         steps.forEach((s, i) => {
-          tl.to(
-            s,
-            { opacity: 1, scale: 1, duration: 0.9, ease: 'power2.out' },
-            0.3 + i * 0.6,
-          );
+          tl.to(s, { opacity: 1, scale: 1, duration: 0.9, ease: 'power2.out' }, 0.3 + i * 0.6);
         });
       }, section);
 
@@ -98,8 +98,8 @@ const Process = () => {
             A clear path from audit to scale.
           </h2>
           <p className="process-intro">
-            A repeatable, data-driven system designed for clinics, medspas, and
-            wellness brands ready to grow predictably.
+            A repeatable, data-driven system designed for clinics, medspas, and wellness brands
+            ready to grow predictably.
           </p>
         </div>
 

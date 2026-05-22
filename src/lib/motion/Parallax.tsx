@@ -66,12 +66,7 @@ export const Parallax = ({
   }, [reduced, speed]);
 
   return (
-    <Tag
-      ref={ref}
-      className={className}
-      style={{ willChange: 'transform', ...style }}
-      {...rest}
-    >
+    <Tag ref={ref} className={className} style={{ willChange: 'transform', ...style }} {...rest}>
       {children}
     </Tag>
   );

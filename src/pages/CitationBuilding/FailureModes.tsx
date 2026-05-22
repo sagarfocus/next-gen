@@ -19,14 +19,29 @@ const FailureModes = () => (
             style={{ borderColor: 'rgba(26, 36, 56, 0.10)' }}
           >
             <div className="flex items-center justify-between">
-              <span className="font-mono text-[12px] tracking-[0.18em] font-bold" style={{ color: COLORS.muted }}>{f.n}</span>
-              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10.5px] uppercase tracking-[0.16em] font-bold" style={{ background: f.badgeBg, color: f.badgeColor }}>
+              <span
+                className="font-mono text-[12px] tracking-[0.18em] font-bold"
+                style={{ color: COLORS.muted }}
+              >
+                {f.n}
+              </span>
+              <span
+                className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10.5px] uppercase tracking-[0.16em] font-bold"
+                style={{ background: f.badgeBg, color: f.badgeColor }}
+              >
                 <span className="w-1.5 h-1.5 rounded-full" style={{ background: f.badgeColor }} />
                 {f.badge}
               </span>
             </div>
-            <h3 className="text-[24px] font-extrabold tracking-[-0.02em] leading-[1.1]" style={{ color: COLORS.navy }}>{f.title}</h3>
-            <p className="text-[14.5px] leading-[1.65]" style={{ color: COLORS.body }}>{f.body}</p>
+            <h3
+              className="text-[24px] font-extrabold tracking-[-0.02em] leading-[1.1]"
+              style={{ color: COLORS.navy }}
+            >
+              {f.title}
+            </h3>
+            <p className="text-[14.5px] leading-[1.65]" style={{ color: COLORS.body }}>
+              {f.body}
+            </p>
           </article>
         ))}
       </div>

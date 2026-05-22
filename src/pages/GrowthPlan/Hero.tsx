@@ -14,8 +14,7 @@ const Hero = () => (
             <span
               className="bg-clip-text text-transparent"
               style={{
-                backgroundImage:
-                  'linear-gradient(90deg, #B38B6D 0%, #8FBC8F 50%, #576DB5 100%)',
+                backgroundImage: 'linear-gradient(90deg, #B38B6D 0%, #8FBC8F 50%, #576DB5 100%)',
               }}
             >
               Twelve months
@@ -25,9 +24,9 @@ const Hero = () => (
         </div>
         <div className="lg:col-span-5">
           <p className="text-body text-[17px] leading-[1.7] max-w-[52ch]">
-            A growth plan you can read at a glance. Four phases, twelve months, a single
-            trajectory benchmarked against your starting line - engineered for healthcare
-            practices and underwritten by SEO, paid, and lifecycle channels working together.
+            A growth plan you can read at a glance. Four phases, twelve months, a single trajectory
+            benchmarked against your starting line - engineered for healthcare practices and
+            underwritten by SEO, paid, and lifecycle channels working together.
           </p>
         </div>
       </div>

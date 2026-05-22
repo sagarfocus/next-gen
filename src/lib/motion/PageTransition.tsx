@@ -33,11 +33,7 @@ export const PageTransition = ({ children }: PageTransitionProps) => {
   }, [location.pathname]);
 
   return (
-    <div
-      key={location.pathname}
-      className="route-fade"
-      data-stage={stage}
-    >
+    <div key={location.pathname} className="route-fade" data-stage={stage}>
       {children}
     </div>
   );

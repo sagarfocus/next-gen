@@ -15,10 +15,9 @@ const SECTIONS: LegalSection[] = [
     heading: 'Acceptance of terms',
     body: (
       <P>
-        By using this site or engaging TheNextGen Healthcare Marketing for any
-        service, you agree to these Terms of Use and to any executed Statement
-        of Work between us. If you do not agree, please do not use the site or
-        services.
+        By using this site or engaging TheNextGen Healthcare Marketing for any service, you agree to
+        these Terms of Use and to any executed Statement of Work between us. If you do not agree,
+        please do not use the site or services.
       </P>
     ),
   },
@@ -27,15 +26,13 @@ const SECTIONS: LegalSection[] = [
     body: (
       <>
         <P>
-          Information on this site is for general guidance. It is not legal,
-          medical, or compliance advice. Case-study figures are taken from real
-          engagements and are accurate as of the dates noted; future results
-          will vary.
+          Information on this site is for general guidance. It is not legal, medical, or compliance
+          advice. Case-study figures are taken from real engagements and are accurate as of the
+          dates noted; future results will vary.
         </P>
         <P>
-          We refresh case studies and benchmarks on a rolling basis. Specific
-          performance claims in engagements are governed by the Statement of
-          Work, not this site.
+          We refresh case studies and benchmarks on a rolling basis. Specific performance claims in
+          engagements are governed by the Statement of Work, not this site.
         </P>
       </>
     ),
@@ -44,10 +41,9 @@ const SECTIONS: LegalSection[] = [
     heading: 'Intellectual property',
     body: (
       <P>
-        Site copy, illustrations, layouts, and methodology language are
-        copyrighted by TheNextGen Healthcare Marketing. You may share short
-        excerpts with attribution; please do not republish full pages without
-        written permission.
+        Site copy, illustrations, layouts, and methodology language are copyrighted by TheNextGen
+        Healthcare Marketing. You may share short excerpts with attribution; please do not republish
+        full pages without written permission.
       </P>
     ),
   },
@@ -69,9 +65,9 @@ const SECTIONS: LegalSection[] = [
     heading: 'Engagements & deliverables',
     body: (
       <P>
-        When we sign a Statement of Work, deliverables, billing, ownership of
-        assets, and termination terms are governed by that SOW. The SOW
-        supersedes these site Terms where they conflict.
+        When we sign a Statement of Work, deliverables, billing, ownership of assets, and
+        termination terms are governed by that SOW. The SOW supersedes these site Terms where they
+        conflict.
       </P>
     ),
   },
@@ -79,10 +75,9 @@ const SECTIONS: LegalSection[] = [
     heading: 'Disclaimers',
     body: (
       <P>
-        The site is provided &ldquo;as is.&rdquo; We disclaim implied warranties
-        of merchantability and fitness for a particular purpose to the extent
-        permitted by law. Marketing outcomes depend on many variables outside
-        our control.
+        The site is provided &ldquo;as is.&rdquo; We disclaim implied warranties of merchantability
+        and fitness for a particular purpose to the extent permitted by law. Marketing outcomes
+        depend on many variables outside our control.
       </P>
     ),
   },
@@ -90,10 +85,9 @@ const SECTIONS: LegalSection[] = [
     heading: 'Limitation of liability',
     body: (
       <P>
-        To the maximum extent permitted by law, TheNextGen Healthcare Marketing
-        is not liable for indirect, incidental, or consequential damages arising
-        from use of this site. Liability under any executed Statement of Work is
-        governed by that document.
+        To the maximum extent permitted by law, TheNextGen Healthcare Marketing is not liable for
+        indirect, incidental, or consequential damages arising from use of this site. Liability
+        under any executed Statement of Work is governed by that document.
       </P>
     ),
   },
@@ -101,9 +95,8 @@ const SECTIONS: LegalSection[] = [
     heading: 'Governing law',
     body: (
       <P>
-        These Terms are governed by the laws of the State of Texas, USA. Venue
-        for any dispute is Dallas County, Texas, unless the parties agree in
-        writing to alternative dispute resolution.
+        These Terms are governed by the laws of the State of Texas, USA. Venue for any dispute is
+        Dallas County, Texas, unless the parties agree in writing to alternative dispute resolution.
       </P>
     ),
   },

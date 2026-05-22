@@ -22,12 +22,17 @@ const Hero = ({ entry, index }: HeroProps) => (
 
       <div className="ab-value-hero-card">
         <div className="ab-value-hero-head">
-          <span className={`ab-mission-modal-icon ab-mission-modal-icon-${index + 1}`} aria-hidden="true">
+          <span
+            className={`ab-mission-modal-icon ab-mission-modal-icon-${index + 1}`}
+            aria-hidden="true"
+          >
             {entry.icon}
           </span>
           <div className="ab-value-hero-meta">
             <span className="ab-value-hero-num">{entry.num}</span>
-            <h1 id="ab-value-detail-title" className="ab-value-hero-title">{entry.title}</h1>
+            <h1 id="ab-value-detail-title" className="ab-value-hero-title">
+              {entry.title}
+            </h1>
             <p className="ab-value-hero-lead">{entry.lead}</p>
           </div>
         </div>

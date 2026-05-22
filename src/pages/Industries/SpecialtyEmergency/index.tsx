@@ -29,7 +29,12 @@ const BREADCRUMB_SCHEMA = {
   itemListElement: [
     { '@type': 'ListItem', position: 1, name: 'Home', item: `${ORIGIN}/` },
     { '@type': 'ListItem', position: 2, name: 'Industries', item: `${ORIGIN}/industries` },
-    { '@type': 'ListItem', position: 3, name: 'Specialty & Emergency', item: `${ORIGIN}/industries/specialty-emergency` },
+    {
+      '@type': 'ListItem',
+      position: 3,
+      name: 'Specialty & Emergency',
+      item: `${ORIGIN}/industries/specialty-emergency`,
+    },
   ],
 };
 
@@ -82,42 +87,96 @@ const Illustration = (
 );
 
 const QUICK_STATS: QuickStat[] = [
-  { num: (<>+120<em>%</em></>), label: 'ER visits' },
-  { num: (<>4.2<em>×</em></>), label: 'Emergency leads' },
-  { num: (<>99.8<em>%</em></>), label: 'Compliance posture' },
+  {
+    num: (
+      <>
+        +120<em>%</em>
+      </>
+    ),
+    label: 'ER visits',
+  },
+  {
+    num: (
+      <>
+        4.2<em>×</em>
+      </>
+    ),
+    label: 'Emergency leads',
+  },
+  {
+    num: (
+      <>
+        99.8<em>%</em>
+      </>
+    ),
+    label: 'Compliance posture',
+  },
 ];
 
 const SPECIALTIES: SpecialtyRow[] = [
-  { name: 'Freestanding ERs', desc: 'Trauma-search dominance, surge response, and competitor overflow capture.' },
-  { name: 'Urgent care', desc: 'Volume-driven acquisition with wait-time pages and reputation systems.' },
-  { name: 'Orthopedics', desc: 'Condition-page SEO, referral programs, and high-LTV elective campaigns.' },
-  { name: 'Oncology', desc: 'HIPAA-safe nurturing flows, second-opinion funnels, and trial recruitment.' },
-  { name: 'Cardiology specialty', desc: 'Procedure pages, physician directories, and primary-care referral hubs.' },
-  { name: 'Radiology / imaging', desc: 'Service-line pages, payer & referral content, and walk-in acquisition.' },
+  {
+    name: 'Freestanding ERs',
+    desc: 'Trauma-search dominance, surge response, and competitor overflow capture.',
+  },
+  {
+    name: 'Urgent care',
+    desc: 'Volume-driven acquisition with wait-time pages and reputation systems.',
+  },
+  {
+    name: 'Orthopedics',
+    desc: 'Condition-page SEO, referral programs, and high-LTV elective campaigns.',
+  },
+  {
+    name: 'Oncology',
+    desc: 'HIPAA-safe nurturing flows, second-opinion funnels, and trial recruitment.',
+  },
+  {
+    name: 'Cardiology specialty',
+    desc: 'Procedure pages, physician directories, and primary-care referral hubs.',
+  },
+  {
+    name: 'Radiology / imaging',
+    desc: 'Service-line pages, payer & referral content, and walk-in acquisition.',
+  },
 ];
 
 const STEPS: PlayStep[] = [
-  { name: 'Volume, payer & compliance audit', body: 'Specialty volume, payer mix, compliance posture, and current visibility reviewed end to end.' },
-  { name: 'Compliance framework', body: 'HIPAA-safe tracking, ad-copy review, and consent flows shipped before anything goes live.' },
-  { name: 'Visibility & capture', body: 'Local Pack dominance, ER landing pages, and specialty SEO running across the catchment area.' },
-  { name: 'Optimization & governance', body: 'Weekly bid tuning, monthly retro, quarterly clinical-governance review.' },
+  {
+    name: 'Volume, payer & compliance audit',
+    body: 'Specialty volume, payer mix, compliance posture, and current visibility reviewed end to end.',
+  },
+  {
+    name: 'Compliance framework',
+    body: 'HIPAA-safe tracking, ad-copy review, and consent flows shipped before anything goes live.',
+  },
+  {
+    name: 'Visibility & capture',
+    body: 'Local Pack dominance, ER landing pages, and specialty SEO running across the catchment area.',
+  },
+  {
+    name: 'Optimization & governance',
+    body: 'Weekly bid tuning, monthly retro, quarterly clinical-governance review.',
+  },
 ];
 
 const SNAPSHOTS: Snapshot[] = [
   {
     image: snapUrgent,
     label: 'Wait-time pages',
-    caption: 'Real-time wait calls, geo-routing, and single-tap navigation that consistently outperform generic location pages.',
+    caption:
+      'Real-time wait calls, geo-routing, and single-tap navigation that consistently outperform generic location pages.',
   },
   {
     image: snapFreestanding,
     label: 'Freestanding ER launches',
-    caption: 'Six-week launch sequence - GBP, schema, paid, wait-time page, and review pipeline ready for opening day.',
+    caption:
+      'Six-week launch sequence - GBP, schema, paid, wait-time page, and review pipeline ready for opening day.',
   },
   {
     image: snapSpecialty,
     label: 'Specialty deep-dives',
-    caption: 'Condition-plus-symptom long-tail SEO and EmergencyMedicalService schema the hospital can\'t outbid.',
+    caption:
+      "Condition-plus-symptom long-tail SEO and EmergencyMedicalService schema the hospital can't outbid.",
   },
 ];
 
@@ -129,21 +188,53 @@ const PRINCIPLES: Principle[] = [
   },
   {
     title: 'Acuity-aware audiences',
-    body: 'We compete on condition-plus-symptom long-tail searches the hospital can\'t outbid - and tune creative for the moment a patient is choosing where to go right now.',
+    body: "We compete on condition-plus-symptom long-tail searches the hospital can't outbid - and tune creative for the moment a patient is choosing where to go right now.",
     accent: '#B38B6D',
   },
   {
     title: 'Wait-time as conversion engine',
-    body: 'Real-time wait pages, geo-routing to the nearest location, and single-tap navigation outperform generic location pages on booking rate every audit we\'ve run.',
+    body: "Real-time wait pages, geo-routing to the nearest location, and single-tap navigation outperform generic location pages on booking rate every audit we've run.",
     accent: '#8FBC8F',
   },
 ];
 
 const STATS: BigNumber[] = [
-  { num: (<>+120<em>%</em></>), label: 'ER VISITS', caption: 'Lift in qualified ER visits from organic + paid combined.' },
-  { num: (<>4.2<em>×</em></>), label: 'EMERGENCY LEADS', caption: 'Year-over-year growth in qualified high-acuity inquiries.' },
-  { num: (<>−35<em>%</em></>), label: 'COST PER ACQUISITION', caption: 'Reduction through audience layering and landing-page optimization.' },
-  { num: (<>99.8<em>%</em></>), label: 'COMPLIANCE POSTURE', caption: 'HIPAA + marketing-rule conformance across active campaigns.' },
+  {
+    num: (
+      <>
+        +120<em>%</em>
+      </>
+    ),
+    label: 'ER VISITS',
+    caption: 'Lift in qualified ER visits from organic + paid combined.',
+  },
+  {
+    num: (
+      <>
+        4.2<em>×</em>
+      </>
+    ),
+    label: 'EMERGENCY LEADS',
+    caption: 'Year-over-year growth in qualified high-acuity inquiries.',
+  },
+  {
+    num: (
+      <>
+        −35<em>%</em>
+      </>
+    ),
+    label: 'COST PER ACQUISITION',
+    caption: 'Reduction through audience layering and landing-page optimization.',
+  },
+  {
+    num: (
+      <>
+        99.8<em>%</em>
+      </>
+    ),
+    label: 'COMPLIANCE POSTURE',
+    caption: 'HIPAA + marketing-rule conformance across active campaigns.',
+  },
 ];
 
 const SCHEMA = {
@@ -159,7 +250,11 @@ const SpecialtyEmergency = () => {
     <>
       <IndustryHero
         tag="Acuity"
-        title={<>High-acuity acquisition for <em>specialty care.</em></>}
+        title={
+          <>
+            High-acuity acquisition for <em>specialty care.</em>
+          </>
+        }
         lede="Compliance-aware, urgency-first marketing built for ERs, urgent care, and specialty practices that need scale and speed."
         illustration={Illustration}
         quickStats={QUICK_STATS}
@@ -168,14 +263,22 @@ const SpecialtyEmergency = () => {
       <IndustrySnapshots
         items={SNAPSHOTS}
         eyebrow="In practice"
-        title={<>The high-acuity stack, <em>in real deployment.</em></>}
+        title={
+          <>
+            The high-acuity stack, <em>in real deployment.</em>
+          </>
+        }
       />
       <Playbook steps={STEPS} />
       <Numbers stats={STATS} />
       <IndustryPrinciples
         items={PRINCIPLES}
         sectionNum="04"
-        title={<>How we work for <em>high-acuity care.</em></>}
+        title={
+          <>
+            How we work for <em>high-acuity care.</em>
+          </>
+        }
         intro="Three operating principles that make the difference between high-acuity marketing that scales and high-acuity marketing that gets pulled offline."
       />
       <ServiceFAQ
@@ -196,7 +299,10 @@ const SpecialtyEmergency = () => {
         body="A 30-minute call. We'll audit your compliance posture and current visibility, and share the closest case study - whether you sign with us or not."
       />
 
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(SCHEMA) }} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(SCHEMA) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(BREADCRUMB_SCHEMA) }}

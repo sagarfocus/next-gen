@@ -93,9 +93,9 @@ const ImpactBanner = () => {
               The real impact of running healthcare workflows on autopilot
             </h2>
             <p className="impact-lede">
-              Every template in our library has been battle-tested with live
-              clinics. These are the average gains our partners report within
-              the first 60 days of going live with our automation stack.
+              Every template in our library has been battle-tested with live clinics. These are the
+              average gains our partners report within the first 60 days of going live with our
+              automation stack.
             </p>
 
             <div className="impact-stats">
@@ -109,12 +109,10 @@ const ImpactBanner = () => {
             </div>
 
             <div className="impact-foot">
-              <span className="impact-badge">
-                Saturday &amp; Sunday support included
-              </span>
+              <span className="impact-badge">Saturday &amp; Sunday support included</span>
               <span className="impact-note">
-                * Numbers reflect TheNextGen partner clinic averages and are
-                exclusive of platform fees.
+                * Numbers reflect TheNextGen partner clinic averages and are exclusive of platform
+                fees.
               </span>
             </div>
           </div>

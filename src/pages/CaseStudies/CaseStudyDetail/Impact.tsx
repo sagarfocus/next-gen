@@ -12,9 +12,7 @@ const Impact = ({ study, prev, next }: ImpactProps) => (
   <section className="csd-impact" aria-labelledby="csd-impact-title">
     <div className="container-shell">
       <header className="csd-impact-head">
-        <span className="csd-section-rail csd-section-rail--light">
-          03 - Impact snapshot
-        </span>
+        <span className="csd-section-rail csd-section-rail--light">03 - Impact snapshot</span>
         <h2 id="csd-impact-title" className="csd-impact-title">
           The numbers, told once - verified, attributed, kept honest.
         </h2>
@@ -59,8 +57,7 @@ const Impact = ({ study, prev, next }: ImpactProps) => (
         <Link to="/free-growth-audit" className="csd-endnav-cta">
           <span className="csd-endnav-cta-eyebrow">Want a number like this?</span>
           <span className="csd-endnav-cta-line">
-            Start with a 30-minute audit. We will tell you the leak before
-            we tell you the price.
+            Start with a 30-minute audit. We will tell you the leak before we tell you the price.
           </span>
           <span className="csd-endnav-cta-btn">
             Book the audit <ArrowRight />

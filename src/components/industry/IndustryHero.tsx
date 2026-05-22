@@ -14,19 +14,15 @@ interface IndustryHeroProps {
   quickStats: QuickStat[];
 }
 
-const IndustryHero = ({
-  tag,
-  title,
-  lede,
-  illustration,
-  quickStats,
-}: IndustryHeroProps) => {
+const IndustryHero = ({ tag, title, lede, illustration, quickStats }: IndustryHeroProps) => {
   return (
     <section className="iv-hero" aria-labelledby="iv-hero-title">
       <div className="iv-hero-inner">
         <div className="iv-hero-crumb">
           <Link to="/industries">Industries</Link>
-          <span className="sep" aria-hidden="true">/</span>
+          <span className="sep" aria-hidden="true">
+            /
+          </span>
           <span className="cur">{tag}</span>
         </div>
 

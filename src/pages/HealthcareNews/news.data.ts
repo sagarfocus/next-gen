@@ -63,8 +63,7 @@ export const NEWS_ARTICLES: NewsArticle[] = [
     slug: 'ai-imaging-diagnostic-errors',
     category: 'Research',
     title: 'AI-driven imaging tool cuts diagnostic errors by 47% in multi-site hospital trial.',
-    lede:
-      'A 14-month study across nine US hospital networks reports the largest measured drop in radiology misreads of the decade — and a clear blueprint for how the rest of healthcare might follow.',
+    lede: 'A 14-month study across nine US hospital networks reports the largest measured drop in radiology misreads of the decade — and a clear blueprint for how the rest of healthcare might follow.',
     author: 'Aanya Patel',
     date: 'May 1, 2026',
     readTime: '9 min read',
@@ -82,8 +81,7 @@ export const NEWS_ARTICLES: NewsArticle[] = [
       'Translation for smaller practices: the unit economics now favour adoption, but the integration tax is still real. Mid-size networks moved fastest because they could fund a dedicated integration engineer. Single-clinic operations still need the vendor side to ship a working PACS connector before the model can earn its keep.',
     ],
     quote: {
-      text:
-        'We have been waiting six years for a study at this scale. The result is not just statistical — it is operational. The radiologists are reading faster and trusting the second opinion.',
+      text: 'We have been waiting six years for a study at this scale. The result is not just statistical — it is operational. The radiologists are reading faster and trusting the second opinion.',
       attribution: 'Dr. Marcus Field, Chief of Radiology, Memorial Regional',
     },
     ctaTitle: 'Want help connecting clinical AI to your marketing funnel?',
@@ -96,8 +94,7 @@ export const NEWS_ARTICLES: NewsArticle[] = [
     slug: 'fda-glucose-monitor-type2',
     category: 'Regulation',
     title: 'FDA approves first continuous glucose monitor designed for Type 2 patients.',
-    lede:
-      'The approval breaks the device category out of its Type 1 niche and is expected to shift the home-monitoring market by an estimated $4.2B over the next 24 months.',
+    lede: 'The approval breaks the device category out of its Type 1 niche and is expected to shift the home-monitoring market by an estimated $4.2B over the next 24 months.',
     author: 'Riya Chowdhury',
     date: 'Apr 30, 2026',
     readTime: '4 min read',
@@ -124,8 +121,7 @@ export const NEWS_ARTICLES: NewsArticle[] = [
     slug: 'telemedicine-q1-record',
     category: 'Telehealth',
     title: 'Telemedicine visits hit a record high in Q1, led by mental-health specialties.',
-    lede:
-      'Q1 2026 visits exceeded the previous peak by 18%. Mental-health and chronic-care follow-ups now drive a majority of the volume.',
+    lede: 'Q1 2026 visits exceeded the previous peak by 18%. Mental-health and chronic-care follow-ups now drive a majority of the volume.',
     author: 'Ben Holloway',
     date: 'Apr 29, 2026',
     readTime: '6 min read',
@@ -143,8 +139,7 @@ export const NEWS_ARTICLES: NewsArticle[] = [
       'Operationally, the no-show rate remains a quiet success. Across the surveyed health systems, telehealth visits had a 23% lower no-show rate than equivalent in-person appointments — which is the single biggest lever for clinic revenue if you can convert it.',
     ],
     quote: {
-      text:
-        'Mental health is the proof case. If the modality works for the highest-trust visit type in medicine, it works for everything downstream of that.',
+      text: 'Mental health is the proof case. If the modality works for the highest-trust visit type in medicine, it works for everything downstream of that.',
       attribution: 'Dr. Lena Park, Chief Medical Officer, Brightline Health',
     },
     ctaTitle: 'Telehealth-ready landing pages?',
@@ -157,8 +152,7 @@ export const NEWS_ARTICLES: NewsArticle[] = [
     slug: 'voice-ai-front-desks',
     category: 'AI & Operations',
     title: 'Hospital network adopts voice-AI front desks across 38 locations.',
-    lede:
-      'A regional operator becomes the largest US system to replace its inbound call line with a voice-AI agent — and to publish the operational data alongside the rollout.',
+    lede: 'A regional operator becomes the largest US system to replace its inbound call line with a voice-AI agent — and to publish the operational data alongside the rollout.',
     author: 'Daniel Reyes',
     date: 'Apr 28, 2026',
     readTime: '5 min read',
@@ -185,8 +179,7 @@ export const NEWS_ARTICLES: NewsArticle[] = [
     slug: 'cms-cardiac-monitoring',
     category: 'Policy',
     title: 'CMS announces expanded reimbursement for at-home cardiac monitoring.',
-    lede:
-      'New billing codes activate January 2027 — but the design choices independent cardiology practices need to make are due this quarter.',
+    lede: 'New billing codes activate January 2027 — but the design choices independent cardiology practices need to make are due this quarter.',
     author: 'Aanya Patel',
     date: 'Apr 27, 2026',
     readTime: '7 min read',
@@ -213,8 +206,7 @@ export const NEWS_ARTICLES: NewsArticle[] = [
     slug: 'mayo-wearable-heart-monitor',
     category: 'Research',
     title: 'Mayo Clinic pilots wearable heart-monitor program for high-risk patients.',
-    lede:
-      'A 5,000-patient pilot connects consumer-grade wearables to the clinical record — and reports a meaningful drop in cardiac-event admissions inside three months.',
+    lede: 'A 5,000-patient pilot connects consumer-grade wearables to the clinical record — and reports a meaningful drop in cardiac-event admissions inside three months.',
     author: 'Riya Chowdhury',
     date: 'Apr 27, 2026',
     readTime: '5 min read',
@@ -241,8 +233,7 @@ export const NEWS_ARTICLES: NewsArticle[] = [
     slug: 'mental-health-coverage-expansion',
     category: 'Insurance',
     title: 'Major carriers expand mental-health coverage following parity ruling.',
-    lede:
-      'Three of the top five payers have already filed expanded mental-health benefit structures — the structural impact is bigger than the surface announcement.',
+    lede: 'Three of the top five payers have already filed expanded mental-health benefit structures — the structural impact is bigger than the surface announcement.',
     author: 'Ben Holloway',
     date: 'Apr 26, 2026',
     readTime: '6 min read',
@@ -269,8 +260,7 @@ export const NEWS_ARTICLES: NewsArticle[] = [
     slug: 'rural-clinics-shared-ehr',
     category: 'Operations',
     title: 'Rural clinics partner on shared EHR system to reduce admin overhead.',
-    lede:
-      'A consortium of 22 rural clinics across three states pools administrative back-office and reports a 31% reduction in operating overhead.',
+    lede: 'A consortium of 22 rural clinics across three states pools administrative back-office and reports a 31% reduction in operating overhead.',
     author: 'Daniel Reyes',
     date: 'Apr 26, 2026',
     readTime: '4 min read',
@@ -297,8 +287,7 @@ export const NEWS_ARTICLES: NewsArticle[] = [
     slug: 'dental-online-bookings-growth',
     category: 'Marketing',
     title: 'Dental practices report 22% growth in online bookings year-over-year.',
-    lede:
-      'Independent dental practices are outpacing DSOs (dental service organisations) on online-booking growth for the second year running.',
+    lede: 'Independent dental practices are outpacing DSOs (dental service organisations) on online-booking growth for the second year running.',
     author: 'Riya Chowdhury',
     date: 'Apr 25, 2026',
     readTime: '5 min read',
@@ -325,8 +314,7 @@ export const NEWS_ARTICLES: NewsArticle[] = [
     slug: 'ai-pharmacy-inventory',
     category: 'Pharmacy',
     title: 'National chains roll out AI-powered inventory forecasting to cut waste.',
-    lede:
-      'Three national pharmacy chains report 18-24% reductions in expired-medication waste after a year on AI-driven forecasting platforms.',
+    lede: 'Three national pharmacy chains report 18-24% reductions in expired-medication waste after a year on AI-driven forecasting platforms.',
     author: 'Ben Holloway',
     date: 'Apr 24, 2026',
     readTime: '4 min read',
@@ -353,8 +341,7 @@ export const NEWS_ARTICLES: NewsArticle[] = [
     slug: 'texas-clinic-n8n-workflows',
     category: 'Case Study',
     title: 'How a Texas clinic recaptured 18 hours/week with three N8N workflows.',
-    lede:
-      'A single-location family practice in Austin documents the three automations that gave it back two clinical days per week.',
+    lede: 'A single-location family practice in Austin documents the three automations that gave it back two clinical days per week.',
     author: 'Daniel Reyes',
     date: 'Apr 26, 2026',
     readTime: '7 min read',
@@ -373,8 +360,7 @@ export const NEWS_ARTICLES: NewsArticle[] = [
       'The clinic owner has shared the JSON templates publicly. They are reusable as-is — the only customisation needed is the credential layer for your specific platforms.',
     ],
     quote: {
-      text:
-        'I am a clinician, not an engineer. If I can build this in 11 days, the marketing-and-ops layer of medicine has been over-engineered for a decade.',
+      text: 'I am a clinician, not an engineer. If I can build this in 11 days, the marketing-and-ops layer of medicine has been over-engineered for a decade.',
       attribution: 'Dr. Sarah Mendez, Mendez Family Practice, Austin',
     },
     ctaTitle: 'Want the templates installed for you?',
@@ -387,8 +373,7 @@ export const NEWS_ARTICLES: NewsArticle[] = [
     slug: 'hipaa-pitfalls-2026',
     category: 'Compliance',
     title: 'Five HIPAA pitfalls every healthcare marketer should know in 2026.',
-    lede:
-      'A 2026 update to the unwritten rules — distilled from the past 12 months of OCR enforcement actions.',
+    lede: 'A 2026 update to the unwritten rules — distilled from the past 12 months of OCR enforcement actions.',
     author: 'Aanya Patel',
     date: 'Apr 25, 2026',
     readTime: '9 min read',
@@ -418,8 +403,7 @@ export const NEWS_ARTICLES: NewsArticle[] = [
     slug: 'marketing-stack-standardization',
     category: 'Tech Stack',
     title: 'The marketing stack modern practices are quietly standardising on.',
-    lede:
-      'After interviewing 47 marketing leads at independent practices, a clear pattern is forming around five categories of tools.',
+    lede: 'After interviewing 47 marketing leads at independent practices, a clear pattern is forming around five categories of tools.',
     author: 'Ben Holloway',
     date: 'Apr 23, 2026',
     readTime: '8 min read',
@@ -448,8 +432,7 @@ export const NEWS_ARTICLES: NewsArticle[] = [
     slug: 'patient-reviews-search-weight',
     category: 'Reputation',
     title: 'Why patient reviews carry 3× more weight in the 2026 search ranking.',
-    lede:
-      'A quiet adjustment to how the Local Pack scores reputation signals has multiplied the value of recent, high-quality reviews.',
+    lede: 'A quiet adjustment to how the Local Pack scores reputation signals has multiplied the value of recent, high-quality reviews.',
     author: 'Riya Chowdhury',
     date: 'Apr 22, 2026',
     readTime: '6 min read',
@@ -477,8 +460,7 @@ export const NEWS_ARTICLES: NewsArticle[] = [
     slug: 'ai-front-desks-rise',
     category: 'Operations',
     title: 'Inside the rise of AI-powered front desks — and what they replace.',
-    lede:
-      'A look at what AI front desks are good at, what they fail at, and the staffing roles that emerge alongside them.',
+    lede: 'A look at what AI front desks are good at, what they fail at, and the staffing roles that emerge alongside them.',
     author: 'Daniel Reyes',
     date: 'Apr 21, 2026',
     readTime: '7 min read',
@@ -506,8 +488,7 @@ export const NEWS_ARTICLES: NewsArticle[] = [
     slug: 'compliant-email-drips',
     category: 'Email',
     title: 'Compliant email drips that actually convert patients (with examples).',
-    lede:
-      'The three drip patterns that consistently outperform — without crossing any HIPAA line.',
+    lede: 'The three drip patterns that consistently outperform — without crossing any HIPAA line.',
     author: 'Aanya Patel',
     date: 'Apr 20, 2026',
     readTime: '6 min read',
@@ -535,8 +516,7 @@ export const NEWS_ARTICLES: NewsArticle[] = [
     slug: 'medspa-roas-2026',
     category: 'Paid Ads',
     title: 'What healthy ROAS actually looks like for med-spas in 2026.',
-    lede:
-      'A benchmark report from 130 med-spa engagements — broken down by service line, market type, and channel.',
+    lede: 'A benchmark report from 130 med-spa engagements — broken down by service line, market type, and channel.',
     author: 'Ben Holloway',
     date: 'Apr 18, 2026',
     readTime: '8 min read',
@@ -564,8 +544,7 @@ export const NEWS_ARTICLES: NewsArticle[] = [
     slug: 'ehr-sms-no-show-reduction',
     category: 'Automation',
     title: 'How EHR-connected SMS reminders are cutting no-shows by 40%.',
-    lede:
-      'A simple, well-built EHR-to-SMS integration is producing the biggest single revenue improvement available to most practices today.',
+    lede: 'A simple, well-built EHR-to-SMS integration is producing the biggest single revenue improvement available to most practices today.',
     author: 'Riya Chowdhury',
     date: 'Apr 15, 2026',
     readTime: '5 min read',
@@ -597,34 +576,50 @@ export const relatedArticles = (slug: string, n = 3): NewsArticle[] => {
   const current = newsBySlug(slug);
   if (!current) return NEWS_ARTICLES.slice(0, n);
   return NEWS_ARTICLES.filter((a) => a.slug !== slug)
-    .sort((a, b) => (a.category === current.category ? -1 : 1) - (b.category === current.category ? -1 : 1))
+    .sort(
+      (a, b) =>
+        (a.category === current.category ? -1 : 1) - (b.category === current.category ? -1 : 1)
+    )
     .slice(0, n);
 };
 
 export const CATEGORY_TONES: Record<NewsCategory, { hex: string; soft: string }> = {
-  Research:           { hex: '#5A8F5A', soft: 'rgba(143, 188, 143, 0.16)' },
-  Regulation:         { hex: '#2D3748', soft: 'rgba(45, 55, 72, 0.10)'   },
-  Telehealth:         { hex: '#576DB5', soft: 'rgba(87, 109, 181, 0.12)' },
-  'AI & Operations':  { hex: '#576DB5', soft: 'rgba(87, 109, 181, 0.12)' },
-  Policy:             { hex: '#B38B6D', soft: 'rgba(179, 139, 109, 0.14)' },
-  Insurance:          { hex: '#B38B6D', soft: 'rgba(179, 139, 109, 0.14)' },
-  Operations:         { hex: '#576DB5', soft: 'rgba(87, 109, 181, 0.12)' },
-  Marketing:          { hex: '#B38B6D', soft: 'rgba(179, 139, 109, 0.14)' },
-  Pharmacy:           { hex: '#5A8F5A', soft: 'rgba(143, 188, 143, 0.16)' },
-  'Case Study':       { hex: '#2D3748', soft: 'rgba(45, 55, 72, 0.10)'   },
-  Compliance:         { hex: '#2D3748', soft: 'rgba(45, 55, 72, 0.10)'   },
-  'Tech Stack':       { hex: '#576DB5', soft: 'rgba(87, 109, 181, 0.12)' },
-  Reputation:         { hex: '#5A8F5A', soft: 'rgba(143, 188, 143, 0.16)' },
-  Email:              { hex: '#B38B6D', soft: 'rgba(179, 139, 109, 0.14)' },
-  'Paid Ads':         { hex: '#B38B6D', soft: 'rgba(179, 139, 109, 0.14)' },
-  Automation:         { hex: '#576DB5', soft: 'rgba(87, 109, 181, 0.12)' },
+  Research: { hex: '#5A8F5A', soft: 'rgba(143, 188, 143, 0.16)' },
+  Regulation: { hex: '#2D3748', soft: 'rgba(45, 55, 72, 0.10)' },
+  Telehealth: { hex: '#576DB5', soft: 'rgba(87, 109, 181, 0.12)' },
+  'AI & Operations': { hex: '#576DB5', soft: 'rgba(87, 109, 181, 0.12)' },
+  Policy: { hex: '#B38B6D', soft: 'rgba(179, 139, 109, 0.14)' },
+  Insurance: { hex: '#B38B6D', soft: 'rgba(179, 139, 109, 0.14)' },
+  Operations: { hex: '#576DB5', soft: 'rgba(87, 109, 181, 0.12)' },
+  Marketing: { hex: '#B38B6D', soft: 'rgba(179, 139, 109, 0.14)' },
+  Pharmacy: { hex: '#5A8F5A', soft: 'rgba(143, 188, 143, 0.16)' },
+  'Case Study': { hex: '#2D3748', soft: 'rgba(45, 55, 72, 0.10)' },
+  Compliance: { hex: '#2D3748', soft: 'rgba(45, 55, 72, 0.10)' },
+  'Tech Stack': { hex: '#576DB5', soft: 'rgba(87, 109, 181, 0.12)' },
+  Reputation: { hex: '#5A8F5A', soft: 'rgba(143, 188, 143, 0.16)' },
+  Email: { hex: '#B38B6D', soft: 'rgba(179, 139, 109, 0.14)' },
+  'Paid Ads': { hex: '#B38B6D', soft: 'rgba(179, 139, 109, 0.14)' },
+  Automation: { hex: '#576DB5', soft: 'rgba(87, 109, 181, 0.12)' },
 };
 
 /* Catalogue of all stories with the asset bag so the listing pages can
    migrate from their inline data to the canonical store. */
 export const ASSETS = {
-  healthcareimg1, healthcareimg2, healthcareimg3, healthcareimg4, healthcareimg5,
-  healthcareimg6, healthcareimg7, analyticsImg, recallImg, patientIdentitiesImg,
-  futuristicImg, ouradvantageImg, bookingWebsiteImg, builtForClinicImg, medSpaImg,
-  dentalImg, emailImg,
+  healthcareimg1,
+  healthcareimg2,
+  healthcareimg3,
+  healthcareimg4,
+  healthcareimg5,
+  healthcareimg6,
+  healthcareimg7,
+  analyticsImg,
+  recallImg,
+  patientIdentitiesImg,
+  futuristicImg,
+  ouradvantageImg,
+  bookingWebsiteImg,
+  builtForClinicImg,
+  medSpaImg,
+  dentalImg,
+  emailImg,
 };

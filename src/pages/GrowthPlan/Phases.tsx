@@ -5,15 +5,17 @@ const Phases = () => (
     <div className="container-shell py-[clamp(64px,9vw,128px)]">
       <div className="grid lg:grid-cols-12 gap-x-16 gap-y-6 mb-12">
         <div className="lg:col-span-5">
-          <div className="text-line font-mono text-[12px] tracking-[0.24em] uppercase">The Four Phases</div>
+          <div className="text-line font-mono text-[12px] tracking-[0.24em] uppercase">
+            The Four Phases
+          </div>
           <h2 className="mt-4 text-heading text-[clamp(28px,3vw,42px)] font-bold tracking-[-0.024em] leading-[1.1]">
             Read across the chart, top to bottom.
           </h2>
         </div>
         <div className="lg:col-span-7 lg:pt-6">
           <p className="text-body text-[16px] leading-[1.7] max-w-[60ch]">
-            Each phase has a window, a deliverable, and a measurement. Nothing ships
-            without a stated hypothesis and an exit criterion.
+            Each phase has a window, a deliverable, and a measurement. Nothing ships without a
+            stated hypothesis and an exit criterion.
           </p>
         </div>
       </div>
@@ -23,8 +25,8 @@ const Phases = () => (
           const TONES: { hex: string; soft: string }[] = [
             { hex: '#5A8F5A', soft: 'rgba(143, 188, 143, 0.16)' }, // sage
             { hex: '#B38B6D', soft: 'rgba(179, 139, 109, 0.16)' }, // tan
-            { hex: '#576DB5', soft: 'rgba(87, 109, 181, 0.14)'  }, // cta
-            { hex: '#2D3748', soft: 'rgba(45, 55, 72, 0.10)'    }, // heading
+            { hex: '#576DB5', soft: 'rgba(87, 109, 181, 0.14)' }, // cta
+            { hex: '#2D3748', soft: 'rgba(45, 55, 72, 0.10)' }, // heading
           ];
           const t = TONES[i] ?? TONES[3];
           const prev = TONES[i - 1]?.hex ?? t.hex;

@@ -38,14 +38,9 @@ const SMALL_STATS: SmallStat[] = [
   },
 ];
 
-
 const Results = () => {
   return (
-    <section
-      className="results-section"
-      id="results"
-      aria-labelledby="results-title"
-    >
+    <section className="results-section" id="results" aria-labelledby="results-title">
       <div className="container-shell">
         <div className="results-head">
           <span className="results-eyebrow">Proof of Work</span>
@@ -53,17 +48,13 @@ const Results = () => {
             Real results.
           </h2>
           <p className="results-sub">
-            We don&rsquo;t just talk - we deliver measurable outcomes for
-            healthcare practices.
+            We don&rsquo;t just talk - we deliver measurable outcomes for healthcare practices.
           </p>
         </div>
 
         <div className="stats-grid">
           {/* Big featured dark card */}
-          <article
-            className="stat-featured"
-            aria-label="312% increase in Instagram leads - MedSpa"
-          >
+          <article className="stat-featured" aria-label="312% increase in Instagram leads - MedSpa">
             <div className="stat-art" aria-hidden="true">
               <svg
                 viewBox="0 0 665 503"
@@ -113,7 +104,12 @@ const Results = () => {
 
                 {/* Notification badge */}
                 <g className="art-notif" transform="translate(372 72)">
-                  <circle r="15" fill="rgba(143,188,143,0.14)" stroke="rgba(143,188,143,0.55)" strokeWidth="1" />
+                  <circle
+                    r="15"
+                    fill="rgba(143,188,143,0.14)"
+                    stroke="rgba(143,188,143,0.55)"
+                    strokeWidth="1"
+                  />
                   <path
                     d="M-5 -3 a5 5 0 0 1 10 0 v3 l2 3 h-14 l2 -3 z"
                     fill="none"
@@ -145,10 +141,31 @@ const Results = () => {
                     strokeWidth="1"
                   />
                   <circle cx="18" cy="18" r="8" fill="rgba(255,255,255,0.18)" />
-                  <rect x="32" y="13" width="50" height="5" rx="2.5" fill="rgba(255,255,255,0.18)" />
-                  <rect x="32" y="22" width="30" height="3" rx="1.5" fill="rgba(255,255,255,0.10)" />
+                  <rect
+                    x="32"
+                    y="13"
+                    width="50"
+                    height="5"
+                    rx="2.5"
+                    fill="rgba(255,255,255,0.18)"
+                  />
+                  <rect
+                    x="32"
+                    y="22"
+                    width="30"
+                    height="3"
+                    rx="1.5"
+                    fill="rgba(255,255,255,0.10)"
+                  />
                   <circle cx="65" cy="92" r="38" fill="url(#medSkinSoft)" />
-                  <rect x="14" y="146" width="50" height="3" rx="1.5" fill="rgba(255,255,255,0.12)" />
+                  <rect
+                    x="14"
+                    y="146"
+                    width="50"
+                    height="3"
+                    rx="1.5"
+                    fill="rgba(255,255,255,0.12)"
+                  />
                 </g>
 
                 {/* Foreground post card */}
@@ -209,10 +226,38 @@ const Results = () => {
 
                 {/* Avatar mini cluster */}
                 <g className="art-avatars" transform="translate(388 366)">
-                  <circle cx="0" cy="0" r="11" fill="rgba(143,188,143,0.45)" stroke="#2D3748" strokeWidth="2" />
-                  <circle cx="14" cy="0" r="11" fill="rgba(151,168,220,0.55)" stroke="#2D3748" strokeWidth="2" />
-                  <circle cx="28" cy="0" r="11" fill="rgba(179,139,109,0.55)" stroke="#2D3748" strokeWidth="2" />
-                  <circle cx="42" cy="0" r="11" fill="rgba(255,255,255,0.10)" stroke="#2D3748" strokeWidth="2" />
+                  <circle
+                    cx="0"
+                    cy="0"
+                    r="11"
+                    fill="rgba(143,188,143,0.45)"
+                    stroke="#2D3748"
+                    strokeWidth="2"
+                  />
+                  <circle
+                    cx="14"
+                    cy="0"
+                    r="11"
+                    fill="rgba(151,168,220,0.55)"
+                    stroke="#2D3748"
+                    strokeWidth="2"
+                  />
+                  <circle
+                    cx="28"
+                    cy="0"
+                    r="11"
+                    fill="rgba(179,139,109,0.55)"
+                    stroke="#2D3748"
+                    strokeWidth="2"
+                  />
+                  <circle
+                    cx="42"
+                    cy="0"
+                    r="11"
+                    fill="rgba(255,255,255,0.10)"
+                    stroke="#2D3748"
+                    strokeWidth="2"
+                  />
                 </g>
 
                 {/* Chat bubble */}
@@ -241,7 +286,14 @@ const Results = () => {
                     strokeWidth="1"
                   />
                   <rect x="12" y="14" width="56" height="6" rx="3" fill="rgba(255,255,255,0.45)" />
-                  <rect x="12" y="24" width="38" height="3.5" rx="1.7" fill="rgba(255,255,255,0.22)" />
+                  <rect
+                    x="12"
+                    y="24"
+                    width="38"
+                    height="3.5"
+                    rx="1.7"
+                    fill="rgba(255,255,255,0.22)"
+                  />
                   <rect
                     x="12"
                     y="38"
@@ -285,7 +337,14 @@ const Results = () => {
                   <rect x="0" y="14" width="8" height="14" rx="1.5" fill="rgba(255,255,255,0.18)" />
                   <rect x="12" y="8" width="8" height="20" rx="1.5" fill="rgba(255,255,255,0.26)" />
                   <rect x="24" y="2" width="8" height="26" rx="1.5" fill="rgba(143,188,143,0.55)" />
-                  <rect x="36" y="-4" width="8" height="32" rx="1.5" fill="rgba(143,188,143,0.78)" />
+                  <rect
+                    x="36"
+                    y="-4"
+                    width="8"
+                    height="32"
+                    rx="1.5"
+                    fill="rgba(143,188,143,0.78)"
+                  />
                 </g>
               </svg>
             </div>
@@ -294,8 +353,8 @@ const Results = () => {
               <CountUp to={312} suffix="%" duration={2.0} />
             </p>
             <p className="stat-label">
-              Increase in Instagram leads in 90&nbsp;days - from a single
-              optimized funnel and creative refresh.
+              Increase in Instagram leads in 90&nbsp;days - from a single optimized funnel and
+              creative refresh.
             </p>
             <span className="stat-arrow" aria-hidden="true">
               <ArrowIcon size={16} strokeWidth={1.8} />
@@ -305,11 +364,7 @@ const Results = () => {
           {/* Right column - 3 stacked cards */}
           <div className="stats-right">
             {SMALL_STATS.map(({ tag, value, prefix, suffix, decimals, label, ariaLabel }) => (
-              <article
-                key={tag}
-                className="stat-card"
-                aria-label={ariaLabel}
-              >
+              <article key={tag} className="stat-card" aria-label={ariaLabel}>
                 <span className="stat-tag">{tag}</span>
                 <p className="stat-num">
                   <CountUp

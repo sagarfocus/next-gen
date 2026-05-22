@@ -55,7 +55,7 @@ const svg = (children: ReactNode) =>
       strokeLinejoin: 'round',
       'aria-hidden': true,
     },
-    children,
+    children
   );
 
 export const INDUSTRY_ICONS: Record<string, ReactNode> = {
@@ -64,8 +64,16 @@ export const INDUSTRY_ICONS: Record<string, ReactNode> = {
     createElement('circle', { key: 'c', cx: 12, cy: 12, r: 9 }),
     createElement('path', { key: 'p', d: 'M12 7v10M7 12h10' }),
   ]),
-  'medspas-aesthetics': svg(createElement('path', { d: 'M12 2l2.3 5.3L20 9l-4 4.2L17 20l-5-2.8L7 20l1-6.8L4 9l5.7-1.7L12 2z' })),
-  'dental-practices': svg(createElement('path', { d: 'M7 3c-2 0-3 1.5-3 4 0 3 1 5 1.5 8s1 7 2.5 7c1 0 1-3 2-5s1.5-2 2 0 1 5 2 5c1.5 0 2-4 2.5-7s1.5-5 1.5-8c0-2.5-1-4-3-4-1.5 0-2.5 1-3.5 1S8.5 3 7 3z' })),
+  'medspas-aesthetics': svg(
+    createElement('path', {
+      d: 'M12 2l2.3 5.3L20 9l-4 4.2L17 20l-5-2.8L7 20l1-6.8L4 9l5.7-1.7L12 2z',
+    })
+  ),
+  'dental-practices': svg(
+    createElement('path', {
+      d: 'M7 3c-2 0-3 1.5-3 4 0 3 1 5 1.5 8s1 7 2.5 7c1 0 1-3 2-5s1.5-2 2 0 1 5 2 5c1.5 0 2-4 2.5-7s1.5-5 1.5-8c0-2.5-1-4-3-4-1.5 0-2.5 1-3.5 1S8.5 3 7 3z',
+    })
+  ),
   'mental-health': svg([
     createElement('path', { key: '1', d: 'M9 21V9a3 3 0 0 1 3-3 3 3 0 0 1 3 3v12' }),
     createElement('path', { key: '2', d: 'M5 14a4 4 0 0 1 0-8 4 4 0 0 1 4-4' }),
@@ -130,7 +138,7 @@ export const ENGAGEMENT_DETAILS: DetailEntry[] = [
       },
       {
         q: 'Can this replicate at multi-location ER networks?',
-        a: 'Yes - the same playbook scales by location with templated landing pages, per-site GBP, and centralised insurance-verification automation that respects the network\'s shared BAA.',
+        a: "Yes - the same playbook scales by location with templated landing pages, per-site GBP, and centralised insurance-verification automation that respects the network's shared BAA.",
       },
     ],
   },
@@ -170,7 +178,7 @@ export const ENGAGEMENT_DETAILS: DetailEntry[] = [
       },
       {
         q: 'Is this dependent on the practice having an existing CRM?',
-        a: 'Not strictly. We onboard CRM data when it exists and build the segments fresh when it doesn\'t - the segmentation matters more than the legacy data.',
+        a: "Not strictly. We onboard CRM data when it exists and build the segments fresh when it doesn't - the segmentation matters more than the legacy data.",
       },
     ],
   },
@@ -185,7 +193,7 @@ export const ENGAGEMENT_DETAILS: DetailEntry[] = [
       'Seven dental locations operating as seven brands. We unified them under one search + brand operating system, then engineered cross-location attribution so each clinic could see its own pipeline without drowning in the others’ noise.',
     longBody: [
       'NorthLake had grown by acquisition. Seven offices, seven websites, seven Google profiles, seven sets of pricing pages with no shared brand voice. Local rankings cannibalised each other and reporting was a monthly archaeology project.',
-      'We unified the seven offices under one brand operating system with shared templates, shared schema, and a per-location GBP strategy that pushed each clinic on the local terms it deserved - without overlapping the neighbouring office\'s territory.',
+      "We unified the seven offices under one brand operating system with shared templates, shared schema, and a per-location GBP strategy that pushed each clinic on the local terms it deserved - without overlapping the neighbouring office's territory.",
       'A single attribution layer replaced the patchwork of GA properties and let each office see its own pipeline cleanly. Cost per new patient dropped by 48% in eight months, and the leadership team finally had one dashboard that mapped paid spend to chair-time across the network.',
     ],
     services: [
@@ -206,7 +214,7 @@ export const ENGAGEMENT_DETAILS: DetailEntry[] = [
       },
       {
         q: 'How does cross-location attribution work?',
-        a: 'A unified data layer with server-side tagging that respects HIPAA boundaries, then per-location attribution windows tuned to that office\'s actual booking lead time.',
+        a: "A unified data layer with server-side tagging that respects HIPAA boundaries, then per-location attribution windows tuned to that office's actual booking lead time.",
       },
       {
         q: 'How long to roll out across all sites?',
@@ -292,7 +300,7 @@ export const INDUSTRY_DETAILS: DetailEntry[] = [
       },
       {
         q: 'What about competing with national chains?',
-        a: 'Local detail wins. Insurance specifics, ETAs, hyper-local reviews, and the kind of operational detail (parking, after-hours phone) that a national landing page can\'t replicate.',
+        a: "Local detail wins. Insurance specifics, ETAs, hyper-local reviews, and the kind of operational detail (parking, after-hours phone) that a national landing page can't replicate.",
       },
     ],
   },
@@ -328,7 +336,7 @@ export const INDUSTRY_DETAILS: DetailEntry[] = [
       },
       {
         q: 'How do you compete on price-sensitive treatments?',
-        a: 'We don\'t. We re-anchor the funnel on bundles and memberships where price is a secondary concern, then let the high-margin treatments do the heavy lifting on LTV.',
+        a: "We don't. We re-anchor the funnel on bundles and memberships where price is a secondary concern, then let the high-margin treatments do the heavy lifting on LTV.",
       },
     ],
   },
@@ -344,7 +352,7 @@ export const INDUSTRY_DETAILS: DetailEntry[] = [
     longBody: [
       'Dental marketing breaks at scale. A solo practice grows into three offices, then ten, and the cannibalisation starts: same brand, same content, same GBP signals - competing for the same searches in overlapping catchments.',
       'We solve that with a brand operating system. One spine, templated per-location pages, schema that tells Google each office is independent, and a paid layer that respects catchment boundaries.',
-      'The result is a dental network that ranks for every office\'s local terms without letting them collide, and a per-office cost-per-patient that drops as the centralised work compounds.',
+      "The result is a dental network that ranks for every office's local terms without letting them collide, and a per-office cost-per-patient that drops as the centralised work compounds.",
     ],
     services: [
       'Multi-location SEO',
@@ -432,11 +440,11 @@ export const INDUSTRY_DETAILS: DetailEntry[] = [
     faqs: [
       {
         q: 'How do you handle vaccine content?',
-        a: 'Strictly clinical, sourced from CDC and AAP guidance, written to answer the parent\'s actual question. We do not editorialise and we do not run engagement-optimisation campaigns on vaccine pages.',
+        a: "Strictly clinical, sourced from CDC and AAP guidance, written to answer the parent's actual question. We do not editorialise and we do not run engagement-optimisation campaigns on vaccine pages.",
       },
       {
         q: 'Can recall sequences feel less pushy?',
-        a: 'Yes - cadence is set by visit type, age, and the family\'s historical engagement. The default is empathetic not aggressive; reminders, not nudges.',
+        a: "Yes - cadence is set by visit type, age, and the family's historical engagement. The default is empathetic not aggressive; reminders, not nudges.",
       },
     ],
   },
@@ -486,8 +494,8 @@ export const INDUSTRY_DETAILS: DetailEntry[] = [
     description:
       'Grow your panel with the patients your panel actually needs - by payer, by zip, by visit type. Volume that lifts revenue, not just utilisation.',
     longBody: [
-      'Primary care marketing is often utilisation marketing - more visits, more visits, more visits - even when the panel doesn\'t need more volume, it needs better mix.',
-      'We model the panel first. Which payers, which zips, which visit types lift revenue per chair-hour. Then we route paid spend and SEO toward the patients that match - and quietly steer the rest to clinics where they\'re a better fit.',
+      "Primary care marketing is often utilisation marketing - more visits, more visits, more visits - even when the panel doesn't need more volume, it needs better mix.",
+      "We model the panel first. Which payers, which zips, which visit types lift revenue per chair-hour. Then we route paid spend and SEO toward the patients that match - and quietly steer the rest to clinics where they're a better fit.",
       'The result is a panel that gets healthier, not just bigger. Annual wellness funnels, same-day-visit ads for capacity gaps, and care-gap closure flows that move the metrics value-based contracts care about.',
     ],
     services: [
@@ -504,11 +512,11 @@ export const INDUSTRY_DETAILS: DetailEntry[] = [
     faqs: [
       {
         q: 'Can this work under a value-based contract?',
-        a: 'Yes - we tune the campaigns to the metrics that matter under the contract (care-gap closure, AWV completion, attribution) and report against the contract\'s scorecard.',
+        a: "Yes - we tune the campaigns to the metrics that matter under the contract (care-gap closure, AWV completion, attribution) and report against the contract's scorecard.",
       },
       {
         q: 'How do you handle payer-mix targeting?',
-        a: 'Through landing pages and audiences tuned to the zip codes and demographics that historically map to the payer mix the practice needs - never through any data the practice can\'t legally use.',
+        a: "Through landing pages and audiences tuned to the zip codes and demographics that historically map to the payer mix the practice needs - never through any data the practice can't legally use.",
       },
     ],
   },
@@ -522,9 +530,9 @@ export const INDUSTRY_DETAILS: DetailEntry[] = [
     description:
       'The system that lets 7, 70, or 700 locations rank, convert, and report - without seven, seventy, or seven hundred marketing teams. One brand, one tech spine, one weekly dashboard.',
     longBody: [
-      'Networks break in marketing the same way they break in operations: at the seams between locations. The brand drifts. The data fragments. The local teams improvise. The leadership team is left with a stack of dashboards that don\'t reconcile.',
+      "Networks break in marketing the same way they break in operations: at the seams between locations. The brand drifts. The data fragments. The local teams improvise. The leadership team is left with a stack of dashboards that don't reconcile.",
       'We build the operating system that holds it together. One brand spine. One templated page architecture. One attribution layer. One weekly dashboard that maps spend to chair-time across every site.',
-      'Each location keeps its local voice and its local team. The system handles everything that doesn\'t need to be reinvented per site - which turns out to be most of it.',
+      "Each location keeps its local voice and its local team. The system handles everything that doesn't need to be reinvented per site - which turns out to be most of it.",
     ],
     services: [
       'Centralised brand system',
@@ -560,12 +568,13 @@ export const CAPABILITY_DETAILS: DetailEntry[] = [
     img: imgLocalSearch,
     eyebrow: 'Capability · Discovery',
     title: 'Local search systems that own the Map Pack.',
-    blurb: 'Schema, GBP optimisation, geo-targeted content, and a review engine that compounds month over month.',
+    blurb:
+      'Schema, GBP optimisation, geo-targeted content, and a review engine that compounds month over month.',
     description:
       'Healthcare buyers start with high-intent searches in their zip code. We engineer the systems that put your practice in the Local Pack on the searches that matter - emergency-care, same-day appointments, specialty visits - and keep you there as competitors churn around you.',
     longBody: [
       'Local search is the front door for almost every healthcare practice. Eighty percent of high-intent visits start with a zip-code-bound query, and the Map Pack is the only result most patients see.',
-      'We build the system that wins that surface: schema that gives Google the structured signals it needs, GBP profiles that update on the cadence the algorithm rewards, service-area pages that match the patient\'s exact search, and a review engine that builds compounding velocity month-over-month.',
+      "We build the system that wins that surface: schema that gives Google the structured signals it needs, GBP profiles that update on the cadence the algorithm rewards, service-area pages that match the patient's exact search, and a review engine that builds compounding velocity month-over-month.",
       'The result is a practice that holds the Map Pack on the searches that matter even as competitors throw budget at the same terms - because the system compounds, and the budget does not.',
     ],
     services: [
@@ -600,7 +609,7 @@ export const CAPABILITY_DETAILS: DetailEntry[] = [
     description:
       'Paid spend that compounds, not leaks. HIPAA-aware audience design, server-side conversion tracking, and budget routed toward patients with real lifetime value - not the cheapest first click.',
     longBody: [
-      'Most healthcare paid media leaks. The conversion event is misdefined, the audience is built on signals the practice can\'t legally use, and the optimisation chases the cheapest click instead of the most valuable patient.',
+      "Most healthcare paid media leaks. The conversion event is misdefined, the audience is built on signals the practice can't legally use, and the optimisation chases the cheapest click instead of the most valuable patient.",
       'We rebuild that. HIPAA-aware audience design that respects what can and cannot be sent to ad platforms. Server-side conversion tracking that captures the events that actually matter. Landing-flow experiments that move the booking number, not the form-fill number.',
       'The result is paid spend that pays back the same week it lands - and a CAC that drops as the optimisation compounds.',
     ],
@@ -618,7 +627,7 @@ export const CAPABILITY_DETAILS: DetailEntry[] = [
     faqs: [
       {
         q: 'Is server-side tracking HIPAA-safe?',
-        a: 'When configured correctly, yes - and that\'s most of the value we add. The implementation strips PHI before any signal leaves your environment, and the events fired to ad platforms carry only the metadata the platform needs to optimise.',
+        a: "When configured correctly, yes - and that's most of the value we add. The implementation strips PHI before any signal leaves your environment, and the events fired to ad platforms carry only the metadata the platform needs to optimise.",
       },
       {
         q: 'How do you handle restricted ad categories?',
@@ -632,7 +641,8 @@ export const CAPABILITY_DETAILS: DetailEntry[] = [
     img: imgPatientIdentities,
     eyebrow: 'Capability · Brand',
     title: 'Identities patients trust on sight.',
-    blurb: 'Marks, voice, and motion built to age well across signage, screen, and surgical theatre.',
+    blurb:
+      'Marks, voice, and motion built to age well across signage, screen, and surgical theatre.',
     description:
       'A brand system designed for the moment a patient is choosing between you and the practice down the street. Marks, voice, and motion that read as competent and current across every surface - signage, screen, surgical theatre.',
     longBody: [
@@ -668,7 +678,8 @@ export const CAPABILITY_DETAILS: DetailEntry[] = [
     img: imgBookingWeb,
     eyebrow: 'Capability · Web',
     title: 'Booking-first websites that convert.',
-    blurb: 'Speed, schema, accessibility - and a booking pathway with measured drop-off at every step.',
+    blurb:
+      'Speed, schema, accessibility - and a booking pathway with measured drop-off at every step.',
     description:
       'Sites engineered around the booking pathway. Speed, schema, accessibility - and a drop-off map at every step so we know exactly where conversion leaks happen and which fix moves the number.',
     longBody: [
@@ -708,8 +719,8 @@ export const CAPABILITY_DETAILS: DetailEntry[] = [
     description:
       'Patient lifecycle communication that respects intent. Empathetic recall flows that move return rates and reactivate dormant patients without ever feeling transactional, templated, or manipulative.',
     longBody: [
-      'Lifecycle is where most practices leak the most patients - not because the recall doesn\'t fire, but because it fires the wrong way. The email reads like a marketing template, the SMS arrives at the wrong time, the cadence escalates when the patient stops responding.',
-      'We write recall the way the front desk would, if the front desk had time. Empathetic. Cadence-aware. Permission-based. Reactivation that respects the patient\'s reasons for going quiet, not a sequence that escalates until they unsubscribe.',
+      "Lifecycle is where most practices leak the most patients - not because the recall doesn't fire, but because it fires the wrong way. The email reads like a marketing template, the SMS arrives at the wrong time, the cadence escalates when the patient stops responding.",
+      "We write recall the way the front desk would, if the front desk had time. Empathetic. Cadence-aware. Permission-based. Reactivation that respects the patient's reasons for going quiet, not a sequence that escalates until they unsubscribe.",
       'The result is a return rate that lifts without the patient base resenting the practice for the lift.',
     ],
     services: [
@@ -744,7 +755,7 @@ export const CAPABILITY_DETAILS: DetailEntry[] = [
     description:
       'EHR-connected, BAA-covered workflows that take busywork off the front desk so staff can spend time on patients, not on phones. Intake, reminders, eligibility, AI triage - running where your team already works.',
     longBody: [
-      'The front desk is where most healthcare practices lose hours to busywork. Intake forms re-keyed. Insurance verified by phone. Reminders sent manually. The automation that should exist either doesn\'t, or runs in a tool nobody trusts.',
+      "The front desk is where most healthcare practices lose hours to busywork. Intake forms re-keyed. Insurance verified by phone. Reminders sent manually. The automation that should exist either doesn't, or runs in a tool nobody trusts.",
       'We build the automation the desk actually uses. EHR-connected where it matters. BAA-covered everywhere it touches PHI. Triage that escalates the right cases without burying the rest.',
       'The result is a front desk that spends its hours where they belong - on patients - and a no-show rate that drops because the system handles the parts the team kept forgetting to.',
     ],
@@ -781,5 +792,4 @@ export const ALL_DETAILS: DetailEntry[] = [
 export const findDetail = (kind: DetailKind, slug: string): DetailEntry | undefined =>
   ALL_DETAILS.find((d) => d.kind === kind && d.slug === slug);
 
-export const detailHref = (kind: DetailKind, slug: string): string =>
-  `/our-work/${kind}/${slug}`;
+export const detailHref = (kind: DetailKind, slug: string): string => `/our-work/${kind}/${slug}`;

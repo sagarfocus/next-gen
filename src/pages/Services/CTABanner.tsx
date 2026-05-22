@@ -39,9 +39,8 @@ const CTABanner = ({ onBook }: CTABannerProps) => {
               Let&rsquo;s build your <em>patient pipeline</em>.
             </h2>
             <p className="cta-text">
-              Get a free strategy session with a healthcare growth specialist.
-              We&rsquo;ll audit your funnel, map your opportunity, and show you
-              exactly where to start.
+              Get a free strategy session with a healthcare growth specialist. We&rsquo;ll audit
+              your funnel, map your opportunity, and show you exactly where to start.
             </p>
             <div className="cta-row">
               <button

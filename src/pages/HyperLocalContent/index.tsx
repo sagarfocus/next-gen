@@ -19,7 +19,10 @@ const HyperLocalContent = () => (
     <Anatomy />
     <CTA />
 
-    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(SCHEMA) }} />
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(SCHEMA) }}
+    />
   </main>
 );
 

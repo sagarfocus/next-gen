@@ -11,7 +11,9 @@ export const VALUE_IMAGES: Record<string, { about: string; approach: string }> =
   'compliance-without-compromise': { about: healthcareImg2, approach: strategyImg },
 };
 
-export const buildValueNarrative = (entry: ValueEntry): { about: NarrativeBlock; approach: NarrativeBlock } => {
+export const buildValueNarrative = (
+  entry: ValueEntry
+): { about: NarrativeBlock; approach: NarrativeBlock } => {
   const imgs = VALUE_IMAGES[entry.slug] || { about: healthcareImg1, approach: healthcareImg2 };
   return {
     about: {
@@ -41,12 +43,26 @@ export const buildValueNarrative = (entry: ValueEntry): { about: NarrativeBlock;
   };
 };
 
-export const BODY_CARD_META: { title: string; tone: 'rose' | 'periwinkle' | 'tan'; icon: ReactElement }[] = [
+export const BODY_CARD_META: {
+  title: string;
+  tone: 'rose' | 'periwinkle' | 'tan';
+  icon: ReactElement;
+}[] = [
   {
     title: 'The challenge',
     tone: 'rose',
     icon: (
-      <svg width={20} height={20} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <svg
+        width={20}
+        height={20}
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth={1.8}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        aria-hidden="true"
+      >
         <path d="M12 9v4" />
         <path d="M12 17h.01" />
         <path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
@@ -57,7 +73,17 @@ export const BODY_CARD_META: { title: string; tone: 'rose' | 'periwinkle' | 'tan
     title: 'Our approach',
     tone: 'periwinkle',
     icon: (
-      <svg width={20} height={20} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <svg
+        width={20}
+        height={20}
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth={1.8}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        aria-hidden="true"
+      >
         <circle cx="12" cy="12" r="9" />
         <polyline points="9 12 11 14 15 10" />
       </svg>
@@ -67,7 +93,17 @@ export const BODY_CARD_META: { title: string; tone: 'rose' | 'periwinkle' | 'tan
     title: 'The outcome',
     tone: 'tan',
     icon: (
-      <svg width={20} height={20} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <svg
+        width={20}
+        height={20}
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth={1.8}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        aria-hidden="true"
+      >
         <path d="M12 2 L 14.6 9 L 22 9.5 L 16.5 14 L 18 21.5 L 12 17.5 L 6 21.5 L 7.5 14 L 2 9.5 L 9.4 9 Z" />
       </svg>
     ),

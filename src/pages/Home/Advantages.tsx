@@ -94,11 +94,7 @@ const Icon = ({ name }: { name: AdvantageCard['icon'] }) => {
 
 const Advantages = () => {
   return (
-    <section
-      className="adv-section"
-      id="advantages"
-      aria-labelledby="adv-title"
-    >
+    <section className="adv-section" id="advantages" aria-labelledby="adv-title">
       <div className="container-shell">
         <div className="adv-head">
           <span className="adv-eyebrow">Our Advantages</span>
@@ -106,9 +102,8 @@ const Advantages = () => {
             One partner for healthcare growth.
           </h2>
           <p className="adv-intro">
-            SEO, paid media, automation, and reporting under one roof -
-            so your team has one accountable partner, not five disconnected
-            vendors.
+            SEO, paid media, automation, and reporting under one roof - so your team has one
+            accountable partner, not five disconnected vendors.
           </p>
         </div>
 
@@ -116,12 +111,7 @@ const Advantages = () => {
           {STATS.map((s) => (
             <div key={s.label} className="adv-stat">
               <p className="adv-stat-num">
-                <CountUp
-                  to={s.value}
-                  prefix={s.prefix}
-                  suffix={s.suffix}
-                  duration={1.8}
-                />
+                <CountUp to={s.value} prefix={s.prefix} suffix={s.suffix} duration={1.8} />
               </p>
               <p className="adv-stat-label">{s.label}</p>
             </div>

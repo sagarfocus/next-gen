@@ -69,14 +69,16 @@ export const MotionCard = ({
       <motion.div
         ref={ref}
         className={`m-card-naked${className ? ` ${className}` : ''}`}
-        style={{
-          ...style,
-          rotateX: interactive ? rotateX : 0,
-          rotateY: interactive ? rotateY : 0,
-          '--m-card-gx': gx,
-          '--m-card-gy': gy,
-          '--m-card-glow': glow,
-        } as unknown as CSSProperties}
+        style={
+          {
+            ...style,
+            rotateX: interactive ? rotateX : 0,
+            rotateY: interactive ? rotateY : 0,
+            '--m-card-gx': gx,
+            '--m-card-gy': gy,
+            '--m-card-glow': glow,
+          } as unknown as CSSProperties
+        }
         onMouseMove={onMove}
         onMouseLeave={onLeave}
         transition={{ type: 'spring', stiffness: 200, damping: 20 }}
@@ -91,14 +93,16 @@ export const MotionCard = ({
     <motion.div
       ref={ref}
       className={`m-card${gradientBorder ? ' m-card-grad' : ''}${className ? ` ${className}` : ''}`}
-      style={{
-        ...style,
-        rotateX: reduced ? 0 : rotateX,
-        rotateY: reduced ? 0 : rotateY,
-        '--m-card-gx': gx,
-        '--m-card-gy': gy,
-        '--m-card-glow': glow,
-      } as unknown as CSSProperties}
+      style={
+        {
+          ...style,
+          rotateX: reduced ? 0 : rotateX,
+          rotateY: reduced ? 0 : rotateY,
+          '--m-card-gx': gx,
+          '--m-card-gy': gy,
+          '--m-card-glow': glow,
+        } as unknown as CSSProperties
+      }
       onMouseMove={onMove}
       onMouseLeave={onLeave}
       transition={{ type: 'spring', stiffness: 200, damping: 20 }}

@@ -58,8 +58,12 @@ const Workflows = () => (
               {/* Trigger → Outcome mini flow */}
               <div className="relative mt-auto pt-8 z-10">
                 <div className="grid grid-cols-[auto_1fr] gap-x-3 gap-y-2 items-center">
-                  <span className="text-[9px] uppercase tracking-[0.22em] text-muted font-bold">From</span>
-                  <span className="text-body text-[14.5px] font-medium leading-tight">{w.trigger}</span>
+                  <span className="text-[9px] uppercase tracking-[0.22em] text-muted font-bold">
+                    From
+                  </span>
+                  <span className="text-body text-[14.5px] font-medium leading-tight">
+                    {w.trigger}
+                  </span>
 
                   {/* vertical connector */}
                   <span aria-hidden="true" className="row-span-1 flex justify-center">
@@ -67,8 +71,12 @@ const Workflows = () => (
                   </span>
                   <span aria-hidden="true" />
 
-                  <span className="text-[9px] uppercase tracking-[0.22em] text-cta font-bold">To</span>
-                  <span className="text-heading text-[14.5px] font-semibold leading-tight">{w.outcome}</span>
+                  <span className="text-[9px] uppercase tracking-[0.22em] text-cta font-bold">
+                    To
+                  </span>
+                  <span className="text-heading text-[14.5px] font-semibold leading-tight">
+                    {w.outcome}
+                  </span>
                 </div>
               </div>
             </article>

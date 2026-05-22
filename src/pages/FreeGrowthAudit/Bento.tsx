@@ -15,8 +15,8 @@ const Bento = () => (
           <div className="fga-tile-eyebrow">01 · Score</div>
           <h3 className="fga-tile-h">Visibility Score</h3>
           <p className="fga-tile-p">
-            Local Pack, organic, AI Overviews, reviews - scored 0&ndash;100 against
-            your top-3 local competitors.
+            Local Pack, organic, AI Overviews, reviews - scored 0&ndash;100 against your top-3 local
+            competitors.
           </p>
           <div className="fga-tile-viz">
             <div className="fga-rings">
@@ -32,8 +32,7 @@ const Bento = () => (
           <div className="fga-tile-eyebrow">02 · Map</div>
           <h3 className="fga-tile-h">Funnel Leak Map</h3>
           <p className="fga-tile-p">
-            Click to booking, step by step. The exact friction point losing the
-            most patients.
+            Click to booking, step by step. The exact friction point losing the most patients.
           </p>
           <div className="fga-funnel">
             {['Search', 'Click', 'Visit', 'Form', 'Book'].map((s, i) => (
@@ -60,10 +59,18 @@ const Bento = () => (
             A ranked action list. Highest-ROI move first. Yours, agency or not.
           </p>
           <ul className="fga-checks">
-            <li><span /> Tracking gaps</li>
-            <li><span /> Content priorities</li>
-            <li><span /> Paid restructure</li>
-            <li><span /> Review cadence</li>
+            <li>
+              <span /> Tracking gaps
+            </li>
+            <li>
+              <span /> Content priorities
+            </li>
+            <li>
+              <span /> Paid restructure
+            </li>
+            <li>
+              <span /> Review cadence
+            </li>
           </ul>
         </MotionCard>
       </div>

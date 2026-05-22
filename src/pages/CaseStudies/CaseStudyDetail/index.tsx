@@ -62,7 +62,7 @@ const CaseStudyDetail = () => {
     const prevDesc = desc.getAttribute('content');
     desc.setAttribute(
       'content',
-      `${study.brief.slice(0, 155)}${study.brief.length > 155 ? '…' : ''}`,
+      `${study.brief.slice(0, 155)}${study.brief.length > 155 ? '…' : ''}`
     );
 
     let canonical = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');

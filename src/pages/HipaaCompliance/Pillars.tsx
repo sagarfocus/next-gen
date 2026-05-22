@@ -13,9 +13,8 @@ const Pillars = () => (
           Three categories. <em>One commitment.</em>
         </h2>
         <p className="gtx-sec-sub">
-          The HIPAA Security Rule organises the work into three
-          categories of safeguards. Each has its own deliverables,
-          owners, and review cycle.
+          The HIPAA Security Rule organises the work into three categories of safeguards. Each has
+          its own deliverables, owners, and review cycle.
         </p>
       </header>
 
@@ -23,8 +22,12 @@ const Pillars = () => (
         {PILLARS.map((p) => (
           <article key={p.num} className={`hcp-pillar-card tone-${p.tone}`}>
             <div className="hcp-pillar-head">
-              <span className="hcp-pillar-icon" aria-hidden="true">{p.icon}</span>
-              <span className="hcp-pillar-num" aria-hidden="true">/{p.num}</span>
+              <span className="hcp-pillar-icon" aria-hidden="true">
+                {p.icon}
+              </span>
+              <span className="hcp-pillar-num" aria-hidden="true">
+                /{p.num}
+              </span>
             </div>
             <h3 className="hcp-pillar-tag">{p.tag}</h3>
             <p className="hcp-pillar-desc">{p.description}</p>

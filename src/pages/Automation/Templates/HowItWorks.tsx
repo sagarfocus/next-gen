@@ -5,10 +5,12 @@ const HowItWorks = () => (
     <div className="container-shell">
       <header className="adv-head det-head">
         <span className="adv-eyebrow">/ 04 &nbsp; How it works</span>
-        <h2 id="atx-how-title" className="adv-h2">Four moves from library to live workflow.</h2>
+        <h2 id="atx-how-title" className="adv-h2">
+          Four moves from library to live workflow.
+        </h2>
         <p className="adv-intro">
-          The same deployment cadence we use inside paying engagements — minus
-          the retainer. The library does the hard part; the four moves do the rest.
+          The same deployment cadence we use inside paying engagements — minus the retainer. The
+          library does the hard part; the four moves do the rest.
         </p>
       </header>
       <ol className="atx-steps">

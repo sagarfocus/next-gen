@@ -13,8 +13,7 @@ const Why = () => (
           Why <em>geographic pages</em> matter.
         </h2>
         <p className="hlc-sec-sub">
-          The case for treating every catchment as its own market - and
-          writing for it that way.
+          The case for treating every catchment as its own market - and writing for it that way.
         </p>
       </header>
 

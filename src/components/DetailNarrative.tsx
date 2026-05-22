@@ -16,7 +16,6 @@ interface DetailNarrativeProps {
   approach: NarrativeBlock;
 }
 
-
 const DetailNarrative = ({ about, approach }: DetailNarrativeProps) => (
   <>
     <section className="dn-section dn-about" aria-labelledby="dn-about-title">

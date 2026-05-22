@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import ScrollToTop from './components/ScrollToTop';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -8,7 +8,6 @@ import About from './pages/About';
 import ValueDetail from './pages/About/ValueDetail';
 import Services from './pages/Services';
 import SEO from './pages/SEO';
-import SEOLocalSearch from './pages/SEOLocalSearch';
 import GoogleBusinessProfile from './pages/GoogleBusinessProfile';
 import GoogleAds from './pages/GoogleAds';
 import Analytics from './pages/Analytics';
@@ -74,66 +73,72 @@ const App = () => {
       <SmoothScroll />
       <Navbar />
       <PageTransition>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/about/value/:slug" element={<ValueDetail />} />
-        <Route path="/services" element={<Services />} />
-        <Route path="/services/seo" element={<SEO />} />
-        <Route path="/services/seo-local-search" element={<SEOLocalSearch />} />
-        <Route path="/services/google-business-profile" element={<GoogleBusinessProfile />} />
-        <Route path="/services/google-ads" element={<GoogleAds />} />
-        <Route path="/services/analytics-reporting" element={<Analytics />} />
-        <Route path="/services/email-drip-campaigns" element={<EmailCampaigns />} />
-        <Route path="/services/brand-identity-design" element={<Branding />} />
-        <Route path="/services/website-design-dev" element={<WebsiteDesign />} />
-        <Route path="/services/social-media-marketing" element={<SocialMedia />} />
-        <Route path="/services/content-copywriting" element={<ContentMarketing />} />
-        <Route path="/team" element={<Team />} />
-        <Route path="/industries" element={<Industries />} />
-        <Route path="/case-studies" element={<CaseStudies />} />
-        <Route path="/case-studies/:slug" element={<CaseStudyDetail />} />
-        <Route path="/healthcare-news" element={<HealthcareNews />} />
-        <Route path="/healthcare-news/:slug" element={<NewsDetail />} />
-        <Route path="/healthcare-content" element={<HealthcareContent />} />
-        <Route path="/growth-plan" element={<GrowthPlan />} />
-        <Route path="/meta-ads" element={<MetaAds />} />
-        <Route path="/hipaa-compliance" element={<HipaaCompliance />} />
-        <Route path="/healthcare-growth-engine" element={<HealthcareGrowthEngine />} />
-        <Route path="/reviews-reputation" element={<ReviewsReputation />} />
-        <Route path="/patient-experience" element={<PatientExperience />} />
-        <Route path="/citation-building" element={<CitationBuilding />} />
-        <Route path="/hyper-local-content" element={<HyperLocalContent />} />
-        <Route path="/aeo-schema" element={<AeoSchema />} />
-        <Route path="/automation" element={<Automation />} />
-        <Route path="/automation/more-info" element={<AutomationMoreInfo />} />
-        <Route path="/automation/templates" element={<AutomationTemplates />} />
-        <Route path="/onsite-field-marketing" element={<OnsiteFieldMarketing />} />
-        <Route path="/medical-automation" element={<MedicalAutomation />} />
-        <Route path="/free-growth-audit" element={<FreeGrowthAudit />} />
-        <Route path="/our-work" element={<OurWork />} />
-        <Route path="/our-work/:kind/:slug" element={<OurWorkDetail />} />
-        <Route path="/pricing" element={<Pricing />} />
-        <Route path="/blog" element={<Blog />} />
-        <Route path="/blog/:slug" element={<BlogPost />} />
-        <Route path="/faq" element={<FAQ />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/methodology/phase-1" element={<Phase1 />} />
-        <Route path="/methodology/phase-2" element={<Phase2 />} />
-        <Route path="/methodology/phase-3" element={<Phase3 />} />
-        <Route path="/industries/detail/:slug" element={<IndustryDetail />} />
-        <Route path="/industries/clinics" element={<IndustryClinics />} />
-        <Route path="/industries/medspas" element={<IndustryMedSpas />} />
-        <Route path="/industries/specialty-emergency" element={<IndustrySpecialtyEmergency />} />
-        <Route path="/infrastructure/growth-team" element={<GrowthTeam />} />
-        <Route path="/infrastructure/compliance-protocol" element={<ComplianceProtocol />} />
-        <Route path="/infrastructure/service-level-agreements" element={<ServiceLevelAgreements />} />
-        <Route path="/privacy" element={<Privacy />} />
-        <Route path="/terms" element={<Terms />} />
-        <Route path="/accessibility" element={<Accessibility />} />
-        <Route path="/sitemap" element={<Sitemap />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/about/value/:slug" element={<ValueDetail />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/services/seo" element={<SEO />} />
+          <Route
+            path="/services/seo-local-search"
+            element={<Navigate to="/services/seo" replace />}
+          />
+          <Route path="/services/google-business-profile" element={<GoogleBusinessProfile />} />
+          <Route path="/services/google-ads" element={<GoogleAds />} />
+          <Route path="/services/analytics-reporting" element={<Analytics />} />
+          <Route path="/services/email-drip-campaigns" element={<EmailCampaigns />} />
+          <Route path="/services/brand-identity-design" element={<Branding />} />
+          <Route path="/services/website-design-dev" element={<WebsiteDesign />} />
+          <Route path="/services/social-media-marketing" element={<SocialMedia />} />
+          <Route path="/services/content-copywriting" element={<ContentMarketing />} />
+          <Route path="/team" element={<Team />} />
+          <Route path="/industries" element={<Industries />} />
+          <Route path="/case-studies" element={<CaseStudies />} />
+          <Route path="/case-studies/:slug" element={<CaseStudyDetail />} />
+          <Route path="/healthcare-news" element={<HealthcareNews />} />
+          <Route path="/healthcare-news/:slug" element={<NewsDetail />} />
+          <Route path="/healthcare-content" element={<HealthcareContent />} />
+          <Route path="/growth-plan" element={<GrowthPlan />} />
+          <Route path="/meta-ads" element={<MetaAds />} />
+          <Route path="/hipaa-compliance" element={<HipaaCompliance />} />
+          <Route path="/healthcare-growth-engine" element={<HealthcareGrowthEngine />} />
+          <Route path="/reviews-reputation" element={<ReviewsReputation />} />
+          <Route path="/patient-experience" element={<PatientExperience />} />
+          <Route path="/citation-building" element={<CitationBuilding />} />
+          <Route path="/hyper-local-content" element={<HyperLocalContent />} />
+          <Route path="/aeo-schema" element={<AeoSchema />} />
+          <Route path="/automation" element={<Automation />} />
+          <Route path="/automation/more-info" element={<AutomationMoreInfo />} />
+          <Route path="/automation/templates" element={<AutomationTemplates />} />
+          <Route path="/onsite-field-marketing" element={<OnsiteFieldMarketing />} />
+          <Route path="/medical-automation" element={<MedicalAutomation />} />
+          <Route path="/free-growth-audit" element={<FreeGrowthAudit />} />
+          <Route path="/our-work" element={<OurWork />} />
+          <Route path="/our-work/:kind/:slug" element={<OurWorkDetail />} />
+          <Route path="/pricing" element={<Pricing />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/:slug" element={<BlogPost />} />
+          <Route path="/faq" element={<FAQ />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/methodology/phase-1" element={<Phase1 />} />
+          <Route path="/methodology/phase-2" element={<Phase2 />} />
+          <Route path="/methodology/phase-3" element={<Phase3 />} />
+          <Route path="/industries/detail/:slug" element={<IndustryDetail />} />
+          <Route path="/industries/clinics" element={<IndustryClinics />} />
+          <Route path="/industries/medspas" element={<IndustryMedSpas />} />
+          <Route path="/industries/specialty-emergency" element={<IndustrySpecialtyEmergency />} />
+          <Route path="/infrastructure/growth-team" element={<GrowthTeam />} />
+          <Route path="/infrastructure/compliance-protocol" element={<ComplianceProtocol />} />
+          <Route
+            path="/infrastructure/service-level-agreements"
+            element={<ServiceLevelAgreements />}
+          />
+          <Route path="/privacy" element={<Privacy />} />
+          <Route path="/terms" element={<Terms />} />
+          <Route path="/accessibility" element={<Accessibility />} />
+          <Route path="/sitemap" element={<Sitemap />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
       </PageTransition>
       <Footer />
     </div>

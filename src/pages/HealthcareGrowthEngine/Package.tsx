@@ -11,10 +11,13 @@ const Package = () => (
       </div>
       <div className="grid lg:grid-cols-12 gap-x-12 gap-y-6 items-end mb-12 lg:mb-16">
         <h2 className="lg:col-span-7 text-heading font-extrabold leading-[0.96] tracking-[-0.038em] text-[clamp(36px,5.4vw,74px)]">
-          What you get,<br />week one.
+          What you get,
+          <br />
+          week one.
         </h2>
         <p className="lg:col-span-4 lg:col-start-9 text-body text-[15.5px] leading-[1.65] max-w-[44ch]">
-          A flat monthly engagement — three phases, one team, no surprise line items. Month-to-month after the first thirty days.
+          A flat monthly engagement — three phases, one team, no surprise line items. Month-to-month
+          after the first thirty days.
         </p>
       </div>
 

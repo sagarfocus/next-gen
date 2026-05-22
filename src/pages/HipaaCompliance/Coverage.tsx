@@ -13,8 +13,8 @@ const Coverage = () => (
           What's in scope. <em>What's out.</em>
         </h2>
         <p className="gtx-sec-sub">
-          A practical map of marketing surface area. The right column
-          is where most teams over-promise themselves into a breach.
+          A practical map of marketing surface area. The right column is where most teams
+          over-promise themselves into a breach.
         </p>
       </header>
 
@@ -25,7 +25,9 @@ const Coverage = () => (
               <span className="hcp-coverage-num" aria-hidden="true">
                 {String(i + 1).padStart(2, '0')}
               </span>
-              <span className="hcp-coverage-icon" aria-hidden="true">{row.icon}</span>
+              <span className="hcp-coverage-icon" aria-hidden="true">
+                {row.icon}
+              </span>
               <h3 className="hcp-coverage-area-name">{row.area}</h3>
             </div>
             <div className="hcp-coverage-cell hcp-coverage-in">

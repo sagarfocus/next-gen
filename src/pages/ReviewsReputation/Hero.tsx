@@ -17,14 +17,17 @@ const Hero = () => (
           </h1>
           <p className="mt-7 text-body text-[17px] leading-[1.65] max-w-[58ch]">
             A reputation engine that collects, sorts and replies — without exposing PHI, without
-            burning patient trust, without breaking platform rules. The same loop that lifts
-            Google Local Pack ranking on a 90-day curve.
+            burning patient trust, without breaking platform rules. The same loop that lifts Google
+            Local Pack ranking on a 90-day curve.
           </p>
         </div>
         <div className="lg:col-span-5">
           <div className="border-t-2 border-heading">
             {HEAD_META.map((row) => (
-              <div key={row.label} className="grid grid-cols-2 py-3 border-b border-line-faint text-[13px]">
+              <div
+                key={row.label}
+                className="grid grid-cols-2 py-3 border-b border-line-faint text-[13px]"
+              >
                 <span className="text-muted font-medium">{row.label}</span>
                 <span className="text-heading font-semibold text-right">{row.value}</span>
               </div>

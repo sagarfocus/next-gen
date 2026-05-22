@@ -1,11 +1,6 @@
 import { useParams, Navigate } from 'react-router-dom';
 import Breadcrumb from '@/components/Breadcrumb';
-import {
-  NEWS_ARTICLES,
-  newsBySlug,
-  CATEGORY_TONES,
-  type NewsArticle,
-} from './news.data';
+import { NEWS_ARTICLES, newsBySlug, CATEGORY_TONES, type NewsArticle } from './news.data';
 
 /* ============================================================
    HEALTHCARE-NEWS — single-article detail page (hero-only).
@@ -13,10 +8,10 @@ import {
    ============================================================ */
 
 const COLORS = {
-  navy:  '#1A2438',
-  body:  '#4A5568',
+  navy: '#1A2438',
+  body: '#4A5568',
   muted: '#718096',
-  mint:  '#EBF4DD',
+  mint: '#EBF4DD',
 };
 
 /* ─── Tone-coloured category pill ─── */
@@ -45,22 +40,35 @@ const Hero = ({ article }: { article: NewsArticle }) => {
         <div className="mt-8 grid lg:grid-cols-12 gap-x-12 gap-y-12">
           <div className="lg:col-span-7">
             <CategoryPill article={article} />
-            <h1 className="mt-6 font-extrabold leading-[1.02] tracking-[-0.034em] text-[clamp(34px,5vw,68px)]" style={{ color: COLORS.navy }}>
+            <h1
+              className="mt-6 font-extrabold leading-[1.02] tracking-[-0.034em] text-[clamp(34px,5vw,68px)]"
+              style={{ color: COLORS.navy }}
+            >
               {article.title}
             </h1>
-            <p className="mt-7 text-[18px] leading-[1.65] max-w-[60ch]" style={{ color: COLORS.body }}>
+            <p
+              className="mt-7 text-[18px] leading-[1.65] max-w-[60ch]"
+              style={{ color: COLORS.body }}
+            >
               {article.lede}
             </p>
 
             {/* Byline meta row */}
-            <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3 text-[13px]" style={{ color: COLORS.muted }}>
+            <div
+              className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3 text-[13px]"
+              style={{ color: COLORS.muted }}
+            >
               <div className="flex items-center gap-3">
                 <span
                   className="inline-grid place-items-center w-9 h-9 rounded-full font-mono text-[12px] font-bold"
                   style={{ background: t.soft, color: t.hex }}
                   aria-hidden="true"
                 >
-                  {article.author.split(' ').map((w) => w[0]).join('').slice(0, 2)}
+                  {article.author
+                    .split(' ')
+                    .map((w) => w[0])
+                    .join('')
+                    .slice(0, 2)}
                 </span>
                 <span>
                   By <strong style={{ color: COLORS.navy }}>{article.author}</strong>
@@ -87,10 +95,16 @@ const Hero = ({ article }: { article: NewsArticle }) => {
                 style={{ background: t.hex }}
                 aria-hidden="true"
               />
-              <div className="font-mono text-[11px] tracking-[0.22em] uppercase font-bold" style={{ color: t.hex }}>
+              <div
+                className="font-mono text-[11px] tracking-[0.22em] uppercase font-bold"
+                style={{ color: t.hex }}
+              >
                 Story brief
               </div>
-              <h2 className="mt-3 text-[20px] font-extrabold tracking-[-0.018em] leading-[1.18]" style={{ color: COLORS.navy }}>
+              <h2
+                className="mt-3 text-[20px] font-extrabold tracking-[-0.018em] leading-[1.18]"
+                style={{ color: COLORS.navy }}
+              >
                 {article.takeaways[0]}
               </h2>
               {article.takeaways[1] && (
@@ -98,7 +112,10 @@ const Hero = ({ article }: { article: NewsArticle }) => {
                   {article.takeaways[1]}
                 </p>
               )}
-              <div className="mt-6 pt-5 border-t flex items-center gap-2 text-[10.5px] uppercase tracking-[0.20em] font-bold" style={{ borderColor: 'rgba(26, 36, 56, 0.10)', color: t.hex }}>
+              <div
+                className="mt-6 pt-5 border-t flex items-center gap-2 text-[10.5px] uppercase tracking-[0.20em] font-bold"
+                style={{ borderColor: 'rgba(26, 36, 56, 0.10)', color: t.hex }}
+              >
                 <span className="w-1.5 h-1.5 rounded-full" style={{ background: t.hex }} />
                 {article.takeaways.length} key takeaways below
               </div>
@@ -120,10 +137,21 @@ const Hero = ({ article }: { article: NewsArticle }) => {
           />
           <div
             className="absolute inset-0 pointer-events-none"
-            style={{ background: 'linear-gradient(180deg, rgba(26, 36, 56, 0) 60%, rgba(26, 36, 56, 0.35) 100%)' }}
+            style={{
+              background:
+                'linear-gradient(180deg, rgba(26, 36, 56, 0) 60%, rgba(26, 36, 56, 0.35) 100%)',
+            }}
           />
-          <div className="absolute bottom-5 right-5 inline-flex items-center gap-2 px-3 py-1.5 rounded-full backdrop-blur-md" style={{ background: 'rgba(255, 255, 255, 0.18)', border: '1px solid rgba(255, 255, 255, 0.25)' }}>
-            <span className="font-mono text-[10.5px] tracking-[0.18em] uppercase text-white font-bold">Editorial</span>
+          <div
+            className="absolute bottom-5 right-5 inline-flex items-center gap-2 px-3 py-1.5 rounded-full backdrop-blur-md"
+            style={{
+              background: 'rgba(255, 255, 255, 0.18)',
+              border: '1px solid rgba(255, 255, 255, 0.25)',
+            }}
+          >
+            <span className="font-mono text-[10.5px] tracking-[0.18em] uppercase text-white font-bold">
+              Editorial
+            </span>
           </div>
         </div>
       </div>

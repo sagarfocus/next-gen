@@ -10,13 +10,17 @@ interface DimProps {
 const Dim = ({ num, title, text, signals, illustration }: DimProps) => (
   <article className="ph1-dim">
     <span className="num">/ {num}</span>
-    <div className="ill" aria-hidden="true">{illustration}</div>
+    <div className="ill" aria-hidden="true">
+      {illustration}
+    </div>
     <h3 dangerouslySetInnerHTML={{ __html: title }} />
     <p dangerouslySetInnerHTML={{ __html: text }} />
     <div className="signals">
       <span className="lbl">Signals tracked</span>
       <ul>
-        {signals.map((s) => <li key={s}>{s}</li>)}
+        {signals.map((s) => (
+          <li key={s}>{s}</li>
+        ))}
       </ul>
     </div>
   </article>
@@ -26,7 +30,9 @@ const Dimensions = () => (
   <>
     <div className="ph1-section-label">
       <span>/ 02 - The Audit</span>
-      <h2>Six dimensions. Each one a documented source of patient leak - or a documented growth lever.</h2>
+      <h2>
+        Six dimensions. Each one a documented source of patient leak - or a documented growth lever.
+      </h2>
     </div>
 
     <div className="ph1-dims">

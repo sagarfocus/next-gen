@@ -11,8 +11,14 @@ const Hero = ({ filter, visibleCount }: { filter: string; visibleCount: number }
       <div className="atx-hero-meta">
         <Breadcrumb items={[{ label: 'Automation', to: '/automation' }, { label: 'Templates' }]} />
         <div className="atx-hero-chips" aria-hidden="true">
-          <span className="atx-hero-chip"><span className="atx-hero-chip-dot" />Template library · 2026</span>
-          <span className="atx-hero-chip atx-mono">/{String(visibleCount).padStart(2, '0')} {filter === 'All' ? 'workflows' : `${filter.toLowerCase()} workflows`}</span>
+          <span className="atx-hero-chip">
+            <span className="atx-hero-chip-dot" />
+            Template library · 2026
+          </span>
+          <span className="atx-hero-chip atx-mono">
+            /{String(visibleCount).padStart(2, '0')}{' '}
+            {filter === 'All' ? 'workflows' : `${filter.toLowerCase()} workflows`}
+          </span>
         </div>
       </div>
 
@@ -29,14 +35,18 @@ const Hero = ({ filter, visibleCount }: { filter: string; visibleCount: number }
         </aside>
 
         <header className="atx-hero-copy">
-          <span className="atx-eyebrow"><span className="atx-eyebrow-dot" />Automation library · Free to keep</span>
+          <span className="atx-eyebrow">
+            <span className="atx-eyebrow-dot" />
+            Automation library · Free to keep
+          </span>
           <h1 id="atx-hero-title" className="atx-h1">
-            Six<span className="atx-h1-accent">.</span> Healthcare-grade automations.<br />
+            Six<span className="atx-h1-accent">.</span> Healthcare-grade automations.
+            <br />
             <span className="atx-h1-quiet">Live in your stack the same afternoon.</span>
           </h1>
           <p className="atx-lede">
-            Each workflow is shipped as an N8N spec, vetted for HIPAA boundaries,
-            and tuned for the moments where most clinics quietly lose hours every week.
+            Each workflow is shipped as an N8N spec, vetted for HIPAA boundaries, and tuned for the
+            moments where most clinics quietly lose hours every week.
           </p>
           <div className="atx-hero-cta">
             <Link to="/free-growth-audit" className="atx-btn atx-btn-primary">

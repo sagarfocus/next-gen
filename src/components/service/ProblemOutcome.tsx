@@ -31,7 +31,6 @@ const AlertIcon = () => (
   </svg>
 );
 
-
 const ProblemOutcome = ({ pains, outcomes }: ProblemOutcomeProps) => {
   return (
     <section className="sv-section sv-po">

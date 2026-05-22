@@ -7,14 +7,9 @@ const MAP_EMBED_URL =
 const MAPS_DIR_URL =
   'https://www.google.com/maps/dir/?api=1&destination=3001+Skyway+Cir+N+Irving+TX+75038';
 
-
 const ContactSection = () => {
   return (
-    <section
-      className="contact-section"
-      id="contact"
-      aria-labelledby="contact-title"
-    >
+    <section className="contact-section" id="contact" aria-labelledby="contact-title">
       <div className="container-shell">
         <div className="contact-head">
           <span className="contact-eyebrow">Visit Us</span>
@@ -22,9 +17,8 @@ const ContactSection = () => {
             Find us in Irving, Texas.
           </h2>
           <p className="contact-sub">
-            Stop by the office or reach our team anytime - we&rsquo;re
-            happy to walk you through the Clinic Growth&nbsp;OS in person or
-            over a call.
+            Stop by the office or reach our team anytime - we&rsquo;re happy to walk you through the
+            Clinic Growth&nbsp;OS in person or over a call.
           </p>
         </div>
 
@@ -101,10 +95,7 @@ const ContactSection = () => {
                   <span className="ci-letter" aria-hidden="true">
                     H
                   </span>
-                  <span
-                    className="ci-text"
-                    style={{ textDecoration: 'none', color: '#4A5568' }}
-                  >
+                  <span className="ci-text" style={{ textDecoration: 'none', color: '#4A5568' }}>
                     Mon&ndash;Fri, 9:00am&ndash;6:00pm CT
                   </span>
                 </div>

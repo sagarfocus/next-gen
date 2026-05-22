@@ -15,9 +15,7 @@ export const ArrowLeft = () => (
   </svg>
 );
 
-export const ArrowRight = () => (
-  <ArrowIcon strokeWidth={2} />
-);
+export const ArrowRight = () => <ArrowIcon strokeWidth={2} />;
 
 export const Quote = () => (
   <svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true">

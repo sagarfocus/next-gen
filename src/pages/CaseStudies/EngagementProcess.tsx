@@ -105,8 +105,8 @@ const EngagementProcess = () => {
           <div className="cs-eyebrow">Engagement Process</div>
           <h2>How every case study gets built</h2>
           <p>
-            Five tight phases shape every engagement on this page. The same
-            playbook scales from a six-week pilot to a full-year retainer.
+            Five tight phases shape every engagement on this page. The same playbook scales from a
+            six-week pilot to a full-year retainer.
           </p>
         </div>
 

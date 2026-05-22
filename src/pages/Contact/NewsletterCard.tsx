@@ -24,9 +24,8 @@ const NewsletterCard = () => {
         Healthcare growth, weekly.
       </h3>
       <p className="ct-form-text">
-        Field-tested patient acquisition tactics, HIPAA updates, and case
-        studies from 200+ Texas practices - delivered every Tuesday
-        morning. No fluff, no spam.
+        Field-tested patient acquisition tactics, HIPAA updates, and case studies from 200+ Texas
+        practices - delivered every Tuesday morning. No fluff, no spam.
       </p>
 
       <form className="ct-news-form" onSubmit={handleSubmit} noValidate>

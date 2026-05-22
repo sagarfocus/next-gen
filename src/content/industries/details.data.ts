@@ -1,9 +1,9 @@
 import dentalImg from '../../assets/dental.png';
-import urgentCareImg from "../../assets/urgent-care-banner.png";
+import urgentCareImg from '../../assets/urgent-care-banner.png';
 import medspaImg from '../../assets/medspa-aesthetic.png';
 import freestandingErImg from '../../assets/freestanding-er.png';
 import mentalHealthImg from '../../assets/mental-health.png';
-import primaryCareImg from "../../assets/primary-care.png";
+import primaryCareImg from '../../assets/primary-care.png';
 import chiropracticImg from '../../assets/chiropractic.png';
 import plasticSurgeryImg from '../../assets/plastic-surgery.png';
 import ophthalmologyImg from '../../assets/ophthalmology.png';
@@ -56,7 +56,7 @@ export const INDUSTRY_DETAIL_ENTRIES: IndustryDetailEntry[] = [
       },
       {
         q: 'Will the recall feel pushy?',
-        a: 'It is cadence-aware and respects the patient\'s prior engagement. Reminders are written like the front desk would, if the front desk had time - not like a marketing template.',
+        a: "It is cadence-aware and respects the patient's prior engagement. Reminders are written like the front desk would, if the front desk had time - not like a marketing template.",
       },
     ],
   },
@@ -68,7 +68,7 @@ export const INDUSTRY_DETAIL_ENTRIES: IndustryDetailEntry[] = [
     description:
       'Walk-in clinics live and die on volume. We build the reputation systems, wait-time transparency, and intent-aware paid funnels that keep your locations full all year - not just during flu season.',
     longBody: [
-      'Urgent care is the most volume-sensitive vertical in healthcare marketing. The cost structure assumes a busy clinic, and a quiet week burns the entire month\'s margin.',
+      "Urgent care is the most volume-sensitive vertical in healthcare marketing. The cost structure assumes a busy clinic, and a quiet week burns the entire month's margin.",
       'We build the systems that hold volume across seasonality. Wait-time transparency pages that win the comparison shop. A review velocity engine that keeps your rating ahead of the chain across town. After-hours paid that captures the 8pm parent before the national landing page does.',
       'The result is a clinic that holds its baseline through flu season and the slow months alike - and a cost per walk-in that drops as the reputation engine compounds.',
     ],
@@ -84,7 +84,7 @@ export const INDUSTRY_DETAIL_ENTRIES: IndustryDetailEntry[] = [
     faqs: [
       {
         q: 'Can you compete with national chains?',
-        a: 'Yes - by winning on local detail. ETAs, in-network specifics, parking, after-hours phone. A national landing page can\'t match it; a properly tuned local presence wins.',
+        a: "Yes - by winning on local detail. ETAs, in-network specifics, parking, after-hours phone. A national landing page can't match it; a properly tuned local presence wins.",
       },
       {
         q: 'How fast until volume moves?',
@@ -134,7 +134,7 @@ export const INDUSTRY_DETAIL_ENTRIES: IndustryDetailEntry[] = [
     longBody: [
       'Freestanding ERs lose money in two ways: paying for impressions that crowd the lobby with non-emergent complaints, and missing the high-acuity searches that map to billable, revenue-positive visits.',
       'We rebuild the acquisition loop around true ED intent. Trauma SEO. Wait-time landing pages. Insurance verification flows that complete before arrival. A GBP profile tuned for the emergent terms.',
-      'The result is an ER that fills the slots it has capacity for - including overnight - and stops paying for the traffic it can\'t bill.',
+      "The result is an ER that fills the slots it has capacity for - including overnight - and stops paying for the traffic it can't bill.",
     ],
     services: [
       'Trauma intent SEO + GBP',
@@ -165,7 +165,7 @@ export const INDUSTRY_DETAIL_ENTRIES: IndustryDetailEntry[] = [
       'Mental health acquisition that respects intent. Compliant, sensitive lead-gen flows that prioritise the patient relationship over click-rate optimisation - and route prospective patients to the right modality on the first touch.',
     longBody: [
       'Mental health marketing is more about tone than tactics. The patient is anxious, the search is private, and the wrong word at the wrong step sends them back to Google.',
-      'We write for the actual person at the actual moment. Modality-specific landing pages. Anonymous-friendly inquiry flows. Insurance and sliding-scale intake that respects the patient\'s prior research.',
+      "We write for the actual person at the actual moment. Modality-specific landing pages. Anonymous-friendly inquiry flows. Insurance and sliding-scale intake that respects the patient's prior research.",
       'The result is a practice that books the right patient on the first touch, without forcing them through a checkout-style funnel that destroys the relationship before it starts.',
     ],
     services: [
@@ -196,8 +196,8 @@ export const INDUSTRY_DETAIL_ENTRIES: IndustryDetailEntry[] = [
     description:
       'Panel growth and payer-mix optimisation. We grow your panel with the patients your panel actually needs - by payer, by zip, by visit type. Volume that lifts revenue, not just utilisation.',
     longBody: [
-      'Primary care marketing is often utilisation marketing - more visits, more visits, more visits - even when the panel doesn\'t need more volume, it needs better mix.',
-      'We model the panel first. Which payers, which zips, which visit types lift revenue per chair-hour. Then we route paid spend and SEO toward the patients that match - and quietly steer the rest to clinics where they\'re a better fit.',
+      "Primary care marketing is often utilisation marketing - more visits, more visits, more visits - even when the panel doesn't need more volume, it needs better mix.",
+      "We model the panel first. Which payers, which zips, which visit types lift revenue per chair-hour. Then we route paid spend and SEO toward the patients that match - and quietly steer the rest to clinics where they're a better fit.",
       'The result is a panel that gets healthier, not just bigger. Annual wellness funnels, same-day-visit ads for capacity gaps, and care-gap closure flows that move the metrics value-based contracts care about.',
     ],
     services: [
@@ -290,7 +290,7 @@ export const INDUSTRY_DETAIL_ENTRIES: IndustryDetailEntry[] = [
     meta: 'LASIK & specialty leads',
     image: ophthalmologyImg,
     description:
-      "LASIK and specialty leads. We separate elective surgical acquisition from routine eye-care growth so neither cannibalises the other - and route candidates by clinical fit, not just click intent.",
+      'LASIK and specialty leads. We separate elective surgical acquisition from routine eye-care growth so neither cannibalises the other - and route candidates by clinical fit, not just click intent.',
     longBody: [
       'Ophthalmology practices run two businesses at once: routine eye care and elective surgical (LASIK, cataracts, specialty). They have different patient psychologies, different margins, and they cannibalise each other when run on the same funnel.',
       'We split them properly. LASIK candidate scoring routes only the right prospects into the surgical funnel. Specialty referral pages capture the post-cataract and macular-degeneration cohorts. Routine care holds its own SEO and recall layer.',

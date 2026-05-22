@@ -21,10 +21,9 @@ const CTA = () => (
             Start with a <em>two-week posture review.</em>
           </h2>
           <p>
-            Delivered under privilege. You receive a working remediation
-            register, ranked by patient-risk severity, plus a privileged
-            memo your legal counsel can take straight to the practice.
-            No marketing pitch attached.
+            Delivered under privilege. You receive a working remediation register, ranked by
+            patient-risk severity, plus a privileged memo your legal counsel can take straight to
+            the practice. No marketing pitch attached.
           </p>
           <Link to="/contact" className="gtx-btn-primary">
             Request the review

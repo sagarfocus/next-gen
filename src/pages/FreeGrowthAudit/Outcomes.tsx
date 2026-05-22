@@ -3,25 +3,29 @@ const Outcomes = () => {
     {
       metric: '+37%',
       metricLabel: 'Qualified bookings',
-      context: 'In 60 days, by rewriting the paid landing flow and adding intake automation flagged in the audit.',
+      context:
+        'In 60 days, by rewriting the paid landing flow and adding intake automation flagged in the audit.',
       practice: 'Med spa · Houston',
     },
     {
       metric: '−$8.4k',
       metricLabel: 'Wasted spend / mo',
-      context: 'Broad-match keyword bleed and overlapping audiences across three ad accounts - cut in the first 30 days.',
+      context:
+        'Broad-match keyword bleed and overlapping audiences across three ad accounts - cut in the first 30 days.',
       practice: 'Urgent care · DFW',
     },
     {
       metric: '#1–3',
       metricLabel: 'Local Pack',
-      context: 'GBP review velocity plus a service-area page rebuild moved four service terms into the 3-pack in 11 weeks.',
+      context:
+        'GBP review velocity plus a service-area page rebuild moved four service terms into the 3-pack in 11 weeks.',
       practice: 'Dental · Austin',
     },
     {
       metric: '4.2 → 4.8★',
       metricLabel: 'Google rating',
-      context: 'Replaced manual review asks with the permission-based SMS cadence specified in the 90-day plan.',
+      context:
+        'Replaced manual review asks with the permission-based SMS cadence specified in the 90-day plan.',
       practice: 'Mental health · San Antonio',
     },
   ];
@@ -34,8 +38,7 @@ const Outcomes = () => {
             Real numbers. Real practices.
           </h2>
           <p className="fga-outcomes-lede">
-            Healthcare practices that ran the audit themselves -
-            most without ever hiring an agency.
+            Healthcare practices that ran the audit themselves - most without ever hiring an agency.
           </p>
         </header>
 

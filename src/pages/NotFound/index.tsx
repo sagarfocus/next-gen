@@ -12,10 +12,7 @@ const NotFound = () => {
   }, []);
 
   return (
-    <main
-      className="nf-page"
-      style={{ paddingBottom: 'clamp(72px, 9vw, 120px)' }}
-    >
+    <main className="nf-page" style={{ paddingBottom: 'clamp(72px, 9vw, 120px)' }}>
       <Hero />
       <RecoveryGrid />
     </main>

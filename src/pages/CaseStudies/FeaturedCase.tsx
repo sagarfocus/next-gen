@@ -42,24 +42,8 @@ const FeaturedCaseArt = () => (
       FIG. 01 - DALLAS METRO ER NETWORK
     </text>
     <g transform="translate(500, 360)">
-      <rect
-        x="-110"
-        y="-30"
-        width="40"
-        height="120"
-        rx="4"
-        fill="#8FBC8F"
-        opacity="0.92"
-      />
-      <rect
-        x="-30"
-        y="-90"
-        width="120"
-        height="40"
-        rx="4"
-        fill="#8FBC8F"
-        opacity="0.92"
-      />
+      <rect x="-110" y="-30" width="40" height="120" rx="4" fill="#8FBC8F" opacity="0.92" />
+      <rect x="-30" y="-90" width="120" height="40" rx="4" fill="#8FBC8F" opacity="0.92" />
       <rect
         x="-110"
         y="-30"
@@ -98,14 +82,7 @@ const FeaturedCaseArt = () => (
       <path d="M860 110 h14 v4 h-14 z M865 105 h4 v14 h-4 z" />
       <path d="M820 600 h14 v4 h-14 z M825 595 h4 v14 h-4 z" />
     </g>
-    <line
-      x1="48"
-      y1="652"
-      x2="952"
-      y2="652"
-      stroke="rgba(255,255,255,0.18)"
-      strokeWidth="1"
-    />
+    <line x1="48" y1="652" x2="952" y2="652" stroke="rgba(255,255,255,0.18)" strokeWidth="1" />
     <text
       x="48"
       y="676"
@@ -190,9 +167,8 @@ const FeaturedCase = () => {
                 A Texas ER doubled patient acquisition without raising ad spend
               </h3>
               <p className="feat-lede">
-                The full breakdown of how a freestanding emergency room in
-                Dallas Metro outranked a major hospital network in 90 days using
-                local SEO + targeted Google Ads.
+                The full breakdown of how a freestanding emergency room in Dallas Metro outranked a
+                major hospital network in 90 days using local SEO + targeted Google Ads.
               </p>
             </div>
           </div>

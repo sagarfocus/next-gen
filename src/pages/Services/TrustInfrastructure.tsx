@@ -8,11 +8,7 @@ const TrustInfrastructure = () => {
   const [bookingOpen, setBookingOpen] = useState(false);
 
   return (
-    <section
-      className="trust-section"
-      id="trust"
-      aria-labelledby="trust-title"
-    >
+    <section className="trust-section" id="trust" aria-labelledby="trust-title">
       <div className="container-shell">
         <div className="trust-grid">
           {/* LEFT - sticky header */}
@@ -22,9 +18,9 @@ const TrustInfrastructure = () => {
               Built on the same standards as your practice.
             </h2>
             <p className="trust-sub">
-              Your digital presence must convey the same level of clinical
-              excellence and security as your physical facility -
-              engineered for trust, accessibility, and compliance from day one.
+              Your digital presence must convey the same level of clinical excellence and security
+              as your physical facility - engineered for trust, accessibility, and compliance from
+              day one.
             </p>
             <button
               type="button"
