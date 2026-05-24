@@ -1,11 +1,12 @@
-import shreePhoto from '../../assets/shree-gauli.png';
-import bikashPhoto from '../../assets/bikash-neupane.png';
-import sonuPhoto from '../../assets/sagar-dongol.png';
-import bijeshPhoto from '../../assets/bijesh-khadgi.png';
-import sumitPhoto from '../../assets/sumit-sharma.png';
-import rahulPhoto from '../../assets/rahul-roy.png';
-import bidhitshaPhoto from '../../assets/bidhitsha-khadka.png';
-import sagarPhoto from '../../assets/sagar-timalsina.png';
+import { memo } from 'react';
+import shreePhoto from '../../assets/team-thumbs/shree-gauli.jpg';
+import bikashPhoto from '../../assets/team-thumbs/bikash-neupane.jpg';
+import sonuPhoto from '../../assets/team-thumbs/sagar-dongol.jpg';
+import bijeshPhoto from '../../assets/team-thumbs/bijesh-khadgi.jpg';
+import sumitPhoto from '../../assets/team-thumbs/sumit-sharma.jpg';
+import rahulPhoto from '../../assets/team-thumbs/rahul-roy.jpg';
+import bidhitshaPhoto from '../../assets/team-thumbs/bidhitsha-khadka.jpg';
+import sagarPhoto from '../../assets/team-thumbs/sagar-timalsina.jpg';
 
 interface Member {
   name: string;
@@ -35,6 +36,25 @@ const MEMBERS: Member[] = [
   { name: 'Sagar Timalsina', role: 'Software Developer', photo: sagarPhoto, tint: 't4' },
 ];
 
+const TeamCard = memo(({ member }: { member: Member }) => (
+  <article className="tm-card">
+    <div className={`tm-avatar ${member.tint}`}>
+      <img
+        src={member.photo}
+        alt={member.name}
+        width={400}
+        height={400}
+        loading="lazy"
+        decoding="async"
+      />
+    </div>
+    <p className="tm-card-eyebrow">TheNextGen Healthcare Marketing</p>
+    <h3 className="tm-card-name">{member.name}</h3>
+    <p className="tm-card-role">{member.role}</p>
+  </article>
+));
+TeamCard.displayName = 'TeamCard';
+
 const TeamGrid = () => {
   return (
     <section className="tm-section">
@@ -48,14 +68,7 @@ const TeamGrid = () => {
 
         <div className="tm-team">
           {MEMBERS.map((m) => (
-            <article key={m.name} className="tm-card">
-              <div className={`tm-avatar ${m.tint}`}>
-                <img src={m.photo} alt={m.name} loading="lazy" />
-              </div>
-              <p className="tm-card-eyebrow">Focus Marketing</p>
-              <h3 className="tm-card-name">{m.name}</h3>
-              <p className="tm-card-role">{m.role}</p>
-            </article>
+            <TeamCard key={m.name} member={m} />
           ))}
         </div>
       </div>

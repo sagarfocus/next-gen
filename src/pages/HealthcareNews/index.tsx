@@ -3,9 +3,9 @@ import NewsHeroGrid from './NewsHeroGrid';
 import NewsThreeColumn from './NewsThreeColumn';
 import TrendingRail from './TrendingRail';
 import NewsletterStrip from './NewsletterStrip';
-
-const ORIGIN =
-  typeof window !== 'undefined' ? window.location.origin : 'https://thenextgenhealth.com';
+import Seo from '@/components/Seo';
+import { buildBreadcrumbList } from '@/lib/schema';
+import { SITE } from '@/content/site';
 
 const NEWS_SCHEMA = {
   '@context': 'https://schema.org',
@@ -13,56 +13,35 @@ const NEWS_SCHEMA = {
   name: 'Healthcare News & Insights - TheNextGen Weekly Brief',
   description:
     'Weekly editorial brief covering healthcare research, compliance, telehealth, AI operations, and patient-acquisition marketing.',
-  url: `${ORIGIN}/healthcare-news`,
-  isPartOf: {
-    '@type': 'WebSite',
-    name: 'TheNextGen Healthcare Marketing',
-    url: ORIGIN,
-  },
-  publisher: {
-    '@type': 'Organization',
-    name: 'TheNextGen Healthcare Marketing',
-    url: ORIGIN,
-  },
+  url: `${SITE.url}/healthcare-news`,
+  isPartOf: { '@id': `${SITE.url}#website` },
+  publisher: { '@id': `${SITE.url}#organization` },
+  inLanguage: 'en-US',
 };
 
-const BREADCRUMB_SCHEMA = {
-  '@context': 'https://schema.org',
-  '@type': 'BreadcrumbList',
-  itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Home', item: `${ORIGIN}/` },
-    {
-      '@type': 'ListItem',
-      position: 2,
-      name: 'Resources',
-      item: `${ORIGIN}/blog`,
-    },
-    {
-      '@type': 'ListItem',
-      position: 3,
-      name: 'Healthcare News',
-      item: `${ORIGIN}/healthcare-news`,
-    },
-  ],
-};
+// Note: prior breadcrumb used "Resources → /blog" at position 2, but
+// /healthcare-news isn't a child of /blog (there is no /resources route).
+// Corrected to a direct Home → Healthcare News crumb that matches the URL.
+const BREADCRUMB_SCHEMA = buildBreadcrumbList([
+  { name: 'Home', path: '/' },
+  { name: 'Healthcare News' },
+]);
 
 const HealthcareNews = () => {
   return (
     <>
+      <Seo
+        title="Healthcare News & HIPAA Industry Updates — Weekly Brief"
+        description="Weekly editorial brief covering healthcare research, compliance, telehealth, AI operations, and patient-acquisition marketing — from the TheNextGen team."
+        path="/healthcare-news"
+        schema={[NEWS_SCHEMA, BREADCRUMB_SCHEMA]}
+      />
+
       <NewsHead />
       <NewsHeroGrid />
       <NewsThreeColumn />
       <TrendingRail />
       <NewsletterStrip />
-
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(NEWS_SCHEMA) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(BREADCRUMB_SCHEMA) }}
-      />
     </>
   );
 };

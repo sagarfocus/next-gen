@@ -69,7 +69,7 @@ const ServicesHero = () => {
               <div className="ho-core">
                 <div className="ho-core-inner">
                   <div className="ho-core-mark">
-                    <img src={logoSrc} alt="" />
+                    <img src={logoSrc} alt="" width={677} height={369} decoding="async" />
                   </div>
                   <div className="ho-core-divider" />
                   <div className="ho-core-tag">

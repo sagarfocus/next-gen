@@ -1,3 +1,5 @@
+import { SITE } from '@/content/site';
+
 export interface Tier {
   level: string;
   label: string;
@@ -125,5 +127,7 @@ export const SCHEMA = {
   '@type': 'Service',
   name: 'Service Level Agreements - Healthcare Marketing',
   serviceType: 'Documented SLA & Response Time Commitment',
+  provider: { '@id': `${SITE.url}#organization` },
+  areaServed: { '@type': 'Country', name: 'United States' },
   audience: 'Multi-location healthcare practices, networks',
 };

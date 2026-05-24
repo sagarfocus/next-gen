@@ -1,39 +1,27 @@
 import ContactHero from './ContactHero';
 import QuoteWizard from './QuoteWizard';
 import ContactInfo from './ContactInfo';
-import { SITE } from '@/content/site';
+import Seo from '@/components/Seo';
+import { buildBreadcrumbList } from '@/lib/schema';
 
-const LOCAL_BUSINESS_SCHEMA = {
-  '@context': 'https://schema.org',
-  '@type': 'LocalBusiness',
-  name: SITE.legalName,
-  telephone: SITE.phone.intl,
-  email: SITE.email,
-  url: SITE.url,
-  address: {
-    '@type': 'PostalAddress',
-    streetAddress: SITE.address.street,
-    addressLocality: SITE.address.city,
-    addressRegion: SITE.address.region,
-    postalCode: SITE.address.postalCode,
-    addressCountry: SITE.address.country,
-  },
-  sameAs: [SITE.social.instagram, SITE.social.facebook, SITE.social.linkedin],
-};
+const BREADCRUMB_SCHEMA = buildBreadcrumbList([
+  { name: 'Home', path: '/' },
+  { name: 'Contact' },
+]);
 
 const Contact = () => {
   return (
     <>
+      <Seo
+        title="Contact TheNextGen — Healthcare Marketing in Irving, Texas"
+        description="Tell us about your practice — we respond within 4 business hours with a custom roadmap. Calls, audits and quotes for clinics, medspas, urgent care & ERs."
+        path="/contact"
+        schema={BREADCRUMB_SCHEMA}
+      />
+
       <ContactHero />
       <QuoteWizard />
       <ContactInfo />
-
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(LOCAL_BUSINESS_SCHEMA),
-        }}
-      />
     </>
   );
 };

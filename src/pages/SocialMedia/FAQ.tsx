@@ -55,7 +55,7 @@ const FAQ = () => {
           <div>
             <div className="sl-sec-num">12 - FAQ</div>
             <h2 className="sl-sec-title">
-              The eight questions <em>every practice owner asks.</em>
+              Healthcare social media — <em>eight questions clinic owners ask before posting.</em>
             </h2>
           </div>
           <div className="sl-sec-meta">

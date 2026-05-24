@@ -4,6 +4,7 @@ import healthcareImg1 from '../../../assets/healthcare-1.png';
 import healthcareImg2 from '../../../assets/healthcare-2.png';
 import strategyImg from '../../../assets/strategy-planning.png';
 import { valueDetailHref, type ValueEntry } from '@/content/about/values.data';
+import { SITE } from '@/content/site';
 
 export const VALUE_IMAGES: Record<string, { about: string; approach: string }> = {
   'patient-first-marketing': { about: healthcareImg1, approach: healthcareImg2 },
@@ -126,5 +127,7 @@ export const articleSchema = (entry: ValueEntry) => ({
   headline: entry.title,
   description: entry.lead,
   about: 'Healthcare marketing principles',
-  mainEntityOfPage: `https://thenextgenhealth.com${valueDetailHref(entry.slug)}`,
+  author: { '@id': `${SITE.url}#organization` },
+  publisher: { '@id': `${SITE.url}#organization` },
+  mainEntityOfPage: `${SITE.url}${valueDetailHref(entry.slug)}`,
 });

@@ -22,7 +22,7 @@ const Hero = ({ entry, numLabel }: HeroProps) => (
 
       <div className="ow-ind-modal-card ow-detail-card">
         <div className="ow-ind-modal-art" aria-hidden="true">
-          <img src={entry.image} alt="" />
+          <img src={entry.image} alt="" width={1448} height={1086} loading="eager" decoding="async" />
           <div className="ow-ind-modal-art-shade" />
           <span className="ow-ind-modal-num">{numLabel}</span>
         </div>

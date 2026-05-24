@@ -26,7 +26,7 @@ const Hero = () => {
             </p>
 
             <div className="ga-hero-ctas">
-              <Link to="/contact" className="sl-btn-primary">
+              <Link to="/free-growth-audit" className="sl-btn-primary">
                 Get a free account audit
                 <ArrowIcon />
               </Link>

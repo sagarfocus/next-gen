@@ -133,7 +133,7 @@ const Advantages = () => {
 
           <div className="adv-media" aria-hidden="true">
             <div className="adv-media-frame">
-              <img src={advantagesImg} alt="" loading="lazy" />
+              <img src={advantagesImg} alt="" width={1536} height={1024} loading="lazy" decoding="async" />
             </div>
           </div>
 

@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { SITE } from '@/content/site';
 import imgCompliance from '../../../assets/patient-identities.png';
 import imgPaid from '../../../assets/paid-media.png';
 import imgReputation from '../../../assets/recall-plus.png';
@@ -69,7 +70,7 @@ export const buildBlogPostSchema = (post: BlogPostData) => ({
   '@type': 'BlogPosting',
   headline: post.title,
   description: post.metaDescription,
-  url: `${ORIGIN}/blog/${post.slug}`,
+  url: `${SITE.url}/blog/${post.slug}`,
   datePublished: post.date,
   dateModified: post.date,
   articleSection: post.catLabel,
@@ -78,12 +79,8 @@ export const buildBlogPostSchema = (post: BlogPostData) => ({
     name: post.author,
     jobTitle: post.authorRole,
   },
-  publisher: {
-    '@type': 'Organization',
-    name: 'TheNextGen Healthcare Marketing',
-    url: ORIGIN,
-  },
-  mainEntityOfPage: { '@type': 'WebPage', '@id': `${ORIGIN}/blog/${post.slug}` },
+  publisher: { '@id': `${SITE.url}#organization` },
+  mainEntityOfPage: { '@type': 'WebPage', '@id': `${SITE.url}/blog/${post.slug}` },
   inLanguage: 'en-US',
 });
 
@@ -91,9 +88,9 @@ export const buildBreadcrumbSchema = (post: BlogPostData) => ({
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
   itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Home', item: `${ORIGIN}/` },
-    { '@type': 'ListItem', position: 2, name: 'Blog', item: `${ORIGIN}/blog` },
-    { '@type': 'ListItem', position: 3, name: post.title, item: `${ORIGIN}/blog/${post.slug}` },
+    { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE.url}/` },
+    { '@type': 'ListItem', position: 2, name: 'Blog', item: `${SITE.url}/blog` },
+    { '@type': 'ListItem', position: 3, name: post.title, item: `${SITE.url}/blog/${post.slug}` },
   ],
 });
 

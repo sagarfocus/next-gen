@@ -11,6 +11,9 @@ import LearningHub from './LearningHub';
 import SubServices from './SubServices';
 import FAQ, { SEO_FAQ_ITEMS } from './FAQ';
 import CTA from './CTA';
+import Seo from '@/components/Seo';
+import { buildBreadcrumbList } from '@/lib/schema';
+import { SITE } from '@/content/site';
 
 const SERVICE_SCHEMA = {
   '@context': 'https://schema.org',
@@ -18,13 +21,12 @@ const SERVICE_SCHEMA = {
   name: 'Healthcare SEO Services',
   serviceType: 'Search Engine Optimization',
   category: ['Technical SEO', 'On-Page SEO', 'Off-Page SEO', 'Local SEO', 'AEO', 'Content SEO'],
-  provider: {
-    '@type': 'Organization',
-    name: 'TheNextGen Healthcare Marketing',
-    url: 'https://thenextgen.example.com',
-  },
+  provider: { '@id': `${SITE.url}#organization` },
   areaServed: { '@type': 'Country', name: 'United States' },
-  audience: { '@type': 'Audience', audienceType: 'Healthcare practices, clinics, hospital networks' },
+  audience: {
+    '@type': 'Audience',
+    audienceType: 'Healthcare practices, clinics, hospital networks',
+  },
   offers: [
     { '@type': 'Offer', name: 'Starter', price: '2500', priceCurrency: 'USD', description: 'Foundational SEO program' },
     { '@type': 'Offer', name: 'Growth', price: '4500', priceCurrency: 'USD', description: 'Full-suite SEO + content engine' },
@@ -42,19 +44,22 @@ const FAQ_SCHEMA = {
   })),
 };
 
-const BREADCRUMB_SCHEMA = {
-  '@context': 'https://schema.org',
-  '@type': 'BreadcrumbList',
-  itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Home', item: '/' },
-    { '@type': 'ListItem', position: 2, name: 'Services', item: '/services' },
-    { '@type': 'ListItem', position: 3, name: 'SEO', item: '/services/seo' },
-  ],
-};
+const BREADCRUMB_SCHEMA = buildBreadcrumbList([
+  { name: 'Home', path: '/' },
+  { name: 'Services', path: '/services' },
+  { name: 'SEO' },
+]);
 
 const SEO = () => {
   return (
     <>
+      <Seo
+        title="Healthcare SEO Services — Technical, Local, Content & AEO"
+        description="Technical, on-page, off-page, local, content, and AEO — full-suite SEO built for clinics, surgical groups, and hospital networks. HIPAA-aware tracking, 12-page audit in 5 business days."
+        path="/services/seo"
+        schema={[SERVICE_SCHEMA, FAQ_SCHEMA, BREADCRUMB_SCHEMA]}
+      />
+
       <Hero />
       <TrustBar />
       <Capabilities />
@@ -67,19 +72,6 @@ const SEO = () => {
       <SubServices />
       <FAQ />
       <CTA />
-
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(SERVICE_SCHEMA) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_SCHEMA) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(BREADCRUMB_SCHEMA) }}
-      />
     </>
   );
 };

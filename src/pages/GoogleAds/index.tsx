@@ -13,6 +13,9 @@ import LearningHub from './LearningHub';
 import SubServices from './SubServices';
 import FAQ, { GA_FAQ_ITEMS } from './FAQ';
 import CTA from './CTA';
+import Seo from '@/components/Seo';
+import { buildBreadcrumbList } from '@/lib/schema';
+import { SITE } from '@/content/site';
 
 const SERVICE_SCHEMA = {
   '@context': 'https://schema.org',
@@ -20,13 +23,12 @@ const SERVICE_SCHEMA = {
   name: 'Healthcare Google Ads Management',
   serviceType: 'Pay-Per-Click Advertising',
   category: ['Search Ads', 'Performance Max', 'Display', 'YouTube Ads', 'Shopping', 'Local Services Ads'],
-  provider: {
-    '@type': 'Organization',
-    name: 'TheNextGen Healthcare Marketing',
-    url: 'https://thenextgen.example.com',
-  },
+  provider: { '@id': `${SITE.url}#organization` },
   areaServed: { '@type': 'Country', name: 'United States' },
-  audience: { '@type': 'Audience', audienceType: 'Healthcare practices, clinics, hospital networks' },
+  audience: {
+    '@type': 'Audience',
+    audienceType: 'Healthcare practices, clinics, hospital networks',
+  },
   offers: [
     { '@type': 'Offer', name: 'Starter', price: '2500', priceCurrency: 'USD', description: 'Single-location, single-campaign-type accounts' },
     { '@type': 'Offer', name: 'Growth', price: '4500', priceCurrency: 'USD', description: 'Multi-campaign, Search + PMax + Remarketing' },
@@ -44,19 +46,22 @@ const FAQ_SCHEMA = {
   })),
 };
 
-const BREADCRUMB_SCHEMA = {
-  '@context': 'https://schema.org',
-  '@type': 'BreadcrumbList',
-  itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Home', item: '/' },
-    { '@type': 'ListItem', position: 2, name: 'Services', item: '/services' },
-    { '@type': 'ListItem', position: 3, name: 'Google Ads', item: '/services/google-ads' },
-  ],
-};
+const BREADCRUMB_SCHEMA = buildBreadcrumbList([
+  { name: 'Home', path: '/' },
+  { name: 'Services', path: '/services' },
+  { name: 'Google Ads' },
+]);
 
 const GoogleAds = () => {
   return (
     <>
+      <Seo
+        title="Healthcare Google Ads Management — HIPAA-Aware PPC"
+        description="Search, PMax, Display, YouTube, and Local Services Ads run by a healthcare-only PPC team. HIPAA-aware tracking, 30-minute audit, month-to-month after a 90-day ramp."
+        path="/services/google-ads"
+        schema={[SERVICE_SCHEMA, FAQ_SCHEMA, BREADCRUMB_SCHEMA]}
+      />
+
       <Hero />
       <TrustBar />
       <CampaignTypes />
@@ -71,19 +76,6 @@ const GoogleAds = () => {
       <SubServices />
       <FAQ />
       <CTA />
-
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(SERVICE_SCHEMA) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_SCHEMA) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(BREADCRUMB_SCHEMA) }}
-      />
     </>
   );
 };

@@ -7,13 +7,43 @@ import Timeline from './Timeline';
 import Channels from './Channels';
 import Handoff from './Handoff';
 import End from './End';
+import Seo from '@/components/Seo';
+import { buildBreadcrumbList } from '@/lib/schema';
+import { SITE } from '@/content/site';
 
 /**
  * Phase 3 - Swiss layout #3: Editorial spread with display headline
  * Oversized type, ruled timeline, drop-cap intro, big stats.
  */
+
+const SERVICE_SCHEMA = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Phase 3 — Launch & Accelerate',
+  serviceType: 'Healthcare Marketing Launch · Live Operations',
+  provider: { '@id': `${SITE.url}#organization` },
+  areaServed: { '@type': 'Country', name: 'United States' },
+  audience: {
+    '@type': 'Audience',
+    audienceType: 'Healthcare practices, clinics, hospital networks',
+  },
+};
+
+const BREADCRUMB_SCHEMA = buildBreadcrumbList([
+  { name: 'Home', path: '/' },
+  { name: 'Methodology' },
+  { name: 'Phase 3 — Launch & Accelerate' },
+]);
+
 const Phase3 = () => (
   <main className="ph3-root">
+    <Seo
+      title="Phase 3: Launch & Accelerate — Day 01 to Day 30 Live Ops"
+      description="Thirty days from kickoff to a compounding patient-acquisition pipeline — launch, optimization, and the channel handoffs that compound through year one."
+      path="/methodology/phase-3"
+      schema={[SERVICE_SCHEMA, BREADCRUMB_SCHEMA]}
+    />
+
     <div className="ph3-wrap">
       <Hero />
       <Body />

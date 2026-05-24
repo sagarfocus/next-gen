@@ -2,7 +2,8 @@ import { useParams } from 'react-router-dom';
 import { getPostBySlug, BLOG_POSTS } from '@/content/blog/posts';
 import Hero from './Hero';
 import NotFoundBlock from './NotFoundBlock';
-import { useDocumentMeta, buildBlogPostSchema, buildBreadcrumbSchema } from './data';
+import Seo from '@/components/Seo';
+import { buildBlogPostSchema, buildBreadcrumbSchema } from './data';
 
 /* ============================================================
    BLOG POST — Editorial detail page (hero-only).
@@ -14,7 +15,6 @@ import { useDocumentMeta, buildBlogPostSchema, buildBreadcrumbSchema } from './d
 const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>();
   const post = getPostBySlug(slug);
-  useDocumentMeta(post);
 
   if (!post) return <NotFoundBlock />;
 
@@ -23,17 +23,22 @@ const BlogPost = () => {
 
   return (
     <main className="bpx" id="bpx-top" data-post-id={postId}>
+      <Seo
+        title={post.title}
+        description={post.metaDescription}
+        path={`/blog/${post.slug}`}
+        type="article"
+        article={{
+          publishedTime: post.date,
+          modifiedTime: post.date,
+          author: post.author,
+          section: post.catLabel,
+        }}
+        schema={[buildBlogPostSchema(post), buildBreadcrumbSchema(post)]}
+      />
+
       <article>
         <Hero post={post} />
-
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(buildBlogPostSchema(post)) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(buildBreadcrumbSchema(post)) }}
-        />
       </article>
     </main>
   );

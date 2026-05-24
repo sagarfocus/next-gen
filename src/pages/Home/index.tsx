@@ -10,8 +10,11 @@ import Testimonials from './Testimonials';
 import Industries from './Industries';
 import ContactSection from './ContactSection';
 import BookingModal from '@/components/BookingModal';
-import { SITE } from '@/content/site';
+import Seo from '@/components/Seo';
 
+// FAQ schema mirrors the questions rendered in the Home FAQ section. If
+// you add/remove a question there, mirror it here so the JSON-LD payload
+// matches the visible content (Google ignores schema that does not match).
 const FAQ_SCHEMA = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
@@ -59,38 +62,6 @@ const FAQ_SCHEMA = {
   ],
 };
 
-const LOCAL_BUSINESS_SCHEMA = {
-  '@context': 'https://schema.org',
-  '@type': 'LocalBusiness',
-  name: SITE.legalName,
-  image: `${SITE.url}/og-image.jpg`,
-  telephone: SITE.phone.intl,
-  email: SITE.email,
-  url: SITE.url,
-  address: {
-    '@type': 'PostalAddress',
-    streetAddress: SITE.address.street,
-    addressLocality: SITE.address.city,
-    addressRegion: SITE.address.region,
-    postalCode: SITE.address.postalCode,
-    addressCountry: SITE.address.country,
-  },
-  geo: {
-    '@type': 'GeoCoordinates',
-    latitude: 32.8735093,
-    longitude: -96.9832298,
-  },
-  openingHoursSpecification: [
-    {
-      '@type': 'OpeningHoursSpecification',
-      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-      opens: '09:00',
-      closes: '18:00',
-    },
-  ],
-  sameAs: [SITE.social.instagram, SITE.social.facebook, SITE.social.linkedin],
-};
-
 const Home = () => {
   const [bookingOpen, setBookingOpen] = useState(false);
   const openBooking = () => setBookingOpen(true);
@@ -98,6 +69,13 @@ const Home = () => {
 
   return (
     <>
+      <Seo
+        title="Healthcare Marketing for Clinics, MedSpas & Urgent Care in Texas"
+        description="Healthcare marketing built for clinics, medspas, urgent care & ERs. HIPAA-aware SEO, paid ads, websites, automation. 200+ Texas practices. Free 5-day growth audit."
+        path="/"
+        schema={FAQ_SCHEMA}
+      />
+
       <Hero>
         <CertStrip />
       </Hero>
@@ -111,18 +89,6 @@ const Home = () => {
       <ContactSection />
 
       <BookingModal open={bookingOpen} onClose={closeBooking} />
-
-      {/* SEO: structured data */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_SCHEMA) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(LOCAL_BUSINESS_SCHEMA),
-        }}
-      />
     </>
   );
 };

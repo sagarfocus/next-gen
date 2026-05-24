@@ -1,27 +1,45 @@
-import Section from '@/components/editorial/Section';
 import { METRICS } from './data';
 
-const Metrics = () => (
-  <Section
-    no="03"
-    title="What the program moves"
-    kicker="Median across DFW healthcare clients, 2025. Pulled from the same dashboard your team logs into daily."
-  >
-    <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-[1px] bg-heading">
-      {METRICS.map((m, i) => (
-        <div key={m.k} className="bg-bg p-7 flex flex-col gap-3">
-          <span className="font-mono text-[11px] text-line tracking-[0.18em]">0{i + 1}.</span>
-          <div className="text-heading font-extrabold text-[clamp(36px,4.2vw,52px)] leading-[0.95] tracking-[-0.035em] tabular-nums">
-            {m.v}
+const Metrics = () => {
+  return (
+    <section className="sl-section ofm-met-section" id="results">
+      <div className="container-shell">
+        <div className="sl-sec-head">
+          <div>
+            <div className="sl-sec-num">05 - What the dashboard reads</div>
+            <h2 className="sl-sec-title">
+              The numbers we&rsquo;re <em>actually paid on.</em>
+            </h2>
           </div>
-          <div className="text-[10px] uppercase tracking-[0.18em] text-muted font-semibold">
-            {m.k}
+          <div className="sl-sec-meta">
+            Median across DFW
+            <br />
+            healthcare cohorts · 2025
           </div>
-          <p className="text-body text-[13px] leading-[1.55] mt-1 max-w-[28ch]">{m.d}</p>
         </div>
-      ))}
-    </div>
-  </Section>
-);
+
+        <div className="ofm-met-grid">
+          {METRICS.map((m) => (
+            <article key={m.k} className="ofm-met-card">
+              <div className="ofm-met-num">
+                {m.v}
+                {m.unit && <em>{m.unit}</em>}
+              </div>
+              <div className="ofm-met-lbl">{m.k}</div>
+              <p className="ofm-met-sub">{m.d}</p>
+            </article>
+          ))}
+        </div>
+
+        <p className="ofm-met-note">
+          <strong>How we report.</strong> Every metric on this page comes from the same
+          dashboard your team logs into daily — sourced from CRM, intake tablets, and QR
+          scans. We don&rsquo;t blend in industry averages, and we don&rsquo;t show you
+          numbers we can&rsquo;t reproduce on demand.
+        </p>
+      </div>
+    </section>
+  );
+};
 
 export default Metrics;

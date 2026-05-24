@@ -7,6 +7,7 @@ import {
   type DetailEntry,
   type DetailKind,
 } from '../details.data';
+import { SITE } from '@/content/site';
 
 export const KIND_BODY_INTRO: Record<DetailKind, (entry: DetailEntry) => string> = {
   engagement: () =>
@@ -107,7 +108,9 @@ export const buildSchema = (entry: DetailEntry) => {
       headline: entry.title,
       description: entry.description,
       about: entry.eyebrow,
-      mainEntityOfPage: `https://thenextgenhealth.com${detailHref(entry.kind, entry.slug)}`,
+      author: { '@id': `${SITE.url}#organization` },
+      publisher: { '@id': `${SITE.url}#organization` },
+      mainEntityOfPage: `${SITE.url}${detailHref(entry.kind, entry.slug)}`,
     };
   }
   return {
@@ -117,11 +120,7 @@ export const buildSchema = (entry: DetailEntry) => {
     serviceType:
       entry.kind === 'industry' ? 'Healthcare marketing services for ' + entry.title : entry.title,
     description: entry.description,
-    provider: {
-      '@type': 'LocalBusiness',
-      name: 'TheNextGen Healthcare Marketing',
-      url: 'https://thenextgenhealth.com',
-    },
+    provider: { '@id': `${SITE.url}#organization` },
     areaServed: 'United States',
   };
 };

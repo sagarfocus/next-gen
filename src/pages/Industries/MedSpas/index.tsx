@@ -7,6 +7,9 @@ import IndustrySnapshots from '@/components/industry/IndustrySnapshots';
 import IndustryCTA from '@/components/industry/IndustryCTA';
 import ServiceFAQ from '@/components/service/ServiceFAQ';
 import RelatedServices from '@/components/service/RelatedServices';
+import Seo from '@/components/Seo';
+import { buildBreadcrumbList } from '@/lib/schema';
+import { SITE } from '@/content/site';
 import type { QuickStat } from '@/components/industry/IndustryHero';
 import type { SpecialtyRow } from '@/components/industry/Specialties';
 import type { PlayStep } from '@/components/industry/Playbook';
@@ -20,23 +23,11 @@ import snapMedspa from '../../../assets/medspa.png';
 import snapAesthetic from '../../../assets/plastic-surgery.png';
 import snapDerm from '../../../assets/dermatology.png';
 
-const ORIGIN =
-  typeof window !== 'undefined' ? window.location.origin : 'https://thenextgenhealth.com';
-
-const BREADCRUMB_SCHEMA = {
-  '@context': 'https://schema.org',
-  '@type': 'BreadcrumbList',
-  itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Home', item: `${ORIGIN}/` },
-    { '@type': 'ListItem', position: 2, name: 'Industries', item: `${ORIGIN}/industries` },
-    {
-      '@type': 'ListItem',
-      position: 3,
-      name: 'MedSpas & Aesthetics',
-      item: `${ORIGIN}/industries/medspas`,
-    },
-  ],
-};
+const BREADCRUMB_SCHEMA = buildBreadcrumbList([
+  { name: 'Home', path: '/' },
+  { name: 'Industries', path: '/industries' },
+  { name: 'MedSpas & Aesthetics' },
+]);
 
 const FAQS: ServiceFAQItem[] = [
   {
@@ -239,12 +230,30 @@ const SCHEMA = {
   '@type': 'Service',
   name: 'MedSpas & Wellness Brands - Marketing',
   serviceType: 'Healthcare Marketing',
+  provider: { '@id': `${SITE.url}#organization` },
   audience: 'MedSpas, aesthetic clinics, IV therapy, wellness brands',
+};
+
+const FAQ_SCHEMA = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: FAQS.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
 };
 
 const MedSpas = () => {
   return (
     <>
+      <Seo
+        title="MedSpa & Aesthetic Marketing — On-Demand Patient Acquisition"
+        description="High-volume social, Meta campaigns, and conversion-engineered websites built for elective and aesthetic services."
+        path="/industries/medspas"
+        schema={[SCHEMA, FAQ_SCHEMA, BREADCRUMB_SCHEMA]}
+      />
+
       <IndustryHero
         tag="Aesthetic"
         title={
@@ -294,15 +303,6 @@ const MedSpas = () => {
         tag="Talk to us"
         title={<>Ready to fill your consult calendar?</>}
         body="A 30-minute call. We'll show you what your funnel looks like today and the closest case study from this library - whether you sign with us or not."
-      />
-
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(SCHEMA) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(BREADCRUMB_SCHEMA) }}
       />
     </>
   );

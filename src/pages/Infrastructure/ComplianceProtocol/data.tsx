@@ -1,3 +1,5 @@
+import { SITE } from '@/content/site';
+
 export interface Section {
   id: string;
   title: string;
@@ -173,5 +175,7 @@ export const SCHEMA = {
   '@type': 'Service',
   name: 'Healthcare Compliance Protocol - HIPAA-Aligned Marketing Infrastructure',
   serviceType: 'Compliance & Data Security',
+  provider: { '@id': `${SITE.url}#organization` },
+  areaServed: { '@type': 'Country', name: 'United States' },
   audience: 'Healthcare practices, clinics, healthcare networks',
 };

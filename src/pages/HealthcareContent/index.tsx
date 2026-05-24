@@ -1,6 +1,27 @@
 import Breadcrumb from '@/components/Breadcrumb';
 import Section from '@/components/editorial/Section';
 import EditorialCTA from '@/components/editorial/EditorialCTA';
+import Seo from '@/components/Seo';
+import { buildBreadcrumbList } from '@/lib/schema';
+import { SITE } from '@/content/site';
+
+const SERVICE_SCHEMA = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'TheNextGen Editorial & Content Studio for Healthcare',
+  serviceType: 'Editorial Content · Clinician-Reviewed Healthcare Writing',
+  provider: { '@id': `${SITE.url}#organization` },
+  areaServed: { '@type': 'Country', name: 'United States' },
+  audience: {
+    '@type': 'Audience',
+    audienceType: 'Healthcare practices, clinics, hospital networks',
+  },
+};
+
+const BREADCRUMB_SCHEMA = buildBreadcrumbList([
+  { name: 'Home', path: '/' },
+  { name: 'Healthcare Content' },
+]);
 
 const HEAD_META = [
   { label: 'Format', value: 'Editorial, evidence-led' },
@@ -236,6 +257,13 @@ const Closing = () => (
 
 const HealthcareContent = () => (
   <>
+    <Seo
+      title="Healthcare Editorial & Content Studio — Clinician-Reviewed, Evidence-Led"
+      description="Editorial-grade content for healthcare practices — clinician-reviewed, evidence-led, schema-rich. Pillar pages, decision content, and editorial features built to outperform hospital monoliths."
+      path="/healthcare-content"
+      schema={[SERVICE_SCHEMA, BREADCRUMB_SCHEMA]}
+    />
+
     <Hero />
     <Pillars />
     <Samples />

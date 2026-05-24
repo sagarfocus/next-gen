@@ -3,6 +3,7 @@ import photoBikash from '../../../assets/bikash-neupane.png';
 import photoSonu from '../../../assets/sagar-dongol.png';
 import photoSumit from '../../../assets/sumit-sharma.png';
 import photoRahul from '../../../assets/rahul-roy.png';
+import { SITE } from '@/content/site';
 import photoBijesh from '../../../assets/bijesh-khadgi.png';
 
 export interface Role {
@@ -122,5 +123,7 @@ export const SCHEMA = {
   '@type': 'Service',
   name: 'The Growth Team - Healthcare Marketing Department',
   serviceType: 'Embedded Marketing Team',
+  provider: { '@id': `${SITE.url}#organization` },
+  areaServed: { '@type': 'Country', name: 'United States' },
   audience: 'Multi-location healthcare practices, clinics, medspas',
 };

@@ -149,7 +149,7 @@ const Services = () => {
                 <Link to={to} className="service-card" aria-label={ariaLabel}>
                   <div className="card-img">
                     <CardArrow />
-                    <img src={image} alt={title} loading="lazy" decoding="async" />
+                    <img src={image} alt={title} width={1448} height={1086} loading="lazy" decoding="async" />
                   </div>
                   <span className="card-tag">{tag}</span>
                   <h3 className="card-title">{title}</h3>

@@ -13,7 +13,7 @@ const PullQuote = () => (
           <span className="atx-quote-avatar" aria-hidden="true">
             FN
           </span>
-          <cite className="atx-quote-cite">Focus Marketing · Automation desk</cite>
+          <cite className="atx-quote-cite">TheNextGen Healthcare Marketing · Automation desk</cite>
         </footer>
       </blockquote>
     </div>

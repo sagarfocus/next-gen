@@ -21,7 +21,7 @@ const CTA = () => {
               written summary - whether you sign with us or not.
             </p>
             <div className="ga-cta-ctas">
-              <Link to="/contact" className="sl-btn-primary">
+              <Link to="/free-growth-audit" className="sl-btn-primary">
                 Book my audit
                 <ArrowIcon />
               </Link>

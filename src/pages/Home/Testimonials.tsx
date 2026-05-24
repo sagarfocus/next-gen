@@ -76,7 +76,7 @@ const Testimonials = () => {
     if (!track) return;
     update();
     track.addEventListener('scroll', update, { passive: true });
-    window.addEventListener('resize', update);
+    window.addEventListener('resize', update, { passive: true });
     const t = window.setTimeout(update, 250);
     return () => {
       track.removeEventListener('scroll', update);

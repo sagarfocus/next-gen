@@ -9,6 +9,8 @@ import Package from './Package';
 import Voice from './Voice';
 import Faq from './Faq';
 import Closing from './Closing';
+import Seo from '@/components/Seo';
+import { buildBreadcrumbList } from '@/lib/schema';
 import { SCHEMA } from './data';
 
 /* ============================================================
@@ -18,8 +20,21 @@ import { SCHEMA } from './data';
    Swiss grid, hairline rules, restrained colour. Every element
    earns its place — visual hierarchy first, copy second.
    ============================================================ */
+
+const BREADCRUMB_SCHEMA = buildBreadcrumbList([
+  { name: 'Home', path: '/' },
+  { name: 'Healthcare Growth Engine' },
+]);
+
 const HealthcareGrowthEngine = () => (
   <>
+    <Seo
+      title="The Healthcare Growth Engine — Integrated SEO + Paid + Automation"
+      description="One integrated system across SEO, paid media, and automation — instrumented end-to-end, reviewed weekly, tuned for clinic economics. From $2,500/mo, no 12-month lock-in."
+      path="/healthcare-growth-engine"
+      schema={[SCHEMA, BREADCRUMB_SCHEMA]}
+    />
+
     <Hero />
     <TrustStrip />
     <TheGap />
@@ -31,11 +46,6 @@ const HealthcareGrowthEngine = () => (
     <Voice />
     <Faq />
     <Closing />
-
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(SCHEMA) }}
-    />
   </>
 );
 

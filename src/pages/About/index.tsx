@@ -6,36 +6,31 @@ import Methodology from './Methodology';
 import Infrastructure from './Infrastructure';
 import Team from './Team';
 import AboutFAQ from './AboutFAQ';
-import { SITE } from '@/content/site';
+import Seo from '@/components/Seo';
+import { buildBreadcrumbList } from '@/lib/schema';
 
-const ORGANIZATION_SCHEMA = {
-  '@context': 'https://schema.org',
-  '@type': 'Organization',
-  name: SITE.legalName,
-  url: SITE.url,
-  logo: `${SITE.url}/logo.png`,
-  founder: {
-    '@type': 'Person',
-    name: 'Sarah Chen',
-    jobTitle: 'Founder & CEO',
-  },
-  foundingDate: '2019',
-  address: {
-    '@type': 'PostalAddress',
-    streetAddress: SITE.address.street,
-    addressLocality: SITE.address.city,
-    addressRegion: SITE.address.region,
-    postalCode: SITE.address.postalCode,
-    addressCountry: SITE.address.country,
-  },
-  telephone: SITE.phone.intl,
-  email: SITE.email,
-  sameAs: [SITE.social.instagram, SITE.social.facebook, SITE.social.linkedin],
-};
+// Note: the global Organization schema (address, contactPoint, sameAs)
+// is emitted site-wide via the default <Seo /> in App.tsx. This page
+// used to define a duplicate page-local Organization; it has been
+// consolidated into the helper at src/lib/schema.ts. Founder name and
+// foundingDate are intentionally omitted from the global schema pending
+// user confirmation — see comment in src/lib/schema.ts.
+
+const BREADCRUMB_SCHEMA = buildBreadcrumbList([
+  { name: 'Home', path: '/' },
+  { name: 'About' },
+]);
 
 const About = () => {
   return (
     <>
+      <Seo
+        title="About TheNextGen — Healthcare-Only Marketing Agency in Texas"
+        description="Healthcare-only marketing team behind 200+ Texas practice partnerships. Our methodology, infrastructure, principles, and how we hold every channel accountable to revenue."
+        path="/about"
+        schema={BREADCRUMB_SCHEMA}
+      />
+
       <AboutHero />
       <Genesis />
       <Mission />
@@ -44,13 +39,6 @@ const About = () => {
       <Infrastructure />
       <Team />
       <AboutFAQ />
-
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(ORGANIZATION_SCHEMA),
-        }}
-      />
     </>
   );
 };

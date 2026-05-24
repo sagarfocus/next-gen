@@ -94,7 +94,7 @@ const AboutUs = () => {
         <div className="ah-gallery">
           <div className="ah-gallery-left">
             <div className="ah-img ah-img-secondary">
-              <img src={aboutImg1} alt="" loading="lazy" decoding="async" />
+              <img src={aboutImg1} alt="" width={1672} height={941} loading="lazy" decoding="async" />
             </div>
             <article className="ah-feature">
               <span className="ah-feature-icon" aria-hidden="true">
@@ -117,7 +117,7 @@ const AboutUs = () => {
 
           <div className="ah-gallery-right">
             <div className="ah-img ah-img-hero">
-              <img src={aboutImg2} alt="" loading="lazy" decoding="async" />
+              <img src={aboutImg2} alt="" width={1448} height={1086} loading="lazy" decoding="async" />
               <div className="ah-float-stat" aria-hidden="false">
                 <span className="ah-float-stat-num">120+</span>
                 <span className="ah-float-stat-lbl">Programs Launched</span>
@@ -168,7 +168,7 @@ const AboutUs = () => {
 
           <div className="ah-collab-right">
             <div className="ah-img ah-img-hero">
-              <img src={aboutImg3} alt="" loading="lazy" decoding="async" />
+              <img src={aboutImg3} alt="" width={1254} height={1254} loading="lazy" decoding="async" />
               <div className="ah-float-quote">
                 <h4 className="ah-float-quote-title">Collaboration is the Key of Success</h4>
                 <p className="ah-float-quote-text">Embedded growth partners - not vendors.</p>

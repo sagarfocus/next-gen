@@ -45,7 +45,7 @@ const CaseStudies = ({ cases }: CaseStudiesProps) => {
       clearTimeout(t);
       t = setTimeout(measure, 120);
     };
-    window.addEventListener('resize', onResize);
+    window.addEventListener('resize', onResize, { passive: true });
     return () => {
       clearTimeout(t);
       window.removeEventListener('resize', onResize);

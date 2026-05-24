@@ -1,5 +1,8 @@
-import { useEffect, type ReactNode } from 'react';
+import type { ReactNode } from 'react';
 import Breadcrumb from '@/components/Breadcrumb';
+import Seo from '@/components/Seo';
+import { buildBreadcrumbList } from '@/lib/schema';
+import { SITE } from '@/content/site';
 
 export interface LegalSection {
   heading: string;
@@ -31,41 +34,30 @@ const LegalPage = ({
   metaDescription,
   canonicalPath,
 }: LegalPageProps) => {
-  useEffect(() => {
-    const prevTitle = document.title;
-    document.title = `${title} · TheNextGen Healthcare Marketing`;
+  const webPageSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: `${title} · ${SITE.name}`,
+    url: `${SITE.url}${canonicalPath}`,
+    description: metaDescription,
+    isPartOf: { '@id': `${SITE.url}#website` },
+    about: { '@id': `${SITE.url}#organization` },
+  };
 
-    const ensureMeta = (name: string) => {
-      let el = document.querySelector<HTMLMetaElement>(`meta[name="${name}"]`);
-      if (!el) {
-        el = document.createElement('meta');
-        el.setAttribute('name', name);
-        document.head.appendChild(el);
-      }
-      return el;
-    };
-    const desc = ensureMeta('description');
-    const prevDesc = desc.getAttribute('content');
-    desc.setAttribute('content', metaDescription);
-
-    let canonical = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
-    if (!canonical) {
-      canonical = document.createElement('link');
-      canonical.setAttribute('rel', 'canonical');
-      document.head.appendChild(canonical);
-    }
-    const prevCanon = canonical.getAttribute('href');
-    canonical.setAttribute('href', `${window.location.origin}${canonicalPath}`);
-
-    return () => {
-      document.title = prevTitle;
-      if (prevDesc !== null) desc.setAttribute('content', prevDesc);
-      if (prevCanon !== null) canonical!.setAttribute('href', prevCanon);
-    };
-  }, [title, metaDescription, canonicalPath]);
+  const breadcrumbSchema = buildBreadcrumbList([
+    { name: 'Home', path: '/' },
+    { name: 'Legal', path: '/sitemap' },
+    { name: breadcrumb },
+  ]);
 
   return (
     <main className="legal-page" style={{ paddingBottom: 'clamp(72px, 9vw, 120px)' }}>
+      <Seo
+        title={title}
+        description={metaDescription}
+        path={canonicalPath}
+        schema={[webPageSchema, breadcrumbSchema]}
+      />
       <section
         aria-labelledby="lg-title"
         style={{ padding: 'clamp(56px, 7vw, 96px) 0 clamp(32px, 4vw, 48px)' }}

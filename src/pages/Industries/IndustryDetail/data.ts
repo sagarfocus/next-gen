@@ -1,5 +1,6 @@
 import type { NarrativeBlock } from '@/components/DetailNarrative';
 import type { IndustryDetailEntry } from '@/content/industries/details.data';
+import { SITE } from '@/content/site';
 
 export const buildIndustryNarrative = (
   entry: IndustryDetailEntry
@@ -36,11 +37,7 @@ export const serviceSchema = (entry: IndustryDetailEntry) => ({
   name: `Healthcare marketing for ${entry.label}`,
   serviceType: `${entry.label} - ${entry.meta}`,
   description: entry.description,
-  provider: {
-    '@type': 'LocalBusiness',
-    name: 'TheNextGen Healthcare Marketing',
-    url: 'https://thenextgenhealth.com',
-  },
+  provider: { '@id': `${SITE.url}#organization` },
   areaServed: 'United States',
 });
 

@@ -19,7 +19,7 @@ const Body = ({ entry }: { entry: IndustryDetailEntry }) => {
         {/* Bottom: image card left, image + text + CTA right */}
         <div className="ow-body-grid">
           <article className="ow-body-card-left">
-            <img src={entry.image} alt="" loading="lazy" decoding="async" />
+            <img src={entry.image} alt="" width={1448} height={1086} loading="lazy" decoding="async" />
             <div className="ow-body-card-overlay">
               <h3 className="ow-body-card-overlay-title">Inside the playbook.</h3>
               <p className="ow-body-card-overlay-text">{entry.meta}</p>
@@ -32,7 +32,7 @@ const Body = ({ entry }: { entry: IndustryDetailEntry }) => {
 
           <div className="ow-body-stack-right">
             <div className="ow-body-stack-img">
-              <img src={entry.image} alt="" loading="lazy" decoding="async" />
+              <img src={entry.image} alt="" width={1448} height={1086} loading="lazy" decoding="async" />
             </div>
             <div className="ow-body-stack-content">
               {restParas.length > 0 ? (

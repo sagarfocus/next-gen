@@ -51,7 +51,7 @@ const CaseStudiesCarousel = () => {
         setIndex((i) => Math.min(i, Math.max(0, total - v)));
       }, 120);
     };
-    window.addEventListener('resize', onResize);
+    window.addEventListener('resize', onResize, { passive: true });
     return () => {
       window.removeEventListener('resize', onResize);
       if (resizeT) window.clearTimeout(resizeT);

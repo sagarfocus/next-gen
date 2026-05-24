@@ -13,20 +13,22 @@ import LearningHub from './LearningHub';
 import SubServices from './SubServices';
 import FAQ, { EM_FAQ_ITEMS } from './FAQ';
 import CTA from './CTA';
+import Seo from '@/components/Seo';
+import { buildBreadcrumbList } from '@/lib/schema';
+import { SITE } from '@/content/site';
 
 const SERVICE_SCHEMA = {
   '@context': 'https://schema.org',
   '@type': 'Service',
-  name: 'Healthcare Email Drip Campaigns',
+  name: 'Healthcare Email & Patient Drip Campaigns',
   serviceType: 'Email Marketing Automation',
   category: ['Welcome', 'Post-visit', 'Recall', 'Win-back', 'Referral', 'Newsletter'],
-  provider: {
-    '@type': 'Organization',
-    name: 'TheNextGen Healthcare Marketing',
-    url: 'https://thenextgen.example.com',
-  },
+  provider: { '@id': `${SITE.url}#organization` },
   areaServed: { '@type': 'Country', name: 'United States' },
-  audience: { '@type': 'Audience', audienceType: 'Healthcare practices, clinics, hospital networks' },
+  audience: {
+    '@type': 'Audience',
+    audienceType: 'Healthcare practices, clinics, hospital networks',
+  },
 };
 
 const FAQ_SCHEMA = {
@@ -39,19 +41,22 @@ const FAQ_SCHEMA = {
   })),
 };
 
-const BREADCRUMB_SCHEMA = {
-  '@context': 'https://schema.org',
-  '@type': 'BreadcrumbList',
-  itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Home', item: '/' },
-    { '@type': 'ListItem', position: 2, name: 'Services', item: '/services' },
-    { '@type': 'ListItem', position: 3, name: 'Email Drip Campaigns', item: '/services/email-drip-campaigns' },
-  ],
-};
+const BREADCRUMB_SCHEMA = buildBreadcrumbList([
+  { name: 'Home', path: '/' },
+  { name: 'Services', path: '/services' },
+  { name: 'Email Drip Campaigns' },
+]);
 
 const EmailCampaigns = () => {
   return (
     <>
+      <Seo
+        title="Healthcare Email Marketing & Patient Drip Campaigns"
+        description="Welcome, post-visit, recall, win-back, referral, and newsletter flows on BAA-covered ESPs — segmented by treatment history, attributed to booked revenue."
+        path="/services/email-drip-campaigns"
+        schema={[SERVICE_SCHEMA, FAQ_SCHEMA, BREADCRUMB_SCHEMA]}
+      />
+
       <Hero />
       <TrustBar />
       <FlowTypes />
@@ -66,10 +71,6 @@ const EmailCampaigns = () => {
       <SubServices />
       <FAQ />
       <CTA />
-
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(SERVICE_SCHEMA) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_SCHEMA) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(BREADCRUMB_SCHEMA) }} />
     </>
   );
 };

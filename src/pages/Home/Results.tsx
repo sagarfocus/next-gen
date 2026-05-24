@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { CountUp } from '@/lib/motion';
 import { ArrowIcon } from '@/components/icons';
 
@@ -38,29 +39,13 @@ const SMALL_STATS: SmallStat[] = [
   },
 ];
 
-const Results = () => {
-  return (
-    <section className="results-section" id="results" aria-labelledby="results-title">
-      <div className="container-shell">
-        <div className="results-head">
-          <span className="results-eyebrow">Proof of Work</span>
-          <h2 id="results-title" className="results-h2">
-            Real results.
-          </h2>
-          <p className="results-sub">
-            We don&rsquo;t just talk - we deliver measurable outcomes for healthcare practices.
-          </p>
-        </div>
-
-        <div className="stats-grid">
-          {/* Big featured dark card */}
-          <article className="stat-featured" aria-label="312% increase in Instagram leads - MedSpa">
-            <div className="stat-art" aria-hidden="true">
-              <svg
-                viewBox="0 0 665 503"
-                preserveAspectRatio="xMaxYMid slice"
-                xmlns="http://www.w3.org/2000/svg"
-              >
+const StatFeaturedArt = memo(() => (
+  <div className="stat-art" aria-hidden="true">
+    <svg
+      viewBox="0 0 665 503"
+      preserveAspectRatio="xMaxYMid slice"
+      xmlns="http://www.w3.org/2000/svg"
+    >
                 <defs>
                   <radialGradient id="medGlowSage" cx="50%" cy="50%" r="50%">
                     <stop offset="0%" stopColor="#8FBC8F" stopOpacity="0.55" />
@@ -345,9 +330,30 @@ const Results = () => {
                     rx="1.5"
                     fill="rgba(143,188,143,0.78)"
                   />
-                </g>
-              </svg>
-            </div>
+      </g>
+    </svg>
+  </div>
+));
+StatFeaturedArt.displayName = 'StatFeaturedArt';
+
+const Results = () => {
+  return (
+    <section className="results-section" id="results" aria-labelledby="results-title">
+      <div className="container-shell">
+        <div className="results-head">
+          <span className="results-eyebrow">Proof of Work</span>
+          <h2 id="results-title" className="results-h2">
+            Real results.
+          </h2>
+          <p className="results-sub">
+            We don&rsquo;t just talk - we deliver measurable outcomes for healthcare practices.
+          </p>
+        </div>
+
+        <div className="stats-grid">
+          {/* Big featured dark card */}
+          <article className="stat-featured" aria-label="312% increase in Instagram leads - MedSpa">
+            <StatFeaturedArt />
             <span className="stat-tag">MedSpa</span>
             <p className="stat-num">
               <CountUp to={312} suffix="%" duration={2.0} />

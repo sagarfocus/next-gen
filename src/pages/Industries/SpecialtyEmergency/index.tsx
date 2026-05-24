@@ -7,6 +7,9 @@ import IndustrySnapshots from '@/components/industry/IndustrySnapshots';
 import IndustryCTA from '@/components/industry/IndustryCTA';
 import ServiceFAQ from '@/components/service/ServiceFAQ';
 import RelatedServices from '@/components/service/RelatedServices';
+import Seo from '@/components/Seo';
+import { buildBreadcrumbList } from '@/lib/schema';
+import { SITE } from '@/content/site';
 import type { QuickStat } from '@/components/industry/IndustryHero';
 import type { SpecialtyRow } from '@/components/industry/Specialties';
 import type { PlayStep } from '@/components/industry/Playbook';
@@ -20,23 +23,11 @@ import snapUrgent from '../../../assets/urgent-care.png';
 import snapFreestanding from '../../../assets/freestanding-er.png';
 import snapSpecialty from '../../../assets/ophthalmology.png';
 
-const ORIGIN =
-  typeof window !== 'undefined' ? window.location.origin : 'https://thenextgenhealth.com';
-
-const BREADCRUMB_SCHEMA = {
-  '@context': 'https://schema.org',
-  '@type': 'BreadcrumbList',
-  itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Home', item: `${ORIGIN}/` },
-    { '@type': 'ListItem', position: 2, name: 'Industries', item: `${ORIGIN}/industries` },
-    {
-      '@type': 'ListItem',
-      position: 3,
-      name: 'Specialty & Emergency',
-      item: `${ORIGIN}/industries/specialty-emergency`,
-    },
-  ],
-};
+const BREADCRUMB_SCHEMA = buildBreadcrumbList([
+  { name: 'Home', path: '/' },
+  { name: 'Industries', path: '/industries' },
+  { name: 'Specialty & Emergency' },
+]);
 
 const FAQS: ServiceFAQItem[] = [
   {
@@ -242,12 +233,30 @@ const SCHEMA = {
   '@type': 'Service',
   name: 'Specialty & Emergency Care - Marketing',
   serviceType: 'Healthcare Marketing',
+  provider: { '@id': `${SITE.url}#organization` },
   audience: 'ERs, urgent care, specialty practices, high-acuity providers',
+};
+
+const FAQ_SCHEMA = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: FAQS.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
 };
 
 const SpecialtyEmergency = () => {
   return (
     <>
+      <Seo
+        title="Freestanding ER & Urgent Care Marketing — High-Acuity Acquisition"
+        description="Compliance-aware, urgency-first marketing built for ERs, urgent care, and specialty practices that need scale and speed."
+        path="/industries/specialty-emergency"
+        schema={[SCHEMA, FAQ_SCHEMA, BREADCRUMB_SCHEMA]}
+      />
+
       <IndustryHero
         tag="Acuity"
         title={
@@ -297,15 +306,6 @@ const SpecialtyEmergency = () => {
         tag="Talk to us"
         title={<>Ready to capture every search that matters?</>}
         body="A 30-minute call. We'll audit your compliance posture and current visibility, and share the closest case study - whether you sign with us or not."
-      />
-
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(SCHEMA) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(BREADCRUMB_SCHEMA) }}
       />
     </>
   );

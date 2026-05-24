@@ -1,5 +1,8 @@
 import { useParams, Navigate } from 'react-router-dom';
 import Breadcrumb from '@/components/Breadcrumb';
+import Seo from '@/components/Seo';
+import { buildBreadcrumbList } from '@/lib/schema';
+import { SITE } from '@/content/site';
 import { NEWS_ARTICLES, newsBySlug, CATEGORY_TONES, type NewsArticle } from './news.data';
 
 /* ============================================================
@@ -13,6 +16,9 @@ const COLORS = {
   muted: '#718096',
   mint: '#EBF4DD',
 };
+
+const truncate = (s: string, n: number): string =>
+  s.length <= n ? s : `${s.slice(0, n - 1).trimEnd()}…`;
 
 /* ─── Tone-coloured category pill ─── */
 const CategoryPill = ({ article, size = 'md' }: { article: NewsArticle; size?: 'sm' | 'md' }) => {
@@ -172,23 +178,42 @@ const NewsDetail = () => {
     '@type': 'NewsArticle',
     headline: article.title,
     description: article.lede,
+    url: `${SITE.url}/healthcare-news/${article.slug}`,
     datePublished: article.date,
+    dateModified: article.date,
     author: { '@type': 'Person', name: article.author },
-    publisher: {
-      '@type': 'Organization',
-      name: 'TheNextGen Healthcare Marketing',
+    publisher: { '@id': `${SITE.url}#organization` },
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': `${SITE.url}/healthcare-news/${article.slug}`,
     },
     articleSection: article.category,
+    inLanguage: 'en-US',
   };
+
+  const breadcrumbSchema = buildBreadcrumbList([
+    { name: 'Home', path: '/' },
+    { name: 'Healthcare News', path: '/healthcare-news' },
+    { name: article.title },
+  ]);
 
   return (
     <>
-      <Hero article={article} />
-
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      <Seo
+        title={article.title}
+        description={truncate(article.lede, 160)}
+        path={`/healthcare-news/${article.slug}`}
+        type="article"
+        article={{
+          publishedTime: article.date,
+          modifiedTime: article.date,
+          author: article.author,
+          section: article.category,
+        }}
+        schema={[articleSchema, breadcrumbSchema]}
       />
+
+      <Hero article={article} />
     </>
   );
 };

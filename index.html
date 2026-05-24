@@ -2,9 +2,46 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>next-gen</title>
+
+    <!-- Fallback title + description for crawlers that don't execute JS.
+         Per-page <Seo /> components override these at runtime via React 19
+         native metadata hoisting; the static values here are the safety net. -->
+    <title>TheNextGen Healthcare Marketing — HIPAA-aware marketing for clinics, medspas & urgent care</title>
+    <meta
+      name="description"
+      content="Full-service healthcare marketing agency. SEO, Google Ads, social media, website design, and HIPAA-aware automation for clinics, medspas, urgent care & ERs."
+    />
+    <meta name="robots" content="index,follow" />
+    <meta name="theme-color" content="#576DB5" />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href="https://thenextgenhealth.com/" />
+
+    <!-- Open Graph defaults (overridden per-page by <Seo />). -->
+    <meta property="og:site_name" content="TheNextGen Healthcare Marketing" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:url" content="https://thenextgenhealth.com/" />
+    <meta
+      property="og:title"
+      content="TheNextGen Healthcare Marketing — HIPAA-aware marketing for clinics, medspas & urgent care"
+    />
+    <meta
+      property="og:description"
+      content="Full-service healthcare marketing agency. SEO, Google Ads, social media, website design, and HIPAA-aware automation for clinics, medspas, urgent care & ERs."
+    />
+
+    <!-- Twitter card defaults. -->
+    <meta name="twitter:card" content="summary" />
+    <meta
+      name="twitter:title"
+      content="TheNextGen Healthcare Marketing — HIPAA-aware marketing for clinics, medspas & urgent care"
+    />
+    <meta
+      name="twitter:description"
+      content="Full-service healthcare marketing agency. SEO, Google Ads, social media, website design, and HIPAA-aware automation for clinics, medspas, urgent care & ERs."
+    />
   </head>
   <body>
     <div id="root"></div>

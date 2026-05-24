@@ -20,7 +20,7 @@ const CTA = () => {
               you could make this quarter. Whether you sign with us or not.
             </p>
             <div className="seo-cta-ctas">
-              <Link to="/contact" className="sl-btn-primary">
+              <Link to="/free-growth-audit" className="sl-btn-primary">
                 Request my audit
                 <ArrowIcon />
               </Link>

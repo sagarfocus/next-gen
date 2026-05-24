@@ -1,49 +1,47 @@
 import FAQHead from './FAQHead';
 import FAQList from './FAQList';
 import WhyUs from './WhyUs';
+import Seo from '@/components/Seo';
+import { buildBreadcrumbList, reactNodeToText } from '@/lib/schema';
+import { CATEGORIES } from '@/content/faq/categories';
 
+// FAQPage schema derived from the same CATEGORIES data the page renders.
+// Previously this was hardcoded to 3 sample questions while the page
+// displayed all ~17 — Google ignores schema that doesn't match visible
+// content, so the derived shape ensures every question is snippet-eligible.
 const FAQ_SCHEMA = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
-  mainEntity: [
-    {
+  mainEntity: CATEGORIES.flatMap((category) =>
+    category.items.map((item) => ({
       '@type': 'Question',
-      name: 'How long does onboarding take from signed contract to first campaign live?',
+      name: item.q,
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'For most clinics, you go from signed contract to first campaign live in 10–14 business days. Practices with already-running ad accounts often launch in as little as a week.',
+        text: reactNodeToText(item.a).trim(),
       },
-    },
-    {
-      '@type': 'Question',
-      name: 'Are you HIPAA-compliant, and do you sign Business Associate Agreements?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Yes. We operate as a HIPAA-aware Business Associate and execute a BAA at the start of every engagement that touches PHI.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'How much does a typical engagement cost?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Retainers start at $2,500/month for solo practitioners on a single channel and scale up to $15K+/month for multi-location specialty groups. Ad spend is separate and goes directly to platforms with no markup.',
-      },
-    },
-  ],
+    }))
+  ),
 };
+
+const BREADCRUMB_SCHEMA = buildBreadcrumbList([
+  { name: 'Home', path: '/' },
+  { name: 'FAQ' },
+]);
 
 const FAQ = () => {
   return (
     <>
+      <Seo
+        title="Healthcare Marketing FAQ — HIPAA, Pricing, Onboarding & Results"
+        description="Real questions from clinic owners — HIPAA compliance, pricing, onboarding timelines, EHR integration, reporting cadence — answered by the TheNextGen team."
+        path="/faq"
+        schema={[FAQ_SCHEMA, BREADCRUMB_SCHEMA]}
+      />
+
       <FAQHead />
       <FAQList />
       <WhyUs />
-
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_SCHEMA) }}
-      />
     </>
   );
 };

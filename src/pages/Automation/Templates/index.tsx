@@ -13,6 +13,8 @@ import PullQuote from './PullQuote';
 import Promise from './Promise';
 import CTABanner from './CTABanner';
 import Related from './Related';
+import Seo from '@/components/Seo';
+import { buildBreadcrumbList } from '@/lib/schema';
 import { TEMPLATES, TEMPLATES_SCHEMA, type Category } from './data';
 
 /* ============================================================
@@ -20,6 +22,12 @@ import { TEMPLATES, TEMPLATES_SCHEMA, type Category } from './data';
    Alternating section bgs: #FAFAF8 ↔ #F8F9FA.
    Brand palette only: ink, gold, sage, periwinkle.
    ============================================================ */
+
+const BREADCRUMB_SCHEMA = buildBreadcrumbList([
+  { name: 'Home', path: '/' },
+  { name: 'Automation', path: '/automation' },
+  { name: 'Templates' },
+]);
 
 const Templates = () => {
   const [filter, setFilter] = useState<'All' | Category>('All');
@@ -30,6 +38,13 @@ const Templates = () => {
 
   return (
     <main className="atx" id="atx-top">
+      <Seo
+        title="Free Healthcare Automation Templates — Six N8N Workflows, HIPAA-Vetted"
+        description="Six healthcare-grade automation templates shipped as N8N specs — patient intake, reminders, reviews, insurance verification, AI chat, social posting. HIPAA-vetted, free to keep."
+        path="/automation/templates"
+        schema={[TEMPLATES_SCHEMA, BREADCRUMB_SCHEMA]}
+      />
+
       <Hero filter={filter} visibleCount={visible.length} />
       <DataBand />
       <TLDR />
@@ -44,11 +59,6 @@ const Templates = () => {
       <Promise />
       <CTABanner />
       <Related />
-
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(TEMPLATES_SCHEMA) }}
-      />
     </main>
   );
 };

@@ -5,6 +5,8 @@ import Capabilities from './Capabilities';
 import Industries from './Industries';
 import Featured from './Featured';
 import Closing from './Closing';
+import Seo from '@/components/Seo';
+import { buildBreadcrumbList } from '@/lib/schema';
 import { COLLECTION_SCHEMA } from './data';
 
 /* ============================================================
@@ -16,8 +18,20 @@ import { COLLECTION_SCHEMA } from './data';
 
 const _noopNode: ReactNode = null;
 
+const BREADCRUMB_SCHEMA = buildBreadcrumbList([
+  { name: 'Home', path: '/' },
+  { name: 'Our Work' },
+]);
+
 const OurWork = () => (
   <main className="ow-page">
+    <Seo
+      title="Our Healthcare Marketing Work — Selected Projects 2019–2026"
+      description="A retrospective of marketing, branding, web, and automation work shipped for clinics, medspas, urgent care, and multi-location healthcare brands."
+      path="/our-work"
+      schema={[COLLECTION_SCHEMA, BREADCRUMB_SCHEMA]}
+    />
+
     <Hero />
     <Stats />
     <Capabilities />
@@ -25,10 +39,6 @@ const OurWork = () => (
     <Featured />
     <Closing />
 
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(COLLECTION_SCHEMA) }}
-    />
     <span hidden>{_noopNode}</span>
   </main>
 );

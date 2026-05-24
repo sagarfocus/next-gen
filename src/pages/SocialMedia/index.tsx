@@ -13,6 +13,9 @@ import LearningHub from './LearningHub';
 import SubServices from './SubServices';
 import FAQ, { SM_FAQ_ITEMS } from './FAQ';
 import CTA from './CTA';
+import Seo from '@/components/Seo';
+import { buildBreadcrumbList } from '@/lib/schema';
+import { SITE } from '@/content/site';
 
 const SERVICE_SCHEMA = {
   '@context': 'https://schema.org',
@@ -20,13 +23,12 @@ const SERVICE_SCHEMA = {
   name: 'Healthcare Social Media Marketing',
   serviceType: 'Social Media Marketing',
   category: ['Instagram', 'Facebook', 'LinkedIn', 'TikTok', 'YouTube Shorts', 'Pinterest'],
-  provider: {
-    '@type': 'Organization',
-    name: 'TheNextGen Healthcare Marketing',
-    url: 'https://thenextgen.example.com',
-  },
+  provider: { '@id': `${SITE.url}#organization` },
   areaServed: { '@type': 'Country', name: 'United States' },
-  audience: { '@type': 'Audience', audienceType: 'Healthcare practices, clinics, hospital networks' },
+  audience: {
+    '@type': 'Audience',
+    audienceType: 'Healthcare practices, clinics, hospital networks',
+  },
 };
 
 const FAQ_SCHEMA = {
@@ -39,19 +41,22 @@ const FAQ_SCHEMA = {
   })),
 };
 
-const BREADCRUMB_SCHEMA = {
-  '@context': 'https://schema.org',
-  '@type': 'BreadcrumbList',
-  itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Home', item: '/' },
-    { '@type': 'ListItem', position: 2, name: 'Services', item: '/services' },
-    { '@type': 'ListItem', position: 3, name: 'Social Media Marketing', item: '/services/social-media-marketing' },
-  ],
-};
+const BREADCRUMB_SCHEMA = buildBreadcrumbList([
+  { name: 'Home', path: '/' },
+  { name: 'Services', path: '/services' },
+  { name: 'Social Media Marketing' },
+]);
 
 const SocialMedia = () => {
   return (
     <>
+      <Seo
+        title="Healthcare Social Media Marketing — Instagram, TikTok, LinkedIn"
+        description="Instagram, Facebook, LinkedIn, TikTok, YouTube Shorts. Run by clinicians-turned-content-producers with HIPAA-aware moderation and clinical review on every post."
+        path="/services/social-media-marketing"
+        schema={[SERVICE_SCHEMA, FAQ_SCHEMA, BREADCRUMB_SCHEMA]}
+      />
+
       <Hero />
       <TrustBar />
       <Platforms />
@@ -66,10 +71,6 @@ const SocialMedia = () => {
       <SubServices />
       <FAQ />
       <CTA />
-
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(SERVICE_SCHEMA) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_SCHEMA) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(BREADCRUMB_SCHEMA) }} />
     </>
   );
 };

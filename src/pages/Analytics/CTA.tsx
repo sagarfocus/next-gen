@@ -18,7 +18,7 @@ const CTA = () => {
               instrumentation plan, whether or not we ever work together.
             </p>
             <div className="an-cta-ctas">
-              <Link to="/contact" className="sl-btn-primary">
+              <Link to="/free-growth-audit" className="sl-btn-primary">
                 Request the audit
                 <ArrowIcon />
               </Link>

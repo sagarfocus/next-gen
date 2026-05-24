@@ -1,4 +1,5 @@
 import type { JSX } from 'react';
+import { SITE } from '@/content/site';
 
 export const HEAD_META = [
   { label: 'Stack', value: 'N8N · HL7 · FHIR' },
@@ -314,11 +315,7 @@ export const SERVICE_SCHEMA = {
   '@type': 'Service',
   name: 'Medical Automation for Healthcare Clinics',
   serviceType: 'Healthcare Workflow Automation · HIPAA-Aware',
-  provider: {
-    '@type': 'LocalBusiness',
-    name: 'TheNextGen Healthcare Marketing',
-    url: 'https://thenextgenhealth.com',
-  },
+  provider: { '@id': `${SITE.url}#organization` },
   description:
     'HIPAA-aware automation for healthcare practices: patient intake, appointment reminders, review capture, insurance verification, AI triage, and recall - built on a BAA-covered stack and connected to your EHR.',
   areaServed: 'United States',

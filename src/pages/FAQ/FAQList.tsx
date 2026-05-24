@@ -69,7 +69,7 @@ const FAQList = () => {
       clearTimeout(t);
       t = setTimeout(onScroll, 50);
     };
-    window.addEventListener('scroll', handler);
+    window.addEventListener('scroll', handler, { passive: true });
     onScroll();
     return () => {
       clearTimeout(t);

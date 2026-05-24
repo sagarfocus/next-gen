@@ -13,7 +13,15 @@ const Founder = () => {
 
         <div className="tm-founder-grid">
           <div className="tm-founder-mark tm-founder-mark-photo">
-            <img src={jayPhoto} alt="Jay Dahal" className="tm-founder-photo" />
+            <img
+              src={jayPhoto}
+              alt="Jay Dahal"
+              className="tm-founder-photo"
+              width={128}
+              height={192}
+              decoding="async"
+              fetchPriority="high"
+            />
             <div className="tm-founder-tag">Founder · Est. 2018</div>
             <div className="tm-founder-stamp">
               <span>FOCUS</span>

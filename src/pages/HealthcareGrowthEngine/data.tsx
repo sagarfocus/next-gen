@@ -1,6 +1,7 @@
 import imgSeo from '../../assets/local-search.png';
 import imgPaid from '../../assets/paid-media.png';
 import imgAutomation from '../../assets/medical-automation.png';
+import { SITE } from '@/content/site';
 
 /* ---------- TYPES ---------- */
 export interface Channel {
@@ -536,12 +537,9 @@ export const FAQS: FaqEntry[] = [
 export const SCHEMA = {
   '@context': 'https://schema.org',
   '@type': 'Service',
+  name: 'The Healthcare Growth Engine',
   serviceType: 'Healthcare Growth Engine',
-  provider: {
-    '@type': 'Organization',
-    name: 'TheNextGen Healthcare Marketing',
-    url: 'https://thenextgenhealth.com',
-  },
+  provider: { '@id': `${SITE.url}#organization` },
   areaServed: { '@type': 'Country', name: 'United States' },
   description:
     'Integrated SEO, paid media, and automation engineered for patient acquisition and retention across U.S. healthcare practices.',

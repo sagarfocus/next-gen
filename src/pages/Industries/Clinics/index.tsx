@@ -7,6 +7,9 @@ import IndustrySnapshots from '@/components/industry/IndustrySnapshots';
 import IndustryCTA from '@/components/industry/IndustryCTA';
 import ServiceFAQ from '@/components/service/ServiceFAQ';
 import RelatedServices from '@/components/service/RelatedServices';
+import Seo from '@/components/Seo';
+import { buildBreadcrumbList } from '@/lib/schema';
+import { SITE } from '@/content/site';
 import type { QuickStat } from '@/components/industry/IndustryHero';
 import type { SpecialtyRow } from '@/components/industry/Specialties';
 import type { PlayStep } from '@/components/industry/Playbook';
@@ -20,18 +23,11 @@ import snapBooking from '../../../assets/booking-first-website.png';
 import snapRecall from '../../../assets/recall-plus.png';
 import snapDental from '../../../assets/dental-detail.png';
 
-const ORIGIN =
-  typeof window !== 'undefined' ? window.location.origin : 'https://thenextgenhealth.com';
-
-const BREADCRUMB_SCHEMA = {
-  '@context': 'https://schema.org',
-  '@type': 'BreadcrumbList',
-  itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Home', item: `${ORIGIN}/` },
-    { '@type': 'ListItem', position: 2, name: 'Industries', item: `${ORIGIN}/industries` },
-    { '@type': 'ListItem', position: 3, name: 'Clinics', item: `${ORIGIN}/industries/clinics` },
-  ],
-};
+const BREADCRUMB_SCHEMA = buildBreadcrumbList([
+  { name: 'Home', path: '/' },
+  { name: 'Industries', path: '/industries' },
+  { name: 'Clinics' },
+]);
 
 const FAQS: ServiceFAQItem[] = [
   {
@@ -234,12 +230,30 @@ const SCHEMA = {
   '@type': 'Service',
   name: 'Clinics & Multi-Specialty Practices - Marketing',
   serviceType: 'Healthcare Marketing',
+  provider: { '@id': `${SITE.url}#organization` },
   audience: 'Family practices, multi-specialty groups, clinical networks',
+};
+
+const FAQ_SCHEMA = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: FAQS.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
 };
 
 const Clinics = () => {
   return (
     <>
+      <Seo
+        title="Clinic Marketing — Multi-Location Patient Acquisition for Healthcare Practices"
+        description="From single-location family practices to multi-location specialty networks — search, paid, and retention systems built for clinical reality."
+        path="/industries/clinics"
+        schema={[SCHEMA, FAQ_SCHEMA, BREADCRUMB_SCHEMA]}
+      />
+
       <IndustryHero
         tag="Clinical"
         title={
@@ -289,15 +303,6 @@ const Clinics = () => {
         tag="Talk to us"
         title={<>Ready to scale the clinic, the right way?</>}
         body="A 30-minute call. We audit your current setup and share the closest case study from this library - whether you sign with us or not."
-      />
-
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(SCHEMA) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(BREADCRUMB_SCHEMA) }}
       />
     </>
   );

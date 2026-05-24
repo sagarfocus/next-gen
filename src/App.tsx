@@ -2,6 +2,8 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import ScrollToTop from './components/ScrollToTop';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import Seo from './components/Seo';
+import { SITE_WIDE_SCHEMAS } from './lib/schema';
 import { PageTransition, SmoothScroll, useAutoReveal } from './lib/motion';
 import Home from './pages/Home';
 import About from './pages/About';
@@ -68,6 +70,17 @@ const App = () => {
 
   return (
     <div className="shell">
+      {/* Site-wide SEO foundation. Emits Organization + WebSite +
+          ProfessionalService JSON-LD on every route. Page-level <Seo />
+          (added per page in later waves) layers title / description /
+          canonical / OG / page-specific schema on top.
+
+          ProfessionalService (not MedicalBusiness) is the correct
+          LocalBusiness subtype for a healthcare marketing agency —
+          MedicalBusiness would misrepresent this site as a medical
+          provider. */}
+      <Seo schema={SITE_WIDE_SCHEMAS} />
+
       <div className="grid-overlay" aria-hidden="true" />
       <ScrollToTop />
       <SmoothScroll />

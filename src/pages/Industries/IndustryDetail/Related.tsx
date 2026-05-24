@@ -29,7 +29,7 @@ const Related = ({ entry }: { entry: IndustryDetailEntry }) => {
                 aria-label={`Read more about ${r.label}`}
               >
                 <div className="ow-feat-art ow-feat-art--photo" aria-hidden="true">
-                  <img src={r.image} alt="" loading="lazy" />
+                  <img src={r.image} alt="" width={1448} height={1086} loading="lazy" decoding="async" />
                   <div className="ow-feat-art-shade" />
                   <span className="ow-feat-delta">{r.metric.v}</span>
                 </div>

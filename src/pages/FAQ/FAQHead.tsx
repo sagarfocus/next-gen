@@ -2,6 +2,10 @@ import { Link } from 'react-router-dom';
 import Breadcrumb from '@/components/Breadcrumb';
 import { ArrowIcon } from '@/components/icons';
 import { META_ROWS } from '@/content/faq/meta';
+import { CATEGORIES } from '@/content/faq/categories';
+
+const QUESTION_COUNT = CATEGORIES.reduce((sum, c) => sum + c.items.length, 0);
+const SECTION_COUNT = CATEGORIES.length;
 
 const FAQHead = () => {
   return (
@@ -11,7 +15,9 @@ const FAQHead = () => {
         <div className="ph-row">
           <div>
             <div className="ph-eyebrow">
-              <span className="ph-issue">38 questions · 5 sections · Updated monthly</span>
+              <span className="ph-issue">
+                {QUESTION_COUNT} questions · {SECTION_COUNT} sections · Updated monthly
+              </span>
             </div>
             <h1 className="ph-title">Compliance, pricing, onboarding - answered by the team.</h1>
             <p

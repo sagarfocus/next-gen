@@ -1,6 +1,8 @@
-import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Breadcrumb from '@/components/Breadcrumb';
+import Seo from '@/components/Seo';
+import { buildBreadcrumbList } from '@/lib/schema';
+import { SITE } from '@/content/site';
 
 interface SitemapLink {
   to: string;
@@ -109,17 +111,32 @@ const GROUPS: SitemapGroup[] = [
   },
 ];
 
-const Sitemap = () => {
-  useEffect(() => {
-    const prevTitle = document.title;
-    document.title = 'Sitemap · TheNextGen Healthcare Marketing';
-    return () => {
-      document.title = prevTitle;
-    };
-  }, []);
+const SITEMAP_SCHEMA = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: `Sitemap · ${SITE.name}`,
+  url: `${SITE.url}/sitemap`,
+  description:
+    'Full site index for TheNextGen Healthcare Marketing — services, industries, methodology, automation, infrastructure, and resources.',
+  isPartOf: { '@id': `${SITE.url}#website` },
+  about: { '@id': `${SITE.url}#organization` },
+};
 
+const BREADCRUMB_SCHEMA = buildBreadcrumbList([
+  { name: 'Home', path: '/' },
+  { name: 'Sitemap' },
+]);
+
+const Sitemap = () => {
   return (
     <main style={{ paddingBottom: 'clamp(72px, 9vw, 120px)' }}>
+      <Seo
+        title="Sitemap — Every Page on TheNextGen, in One Place"
+        description="Full site index for TheNextGen Healthcare Marketing — services, industries, methodology, automation, infrastructure, and resources."
+        path="/sitemap"
+        schema={[SITEMAP_SCHEMA, BREADCRUMB_SCHEMA]}
+      />
+
       <section
         aria-labelledby="sm-title"
         style={{ padding: 'clamp(56px, 7vw, 96px) 0 clamp(32px, 4vw, 48px)' }}

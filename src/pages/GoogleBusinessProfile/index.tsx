@@ -13,6 +13,9 @@ import LearningHub from './LearningHub';
 import SubServices from './SubServices';
 import FAQ, { GB_FAQ_ITEMS } from './FAQ';
 import CTA from './CTA';
+import Seo from '@/components/Seo';
+import { buildBreadcrumbList } from '@/lib/schema';
+import { SITE } from '@/content/site';
 
 const SERVICE_SCHEMA = {
   '@context': 'https://schema.org',
@@ -27,11 +30,7 @@ const SERVICE_SCHEMA = {
     'Posts & Q&A',
     'Insights & tracking',
   ],
-  provider: {
-    '@type': 'Organization',
-    name: 'TheNextGen Healthcare Marketing',
-    url: 'https://thenextgen.example.com',
-  },
+  provider: { '@id': `${SITE.url}#organization` },
   areaServed: { '@type': 'Country', name: 'United States' },
   audience: {
     '@type': 'Audience',
@@ -49,24 +48,22 @@ const FAQ_SCHEMA = {
   })),
 };
 
-const BREADCRUMB_SCHEMA = {
-  '@context': 'https://schema.org',
-  '@type': 'BreadcrumbList',
-  itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Home', item: '/' },
-    { '@type': 'ListItem', position: 2, name: 'Services', item: '/services' },
-    {
-      '@type': 'ListItem',
-      position: 3,
-      name: 'Google Business Profile',
-      item: '/services/google-business-profile',
-    },
-  ],
-};
+const BREADCRUMB_SCHEMA = buildBreadcrumbList([
+  { name: 'Home', path: '/' },
+  { name: 'Services', path: '/services' },
+  { name: 'Google Business Profile' },
+]);
 
 const GoogleBusinessProfile = () => {
   return (
     <>
+      <Seo
+        title="Google Business Profile Management for Multi-Location Healthcare"
+        description="Win the Local Pack across every clinic location — GBP optimization, citations, reviews, posts, and photos. Multi-location console with HIPAA-safe review responses."
+        path="/services/google-business-profile"
+        schema={[SERVICE_SCHEMA, FAQ_SCHEMA, BREADCRUMB_SCHEMA]}
+      />
+
       <Hero />
       <TrustBar />
       <Optimization />
@@ -81,19 +78,6 @@ const GoogleBusinessProfile = () => {
       <SubServices />
       <FAQ />
       <CTA />
-
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(SERVICE_SCHEMA) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_SCHEMA) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(BREADCRUMB_SCHEMA) }}
-      />
     </>
   );
 };

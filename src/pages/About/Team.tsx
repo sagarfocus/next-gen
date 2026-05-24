@@ -21,7 +21,7 @@ const Team = () => {
 
         <article className="ab-founder">
           <div className="ab-founder-portrait">
-            <img src={jayPhoto} alt="Jay Dahal" loading="lazy" decoding="async" />
+            <img src={jayPhoto} alt="Jay Dahal" width={128} height={192} loading="lazy" decoding="async" />
           </div>
 
           <div className="ab-founder-body">

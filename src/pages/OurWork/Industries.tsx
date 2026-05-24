@@ -47,7 +47,7 @@ const Industries = () => {
 
     update();
     window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('resize', update);
+    window.addEventListener('resize', update, { passive: true });
     mqDesktop.addEventListener('change', update);
     mqReduce.addEventListener('change', update);
     return () => {
