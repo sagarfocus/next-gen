@@ -1,37 +1,44 @@
-import Section from '@/components/editorial/Section';
 import { STACK, STACK_ICON } from './data';
 
-const Stack = () => (
-  <Section
-    no="03"
-    title="The stack we ship on"
-    kicker="No black boxes. Auditable, exportable, BAA-covered end to end."
-  >
-    <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-[1px] bg-line-faint border border-line-faint">
-      {STACK.map((s, i) => {
-        const Icon = STACK_ICON[s.key];
-        return (
-          <div key={s.tag} className="bg-bg p-7 flex flex-col gap-5">
-            <div className="flex items-center justify-between">
-              <span className="h-9 w-9 rounded-full bg-bg-soft flex items-center justify-center text-heading">
-                <Icon />
-              </span>
-              <span className="font-mono text-[11px] text-line tracking-[0.18em]">0{i + 1}</span>
-            </div>
-            <h4 className="text-heading text-[18px] font-bold tracking-[-0.015em]">{s.tag}</h4>
-            <ul className="space-y-1.5 text-[12.5px] text-body mt-auto">
-              {s.tools.map((l) => (
-                <li key={l} className="flex gap-2 items-baseline">
-                  <span className="text-line">•</span>
-                  <span>{l}</span>
-                </li>
-              ))}
-            </ul>
+const Stack = () => {
+  return (
+    <section className="sl-section mau-stack-section" id="stack">
+      <div className="container-shell">
+        <div className="sl-sec-head">
+          <div>
+            <div className="sl-sec-num">03 - The stack</div>
+            <h2 className="sl-sec-title">
+              Four layers. <em>One audit trail.</em>
+            </h2>
           </div>
-        );
-      })}
-    </div>
-  </Section>
-);
+          <div className="sl-sec-meta">
+            BAA-covered, owner-managed
+            <br />
+            documented at handover
+          </div>
+        </div>
+
+        <div className="mau-stack-grid">
+          {STACK.map((s) => {
+            const Icon = STACK_ICON[s.key];
+            return (
+              <article key={s.key} className="mau-stack-card">
+                <div className="mau-stack-top">
+                  <div className="mau-stack-icon"><Icon /></div>
+                  <span className="mau-stack-tag">{s.tag}</span>
+                </div>
+                <ul className="mau-stack-list">
+                  {s.tools.map((t) => (
+                    <li key={t}>{t}</li>
+                  ))}
+                </ul>
+              </article>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+};
 
 export default Stack;

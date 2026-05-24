@@ -1,68 +1,57 @@
-import Section from '@/components/editorial/Section';
-import { Reveal } from '@/lib/motion';
 import { COVERAGE, COVERAGE_ICON } from './data';
 
 const Coverage = () => {
-  const max = 14;
   return (
-    <Section
-      no="02"
-      title="Hours given back, weekly"
-      kicker="Median across single-location clinics. Reinvested in patient time."
-    >
-      <Reveal variant="up">
-        <div className="border-t-2 border-heading pt-8 space-y-7">
+    <section className="sl-section mau-cov-section" id="coverage">
+      <div className="container-shell">
+        <div className="sl-sec-head">
+          <div>
+            <div className="sl-sec-num">02 - Where it pays off</div>
+            <h2 className="sl-sec-title">
+              Four teams. <em>19-41 hours back per week.</em>
+            </h2>
+          </div>
+          <div className="sl-sec-meta">
+            Hours-to-dollars
+            <br />
+            measured per clinic
+          </div>
+        </div>
+
+        <p className="mau-cov-intro">
+          We don&rsquo;t automate for novelty. Every flow is sized against{' '}
+          <strong>recovered staff hours</strong> — that&rsquo;s the only number that pays for
+          the build. Below is the median weekly window we hand back to each function in a
+          single-location clinic during year one. Multi-location and specialty practices
+          scale these bands roughly linearly.
+        </p>
+
+        <div className="mau-cov-grid">
           {COVERAGE.map((c) => {
             const Icon = COVERAGE_ICON[c.key];
-            const widthPct = (c.high / max) * 100;
-            const lowPct = (c.low / max) * 100;
+            const pct = Math.min(100, (c.high / 14) * 100);
             return (
-              <div
-                key={c.area}
-                className="grid grid-cols-[auto_minmax(0,1fr)_auto] gap-x-5 items-center"
-              >
-                {/* Left: icon + area name */}
-                <div className="flex items-center gap-4 min-w-[150px]">
-                  <span className="h-10 w-10 rounded-full border border-line-faint flex items-center justify-center text-heading">
-                    <Icon />
+              <article key={c.key} className="mau-cov-card">
+                <div className="mau-cov-top">
+                  <div className="mau-cov-icon"><Icon /></div>
+                  <span className="mau-cov-hrs">
+                    {c.low}-{c.high}<em>hrs / wk</em>
                   </span>
-                  <div className="flex flex-col">
-                    <span className="text-heading font-bold text-[16px] tracking-[-0.01em]">
-                      {c.area}
-                    </span>
-                    <span className="text-muted text-[11px] uppercase tracking-[0.16em] font-semibold">
-                      {c.one}
-                    </span>
+                </div>
+                <h3 className="mau-cov-name">{c.area}</h3>
+                <p className="mau-cov-one">{c.one}</p>
+                <div className="mau-cov-bar">
+                  <span className="mau-cov-bar-lbl">Median window recovered</span>
+                  <div className="mau-cov-bar-track">
+                    <div className="mau-cov-bar-fill" style={{ width: `${pct}%` }} />
                   </div>
                 </div>
-
-                {/* Middle: bar */}
-                <div className="relative h-[14px] bg-line-faint/60 rounded-full overflow-hidden">
-                  {/* low marker — lighter */}
-                  <div
-                    className="absolute inset-y-0 left-0 bg-line-soft"
-                    style={{ width: `${lowPct}%` }}
-                  />
-                  {/* high — solid heading color */}
-                  <div
-                    className="absolute inset-y-0 left-0 bg-heading rounded-full"
-                    style={{ width: `${widthPct}%`, mixBlendMode: 'normal' }}
-                  >
-                    <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 h-3 w-3 rounded-full bg-cta border-2 border-bg" />
-                  </div>
-                </div>
-
-                {/* Right: hours range */}
-                <div className="text-heading font-extrabold text-[20px] tabular-nums tracking-[-0.018em] min-w-[110px] text-right">
-                  {c.low}–{c.high}
-                  <span className="text-muted text-[12px] font-medium ml-1">hrs/wk</span>
-                </div>
-              </div>
+              </article>
             );
           })}
         </div>
-      </Reveal>
-    </Section>
+      </div>
+    </section>
   );
 };
 
