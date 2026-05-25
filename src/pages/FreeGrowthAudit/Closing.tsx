@@ -7,20 +7,23 @@ const Closing = () => (
     <div className="container-shell">
       <div className="fga-close-card">
         <div className="fga-close-tag">
-          <span className="fga-pill-dot" /> Open now
+          <span className="fga-pill-dot" /> Slots open this week
         </div>
         <h2 id="fga-close-title" className="fga-close-h">
-          Want the fastest second opinion
+          Ready for your free
           <br />
-          in healthcare marketing?
+          healthcare growth audit?
         </h2>
         <p className="fga-close-p">
-          One booking, no card. Five business days. A PDF you keep, agency or not.
+          Five business days. A senior strategist. A 12-page PDF you keep, agency or not. No card,
+          no upsell, no awkward sales call.
         </p>
-        <MotionButton to="/contact" className="fga-close-cta">
+
+        <MotionButton to="#audit-form" className="fga-close-cta">
           Claim my audit
           <ArrowIcon size={18} />
         </MotionButton>
+
         <div className="fga-close-trust">
           <span>Trusted by 200+ Texas practices</span>
           <span aria-hidden="true">·</span>

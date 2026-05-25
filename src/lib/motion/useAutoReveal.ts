@@ -25,7 +25,7 @@ const TARGETS: AutoTarget[] = [
   { selector: '.svc-hero-grid > *, .svc-hero .container-shell > *', variant: 'up', stagger: 100 },
   { selector: '.ind-hero-grid > *', variant: 'up', stagger: 110 },
   { selector: '.ab-hero-grid > *', variant: 'up', stagger: 100 },
-  { selector: '.tm-hero > *', variant: 'up', stagger: 100 },
+  { selector: '.ngt-hero > *', variant: 'up', stagger: 100 },
   { selector: '.pr-hero-grid > *', variant: 'up', stagger: 100 },
   { selector: '.sl-hero-grid > *', variant: 'up', stagger: 100 },
   { selector: '.ct-hero-grid > *', variant: 'up', stagger: 100 },
@@ -70,7 +70,7 @@ const TARGETS: AutoTarget[] = [
     stagger: 90,
   },
   { selector: '.sl-pillars > *, .sl-pillars-grid > *', variant: 'up', stagger: 90 },
-  { selector: '.tm-team > *', variant: 'up', stagger: 90 },
+  { selector: '.ngt-grid > .ngt-card', variant: 'up', stagger: 90 },
   { selector: '.ind-stats > *', variant: 'up', stagger: 90 },
   { selector: '.pr-tiers > *, .pr-table-row', variant: 'up', stagger: 70 },
 

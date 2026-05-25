@@ -63,14 +63,14 @@ export const CAPABILITY_STATS: { v: string; l: string }[][] = [
   ],
 ];
 
-export const ENGAGEMENT_DELTAS = ['+318', '+62', '−48'] as const;
+export const ENGAGEMENT_DELTAS = ['+274', '+89', '+216'] as const;
 
-export const ENGAGEMENT_SECTORS = ['Emergency Room', 'Medspa', 'Dental Network'] as const;
+export const ENGAGEMENT_SECTORS = ['Emergency Room', 'Wellness Clinic', 'Urgent Care'] as const;
 
 export const ENGAGEMENT_HEADLINES = [
-  'Filled overnight slots without paying for non-emergent traffic.',
-  'Re-priced the launch funnel around lifetime value, not first visit.',
-  'Unified seven locations under one search + brand operating system.',
+  'Hospital-level emergency care, neighbourhood-level wait times.',
+  'Built a clinical-grade wellness funnel that compounds on continuity.',
+  'Won the suburban same-day search without chasing the national chain.',
 ] as const;
 
 export const COLLECTION_SCHEMA = {

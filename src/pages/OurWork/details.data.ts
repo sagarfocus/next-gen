@@ -13,8 +13,8 @@ import imgLocalSearch from '../../assets/local-search.png';
 import imgBookingWeb from '../../assets/booking-first-website.png';
 import imgFrontDeskAutomation from '../../assets/automation-front-desk.png';
 import imgFeatER from '../../assets/er.png';
-import imgFeatSpaMed from '../../assets/med-spa-banner.png';
-import imgFeatDental from '../../assets/dental-detail.png';
+import imgFeatWellness from '../../assets/med-spa-banner.png';
+import imgFeatUrgent from '../../assets/urgent-care-banner.png';
 import imgPaidMedia from '../../assets/paid-media.png';
 import imgPatientIdentities from '../../assets/patient-identities.png';
 import imgRecall from '../../assets/recall-plus.png';
@@ -104,121 +104,121 @@ export const INDUSTRY_ICONS: Record<string, ReactNode> = {
 export const ENGAGEMENT_DETAILS: DetailEntry[] = [
   {
     kind: 'engagement',
-    slug: 'suncrest-freestanding-er',
+    slug: 'er-of-white-rock',
     img: imgFeatER,
     eyebrow: 'Engagement · Emergency Room',
-    title: 'SunCrest Freestanding ER',
-    blurb: 'Filled overnight slots without paying for non-emergent traffic.',
+    title: 'ER of White Rock',
+    blurb: 'Hospital-level emergency care, neighbourhood-level wait times.',
     description:
-      'A 24/7 freestanding ER bleeding overnight capacity to non-emergent traffic and chasing impressions across broken ad accounts. We rebuilt the funnel around true ED intent - chest pain, trauma, kid-with-a-fever - and routed paid spend to the patients who actually convert on revenue.',
+      'A 24/7 freestanding ER in East Dallas competing against hospital systems for high-acuity intent across White Rock, Lake Highlands, Lakewood, and the Mesquite corridor. We rebuilt the local funnel around true ED moments - chest pain, trauma, paediatric emergencies - and turned "minutes, not hours" into the search promise that converts on revenue.',
     longBody: [
-      'When SunCrest came to us, the practice was paying premium CPMs to fill overnight slots with low-acuity walk-ins. The funnel was inverted: nights with the highest capacity were the cheapest spend, but the campaigns chased daytime impressions where the room was already full.',
-      'Our team rebuilt the acquisition stack around the ED-intent moments that map to billable, revenue-positive visits. We mapped the wait-time UX, rebuilt the GBP profile around trauma and emergent search terms, and replaced the broad-match keyword bleed with a tightly scoped portfolio of clinical-need landing pages each with insurance verification baked in.',
-      'Within ninety days the practice booked 318% more emergency visits, the overnight occupancy rate climbed past target for the first time since opening, and the cost per booked visit dropped to a third of the previous quarter.',
+      'ER of White Rock had everything a freestanding ER needs - board-certified emergency physicians, on-site CT, digital X-ray, COLA-certified lab, trauma-trained nursing - and was still losing the high-acuity searches to hospital systems with bigger budgets and older domains. The differentiator (minutes-not-hours waits, neighbourhood scale, paediatric-friendly) sat below the fold.',
+      'We rebuilt the local presence around the moments East Dallas patients actually decide in: a chest-pain symptom search at 2am, a parent with a febrile toddler, a Lakewood resident weighing the freestanding ER against an hour-long hospital queue. The GBP profile was tuned to emergency and paediatric intent, the service-area pages mapped one-for-one to White Rock, Lake Highlands, Casa View, Forest Hills, Garland, and Mesquite, and the schema layer marked the facility as a 24/7 EmergencyMedicalService rather than a generic clinic.',
+      'Wait-time UX and insurance transparency - the practice already had the operational edge - were finally promoted to the surface patients see first. Within ninety days emergent search visibility lifted dramatically across the East Dallas catchment, the paediatric and chest-pain pages climbed into the Map Pack on the searches that map to billable, revenue-positive visits, and the cost per booked emergency visit fell as broad-match impressions stopped subsidising hospital-system competitors.',
     ],
     services: [
-      'Trauma intent SEO + GBP rebuild',
+      'Trauma + paediatric intent SEO',
       'Wait-time + insurance landing pages',
-      'Geo-fenced display + connected TV',
+      'East Dallas geo-fenced display',
       'EmergencyMedicalService schema',
-      'Insurance verification automation',
+      'NAFEC/TAFEC trust + review engine',
     ],
     serviceLabel: 'What we delivered',
-    metric: { v: '+318%', l: 'Booked visits, 90d' },
+    metric: { v: '+274%', l: 'Booked ED visits, 90d' },
     ctaText: 'Talk to us about Emergency Room',
     ctaTo: '/contact',
     faqs: [
       {
         q: 'How long until we saw lift?',
-        a: 'The first measurable shift in booked overnight visits hit at the 30-day mark, with the +318% peak realised at day 90 once the GBP velocity, schema, and insurance pages had fully indexed.',
+        a: 'Map Pack movement on emergent and paediatric terms started inside the first 30 days. The +274% peak landed at day 90 once the East Dallas service-area pages, EmergencyMedicalService schema, and review velocity from the NAFEC/TAFEC trust layer had fully compounded.',
       },
       {
-        q: 'Did paid spend go up?',
-        a: 'Total spend dropped while booked visits climbed. The campaigns moved from broad CPM-chasing to intent-matched search and geo-fenced display so each dollar mapped to a billable encounter.',
+        q: 'How do you compete against hospital-system ERs?',
+        a: 'On the moments hospital systems cannot win - minutes-not-hours waits, board-certified physicians on every shift, paediatric-friendly environment, transparent insurance. The funnel surfaces those operational advantages first, then routes patients into the neighbourhood-scale experience that hospital ERs cannot replicate.',
       },
       {
-        q: 'Can this replicate at multi-location ER networks?',
-        a: "Yes - the same playbook scales by location with templated landing pages, per-site GBP, and centralised insurance-verification automation that respects the network's shared BAA.",
-      },
-    ],
-  },
-  {
-    kind: 'engagement',
-    slug: 'vitalspa-aesthetics',
-    img: imgFeatSpaMed,
-    eyebrow: 'Engagement · Medspa',
-    title: 'VitalSpa Aesthetics',
-    blurb: 'Re-priced the launch funnel around lifetime value, not first visit.',
-    description:
-      'A multi-treatment medspa scaling past founder-led growth. We re-priced the entire launch funnel around lifetime value instead of first-visit revenue, then layered loyalty + financing flows that compound - instead of discount cycles that train the wrong behaviour.',
-    longBody: [
-      'VitalSpa had outgrown its founder-led acquisition. Most ads ran first-visit discount offers and built a patient base trained to chase the next promo. AOV stagnated. Churn was hidden by topline growth.',
-      'We rebuilt the funnel around the lifetime value of the highest-margin treatments and routed acquisition spend toward audiences with real reorder behaviour. Loyalty + financing-aware landing flows replaced discount offers as the primary new-patient route.',
-      'Over six months the average order value lifted by 62%, the membership programme moved from a side product to the dominant booking channel, and the practice rebuilt its forecast on retention metrics instead of acquisition volume.',
-    ],
-    services: [
-      'LTV-modelled paid acquisition',
-      'Membership + loyalty programme',
-      'Financing-aware landing flows',
-      'Treatment-bundle ad creative',
-      'Aftercare + recall automation',
-    ],
-    serviceLabel: 'What we delivered',
-    metric: { v: '+62%', l: 'AOV, six months' },
-    ctaText: 'Talk to us about Medspa',
-    ctaTo: '/contact',
-    faqs: [
-      {
-        q: 'Did discount offers go away entirely?',
-        a: 'Discounts moved to retention triggers - reactivation, loyalty rewards - instead of acquisition. The first-visit funnel was rebuilt around financing and treatment bundles that anchor higher LTV from day one.',
-      },
-      {
-        q: 'How is LTV modelled?',
-        a: 'We score each treatment by margin, reorder window, and add-on attach rate, then route paid spend toward audiences that historically convert on the highest-LTV combinations.',
-      },
-      {
-        q: 'Is this dependent on the practice having an existing CRM?',
-        a: "Not strictly. We onboard CRM data when it exists and build the segments fresh when it doesn't - the segmentation matters more than the legacy data.",
+        q: 'Does this work for paediatric emergencies specifically?',
+        a: "Yes - paediatric was one of the highest-intent surfaces we built for. Trauma-trained nursing, kid-friendly environment, and 24/7 imaging are exactly what a parent searching at 2am needs to see, and the campaigns are tuned to make sure they see it first.",
       },
     ],
   },
   {
     kind: 'engagement',
-    slug: 'northlake-dental',
-    img: imgFeatDental,
-    eyebrow: 'Engagement · Dental Network',
-    title: 'NorthLake Dental',
-    blurb: 'Unified seven locations under one search + brand operating system.',
+    slug: 'irving-health-wellness',
+    img: imgFeatWellness,
+    eyebrow: 'Engagement · Wellness Clinic',
+    title: 'Irving Health & Wellness Clinic',
+    blurb: 'Built a clinical-grade wellness funnel that compounds on continuity.',
     description:
-      'Seven dental locations operating as seven brands. We unified them under one search + brand operating system, then engineered cross-location attribution so each clinic could see its own pipeline without drowning in the others’ noise.',
+      'A medically supervised wellness clinic in Irving spanning IV hydration, medical weight loss, hormone therapy, and aesthetics - led by a board-certified APRN with 15+ years of clinical experience. We rebuilt the launch funnel around continuity and root-cause programmes instead of single-treatment promos, then routed spend toward the patients whose biology actually fits the protocols on offer.',
     longBody: [
-      'NorthLake had grown by acquisition. Seven offices, seven websites, seven Google profiles, seven sets of pricing pages with no shared brand voice. Local rankings cannibalised each other and reporting was a monthly archaeology project.',
-      "We unified the seven offices under one brand operating system with shared templates, shared schema, and a per-location GBP strategy that pushed each clinic on the local terms it deserved - without overlapping the neighbouring office's territory.",
-      'A single attribution layer replaced the patchwork of GA properties and let each office see its own pipeline cleanly. Cost per new patient dropped by 48% in eight months, and the leadership team finally had one dashboard that mapped paid spend to chair-time across the network.',
+      'Irving Health & Wellness Clinic had the clinical credibility a wellness market rarely sees - a board-certified Family Nurse Practitioner, evidence-based protocols sourced from the Endocrine Society and AAD, and 5,000+ patients with a 5/5 satisfaction record. The marketing layer was still pitching the clinic like a transactional med spa, and the long-cycle programmes that drive real LTV - hormone therapy, supervised weight loss, hyper-wellness plans - were buried under one-off IV and aesthetics ads.',
+      'We rebuilt the funnel around the clinical promise. Service pages were re-architected around root-cause categories (hormonal, metabolic, aesthetic, IV/recovery) instead of treatment SKUs. The "Hyper Wellness" approach moved from a tagline to the entry point of every new-patient flow, anchored by the 45-minute lab-informed consultation. Loyalty + membership pathways became the default, and creative shifted from price-led promos to APRN-led explanations of why a protocol works.',
+      'Over six months the share of new patients entering through hormone, weight, and BHRT programmes climbed sharply, the average new-patient value lifted by 89%, and the membership flow took over from one-off bookings as the dominant acquisition route. Continuity - the same APRN across every visit - became the marketing wedge instead of an operational detail.',
     ],
     services: [
-      'Network-wide brand system',
-      'Per-location SEO + GBP',
-      'Cross-location attribution',
-      'Centralised paid media',
-      'Patient-routing automation',
+      'Clinical-credibility landing system',
+      'Hormone + weight programme funnels',
+      'Membership + loyalty conversion flows',
+      'APRN-led content + creative direction',
+      'Lab-to-consult intake automation',
     ],
     serviceLabel: 'What we delivered',
-    metric: { v: '−48%', l: 'Cost per patient' },
-    ctaText: 'Talk to us about Dental Network',
+    metric: { v: '+89%', l: 'New-patient value, 6 months' },
+    ctaText: 'Talk to us about Wellness Clinics',
     ctaTo: '/contact',
     faqs: [
       {
-        q: 'Did locations lose their individual identity?',
-        a: 'No - each location keeps its name, photography, and local team voice. The brand system is the spine: typography, colour, page architecture, schema, and the operating cadence. The local layer stays local.',
+        q: 'Did one-off services like IV and aesthetics go away?',
+        a: 'No - they became the entry layer rather than the headline. The funnel still acquires patients through IV and aesthetic searches, then routes them into the consultation where the clinical APRN surfaces the root-cause programmes that actually anchor LTV.',
       },
       {
-        q: 'How does cross-location attribution work?',
-        a: "A unified data layer with server-side tagging that respects HIPAA boundaries, then per-location attribution windows tuned to that office's actual booking lead time.",
+        q: 'How does clinical credibility translate into marketing?',
+        a: "By making it the offer, not the footer. Board certification, 15+ years of APRN experience, and evidence-based protocols are exactly what a wellness patient is looking for - we move that credibility from an 'about us' paragraph to the first sentence on every service page.",
       },
       {
-        q: 'How long to roll out across all sites?',
-        a: 'NorthLake hit full unification in fourteen weeks. The brand spine was live in three; the per-location SEO + GBP work staggered office-by-office through weeks four to twelve.',
+        q: 'Does this work for a single-location wellness practice?',
+        a: "Yes - the system was built for exactly this scale. One clinic, one APRN, one continuity promise. Everything compounds on the continuity story, which a multi-provider clinic actually has a harder time selling.",
+      },
+    ],
+  },
+  {
+    kind: 'engagement',
+    slug: 'naperville-urgent-care',
+    img: imgFeatUrgent,
+    eyebrow: 'Engagement · Urgent Care',
+    title: 'Naperville Health & Wellness Clinic',
+    blurb: 'Won the suburban same-day search without chasing the national chain.',
+    description:
+      'A Naperville urgent care + wellness clinic competing against national chains for the 8pm same-day search across DuPage and Will County. We rebuilt the local discovery layer so the parent or worker deciding between "go in tonight" and "wait it out" lands on the neighbourhood clinic - not the chain across town.',
+    longBody: [
+      'Naperville Health & Wellness Clinic had the operational mix the suburban catchment needed - urgent care alongside IV hydration, medical weight loss, body composition, and HOCATT therapy - but was being out-ranked by national chains on the exact same-day searches its clinical mix was built for. The 4.9/5 patient rating, licensed clinicians, and HIPAA-compliant infrastructure were all real; none of it was showing up in the Map Pack at the moment patients chose.',
+      "We rebuilt the local discovery layer around the same-day urgent-care decision. Service-area pages mapped one-for-one to Naperville, Glen Ellyn, Wheaton, Aurora, Bolingbrook, Downers Grove, and Lisle. The GBP profile was retuned to urgent-care intent with same-day appointment signals and after-hours availability surfaced first. The wellness side became the retention spine: once a same-day patient converted, the funnel introduced IV, weight, and body-composition programmes as the next step instead of treating them as separate products.",
+      'Inside ninety days the clinic moved into the Map Pack on the high-intent urgent-care searches across the DuPage corridor, same-day appointment volume lifted by 216%, and the wellness programmes started picking up cross-conversion from patients who first entered through urgent care - turning a one-visit transaction into the start of a relationship.',
+    ],
+    services: [
+      'Same-day urgent-care funnels',
+      'DuPage service-area page architecture',
+      'GBP optimisation + review velocity',
+      'Urgent-care to wellness cross-flow',
+      'After-hours paid search routing',
+    ],
+    serviceLabel: 'What we delivered',
+    metric: { v: '+216%', l: 'Same-day visits, 90d' },
+    ctaText: 'Talk to us about Urgent Care',
+    ctaTo: '/contact',
+    faqs: [
+      {
+        q: 'How do you compete with national urgent-care chains?',
+        a: 'Local detail wins. Insurance specifics, neighbourhood-named service-area pages, hyper-local reviews from real Naperville patients, and the wellness mix the chain cannot offer - all surfaced in the exact moment a parent is choosing between "tonight" and "tomorrow."',
+      },
+      {
+        q: 'How does the urgent-care to wellness flow work?',
+        a: 'A patient who comes in for an urgent visit gets introduced - never sold - to the IV, weight, or body-composition programmes that fit the reason for the visit. The follow-up sequence is empathetic, permission-based, and respects that the patient came in for an acute need, not a sales call.',
+      },
+      {
+        q: 'Is this only for clinics that combine urgent care with wellness?',
+        a: "No - the same-day urgent-care funnel works on a standalone urgent-care practice. The cross-conversion to wellness is the extra layer when the operational mix supports it; without that mix, the system still delivers the same-day volume lift.",
       },
     ],
   },

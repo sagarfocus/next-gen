@@ -49,9 +49,9 @@ const AutomationHero = ({ onBook }: AutomationHeroProps) => {
             <div className="au-trust">
               <span className="au-trust-label">Trusted by 350+ clinic teams</span>
               <div className="au-trust-logos" aria-label="Featured customers">
-                <span>SunCrest&nbsp;Med</span>
-                <span>NorthLake&nbsp;Dental</span>
-                <span>VitalSpa</span>
+                <span>ER&nbsp;of&nbsp;White&nbsp;Rock</span>
+                <span>Naperville&nbsp;H&amp;W</span>
+                <span>Irving&nbsp;Health</span>
               </div>
             </div>
           </div>
