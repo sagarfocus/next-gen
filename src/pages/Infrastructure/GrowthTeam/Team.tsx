@@ -19,12 +19,9 @@ const Team = () => (
 
       <div className="gtx-team-grid">
         {ROLES.map((role) => (
-          <article key={role.num} className="gtx-team-card">
+          <article key={role.name} className="gtx-team-card">
             <div className="gtx-team-card-img">
               <img src={role.photo} alt="" loading="lazy" decoding="async" />
-              <span className="gtx-team-card-num" aria-hidden="true">
-                /{role.num}
-              </span>
               <span className="gtx-team-card-hours">{role.hours}</span>
             </div>
             <div className="gtx-team-card-body">

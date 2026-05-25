@@ -3,11 +3,10 @@ import photoBikash from '../../../assets/bikash-neupane.png';
 import photoSonu from '../../../assets/sagar-dongol.png';
 import photoSumit from '../../../assets/sumit-sharma.png';
 import photoRahul from '../../../assets/rahul-roy.png';
-import { SITE } from '@/content/site';
 import photoBijesh from '../../../assets/bijesh-khadgi.png';
+import { SITE } from '@/content/site';
 
 export interface Role {
-  num: string;
   name: string;
   title: string;
   pitch: string;
@@ -19,71 +18,38 @@ export interface Role {
 
 export const ROLES: Role[] = [
   {
-    num: '01',
     name: 'Shree Gauli',
-    title: 'SEO & AEO Strategist',
+    title: 'Sr. Marketing Officer',
     pitch:
-      'Senior strategist for organic search and answer-engine optimisation. Knows YMYL ranking nuance cold.',
+      'Leads strategy across every channel. Owns the roadmap from positioning through quarterly forecasts so nothing slips between disciplines.',
     ships: [
-      'Technical SEO + Core Web Vitals',
-      'Local pack and service-area architecture',
-      'Answer-engine content briefs',
+      'Quarterly marketing strategy + roadmap',
+      'Cross-channel orchestration',
+      'Forecasting against panel and revenue goals',
     ],
-    owns: ['Organic sessions', 'Local pack', 'AEO citations'],
+    owns: ['Strategy', 'Forecast accuracy', 'Retention'],
     hours: '20+ hrs / week',
     photo: photoShree,
   },
   {
-    num: '02',
     name: 'Bikash Neupane',
-    title: 'Medical Content Writer',
+    title: 'Marketing & IT Project Manager',
     pitch:
-      'Trained healthcare writer - not a generalist with a thesaurus. Writes to patient intent and clinician credibility.',
+      'Bridges marketing and tech. Runs the standups, keeps the trackers honest, and ensures the stack (CRM, analytics, integrations) supports what we ship.',
     ships: [
-      'Service-line landing copy + provider bios',
-      'Pillar content + condition deep-dives',
-      'Ad creative, email cadences, SMS scripts',
+      'Weekly sprint planning + standups',
+      'Project tracking + stakeholder updates',
+      'Martech + integrations management',
     ],
-    owns: ['Engagement', 'Booking conversion', 'Topical authority'],
+    owns: ['On-time delivery', 'Tooling reliability', 'Project velocity'],
     hours: '20+ hrs / week',
     photo: photoBikash,
   },
   {
-    num: '03',
-    name: 'Sonu Sagar Dangol',
-    title: 'Social Media Manager',
+    name: 'Sonu Sagar Dongol',
+    title: 'Paid Ads Specialist & Media Buyer',
     pitch:
-      'Builds the patient-facing voice across Instagram, TikTok, YouTube Shorts, and LinkedIn - calendar your front desk can sustain.',
-    ships: [
-      'Monthly content calendar, 4 platforms',
-      'Shot lists for in-clinic capture days',
-      'Community management with response SLAs',
-    ],
-    owns: ['Follower growth', 'Saves + shares', 'DM-to-booking'],
-    hours: '15+ hrs / week',
-    photo: photoSonu,
-  },
-  {
-    num: '04',
-    name: 'Sumit Sharma',
-    title: 'Account Director',
-    pitch:
-      'Your single point of accountability. Runs weekly standups, monthly reviews, quarterly forecasts against panel goals.',
-    ships: [
-      'Weekly performance reports + forecasts',
-      'Monthly strategy review',
-      'Quarterly business reviews',
-    ],
-    owns: ['Total pipeline', 'Forecast accuracy', 'Retention'],
-    hours: '10+ hrs / week',
-    photo: photoSumit,
-  },
-  {
-    num: '05',
-    name: 'Rahul Roy',
-    title: 'Dedicated Ads Manager',
-    pitch:
-      'Owns every paid dollar across Google, Meta, and programmatic. Healthcare-fluent, HIPAA-aware, accountable for CAC.',
+      'Owns every paid dollar across Google, Meta, and programmatic. Healthcare-fluent, HIPAA-aware, accountable for CAC and ROAS.',
     ships: [
       'Weekly campaign builds, audiences, creative briefs',
       'Daily bid + budget management',
@@ -91,21 +57,48 @@ export const ROLES: Role[] = [
     ],
     owns: ['CAC', 'ROAS', 'Booked visits'],
     hours: '30+ hrs / week',
+    photo: photoSonu,
+  },
+  {
+    name: 'Sumit Sharma',
+    title: 'SEO Manager',
+    pitch:
+      'Senior operator for organic search and answer-engine optimisation. Knows YMYL ranking nuance, technical SEO, and local-pack mechanics cold.',
+    ships: [
+      'Technical SEO + Core Web Vitals',
+      'Local pack and service-area architecture',
+      'Answer-engine content briefs',
+    ],
+    owns: ['Organic sessions', 'Local pack', 'AEO citations'],
+    hours: '20+ hrs / week',
+    photo: photoSumit,
+  },
+  {
+    name: 'Rahul Roy',
+    title: 'Healthcare Content Writer',
+    pitch:
+      'Trained healthcare writer - not a generalist with a thesaurus. Writes to patient intent and clinician credibility across web, ads, and email.',
+    ships: [
+      'Service-line landing copy + provider bios',
+      'Pillar content + condition deep-dives',
+      'Ad creative, email cadences, SMS scripts',
+    ],
+    owns: ['Engagement', 'Booking conversion', 'Topical authority'],
+    hours: '20+ hrs / week',
     photo: photoRahul,
   },
   {
-    num: '06',
     name: 'Bijesh Khadgi',
-    title: 'Web & Conversion Engineer',
+    title: 'Social Media Manager',
     pitch:
-      'A developer who treats your site as the highest-leverage asset in the funnel. Speed, accessibility, instrumentation.',
+      'Builds the patient-facing voice across Instagram, TikTok, YouTube Shorts, and LinkedIn - a calendar your front desk can sustain.',
     ships: [
-      'Page-speed and a11y remediation',
-      'Booking-funnel drop-off instrumentation',
-      'A/B testing infrastructure',
+      'Monthly content calendar, 4 platforms',
+      'Shot lists for in-clinic capture days',
+      'Community management with response SLAs',
     ],
-    owns: ['Core Web Vitals', 'Booking completion', 'Site reliability'],
-    hours: '10+ hrs / week',
+    owns: ['Follower growth', 'Saves + shares', 'DM-to-booking'],
+    hours: '15+ hrs / week',
     photo: photoBijesh,
   },
 ];
