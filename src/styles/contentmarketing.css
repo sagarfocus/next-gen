@@ -1102,3 +1102,8 @@
   .cm-hero-tag.t1 { right: -6px; }
   .cm-hero-tag.t2 { left: -6px; top: 40%; }
 }
+@media (max-width: 480px) {
+  /* Two-col grids stay cramped on small phones — drop to single column. */
+  .cm-data-signals-grid { grid-template-columns: 1fr; }
+  .cm-glossary-grid { grid-template-columns: 1fr; }
+}

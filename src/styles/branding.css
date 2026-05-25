@@ -1195,3 +1195,8 @@
   .br-hero-tag.t1 { right: -6px; }
   .br-hero-tag.t2 { left: -6px; }
 }
+@media (max-width: 480px) {
+  /* Two-col grids stay cramped on small phones — drop to single column. */
+  .br-data-signals-grid { grid-template-columns: 1fr; }
+  .br-glossary-grid { grid-template-columns: 1fr; }
+}

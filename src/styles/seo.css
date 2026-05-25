@@ -1112,3 +1112,8 @@
   .seo-cta-right { flex-direction: column; }
   .seo-cta-stat { flex: 1 1 auto; }
 }
+@media (max-width: 480px) {
+  /* Two-col grids stay cramped on small phones — drop to a single column. */
+  .seo-data-signals-grid { grid-template-columns: 1fr; }
+  .seo-glossary-grid { grid-template-columns: 1fr; }
+}

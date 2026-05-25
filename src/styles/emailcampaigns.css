@@ -1052,3 +1052,8 @@
   .em-hero-tag-pill.t1 { right: -6px; }
   .em-hero-tag-pill.t2 { left: -6px; }
 }
+@media (max-width: 480px) {
+  /* Two-col grids stay cramped on small phones — drop to single column. */
+  .em-data-signals-grid { grid-template-columns: 1fr; }
+  .em-glossary-grid { grid-template-columns: 1fr; }
+}

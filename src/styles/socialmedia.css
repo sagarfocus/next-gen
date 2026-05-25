@@ -1089,3 +1089,8 @@
   .sm-hero-tag.t1 { right: -6px; top: 10%; }
   .sm-hero-tag.t2 { left: -6px; bottom: 14%; }
 }
+@media (max-width: 480px) {
+  /* Two-col grids stay cramped on small phones — drop to single column. */
+  .sm-data-signals-grid { grid-template-columns: 1fr; }
+  .sm-glossary-grid { grid-template-columns: 1fr; }
+}

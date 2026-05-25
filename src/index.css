@@ -90,10 +90,22 @@
     flex: 1;
     display: flex;
     flex-direction: column;
+    /* container-shell has Tailwind's `mx-auto` (margin:0 auto). Inside a
+       flex column parent, auto margins override align-items:stretch and
+       make the item shrink-to-content (capped at max-width:1320). The
+       marquee `.certs-track` (intentionally ~2583px for its scroll
+       animation) propagates min-content up and expands this shell to
+       1320px even at 375px viewport — pushing the hero title, CTA, and
+       lede past the right edge.
+       Fix: pin width:100% so the shell follows the section's actual
+       width, and min-width:0 so flex shrink can apply. */
+    width: 100%;
+    min-width: 0;
   }
   .hero-section .hero-grid {
     flex: 1;
     align-content: center;
+    min-width: 0;
   }
 
   /* ===== Hero backdrop — solid brand white =====
@@ -34170,4 +34182,115 @@
 
   /* ---- Closing form wrap ---- */
   .fga-close-form-wrap { margin: clamp(24px, 3vw, 32px) auto 18px; max-width: 600px; }
+}
+
+/* ============================================================ */
+/* GLOBAL MOBILE SAFETY NET — ≤480px small-phone fixes that
+   prevent hero titles + eyebrow pills from overflowing 375px
+   viewports. Per-page CSS files set clamp() floors (e.g.
+   clamp(36px, ...)) that are still too large at 375px content
+   width (~335px after padding).
+
+   NOTE: this block sits OUTSIDE `@layer components` on purpose —
+   per-page CSS (seo.css etc.) is unlayered, and unlayered styles
+   always win against layered ones regardless of selector
+   specificity. Keeping these rules unlayered ensures they take
+   effect against the per-page hero-title declarations.
+   Desktop/tablet (≥481px) is untouched.
+   ============================================================ */
+@media (max-width: 480px) {
+  /* Each selector carries `html body` (specificity 0,2,0) so it outranks
+     the per-page single-class rules (0,1,0) in seo.css / ga.css / etc.
+     that load AFTER index.css. Same-specificity later-wins-cascade would
+     otherwise reinstate the desktop clamp() floor. */
+  html body .hero-title,
+  html body .au-title,
+  html body .seo-hero-title,
+  html body .ga-hero-title,
+  html body .ma-hero-title,
+  html body .wd-hero-title,
+  html body .br-hero-title,
+  html body .cm-hero-title,
+  html body .em-hero-title,
+  html body .an-hero-title,
+  html body .sm-hero-title,
+  html body .gb-hero-title,
+  html body .ofm-hero-title,
+  html body .mau-hero-title,
+  html body .csd-hero-title,
+  html body .gtx-hero-title,
+  html body .hlc-hero-title,
+  html body .iv-hero-title,
+  html body .sl-hero-title,
+  html body .sv-hero-title,
+  html body .fga-hero-title,
+  html body .pr-hero-title,
+  html body .blog-hero-title,
+  html body .ct-hero-title {
+    font-size: clamp(22px, 6.2vw, 28px);
+    line-height: 1.14;
+    letter-spacing: -0.018em;
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    word-break: normal;
+    hyphens: auto;
+  }
+  /* Eyebrow / breadcrumb pills above hero titles often combine
+     multiple labels in one row (e.g. "Services / Meta Ads / ...");
+     allow them to wrap so the right edge does not clip them. */
+  html body .hero-eyebrow,
+  html body [class*="-hero-eyebrow"],
+  html body [class*="-eyebrow"],
+  html body .pr-eyebrow,
+  html body [class*="-section-tag"],
+  html body .crumb {
+    max-width: 100%;
+    flex-wrap: wrap;
+    white-space: normal;
+    /* Long uppercase tags with letter-spacing don't fit inline-flex into
+       narrow phones; promoting to block-level flex lets max-width: 100%
+       actually constrain the box, then text wraps naturally. */
+    display: flex;
+    overflow-wrap: anywhere;
+    /* Soften the letter-spacing so long uppercase strings like
+       "TRANSPARENT HEALTHCARE PRICING" or "BUILT FOR HEALTHCARE" fit in
+       the 335px content width before needing to wrap. */
+    letter-spacing: 0.12em;
+  }
+  /* The services hero "HIPAA-COMPLIANT · BUILT FOR TEXAS" cert pill row
+     uses `white-space: nowrap` on each label inside a non-wrapping flex
+     row; let the row wrap on small phones. */
+  html body .svc-meta {
+    flex-wrap: wrap;
+  }
+  html body .svc-meta-label {
+    white-space: normal;
+  }
+  /* Section H2 titles can also exceed 335px on narrow phones — let long
+     words break gracefully so nothing clips off the right edge. */
+  html body .section-title,
+  html body [class*="-section-title"],
+  html body [class*="-section-h"],
+  html body [class*="-h2"] {
+    overflow-wrap: break-word;
+  }
+  /* Grid/flex containers across page sections inherit min-width: auto by
+     default — that lets a single wide child (uppercase eyebrow,
+     decorative card, marquee) propagate up and expand the container past
+     viewport width. Pin them to min-width: 0 so flex/grid shrink can
+     apply. Same root-cause fix as `.hero-section > .container-shell`
+     above, generalized to every grid/row at narrow widths. */
+  html body [class*="-grid"],
+  html body [class*="-body"],
+  html body [class*="-content"],
+  html body [class*="-row"] {
+    min-width: 0;
+  }
+  /* The 12-col `.fga-section-head` grid + 24px gaps eats nearly all of a
+     375px row, then the span-12 children's min-content widens individual
+     tracks beyond viewport. Collapse to a simple block-flow on phones —
+     each child occupies the full row, gaps come from natural margins. */
+  html body .fga-section-head {
+    display: block;
+  }
 }

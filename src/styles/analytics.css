@@ -1124,3 +1124,9 @@
   .an-hero-kpis { grid-template-columns: 1fr; }
   .an-anatomy-kpis { grid-template-columns: repeat(2, 1fr); }
 }
+@media (max-width: 480px) {
+  /* Two-col grids stay cramped on small phones — drop to single column. */
+  .an-data-signals-grid { grid-template-columns: 1fr; }
+  .an-glossary-grid { grid-template-columns: 1fr; }
+  .an-anatomy-kpis { grid-template-columns: 1fr; }
+}

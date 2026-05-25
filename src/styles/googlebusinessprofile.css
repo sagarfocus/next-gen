@@ -1147,3 +1147,8 @@
   .gb-hero-tag.t1 { right: -6px; top: 8%; }
   .gb-hero-tag.t2 { left: -6px; bottom: 8%; }
 }
+@media (max-width: 480px) {
+  /* Two-col grids stay cramped on small phones — drop to single column. */
+  .gb-data-signals-grid { grid-template-columns: 1fr; }
+  .gb-glossary-grid { grid-template-columns: 1fr; }
+}

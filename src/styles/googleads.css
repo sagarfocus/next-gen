@@ -1412,3 +1412,8 @@
   .ga-cta-right { flex-direction: column; }
   .ga-cta-stat { flex: 1 1 auto; }
 }
+@media (max-width: 480px) {
+  /* Two-col grids stay cramped on small phones — drop to single column. */
+  .ga-data-signals-grid { grid-template-columns: 1fr; }
+  .ga-glossary-grid { grid-template-columns: 1fr; }
+}
