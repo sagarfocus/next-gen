@@ -1,12 +1,10 @@
 import storyBannerImg from '../../assets/nextgen-image/Ourstoryimg.png';
-import story2 from '../../assets/jay-1.webp';
-import {
-  PLACEHOLDER_IMAGE as story1,
-  PLACEHOLDER_IMAGE as story3,
-  PLACEHOLDER_IMAGE as story4,
-  PLACEHOLDER_IMAGE as story5,
-  PLACEHOLDER_IMAGE as story6,
-} from '@/lib/placeholderImage';
+import story1 from '../../assets/nextgen-image/Hippacomplianceimg.png';
+import story2 from '../../assets/nextgen-image/Complianceimg.png';
+import story3 from '../../assets/nextgen-image/Clinicalimg1.png';
+import story4 from '../../assets/nextgen-image/Patientverificationimg.png';
+import story5 from '../../assets/nextgen-image/Helathcareimg.png';
+import story6 from '../../assets/nextgen-image/Medicalautomationimg.png';
 
 const Story = () => (
   <section className="hcp-story">

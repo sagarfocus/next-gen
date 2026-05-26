@@ -10169,6 +10169,16 @@
     opacity: 0.8;
     z-index: 1;
   }
+  .bl-side-cover img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+    transition: transform 0.4s cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+  .bl-side-card:hover .bl-side-cover img { transform: scale(1.04); }
   .bl-side-cover svg {
     position: absolute;
     inset: 0;
@@ -10279,6 +10289,16 @@
     opacity: 0.8;
     z-index: 1;
   }
+  .bl-feat-cover img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+    transition: transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+  .bl-feat:hover .bl-feat-cover img { transform: scale(1.04); }
   .bl-feat-cover svg {
     position: absolute;
     inset: 0;
@@ -10499,6 +10519,13 @@
     margin: auto;
     width: 56%;
     height: 56%;
+  }
+  .bl-latest-thumb img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
   .bl-latest-item:nth-child(1) .bl-latest-thumb {
     background:
@@ -10914,6 +10941,15 @@
     transition: transform 0.55s cubic-bezier(0.2, 0.7, 0.2, 1);
   }
   .bl-card:hover .bl-card-cover svg { transform: scale(1.08); }
+  .bl-card-cover img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.55s cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+  .bl-card:hover .bl-card-cover img { transform: scale(1.06); }
   .bl-card:nth-child(3n+1) .bl-card-cover {
     background:
       radial-gradient(280px 180px at 30% 30%, rgba(143, 188, 143, 0.32), transparent 60%),
@@ -13485,6 +13521,24 @@
       "a b b"
       "c d e"
       "f g g";
+  }
+  .what-single {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    border-radius: 28px;
+    overflow: hidden;
+    border: 1px solid rgba(179, 139, 109, 0.28);
+    box-shadow:
+      0 40px 80px -32px rgba(45, 55, 72, 0.30),
+      0 12px 24px -16px rgba(179, 139, 109, 0.20);
+  }
+  .what-single img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
   }
   .col-tile {
     border-radius: 14px;
@@ -23036,25 +23090,38 @@
   }
   .ow-detail-close-metric {
     background: transparent;
-    color: #1A2438;
+    color: #FFFFFF;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: flex-start;
     padding: clamp(36px, 5vw, 64px);
     border-left: 1px solid rgba(26, 36, 56, 0.12);
     position: relative;
     overflow: hidden;
+    min-height: 380px;
   }
-  .ow-detail-close-metric::before {
-    content: '';
+  .ow-detail-close-metric-img {
     position: absolute;
-    top: -40%;
-    right: -20%;
-    width: 120%;
-    height: 120%;
-    background: radial-gradient(closest-side, rgba(212, 175, 55, 0.18), transparent 70%);
-    pointer-events: none;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: 0;
+  }
+  .ow-detail-close-metric-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(20, 28, 48, 0.10) 0%, rgba(20, 28, 48, 0.65) 100%);
+    z-index: 1;
+  }
+  .ow-detail-close-metric-text {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
   }
   .ow-detail-close-metric strong {
     font-family: 'Plus Jakarta Sans', sans-serif;
@@ -23062,7 +23129,7 @@
     font-weight: 800;
     letter-spacing: -0.04em;
     line-height: 1;
-    background: linear-gradient(95deg, var(--ow-gold-2), var(--ow-gold));
+    background: linear-gradient(95deg, #F4D58D, #E6B968);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -23074,7 +23141,7 @@
     font-weight: 800;
     letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: rgba(26, 36, 56, 0.62);
+    color: rgba(255, 255, 255, 0.86);
   }
 
   /* ==========================================================
@@ -26753,7 +26820,7 @@
   }
   .iv-hero-fig {
     position: relative;
-    aspect-ratio: 4 / 5;
+    aspect-ratio: 5 / 4;
     width: 100%;
     border-radius: 18px;
     overflow: hidden;
@@ -26765,6 +26832,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center;
     display: block;
   }
   .iv-hero-fig::after {

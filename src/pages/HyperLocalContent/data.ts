@@ -1,11 +1,9 @@
-import {
-  PLACEHOLDER_IMAGE as dallasImg,
-  PLACEHOLDER_IMAGE as houstonImg,
-  PLACEHOLDER_IMAGE as austinImg,
-  PLACEHOLDER_IMAGE as sanAntonioImg,
-  PLACEHOLDER_IMAGE as fortWorthImg,
-  PLACEHOLDER_IMAGE as elPasoImg,
-} from '@/lib/placeholderImage';
+import dallasImg from '../../assets/nextgen-image/Erofwhiterockimg.jpg';
+import houstonImg from '../../assets/nextgen-image/Urgentcareimg.png';
+import austinImg from '../../assets/nextgen-image/Medspas&wellnessimg.png';
+import sanAntonioImg from '../../assets/nextgen-image/Primarycareimg.png';
+import fortWorthImg from '../../assets/nextgen-image/Clinicalimg1.png';
+import elPasoImg from '../../assets/nextgen-image/Hyperlocalcontent.png';
 
 export interface Marker {
   value: string;

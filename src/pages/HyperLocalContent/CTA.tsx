@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-import { PLACEHOLDER_IMAGE as ctaImg } from '@/lib/placeholderImage';
+import ctaImg from '../../assets/nextgen-image/Visibiltyscoreimg.png';
 import { ArrowIcon } from '@/components/icons';
 import { PinIcon, CompassIcon } from './icons';
 

@@ -80,18 +80,15 @@ const Hero = () => (
 
         {/* Right — visual + meta */}
         <div className="lg:col-span-5">
-          <div className="relative aspect-[4/5] rounded-[20px] overflow-hidden border border-line-faint bg-bg-soft">
+          <div className="relative aspect-[5/4] rounded-[20px] overflow-hidden border border-line-faint bg-bg-soft">
             <img
               src={imgHero}
               alt="Healthcare growth dashboard"
               loading="eager"
               decoding="async"
-              className="absolute inset-0 w-full h-full object-contain object-center"
+              className="absolute inset-0 w-full h-full object-cover object-center"
             />
             <div className="absolute inset-x-0 bottom-0 p-5 bg-gradient-to-t from-heading/85 via-heading/40 to-transparent">
-              <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-white/70 mb-2">
-                Live dashboard · sample
-              </div>
               <div className="text-white text-[15px] font-semibold leading-snug max-w-[28ch]">
                 Every booked visit traced back to the surface that produced it.
               </div>

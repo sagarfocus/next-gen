@@ -3,6 +3,15 @@ import { Link } from 'react-router-dom';
 import Breadcrumb from '@/components/Breadcrumb';
 import { AnimatedBackground } from '@/lib/motion';
 import { ArrowIcon } from '@/components/icons';
+import imgHipaa from '../../assets/nextgen-image/Hippablogimg.png';
+import imgGbp from '../../assets/nextgen-image/7googlebuisnessblogimg.png';
+import imgCpa from '../../assets/nextgen-image/Urgentcpablogimg.png';
+import imgFeatured from '../../assets/nextgen-image/bannerblogimg.png';
+import imgAi from '../../assets/nextgen-image/Gptbotimg.png';
+import imgMedspa from '../../assets/nextgen-image/Medspas&wellnessimg.png';
+import imgReviews from '../../assets/nextgen-image/Reviewcollectionimg.png';
+import imgUrgent from '../../assets/nextgen-image/Urgentcareimg.png';
+import imgDash from '../../assets/nextgen-image/Visibiltyscoreimg.png';
 
 interface SideCard {
   href: string;
@@ -21,26 +30,7 @@ const LEFT_SIDE: SideCard[] = [
     cat: 'Compliance',
     title: 'HIPAA-compliant Google Ads tracking in 2026.',
     meta: 'Apr 22, 2026 · 8 min read',
-    illustration: (
-      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <path
-          d="M50 18 L 22 30 V 52 C 22 68 35 82 50 86 C 65 82 78 68 78 52 V 30 Z"
-          fill="rgba(87,109,181,.10)"
-          stroke="#576DB5"
-          strokeWidth="2.5"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M40 50 L 47 57 L 62 42"
-          fill="none"
-          stroke="#8FBC8F"
-          strokeWidth="3"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <circle cx="78" cy="22" r="4" fill="#B38B6D" />
-      </svg>
-    ),
+    illustration: <img src={imgHipaa} alt="" loading="lazy" decoding="async" />,
   },
   {
     href: '/blog/maps-rank',
@@ -48,19 +38,7 @@ const LEFT_SIDE: SideCard[] = [
     cat: 'Local SEO',
     title: '7 Google Business Profile signals that move map rankings.',
     meta: 'Apr 10, 2026 · 9 min read',
-    illustration: (
-      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <path
-          d="M50 14 C 34 14 22 26 22 42 C 22 64 50 88 50 88 S 78 64 78 42 C 78 26 66 14 50 14 Z"
-          fill="rgba(179,139,109,.18)"
-          stroke="#B38B6D"
-          strokeWidth="2.5"
-          strokeLinejoin="round"
-        />
-        <circle cx="50" cy="42" r="9" fill="#fff" stroke="#B38B6D" strokeWidth="2" />
-        <circle cx="50" cy="42" r="4" fill="#576DB5" />
-      </svg>
-    ),
+    illustration: <img src={imgGbp} alt="" loading="lazy" decoding="async" />,
   },
 ];
 
@@ -71,49 +49,7 @@ const RIGHT_SIDE: SideCard[] = [
     cat: 'Paid Media',
     title: 'Why your urgent care CPA is probably 30% too high.',
     meta: 'Apr 18, 2026 · 6 min read',
-    illustration: (
-      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <line
-          x1="20"
-          y1="80"
-          x2="20"
-          y2="22"
-          stroke="#2D3748"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-        />
-        <line
-          x1="20"
-          y1="80"
-          x2="80"
-          y2="80"
-          stroke="#2D3748"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-        />
-        <polyline
-          points="28,68 40,52 52,58 64,38 76,28"
-          fill="none"
-          stroke="#576DB5"
-          strokeWidth="3"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <circle cx="76" cy="28" r="4" fill="#8FBC8F" />
-        <text
-          x="50"
-          y="92"
-          textAnchor="middle"
-          fontFamily="Plus Jakarta Sans, sans-serif"
-          fontSize="8"
-          fontWeight="700"
-          letterSpacing="2"
-          fill="#B38B6D"
-        >
-          CPA
-        </text>
-      </svg>
-    ),
+    illustration: <img src={imgCpa} alt="" loading="lazy" decoding="async" />,
   },
 ];
 
@@ -129,141 +65,31 @@ const LATEST: LatestItem[] = [
     href: '/blog/ai-chatbot',
     title: 'AI patient intake: what works, what breaks compliance.',
     meta: 'Apr 6 · 11 min',
-    thumb: (
-      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <rect
-          x="22"
-          y="28"
-          width="56"
-          height="40"
-          rx="10"
-          fill="rgba(87,109,181,.12)"
-          stroke="#576DB5"
-          strokeWidth="3"
-        />
-        <circle cx="40" cy="48" r="3" fill="#576DB5" />
-        <circle cx="50" cy="48" r="3" fill="#8FBC8F" />
-        <circle cx="60" cy="48" r="3" fill="#B38B6D" />
-      </svg>
-    ),
+    thumb: <img src={imgAi} alt="" loading="lazy" decoding="async" />,
   },
   {
     href: '/blog/medspa',
     title: 'MedSpa LTV: turning $300 facials into $4K patients.',
     meta: 'Apr 2 · 7 min',
-    thumb: (
-      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <g transform="translate(50, 50)">
-          <path d="M0 -22 Q 11 -4 0 14 Q -11 -4 0 -22 Z" fill="#8FBC8F" />
-          <path
-            d="M0 -22 Q 11 -4 0 14 Q -11 -4 0 -22 Z"
-            fill="#8FBC8F"
-            opacity=".75"
-            transform="rotate(72)"
-          />
-          <path
-            d="M0 -22 Q 11 -4 0 14 Q -11 -4 0 -22 Z"
-            fill="#8FBC8F"
-            opacity=".55"
-            transform="rotate(144)"
-          />
-          <path
-            d="M0 -22 Q 11 -4 0 14 Q -11 -4 0 -22 Z"
-            fill="#8FBC8F"
-            opacity=".75"
-            transform="rotate(216)"
-          />
-          <path
-            d="M0 -22 Q 11 -4 0 14 Q -11 -4 0 -22 Z"
-            fill="#8FBC8F"
-            opacity=".55"
-            transform="rotate(288)"
-          />
-          <circle r="6" fill="#576DB5" />
-        </g>
-      </svg>
-    ),
+    thumb: <img src={imgMedspa} alt="" loading="lazy" decoding="async" />,
   },
   {
     href: '/blog/reviews',
     title: 'Automating Google reviews without violating HIPAA.',
     meta: 'Apr 14 · 5 min',
-    thumb: (
-      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <polygon
-          points="50,18 60,40 84,42 66,58 72,82 50,68 28,82 34,58 16,42 40,40"
-          fill="#8FBC8F"
-          stroke="#8FBC8F"
-          strokeWidth="2.5"
-          strokeLinejoin="round"
-        />
-      </svg>
-    ),
+    thumb: <img src={imgReviews} alt="" loading="lazy" decoding="async" />,
   },
   {
     href: '/blog/urgent-care',
     title: 'Wait-time marketing: the urgent care advantage no one is using.',
     meta: 'Mar 28 · 6 min',
-    thumb: (
-      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <rect
-          x="20"
-          y="28"
-          width="60"
-          height="50"
-          rx="6"
-          fill="rgba(87,109,181,.12)"
-          stroke="#576DB5"
-          strokeWidth="3"
-        />
-        <rect x="44" y="40" width="12" height="30" rx="2" fill="#8FBC8F" />
-        <rect x="35" y="49" width="30" height="12" rx="2" fill="#8FBC8F" />
-      </svg>
-    ),
+    thumb: <img src={imgUrgent} alt="" loading="lazy" decoding="async" />,
   },
   {
     href: '/blog/analytics',
     title: 'The healthcare marketing dashboard every clinic should run.',
     meta: 'Mar 24 · 8 min',
-    thumb: (
-      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <circle
-          cx="50"
-          cy="50"
-          r="32"
-          fill="none"
-          stroke="#B38B6D"
-          strokeWidth="3"
-          strokeDasharray="3 4"
-        />
-        <circle
-          cx="50"
-          cy="50"
-          r="22"
-          fill="rgba(87,109,181,.10)"
-          stroke="#576DB5"
-          strokeWidth="2.5"
-        />
-        <line
-          x1="50"
-          y1="50"
-          x2="50"
-          y2="32"
-          stroke="#576DB5"
-          strokeWidth="3"
-          strokeLinecap="round"
-        />
-        <line
-          x1="50"
-          y1="50"
-          x2="65"
-          y2="58"
-          stroke="#8FBC8F"
-          strokeWidth="3"
-          strokeLinecap="round"
-        />
-      </svg>
-    ),
+    thumb: <img src={imgDash} alt="" loading="lazy" decoding="async" />,
   },
 ];
 
@@ -338,63 +164,7 @@ const BlogHero = () => {
           <Link to="/blog/ads-cost" className="bl-feat">
             <div className="bl-feat-cover">
               <span className="bl-feat-badge">Featured</span>
-              <svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <defs>
-                  <linearGradient id="featG2" x1="0" y1="0" x2="1" y2="1">
-                    <stop offset="0%" stopColor="#576DB5" stopOpacity=".8" />
-                    <stop offset="100%" stopColor="#8FBC8F" stopOpacity=".7" />
-                  </linearGradient>
-                </defs>
-                <rect
-                  x="40"
-                  y="40"
-                  width="160"
-                  height="160"
-                  rx="14"
-                  fill="rgba(255,255,255,.5)"
-                  stroke="#B38B6D"
-                  strokeWidth="1.5"
-                />
-                <rect x="60" y="140" width="18" height="46" rx="2" fill="#576DB5" opacity=".75" />
-                <rect x="86" y="120" width="18" height="66" rx="2" fill="#576DB5" opacity=".85" />
-                <rect x="112" y="100" width="18" height="86" rx="2" fill="url(#featG2)" />
-                <rect x="138" y="84" width="18" height="102" rx="2" fill="#8FBC8F" />
-                <rect x="164" y="68" width="18" height="118" rx="2" fill="#576DB5" />
-                <polyline
-                  points="69,144 95,124 121,104 147,88 173,72"
-                  fill="none"
-                  stroke="#B38B6D"
-                  strokeWidth="2.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeDasharray="4 4"
-                />
-                <circle cx="69" cy="144" r="3" fill="#B38B6D" />
-                <circle cx="95" cy="124" r="3" fill="#B38B6D" />
-                <circle cx="121" cy="104" r="3" fill="#B38B6D" />
-                <circle cx="147" cy="88" r="3" fill="#B38B6D" />
-                <circle cx="173" cy="72" r="3" fill="#B38B6D" />
-                <g transform="translate(190, 50)">
-                  <line
-                    x1="-6"
-                    y1="0"
-                    x2="6"
-                    y2="0"
-                    stroke="#8FBC8F"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                  />
-                  <line
-                    x1="0"
-                    y1="-6"
-                    x2="0"
-                    y2="6"
-                    stroke="#8FBC8F"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                  />
-                </g>
-              </svg>
+              <img src={imgFeatured} alt="" loading="lazy" decoding="async" />
             </div>
             <div className="bl-feat-body">
               <span className="bl-feat-cat">Growth Strategy</span>

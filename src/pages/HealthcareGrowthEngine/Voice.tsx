@@ -1,4 +1,4 @@
-import { PLACEHOLDER_IMAGE as imgTestimonial } from '@/lib/placeholderImage';
+import imgTestimonial from '../../assets/team-thumbs/Dr-Thompson.png';
 
 /* ---------- VOICE / TESTIMONIAL ---------- */
 const Voice = () => (
@@ -18,7 +18,7 @@ const Voice = () => (
               <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-white/70 mb-1">
                 Multi-location · Texas
               </div>
-              <div className="text-[15px] font-semibold">Dr. Imani Rao — Medical Director</div>
+              <div className="text-[15px] font-semibold">Dr. Steven H. Thompson, MD</div>
             </figcaption>
           </figure>
         </div>

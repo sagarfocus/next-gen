@@ -2,6 +2,15 @@ import { useMemo, useState } from 'react';
 import type { ChangeEvent, ReactElement } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowIcon, ChevronRightIcon, ClockIcon } from '@/components/icons';
+import imgHipaa from '../../assets/nextgen-image/Hippablogimg.png';
+import imgUrgentCpa from '../../assets/nextgen-image/Urgentcpablogimg.png';
+import imgReviews from '../../assets/nextgen-image/Googlereviewblogimg.png';
+import imgGbp from '../../assets/nextgen-image/7googlebuisnessblogimg.png';
+import imgAi from '../../assets/nextgen-image/Aipatientblogimg.png';
+import imgMedspa from '../../assets/nextgen-image/Medspaltvblogimg.png';
+import imgWait from '../../assets/nextgen-image/Waitmarketingblogimg.png';
+import imgDashboard from '../../assets/nextgen-image/Marketingbloghimg.png';
+import imgFsed from '../../assets/nextgen-image/freestandingerblogimg.png';
 
 interface Article {
   href: string;
@@ -26,26 +35,7 @@ const ARTICLES: Article[] = [
     excerpt:
       'A step-by-step guide to server-side tracking, BAA-ready vendors, and the consent flows that keep your conversion data clean without exposing PHI.',
     author: 'Priya Patel',
-    illustration: (
-      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <path
-          d="M50 20 L 25 30 V 50 C 25 65 36 78 50 82 C 64 78 75 65 75 50 V 30 Z"
-          fill="rgba(87,109,181,.10)"
-          stroke="#576DB5"
-          strokeWidth="2.5"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M40 50 L 47 57 L 62 42"
-          fill="none"
-          stroke="#8FBC8F"
-          strokeWidth="3"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <circle cx="78" cy="22" r="4" fill="#B38B6D" />
-      </svg>
-    ),
+    illustration: <img src={imgHipaa} alt="" loading="lazy" decoding="async" />,
   },
   {
     href: '/blog/ads-cost',
@@ -57,49 +47,7 @@ const ARTICLES: Article[] = [
     excerpt:
       'The 4 most common bidding mistakes we see in urgent care Google Ads accounts - and the audit checklist we use to identify them in the first 24 hours.',
     author: 'Marcus Rodriguez',
-    illustration: (
-      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <line
-          x1="20"
-          y1="80"
-          x2="20"
-          y2="22"
-          stroke="#2D3748"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-        />
-        <line
-          x1="20"
-          y1="80"
-          x2="80"
-          y2="80"
-          stroke="#2D3748"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-        />
-        <polyline
-          points="28,68 40,52 52,58 64,38 76,28"
-          fill="none"
-          stroke="#576DB5"
-          strokeWidth="3"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <circle cx="76" cy="28" r="4" fill="#8FBC8F" />
-        <text
-          x="50"
-          y="92"
-          textAnchor="middle"
-          fontFamily="Plus Jakarta Sans, sans-serif"
-          fontSize="8"
-          fontWeight="700"
-          letterSpacing="2"
-          fill="#B38B6D"
-        >
-          CPA
-        </text>
-      </svg>
-    ),
+    illustration: <img src={imgUrgentCpa} alt="" loading="lazy" decoding="async" />,
   },
   {
     href: '/blog/reviews',
@@ -111,21 +59,7 @@ const ARTICLES: Article[] = [
     excerpt:
       "Patient testimonials are 10x more powerful than ad copy - but most review automation tools quietly break HIPAA. Here's the stack we use instead.",
     author: 'Sarah Chen',
-    illustration: (
-      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <polygon
-          points="50,18 60,40 84,42 66,58 72,82 50,68 28,82 34,58 16,42 40,40"
-          fill="rgba(143,188,143,.20)"
-          stroke="#8FBC8F"
-          strokeWidth="2.5"
-          strokeLinejoin="round"
-        />
-        <polygon
-          points="50,28 56,42 72,43 60,55 64,71 50,62 36,71 40,55 28,43 44,42"
-          fill="#8FBC8F"
-        />
-      </svg>
-    ),
+    illustration: <img src={imgReviews} alt="" loading="lazy" decoding="async" />,
   },
   {
     href: '/blog/maps-rank',
@@ -137,19 +71,7 @@ const ARTICLES: Article[] = [
     excerpt:
       'After managing 200+ Google Business Profiles across Texas, these are the 7 signals that actually correlate with local-pack ranking improvement - ranked by leverage.',
     author: 'Marcus Rodriguez',
-    illustration: (
-      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <path
-          d="M50 18 C 36 18 26 28 26 42 C 26 60 50 84 50 84 S 74 60 74 42 C 74 28 64 18 50 18 Z"
-          fill="rgba(179,139,109,.18)"
-          stroke="#B38B6D"
-          strokeWidth="2.5"
-          strokeLinejoin="round"
-        />
-        <circle cx="50" cy="42" r="9" fill="#fff" stroke="#B38B6D" strokeWidth="2" />
-        <circle cx="50" cy="42" r="4" fill="#576DB5" />
-      </svg>
-    ),
+    illustration: <img src={imgGbp} alt="" loading="lazy" decoding="async" />,
   },
   {
     href: '/blog/ai-chatbot',
@@ -161,30 +83,7 @@ const ARTICLES: Article[] = [
     excerpt:
       "AI scheduling and intake bots can cut front-desk load by 40%. They can also leak PHI in 6 different ways. Here's the architecture that does the first without the second.",
     author: 'David Kim',
-    illustration: (
-      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <rect
-          x="22"
-          y="28"
-          width="56"
-          height="40"
-          rx="10"
-          fill="rgba(87,109,181,.10)"
-          stroke="#576DB5"
-          strokeWidth="2.5"
-        />
-        <circle cx="40" cy="48" r="3" fill="#576DB5" />
-        <circle cx="50" cy="48" r="3" fill="#8FBC8F" />
-        <circle cx="60" cy="48" r="3" fill="#B38B6D" />
-        <path
-          d="M40 68 L 36 78 L 48 68 Z"
-          fill="rgba(87,109,181,.10)"
-          stroke="#576DB5"
-          strokeWidth="2.5"
-          strokeLinejoin="round"
-        />
-      </svg>
-    ),
+    illustration: <img src={imgAi} alt="" loading="lazy" decoding="async" />,
   },
   {
     href: '/blog/medspa',
@@ -196,38 +95,7 @@ const ARTICLES: Article[] = [
     excerpt:
       "High-LTV MedSpa marketing isn't about cheaper acquisition - it's about better post-purchase journey. Here's the email + SMS + remarketing stack we deploy on day one.",
     author: 'Marcus Rodriguez',
-    illustration: (
-      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <g transform="translate(50, 50)">
-          <path d="M0 -22 Q 11 -4 0 14 Q -11 -4 0 -22 Z" fill="#8FBC8F" transform="rotate(0)" />
-          <path
-            d="M0 -22 Q 11 -4 0 14 Q -11 -4 0 -22 Z"
-            fill="#8FBC8F"
-            opacity=".75"
-            transform="rotate(72)"
-          />
-          <path
-            d="M0 -22 Q 11 -4 0 14 Q -11 -4 0 -22 Z"
-            fill="#8FBC8F"
-            opacity=".55"
-            transform="rotate(144)"
-          />
-          <path
-            d="M0 -22 Q 11 -4 0 14 Q -11 -4 0 -22 Z"
-            fill="#8FBC8F"
-            opacity=".75"
-            transform="rotate(216)"
-          />
-          <path
-            d="M0 -22 Q 11 -4 0 14 Q -11 -4 0 -22 Z"
-            fill="#8FBC8F"
-            opacity=".55"
-            transform="rotate(288)"
-          />
-          <circle r="6" fill="#576DB5" />
-        </g>
-      </svg>
-    ),
+    illustration: <img src={imgMedspa} alt="" loading="lazy" decoding="async" />,
   },
   {
     href: '/blog/urgent-care',
@@ -239,22 +107,7 @@ const ARTICLES: Article[] = [
     excerpt:
       'Why publishing real-time wait times publicly converts 23% better than promoting "convenience" or "walk-in welcome" - and the technical stack to do it safely.',
     author: 'Sarah Chen',
-    illustration: (
-      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <rect
-          x="20"
-          y="28"
-          width="60"
-          height="50"
-          rx="6"
-          fill="rgba(87,109,181,.10)"
-          stroke="#576DB5"
-          strokeWidth="2.5"
-        />
-        <rect x="44" y="40" width="12" height="30" rx="2" fill="#8FBC8F" />
-        <rect x="35" y="49" width="30" height="12" rx="2" fill="#8FBC8F" />
-      </svg>
-    ),
+    illustration: <img src={imgWait} alt="" loading="lazy" decoding="async" />,
   },
   {
     href: '/blog/analytics',
@@ -266,46 +119,7 @@ const ARTICLES: Article[] = [
     excerpt:
       "CPA, appointment-to-show ratio, LTV, channel ROI - the 12 metrics we put on every client's real-time dashboard, plus the alerts that catch problems before they hit revenue.",
     author: 'David Kim',
-    illustration: (
-      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <circle
-          cx="50"
-          cy="50"
-          r="32"
-          fill="none"
-          stroke="#B38B6D"
-          strokeWidth="3"
-          strokeDasharray="3 4"
-        />
-        <circle
-          cx="50"
-          cy="50"
-          r="22"
-          fill="rgba(87,109,181,.10)"
-          stroke="#576DB5"
-          strokeWidth="2.5"
-        />
-        <line
-          x1="50"
-          y1="50"
-          x2="50"
-          y2="32"
-          stroke="#576DB5"
-          strokeWidth="3"
-          strokeLinecap="round"
-        />
-        <line
-          x1="50"
-          y1="50"
-          x2="65"
-          y2="58"
-          stroke="#8FBC8F"
-          strokeWidth="3"
-          strokeLinecap="round"
-        />
-        <circle cx="50" cy="50" r="3" fill="#576DB5" />
-      </svg>
-    ),
+    illustration: <img src={imgDashboard} alt="" loading="lazy" decoding="async" />,
   },
   {
     href: '/blog/fsed-trauma',
@@ -317,20 +131,7 @@ const ARTICLES: Article[] = [
     excerpt:
       '"Chest pain near me" costs $48 per click. "ER near me" costs $12. Here\'s the keyword segmentation framework that captures the right intent without burning budget on tire-kickers.',
     author: 'Sarah Chen',
-    illustration: (
-      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <path
-          d="M14 50 L 30 50 L 38 30 L 50 70 L 60 22 L 70 50 L 86 50"
-          fill="none"
-          stroke="#576DB5"
-          strokeWidth="3"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <rect x="46" y="20" width="8" height="22" rx="1" fill="#8FBC8F" />
-        <rect x="38" y="27" width="24" height="8" rx="1" fill="#8FBC8F" />
-      </svg>
-    ),
+    illustration: <img src={imgFsed} alt="" loading="lazy" decoding="async" />,
   },
 ];
 

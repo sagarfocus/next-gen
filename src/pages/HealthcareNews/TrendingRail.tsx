@@ -1,6 +1,12 @@
 import { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import NewsThumb from './NewsThumb';
+import { newsBySlug } from './news.data';
+
+const imgFor = (path: string) => {
+  const slug = path.replace('/healthcare-news/', '');
+  return newsBySlug(slug)?.img;
+};
 
 interface TrendCard {
   to: string;
@@ -68,7 +74,12 @@ const renderCard = (card: TrendCard, ariaHidden: boolean) => (
     tabIndex={ariaHidden ? -1 : undefined}
   >
     <div className="trend-img">
-      <NewsThumb category={card.cat} seed={`trend-${card.to}`} aspect="landscape" />
+      <NewsThumb
+        category={card.cat}
+        seed={`trend-${card.to}`}
+        aspect="landscape"
+        image={imgFor(card.to)}
+      />
     </div>
     <span className="trend-cat">{card.cat}</span>
     <h3 className="trend-title">{card.title}</h3>

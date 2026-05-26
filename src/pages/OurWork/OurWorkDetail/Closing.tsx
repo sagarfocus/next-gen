@@ -31,8 +31,18 @@ const Closing = ({ entry }: { entry: DetailEntry }) => (
           </div>
         </div>
         <div className="ow-detail-close-metric" aria-hidden="true">
-          <strong>{entry.metric.v}</strong>
-          <span>{entry.metric.l}</span>
+          <img
+            src={entry.img}
+            alt=""
+            loading="lazy"
+            decoding="async"
+            className="ow-detail-close-metric-img"
+          />
+          <div className="ow-detail-close-metric-overlay" />
+          <div className="ow-detail-close-metric-text">
+            <strong>{entry.metric.v}</strong>
+            <span>{entry.metric.l}</span>
+          </div>
         </div>
       </div>
     </div>

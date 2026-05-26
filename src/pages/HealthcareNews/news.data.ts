@@ -3,20 +3,18 @@ import ouradvantageImg from '../../assets/nextgen-image/Ouradvantageimg1.png';
 import builtForClinicImg from '../../assets/nextgen-image/Clinicalimg1.png';
 import medSpaImg from '../../assets/nextgen-image/Medspas&wellnessimg.png';
 import emailImg from '../../assets/nextgen-image/Emailcampingimg.png';
-import {
-  PLACEHOLDER_IMAGE as healthcareimg1,
-  PLACEHOLDER_IMAGE as healthcareimg2,
-  PLACEHOLDER_IMAGE as healthcareimg3,
-  PLACEHOLDER_IMAGE as healthcareimg4,
-  PLACEHOLDER_IMAGE as healthcareimg5,
-  PLACEHOLDER_IMAGE as healthcareimg6,
-  PLACEHOLDER_IMAGE as healthcareimg7,
-  PLACEHOLDER_IMAGE as recallImg,
-  PLACEHOLDER_IMAGE as patientIdentitiesImg,
-  PLACEHOLDER_IMAGE as futuristicImg,
-  PLACEHOLDER_IMAGE as bookingWebsiteImg,
-  PLACEHOLDER_IMAGE as dentalImg,
-} from '@/lib/placeholderImage';
+import healthcareimg1 from '../../assets/nextgen-image/Smsemailimg.png';
+import healthcareimg2 from '../../assets/nextgen-image/Patientverificationimg.png';
+import healthcareimg3 from '../../assets/nextgen-image/Helathcareimg.png';
+import healthcareimg4 from '../../assets/nextgen-image/Reviewcollectionimg.png';
+import healthcareimg5 from '../../assets/nextgen-image/Mentalhealthimg.png';
+import healthcareimg6 from '../../assets/nextgen-image/Helathcareimg.png';
+import healthcareimg7 from '../../assets/nextgen-image/Hippacomplianceimg.png';
+import recallImg from '../../assets/nextgen-image/Medicalautomationimg.png';
+import patientIdentitiesImg from '../../assets/nextgen-image/Brandidentityimg.png';
+import futuristicImg from '../../assets/nextgen-image/Gptbotimg.png';
+import bookingWebsiteImg from '../../assets/nextgen-image/Websiteimg.png';
+import dentalImg from '../../assets/nextgen-image/Dentalimg.png';
 
 /* ============================================================
    HEALTHCARE NEWS — article data store.

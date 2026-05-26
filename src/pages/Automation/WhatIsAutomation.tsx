@@ -1,13 +1,5 @@
 import { Link } from 'react-router-dom';
-import {
-  PLACEHOLDER_IMAGE as healthcareimg1,
-  PLACEHOLDER_IMAGE as healthcareimg2,
-  PLACEHOLDER_IMAGE as healthcareimg3,
-  PLACEHOLDER_IMAGE as healthcareimg4,
-  PLACEHOLDER_IMAGE as healthcareimg5,
-  PLACEHOLDER_IMAGE as healthcareimg6,
-  PLACEHOLDER_IMAGE as healthcareimg7,
-} from '@/lib/placeholderImage';
+import healthautoImg from '../../assets/nextgen-image/Healthautoimg.png';
 
 const WhatIsAutomation = () => {
   return (
@@ -45,28 +37,8 @@ const WhatIsAutomation = () => {
           </div>
 
           <div className="reveal d2">
-            <div className="what-collage">
-              <div className="col-tile tile-a">
-                <img src={healthcareimg1} alt="" loading="lazy" />
-              </div>
-              <div className="col-tile tile-b">
-                <img src={healthcareimg2} alt="" loading="lazy" />
-              </div>
-              <div className="col-tile tile-c">
-                <img src={healthcareimg3} alt="" loading="lazy" />
-              </div>
-              <div className="col-tile tile-d">
-                <img src={healthcareimg4} alt="" loading="lazy" />
-              </div>
-              <div className="col-tile tile-e">
-                <img src={healthcareimg5} alt="" loading="lazy" />
-              </div>
-              <div className="col-tile tile-f">
-                <img src={healthcareimg6} alt="" loading="lazy" />
-              </div>
-              <div className="col-tile tile-g">
-                <img src={healthcareimg7} alt="" loading="lazy" />
-              </div>
+            <div className="what-single">
+              <img src={healthautoImg} alt="" loading="lazy" decoding="async" />
             </div>
           </div>
         </div>

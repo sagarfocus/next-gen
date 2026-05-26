@@ -180,9 +180,30 @@ interface NewsThumbProps {
   aspect?: 'landscape' | 'square';
   /** Optional caption rendered in the top-left chrome. */
   caption?: string;
+  /** Optional real image. When provided, the SVG motif is replaced by an <img>. */
+  image?: string;
+  /** Optional alt text for the image. */
+  alt?: string;
 }
 
-const NewsThumb = ({ category, seed, aspect = 'landscape', caption }: NewsThumbProps) => {
+const NewsThumb = ({ category, seed, aspect = 'landscape', caption, image, alt }: NewsThumbProps) => {
+  if (image) {
+    return (
+      <img
+        src={image}
+        alt={alt ?? ''}
+        loading="lazy"
+        decoding="async"
+        style={{
+          width: '100%',
+          height: '100%',
+          objectFit: 'cover',
+          objectPosition: 'center',
+          display: 'block',
+        }}
+      />
+    );
+  }
   const tone = TONE_BY_CATEGORY[category] ?? 'periwinkle';
   const palette = PALETTES[tone];
   const motif = motifFor(category, hash(seed));

@@ -1,5 +1,11 @@
 import { Link } from 'react-router-dom';
 import NewsThumb from './NewsThumb';
+import { newsBySlug } from './news.data';
+
+const imgFor = (path: string) => {
+  const slug = path.replace('/healthcare-news/', '');
+  return newsBySlug(slug)?.img;
+};
 
 interface SideArticle {
   to: string;
@@ -47,6 +53,7 @@ const NewsHeroGrid = () => {
                 seed="hn-main-research"
                 aspect="landscape"
                 caption="Editorial · Research"
+                image={imgFor('/healthcare-news/ai-imaging-diagnostic-errors')}
               />
             </div>
             <span className="hg-cat">Research</span>
@@ -77,6 +84,7 @@ const NewsHeroGrid = () => {
                     category={article.cat}
                     seed={`hg-side-${article.to}`}
                     aspect="square"
+                    image={imgFor(article.to)}
                   />
                 </div>
                 <div>

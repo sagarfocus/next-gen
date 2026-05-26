@@ -2,6 +2,12 @@ import type { ReactElement } from 'react';
 import { Link } from 'react-router-dom';
 import NewsThumb from './NewsThumb';
 import { ArrowIcon } from '@/components/icons';
+import { newsBySlug } from './news.data';
+
+const imgFor = (path: string) => {
+  const slug = path.replace('/healthcare-news/', '');
+  return newsBySlug(slug)?.img;
+};
 
 interface LatestItem {
   to: string;
@@ -169,7 +175,12 @@ const NewsThreeColumn = () => {
             {LATEST.map((item) => (
               <Link key={item.to} className="latest-item" to={item.to}>
                 <div className="latest-img">
-                  <NewsThumb category={item.cat} seed={`latest-${item.to}`} aspect="square" />
+                  <NewsThumb
+                    category={item.cat}
+                    seed={`latest-${item.to}`}
+                    aspect="square"
+                    image={imgFor(item.to)}
+                  />
                 </div>
                 <div>
                   <span className="latest-cat">{item.cat}</span>
@@ -196,6 +207,7 @@ const NewsThreeColumn = () => {
                   seed="featured-main-long-read"
                   aspect="landscape"
                   caption="Long Read · Practice Operations"
+                  image={imgFor(FEATURED_MAIN_TO)}
                 />
               </div>
               <span className="featured-item-cat">Long Read · Practice Operations</span>
