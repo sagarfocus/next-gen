@@ -1,11 +1,9 @@
-import {
-  PLACEHOLDER_IMAGE as photoShree,
-  PLACEHOLDER_IMAGE as photoBikash,
-  PLACEHOLDER_IMAGE as photoSonu,
-  PLACEHOLDER_IMAGE as photoSumit,
-  PLACEHOLDER_IMAGE as photoRahul,
-  PLACEHOLDER_IMAGE as photoBijesh,
-} from '@/lib/placeholderImage';
+import photoShree from '@/assets/team-thumbs/shree-gauli.jpg';
+import photoBikash from '@/assets/team-thumbs/bikash-neupane.jpg';
+import photoSonu from '@/assets/team-thumbs/sagar-dongol.jpg';
+import photoSumit from '@/assets/team-thumbs/sumit-sharma.jpg';
+import photoRahul from '@/assets/team-thumbs/rahul-roy.jpg';
+import photoBijesh from '@/assets/team-thumbs/bijesh-khadgi.jpg';
 import { SITE } from '@/content/site';
 
 export interface Role {

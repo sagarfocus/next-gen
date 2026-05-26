@@ -3,10 +3,9 @@ import { AnimatedBackground, MotionButton, Parallax } from '@/lib/motion';
 import { ArrowIcon } from '@/components/icons';
 import medspaImg from '@/assets/nextgen-image/Medspas&wellnessimg.png';
 import urgentImg from '@/assets/nextgen-image/Urgentcareimg.png';
-import {
-  PLACEHOLDER_IMAGE as dentalImg,
-  PLACEHOLDER_IMAGE as mentalImg,
-} from '@/lib/placeholderImage';
+import dentalImg from '@/assets/nextgen-image/Dentalimg.png';
+import mentalImg from '@/assets/nextgen-image/Mentalhealthimg.png';
+import bannerImg from '@/assets/nextgen-image/Freegrowthauditimg.png';
 
 /* -----------------------------------------------------------
    Sample-report mockup that sits beside the form on desktop.
@@ -16,79 +15,8 @@ import {
    ----------------------------------------------------------- */
 const ReportPreview = () => (
   <div className="fga-hero-stage" aria-hidden="true">
-    <div className="fga-doc-spread">
-      <div className="fga-doc-page fga-doc-page-back">
-        <div className="fga-doc-row fga-doc-head">
-          <span className="fga-doc-dot" />
-          <span className="fga-doc-label">90-DAY PLAN</span>
-          <span className="fga-doc-meta">P. 02</span>
-        </div>
-        <ul className="fga-doc-plan">
-          <li>
-            <span className="fga-doc-plan-num">01</span>
-            <div>
-              <strong>Schema + AI Overview eligibility</strong>
-              <em>Week 1–2 · High impact</em>
-            </div>
-          </li>
-          <li>
-            <span className="fga-doc-plan-num">02</span>
-            <div>
-              <strong>Rebuild paid landing flow</strong>
-              <em>Week 2–4 · CAC -28%</em>
-            </div>
-          </li>
-          <li>
-            <span className="fga-doc-plan-num">03</span>
-            <div>
-              <strong>Review cadence + reply SLA</strong>
-              <em>Week 3–6 · 4.2→4.8★</em>
-            </div>
-          </li>
-          <li>
-            <span className="fga-doc-plan-num">04</span>
-            <div>
-              <strong>GBP service-area pages</strong>
-              <em>Week 4–8 · Local pack</em>
-            </div>
-          </li>
-        </ul>
-      </div>
-
-      <div className="fga-doc-page fga-doc-page-front">
-        <div className="fga-doc-row fga-doc-head">
-          <span className="fga-doc-dot" />
-          <span className="fga-doc-label">GROWTH AUDIT · 2026</span>
-          <span className="fga-doc-meta">CONFIDENTIAL</span>
-        </div>
-        <div className="fga-doc-row">
-          <h4 className="fga-doc-h">Visibility Score</h4>
-          <div className="fga-doc-score">
-            <span className="fga-doc-score-num">64</span>
-            <span className="fga-doc-score-base">/100</span>
-          </div>
-        </div>
-        <div className="fga-doc-bars">
-          {[
-            { label: 'Local Pack', w: 72 },
-            { label: 'Organic', w: 58 },
-            { label: 'AI Overviews', w: 34 },
-            { label: 'Reviews', w: 81 },
-          ].map((b) => (
-            <div key={b.label} className="fga-doc-bar">
-              <span style={{ width: `${b.w}%` }} />
-              <label>{b.label}</label>
-              <strong>{b.w}</strong>
-            </div>
-          ))}
-        </div>
-        <div className="fga-doc-divider" />
-        <div className="fga-doc-row fga-doc-foot">
-          <span>Top fix</span>
-          <strong>Schema + AI Overviews</strong>
-          <span className="fga-doc-arrow">↗</span>
-        </div>
-      </div>
+    <div className="fga-hero-banner">
+      <img src={bannerImg} alt="" loading="eager" />
     </div>
 
     {/* Floating practice thumbnails — show variety of audiences */}
@@ -111,9 +39,6 @@ const ReportPreview = () => (
       </div>
     </Parallax>
 
-    <div className="fga-chip fga-chip-1">
-      <span className="fga-chip-dot" /> Live ranking pull
-    </div>
     <div className="fga-chip fga-chip-3">
       <svg
         width={11}

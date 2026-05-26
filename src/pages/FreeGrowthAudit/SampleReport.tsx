@@ -1,6 +1,6 @@
-import analyticsImg from '@/assets/nextgen-image/Analytics&report.png';
-import seoImg from '@/assets/nextgen-image/Seoimg.png';
-import strategyImg from '@/assets/nextgen-image/Strategy&planning.png';
+import visibilityImg from '@/assets/nextgen-image/Visibiltyscoreimg.png';
+import funnelImg from '@/assets/nextgen-image/Funnelleakmapimg.png';
+import planImg from '@/assets/nextgen-image/90daysplanimg.png';
 
 interface ReportPage {
   num: string;
@@ -16,7 +16,7 @@ const PAGES: ReportPage[] = [
     num: '01',
     title: 'Visibility Score',
     caption: 'Page 1 — how you stack up locally',
-    img: seoImg,
+    img: visibilityImg,
     alt: 'Sample local SEO visibility score report page',
     bullets: [
       'Score 0–100 across Local Pack, organic, AI Overviews, reviews',
@@ -28,7 +28,7 @@ const PAGES: ReportPage[] = [
     num: '02',
     title: 'Funnel Leak Map',
     caption: 'Page 3 — the step losing the most patients',
-    img: analyticsImg,
+    img: funnelImg,
     alt: 'Sample funnel leak analytics dashboard for a healthcare practice',
     bullets: [
       'Search → click → visit → form → book, step by step',
@@ -40,7 +40,7 @@ const PAGES: ReportPage[] = [
     num: '03',
     title: 'Ranked 90-Day Plan',
     caption: 'Page 7 — what to do, in order',
-    img: strategyImg,
+    img: planImg,
     alt: 'Sample 90-day healthcare marketing strategy plan deliverable',
     bullets: [
       'Highest-ROI move first, every action time-boxed',

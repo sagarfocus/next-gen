@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-import { PLACEHOLDER_IMAGE as collabImg } from '@/lib/placeholderImage';
+import collabImg from '@/assets/nextgen-image/Ouradvantageimg1.png';
 import { ArrowIcon } from '@/components/icons';
 
 const CTA = () => (

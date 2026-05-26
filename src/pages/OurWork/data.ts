@@ -1,7 +1,5 @@
-import {
-  PLACEHOLDER_IMAGE as nextHeroImg1,
-  PLACEHOLDER_IMAGE as nextHeroImg2,
-} from '@/lib/placeholderImage';
+import nextHeroImg1 from '@/assets/nextgen-image/Ourworkbannerimg.png';
+import { PLACEHOLDER_IMAGE as nextHeroImg2 } from '@/lib/placeholderImage';
 
 export const IMG = {
   spotlight: nextHeroImg1,
