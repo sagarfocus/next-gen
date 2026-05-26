@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
 
-import aboutImg1 from '../../assets/healthcare-1.png';
-import aboutImg2 from '../../assets/healthcare-2.png';
-import aboutImg3 from '../../assets/healthcare-3.png';
+import aboutImg1 from '../../assets/nextgen-image/Abooutimg1.png';
+import aboutImg2 from '../../assets/nextgen-image/Aboutimg2.png';
+import aboutImg3 from '../../assets/nextgen-image/Aboutimg3.png';
 import { ArrowIcon } from '@/components/icons';
 
 const LeafIcon = () => (

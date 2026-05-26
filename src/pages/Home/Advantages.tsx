@@ -1,5 +1,5 @@
 import { CountUp } from '@/lib/motion';
-import advantagesImg from '../../assets/our-advantage.png';
+import advantagesImg from '../../assets/nextgen-image/Ouradvantageimg1.png';
 
 interface AdvantageStat {
   value: number;

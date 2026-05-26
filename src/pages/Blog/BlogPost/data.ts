@@ -1,14 +1,16 @@
 import { useEffect } from 'react';
 import { SITE } from '@/content/site';
-import imgCompliance from '../../../assets/patient-identities.png';
-import imgPaid from '../../../assets/paid-media.png';
-import imgReputation from '../../../assets/recall-plus.png';
-import imgSeo from '../../../assets/local-search.png';
-import imgAutomation from '../../../assets/medical-automation.png';
-import imgMedspa from '../../../assets/medspa.png';
-import imgUrgent from '../../../assets/urgent-care.png';
-import imgAnalytics from '../../../assets/analytics-and-report.png';
-import imgFsed from '../../../assets/freestanding-emergency.png';
+import imgMedspa from '../../../assets/nextgen-image/Medspas&wellnessimg.png';
+import imgUrgent from '../../../assets/nextgen-image/Urgentcareimg.png';
+import imgAnalytics from '../../../assets/nextgen-image/Analytics&report.png';
+import imgFsed from '../../../assets/nextgen-image/Erimg.png';
+import imgSeo from '../../../assets/nextgen-image/Seoimg.png';
+import imgAutomation from '../../../assets/nextgen-image/Medicalautomationimg.png';
+import {
+  PLACEHOLDER_IMAGE as imgCompliance,
+  PLACEHOLDER_IMAGE as imgPaid,
+  PLACEHOLDER_IMAGE as imgReputation,
+} from '@/lib/placeholderImage';
 import type { BlogPostData } from '@/content/blog/posts';
 
 export const COLORS = {

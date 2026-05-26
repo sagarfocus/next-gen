@@ -1,6 +1,6 @@
 import Breadcrumb from '@/components/Breadcrumb';
 import type { BlogPostData } from '@/content/blog/posts';
-import imgDefault from '../../../assets/healthcare-3.png';
+import { PLACEHOLDER_IMAGE as imgDefault } from '@/lib/placeholderImage';
 import { COLORS, FEATURE_IMAGES, toneForPost, initialsOf } from './data';
 
 /* ─── Tone-coloured category pill ─── */

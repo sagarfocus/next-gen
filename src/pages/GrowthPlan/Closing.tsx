@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import closingImg from '../../assets/healthcare-5.png';
+import { PLACEHOLDER_IMAGE as closingImg } from '@/lib/placeholderImage';
 
 const Closing = () => (
   <section className="border-t border-line-faint">

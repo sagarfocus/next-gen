@@ -1,10 +1,12 @@
-import storyBannerImg from '../../assets/our-advantage.png';
-import story1 from '../../assets/healthcare-1.png';
+import storyBannerImg from '../../assets/nextgen-image/Ouradvantageimg1.png';
 import story2 from '../../assets/jay-1.webp';
-import story3 from '../../assets/healthcare-2.png';
-import story4 from '../../assets/shree-gauli.png';
-import story5 from '../../assets/healthcare-4.png';
-import story6 from '../../assets/bikash-neupane.png';
+import {
+  PLACEHOLDER_IMAGE as story1,
+  PLACEHOLDER_IMAGE as story3,
+  PLACEHOLDER_IMAGE as story4,
+  PLACEHOLDER_IMAGE as story5,
+  PLACEHOLDER_IMAGE as story6,
+} from '@/lib/placeholderImage';
 
 const Story = () => (
   <section className="hcp-story">

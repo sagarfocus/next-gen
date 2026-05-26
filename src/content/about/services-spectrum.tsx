@@ -1,4 +1,6 @@
 import type { ReactElement } from 'react';
+import whatWeDoImg from '@/assets/nextgen-image/whatwedoimg.png';
+import whatWeDoImg1 from '@/assets/nextgen-image/whatwedoimg1.png';
 
 export interface PillarFeature {
   icon: ReactElement;
@@ -12,6 +14,7 @@ export interface Pillar {
   text: string;
   icon: ReactElement;
   art: ReactElement;
+  image?: string;
   features: PillarFeature[];
   metric: { value: string; label: string };
 }
@@ -20,6 +23,7 @@ export const PILLARS: Pillar[] = [
   {
     tag: 'Digital Acquisition',
     title: 'Patient Acquisition Channels',
+    image: whatWeDoImg,
     text: 'Get found by patients actively searching for care in your area - and convert that intent into booked appointments across every channel that moves the needle.',
     icon: (
       <svg
@@ -128,6 +132,7 @@ export const PILLARS: Pillar[] = [
   {
     tag: 'Infrastructure & Brand',
     title: 'Operational Foundation',
+    image: whatWeDoImg1,
     text: 'The foundation every modern practice needs - a HIPAA-compliant website, a trusted clinical brand, and analytics that prove what works.',
     icon: (
       <svg

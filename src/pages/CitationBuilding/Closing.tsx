@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import closingImg from '../../assets/our-advantage.png';
+import closingImg from '../../assets/nextgen-image/Ouradvantageimg1.png';
 import { COLORS } from './data';
 
 const Closing = () => (

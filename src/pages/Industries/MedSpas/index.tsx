@@ -18,10 +18,12 @@ import type { Principle } from '@/components/industry/IndustryPrinciples';
 import type { Snapshot } from '@/components/industry/IndustrySnapshots';
 import type { ServiceFAQItem } from '@/components/service/ServiceFAQ';
 import type { RelatedServiceLink } from '@/components/service/RelatedServices';
-import medspasHero from '../../../assets/med-spa-banner.png';
-import snapMedspa from '../../../assets/medspa.png';
-import snapAesthetic from '../../../assets/plastic-surgery.png';
-import snapDerm from '../../../assets/dermatology.png';
+import medspasHero from '../../../assets/nextgen-image/Medspas&wellnessimg.png';
+import snapMedspa from '../../../assets/nextgen-image/Medspas&wellnessimg.png';
+import {
+  PLACEHOLDER_IMAGE as snapAesthetic,
+  PLACEHOLDER_IMAGE as snapDerm,
+} from '@/lib/placeholderImage';
 
 const BREADCRUMB_SCHEMA = buildBreadcrumbList([
   { name: 'Home', path: '/' },

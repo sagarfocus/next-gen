@@ -144,12 +144,28 @@ const Services = () => {
 
         <div className="services-track-wrap">
           <div className="services-grid" ref={trackRef}>
-            {HOME_SERVICES.map(({ tag, title, sub, ariaLabel, image, to }) => (
+            {HOME_SERVICES.map(({ tag, title, sub, ariaLabel, image, imgFocus, to }) => (
               <MotionCard key={title} naked tilt={4} className="service-card-tilt">
                 <Link to={to} className="service-card" aria-label={ariaLabel}>
                   <div className="card-img">
                     <CardArrow />
-                    <img src={image} alt={title} width={1448} height={1086} loading="lazy" decoding="async" />
+                    <img
+                      src={image}
+                      alt={title}
+                      width={1448}
+                      height={1086}
+                      loading="lazy"
+                      decoding="async"
+                      style={
+                        imgFocus && imgFocus !== 'center'
+                          ? {
+                              transform: 'scale(1.25)',
+                              transformOrigin: `${imgFocus} center`,
+                              objectPosition: `${imgFocus} center`,
+                            }
+                          : undefined
+                      }
+                    />
                   </div>
                   <span className="card-tag">{tag}</span>
                   <h3 className="card-title">{title}</h3>

@@ -1,4 +1,4 @@
-import imgTestimonial from '../../assets/healthcare-4.png';
+import { PLACEHOLDER_IMAGE as imgTestimonial } from '@/lib/placeholderImage';
 
 /* ---------- VOICE / TESTIMONIAL ---------- */
 const Voice = () => (

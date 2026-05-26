@@ -1,11 +1,13 @@
 import { Link } from 'react-router-dom';
-import healthcareimg1 from '../../assets/healthcare-1.png';
-import healthcareimg2 from '../../assets/healthcare-2.png';
-import healthcareimg3 from '../../assets/healthcare-3.png';
-import healthcareimg4 from '../../assets/healthcare-4.png';
-import healthcareimg5 from '../../assets/healthcare-5.png';
-import healthcareimg6 from '../../assets/healthcare-6.png';
-import healthcareimg7 from '../../assets/healthcare-7.png';
+import {
+  PLACEHOLDER_IMAGE as healthcareimg1,
+  PLACEHOLDER_IMAGE as healthcareimg2,
+  PLACEHOLDER_IMAGE as healthcareimg3,
+  PLACEHOLDER_IMAGE as healthcareimg4,
+  PLACEHOLDER_IMAGE as healthcareimg5,
+  PLACEHOLDER_IMAGE as healthcareimg6,
+  PLACEHOLDER_IMAGE as healthcareimg7,
+} from '@/lib/placeholderImage';
 
 const WhatIsAutomation = () => {
   return (

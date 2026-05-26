@@ -1,8 +1,8 @@
 import type { ReactNode } from 'react';
 
-import phase1Img from '../../assets/analytics-and-report.png';
-import phase2Img from '../../assets/strategy-planning.png';
-import phase3Img from '../../assets/paid-media.png';
+import phase1Img from '../../assets/nextgen-image/Analytics&report.png';
+import phase2Img from '../../assets/nextgen-image/Strategy&planning.png';
+import { PLACEHOLDER_IMAGE as phase3Img } from '@/lib/placeholderImage';
 
 export interface Phase {
   num: string;

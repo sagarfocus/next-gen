@@ -1,4 +1,4 @@
-import patientImg from '@/assets/patient-identities.png';
+import { PLACEHOLDER_IMAGE as patientImg } from '@/lib/placeholderImage';
 
 /* -----------------------------------------------------------
    HIPAA + data-handling promise.

@@ -1,9 +1,9 @@
-import seoImg from '../../assets/seo-local-search.png';
-import socialImg from '../../assets/social-media-marketing.png';
-import adsImg from '../../assets/google-ads.png';
-import fieldImg from '../../assets/onsite-field-marketing.png';
-import autoImg from '../../assets/medical-automation.png';
-import emailImg from '../../assets/email-drip-campaigns.png';
+import fieldImg from '../../assets/nextgen-image/Onsitefieldmarketing.png';
+import autoImg from '../../assets/nextgen-image/Medicalautomationimg.png';
+import seoImg from '../../assets/nextgen-image/Seoimg.png';
+import socialImg from '../../assets/nextgen-image/Socialmediaimg.png';
+import emailImg from '../../assets/nextgen-image/Emailcampingimg.png';
+import adsImg from '../../assets/nextgen-image/googleadsimg.png';
 
 /**
  * Home page — "Marketing built for healthcare practices." section.
@@ -19,6 +19,7 @@ export interface HomeServiceCard {
   sub: string;
   ariaLabel: string;
   image: string;
+  imgFocus?: 'left' | 'right' | 'center';
   to: string;
 }
 
@@ -69,6 +70,7 @@ export const HOME_SERVICES: readonly HomeServiceCard[] = [
     sub: 'n8n & custom workflows that handle intake, follow-up, and reporting.',
     ariaLabel: 'Medical Automation',
     image: autoImg,
+    imgFocus: 'left',
     to: '/medical-automation',
   },
   {

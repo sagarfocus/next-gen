@@ -1,5 +1,5 @@
 import Breadcrumb from '@/components/Breadcrumb';
-import heroImg from '../../assets/local-search.png';
+import heroImg from '../../assets/nextgen-image/Citationbuilding.png';
 import { COLORS, STATS } from './data';
 
 const Hero = () => (

@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-import ctaImg from '../../assets/healthcare-7.png';
+import { PLACEHOLDER_IMAGE as ctaImg } from '@/lib/placeholderImage';
 import { ArrowIcon } from '@/components/icons';
 import { PinIcon, CompassIcon } from './icons';
 

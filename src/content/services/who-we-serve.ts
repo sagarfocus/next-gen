@@ -1,10 +1,11 @@
-import clinicsImg from '../../assets/built-for-clinic.png';
-import medspaImg from '../../assets/medspa-aesthetic.png';
-import emergencyImg from '../../assets/freestanding-emergency.png';
+import clinicsImg from '../../assets/nextgen-image/Clinicalimg1.png';
+import medspaImg from '../../assets/nextgen-image/Medspas&wellnessimg.png';
+import emergencyImg from '../../assets/nextgen-image/Erimg.png';
 
 export interface ServeCard {
   ariaId: string;
   image: string;
+  imgPosition?: string;
   tag: string;
   title: string;
   desc: string;
@@ -43,6 +44,7 @@ export const CARDS: ServeCard[] = [
   {
     ariaId: 'serve-3',
     image: emergencyImg,
+    imgPosition: 'left center',
     tag: 'Acuity',
     title: 'Specialty & Emergency Care',
     desc: 'Compliance-aware, urgency-first patient acquisition for ERs, urgent care, and specialty practices.',

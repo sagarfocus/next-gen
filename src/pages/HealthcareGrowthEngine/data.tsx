@@ -1,6 +1,6 @@
-import imgSeo from '../../assets/local-search.png';
-import imgPaid from '../../assets/paid-media.png';
-import imgAutomation from '../../assets/medical-automation.png';
+import imgSeo from '../../assets/nextgen-image/Seoimg.png';
+import imgAutomation from '../../assets/nextgen-image/Medicalautomationimg.png';
+import { PLACEHOLDER_IMAGE as imgPaid } from '@/lib/placeholderImage';
 import { SITE } from '@/content/site';
 
 /* ---------- TYPES ---------- */

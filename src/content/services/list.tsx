@@ -1,22 +1,23 @@
 import type { ReactElement } from 'react';
 
-import seoImg from '../../assets/seo-local-search.png';
-import socialImg from '../../assets/social-media-marketing.png';
-import adsImg from '../../assets/google-ads.png';
-import fieldImg from '../../assets/onsite-field-marketing.png';
-import metaImg from '../../assets/meta-ads.png';
-import contentImg from '../../assets/content-copywriting.png';
-import gbpImg from '../../assets/google-business.png';
-import webImg from '../../assets/website-design.png';
-import brandImg from '../../assets/brand-identity.png';
-import emailImg from '../../assets/email-drip-campaigns.png';
-import strategyImg from '../../assets/strategy-planning.png';
-import analyticsImg from '../../assets/analytics-and-report.png';
+import fieldImg from '../../assets/nextgen-image/Onsitefieldmarketing.png';
+import seoImg from '../../assets/nextgen-image/Seoimg.png';
+import socialImg from '../../assets/nextgen-image/Socialmediaimg.png';
+import metaImg from '../../assets/nextgen-image/Metaadsimg.png';
+import brandImg from '../../assets/nextgen-image/Brandidentityimg.png';
+import emailImg from '../../assets/nextgen-image/Emailcampingimg.png';
+import adsImg from '../../assets/nextgen-image/googleadsimg.png';
+import contentImg from '../../assets/nextgen-image/Content&copywriting.png';
+import gbpImg from '../../assets/nextgen-image/Googlebuisnessprofile.png';
+import webImg from '../../assets/nextgen-image/Websiteimg.png';
+import strategyImg from '../../assets/nextgen-image/Strategy&planning.png';
+import analyticsImg from '../../assets/nextgen-image/Analytics&report.png';
 
 export interface ServiceItem {
   ariaId: string;
   illustration: ReactElement;
   image?: string;
+  imgFocus?: 'left' | 'right' | 'center';
   meta: string;
   title: string;
   sub: string;
@@ -527,6 +528,7 @@ export const SERVICES: ServiceItem[] = [
     ariaId: 'svc-7',
     illustration: WebCard,
     image: webImg,
+    imgFocus: 'right',
     meta: 'Web',
     title: 'Website Design & Development',
     sub: 'Fast, accessible sites built to convert.',

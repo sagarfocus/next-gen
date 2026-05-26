@@ -1,10 +1,12 @@
 import { Link } from 'react-router-dom';
 import { AnimatedBackground, MotionButton, Parallax } from '@/lib/motion';
 import { ArrowIcon } from '@/components/icons';
-import dentalImg from '@/assets/dental.png';
-import medspaImg from '@/assets/medspa.png';
-import urgentImg from '@/assets/urgent-care.png';
-import mentalImg from '@/assets/mental-health.png';
+import medspaImg from '@/assets/nextgen-image/Medspas&wellnessimg.png';
+import urgentImg from '@/assets/nextgen-image/Urgentcareimg.png';
+import {
+  PLACEHOLDER_IMAGE as dentalImg,
+  PLACEHOLDER_IMAGE as mentalImg,
+} from '@/lib/placeholderImage';
 
 /* -----------------------------------------------------------
    Sample-report mockup that sits beside the form on desktop.

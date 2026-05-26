@@ -1,6 +1,6 @@
-import analyticsImg from '@/assets/analytics-and-report.png';
-import seoImg from '@/assets/seo-local-search.png';
-import strategyImg from '@/assets/strategy-planning.png';
+import analyticsImg from '@/assets/nextgen-image/Analytics&report.png';
+import seoImg from '@/assets/nextgen-image/Seoimg.png';
+import strategyImg from '@/assets/nextgen-image/Strategy&planning.png';
 
 interface ReportPage {
   num: string;

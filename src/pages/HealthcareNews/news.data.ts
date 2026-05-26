@@ -1,20 +1,22 @@
-import healthcareimg1 from '../../assets/healthcare-1.png';
-import healthcareimg2 from '../../assets/healthcare-2.png';
-import healthcareimg3 from '../../assets/healthcare-3.png';
-import healthcareimg4 from '../../assets/healthcare-4.png';
-import healthcareimg5 from '../../assets/healthcare-5.png';
-import healthcareimg6 from '../../assets/healthcare-6.png';
-import healthcareimg7 from '../../assets/healthcare-7.png';
-import analyticsImg from '../../assets/analytics-and-report.png';
-import recallImg from '../../assets/recall-plus.png';
-import patientIdentitiesImg from '../../assets/patient-identities.png';
-import futuristicImg from '../../assets/futuristic-healthcare.png';
-import ouradvantageImg from '../../assets/our-advantage.png';
-import bookingWebsiteImg from '../../assets/booking-first-website.png';
-import builtForClinicImg from '../../assets/built-for-clinic.png';
-import medSpaImg from '../../assets/med-spa-banner.png';
-import dentalImg from '../../assets/dental.png';
-import emailImg from '../../assets/email-drip-campaigns.png';
+import analyticsImg from '../../assets/nextgen-image/Analytics&report.png';
+import ouradvantageImg from '../../assets/nextgen-image/Ouradvantageimg1.png';
+import builtForClinicImg from '../../assets/nextgen-image/Clinicalimg1.png';
+import medSpaImg from '../../assets/nextgen-image/Medspas&wellnessimg.png';
+import emailImg from '../../assets/nextgen-image/Emailcampingimg.png';
+import {
+  PLACEHOLDER_IMAGE as healthcareimg1,
+  PLACEHOLDER_IMAGE as healthcareimg2,
+  PLACEHOLDER_IMAGE as healthcareimg3,
+  PLACEHOLDER_IMAGE as healthcareimg4,
+  PLACEHOLDER_IMAGE as healthcareimg5,
+  PLACEHOLDER_IMAGE as healthcareimg6,
+  PLACEHOLDER_IMAGE as healthcareimg7,
+  PLACEHOLDER_IMAGE as recallImg,
+  PLACEHOLDER_IMAGE as patientIdentitiesImg,
+  PLACEHOLDER_IMAGE as futuristicImg,
+  PLACEHOLDER_IMAGE as bookingWebsiteImg,
+  PLACEHOLDER_IMAGE as dentalImg,
+} from '@/lib/placeholderImage';
 
 /* ============================================================
    HEALTHCARE NEWS — article data store.

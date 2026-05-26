@@ -1,4 +1,4 @@
-import advantagesImg from '../../assets/our-advantage.png';
+import advantagesImg from '../../assets/nextgen-image/Ouradvantageimg1.png';
 
 /**
  * Home page — "Our Advantages" section content.

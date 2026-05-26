@@ -18,10 +18,12 @@ import type { Principle } from '@/components/industry/IndustryPrinciples';
 import type { Snapshot } from '@/components/industry/IndustrySnapshots';
 import type { ServiceFAQItem } from '@/components/service/ServiceFAQ';
 import type { RelatedServiceLink } from '@/components/service/RelatedServices';
-import emergencyHero from '../../../assets/er.png';
-import snapUrgent from '../../../assets/urgent-care.png';
-import snapFreestanding from '../../../assets/freestanding-er.png';
-import snapSpecialty from '../../../assets/ophthalmology.png';
+import snapUrgent from '../../../assets/nextgen-image/Urgentcareimg.png';
+import snapFreestanding from '../../../assets/nextgen-image/Erimg.png';
+import {
+  PLACEHOLDER_IMAGE as emergencyHero,
+  PLACEHOLDER_IMAGE as snapSpecialty,
+} from '@/lib/placeholderImage';
 
 const BREADCRUMB_SCHEMA = buildBreadcrumbList([
   { name: 'Home', path: '/' },

@@ -1,13 +1,13 @@
-import dentalImg from '../../assets/dental.png';
-import urgentCareImg from '../../assets/urgent-care-banner.png';
-import medspaImg from '../../assets/medspa-aesthetic.png';
-import freestandingErImg from '../../assets/freestanding-er.png';
-import mentalHealthImg from '../../assets/mental-health.png';
-import primaryCareImg from '../../assets/primary-care.png';
-import chiropracticImg from '../../assets/chiropractic.png';
-import plasticSurgeryImg from '../../assets/plastic-surgery.png';
-import ophthalmologyImg from '../../assets/ophthalmology.png';
-import dermatologyImg from '../../assets/dermatology.png';
+import urgentCareImg from '../../assets/nextgen-image/Urgentcareimg.png';
+import medspaImg from '../../assets/nextgen-image/Medspas&wellnessimg.png';
+import freestandingErImg from '../../assets/nextgen-image/Erimg.png';
+import dentalImg from '../../assets/nextgen-image/Dentalimg.png';
+import mentalHealthImg from '../../assets/nextgen-image/Mentalhealthimg.png';
+import primaryCareImg from '../../assets/nextgen-image/Primarycareimg.png';
+import chiropracticImg from '../../assets/nextgen-image/Chiropracticimg.png';
+import plasticSurgeryImg from '../../assets/nextgen-image/Plasticsurgeryimg.png';
+import ophthalmologyImg from '../../assets/nextgen-image/Opthalmologyimg.png';
+import dermatologyImg from '../../assets/nextgen-image/Dermatologyimg.png';
 
 export interface IndustryFAQ {
   q: string;

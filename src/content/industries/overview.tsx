@@ -1,7 +1,7 @@
 import type { ReactElement } from 'react';
-import emergencyImg from '../../assets/freestanding-emergency.png';
-import urgentCareImg from '../../assets/urgent-care-banner.png';
-import medspaImg from '../../assets/medspa-aesthetic.png';
+import emergencyImg from '../../assets/nextgen-image/Erimg.png';
+import urgentCareImg from '../../assets/nextgen-image/Urgentcareimg.png';
+import medspaImg from '../../assets/nextgen-image/Medspas&wellnessimg.png';
 
 export interface OverviewCard {
   slug: string;

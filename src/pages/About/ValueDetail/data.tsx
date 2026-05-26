@@ -1,8 +1,8 @@
 import type { ReactElement } from 'react';
 import type { NarrativeBlock } from '@/components/DetailNarrative';
-import healthcareImg1 from '../../../assets/healthcare-1.png';
-import healthcareImg2 from '../../../assets/healthcare-2.png';
-import strategyImg from '../../../assets/strategy-planning.png';
+import healthcareImg1 from '../../../assets/nextgen-image/Abooutimg1.png';
+import healthcareImg2 from '../../../assets/nextgen-image/Aboutimg2.png';
+import strategyImg from '../../../assets/nextgen-image/Strategy&planning.png';
 import { valueDetailHref, type ValueEntry } from '@/content/about/values.data';
 import { SITE } from '@/content/site';
 

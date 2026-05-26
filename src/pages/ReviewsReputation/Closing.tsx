@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import closingVisual from '../../assets/built-for-clinic.png';
+import closingVisual from '../../assets/nextgen-image/Clinicalimg1.png';
 
 const Closing = () => (
   <section className="border-t border-line-faint">

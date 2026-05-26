@@ -1,9 +1,11 @@
-import photoShree from '../../../assets/shree-gauli.png';
-import photoBikash from '../../../assets/bikash-neupane.png';
-import photoSonu from '../../../assets/sagar-dongol.png';
-import photoSumit from '../../../assets/sumit-sharma.png';
-import photoRahul from '../../../assets/rahul-roy.png';
-import photoBijesh from '../../../assets/bijesh-khadgi.png';
+import {
+  PLACEHOLDER_IMAGE as photoShree,
+  PLACEHOLDER_IMAGE as photoBikash,
+  PLACEHOLDER_IMAGE as photoSonu,
+  PLACEHOLDER_IMAGE as photoSumit,
+  PLACEHOLDER_IMAGE as photoRahul,
+  PLACEHOLDER_IMAGE as photoBijesh,
+} from '@/lib/placeholderImage';
 import { SITE } from '@/content/site';
 
 export interface Role {

@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import Breadcrumb from '@/components/Breadcrumb';
 import { ArrowIcon } from '@/components/icons';
-import imgHero from '../../assets/futuristic-healthcare.png';
+import { PLACEHOLDER_IMAGE as imgHero } from '@/lib/placeholderImage';
 import { HEAD_META, HERO_PULSE } from './data';
 
 /* ---------- HERO ---------- */

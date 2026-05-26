@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import Breadcrumb from '@/components/Breadcrumb';
-import moreInfoBanner from '../../../assets/more-info-banner.png';
+import { PLACEHOLDER_IMAGE as moreInfoBanner } from '@/lib/placeholderImage';
 import { ArrowIcon } from '@/components/icons';
 
 const Hero = () => (

@@ -1,4 +1,4 @@
-import channelsVisual from '../../assets/our-advantage.png';
+import channelsVisual from '../../assets/nextgen-image/Ouradvantageimg1.png';
 import SectionHeader from './SectionHeader';
 import { CHANNELS } from './data';
 

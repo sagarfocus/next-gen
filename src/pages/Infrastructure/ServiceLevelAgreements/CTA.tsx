@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import ctaImg from '../../../assets/healthcare-2.png';
+import { PLACEHOLDER_IMAGE as ctaImg } from '@/lib/placeholderImage';
 import { ArrowIcon } from '@/components/icons';
 
 const CTA = () => (

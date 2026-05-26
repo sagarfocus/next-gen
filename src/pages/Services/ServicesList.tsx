@@ -49,7 +49,7 @@ const ServicesList = () => {
         </div>
 
         <div className="svc-cards">
-          {SERVICES.map(({ ariaId, illustration, image, meta, title, sub, to, extra }) => (
+          {SERVICES.map(({ ariaId, illustration, image, imgFocus, meta, title, sub, to, extra }) => (
             <Link
               key={ariaId}
               to={to}
@@ -58,7 +58,21 @@ const ServicesList = () => {
             >
               <div className={`svc-card-img${image ? ' has-img' : ''}`}>
                 {image ? (
-                  <img src={image} alt={title} loading="lazy" decoding="async" />
+                  <img
+                    src={image}
+                    alt={title}
+                    loading="lazy"
+                    decoding="async"
+                    style={
+                      imgFocus && imgFocus !== 'center'
+                        ? {
+                            transform: 'scale(1.25)',
+                            transformOrigin: `${imgFocus} center`,
+                            objectPosition: `${imgFocus} center`,
+                          }
+                        : undefined
+                    }
+                  />
                 ) : (
                   illustration
                 )}

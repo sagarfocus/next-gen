@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-import heroImg from '../../assets/local-search.png';
+import heroImg from '../../assets/nextgen-image/Hyperlocalcontent.png';
 import { ArrowIcon } from '@/components/icons';
 import { PinIcon, CompassIcon } from './icons';
 import { MARKERS } from './data';

@@ -1,5 +1,5 @@
 import Breadcrumb from '@/components/Breadcrumb';
-import heroImg from '../../assets/futuristic-healthcare.png';
+import heroImg from '../../assets/nextgen-image/Aeo&schemaimg.png';
 import { COLORS, STATS } from './data';
 
 const Hero = () => (

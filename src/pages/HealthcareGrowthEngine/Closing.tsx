@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { ArrowIcon } from '@/components/icons';
-import imgClosing from '../../assets/built-for-clinic.png';
+import imgClosing from '../../assets/nextgen-image/Clinicalimg1.png';
 
 /* ---------- CLOSING ---------- */
 const Closing = () => (

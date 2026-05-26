@@ -35,7 +35,7 @@ const WhoWeServe = () => {
         </div>
 
         <div className="serve-grid">
-          {CARDS.map(({ ariaId, image, tag, title, desc, points, accent, to, stat, cta }) => (
+          {CARDS.map(({ ariaId, image, imgPosition, tag, title, desc, points, accent, to, stat, cta }) => (
             <Link
               key={ariaId}
               to={to}
@@ -44,7 +44,13 @@ const WhoWeServe = () => {
               style={{ ['--serve-accent' as string]: accent }}
             >
               <div className="serve-img" aria-hidden="true">
-                <img src={image} alt="" loading="lazy" decoding="async" />
+                <img
+                  src={image}
+                  alt=""
+                  loading="lazy"
+                  decoding="async"
+                  style={imgPosition ? { objectPosition: imgPosition } : undefined}
+                />
               </div>
               <div className="serve-overlay" aria-hidden="true" />
 

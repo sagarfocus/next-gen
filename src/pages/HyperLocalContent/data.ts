@@ -1,9 +1,11 @@
-import dallasImg from '../../assets/healthcare-1.png';
-import houstonImg from '../../assets/healthcare-2.png';
-import austinImg from '../../assets/healthcare-3.png';
-import sanAntonioImg from '../../assets/healthcare-4.png';
-import fortWorthImg from '../../assets/healthcare-5.png';
-import elPasoImg from '../../assets/healthcare-6.png';
+import {
+  PLACEHOLDER_IMAGE as dallasImg,
+  PLACEHOLDER_IMAGE as houstonImg,
+  PLACEHOLDER_IMAGE as austinImg,
+  PLACEHOLDER_IMAGE as sanAntonioImg,
+  PLACEHOLDER_IMAGE as fortWorthImg,
+  PLACEHOLDER_IMAGE as elPasoImg,
+} from '@/lib/placeholderImage';
 
 export interface Marker {
   value: string;

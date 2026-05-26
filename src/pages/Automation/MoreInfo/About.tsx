@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import builtForClinic from '../../../assets/built-for-clinic.png';
+import builtForClinic from '../../../assets/nextgen-image/Clinicalimg1.png';
 import { ArrowIcon, CheckIcon } from '@/components/icons';
 import { CHECKLIST } from './data';
 

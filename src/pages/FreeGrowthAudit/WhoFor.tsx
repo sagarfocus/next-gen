@@ -1,11 +1,13 @@
-import dentalImg from '@/assets/dental.png';
-import medspaImg from '@/assets/medspa.png';
-import urgentImg from '@/assets/urgent-care.png';
-import mentalImg from '@/assets/mental-health.png';
-import dermImg from '@/assets/dermatology.png';
-import plasticImg from '@/assets/plastic-surgery.png';
-import primaryImg from '@/assets/primary-care.png';
-import erImg from '@/assets/er.png';
+import medspaImg from '@/assets/nextgen-image/Medspas&wellnessimg.png';
+import urgentImg from '@/assets/nextgen-image/Urgentcareimg.png';
+import {
+  PLACEHOLDER_IMAGE as dentalImg,
+  PLACEHOLDER_IMAGE as mentalImg,
+  PLACEHOLDER_IMAGE as dermImg,
+  PLACEHOLDER_IMAGE as plasticImg,
+  PLACEHOLDER_IMAGE as primaryImg,
+  PLACEHOLDER_IMAGE as erImg,
+} from '@/lib/placeholderImage';
 
 interface Audience {
   img: string;

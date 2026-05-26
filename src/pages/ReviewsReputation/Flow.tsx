@@ -1,4 +1,4 @@
-import loopVisual from '../../assets/analytics-and-report.png';
+import loopVisual from '../../assets/nextgen-image/Analytics&report.png';
 import SectionHeader from './SectionHeader';
 import { FLOW } from './data';
 

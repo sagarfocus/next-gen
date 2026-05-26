@@ -1,7 +1,7 @@
 import type { CSSProperties } from 'react';
 import { Link } from 'react-router-dom';
 
-import heroImg from '../../../assets/analytics-and-report.png';
+import heroImg from '../../../assets/nextgen-image/Analytics&report.png';
 import { ArrowIcon } from '@/components/icons';
 import Gauge from './Gauge';
 

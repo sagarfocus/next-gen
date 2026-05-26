@@ -19,7 +19,11 @@ const ServicesSpectrum = () => {
           {PILLARS.map((pillar) => (
             <article key={pillar.tag} className="ab-spec-pillar">
               <div className="ab-spec-pillar-art" aria-hidden="true">
-                {pillar.art}
+                {pillar.image ? (
+                  <img src={pillar.image} alt="" loading="lazy" decoding="async" />
+                ) : (
+                  pillar.art
+                )}
               </div>
               <div className="ab-spec-pillar-head">
                 <span className="ab-spec-pillar-icon" aria-hidden="true">

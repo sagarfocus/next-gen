@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-import heroImg from '../../../assets/healthcare-7.png';
+import { PLACEHOLDER_IMAGE as heroImg } from '@/lib/placeholderImage';
 import { ArrowIcon } from '@/components/icons';
 
 const Hero = () => (

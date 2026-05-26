@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-import ctaImg from '../../../assets/built-for-clinic.png';
+import ctaImg from '../../../assets/nextgen-image/Clinicalimg1.png';
 import { ArrowIcon } from '@/components/icons';
 
 const CTA = () => (
