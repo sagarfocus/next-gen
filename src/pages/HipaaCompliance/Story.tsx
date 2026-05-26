@@ -1,4 +1,4 @@
-import storyBannerImg from '../../assets/nextgen-image/Ouradvantageimg1.png';
+import storyBannerImg from '../../assets/nextgen-image/Ourstoryimg.png';
 import story2 from '../../assets/jay-1.webp';
 import {
   PLACEHOLDER_IMAGE as story1,

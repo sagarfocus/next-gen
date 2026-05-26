@@ -1,4 +1,10 @@
 import type { ReactNode } from 'react';
+import patientVerificationImg from '@/assets/nextgen-image/Patientverificationimg.png';
+import smsEmailImg from '@/assets/nextgen-image/Smsemailimg.png';
+import reviewCollectionImg from '@/assets/nextgen-image/Reviewcollectionimg.png';
+import realtimeEligibilityImg from '@/assets/nextgen-image/Realtimeeligibilityimg.png';
+import gptBotImg from '@/assets/nextgen-image/Gptbotimg.png';
+import dailyAiSocialImg from '@/assets/nextgen-image/Dailyaisocialimg.png';
 
 /* ============================================================
    AUTOMATION · TEMPLATES — data + category illustrations.
@@ -19,6 +25,8 @@ export interface Template {
   effort: string;
   saves: string;
   compliance: Compliance;
+  img: string;
+  imgAlt: string;
 }
 
 export const TEMPLATES: Template[] = [
@@ -34,6 +42,8 @@ export const TEMPLATES: Template[] = [
     effort: '~45 min setup',
     saves: 'Saves 6–9 hrs/week',
     compliance: 'BAA required',
+    img: patientVerificationImg,
+    imgAlt: 'Patient intake and insurance verification workflow illustration.',
   },
   {
     num: '02',
@@ -47,6 +57,8 @@ export const TEMPLATES: Template[] = [
     effort: '~30 min setup',
     saves: 'Saves 4–6 hrs/week',
     compliance: 'HIPAA-aware',
+    img: smsEmailImg,
+    imgAlt: 'SMS and email reminder cadence workflow illustration.',
   },
   {
     num: '03',
@@ -60,6 +72,8 @@ export const TEMPLATES: Template[] = [
     effort: '~40 min setup',
     saves: '5× review velocity',
     compliance: 'PHI-free',
+    img: reviewCollectionImg,
+    imgAlt: 'Sentiment-routed review collection workflow illustration.',
   },
   {
     num: '04',
@@ -73,6 +87,8 @@ export const TEMPLATES: Template[] = [
     effort: '~60 min setup',
     saves: 'Saves 8–12 hrs/week',
     compliance: 'BAA required',
+    img: realtimeEligibilityImg,
+    imgAlt: 'Real-time insurance eligibility bot workflow illustration.',
   },
   {
     num: '05',
@@ -86,6 +102,8 @@ export const TEMPLATES: Template[] = [
     effort: '~75 min setup',
     saves: '24/7 lead capture',
     compliance: 'PHI-free',
+    img: gptBotImg,
+    imgAlt: 'GPT chatbot for lead capture workflow illustration.',
   },
   {
     num: '06',
@@ -99,6 +117,8 @@ export const TEMPLATES: Template[] = [
     effort: '~50 min setup',
     saves: '3 hrs/week creative',
     compliance: 'PHI-free',
+    img: dailyAiSocialImg,
+    imgAlt: 'Daily AI social auto-poster workflow illustration.',
   },
 ];
 

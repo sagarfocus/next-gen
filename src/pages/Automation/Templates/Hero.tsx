@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import Breadcrumb from '@/components/Breadcrumb';
 import { AnimatedBackground } from '@/lib/motion';
 import { ArrowIcon } from '@/components/icons';
-import { CategoryArt } from './data';
+import templateBannerImg from '../../../assets/nextgen-image/Automationtemplateimg.png';
 
 const Hero = ({ filter, visibleCount }: { filter: string; visibleCount: number }) => (
   <section className="atx-hero" aria-labelledby="atx-hero-title">
@@ -60,7 +60,7 @@ const Hero = ({ filter, visibleCount }: { filter: string; visibleCount: number }
 
         <figure className="atx-hero-art" aria-hidden="true">
           <div className="atx-hero-art-frame">
-            <CategoryArt cat="AI" />
+            <img src={templateBannerImg} alt="" loading="eager" decoding="async" />
           </div>
           <figcaption className="atx-hero-art-cap">FIG. 01 — AUTOMATION SPECIMEN</figcaption>
         </figure>

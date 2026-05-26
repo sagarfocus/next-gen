@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { PLACEHOLDER_IMAGE as closingImg } from '@/lib/placeholderImage';
+import closingImg from '@/assets/nextgen-image/Freegrowthauditimg.png';
 
 const Closing = () => (
   <section className="border-t border-line-faint">
@@ -12,7 +12,7 @@ const Closing = () => (
         <div className="relative min-h-[320px] lg:min-h-[480px]">
           <img
             src={closingImg}
-            alt=""
+            alt="Two-week growth audit diagnostic — forensic plan deliverable."
             className="absolute inset-0 w-full h-full object-cover"
             loading="lazy"
             decoding="async"

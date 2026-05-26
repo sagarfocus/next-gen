@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { PLACEHOLDER_IMAGE as heroImg } from '@/lib/placeholderImage';
+import heroImg from '../../assets/nextgen-image/Hippabannerimg.png';
 import { ArrowIcon } from '@/components/icons';
 
 const Hero = () => (

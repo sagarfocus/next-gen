@@ -1,13 +1,17 @@
 import { Link } from 'react-router-dom';
 import { ArrowIcon } from '@/components/icons';
-import { CategoryArt, type Template } from './data';
+import { type Template } from './data';
 
 const TemplateCard = ({ t, index }: { t: Template; index: number }) => (
   <li id={`tpl-${t.num}`} className={`atx-card tone-${t.tone}`}>
-    <div className="atx-card-art" aria-hidden="true">
-      <CategoryArt cat={t.cat} />
-      <span className="atx-card-num">/{t.num}</span>
-      <span className="atx-card-cat-pill">{t.cat}</span>
+    <div className="atx-card-art">
+      <img className="atx-card-img" src={t.img} alt={t.imgAlt} loading="lazy" decoding="async" />
+      <span className="atx-card-num" aria-hidden="true">
+        /{t.num}
+      </span>
+      <span className="atx-card-cat-pill" aria-hidden="true">
+        {t.cat}
+      </span>
     </div>
     <div className="atx-card-body">
       <div className="atx-card-head">

@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import Breadcrumb from '@/components/Breadcrumb';
-import { PLACEHOLDER_IMAGE as futuristicHealthcare } from '@/lib/placeholderImage';
+import futuristicHealthcare from '../../assets/nextgen-image/Automationbannerimg.png';
 import { ArrowIcon } from '@/components/icons';
 
 interface AutomationHeroProps {

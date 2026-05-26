@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import Breadcrumb from '@/components/Breadcrumb';
 import { ArrowIcon } from '@/components/icons';
-import { PLACEHOLDER_IMAGE as imgHero } from '@/lib/placeholderImage';
+import imgHero from '@/assets/nextgen-image/Patientgrowthimg.png';
 import { HEAD_META, HERO_PULSE } from './data';
 
 /* ---------- HERO ---------- */
