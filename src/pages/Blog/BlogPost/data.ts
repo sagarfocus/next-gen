@@ -1,16 +1,14 @@
 import { useEffect } from 'react';
 import { SITE } from '@/content/site';
-import imgMedspa from '../../../assets/nextgen-image/Medspas&wellnessimg.png';
-import imgUrgent from '../../../assets/nextgen-image/Urgentcareimg.png';
-import imgAnalytics from '../../../assets/nextgen-image/Analytics&report.png';
-import imgFsed from '../../../assets/nextgen-image/Erimg.png';
-import imgSeo from '../../../assets/nextgen-image/Seoimg.png';
-import imgAutomation from '../../../assets/nextgen-image/Medicalautomationimg.png';
-import {
-  PLACEHOLDER_IMAGE as imgCompliance,
-  PLACEHOLDER_IMAGE as imgPaid,
-  PLACEHOLDER_IMAGE as imgReputation,
-} from '@/lib/placeholderImage';
+import imgCompliance from '../../../assets/nextgen-image/Hippablogimg.png';
+import imgPaid from '../../../assets/nextgen-image/Urgentcpablogimg.png';
+import imgReputation from '../../../assets/nextgen-image/Googlereviewblogimg.png';
+import imgSeo from '../../../assets/nextgen-image/7googlebuisnessblogimg.png';
+import imgAutomation from '../../../assets/nextgen-image/Aipatientblogimg.png';
+import imgMedspa from '../../../assets/nextgen-image/Medspaltvblogimg.png';
+import imgUrgent from '../../../assets/nextgen-image/Waitmarketingblogimg.png';
+import imgAnalytics from '../../../assets/nextgen-image/Marketingbloghimg.png';
+import imgFsed from '../../../assets/nextgen-image/freestandingerblogimg.png';
 import type { BlogPostData } from '@/content/blog/posts';
 
 export const COLORS = {

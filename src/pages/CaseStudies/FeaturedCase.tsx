@@ -1,3 +1,5 @@
+import specialtyEmergencyErImg from '@/assets/nextgen-image/specialtyemergencyerimg.png';
+
 const FeaturedCaseArt = () => (
   <svg
     viewBox="0 0 1000 700"
@@ -175,6 +177,11 @@ const FeaturedCase = () => {
 
           <div className="feat-img">
             <FeaturedCaseArt />
+            <img
+              src={specialtyEmergencyErImg}
+              alt="Dallas Metro ER — featured case study"
+              style={{ position: 'absolute', inset: 0 }}
+            />
             <div className="feat-img-overlay" />
             <div className="feat-img-tag">
               <span>Dallas, TX</span>

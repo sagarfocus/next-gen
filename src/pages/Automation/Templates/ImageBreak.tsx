@@ -1,11 +1,17 @@
-import { CategoryArt } from './data';
+import n8nWorkflowImg from '@/assets/nextgen-image/N8Nworkflowimg.png';
 
 const ImageBreak = () => (
   <section className="atx-break" aria-hidden="true">
     <div className="container-shell">
       <div className="atx-break-frame">
         <div className="atx-break-art">
-          <CategoryArt cat="Intake" />
+          <img
+            src={n8nWorkflowImg}
+            alt=""
+            loading="lazy"
+            decoding="async"
+            className="atx-break-img"
+          />
         </div>
         <div className="atx-break-meta">
           <span className="atx-mono">FIG. 09 — IN PRACTICE</span>

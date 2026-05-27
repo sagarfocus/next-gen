@@ -3,6 +3,7 @@ import FeaturedCase from './FeaturedCase';
 import PartnersMarquee from './PartnersMarquee';
 import CaseStudiesCarousel from './CaseStudiesCarousel';
 import StatsStrip from './StatsStrip';
+import CaseStudySpotlight from './CaseStudySpotlight';
 import EngagementProcess from './EngagementProcess';
 import CTABanner from './CTABanner';
 import Seo from '@/components/Seo';
@@ -55,6 +56,7 @@ const CaseStudies = () => {
       <PartnersMarquee />
       <CaseStudiesCarousel />
       <StatsStrip />
+      <CaseStudySpotlight />
       <EngagementProcess />
       <CTABanner />
     </>
