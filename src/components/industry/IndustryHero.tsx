@@ -1,5 +1,6 @@
 import type { ReactElement, ReactNode } from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 export interface QuickStat {
   num: ReactNode;
@@ -15,11 +16,12 @@ interface IndustryHeroProps {
 }
 
 const IndustryHero = ({ tag, title, lede, illustration, quickStats }: IndustryHeroProps) => {
+  const { t } = useTranslation('common');
   return (
     <section className="iv-hero" aria-labelledby="iv-hero-title">
       <div className="iv-hero-inner">
         <div className="iv-hero-crumb">
-          <Link to="/industries">Industries</Link>
+          <Link to="/industries">{t('components.industryHero.rootLabel')}</Link>
           <span className="sep" aria-hidden="true">
             /
           </span>

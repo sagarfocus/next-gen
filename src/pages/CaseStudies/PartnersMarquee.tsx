@@ -1,4 +1,5 @@
 import { Fragment } from 'react';
+import { useTranslation } from 'react-i18next';
 
 const PARTNERS = [
   'Dallas Metro ER',
@@ -11,6 +12,7 @@ const PARTNERS = [
 ];
 
 const PartnersMarquee = () => {
+  const { t } = useTranslation('pages');
   // Duplicate the partner list so the CSS marquee animation loops seamlessly.
   const loop = [...PARTNERS, ...PARTNERS];
 
@@ -18,9 +20,10 @@ const PartnersMarquee = () => {
     <section className="cs-marquee">
       <div className="container-shell">
         <div className="cs-marquee-head">
-          <div className="cs-eyebrow">Trusted partners</div>
+          <div className="cs-eyebrow">{t('caseStudies.marquee.eyebrow')}</div>
           <h2>
-            We work with <em>healthcare leaders</em>
+            {t('caseStudies.marquee.titleStart')}
+            <em>{t('caseStudies.marquee.titleItalic')}</em>
           </h2>
         </div>
       </div>

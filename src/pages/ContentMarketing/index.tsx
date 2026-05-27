@@ -1,4 +1,5 @@
 import '../../styles/contentmarketing.css';
+import { useTranslation } from 'react-i18next';
 import Hero from './Hero';
 import TrustBar from './TrustBar';
 import ContentTypes from './ContentTypes';
@@ -48,11 +49,12 @@ const BREADCRUMB_SCHEMA = buildBreadcrumbList([
 ]);
 
 const ContentMarketing = () => {
+  const { t } = useTranslation('pages');
   return (
     <>
       <Seo
-        title="Healthcare Content Marketing — Clinician-Reviewed, E-E-A-T Ready"
-        description="Pillar pages, articles, location pages, AEO answers, patient stories, and newsletters — written by healthcare specialists, reviewed by licensed clinicians."
+        title={t('contentMarketing.seo.title')}
+        description={t('contentMarketing.seo.description')}
         path="/services/content-copywriting"
         schema={[SERVICE_SCHEMA, FAQ_SCHEMA, BREADCRUMB_SCHEMA]}
       />

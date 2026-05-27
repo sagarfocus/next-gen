@@ -1,5 +1,6 @@
+import { useTranslation } from 'react-i18next';
 import { ArrowIcon } from '@/components/icons';
-import { FAQS } from '@/content/industries/faqs';
+import { useIndustriesFaqs } from '@/content/industries/faqs';
 
 interface FAQProps {
   onBook: () => void;
@@ -13,32 +14,27 @@ const FAQChevron = () => (
 );
 
 const IndustriesFAQ = ({ onBook }: FAQProps) => {
+  const { t } = useTranslation('industries');
+  const faqs = useIndustriesFaqs();
+
   return (
     <section className="faq-section" id="industries-faq" aria-labelledby="ind-faq-title">
       <div className="container-shell">
         <div className="faq-grid">
           <div className="faq-left">
-            <span className="faq-eyebrow">Industry Questions, Answered</span>
+            <span className="faq-eyebrow">{t('faqs.eyebrow')}</span>
             <h2 id="ind-faq-title" className="faq-h2">
-              Vertical-specific <br />
-              <span className="accent-text">Questions</span>.
+              {t('faqs.titleLead')}
+              <br />
+              <span className="accent-text">{t('faqs.titleAccent')}</span>
+              {t('faqs.titleTrail')}
             </h2>
-            <p className="faq-intro">
-              How we tailor strategy, compliance, and timelines for every healthcare specialty we
-              serve - from high-acuity ER traffic to elective aesthetic acquisition.
-            </p>
+            <p className="faq-intro">{t('faqs.intro')}</p>
 
             <div className="still-card">
-              <h3>Don&rsquo;t see your specialty?</h3>
-              <p>
-                We work across more verticals than we list. If you run a healthcare or wellness
-                practice with patients to acquire, let&rsquo;s talk - we&rsquo;ll tell you honestly
-                whether our playbook fits your specialty.
-              </p>
-              <p>
-                One call. No pitch deck. We&rsquo;ll audit your current funnel and tell you the
-                three biggest gaps in your vertical.
-              </p>
+              <h3>{t('faqs.still.title')}</h3>
+              <p>{t('faqs.still.body1')}</p>
+              <p>{t('faqs.still.body2')}</p>
               <button
                 type="button"
                 className="btn-primary"
@@ -46,14 +42,14 @@ const IndustriesFAQ = ({ onBook }: FAQProps) => {
                 aria-haspopup="dialog"
                 aria-controls="bookingModal"
               >
-                Book a Free Audit
+                {t('faqs.still.cta')}
                 <ArrowIcon size={14} strokeWidth={2} />
               </button>
             </div>
           </div>
 
           <div className="faq-right">
-            {FAQS.map(({ q, a, defaultOpen }) => (
+            {faqs.map(({ q, a, defaultOpen }) => (
               <details
                 key={q}
                 className="faq-item"

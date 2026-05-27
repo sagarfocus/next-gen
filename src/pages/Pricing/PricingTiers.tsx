@@ -1,23 +1,24 @@
+import { useTranslation } from 'react-i18next';
 import { ArrowIcon, CheckIcon, XIcon } from '@/components/icons';
-import { TIERS } from '@/content/pricing/tiers';
+import { useTiers } from '@/content/pricing/tiers';
 
 const PricingTiers = () => {
+  const { t } = useTranslation('pricing');
+  const tiers = useTiers();
+
   return (
     <section className="pr-tiers" aria-labelledby="pr-tiers-title">
       <div className="container-shell">
         <div className="pr-section-head">
-          <span className="pr-section-eyebrow">Choose Your Retainer</span>
+          <span className="pr-section-eyebrow">{t('tiers.eyebrow')}</span>
           <h2 id="pr-tiers-title" className="pr-section-h2">
-            Three tiers. One philosophy: outcomes over hours.
+            {t('tiers.title')}
           </h2>
-          <p className="pr-section-sub">
-            All retainers are HIPAA-compliant by default with a 30-day launch sprint. Choose the
-            tier that matches your scale and growth velocity.
-          </p>
+          <p className="pr-section-sub">{t('tiers.subtitle')}</p>
         </div>
 
         <div className="pr-tiers-grid">
-          {TIERS.map((tier) => (
+          {tiers.map((tier) => (
             <article key={tier.name} className={`pr-tier${tier.featured ? ' is-featured' : ''}`}>
               {tier.badge && <span className="pr-tier-badge">{tier.badge}</span>}
               <span className="pr-tier-name">{tier.name}</span>
@@ -28,7 +29,7 @@ const PricingTiers = () => {
               <p className="pr-tier-tagline">{tier.tagline}</p>
 
               <div className="pr-tier-bestfor">
-                <span className="pr-tier-bestfor-label">Best For</span>
+                <span className="pr-tier-bestfor-label">{t('tiers.bestForLabel')}</span>
                 <span className="pr-tier-bestfor-text">{tier.bestFor}</span>
               </div>
 

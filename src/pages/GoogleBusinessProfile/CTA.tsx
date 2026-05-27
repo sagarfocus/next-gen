@@ -1,7 +1,9 @@
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { ArrowIcon } from '@/components/icons';
 
 const CTA = () => {
+  const { t } = useTranslation('pages');
   return (
     <section className="gb-cta-section" id="audit">
       <div className="container-shell">
@@ -9,23 +11,17 @@ const CTA = () => {
           <div className="gb-cta-left">
             <div className="gb-cta-eyebrow">
               <span className="dot" aria-hidden="true" />
-              Free GBP health check · 3 business days
+              {t('googleBusinessProfile.cta.eyebrow')}
             </div>
-            <h2 className="gb-cta-title">
-              Score every location&rsquo;s profile against the five vectors.
-            </h2>
-            <p className="gb-cta-desc">
-              Send us the profiles you manage. We hand back a scored gap report inside three
-              business days - completeness, categories, reviews, photos, activity - per location.
-              Yours to keep, whether or not we ever work together.
-            </p>
+            <h2 className="gb-cta-title">{t('googleBusinessProfile.cta.title')}</h2>
+            <p className="gb-cta-desc">{t('googleBusinessProfile.cta.desc')}</p>
             <div className="gb-cta-ctas">
               <Link to="/free-growth-audit" className="sl-btn-primary">
-                Request the audit
+                {t('googleBusinessProfile.cta.ctaPrimary')}
                 <ArrowIcon />
               </Link>
               <Link to="/case-studies" className="sl-btn-ghost">
-                See case studies
+                {t('googleBusinessProfile.cta.ctaSecondary')}
                 <svg
                   viewBox="0 0 24 24"
                   fill="none"
@@ -44,19 +40,19 @@ const CTA = () => {
           <div className="gb-cta-right">
             <div className="gb-cta-stat">
               <span className="gb-cta-stat-num">#1</span>
-              <span className="gb-cta-stat-lbl">Avg map-pack position · primary keywords</span>
+              <span className="gb-cta-stat-lbl">{t('googleBusinessProfile.cta.stat1Lbl')}</span>
             </div>
             <div className="gb-cta-stat">
               <span className="gb-cta-stat-num">
                 218<em>%</em>
               </span>
-              <span className="gb-cta-stat-lbl">Direction-request lift · first 90 days</span>
+              <span className="gb-cta-stat-lbl">{t('googleBusinessProfile.cta.stat2Lbl')}</span>
             </div>
             <div className="gb-cta-stat">
               <span className="gb-cta-stat-num">
                 110<em>+</em>
               </span>
-              <span className="gb-cta-stat-lbl">Healthcare locations managed</span>
+              <span className="gb-cta-stat-lbl">{t('googleBusinessProfile.cta.stat3Lbl')}</span>
             </div>
           </div>
         </div>

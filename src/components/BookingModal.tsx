@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { ArrowIcon, ChevronRightIcon } from './icons';
 
 interface BookingModalProps {
@@ -6,20 +7,6 @@ interface BookingModalProps {
   onClose: () => void;
 }
 
-const MONTHS = [
-  'January',
-  'February',
-  'March',
-  'April',
-  'May',
-  'June',
-  'July',
-  'August',
-  'September',
-  'October',
-  'November',
-  'December',
-];
 const SAMPLE_TIMES = ['9:00 AM', '10:00 AM', '11:30 AM', '1:00 PM', '2:30 PM', '4:00 PM'];
 
 const startOfDay = (d: Date) => {
@@ -29,6 +16,8 @@ const startOfDay = (d: Date) => {
 };
 
 const BookingModal = ({ open, onClose }: BookingModalProps) => {
+  const { t, i18n } = useTranslation('common');
+  const locale = (i18n.language || 'en').split('-')[0] === 'es' ? 'es-ES' : 'en-US';
   const today = useMemo(() => startOfDay(new Date()), []);
   const [view, setView] = useState(() => new Date(today.getFullYear(), today.getMonth(), 1));
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
@@ -75,7 +64,7 @@ const BookingModal = ({ open, onClose }: BookingModalProps) => {
   };
 
   const formattedDate = selectedDate
-    ? selectedDate.toLocaleDateString('en-US', {
+    ? selectedDate.toLocaleDateString(locale, {
         weekday: 'long',
         month: 'long',
         day: 'numeric',
@@ -85,9 +74,16 @@ const BookingModal = ({ open, onClose }: BookingModalProps) => {
 
   const confirmLabel = selectedDate
     ? selectedTime
-      ? `Confirm: ${selectedDate.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' })} at ${selectedTime}`
-      : 'Pick a time'
-    : 'Select a date & time';
+      ? t('booking.confirmFormat', {
+          date: selectedDate.toLocaleDateString(locale, {
+            weekday: 'short',
+            month: 'short',
+            day: 'numeric',
+          }),
+          time: selectedTime,
+        })
+      : t('booking.confirmPickTime')
+    : t('booking.confirmSelectDateTime');
 
   return (
     <div
@@ -102,7 +98,12 @@ const BookingModal = ({ open, onClose }: BookingModalProps) => {
       }}
     >
       <div className="modal" role="document">
-        <button type="button" className="modal-close" onClick={onClose} aria-label="Close booking">
+        <button
+          type="button"
+          className="modal-close"
+          onClick={onClose}
+          aria-label={t('booking.closeAriaLabel')}
+        >
           <svg
             width={14}
             height={14}
@@ -119,37 +120,34 @@ const BookingModal = ({ open, onClose }: BookingModalProps) => {
         </button>
 
         <aside className="modal-info">
-          <span className="modal-eyebrow">{confirmed ? 'Hold confirmed' : 'Free 30-min Call'}</span>
+          <span className="modal-eyebrow">
+            {confirmed ? t('booking.eyebrowConfirmed') : t('booking.eyebrowBeforeBook')}
+          </span>
           <h3 id="modalTitle" className="modal-title">
-            {confirmed
-              ? 'You’re on the calendar.'
-              : 'Book a free consultation with a healthcare growth specialist.'}
+            {confirmed ? t('booking.titleConfirmed') : t('booking.titleBeforeBook')}
           </h3>
           <p className="modal-text">
             {confirmed ? (
               <>
-                We&rsquo;ve reserved <strong>{formattedDate}</strong> at{' '}
-                <strong>{selectedTime}</strong>. A confirmation email with the call link will arrive
-                within the next business hour.
+                {t('booking.descriptionConfirmedPrefix')} <strong>{formattedDate}</strong>{' '}
+                {t('booking.descriptionConfirmedJoin')} <strong>{selectedTime}</strong>
+                {t('booking.descriptionConfirmedSuffix')}
               </>
             ) : (
-              <>
-                We&rsquo;ll review your current funnel, identify quick-win opportunities, and
-                outline a custom growth roadmap for your practice.
-              </>
+              t('booking.descriptionBeforeBook')
             )}
           </p>
           <ul className="modal-list">
             {(confirmed
               ? [
-                  'Calendar invite + agenda within 1 business hour',
-                  'A 1-page audit preview the morning of the call',
-                  'No prep needed - bring your top 2 questions',
+                  t('booking.listConfirmed.invite'),
+                  t('booking.listConfirmed.preview'),
+                  t('booking.listConfirmed.prep'),
                 ]
               : [
-                  'Personalized funnel audit',
-                  'Custom 90-day growth roadmap',
-                  'HIPAA-compliant, no commitment',
+                  t('booking.listBeforeBook.audit'),
+                  t('booking.listBeforeBook.roadmap'),
+                  t('booking.listBeforeBook.compliance'),
                 ]
             ).map((item) => (
               <li key={item}>
@@ -172,9 +170,7 @@ const BookingModal = ({ open, onClose }: BookingModalProps) => {
             ))}
           </ul>
           <div className="modal-foot">
-            {confirmed
-              ? 'Need to reschedule? Reply to the confirmation email.'
-              : 'All times shown in your local timezone'}
+            {confirmed ? t('booking.footConfirmed') : t('booking.footBeforeBook')}
           </div>
         </aside>
 
@@ -232,7 +228,7 @@ const BookingModal = ({ open, onClose }: BookingModalProps) => {
                     <polyline points="20 6 9 17 4 12" />
                   </svg>
                 </span>
-                Confirmed
+                {t('booking.confirmedBadge')}
               </div>
               <div>
                 <div
@@ -245,7 +241,7 @@ const BookingModal = ({ open, onClose }: BookingModalProps) => {
                     marginBottom: 6,
                   }}
                 >
-                  Your call
+                  {t('booking.yourCallHeading')}
                 </div>
                 <div
                   style={{
@@ -290,10 +286,10 @@ const BookingModal = ({ open, onClose }: BookingModalProps) => {
                       marginBottom: 4,
                     }}
                   >
-                    Format
+                    {t('booking.formatLabel')}
                   </div>
                   <div style={{ fontSize: 14, fontWeight: 600, color: '#2D3748' }}>
-                    Video call · 30 min
+                    {t('booking.formatValue')}
                   </div>
                 </div>
                 <div>
@@ -307,15 +303,15 @@ const BookingModal = ({ open, onClose }: BookingModalProps) => {
                       marginBottom: 4,
                     }}
                   >
-                    Specialist
+                    {t('booking.specialistLabel')}
                   </div>
                   <div style={{ fontSize: 14, fontWeight: 600, color: '#2D3748' }}>
-                    Assigned by vertical
+                    {t('booking.specialistValue')}
                   </div>
                 </div>
               </div>
               <button type="button" className="cal-confirm" onClick={onClose}>
-                <span>Close</span>
+                <span>{t('buttons.close')}</span>
                 <span className="ico" aria-hidden="true">
                   <ArrowIcon size={14} />
                 </span>
@@ -325,14 +321,14 @@ const BookingModal = ({ open, onClose }: BookingModalProps) => {
             <>
               <div className="cal-head">
                 <span className="cal-month">
-                  {MONTHS[view.getMonth()]} {view.getFullYear()}
+                  {t(`booking.months.${view.getMonth()}`)} {view.getFullYear()}
                 </span>
                 <div className="cal-nav">
                   <button
                     type="button"
                     onClick={() => setView(new Date(view.getFullYear(), view.getMonth() - 1, 1))}
                     disabled={isAtCurrentMonth}
-                    aria-label="Previous month"
+                    aria-label={t('booking.prevMonthAriaLabel')}
                   >
                     <svg
                       width={14}
@@ -350,7 +346,7 @@ const BookingModal = ({ open, onClose }: BookingModalProps) => {
                   <button
                     type="button"
                     onClick={() => setView(new Date(view.getFullYear(), view.getMonth() + 1, 1))}
-                    aria-label="Next month"
+                    aria-label={t('booking.nextMonthAriaLabel')}
                   >
                     <ChevronRightIcon />
                   </button>
@@ -358,16 +354,16 @@ const BookingModal = ({ open, onClose }: BookingModalProps) => {
               </div>
 
               <div className="cal-weekdays">
-                <span>Sun</span>
-                <span>Mon</span>
-                <span>Tue</span>
-                <span>Wed</span>
-                <span>Thu</span>
-                <span>Fri</span>
-                <span>Sat</span>
+                <span>{t('booking.weekdays.sun')}</span>
+                <span>{t('booking.weekdays.mon')}</span>
+                <span>{t('booking.weekdays.tue')}</span>
+                <span>{t('booking.weekdays.wed')}</span>
+                <span>{t('booking.weekdays.thu')}</span>
+                <span>{t('booking.weekdays.fri')}</span>
+                <span>{t('booking.weekdays.sat')}</span>
               </div>
 
-              <div className="cal-grid" role="grid" aria-label="Available dates">
+              <div className="cal-grid" role="grid" aria-label={t('booking.datesGridAriaLabel')}>
                 {Array.from({ length: firstDay }).map((_, i) => (
                   <button
                     key={`blank-${i}`}
@@ -410,20 +406,20 @@ const BookingModal = ({ open, onClose }: BookingModalProps) => {
                 })}
               </div>
 
-              <div className="cal-times" aria-label="Available time slots">
+              <div className="cal-times" aria-label={t('booking.timesAriaLabel')}>
                 {selectedDate ? (
-                  SAMPLE_TIMES.map((t) => (
+                  SAMPLE_TIMES.map((time) => (
                     <button
-                      key={t}
+                      key={time}
                       type="button"
-                      className={`cal-time${selectedTime === t ? ' is-selected' : ''}`}
-                      onClick={() => setSelectedTime(t)}
+                      className={`cal-time${selectedTime === time ? ' is-selected' : ''}`}
+                      onClick={() => setSelectedTime(time)}
                     >
-                      {t}
+                      {time}
                     </button>
                   ))
                 ) : (
-                  <div className="cal-times-empty">Pick a date to see available times</div>
+                  <div className="cal-times-empty">{t('booking.timesEmpty')}</div>
                 )}
               </div>
 

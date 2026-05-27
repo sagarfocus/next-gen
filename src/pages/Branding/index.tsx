@@ -1,4 +1,5 @@
 import '../../styles/branding.css';
+import { useTranslation } from 'react-i18next';
 import Hero from './Hero';
 import TrustBar from './TrustBar';
 import Deliverables from './Deliverables';
@@ -55,11 +56,12 @@ const BREADCRUMB_SCHEMA = buildBreadcrumbList([
 ]);
 
 const Branding = () => {
+  const { t } = useTranslation('pages');
   return (
     <>
       <Seo
-        title="Healthcare Brand Identity & Design — Clinical, Honest, Human"
-        description="Identity, voice, system, and application built around how patients should feel in the waiting room — pressure-tested against the campaigns it has to power."
+        title={t('branding.seo.title')}
+        description={t('branding.seo.description')}
         path="/services/brand-identity-design"
         schema={[SERVICE_SCHEMA, FAQ_SCHEMA, BREADCRUMB_SCHEMA]}
       />

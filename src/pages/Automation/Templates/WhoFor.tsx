@@ -1,29 +1,34 @@
-import { WHO_FOR } from './data';
+import { useTranslation } from 'react-i18next';
+import { WHO_FOR_KEYS } from './data';
 
-const WhoFor = () => (
-  <section className="atx-who" aria-labelledby="atx-who-title">
-    <div className="container-shell">
-      <header className="adv-head det-head">
-        <span className="adv-eyebrow">/ 06 &nbsp; Who this is for</span>
-        <h2 id="atx-who-title" className="adv-h2">
-          Three roles the library was written for.
-        </h2>
-        <p className="adv-intro">
-          The library is one resource, but three readers will pick it up — each one looking for a
-          different boundary, a different number, a different proof.
-        </p>
-      </header>
-      <div className="atx-who-grid">
-        {WHO_FOR.map((p, i) => (
-          <article key={p.label} className="atx-who-card">
-            <span className="atx-who-num">/{String(i + 1).padStart(2, '0')}</span>
-            <h3 className="atx-who-title">{p.label}</h3>
-            <p className="atx-who-desc">{p.desc}</p>
-          </article>
-        ))}
+const WhoFor = () => {
+  const { t } = useTranslation(['automation']);
+  return (
+    <section className="atx-who" aria-labelledby="atx-who-title">
+      <div className="container-shell">
+        <header className="adv-head det-head">
+          <span className="adv-eyebrow">{t('automation:templates.page.whoFor.label')}</span>
+          <h2 id="atx-who-title" className="adv-h2">
+            {t('automation:templates.page.whoFor.title')}
+          </h2>
+          <p className="adv-intro">{t('automation:templates.page.whoFor.intro')}</p>
+        </header>
+        <div className="atx-who-grid">
+          {WHO_FOR_KEYS.map((key, i) => (
+            <article key={key} className="atx-who-card">
+              <span className="atx-who-num">/{String(i + 1).padStart(2, '0')}</span>
+              <h3 className="atx-who-title">
+                {t(`automation:templates.page.whoFor.items.${key}.label`)}
+              </h3>
+              <p className="atx-who-desc">
+                {t(`automation:templates.page.whoFor.items.${key}.desc`)}
+              </p>
+            </article>
+          ))}
+        </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 export default WhoFor;

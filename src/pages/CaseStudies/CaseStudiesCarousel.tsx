@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react';
 import type { CSSProperties, KeyboardEvent, TouchEvent } from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { CASE_STUDIES } from './caseStudies.data';
 import { ArrowIcon, ArrowOutIcon } from '@/components/icons';
 
@@ -29,6 +30,7 @@ const ArrowLeft = () => (
 const ArrowRight = () => <ArrowIcon strokeWidth={2} />;
 
 const CaseStudiesCarousel = () => {
+  const { t } = useTranslation('pages');
   const [index, setIndex] = useState(0);
   const [visible, setVisible] = useState(() =>
     typeof window === 'undefined' ? 3 : visibleForWidth(window.innerWidth)
@@ -102,51 +104,65 @@ const CaseStudiesCarousel = () => {
       <div className="container-shell">
         <div className="cs-head">
           <div>
-            <div className="cs-eyebrow">Case Library · 6 of 38</div>
-            <h2 className="cs-title">Real growth, real numbers, real practices.</h2>
+            <div className="cs-eyebrow">{t('caseStudies.carousel.eyebrow')}</div>
+            <h2 className="cs-title">{t('caseStudies.carousel.title')}</h2>
           </div>
-          <p className="cs-sub">
-            Six recent engagements across primary care, specialty, and urgent care. Tap into any
-            card for the full breakdown - or swipe through with the controls below.
-          </p>
+          <p className="cs-sub">{t('caseStudies.carousel.sub')}</p>
         </div>
 
         <div className="cs-slider" tabIndex={0} onKeyDown={onKey} aria-roledescription="carousel">
           <div className="cs-track-wrap" onTouchStart={onTouchStart} onTouchEnd={onTouchEnd}>
             <div className="cs-track" ref={trackRef}>
-              {CARDS.map((card, i) => (
-                <Link
-                  key={card.id}
-                  ref={i === 0 ? cardRef : undefined}
-                  to={`/case-studies/${card.id}`}
-                  className="cs-card"
-                  aria-label={`Read the ${card.name} case study`}
-                >
-                  <div className="cs-card-top">
-                    <span className="cs-emoji" aria-hidden="true">
-                      {card.emoji}
-                    </span>
-                    <div className="cs-metric">
-                      <div className="cs-metric-num">{card.metricNum}</div>
-                      <div className="cs-metric-lbl">{card.metricLbl}</div>
-                    </div>
-                  </div>
-                  <span className="cs-sector">{card.sector}</span>
-                  <h3 className="cs-name">{card.name}</h3>
-                  <div className="cs-blocks">
-                    {card.blocks.map((block) => (
-                      <div key={block.label} className="cs-block">
-                        <span className="cs-block-lbl">{block.label}</span>
-                        <p className="cs-block-txt">{block.text}</p>
+              {CARDS.map((card, i) => {
+                const localizedName = t(`caseStudies.studies.${card.id}.name`, card.name);
+                return (
+                  <Link
+                    key={card.id}
+                    ref={i === 0 ? cardRef : undefined}
+                    to={`/case-studies/${card.id}`}
+                    className="cs-card"
+                    aria-label={t('caseStudies.carousel.readAriaLabel', { name: localizedName })}
+                  >
+                    <div className="cs-card-top">
+                      <span className="cs-emoji" aria-hidden="true">
+                        {card.emoji}
+                      </span>
+                      <div className="cs-metric">
+                        <div className="cs-metric-num">{card.metricNum}</div>
+                        <div className="cs-metric-lbl">
+                          {t(`caseStudies.studies.${card.id}.metricLbl`, card.metricLbl)}
+                        </div>
                       </div>
-                    ))}
-                  </div>
-                  <div className="cs-foot">
-                    Read full case study
-                    <ArrowOutIcon />
-                  </div>
-                </Link>
-              ))}
+                    </div>
+                    <span className="cs-sector">
+                      {t(`caseStudies.studies.${card.id}.sector`, card.sector)}
+                    </span>
+                    <h3 className="cs-name">{localizedName}</h3>
+                    <div className="cs-blocks">
+                      {card.blocks.map((block) => {
+                        const blockKey = block.label.toLowerCase();
+                        return (
+                          <div key={block.label} className="cs-block">
+                            <span className="cs-block-lbl">
+                              {t(`caseStudies.detail.phaseLabels.${block.label}`, block.label)}
+                            </span>
+                            <p className="cs-block-txt">
+                              {t(
+                                `caseStudies.studies.${card.id}.blocks.${blockKey}`,
+                                block.text
+                              )}
+                            </p>
+                          </div>
+                        );
+                      })}
+                    </div>
+                    <div className="cs-foot">
+                      {t('caseStudies.carousel.readFullCase')}
+                      <ArrowOutIcon />
+                    </div>
+                  </Link>
+                );
+              })}
             </div>
           </div>
 
@@ -156,7 +172,7 @@ const CaseStudiesCarousel = () => {
               className="cs-btn cs-btn-prev"
               onClick={() => go(-1)}
               disabled={index <= 0}
-              aria-label="Previous case studies"
+              aria-label={t('caseStudies.carousel.prevAriaLabel')}
             >
               <ArrowLeft />
             </button>
@@ -170,7 +186,7 @@ const CaseStudiesCarousel = () => {
               className="cs-btn cs-btn-next"
               onClick={() => go(1)}
               disabled={index >= maxIndex}
-              aria-label="Next case studies"
+              aria-label={t('caseStudies.carousel.nextAriaLabel')}
             >
               <ArrowRight />
             </button>

@@ -1,4 +1,5 @@
 import { useParams, Navigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import DetailNarrative from '@/components/DetailNarrative';
 import { findDetail, type DetailKind } from '../details.data';
 import Hero from './Hero';
@@ -8,12 +9,13 @@ import Related from './Related';
 import Closing from './Closing';
 import Seo from '@/components/Seo';
 import { buildBreadcrumbList } from '@/lib/schema';
-import { KIND_GROUP, PAREN_TYPE_LABEL, buildNarrativeBlocks, buildSchema, faqSchema } from './data';
+import { KIND_GROUP, buildNarrativeBlocks, buildSchema, faqSchema, localizedEntryTitle, kindGroupKey } from './data';
 
 const truncate = (s: string, n: number): string =>
   s.length <= n ? s : `${s.slice(0, n - 1).trimEnd()}…`;
 
 const OurWorkDetail = () => {
+  const { t } = useTranslation('pages');
   const { kind, slug } = useParams<{ kind: string; slug: string }>();
   const validKind =
     kind === 'engagement' || kind === 'industry' || kind === 'capability'
@@ -29,19 +31,27 @@ const OurWorkDetail = () => {
   const group = KIND_GROUP[entry.kind];
   const indexInGroup = group.findIndex((d) => d.slug === entry.slug);
   const numLabel = `${String(indexInGroup + 1).padStart(2, '0')} / ${String(group.length).padStart(2, '0')}`;
-  const narrative = buildNarrativeBlocks(entry);
+
+  const localizedTitle = localizedEntryTitle(entry, t);
+  const localizedDescription = t(
+    `ourWork.${kindGroupKey(entry.kind)}.${entry.slug}.description`,
+    entry.description
+  );
+  const kindLabel = t(`ourWork.detail.kindLabels.${entry.kind}`);
+
+  const narrative = buildNarrativeBlocks(entry, t);
 
   const breadcrumb = buildBreadcrumbList([
     { name: 'Home', path: '/' },
     { name: 'Our Work', path: '/our-work' },
-    { name: `${PAREN_TYPE_LABEL[entry.kind]}: ${entry.title}` },
+    { name: `${kindLabel}: ${localizedTitle}` },
   ]);
 
   return (
     <main className="ow-detail-page">
       <Seo
-        title={`${entry.title} — ${PAREN_TYPE_LABEL[entry.kind]} · Our Work`}
-        description={truncate(entry.description, 160)}
+        title={`${localizedTitle} — ${kindLabel} · Our Work`}
+        description={truncate(localizedDescription, 160)}
         path={`/our-work/${entry.kind}/${entry.slug}`}
         type={entry.kind === 'engagement' ? 'article' : 'website'}
         schema={[buildSchema(entry), faqSchema(entry), breadcrumb]}

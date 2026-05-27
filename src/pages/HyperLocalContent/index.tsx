@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import Hero from './Hero';
 import Why from './Why';
 import Coverage from './Coverage';
@@ -13,26 +14,29 @@ import { SCHEMA } from './data';
    metro tiles, scoped to .hlc-page with .hlc-* class system.
    ============================================================ */
 
-const BREADCRUMB_SCHEMA = buildBreadcrumbList([
-  { name: 'Home', path: '/' },
-  { name: 'Hyper-Local Content' },
-]);
+const HyperLocalContent = () => {
+  const { t } = useTranslation('pages');
+  const breadcrumbSchema = buildBreadcrumbList([
+    { name: t('pages:hyperLocalContent.breadcrumb.home'), path: '/' },
+    { name: t('pages:hyperLocalContent.breadcrumb.current') },
+  ]);
 
-const HyperLocalContent = () => (
-  <main className="hlc-page">
-    <Seo
-      title="Hyper-Local Content for Healthcare — Programmatic Neighborhood Pages"
-      description="Programmatic landing pages — one per municipality, suburb, or catchment your healthcare practice draws from. Built to win long-tail searches hospital networks ignore."
-      path="/hyper-local-content"
-      schema={[SCHEMA, BREADCRUMB_SCHEMA]}
-    />
+  return (
+    <main className="hlc-page">
+      <Seo
+        title={t('pages:hyperLocalContent.seo.title')}
+        description={t('pages:hyperLocalContent.seo.description')}
+        path="/hyper-local-content"
+        schema={[SCHEMA, breadcrumbSchema]}
+      />
 
-    <Hero />
-    <Why />
-    <Coverage />
-    <Anatomy />
-    <CTA />
-  </main>
-);
+      <Hero />
+      <Why />
+      <Coverage />
+      <Anatomy />
+      <CTA />
+    </main>
+  );
+};
 
 export default HyperLocalContent;

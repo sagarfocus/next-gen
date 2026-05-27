@@ -1,4 +1,6 @@
+import { useMemo } from 'react';
 import type { ReactElement } from 'react';
+import { useTranslation } from 'react-i18next';
 
 export interface Principle {
   title: string;
@@ -6,10 +8,14 @@ export interface Principle {
   icon: ReactElement;
 }
 
-export const PRINCIPLES: Principle[] = [
+interface PrincipleSpec {
+  i18nKey: 'healthcare' | 'hipaa' | 'empathy' | 'data';
+  icon: ReactElement;
+}
+
+const PRINCIPLE_SPECS: readonly PrincipleSpec[] = [
   {
-    title: '100% Healthcare',
-    text: 'No e-commerce, no real estate. We only scale medical practices.',
+    i18nKey: 'healthcare',
     icon: (
       <svg
         width={16}
@@ -26,8 +32,7 @@ export const PRINCIPLES: Principle[] = [
     ),
   },
   {
-    title: 'HIPAA Native',
-    text: 'Compliance is the architecture, not an afterthought.',
+    i18nKey: 'hipaa',
     icon: (
       <svg
         width={16}
@@ -45,8 +50,7 @@ export const PRINCIPLES: Principle[] = [
     ),
   },
   {
-    title: 'Clinical Empathy',
-    text: 'Reduce staff burnout, improve patient experience.',
+    i18nKey: 'empathy',
     icon: (
       <svg
         width={16}
@@ -66,8 +70,7 @@ export const PRINCIPLES: Principle[] = [
     ),
   },
   {
-    title: 'Data Verified',
-    text: 'Strict ROI. No vanity metrics, only Cost Per Acquisition.',
+    i18nKey: 'data',
     icon: (
       <svg
         width={16}
@@ -86,3 +89,17 @@ export const PRINCIPLES: Principle[] = [
     ),
   },
 ];
+
+/** React hook for the Genesis principles list. */
+export function usePrinciples(): readonly Principle[] {
+  const { t } = useTranslation('about');
+  return useMemo(
+    () =>
+      PRINCIPLE_SPECS.map((spec) => ({
+        title: t(`genesis.principles.${spec.i18nKey}.title`),
+        text: t(`genesis.principles.${spec.i18nKey}.text`),
+        icon: spec.icon,
+      })),
+    [t]
+  );
+}

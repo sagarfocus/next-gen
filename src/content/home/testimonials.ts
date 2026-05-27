@@ -1,3 +1,6 @@
+import { useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
+
 /**
  * Home page — Testimonials section content.
  *
@@ -5,42 +8,59 @@
  * lives in `src/pages/Home/Testimonials.tsx`.
  */
 
+type TestimonialKey = 'chen' | 'reynolds' | 'rodriguez' | 'park';
+
 export interface HomeTestimonial {
+  key: TestimonialKey;
   initials: string;
   text: string;
   name: string;
   title: string;
 }
 
-export const HOME_TESTIMONIALS_HEAD = {
-  eyebrow: 'Testimonials',
-  title: 'Trusted by healthcare leaders.',
-  sub: 'Join the practices that have transformed their patient acquisition with TheNextGen.',
-} as const;
+export interface HomeTestimonialsHead {
+  eyebrow: string;
+  title: string;
+  sub: string;
+}
 
-export const HOME_TESTIMONIALS: readonly HomeTestimonial[] = [
-  {
-    initials: 'SC',
-    text: 'TheNextGen rebuilt our entire patient pipeline. In 90 days, consults tripled and our cost per lead dropped by half.',
-    name: 'Dr. Sarah Chen',
-    title: 'Owner, Beverly Hills MedSpa',
-  },
-  {
-    initials: 'MR',
-    text: 'Their HIPAA-aware paid media let us scale with confidence. We’ve seen consistent month-over-month growth for over a year.',
-    name: 'Mark Reynolds',
-    title: 'Practice Director, Premier Dental',
-  },
-  {
-    initials: 'ER',
-    text: 'Every decision is backed by clear reporting. The weekly optimization keeps our funnel sharp and our team aligned.',
-    name: 'Dr. Emily Rodriguez',
-    title: 'Founder, Wellness Collective',
-  },
-  {
-    initials: 'JP',
-    text: 'They understand healthcare. Compliance was seamless and ROI showed up in our very first quarter.',
-    name: 'James Park',
-    title: 'CEO, Urgent Care Network',
-  },
+/** React hook for the section header copy. */
+export function useHomeTestimonialsHead(): HomeTestimonialsHead {
+  const { t } = useTranslation('home');
+  return useMemo(
+    () => ({
+      eyebrow: t('testimonials.head.eyebrow'),
+      title: t('testimonials.head.title'),
+      sub: t('testimonials.head.sub'),
+    }),
+    [t]
+  );
+}
+
+interface TestimonialStatic {
+  key: TestimonialKey;
+  initials: string;
+}
+
+const HOME_TESTIMONIALS_STATIC: readonly TestimonialStatic[] = [
+  { key: 'chen', initials: 'SC' },
+  { key: 'reynolds', initials: 'MR' },
+  { key: 'rodriguez', initials: 'ER' },
+  { key: 'park', initials: 'JP' },
 ];
+
+/** React hook for the testimonial card list. */
+export function useHomeTestimonials(): readonly HomeTestimonial[] {
+  const { t } = useTranslation('home');
+  return useMemo(
+    () =>
+      HOME_TESTIMONIALS_STATIC.map((tst) => ({
+        key: tst.key,
+        initials: tst.initials,
+        text: t(`testimonials.items.${tst.key}.text`),
+        name: t(`testimonials.items.${tst.key}.name`),
+        title: t(`testimonials.items.${tst.key}.title`),
+      })),
+    [t]
+  );
+}

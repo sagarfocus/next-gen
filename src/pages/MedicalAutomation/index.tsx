@@ -1,4 +1,5 @@
 import '../../styles/medical-automation.css';
+import { useTranslation } from 'react-i18next';
 import Seo from '@/components/Seo';
 import Hero from './Hero';
 import TrustBar from './TrustBar';
@@ -25,33 +26,36 @@ const FAQ_SCHEMA = {
   })),
 };
 
-const BREADCRUMB_SCHEMA = buildBreadcrumbList([
-  { name: 'Home', path: '/' },
-  { name: 'Medical Automation' },
-]);
+const MedicalAutomation = () => {
+  const { t } = useTranslation('pages');
+  const breadcrumbSchema = buildBreadcrumbList([
+    { name: 'Home', path: '/' },
+    { name: t('pages:medicalAutomation.breadcrumb.current') },
+  ]);
 
-const MedicalAutomation = () => (
-  <>
-    <Seo
-      title="Medical Automation for Healthcare Clinics — HIPAA-Aware, EHR-Connected"
-      description="Six HIPAA-aware workflows on one BAA-covered stack — patient intake, insurance verify, adaptive reminders, AI triage, review capture, recall. EHR-connected, audit-ready, free workflow audit."
-      path="/medical-automation"
-      schema={[SERVICE_SCHEMA, FAQ_SCHEMA, BREADCRUMB_SCHEMA]}
-    />
+  return (
+    <>
+      <Seo
+        title={t('pages:medicalAutomation.seo.title')}
+        description={t('pages:medicalAutomation.seo.description')}
+        path="/medical-automation"
+        schema={[SERVICE_SCHEMA, FAQ_SCHEMA, breadcrumbSchema]}
+      />
 
-    <Hero />
-    <TrustBar />
-    <Brief />
-    <Workflows />
-    <Coverage />
-    <Stack />
-    <Process />
-    <WhyUs />
-    <Metrics />
-    <Testimonials />
-    <FAQ />
-    <CTA />
-  </>
-);
+      <Hero />
+      <TrustBar />
+      <Brief />
+      <Workflows />
+      <Coverage />
+      <Stack />
+      <Process />
+      <WhyUs />
+      <Metrics />
+      <Testimonials />
+      <FAQ />
+      <CTA />
+    </>
+  );
+};
 
 export default MedicalAutomation;

@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import PricingHero from './PricingHero';
 import PricingTiers from './PricingTiers';
 import ComparisonTable from './ComparisonTable';
@@ -58,11 +59,13 @@ const BREADCRUMB_SCHEMA = buildBreadcrumbList([
 ]);
 
 const Pricing = () => {
+  const { t } = useTranslation('pricing');
+
   return (
     <>
       <Seo
-        title="Healthcare Marketing Pricing — Retainer Tiers from $5K/Month"
-        description="Transparent monthly retainers for healthcare marketing — Starter $5K, Growth $10K, Scale custom. No ad-spend markup, no setup fees, month-to-month after a 90-day setup."
+        title={t('seo.title')}
+        description={t('seo.description')}
         path="/pricing"
         schema={[SERVICE_SCHEMA, BREADCRUMB_SCHEMA]}
       />

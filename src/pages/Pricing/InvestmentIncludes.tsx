@@ -1,23 +1,24 @@
+import { useTranslation } from 'react-i18next';
 import { CheckIcon } from '@/components/icons';
-import { CARDS } from '@/content/pricing/includes';
+import { useIncludeCards } from '@/content/pricing/includes';
 
 const InvestmentIncludes = () => {
+  const { t } = useTranslation('pricing');
+  const cards = useIncludeCards();
+
   return (
     <section className="pr-includes" aria-labelledby="pr-inc-title">
       <div className="container-shell">
         <div className="pr-section-head">
-          <span className="pr-section-eyebrow">What Your Investment Includes</span>
+          <span className="pr-section-eyebrow">{t('includes.eyebrow')}</span>
           <h2 id="pr-inc-title" className="pr-section-h2">
-            Not just services. A full-stack growth team.
+            {t('includes.title')}
           </h2>
-          <p className="pr-section-sub">
-            Every retainer integrates an entire department of medical growth experts into your
-            clinic - with HIPAA infrastructure and onboarding included.
-          </p>
+          <p className="pr-section-sub">{t('includes.subtitle')}</p>
         </div>
 
         <div className="pr-includes-grid">
-          {CARDS.map((card) => (
+          {cards.map((card) => (
             <article key={card.tag} className="pr-include-card">
               <span className="pr-include-icon" aria-hidden="true">
                 {card.icon}

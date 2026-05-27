@@ -1,5 +1,6 @@
 import { Fragment } from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import NewsThumb from './NewsThumb';
 import { newsBySlug } from './news.data';
 
@@ -10,98 +11,55 @@ const imgFor = (path: string) => {
 
 interface TrendCard {
   to: string;
-  cat: string;
-  title: string;
-  meta: string;
+  key: 'imaging' | 'tele' | 'voice' | 'reviews' | 'hipaa' | 'sms' | 'n8n' | 'medspa';
 }
 
 const CARDS: TrendCard[] = [
-  {
-    to: '/healthcare-news/ai-imaging-diagnostic-errors',
-    cat: 'Research',
-    title: 'AI imaging tool cuts radiology errors 47%',
-    meta: 'May 1, 2026 · 9 min',
-  },
-  {
-    to: '/healthcare-news/telemedicine-q1-record',
-    cat: 'Telehealth',
-    title: 'Mental-health visits hit a new Q1 record',
-    meta: 'Apr 29 · 6 min',
-  },
-  {
-    to: '/healthcare-news/voice-ai-front-desks',
-    cat: 'Operations',
-    title: 'Voice-AI front desks land in 38 hospitals',
-    meta: 'Apr 28 · 5 min',
-  },
-  {
-    to: '/healthcare-news/patient-reviews-search-weight',
-    cat: 'Marketing',
-    title: 'Why patient reviews carry 3× more SEO weight',
-    meta: 'Apr 27 · 7 min',
-  },
-  {
-    to: '/healthcare-news/hipaa-pitfalls-2026',
-    cat: 'Compliance',
-    title: 'Five HIPAA pitfalls every marketer must know',
-    meta: 'Apr 25 · 9 min',
-  },
-  {
-    to: '/healthcare-news/ehr-sms-no-show-reduction',
-    cat: 'Automation',
-    title: 'EHR-connected SMS cut no-shows by 40%',
-    meta: 'Apr 24 · 5 min',
-  },
-  {
-    to: '/healthcare-news/texas-clinic-n8n-workflows',
-    cat: 'Case Study',
-    title: 'Texas clinic reclaims 18 hrs a week with N8N',
-    meta: 'Apr 22 · 7 min',
-  },
-  {
-    to: '/healthcare-news/medspa-roas-2026',
-    cat: 'Paid Ads',
-    title: 'What healthy ROAS looks like for med-spas',
-    meta: 'Apr 20 · 6 min',
-  },
+  { to: '/healthcare-news/ai-imaging-diagnostic-errors', key: 'imaging' },
+  { to: '/healthcare-news/telemedicine-q1-record', key: 'tele' },
+  { to: '/healthcare-news/voice-ai-front-desks', key: 'voice' },
+  { to: '/healthcare-news/patient-reviews-search-weight', key: 'reviews' },
+  { to: '/healthcare-news/hipaa-pitfalls-2026', key: 'hipaa' },
+  { to: '/healthcare-news/ehr-sms-no-show-reduction', key: 'sms' },
+  { to: '/healthcare-news/texas-clinic-n8n-workflows', key: 'n8n' },
+  { to: '/healthcare-news/medspa-roas-2026', key: 'medspa' },
 ];
 
-const renderCard = (card: TrendCard, ariaHidden: boolean) => (
-  <Link
-    className="trend-card"
-    to={card.to}
-    aria-hidden={ariaHidden || undefined}
-    tabIndex={ariaHidden ? -1 : undefined}
-  >
-    <div className="trend-img">
-      <NewsThumb
-        category={card.cat}
-        seed={`trend-${card.to}`}
-        aspect="landscape"
-        image={imgFor(card.to)}
-      />
-    </div>
-    <span className="trend-cat">{card.cat}</span>
-    <h3 className="trend-title">{card.title}</h3>
-    <div className="trend-meta">{card.meta}</div>
-  </Link>
-);
-
 const TrendingRail = () => {
+  const { t } = useTranslation('pages');
+
+  const renderCard = (card: TrendCard, ariaHidden: boolean) => (
+    <Link
+      className="trend-card"
+      to={card.to}
+      aria-hidden={ariaHidden || undefined}
+      tabIndex={ariaHidden ? -1 : undefined}
+    >
+      <div className="trend-img">
+        <NewsThumb
+          category={t(`healthcareNews.trending.cards.${card.key}.cat`)}
+          seed={`trend-${card.to}`}
+          aspect="landscape"
+          image={imgFor(card.to)}
+        />
+      </div>
+      <span className="trend-cat">{t(`healthcareNews.trending.cards.${card.key}.cat`)}</span>
+      <h3 className="trend-title">{t(`healthcareNews.trending.cards.${card.key}.title`)}</h3>
+      <div className="trend-meta">{t(`healthcareNews.trending.cards.${card.key}.meta`)}</div>
+    </Link>
+  );
+
   return (
     <section className="trending" aria-labelledby="trending-title">
       <div className="container-shell">
         <div className="trending-head">
-          <div className="trending-eyebrow">Welcome to TheNextGen Lab</div>
+          <div className="trending-eyebrow">{t('healthcareNews.trending.eyebrow')}</div>
           <h2 className="trending-title" id="trending-title">
-            Stay updated with
+            {t('healthcareNews.trending.titleLine1')}
             <br />
-            the trending articles
+            {t('healthcareNews.trending.titleLine2')}
           </h2>
-          <p className="trending-sub">
-            Hover any card to pause the rail and click through. New stories drop every Friday in our
-            weekly brief.
-          </p>
+          <p className="trending-sub">{t('healthcareNews.trending.sub')}</p>
         </div>
       </div>
 

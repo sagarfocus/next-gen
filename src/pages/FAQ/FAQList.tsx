@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import type { ChangeEvent } from 'react';
-import { CATEGORIES } from '@/content/faq/categories';
+import { useTranslation } from 'react-i18next';
+import { useFAQCategories } from '@/content/faq/categories';
 
 const SearchIcon = () => (
   <svg
@@ -31,25 +32,27 @@ const PlusIcon = () => (
 );
 
 const FAQList = () => {
+  const { t } = useTranslation('pages');
+  const categories = useFAQCategories();
   const [query, setQuery] = useState('');
   const [openKey, setOpenKey] = useState<string | null>('cat-01:01.01');
-  const [activeCat, setActiveCat] = useState('cat-01');
+  const [activeCat, setActiveCat] = useState(categories[0]?.id ?? '');
   const catRefs = useRef<Record<string, HTMLDivElement | null>>({});
 
   const trimmed = query.trim().toLowerCase();
 
   const filtered = useMemo(() => {
     if (!trimmed) {
-      return CATEGORIES.map((c) => ({ ...c, matches: c.items }));
+      return categories.map((c) => ({ ...c, matches: c.items }));
     }
-    return CATEGORIES.map((c) => ({
+    return categories.map((c) => ({
       ...c,
       matches: c.items.filter((i) => {
         const text = `${i.num} ${i.q}`.toLowerCase();
         return text.includes(trimmed);
       }),
     }));
-  }, [trimmed]);
+  }, [trimmed, categories]);
 
   const totalMatches = filtered.reduce((sum, c) => sum + c.matches.length, 0);
   const isEmpty = trimmed !== '' && totalMatches === 0;
@@ -57,8 +60,8 @@ const FAQList = () => {
   useEffect(() => {
     const onScroll = () => {
       const scrollY = window.pageYOffset + 160;
-      let active = CATEGORIES[0].id;
-      for (const c of CATEGORIES) {
+      let active = categories[0]?.id ?? '';
+      for (const c of categories) {
         const el = catRefs.current[c.id];
         if (el && el.offsetTop <= scrollY) active = c.id;
       }
@@ -75,7 +78,7 @@ const FAQList = () => {
       clearTimeout(t);
       window.removeEventListener('scroll', handler);
     };
-  }, []);
+  }, [categories]);
 
   const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
     setQuery(e.target.value);
@@ -104,22 +107,22 @@ const FAQList = () => {
           <SearchIcon />
           <input
             type="search"
-            placeholder="Search questions - try 'HIPAA', 'pricing', 'EHR'…"
+            placeholder={t('faq.list.searchPlaceholder')}
             value={query}
             onChange={handleSearch}
           />
           {trimmed && (
             <button type="button" className="fp-search-clear" onClick={clearSearch}>
-              Clear
+              {t('faq.list.clear')}
             </button>
           )}
         </div>
 
         <div className="fp-grid">
           <aside className="fp-nav">
-            <h4 className="fp-nav-h">Sections</h4>
+            <h4 className="fp-nav-h">{t('faq.list.sectionsHeader')}</h4>
             <ul className="fp-nav-list">
-              {CATEGORIES.map((c) => (
+              {categories.map((c) => (
                 <li key={c.id}>
                   <button
                     type="button"
@@ -149,7 +152,7 @@ const FAQList = () => {
                   <div className="fp-cat-head">
                     <span className="fp-cat-num">{cat.num}</span>
                     <h2 className="fp-cat-title">{cat.title}</h2>
-                    <span className="fp-cat-count">{cat.items.length} Q&apos;s</span>
+                    <span className="fp-cat-count">{cat.items.length} {t('faq.list.countSuffix')}</span>
                   </div>
 
                   {cat.matches.map((item) => {
@@ -181,8 +184,8 @@ const FAQList = () => {
 
             {isEmpty && (
               <div className="fp-empty is-visible">
-                <strong>No matches.</strong>
-                Try a broader keyword, or <a href="/contact">talk to us directly &rarr;</a>
+                <strong>{t('faq.list.empty.title')}</strong>
+                {t('faq.list.empty.body')} <a href="/contact">{t('faq.list.empty.linkText')}</a>
               </div>
             )}
           </div>

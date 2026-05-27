@@ -3,114 +3,41 @@
    Keep figures consistent so the visualisation, table, and KPI panel agree.
    ──────────────────────────────────────────────────────────────────── */
 
+export type TrajectoryLabelKey =
+  | 'baseline'
+  | 'firstUplift'
+  | 'rankingCrossover'
+  | 'compoundZone';
+
 export interface MonthPoint {
   m: number;
   mult: number;
-  label?: string;
+  labelKey?: TrajectoryLabelKey;
 }
 // y axis: growth multiplier vs baseline (1.0 = month 0).
 export const TRAJECTORY: MonthPoint[] = [
-  { m: 0, mult: 1.0, label: 'Baseline' },
+  { m: 0, mult: 1.0, labelKey: 'baseline' },
   { m: 1, mult: 0.98 },
   { m: 2, mult: 1.05 },
   { m: 3, mult: 1.18 },
-  { m: 4, mult: 1.42, label: 'First booked uplift' },
+  { m: 4, mult: 1.42, labelKey: 'firstUplift' },
   { m: 5, mult: 1.78 },
   { m: 6, mult: 2.15 },
-  { m: 7, mult: 2.52, label: 'Ranking crossover' },
+  { m: 7, mult: 2.52, labelKey: 'rankingCrossover' },
   { m: 8, mult: 2.84 },
   { m: 9, mult: 3.1 },
   { m: 10, mult: 3.32 },
   { m: 11, mult: 3.55 },
-  { m: 12, mult: 3.8, label: 'Compound zone' },
+  { m: 12, mult: 3.8, labelKey: 'compoundZone' },
 ];
 
-export const PHASES = [
-  {
-    n: '01',
-    range: [0, 2],
-    name: 'Diagnose',
-    tone: 'sage',
-    summary: 'Audit the acquisition stack. Build the dashboard. Establish the baseline.',
-    deliverables: ['Forensic channel audit', 'Tracking blueprint', 'Baseline scorecard'],
-  },
-  {
-    n: '02',
-    range: [2, 5],
-    name: 'Build',
-    tone: 'tan',
-    summary: 'Quiet build. We ship infrastructure before we ship campaigns.',
-    deliverables: ['Landing system', 'Editorial spine', 'Conversion pipeline'],
-  },
-  {
-    n: '03',
-    range: [5, 8],
-    name: 'Launch',
-    tone: 'cta',
-    summary:
-      'A staged release across paid, organic, and direct. Each ships against a stated hypothesis.',
-    deliverables: ['Paid by intent tier', 'GBP + local push', 'Email recall flows'],
-  },
-  {
-    n: '04',
-    range: [8, 12],
-    name: 'Optimize',
-    tone: 'heading',
-    summary: 'A weekly retrospective and rolling 4-week forecast. Anything stalled is replaced.',
-    deliverables: ['Decision log', 'A/B queue', 'Quarterly review'],
-  },
-];
+export type PhaseKey = 'diagnose' | 'build' | 'launch' | 'optimize';
 
-export const QUARTERS = [
-  {
-    q: 'Q1',
-    months: 'M01 – M03',
-    focus: 'Foundation',
-    ships: 'Audit, tracking, brand & content infrastructure',
-    read: 'Baseline locked',
-  },
-  {
-    q: 'Q2',
-    months: 'M04 – M06',
-    focus: 'Acquisition',
-    ships: 'Paid launch, GBP optimisation, on-site CRO',
-    read: 'Bookings curve',
-  },
-  {
-    q: 'Q3',
-    months: 'M07 – M09',
-    focus: 'Compounding',
-    ships: 'Organic crossover, content depth, lifecycle email',
-    read: 'Ranking flip',
-  },
-  {
-    q: 'Q4',
-    months: 'M10 – M12',
-    focus: 'Optimising',
-    ships: 'Channel rebalance, retention engine, board review',
-    read: 'Compound zone',
-  },
-];
-
-export const COMMITMENTS = [
-  {
-    metric: 'Patient acquisition cost',
-    delta: '−42%',
-    by: 'by month 6',
-    detail: 'Median reduction across the active book once paid is restructured by intent tier.',
-  },
-  {
-    metric: 'Booked visits',
-    delta: '+78%',
-    by: 'by month 9',
-    detail: 'Counted as net-new versus the 30 days preceding kickoff. No seasonality credit.',
-  },
-  {
-    metric: 'Organic non-brand traffic',
-    delta: '3.8×',
-    by: 'by month 12',
-    detail: 'On the schema-and-content programme we audit during the diagnose phase.',
-  },
+export const PHASES: { n: string; range: [number, number]; key: PhaseKey; tone: string }[] = [
+  { n: '01', range: [0, 2], key: 'diagnose', tone: 'sage' },
+  { n: '02', range: [2, 5], key: 'build', tone: 'tan' },
+  { n: '03', range: [5, 8], key: 'launch', tone: 'cta' },
+  { n: '04', range: [8, 12], key: 'optimize', tone: 'heading' },
 ];
 
 export const QUARTER_ICONS: React.ReactNode[] = [

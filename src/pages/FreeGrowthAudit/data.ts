@@ -13,6 +13,8 @@
      to Google about ratings we cannot prove.
    ============================================================ */
 
+import i18n from '@/i18n';
+
 export const TAILWIND_ACCENT = '#B38B6D';
 
 export interface FaqItem {
@@ -20,49 +22,12 @@ export interface FaqItem {
   a: string;
 }
 
-/** Source of truth for both the visible FAQ section and FAQPage JSON-LD. */
-export const FAQ_ITEMS: FaqItem[] = [
-  {
-    q: 'Is the Free Healthcare Growth Audit actually free?',
-    a: 'Yes. No credit card, no obligation, no upsell on the call. The 12-page PDF report ships to your inbox either way and is yours to keep — even if you decide to take it to a different agency or run it in-house.',
-  },
-  {
-    q: 'How long does the audit take?',
-    a: 'Five business days from the moment you submit the form to the moment the PDF lands in your inbox. The 45-minute working call happens on day five, once the audit is complete.',
-  },
-  {
-    q: 'Who actually runs the audit?',
-    a: 'A senior growth strategist with 8+ years in healthcare marketing — usually Jay Dahal (founder) or one of two senior leads. Never a junior account exec, never an AI-generated boilerplate, never a white-label outsource partner.',
-  },
-  {
-    q: 'Is this safe for HIPAA-regulated practices?',
-    a: 'Yes. The default audit reviews only public-facing surfaces — website, Google Business Profile, ad accounts with read-only access, public reviews. We never request or store PHI. If deeper access is needed, we sign a BAA first.',
-  },
-  {
-    q: 'What healthcare practice types is this built for?',
-    a: 'Dental practices, med spas, urgent care, primary care, mental health, dermatology, plastic surgery, freestanding ERs, and specialty clinics. The framework is the same; the benchmarks and recommendations are specific to your category.',
-  },
-  {
-    q: 'What is included in the 12-page PDF report?',
-    a: 'Visibility score against your top 3 local competitors, funnel-leak map, paid media review with wasted-spend math, GBP and review audit, schema/AI Overview readiness check, content gap analysis, intake-form rewrite suggestions, automation candidates, and a ranked 90-day plan.',
-  },
-  {
-    q: 'Do I have to hire your agency after the audit?',
-    a: 'No. The PDF is yours to keep. Many practices run the 90-day plan themselves or hand it to an existing agency. We do not pitch you on the 45-minute working call — we walk through the plan, answer questions, and end.',
-  },
-  {
-    q: 'How is this different from a SEMrush or Ahrefs scan?',
-    a: 'Those tools dump raw data; we hand you a strategist-written interpretation with patient-acquisition context. A ranked Local Pack position is meaningless without knowing what booking volume that position drives for your practice type.',
-  },
-  {
-    q: 'What do you need from me to start?',
-    a: 'Practice website URL, read-only access to your Google Ads and Meta Ads accounts (if running paid), GBP manager invite, and a 5-minute kickoff form on baseline numbers and goals. That is it.',
-  },
-  {
-    q: 'Are there only certain practice sizes you audit?',
-    a: 'We audit single-location practices through 50-location DSOs and MSO portfolios. The depth of the paid-media and attribution section adjusts to your spend; everything else stays the same.',
-  },
-];
+/** Source of truth for FAQPage JSON-LD. Resolved in English. The visible
+ *  FAQ component reads from the active language directly. */
+export const FAQ_ITEMS: FaqItem[] = i18n.t('pages:freeGrowthAudit.faq.items', {
+  returnObjects: true,
+  lng: 'en',
+}) as FaqItem[];
 
 /* ---------- Service + Offer schema ---------- */
 export const SERVICE_SCHEMA = {

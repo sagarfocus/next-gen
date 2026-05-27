@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { STAGES } from './data';
 
 /* ---------- HOW IT RUNS — top-aligned header + horizontal rail with moving indicator ---------- */
 const HowItRuns = () => {
+  const { t } = useTranslation('pages');
   const [active, setActive] = useState(0);
   const [paused, setPaused] = useState(false);
 
@@ -25,17 +27,16 @@ const HowItRuns = () => {
             <div className="flex items-center gap-2.5 mb-5">
               <span className="h-2 w-2 rounded-full bg-line" />
               <span className="font-mono text-[12px] uppercase tracking-[0.22em] text-line font-semibold">
-                How it runs
+                {t('pages:healthcareGrowthEngine.howItRuns.eyebrow')}
               </span>
             </div>
             <h2 className="text-heading font-extrabold leading-[0.98] tracking-[-0.035em] text-[clamp(34px,5vw,68px)]">
-              How the engine runs.
+              {t('pages:healthcareGrowthEngine.howItRuns.title')}
             </h2>
           </div>
           <div className="lg:col-span-4">
             <p className="text-body text-[15.5px] leading-[1.65] max-w-[42ch]">
-              One loop, repeated. Measure → prioritise → operate → compound. The cadence is the
-              product.
+              {t('pages:healthcareGrowthEngine.howItRuns.kicker')}
             </p>
           </div>
         </div>
@@ -65,6 +66,7 @@ const HowItRuns = () => {
           <ol className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-8 md:gap-x-8 relative">
             {STAGES.map((s, i) => {
               const isActive = active === i;
+              const k = t(`pages:healthcareGrowthEngine.howItRuns.stages.${s.key}.k`);
               return (
                 <li
                   key={s.n}
@@ -94,13 +96,15 @@ const HowItRuns = () => {
                           isActive ? 'text-heading' : 'text-heading/80'
                         }`}
                       >
-                        {s.k}.
+                        {k}.
                       </h4>
                     </div>
                     <span className="text-muted text-[11.5px] uppercase tracking-[0.18em] font-semibold border border-line-faint rounded-full px-2.5 py-0.5 self-start">
-                      {s.cadence}
+                      {t(`pages:healthcareGrowthEngine.howItRuns.stages.${s.key}.cadence`)}
                     </span>
-                    <p className="text-body text-[14.5px] leading-[1.65]">{s.d}</p>
+                    <p className="text-body text-[14.5px] leading-[1.65]">
+                      {t(`pages:healthcareGrowthEngine.howItRuns.stages.${s.key}.d`)}
+                    </p>
                   </div>
                 </li>
               );
@@ -109,21 +113,26 @@ const HowItRuns = () => {
 
           {/* Mobile progress dots */}
           <div className="md:hidden mt-6 flex items-center justify-center gap-1.5">
-            {STAGES.map((s, i) => (
-              <button
-                key={s.n}
-                type="button"
-                onClick={() => {
-                  setActive(i);
-                  setPaused(true);
-                }}
-                aria-label={`Show ${s.k}`}
-                aria-current={active === i}
-                className={`h-1.5 rounded-full transition-all duration-300 ${
-                  active === i ? 'w-7 bg-heading' : 'w-1.5 bg-line-faint'
-                }`}
-              />
-            ))}
+            {STAGES.map((s, i) => {
+              const k = t(`pages:healthcareGrowthEngine.howItRuns.stages.${s.key}.k`);
+              return (
+                <button
+                  key={s.n}
+                  type="button"
+                  onClick={() => {
+                    setActive(i);
+                    setPaused(true);
+                  }}
+                  aria-label={t('pages:healthcareGrowthEngine.howItRuns.mobileShowLabel', {
+                    stage: k,
+                  })}
+                  aria-current={active === i}
+                  className={`h-1.5 rounded-full transition-all duration-300 ${
+                    active === i ? 'w-7 bg-heading' : 'w-1.5 bg-line-faint'
+                  }`}
+                />
+              );
+            })}
           </div>
         </div>
       </div>

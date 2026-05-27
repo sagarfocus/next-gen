@@ -7,108 +7,33 @@ import photoBijesh from '@/assets/team-thumbs/bijesh-khadgi.jpg';
 import { SITE } from '@/content/site';
 
 export interface Role {
+  /** i18n key under `pages:infrastructure.growthTeam.team.roles`. */
+  i18nKey: 'shree' | 'bikash' | 'sonu' | 'sumit' | 'rahul' | 'bijesh';
+  /** Personal name — kept in source (not translated). */
   name: string;
-  title: string;
-  pitch: string;
-  ships: string[];
-  owns: string[];
-  hours: string;
   photo: string;
 }
 
 export const ROLES: Role[] = [
-  {
-    name: 'Shree Gauli',
-    title: 'Sr. Marketing Officer',
-    pitch:
-      'Leads strategy across every channel. Owns the roadmap from positioning through quarterly forecasts so nothing slips between disciplines.',
-    ships: [
-      'Quarterly marketing strategy + roadmap',
-      'Cross-channel orchestration',
-      'Forecasting against panel and revenue goals',
-    ],
-    owns: ['Strategy', 'Forecast accuracy', 'Retention'],
-    hours: '20+ hrs / week',
-    photo: photoShree,
-  },
-  {
-    name: 'Bikash Neupane',
-    title: 'Marketing & IT Project Manager',
-    pitch:
-      'Bridges marketing and tech. Runs the standups, keeps the trackers honest, and ensures the stack (CRM, analytics, integrations) supports what we ship.',
-    ships: [
-      'Weekly sprint planning + standups',
-      'Project tracking + stakeholder updates',
-      'Martech + integrations management',
-    ],
-    owns: ['On-time delivery', 'Tooling reliability', 'Project velocity'],
-    hours: '20+ hrs / week',
-    photo: photoBikash,
-  },
-  {
-    name: 'Sonu Sagar Dongol',
-    title: 'Paid Ads Specialist & Media Buyer',
-    pitch:
-      'Owns every paid dollar across Google, Meta, and programmatic. Healthcare-fluent, HIPAA-aware, accountable for CAC and ROAS.',
-    ships: [
-      'Weekly campaign builds, audiences, creative briefs',
-      'Daily bid + budget management',
-      'Conversion API + pipeline attribution',
-    ],
-    owns: ['CAC', 'ROAS', 'Booked visits'],
-    hours: '30+ hrs / week',
-    photo: photoSonu,
-  },
-  {
-    name: 'Sumit Sharma',
-    title: 'SEO Manager',
-    pitch:
-      'Senior operator for organic search and answer-engine optimisation. Knows YMYL ranking nuance, technical SEO, and local-pack mechanics cold.',
-    ships: [
-      'Technical SEO + Core Web Vitals',
-      'Local pack and service-area architecture',
-      'Answer-engine content briefs',
-    ],
-    owns: ['Organic sessions', 'Local pack', 'AEO citations'],
-    hours: '20+ hrs / week',
-    photo: photoSumit,
-  },
-  {
-    name: 'Rahul Roy',
-    title: 'Healthcare Content Writer',
-    pitch:
-      'Trained healthcare writer - not a generalist with a thesaurus. Writes to patient intent and clinician credibility across web, ads, and email.',
-    ships: [
-      'Service-line landing copy + provider bios',
-      'Pillar content + condition deep-dives',
-      'Ad creative, email cadences, SMS scripts',
-    ],
-    owns: ['Engagement', 'Booking conversion', 'Topical authority'],
-    hours: '20+ hrs / week',
-    photo: photoRahul,
-  },
-  {
-    name: 'Bijesh Khadgi',
-    title: 'Social Media Manager',
-    pitch:
-      'Builds the patient-facing voice across Instagram, TikTok, YouTube Shorts, and LinkedIn - a calendar your front desk can sustain.',
-    ships: [
-      'Monthly content calendar, 4 platforms',
-      'Shot lists for in-clinic capture days',
-      'Community management with response SLAs',
-    ],
-    owns: ['Follower growth', 'Saves + shares', 'DM-to-booking'],
-    hours: '15+ hrs / week',
-    photo: photoBijesh,
-  },
+  { i18nKey: 'shree', name: 'Shree Gauli', photo: photoShree },
+  { i18nKey: 'bikash', name: 'Bikash Neupane', photo: photoBikash },
+  { i18nKey: 'sonu', name: 'Sonu Sagar Dongol', photo: photoSonu },
+  { i18nKey: 'sumit', name: 'Sumit Sharma', photo: photoSumit },
+  { i18nKey: 'rahul', name: 'Rahul Roy', photo: photoRahul },
+  { i18nKey: 'bijesh', name: 'Bijesh Khadgi', photo: photoBijesh },
 ];
 
-export const CADENCE: { day: string; event: string; note: string }[] = [
-  { day: 'MON', event: 'Sprint planning + KPI review', note: '60 min · cross-functional' },
-  { day: 'TUE', event: 'Ads + SEO standups', note: '30 min · per discipline' },
-  { day: 'WED', event: 'Creative review + content QA', note: 'Async + 45 min sync' },
-  { day: 'THU', event: 'Build day - no meetings', note: 'Focused execution' },
-  { day: 'FRI', event: 'Weekly performance report', note: 'Ships by 5pm local' },
+export interface Cadence {
+  /** i18n key under `pages:infrastructure.growthTeam.cadence.items`. */
+  i18nKey: 'mon' | 'tue' | 'wed' | 'thu' | 'fri';
+}
+
+export const CADENCE: Cadence[] = [
+  { i18nKey: 'mon' },
+  { i18nKey: 'tue' },
+  { i18nKey: 'wed' },
+  { i18nKey: 'thu' },
+  { i18nKey: 'fri' },
 ];
 
 export const SCHEMA = {

@@ -1,13 +1,16 @@
+import { useTranslation } from 'react-i18next';
 import Breadcrumb from '@/components/Breadcrumb';
 import { AnimatedBackground } from '@/lib/motion';
 
 const PricingHero = () => {
+  const { t } = useTranslation('pricing');
+
   return (
     <section className="pr-hero" aria-label="Pricing intro">
       <AnimatedBackground variant="mesh" intensity="medium" />
       <div className="container-shell">
         <div className="pr-trail reveal d1">
-          <Breadcrumb current="Pricing" />
+          <Breadcrumb current={t('hero.breadcrumb')} />
           {/* Visually hidden H1 — gives the page a single semantic H1 for
               SEO/accessibility without altering the existing visual layout
               (which uses an eyebrow + the H2 inside PricingTiers as the
@@ -26,9 +29,9 @@ const PricingHero = () => {
               border: 0,
             }}
           >
-            Healthcare Marketing Pricing — Transparent Retainer Tiers from $5,000 per Month
+            {t('hero.srH1')}
           </h1>
-          <span className="pr-eyebrow">Transparent Healthcare Pricing</span>
+          <span className="pr-eyebrow">{t('hero.eyebrow')}</span>
         </div>
       </div>
     </section>

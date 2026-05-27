@@ -1,11 +1,11 @@
 import type { ReactElement } from 'react';
+import { useTranslation } from 'react-i18next';
+
+type PillarKey = 'reach' | 'operations' | 'accountability';
 
 interface Pillar {
   pos: 0 | 1 | 2;
-  tag: string;
-  name: string;
-  desc: string;
-  list: string[];
+  key: PillarKey;
   icon: ReactElement;
 }
 
@@ -29,87 +29,61 @@ const AttribIcon = () => (
 );
 
 const PILLARS: Pillar[] = [
-  {
-    pos: 0,
-    tag: 'Reach',
-    name: 'Real reps in the real neighbourhood.',
-    desc:
-      'We staff every booth, every visit, every door — with background-checked ambassadors trained on your service lines. No third-party event labour, no agency middlemen.',
-    list: [
-      'Background-checked field crews',
-      'Trained on your tone and services',
-      'Healthcare-specific event playbooks',
-      'COI-insured and OSHA-trained',
-    ],
-    icon: <ReachIcon />,
-  },
-  {
-    pos: 1,
-    tag: 'Operations',
-    name: 'A working channel, not a campaign.',
-    desc:
-      'Booth design, collateral, CRM hand-off, photo releases — owned in-house so seams never break. One field lead runs the territory from week one through quarter four.',
-    list: [
-      'In-house booth + signage build',
-      'Tablet intake with live CRM sync',
-      'Same-day front-desk handoff protocol',
-      'Quarterly territory refit',
-    ],
-    icon: <OpsIcon />,
-  },
-  {
-    pos: 2,
-    tag: 'Accountability',
-    name: 'Every dollar tied to a booked patient.',
-    desc:
-      'QR-tracked print, tablet intake, and CRM reconciliation reconcile every contact to a first visit. The dashboard makes the spend defensible — no hand-wave reports, no vanity totals.',
-    list: [
-      'Daily activation report',
-      'Cost per qualified lead per channel',
-      'Booked-visit attribution rollup',
-      'No vendor markup on print or labour',
-    ],
-    icon: <AttribIcon />,
-  },
+  { pos: 0, key: 'reach', icon: <ReachIcon /> },
+  { pos: 1, key: 'operations', icon: <OpsIcon /> },
+  { pos: 2, key: 'accountability', icon: <AttribIcon /> },
 ];
 
 const WhyUs = () => {
+  const { t } = useTranslation('pages');
   return (
     <section className="sl-section ofm-why-section" id="why-us">
       <div className="container-shell">
         <div className="sl-sec-head">
           <div>
-            <div className="sl-sec-num">04 - Why TheNextGen</div>
+            <div className="sl-sec-num">{t('pages:onsiteFieldMarketing.whyUs.secNum')}</div>
             <h2 className="sl-sec-title">
-              Three things we won&rsquo;t <em>compromise on.</em>
+              {t('pages:onsiteFieldMarketing.whyUs.titleLine1')}{' '}
+              <em>{t('pages:onsiteFieldMarketing.whyUs.titleAccent')}</em>
             </h2>
           </div>
           <div className="sl-sec-meta">
-            The other vendors
+            {t('pages:onsiteFieldMarketing.whyUs.secMeta1')}
             <br />
-            cut all three
+            {t('pages:onsiteFieldMarketing.whyUs.secMeta2')}
           </div>
         </div>
 
         <div className="ofm-why-grid">
-          {PILLARS.map((p) => (
-            <article key={p.tag} className="ofm-why-card" data-pos={p.pos}>
-              <div className="ofm-why-icon">{p.icon}</div>
-              <div className="ofm-why-tag">{p.tag}</div>
-              <h3 className="ofm-why-name">{p.name}</h3>
-              <p className="ofm-why-desc">{p.desc}</p>
-              <ul className="ofm-why-list">
-                {p.list.map((item) => (
-                  <li key={item}>
-                    <span className="ofm-why-tick" aria-hidden="true">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={3} strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
-                    </span>
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </article>
-          ))}
+          {PILLARS.map((p) => {
+            const list = t(`pages:onsiteFieldMarketing.whyUs.items.${p.key}.list`, {
+              returnObjects: true,
+            }) as string[];
+            return (
+              <article key={p.key} className="ofm-why-card" data-pos={p.pos}>
+                <div className="ofm-why-icon">{p.icon}</div>
+                <div className="ofm-why-tag">
+                  {t(`pages:onsiteFieldMarketing.whyUs.items.${p.key}.tag`)}
+                </div>
+                <h3 className="ofm-why-name">
+                  {t(`pages:onsiteFieldMarketing.whyUs.items.${p.key}.name`)}
+                </h3>
+                <p className="ofm-why-desc">
+                  {t(`pages:onsiteFieldMarketing.whyUs.items.${p.key}.desc`)}
+                </p>
+                <ul className="ofm-why-list">
+                  {list.map((item) => (
+                    <li key={item}>
+                      <span className="ofm-why-tick" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={3} strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
+                      </span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </article>
+            );
+          })}
         </div>
       </div>
     </section>

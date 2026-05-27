@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react';
+import { useTranslation } from 'react-i18next';
 import SectionHead from './SectionHead';
 
 export interface ResultStat {
@@ -17,6 +18,7 @@ interface ResultsProps {
  * an identical visual rhythm.
  */
 const Results = ({ stats }: ResultsProps) => {
+  const { t } = useTranslation('common');
   const lead = stats[0];
   const rest = stats.slice(1);
 
@@ -24,24 +26,26 @@ const Results = ({ stats }: ResultsProps) => {
     <section className="sv-section sv-results">
       <div className="container-shell">
         <SectionHead
-          num="03 - Results"
+          num={t('components.results.sectionNum')}
           title={
             <>
-              Real numbers, <em>real practices.</em>
+              {t('components.results.titlePart1')} <em>{t('components.results.titleEm')}</em>
             </>
           }
           meta={
             <>
-              Audited
+              {t('components.results.metaLine1')}
               <br />
-              aggregate
+              {t('components.results.metaLine2')}
             </>
           }
         />
         <div className="sv-res-redesign">
           {lead ? (
             <article className="sv-res-hero">
-              <span className="sv-res-hero-eyebrow">Headline metric</span>
+              <span className="sv-res-hero-eyebrow">
+                {t('components.results.heroEyebrow')}
+              </span>
               <div>
                 <div className="sv-res-hero-num">{lead.num}</div>
                 <p className="sv-res-hero-label">{lead.label}</p>

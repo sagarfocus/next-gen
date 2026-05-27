@@ -1,43 +1,38 @@
+import { useTranslation } from 'react-i18next';
+
+interface Row {
+  label: string;
+  us: string;
+  them: string;
+}
+
 const Compare = () => {
-  const rows: { label: string; us: string; them: string }[] = [
-    { label: 'Cost', us: '$0 - yours either way', them: '$2,500 – $8,000 upfront' },
-    { label: 'Turnaround', us: '5 business days', them: '2 – 3 weeks' },
-    { label: 'Run by', us: 'Senior growth strategist', them: 'Account exec with a template' },
-    { label: 'Industry fit', us: 'Healthcare-only playbook', them: 'Generic agency framework' },
-    { label: 'The call', us: '45-min working plan walk-through', them: 'Sales pitch in disguise' },
-    {
-      label: 'Deliverable',
-      us: 'PDF yours to keep - agency or not',
-      them: 'Locked behind a retainer',
-    },
-  ];
+  const { t } = useTranslation('pages');
+  const rows = t('pages:freeGrowthAudit.compare.rows', { returnObjects: true }) as Row[];
   return (
     <section className="fga-compare" aria-labelledby="fga-compare-title">
       <div className="container-shell">
         <header className="fga-section-head fga-compare-head">
-          <span className="fga-section-tag">Why this audit</span>
+          <span className="fga-section-tag">{t('pages:freeGrowthAudit.compare.tag')}</span>
           <h2 id="fga-compare-title" className="fga-section-h2">
-            Same diagnosis. Without the retainer.
+            {t('pages:freeGrowthAudit.compare.title')}
           </h2>
-          <p className="fga-compare-lede">
-            Most agency audits exist to sell you the agency. Ours exists so you know exactly what to
-            do next - whether you hire us or not.
-          </p>
+          <p className="fga-compare-lede">{t('pages:freeGrowthAudit.compare.lede')}</p>
         </header>
 
         <div
           className="fga-compare-grid"
           role="table"
-          aria-label="Free Growth Audit compared to a typical agency audit"
+          aria-label={t('pages:freeGrowthAudit.compare.aria')}
         >
           <div className="fga-compare-row fga-compare-head-row" role="row">
             <div role="columnheader" aria-hidden="true" />
             <div role="columnheader" className="fga-compare-col fga-compare-col-us">
-              <span className="fga-compare-badge">Focus Free Audit</span>
+              <span className="fga-compare-badge">{t('pages:freeGrowthAudit.compare.usBadge')}</span>
             </div>
             <div role="columnheader" className="fga-compare-col fga-compare-col-them">
               <span className="fga-compare-badge fga-compare-badge-muted">
-                Typical agency audit
+                {t('pages:freeGrowthAudit.compare.themBadge')}
               </span>
             </div>
           </div>

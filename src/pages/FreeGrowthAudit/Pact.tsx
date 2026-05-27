@@ -1,25 +1,30 @@
-import type { ReactNode } from 'react';
+import { useTranslation } from 'react-i18next';
+
+interface Promise {
+  k: string;
+  v: string;
+}
 
 const Pact = () => {
-  const promises: { k: string; v: ReactNode }[] = [
-    {
-      k: 'No upsell on the call.',
-      v: <>The plan ships either way. We do not pitch you on the audit call. Promise.</>,
-    },
-    {
-      k: 'Run by a strategist.',
-      v: <>A senior growth lead does the audit - not a sales rep with a template.</>,
-    },
-    { k: 'Yours to keep.', v: <>The PDF is yours. Take it to any agency, or run it yourself.</> },
-  ];
+  const { t } = useTranslation('pages');
+  const promises = t('pages:freeGrowthAudit.pact.items', { returnObjects: true }) as Promise[];
+  const title = t('pages:freeGrowthAudit.pact.title');
+  // Split the title on "&" so we can style the ampersand
+  const [titleA, titleB] = title.includes('&') ? title.split('&') : [title, ''];
   return (
     <section className="fga-pact" aria-labelledby="fga-pact-title">
       <div className="container-shell">
         <div className="fga-pact-tree">
           <div className="fga-pact-root">
-            <span className="fga-section-tag">The promise</span>
+            <span className="fga-section-tag">{t('pages:freeGrowthAudit.pact.tag')}</span>
             <h2 id="fga-pact-title" className="fga-pact-h">
-              The pact <span className="fga-pact-amp">&amp;</span> the fine print.
+              {titleA}
+              {titleB && (
+                <>
+                  <span className="fga-pact-amp">&amp;</span>
+                  {titleB}
+                </>
+              )}
             </h2>
           </div>
 

@@ -1,25 +1,27 @@
+import { useTranslation } from 'react-i18next';
 import Section from '@/components/editorial/Section';
 import { Reveal } from '@/lib/motion';
 import { FRICTION } from './data';
 
 const FrictionMap = () => {
+  const { t } = useTranslation('pages');
   // Scale the longest bar (38) so the largest fills ~90% of the track width
   const max = 40;
   return (
     <Section
-      no="02"
-      title="Where patients leak"
-      kicker="Aggregate drop-off across single-location clinic engagements. Same stages, before and after the work."
+      no={t('pages:patientExperience.friction.no')}
+      title={t('pages:patientExperience.friction.title')}
+      kicker={t('pages:patientExperience.friction.kicker')}
     >
       <Reveal variant="up">
         <div className="border-t-2 border-heading pt-10">
           <div className="grid sm:grid-cols-[1fr_auto_1fr] gap-x-6 gap-y-3 items-baseline">
             <div className="text-[10px] uppercase tracking-[0.2em] text-muted font-semibold">
-              Without the work
+              {t('pages:patientExperience.friction.withoutLabel')}
             </div>
             <div className="hidden sm:block" />
             <div className="text-[10px] uppercase tracking-[0.2em] text-muted font-semibold sm:text-right">
-              After the pilot
+              {t('pages:patientExperience.friction.afterLabel')}
             </div>
 
             {FRICTION.map((f) => (
@@ -39,7 +41,7 @@ const FrictionMap = () => {
 
                 {/* stage label center */}
                 <div className="text-center text-heading font-bold text-[13px] tracking-[-0.01em] uppercase whitespace-nowrap px-2">
-                  {f.stage}
+                  {t(`pages:patientExperience.friction.stageLabels.${f.stage}`)}
                 </div>
 
                 {/* after bar (left-anchored) + delta */}
@@ -62,11 +64,11 @@ const FrictionMap = () => {
           <div className="mt-10 flex flex-wrap items-center gap-6 text-[12px] text-muted">
             <div className="flex items-center gap-2">
               <span className="inline-block h-3 w-3 rounded-sm bg-cta/80" />
-              <span>Typical drop-off, no PX programme</span>
+              <span>{t('pages:patientExperience.friction.legend.before')}</span>
             </div>
             <div className="flex items-center gap-2">
               <span className="inline-block h-3 w-3 rounded-sm bg-accent-soft" />
-              <span>Drop-off after the highest-leverage fix</span>
+              <span>{t('pages:patientExperience.friction.legend.after')}</span>
             </div>
           </div>
         </div>

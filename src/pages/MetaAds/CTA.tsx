@@ -1,7 +1,9 @@
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { ArrowIcon } from '@/components/icons';
 
 const CTA = () => {
+  const { t } = useTranslation('pages');
   return (
     <section className="ma-cta-section" id="audit">
       <div className="container-shell">
@@ -9,24 +11,17 @@ const CTA = () => {
           <div className="ma-cta-left">
             <div className="ma-cta-eyebrow">
               <span className="dot" aria-hidden="true" />
-              Free 2-week audit · You keep the report
+              {t('metaAds.cta.eyebrow')}
             </div>
-            <h2 className="ma-cta-title">
-              See exactly where your Meta budget is leaking.
-            </h2>
-            <p className="ma-cta-desc">
-              We open your Business Manager live on the call, walk through structure,
-              creative, audiences, and event quality, then deliver a written one-page summary
-              with the three highest-impact fixes. Whether you sign with us or not — you
-              walk away with a plan.
-            </p>
+            <h2 className="ma-cta-title">{t('metaAds.cta.title')}</h2>
+            <p className="ma-cta-desc">{t('metaAds.cta.desc')}</p>
             <div className="ma-cta-ctas">
               <Link to="/free-growth-audit" className="sl-btn-primary">
-                Book my audit
+                {t('metaAds.cta.ctaPrimary')}
                 <ArrowIcon />
               </Link>
               <Link to="/services" className="sl-btn-ghost">
-                See all services
+                {t('metaAds.cta.ctaSecondary')}
                 <svg
                   viewBox="0 0 24 24"
                   fill="none"
@@ -45,15 +40,15 @@ const CTA = () => {
           <div className="ma-cta-right">
             <div className="ma-cta-stat">
               <span className="ma-cta-stat-num">4.6<em>×</em></span>
-              <span className="ma-cta-stat-lbl">Avg ROAS · trailing 12 mo</span>
+              <span className="ma-cta-stat-lbl">{t('metaAds.cta.stat1Lbl')}</span>
             </div>
             <div className="ma-cta-stat">
               <span className="ma-cta-stat-num">−42<em>%</em></span>
-              <span className="ma-cta-stat-lbl">Avg CPL · first 90 days</span>
+              <span className="ma-cta-stat-lbl">{t('metaAds.cta.stat2Lbl')}</span>
             </div>
             <div className="ma-cta-stat">
               <span className="ma-cta-stat-num">40<em>+</em></span>
-              <span className="ma-cta-stat-lbl">Healthcare accounts run</span>
+              <span className="ma-cta-stat-lbl">{t('metaAds.cta.stat3Lbl')}</span>
             </div>
           </div>
         </div>

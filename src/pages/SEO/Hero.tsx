@@ -1,36 +1,36 @@
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { ArrowIcon } from '@/components/icons';
 
 const Hero = () => {
+  const { t } = useTranslation('pages');
+  const bullets = t('seoService.hero.bullets', { returnObjects: true }) as string[];
+
   return (
     <section className="seo-hero">
       <div className="container-shell">
         <div className="seo-hero-grid">
           <div>
             <div className="seo-hero-crumb">
-              <Link to="/services">Services</Link>
+              <Link to="/services">{t('seoService.hero.breadcrumbServices')}</Link>
               <span className="sep">/</span>
-              <span className="cur">SEO</span>
+              <span className="cur">{t('seoService.hero.breadcrumbCurrent')}</span>
             </div>
             <span className="seo-hero-eyebrow">
-              <span className="dot" /> Full-Suite SEO for Healthcare
+              <span className="dot" /> {t('seoService.hero.eyebrow')}
             </span>
             <h1 className="seo-hero-title">
-              The complete SEO platform <em>your practice plugs into.</em>
+              {t('seoService.hero.titleLine')} <em>{t('seoService.hero.titleAccent')}</em>
             </h1>
-            <p className="seo-hero-lede">
-              Technical, on-page, off-page, local, content, and AEO -
-              all under one team, one dashboard, one accountable plan.
-              Built for clinics, surgical groups, and hospital networks.
-            </p>
+            <p className="seo-hero-lede">{t('seoService.hero.lede')}</p>
 
             <div className="seo-hero-ctas">
               <a href="#audit" className="sl-btn-primary">
-                Get a free SEO audit
+                {t('seoService.hero.ctaPrimary')}
                 <ArrowIcon />
               </a>
               <a href="#capabilities" className="sl-btn-ghost">
-                Explore the platform
+                {t('seoService.hero.ctaSecondary')}
                 <svg
                   viewBox="0 0 24 24"
                   fill="none"
@@ -46,24 +46,14 @@ const Hero = () => {
             </div>
 
             <ul className="seo-hero-bullets">
-              <li>
-                <span className="seo-hero-check" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={3} strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
-                </span>
-                12-page audit, 5 business days
-              </li>
-              <li>
-                <span className="seo-hero-check" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={3} strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
-                </span>
-                HIPAA-aware tracking, BAA-covered tools
-              </li>
-              <li>
-                <span className="seo-hero-check" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={3} strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
-                </span>
-                Named lead, live dashboard, no slide decks
-              </li>
+              {bullets.map((b) => (
+                <li key={b}>
+                  <span className="seo-hero-check" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={3} strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
+                  </span>
+                  {b}
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -75,24 +65,24 @@ const Hero = () => {
                 <span className="dot g" />
                 <div className="seo-hero-mock-url">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}><circle cx="12" cy="12" r="10" /><line x1="2" y1="12" x2="22" y2="12" /><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" /></svg>
-                  yourpractice.com — SEO Dashboard
+                  {t('seoService.hero.dashboardTitle')}
                 </div>
               </div>
 
               <div className="seo-hero-mock-body">
                 <div className="seo-hero-mock-row top">
                   <div className="seo-hero-mock-kpi">
-                    <span className="lbl">Organic sessions</span>
+                    <span className="lbl">{t('seoService.hero.kpi1')}</span>
                     <span className="val">38,210</span>
                     <span className="dlt up">+47%</span>
                   </div>
                   <div className="seo-hero-mock-kpi">
-                    <span className="lbl">Avg. position</span>
+                    <span className="lbl">{t('seoService.hero.kpi2')}</span>
                     <span className="val">3.4</span>
                     <span className="dlt up">↑ 4.2</span>
                   </div>
                   <div className="seo-hero-mock-kpi">
-                    <span className="lbl">Booked patients</span>
+                    <span className="lbl">{t('seoService.hero.kpi3')}</span>
                     <span className="val">1,284</span>
                     <span className="dlt up">+62%</span>
                   </div>
@@ -133,11 +123,11 @@ const Hero = () => {
 
             <div className="seo-hero-tag t1">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.2}><polygon points="12 2 14.5 9 21 9.5 16 14 17.5 21 12 17.5 6.5 21 8 14 3 9.5 9.5 9" /></svg>
-              E-E-A-T ready
+              {t('seoService.hero.tag1')}
             </div>
             <div className="seo-hero-tag t2">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.2}><circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" /></svg>
-              Core Web Vitals 96
+              {t('seoService.hero.tag2')}
             </div>
           </div>
         </div>

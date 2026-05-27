@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react';
+import { useTranslation } from 'react-i18next';
 import Breadcrumb from '@/components/Breadcrumb';
 import Seo from '@/components/Seo';
 import { buildBreadcrumbList } from '@/lib/schema';
@@ -34,6 +35,8 @@ const LegalPage = ({
   metaDescription,
   canonicalPath,
 }: LegalPageProps) => {
+  const { t } = useTranslation(['legal']);
+
   const webPageSchema = {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
@@ -64,8 +67,8 @@ const LegalPage = ({
       >
         <div className="container-shell">
           <Breadcrumb
-            items={[{ label: 'Legal', to: '/sitemap' }, { label: breadcrumb }]}
-            section="Legal"
+            items={[{ label: t('legal:common.section'), to: '/sitemap' }, { label: breadcrumb }]}
+            section={t('legal:common.section')}
           />
           <div style={{ maxWidth: 760 }}>
             <span className="results-eyebrow">{eyebrow}</span>
@@ -113,7 +116,7 @@ const LegalPage = ({
                     color: '#718096',
                   }}
                 >
-                  Effective date
+                  {t('legal:common.effectiveDate')}
                 </dt>
                 <dd
                   style={{
@@ -137,7 +140,7 @@ const LegalPage = ({
                       color: '#718096',
                     }}
                   >
-                    Last reviewed
+                    {t('legal:common.lastReviewed')}
                   </dt>
                   <dd
                     style={{
@@ -162,7 +165,7 @@ const LegalPage = ({
                       color: '#718096',
                     }}
                   >
-                    Questions
+                    {t('legal:common.questions')}
                   </dt>
                   <dd
                     style={{
@@ -195,7 +198,7 @@ const LegalPage = ({
             className="legal-shell"
           >
             <nav
-              aria-label="On this page"
+              aria-label={t('legal:common.onThisPage')}
               style={{
                 position: 'sticky',
                 top: 110,
@@ -217,7 +220,7 @@ const LegalPage = ({
                   marginBottom: 12,
                 }}
               >
-                On this page
+                {t('legal:common.onThisPage')}
               </span>
               <ol style={{ listStyle: 'none', margin: 0, padding: 0, display: 'grid', gap: 8 }}>
                 {sections.map((s, i) => (

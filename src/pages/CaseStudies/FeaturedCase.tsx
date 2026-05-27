@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import specialtyEmergencyErImg from '@/assets/nextgen-image/specialtyemergencyerimg.png';
 
 const FeaturedCaseArt = () => (
@@ -136,6 +137,8 @@ const AuthorAvatar = () => (
 );
 
 const FeaturedCase = () => {
+  const { t } = useTranslation('pages');
+
   return (
     <section className="feat-cs">
       <div className="container-shell">
@@ -154,24 +157,19 @@ const FeaturedCase = () => {
                 <polyline points="7 7 17 7 17 17" />
               </svg>
             </span>
-            All Cases
+            {t('caseStudies.featured.allCases')}
           </a>
-          <h2 className="feat-title">Our Featured Case Study</h2>
+          <h2 className="feat-title">{t('caseStudies.featured.title')}</h2>
         </div>
 
         <article className="feat-card">
           <div className="feat-meta">
             <div>
               <div className="feat-date">
-                07<small>May</small>
+                {t('caseStudies.featured.date')}<small>{t('caseStudies.featured.month')}</small>
               </div>
-              <h3 className="feat-headline">
-                A Texas ER doubled patient acquisition without raising ad spend
-              </h3>
-              <p className="feat-lede">
-                The full breakdown of how a freestanding emergency room in Dallas Metro outranked a
-                major hospital network in 90 days using local SEO + targeted Google Ads.
-              </p>
+              <h3 className="feat-headline">{t('caseStudies.featured.headline')}</h3>
+              <p className="feat-lede">{t('caseStudies.featured.lede')}</p>
             </div>
           </div>
 
@@ -179,31 +177,31 @@ const FeaturedCase = () => {
             <FeaturedCaseArt />
             <img
               src={specialtyEmergencyErImg}
-              alt="Dallas Metro ER — featured case study"
+              alt={t('caseStudies.featured.imgAlt')}
               style={{ position: 'absolute', inset: 0 }}
             />
             <div className="feat-img-overlay" />
             <div className="feat-img-tag">
-              <span>Dallas, TX</span>
+              <span>{t('caseStudies.featured.imgTagLocation')}</span>
               <span>·</span>
-              <span>90-day engagement</span>
+              <span>{t('caseStudies.featured.imgTagEngagement')}</span>
               <span>·</span>
-              <span>+45% patient visits</span>
+              <span>{t('caseStudies.featured.imgTagResult')}</span>
             </div>
           </div>
 
           <aside className="feat-side">
             <div className="feat-logo">
               TheNextGen
-              <small>Case Study Lead</small>
+              <small>{t('caseStudies.featured.logoTag')}</small>
             </div>
             <div className="feat-author">
               <div className="feat-author-img">
                 <AuthorAvatar />
               </div>
               <div>
-                <h4 className="feat-author-name">Marcus Reyes</h4>
-                <p className="feat-author-role">Strategy Director</p>
+                <h4 className="feat-author-name">{t('caseStudies.featured.authorName')}</h4>
+                <p className="feat-author-role">{t('caseStudies.featured.authorRole')}</p>
               </div>
             </div>
           </aside>

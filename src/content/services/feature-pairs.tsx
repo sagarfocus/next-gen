@@ -1,4 +1,6 @@
+import { useMemo } from 'react';
 import type { ReactElement } from 'react';
+import { useTranslation } from 'react-i18next';
 import gbpImg from '../../assets/nextgen-image/Googleebuisness.png';
 import citationImg from '../../assets/nextgen-image/Citationbuilding.png';
 import hyperLocalImg from '../../assets/nextgen-image/Hyperlocalcontent.png';
@@ -21,40 +23,42 @@ const HyperLocalBg = <img src={hyperLocalImg} alt="" loading="lazy" decoding="as
 
 const AeoBg = <img src={aeoImg} alt="" loading="lazy" decoding="async" />;
 
-export const ROW_1: PairCard[] = [
-  {
-    ariaId: 'card-gbp',
-    bg: GbpBg,
-    tag: 'Local Pack',
-    title: 'Google Business Profile',
-    desc: 'Complete optimization and weekly management of your GBP to secure Local Pack rankings.',
-    to: '/services/google-business-profile',
-  },
-  {
-    ariaId: 'card-citation',
-    bg: CitationBg,
-    tag: 'Authority',
-    title: 'Citation Building',
-    desc: 'Establishing authoritative backlinks and consistent NAP data across healthcare directories.',
-    to: '/citation-building',
-  },
+interface CardConfig {
+  ariaId: string;
+  bg: ReactElement;
+  to: string;
+  key: 'gbp' | 'citation' | 'hyperLocal' | 'aeo';
+}
+
+const ROW_1_CONFIG: CardConfig[] = [
+  { ariaId: 'card-gbp', bg: GbpBg, to: '/services/google-business-profile', key: 'gbp' },
+  { ariaId: 'card-citation', bg: CitationBg, to: '/citation-building', key: 'citation' },
 ];
 
-export const ROW_2: PairCard[] = [
-  {
-    ariaId: 'card-hl',
-    bg: HyperLocalBg,
-    tag: 'Geo-Targeted',
-    title: 'Hyper-Local Content',
-    desc: 'Creating programmatic landing pages for surrounding Texas municipalities and suburbs.',
-    to: '/hyper-local-content',
-  },
-  {
-    ariaId: 'card-aeo',
-    bg: AeoBg,
-    tag: 'AI Search',
-    title: 'AEO & Schema',
-    desc: 'Structuring data for AI Overviews and voice search dominance in the medical sector.',
-    to: '/aeo-schema',
-  },
+const ROW_2_CONFIG: CardConfig[] = [
+  { ariaId: 'card-hl', bg: HyperLocalBg, to: '/hyper-local-content', key: 'hyperLocal' },
+  { ariaId: 'card-aeo', bg: AeoBg, to: '/aeo-schema', key: 'aeo' },
 ];
+
+function cardFromConfig(t: (key: string) => string, c: CardConfig): PairCard {
+  return {
+    ariaId: c.ariaId,
+    bg: c.bg,
+    to: c.to,
+    tag: t(`featurePairs.cards.${c.key}.tag`),
+    title: t(`featurePairs.cards.${c.key}.title`),
+    desc: t(`featurePairs.cards.${c.key}.desc`),
+  };
+}
+
+/** React hook for the first row of feature pair cards. */
+export function useFeaturePairsRow1(): readonly PairCard[] {
+  const { t } = useTranslation('services');
+  return useMemo(() => ROW_1_CONFIG.map((c) => cardFromConfig(t, c)), [t]);
+}
+
+/** React hook for the second row of feature pair cards. */
+export function useFeaturePairsRow2(): readonly PairCard[] {
+  const { t } = useTranslation('services');
+  return useMemo(() => ROW_2_CONFIG.map((c) => cardFromConfig(t, c)), [t]);
+}

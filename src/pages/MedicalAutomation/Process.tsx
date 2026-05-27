@@ -1,20 +1,23 @@
+import { useTranslation } from 'react-i18next';
 import { PROCESS, PROCESS_ICON } from './data';
 
 const Process = () => {
+  const { t } = useTranslation('pages');
   return (
     <section className="sl-section mau-proc-section" id="process">
       <div className="container-shell">
         <div className="sl-sec-head">
           <div>
-            <div className="sl-sec-num">04 - How we build</div>
+            <div className="sl-sec-num">{t('pages:medicalAutomation.process.secNum')}</div>
             <h2 className="sl-sec-title">
-              Four phases. <em>First workflow live in two weeks.</em>
+              {t('pages:medicalAutomation.process.titleLine1')}{' '}
+              <em>{t('pages:medicalAutomation.process.titleAccent')}</em>
             </h2>
           </div>
           <div className="sl-sec-meta">
-            Named automation lead
+            {t('pages:medicalAutomation.process.secMeta1')}
             <br />
-            from day one
+            {t('pages:medicalAutomation.process.secMeta2')}
           </div>
         </div>
 
@@ -26,9 +29,15 @@ const Process = () => {
               return (
                 <article key={p.n} className="mau-proc-card">
                   <div className="mau-proc-dot"><Icon /></div>
-                  <div className="mau-proc-time">{p.week}</div>
-                  <h3 className="mau-proc-name">{p.k}</h3>
-                  <p className="mau-proc-desc">{p.d}</p>
+                  <div className="mau-proc-time">
+                    {t(`pages:medicalAutomation.process.items.${p.key}.week`)}
+                  </div>
+                  <h3 className="mau-proc-name">
+                    {t(`pages:medicalAutomation.process.items.${p.key}.k`)}
+                  </h3>
+                  <p className="mau-proc-desc">
+                    {t(`pages:medicalAutomation.process.items.${p.key}.d`)}
+                  </p>
                 </article>
               );
             })}

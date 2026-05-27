@@ -1,4 +1,5 @@
 import '../../styles/websitedesign.css';
+import { useTranslation } from 'react-i18next';
 import Seo from '@/components/Seo';
 import Hero from './Hero';
 import TrustBar from './TrustBar';
@@ -77,11 +78,12 @@ const BREADCRUMB_SCHEMA = buildBreadcrumbList([
 ]);
 
 const WebsiteDesign = () => {
+  const { t } = useTranslation('pages');
   return (
     <>
       <Seo
-        title="Healthcare Website Design & Development — Custom, Fast, HIPAA-Aware"
-        description="Custom healthcare websites that book patients. Sub-2s LCP, WCAG 2.2 AA, owner-managed CMS. Strategy, design, code, content, SEO, and care plans under one roof. Free build readiness audit."
+        title={t('websiteDesign.seo.title')}
+        description={t('websiteDesign.seo.description')}
         path="/services/website-design-dev"
         schema={[SERVICE_SCHEMA, FAQ_SCHEMA, BREADCRUMB_SCHEMA]}
       />

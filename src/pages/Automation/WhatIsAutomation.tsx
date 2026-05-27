@@ -1,21 +1,18 @@
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import healthautoImg from '../../assets/nextgen-image/Healthautoimg.png';
 
 const WhatIsAutomation = () => {
+  const { t } = useTranslation(['automation']);
   return (
     <section className="what-is" aria-labelledby="what-title">
       <div className="container-shell">
         <div className="what-grid">
           <div className="reveal">
             <h2 className="section-title" id="what-title">
-              What is Healthcare Automation?
+              {t('automation:whatIs.title')}
             </h2>
-            <p className="what-text">
-              Healthcare automation is the deployment of intelligent workflows that handle
-              repetitive front-desk, back-office, and patient-communication tasks - directly inside
-              the systems your clinic already runs on. No replacement, no migration. Just less
-              manual work.
-            </p>
+            <p className="what-text">{t('automation:whatIs.text')}</p>
             <Link to="/automation/more-info" className="more-info">
               <span className="more-info-icon">
                 <svg
@@ -32,7 +29,7 @@ const WhatIsAutomation = () => {
                   <polyline points="7 7 17 7 17 17" />
                 </svg>
               </span>
-              More Info
+              {t('automation:whatIs.moreInfo')}
             </Link>
           </div>
 

@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { ArrowIcon } from '@/components/icons';
 import type { RecoveryLink } from './links';
 
-const Column = ({ title, links }: { title: string; links: RecoveryLink[] }) => (
+const Column = ({ title, links }: { title: string; links: readonly RecoveryLink[] }) => (
   <div
     style={{
       background: '#fff',

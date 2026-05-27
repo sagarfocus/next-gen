@@ -1,47 +1,52 @@
+import { useTranslation, Trans } from 'react-i18next';
 import { METRICS } from './data';
 
 const Metrics = () => {
+  const { t } = useTranslation('pages');
   return (
     <section className="sl-section mau-met-section" id="results">
       <div className="container-shell">
         <div className="sl-sec-head">
           <div>
-            <div className="sl-sec-num">06 - What the workflows move</div>
+            <div className="sl-sec-num">{t('pages:medicalAutomation.metrics.secNum')}</div>
             <h2 className="sl-sec-title">
-              The numbers we&rsquo;re <em>actually paid on.</em>
+              {t('pages:medicalAutomation.metrics.titleLine1')}{' '}
+              <em>{t('pages:medicalAutomation.metrics.titleAccent')}</em>
             </h2>
           </div>
           <div className="sl-sec-meta">
-            Median across active
+            {t('pages:medicalAutomation.metrics.secMeta1')}
             <br />
-            healthcare engagements
+            {t('pages:medicalAutomation.metrics.secMeta2')}
           </div>
         </div>
 
         <div className="mau-met-grid">
           {METRICS.map((m) => {
-            const formatted = m.decimals
-              ? m.value.toFixed(m.decimals)
-              : String(m.value);
+            const formatted = m.decimals ? m.value.toFixed(m.decimals) : String(m.value);
             return (
-              <article key={m.k} className="mau-met-card">
+              <article key={m.key} className="mau-met-card">
                 <div className="mau-met-num">
                   {m.prefix ?? ''}
                   {formatted}
                   {m.suffix && <em>{m.suffix}</em>}
                 </div>
-                <div className="mau-met-lbl">{m.k}</div>
-                <p className="mau-met-sub">{m.d}</p>
+                <div className="mau-met-lbl">
+                  {t(`pages:medicalAutomation.metrics.items.${m.key}.k`)}
+                </div>
+                <p className="mau-met-sub">
+                  {t(`pages:medicalAutomation.metrics.items.${m.key}.d`)}
+                </p>
               </article>
             );
           })}
         </div>
 
         <p className="mau-met-note">
-          <strong>How we report.</strong> Every metric here is sourced from the same live
-          dashboard your team logs into daily — pulled from your EHR, your CRM, and the
-          workflow engine itself. We don&rsquo;t blend in industry benchmarks and we
-          don&rsquo;t publish a number we can&rsquo;t reproduce on demand.
+          <Trans
+            i18nKey="pages:medicalAutomation.metrics.note"
+            components={{ strong: <strong /> }}
+          />
         </p>
       </div>
     </section>

@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import Hero from './Hero';
 import Team from './Team';
 import Cadence from './Cadence';
@@ -18,20 +19,23 @@ const BREADCRUMB_SCHEMA = buildBreadcrumbList([
   { name: 'Growth Team' },
 ]);
 
-const GrowthTeam = () => (
-  <main className="gt-page gt-page-x">
-    <Seo
-      title="The Growth Team — Embedded Healthcare Marketing Specialists"
-      description="Six dedicated healthcare-fluent specialists — embedded into your engagement, no junior handoffs, no freelancer churn. 105+ weekly hours per account, 3.1× median first-year ROAS."
-      path="/infrastructure/growth-team"
-      schema={[SCHEMA, BREADCRUMB_SCHEMA]}
-    />
+const GrowthTeam = () => {
+  const { t } = useTranslation(['pages']);
+  return (
+    <main className="gt-page gt-page-x">
+      <Seo
+        title={t('pages:infrastructure.growthTeam.seo.title')}
+        description={t('pages:infrastructure.growthTeam.seo.description')}
+        path="/infrastructure/growth-team"
+        schema={[SCHEMA, BREADCRUMB_SCHEMA]}
+      />
 
-    <Hero />
-    <Team />
-    <Cadence />
-    <CTA />
-  </main>
-);
+      <Hero />
+      <Team />
+      <Cadence />
+      <CTA />
+    </main>
+  );
+};
 
 export default GrowthTeam;

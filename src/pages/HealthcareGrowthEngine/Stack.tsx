@@ -1,10 +1,12 @@
 import { useEffect, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { ChevronRightIcon } from '@/components/icons';
 import { StackCard } from './helpers';
 import { STACK_GROUPS } from './data';
 
 /* ---------- STACK & INSTRUMENTATION ---------- */
 const Stack = () => {
+  const { t } = useTranslation('pages');
   const trackRef = useRef<HTMLDivElement | null>(null);
   const [progress, setProgress] = useState(0);
 
@@ -89,17 +91,16 @@ const Stack = () => {
       <div className="container-shell py-[clamp(64px,8.5vw,120px)]">
         <div className="flex items-center gap-3 text-line font-mono text-[11px] tracking-[0.22em] uppercase mb-7">
           <span className="h-1.5 w-1.5 rounded-full bg-accent-soft" />
-          Our Stack
+          {t('pages:healthcareGrowthEngine.stack.eyebrow')}
         </div>
         <div className="grid lg:grid-cols-12 gap-x-12 gap-y-6 items-end mb-12 lg:mb-16">
           <h2 className="lg:col-span-7 text-heading font-extrabold leading-[0.96] tracking-[-0.038em] text-[clamp(36px,5.4vw,74px)]">
-            One stack across
+            {t('pages:healthcareGrowthEngine.stack.titleLine1')}
             <br />
-            every clinic surface.
+            {t('pages:healthcareGrowthEngine.stack.titleLine2')}
           </h2>
           <p className="lg:col-span-4 lg:col-start-9 text-body text-[15px] leading-[1.65] max-w-[42ch]">
-            Analytics, acquisition, automation, and clinical systems — instrumented under one roof
-            so every booked visit traces back to the surface that produced it.
+            {t('pages:healthcareGrowthEngine.stack.kicker')}
           </p>
         </div>
 
@@ -109,10 +110,10 @@ const Stack = () => {
             className="flex gap-5 lg:gap-6 overflow-x-auto snap-x snap-mandatory pb-2 -mx-[clamp(20px,4vw,48px)] px-[clamp(20px,4vw,48px)] cursor-grab select-none [&::-webkit-scrollbar]:hidden"
             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
             role="region"
-            aria-label="Tool stack categories"
+            aria-label={t('pages:healthcareGrowthEngine.stack.regionLabel')}
           >
             {STACK_GROUPS.map((g, i) => (
-              <StackCard key={g.label} group={g} idx={i} total={STACK_GROUPS.length} />
+              <StackCard key={g.key} group={g} idx={i} total={STACK_GROUPS.length} />
             ))}
             <span aria-hidden="true" className="shrink-0 w-px" />
           </div>
@@ -120,7 +121,7 @@ const Stack = () => {
           <div className="mt-8 grid grid-cols-1 sm:grid-cols-[1fr_auto] gap-5 items-center">
             <div className="flex items-center gap-4">
               <span className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted font-semibold whitespace-nowrap">
-                Drag · swipe · scroll
+                {t('pages:healthcareGrowthEngine.stack.dragLabel')}
               </span>
               <div className="relative h-px flex-1 bg-line-faint rounded-full overflow-hidden max-w-[280px]">
                 <span
@@ -133,7 +134,7 @@ const Stack = () => {
               <button
                 type="button"
                 onClick={() => scrollByCard(-1)}
-                aria-label="Previous category"
+                aria-label={t('pages:healthcareGrowthEngine.stack.prevAria')}
                 className="w-11 h-11 rounded-full border border-line-faint text-heading grid place-items-center transition-all hover:border-line hover:bg-bg"
               >
                 <svg
@@ -153,7 +154,7 @@ const Stack = () => {
               <button
                 type="button"
                 onClick={() => scrollByCard(1)}
-                aria-label="Next category"
+                aria-label={t('pages:healthcareGrowthEngine.stack.nextAria')}
                 className="w-11 h-11 rounded-full bg-heading text-white grid place-items-center transition-all hover:bg-heading/85"
               >
                 <ChevronRightIcon size={16} strokeWidth={2.4} />
@@ -163,8 +164,7 @@ const Stack = () => {
         </div>
 
         <p className="mt-10 text-muted text-[13px] leading-[1.6] max-w-[64ch]">
-          Don&apos;t see your tool? We integrate with most modern PMS, EHR, CRM, and front-desk
-          stacks via native APIs, Zapier, or Make. We bring instrumentation, not new vendors.
+          {t('pages:healthcareGrowthEngine.stack.footer')}
         </p>
       </div>
     </section>

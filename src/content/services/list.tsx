@@ -1,4 +1,6 @@
+import { useMemo } from 'react';
 import type { ReactElement } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import fieldImg from '../../assets/nextgen-image/Onsitefieldmarketing.png';
 import seoImg from '../../assets/nextgen-image/Seoimg.png';
@@ -469,120 +471,126 @@ const AnalyticsCard = (
   </svg>
 );
 
-export const SERVICES: ServiceItem[] = [
-  {
-    ariaId: 'svc-1',
-    illustration: SeoCard,
-    image: seoImg,
-    meta: 'Search',
-    title: 'SEO Services',
-    sub: 'Full-suite SEO - technical, on-page, off-page, local, AEO, content.',
-    to: '/services/seo',
-  },
+interface ServiceConfig {
+  ariaId: string;
+  illustration: ReactElement;
+  image?: string;
+  imgFocus?: 'left' | 'right' | 'center';
+  to: string;
+  extra?: boolean;
+  key:
+    | 'seo'
+    | 'googleAds'
+    | 'metaAds'
+    | 'socialMedia'
+    | 'content'
+    | 'gbp'
+    | 'web'
+    | 'brand'
+    | 'email'
+    | 'strategy'
+    | 'field'
+    | 'analytics';
+}
+
+const SERVICE_CONFIG: ServiceConfig[] = [
+  { ariaId: 'svc-1', illustration: SeoCard, image: seoImg, to: '/services/seo', key: 'seo' },
   {
     ariaId: 'svc-2',
     illustration: AdsCard,
     image: adsImg,
-    meta: 'Paid Media',
-    title: 'Google Ads',
-    sub: 'Search · PMax · Display · YouTube · Shopping · LSA - tuned weekly.',
     to: '/services/google-ads',
+    key: 'googleAds',
   },
-  {
-    ariaId: 'svc-3',
-    illustration: MetaCard,
-    image: metaImg,
-    meta: 'Social Ads',
-    title: 'Meta Ads',
-    sub: 'Conversion-focused campaigns on Facebook & Instagram.',
-    to: '/meta-ads',
-  },
+  { ariaId: 'svc-3', illustration: MetaCard, image: metaImg, to: '/meta-ads', key: 'metaAds' },
   {
     ariaId: 'svc-4',
     illustration: SocialCard,
     image: socialImg,
-    meta: 'Social',
-    title: 'Social Media Marketing',
-    sub: 'Show up where your patients spend their time.',
     to: '/services/social-media-marketing',
+    key: 'socialMedia',
   },
   {
     ariaId: 'svc-5',
     illustration: ContentCard,
     image: contentImg,
-    meta: 'Content',
-    title: 'Content & Copywriting',
-    sub: 'Healthcare content that ranks & converts.',
     to: '/services/content-copywriting',
+    key: 'content',
   },
   {
     ariaId: 'svc-6',
     illustration: GbpCard,
     image: gbpImg,
-    meta: 'Local',
-    title: 'Google Business Profile',
-    sub: 'Dominate the Local Pack with weekly GBP optimization.',
     to: '/services/google-business-profile',
+    key: 'gbp',
   },
   {
     ariaId: 'svc-7',
     illustration: WebCard,
     image: webImg,
     imgFocus: 'right',
-    meta: 'Web',
-    title: 'Website Design & Development',
-    sub: 'Fast, accessible sites built to convert.',
     to: '/services/website-design-dev',
     extra: true,
+    key: 'web',
   },
   {
     ariaId: 'svc-8',
     illustration: BrandCard,
     image: brandImg,
-    meta: 'Identity',
-    title: 'Brand Identity Design',
-    sub: 'Memorable visual systems for healthcare brands.',
     to: '/services/brand-identity-design',
     extra: true,
+    key: 'brand',
   },
   {
     ariaId: 'svc-9',
     illustration: EmailCard,
     image: emailImg,
-    meta: 'Lifecycle',
-    title: 'Email Drip Campaigns',
-    sub: 'Welcome · recall · win-back · referral - all BAA-covered.',
     to: '/services/email-drip-campaigns',
     extra: true,
+    key: 'email',
   },
   {
     ariaId: 'svc-10',
     illustration: StrategyCard,
     image: strategyImg,
-    meta: 'Strategy',
-    title: 'Strategy & Planning',
-    sub: 'Roadmaps grounded in data & clinical reality.',
     to: '/growth-plan',
     extra: true,
+    key: 'strategy',
   },
   {
     ariaId: 'svc-11',
     illustration: FieldCard,
     image: fieldImg,
-    meta: 'Field',
-    title: 'Onsite Field Marketing',
-    sub: 'Community presence that drives walk-in volume.',
     to: '/onsite-field-marketing',
     extra: true,
+    key: 'field',
   },
   {
     ariaId: 'svc-12',
     illustration: AnalyticsCard,
     image: analyticsImg,
-    meta: 'Insights',
-    title: 'Analytics & Reporting',
-    sub: 'Real-time dashboards tied to revenue.',
     to: '/services/analytics-reporting',
     extra: true,
+    key: 'analytics',
   },
 ];
+
+/** React hook for the Services index card list — live-translates. */
+export function useServices(): readonly ServiceItem[] {
+  const { t } = useTranslation('services');
+  return useMemo(
+    () =>
+      SERVICE_CONFIG.map((c) => ({
+        ariaId: c.ariaId,
+        illustration: c.illustration,
+        ...(c.image ? { image: c.image } : {}),
+        ...(c.imgFocus ? { imgFocus: c.imgFocus } : {}),
+        to: c.to,
+        ...(c.extra ? { extra: true } : {}),
+        meta: t(`list.items.${c.key}.meta`),
+        title: t(`list.items.${c.key}.title`),
+        sub: t(`list.items.${c.key}.sub`),
+      })),
+    [t]
+  );
+}

@@ -1,29 +1,29 @@
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { ArrowIcon } from '@/components/icons';
 
 const FinalCTA = () => {
+  const { t } = useTranslation('pricing');
+
   return (
     <section className="pr-cta" aria-labelledby="pr-cta-title">
       <div className="container-shell">
         <div className="pr-cta-card">
-          <span className="pr-cta-eyebrow">Ready to Scale</span>
+          <span className="pr-cta-eyebrow">{t('cta.eyebrow')}</span>
           <h2 id="pr-cta-title" className="pr-cta-h2">
-            Let&rsquo;s build your <em>patient pipeline</em>.
+            {t('cta.titleStart')} <em>{t('cta.titleEm')}</em>
+            {t('cta.titleEnd')}
           </h2>
-          <p className="pr-cta-text">
-            Get a free 30-minute consultation with a senior practitioner. We&rsquo;ll audit your
-            current funnel, recommend the right tier for your scale, and outline a custom roadmap -
-            no commitment.
-          </p>
+          <p className="pr-cta-text">{t('cta.text')}</p>
           <div className="pr-cta-actions">
             <Link to="/contact" className="pr-cta-pri">
-              Book a Free Consultation
+              {t('cta.primary')}
               <span className="ico" aria-hidden="true">
                 <ArrowIcon size={14} />
               </span>
             </Link>
             <Link to="/case-studies" className="pr-cta-sec">
-              View Case Studies
+              {t('cta.secondary')}
             </Link>
           </div>
         </div>

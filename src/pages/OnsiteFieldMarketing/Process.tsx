@@ -1,20 +1,23 @@
+import { useTranslation } from 'react-i18next';
 import { PROCESS } from './data';
 
 const Process = () => {
+  const { t } = useTranslation('pages');
   return (
     <section className="sl-section ofm-proc-section" id="process">
       <div className="container-shell">
         <div className="sl-sec-head">
           <div>
-            <div className="sl-sec-num">03 - How we run the program</div>
+            <div className="sl-sec-num">{t('pages:onsiteFieldMarketing.process.secNum')}</div>
             <h2 className="sl-sec-title">
-              Four phases. <em>First booth live in 11 days.</em>
+              {t('pages:onsiteFieldMarketing.process.titleLine1')}{' '}
+              <em>{t('pages:onsiteFieldMarketing.process.titleAccent')}</em>
             </h2>
           </div>
           <div className="sl-sec-meta">
-            Named field lead
+            {t('pages:onsiteFieldMarketing.process.secMeta1')}
             <br />
-            from day one
+            {t('pages:onsiteFieldMarketing.process.secMeta2')}
           </div>
         </div>
 
@@ -24,9 +27,15 @@ const Process = () => {
             {PROCESS.map((p) => (
               <article key={p.n} className="ofm-proc-card">
                 <div className="ofm-proc-dot">{p.n}</div>
-                <div className="ofm-proc-time">{p.t}</div>
-                <h3 className="ofm-proc-name">{p.k}</h3>
-                <p className="ofm-proc-desc">{p.d}</p>
+                <div className="ofm-proc-time">
+                  {t(`pages:onsiteFieldMarketing.process.items.${p.key}.t`)}
+                </div>
+                <h3 className="ofm-proc-name">
+                  {t(`pages:onsiteFieldMarketing.process.items.${p.key}.k`)}
+                </h3>
+                <p className="ofm-proc-desc">
+                  {t(`pages:onsiteFieldMarketing.process.items.${p.key}.d`)}
+                </p>
               </article>
             ))}
           </div>

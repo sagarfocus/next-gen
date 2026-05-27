@@ -1,4 +1,5 @@
 import '../../styles/onsite-field-marketing.css';
+import { useTranslation } from 'react-i18next';
 import Seo from '@/components/Seo';
 import Hero from './Hero';
 import TrustBar from './TrustBar';
@@ -25,33 +26,36 @@ const FAQ_SCHEMA = {
   })),
 };
 
-const BREADCRUMB_SCHEMA = buildBreadcrumbList([
-  { name: 'Home', path: '/' },
-  { name: 'Onsite Field Marketing' },
-]);
+const OnsiteFieldMarketing = () => {
+  const { t } = useTranslation('pages');
+  const breadcrumbSchema = buildBreadcrumbList([
+    { name: 'Home', path: '/' },
+    { name: t('pages:onsiteFieldMarketing.breadcrumb.current') },
+  ]);
 
-const OnsiteFieldMarketing = () => (
-  <>
-    <Seo
-      title="Onsite Field Marketing for Healthcare — Community Booths, B2B Referrals & Sponsorships"
-      description="Healthcare-only field marketing. Booths, B2B referral visits, sponsorships, and door-drops — staffed by trained ambassadors, HIPAA-aware tablet intake, every lead attributed to first-visit revenue."
-      path="/onsite-field-marketing"
-      schema={[SERVICE_SCHEMA, FAQ_SCHEMA, BREADCRUMB_SCHEMA]}
-    />
+  return (
+    <>
+      <Seo
+        title={t('pages:onsiteFieldMarketing.seo.title')}
+        description={t('pages:onsiteFieldMarketing.seo.description')}
+        path="/onsite-field-marketing"
+        schema={[SERVICE_SCHEMA, FAQ_SCHEMA, breadcrumbSchema]}
+      />
 
-    <Hero />
-    <TrustBar />
-    <Brief />
-    <Channels />
-    <Deliverables />
-    <Process />
-    <WhyUs />
-    <Metrics />
-    <Challenges />
-    <Testimonials />
-    <FAQ />
-    <CTA />
-  </>
-);
+      <Hero />
+      <TrustBar />
+      <Brief />
+      <Channels />
+      <Deliverables />
+      <Process />
+      <WhyUs />
+      <Metrics />
+      <Challenges />
+      <Testimonials />
+      <FAQ />
+      <CTA />
+    </>
+  );
+};
 
 export default OnsiteFieldMarketing;

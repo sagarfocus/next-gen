@@ -1,7 +1,9 @@
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { ArrowIcon } from '@/components/icons';
 
 const CTA = () => {
+  const { t } = useTranslation('pages');
   return (
     <section className="an-cta-section" id="audit">
       <div className="container-shell">
@@ -9,21 +11,17 @@ const CTA = () => {
           <div className="an-cta-left">
             <div className="an-cta-eyebrow">
               <span className="dot" aria-hidden="true" />
-              Dashboard audit · No commitment
+              {t('analytics.cta.eyebrow')}
             </div>
-            <h2 className="an-cta-title">Stop trusting three different totals.</h2>
-            <p className="an-cta-desc">
-              Send us your current stack. We map the tracking gaps, PHI exposure, and attribution
-              holes inside one working session - no slide deck, no pitch. You leave with a written
-              instrumentation plan, whether or not we ever work together.
-            </p>
+            <h2 className="an-cta-title">{t('analytics.cta.title')}</h2>
+            <p className="an-cta-desc">{t('analytics.cta.desc')}</p>
             <div className="an-cta-ctas">
               <Link to="/free-growth-audit" className="sl-btn-primary">
-                Request the audit
+                {t('analytics.cta.ctaPrimary')}
                 <ArrowIcon />
               </Link>
               <Link to="/case-studies" className="sl-btn-ghost">
-                See case studies
+                {t('analytics.cta.ctaSecondary')}
                 <svg
                   viewBox="0 0 24 24"
                   fill="none"
@@ -44,19 +42,19 @@ const CTA = () => {
               <span className="an-cta-stat-num">
                 100<em>%</em>
               </span>
-              <span className="an-cta-stat-lbl">Channel attribution · per dollar</span>
+              <span className="an-cta-stat-lbl">{t('analytics.cta.stat1Lbl')}</span>
             </div>
             <div className="an-cta-stat">
               <span className="an-cta-stat-num">
                 −85<em>%</em>
               </span>
-              <span className="an-cta-stat-lbl">Reporting time saved</span>
+              <span className="an-cta-stat-lbl">{t('analytics.cta.stat2Lbl')}</span>
             </div>
             <div className="an-cta-stat">
               <span className="an-cta-stat-num">
                 $12<em>M+</em>
               </span>
-              <span className="an-cta-stat-lbl">Healthcare revenue tracked</span>
+              <span className="an-cta-stat-lbl">{t('analytics.cta.stat3Lbl')}</span>
             </div>
           </div>
         </div>

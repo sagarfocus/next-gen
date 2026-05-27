@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { ArrowIcon } from '@/components/icons';
-import { FAQS } from '@/content/about/faqs';
+import { useAboutFAQs } from '@/content/about/faqs';
 
 const FAQChevron = () => (
   <span className="faq-chev" aria-hidden="true">
@@ -11,7 +12,9 @@ const FAQChevron = () => (
 );
 
 const AboutFAQ = () => {
-  const defaultIndex = FAQS.findIndex((f) => f.defaultOpen);
+  const { t } = useTranslation('about');
+  const faqs = useAboutFAQs();
+  const defaultIndex = faqs.findIndex((f) => f.defaultOpen);
   const [openIndex, setOpenIndex] = useState<number | null>(
     defaultIndex >= 0 ? defaultIndex : null
   );
@@ -21,35 +24,27 @@ const AboutFAQ = () => {
       <div className="container-shell">
         <div className="faq-grid">
           <div className="faq-left">
-            <span className="faq-eyebrow">Your Questions, Answered</span>
+            <span className="faq-eyebrow">{t('faqs.eyebrow')}</span>
             <h2 id="ab-faq-title" className="faq-h2">
-              Frequently <br />
-              Asked <span className="accent-text">Questions</span>.
+              {t('faqs.titleStart')} <br />
+              {t('faqs.titleMid')} <span className="accent-text">{t('faqs.titleAccent')}</span>
+              {t('faqs.titleEnd')}
             </h2>
-            <p className="faq-intro">
-              Everything you need to know about working with TheNextGen - from compliance and
-              reporting to clinic specialties and engagement models.
-            </p>
+            <p className="faq-intro">{t('faqs.intro')}</p>
 
             <div className="still-card">
-              <h3>Still have questions?</h3>
-              <p>
-                Every healthcare practice has different operational realities and compliance edges.
-                If there&rsquo;s anything you&rsquo;d like to clarify about how we work, pricing, or
-                fit, our team is here to help.
-              </p>
-              <p>
-                Reach out anytime - we&rsquo;ll walk you through every detail before any commitment.
-              </p>
+              <h3>{t('faqs.still.title')}</h3>
+              <p>{t('faqs.still.p1')}</p>
+              <p>{t('faqs.still.p2')}</p>
               <Link to="/contact" className="btn-primary">
-                Contact Us
+                {t('faqs.still.cta')}
                 <ArrowIcon size={14} strokeWidth={2} />
               </Link>
             </div>
           </div>
 
           <div className="faq-right">
-            {FAQS.map(({ q, a }, i) => (
+            {faqs.map(({ q, a }, i) => (
               <details
                 key={q}
                 className="faq-item"

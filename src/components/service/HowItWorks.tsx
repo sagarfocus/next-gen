@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import SectionHead from './SectionHead';
 
 export interface HowStep {
@@ -18,21 +19,23 @@ interface HowItWorksProps {
  * phase to the next. Nothing renders side-by-side within a step.
  */
 const HowItWorks = ({ steps, durations }: HowItWorksProps) => {
+  const { t } = useTranslation('common');
   return (
     <section className="sv-section sv-how" id="how">
       <div className="container-shell">
         <SectionHead
-          num="02 - How it works"
+          num={t('components.howItWorks.sectionNum')}
           title={
             <>
-              Four phases. <em>Sixty days.</em>
+              {t('components.howItWorks.titlePart1')}{' '}
+              <em>{t('components.howItWorks.titleEm')}</em>
             </>
           }
           meta={
             <>
-              Same shape
+              {t('components.howItWorks.metaLine1')}
               <br />
-              every engagement
+              {t('components.howItWorks.metaLine2')}
             </>
           }
         />
@@ -40,7 +43,9 @@ const HowItWorks = ({ steps, durations }: HowItWorksProps) => {
           {steps.map((s, i) => (
             <li key={s.num} className="sv-vstep-item">
               <span className="sv-vstep-dot">{s.num}</span>
-              <span className="sv-vstep-label">Phase {s.num}</span>
+              <span className="sv-vstep-label">
+                {t('components.howItWorks.phasePrefix')} {s.num}
+              </span>
               <h3 className="sv-vstep-name">{s.name}</h3>
               <p className="sv-vstep-desc">{s.desc}</p>
               {durations?.[i] ? <span className="sv-vstep-duration">{durations[i]}</span> : null}

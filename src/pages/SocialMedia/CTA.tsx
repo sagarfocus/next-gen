@@ -1,7 +1,9 @@
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { ArrowIcon } from '@/components/icons';
 
 const CTA = () => {
+  const { t } = useTranslation('pages');
   return (
     <section className="sm-cta-section" id="audit">
       <div className="container-shell">
@@ -9,24 +11,17 @@ const CTA = () => {
           <div className="sm-cta-left">
             <div className="sm-cta-eyebrow">
               <span className="dot" aria-hidden="true" />
-              Free cadence call · 30 minutes
+              {t('socialMedia.cta.eyebrow')}
             </div>
-            <h2 className="sm-cta-title">
-              Pick the two channels worth your team&rsquo;s time.
-            </h2>
-            <p className="sm-cta-desc">
-              We open your current channels live on the call, look at your
-              audience signals and clinical voice, and tell you which two to
-              commit to before next quarter. You leave with a 1-page written
-              cadence plan - whether you sign with us or not.
-            </p>
+            <h2 className="sm-cta-title">{t('socialMedia.cta.title')}</h2>
+            <p className="sm-cta-desc">{t('socialMedia.cta.desc')}</p>
             <div className="sm-cta-ctas">
               <Link to="/contact" className="sl-btn-primary">
-                Book the cadence call
+                {t('socialMedia.cta.ctaPrimary')}
                 <ArrowIcon />
               </Link>
               <Link to="/case-studies" className="sl-btn-ghost">
-                See case studies
+                {t('socialMedia.cta.ctaSecondary')}
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.4} strokeLinecap="round" strokeLinejoin="round">
                   <line x1="7" y1="17" x2="17" y2="7" />
                   <polyline points="7 7 17 7 17 17" />
@@ -38,15 +33,15 @@ const CTA = () => {
           <div className="sm-cta-right">
             <div className="sm-cta-stat">
               <span className="sm-cta-stat-num">312<em>%</em></span>
-              <span className="sm-cta-stat-lbl">Avg reach lift · first 90 days</span>
+              <span className="sm-cta-stat-lbl">{t('socialMedia.cta.stat1Lbl')}</span>
             </div>
             <div className="sm-cta-stat">
               <span className="sm-cta-stat-num">5.8<em>%</em></span>
-              <span className="sm-cta-stat-lbl">Engagement rate · vs. 1.2% industry</span>
+              <span className="sm-cta-stat-lbl">{t('socialMedia.cta.stat2Lbl')}</span>
             </div>
             <div className="sm-cta-stat">
               <span className="sm-cta-stat-num">120<em>+</em></span>
-              <span className="sm-cta-stat-lbl">Healthcare accounts managed</span>
+              <span className="sm-cta-stat-lbl">{t('socialMedia.cta.stat3Lbl')}</span>
             </div>
           </div>
         </div>

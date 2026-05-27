@@ -1,10 +1,15 @@
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { AnimatedBackground } from '@/lib/motion';
 import logoSrc from '../../assets/the-nextgen-logo.png';
 import { ArrowIcon } from '@/components/icons';
-import { ORBIT_PILLS, CAPABILITIES } from '@/content/services/hero';
+import { useOrbitPills, useCapabilities } from '@/content/services/hero';
 
 const ServicesHero = () => {
+  const { t } = useTranslation('services');
+  const orbitPills = useOrbitPills();
+  const capabilities = useCapabilities();
+
   return (
     <section className="svc-hero" aria-labelledby="svc-title">
       <AnimatedBackground variant="aurora" intensity="subtle" />
@@ -13,23 +18,23 @@ const ServicesHero = () => {
           {/* CENTER stage - title + CTAs */}
           <div className="svc-stage">
             <h1 id="svc-title" className="svc-h1 reveal d2">
-              Healthcare
+              {t('hero.h1Line1')}
               <br />
-              Marketing
+              {t('hero.h1Line2')}
               <br />
-              <span className="word-accent">Services</span>
+              <span className="word-accent">{t('hero.h1Line3')}</span>
             </h1>
 
             <div className="svc-stage-cta reveal d3">
               <Link to="/growth-plan" className="svc-cta-primary">
-                Get Your Growth Plan
+                {t('hero.ctaPrimary')}
                 <span className="ico" aria-hidden="true">
                   <ArrowIcon size={14} />
                 </span>
               </Link>
 
               <Link to="/case-studies" className="svc-cta-link">
-                View Case Studies
+                {t('hero.ctaSecondary')}
                 <span className="ico" aria-hidden="true">
                   <svg
                     width={12}
@@ -73,9 +78,9 @@ const ServicesHero = () => {
                   </div>
                   <div className="ho-core-divider" />
                   <div className="ho-core-tag">
-                    Healthcare
+                    {t('hero.growthOsLine1')}
                     <br />
-                    Growth OS
+                    {t('hero.growthOsLine2')}
                   </div>
                 </div>
               </div>
@@ -88,7 +93,7 @@ const ServicesHero = () => {
               <span className="ho-orb ho-orb-5" />
 
               {/* Revolving 3D pills */}
-              {ORBIT_PILLS.map(({ slot, label, sub, icon }) => (
+              {orbitPills.map(({ slot, label, sub, icon }) => (
                 <span key={slot} className={`ho-pill ${slot}`}>
                   <span className="ho-pill-ico">{icon}</span>
                   <span className="ho-pill-text">
@@ -103,29 +108,25 @@ const ServicesHero = () => {
           {/* BOTTOM - meta strip + sub paragraph */}
           <div className="svc-sub-row reveal d4">
             <div className="svc-meta">
-              <span className="svc-meta-label">HIPAA-Compliant</span>
+              <span className="svc-meta-label">{t('hero.metaLeft')}</span>
               <span className="bar" />
-              <span className="svc-meta-label">Built for Texas</span>
+              <span className="svc-meta-label">{t('hero.metaRight')}</span>
             </div>
-            <p className="svc-sub">
-              We deploy a comprehensive, HIPAA-compliant marketing ecosystem designed to dominate
-              local search, acquire high-acuity patients, and automate your front-desk operations
-              across Texas.
-            </p>
+            <p className="svc-sub">{t('hero.sub')}</p>
           </div>
 
           {/* CAPABILITY MARQUEE */}
           <div className="svc-bottom reveal d5">
-            <span className="svc-bottom-label">Core Capabilities</span>
-            <div className="svc-marquee" aria-label="Service capabilities">
+            <span className="svc-bottom-label">{t('hero.capabilitiesLabel')}</span>
+            <div className="svc-marquee" aria-label={t('hero.capabilitiesAria')}>
               <div className="svc-marquee-track">
-                {CAPABILITIES.map((cap) => (
+                {capabilities.map((cap) => (
                   <span key={cap} className="svc-marquee-item">
                     {cap}
                   </span>
                 ))}
                 {/* Duplicate for seamless loop */}
-                {CAPABILITIES.map((cap) => (
+                {capabilities.map((cap) => (
                   <span key={`dup-${cap}`} className="svc-marquee-item" aria-hidden="true">
                     {cap}
                   </span>

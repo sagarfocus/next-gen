@@ -1,4 +1,5 @@
 import '../../styles/emailcampaigns.css';
+import { useTranslation } from 'react-i18next';
 import Hero from './Hero';
 import TrustBar from './TrustBar';
 import FlowTypes from './FlowTypes';
@@ -48,11 +49,12 @@ const BREADCRUMB_SCHEMA = buildBreadcrumbList([
 ]);
 
 const EmailCampaigns = () => {
+  const { t } = useTranslation('pages');
   return (
     <>
       <Seo
-        title="Healthcare Email Marketing & Patient Drip Campaigns"
-        description="Welcome, post-visit, recall, win-back, referral, and newsletter flows on BAA-covered ESPs — segmented by treatment history, attributed to booked revenue."
+        title={t('emailCampaigns.seo.title')}
+        description={t('emailCampaigns.seo.description')}
         path="/services/email-drip-campaigns"
         schema={[SERVICE_SCHEMA, FAQ_SCHEMA, BREADCRUMB_SCHEMA]}
       />

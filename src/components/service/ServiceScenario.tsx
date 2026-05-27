@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react';
+import { useTranslation } from 'react-i18next';
 
 export interface TimelineRow {
   marker: string;
@@ -55,6 +56,7 @@ const ServiceScenario = ({
   comparison,
   sketch,
 }: ServiceScenarioProps) => {
+  const { t } = useTranslation('common');
   return (
     <section
       className="sv-section sv-scenario"
@@ -169,9 +171,11 @@ const ServiceScenario = ({
                 gap: 'clamp(16px, 2vw, 32px)',
               }}
             >
-              <span>Lever</span>
-              <span>Most clinics today</span>
-              <span style={{ color: '#B38B6D' }}>With our engagement</span>
+              <span>{t('components.serviceScenario.comparisonHeaders.lever')}</span>
+              <span>{t('components.serviceScenario.comparisonHeaders.before')}</span>
+              <span style={{ color: '#B38B6D' }}>
+                {t('components.serviceScenario.comparisonHeaders.after')}
+              </span>
             </div>
             {comparison.map((row, i) => (
               <div
@@ -252,7 +256,7 @@ const ServiceScenario = ({
                   paddingTop: 18,
                 }}
               >
-                Illustrative scenario · Composite, not a single engagement
+                {t('components.serviceScenario.sketchDisclaimer')}
               </span>
             </article>
             <ol

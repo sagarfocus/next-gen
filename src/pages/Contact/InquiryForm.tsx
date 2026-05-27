@@ -1,10 +1,12 @@
 import { useState } from 'react';
 import type { FormEvent } from 'react';
+import { useTranslation } from 'react-i18next';
 import { ChevronDownIcon } from '@/components/icons';
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 const InquiryForm = () => {
+  const { t } = useTranslation('contact');
   const [first, setFirst] = useState('');
   const [last, setLast] = useState('');
   const [email, setEmail] = useState('');
@@ -14,14 +16,14 @@ const InquiryForm = () => {
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!first.trim() || !last.trim() || !email.trim() || !message.trim()) {
-      alert('Please fill in first name, last name, email, and message.');
+      alert(t('inquiry.errors.missing'));
       return;
     }
     if (!EMAIL_RE.test(email.trim())) {
-      alert('Please enter a valid email.');
+      alert(t('inquiry.errors.invalidEmail'));
       return;
     }
-    alert('Message sent! We will respond within 4 hours.');
+    alert(t('inquiry.success'));
     setFirst('');
     setLast('');
     setEmail('');
@@ -31,23 +33,20 @@ const InquiryForm = () => {
 
   return (
     <form className="ct-form-card iq-form" onSubmit={handleSubmit} noValidate>
-      <span className="ct-form-eyebrow">General Inquiry</span>
-      <h3 className="ct-form-title">Send us a message</h3>
-      <p className="ct-form-text">
-        Have a question, a complaint, or need help choosing the right service for your practice?
-        Feel free to contact us - we typically reply in under 4 hours.
-      </p>
+      <span className="ct-form-eyebrow">{t('inquiry.eyebrow')}</span>
+      <h3 className="ct-form-title">{t('inquiry.title')}</h3>
+      <p className="ct-form-text">{t('inquiry.text')}</p>
 
       <div className="iq-fields">
         <div className="iq-field">
           <label className="iq-label" htmlFor="iq-first">
-            First Name
+            {t('inquiry.firstName')}
           </label>
           <input
             className="iq-input"
             id="iq-first"
             type="text"
-            placeholder="Enter your first name"
+            placeholder={t('inquiry.firstNamePlaceholder')}
             autoComplete="given-name"
             required
             value={first}
@@ -56,13 +55,13 @@ const InquiryForm = () => {
         </div>
         <div className="iq-field">
           <label className="iq-label" htmlFor="iq-last">
-            Last Name
+            {t('inquiry.lastName')}
           </label>
           <input
             className="iq-input"
             id="iq-last"
             type="text"
-            placeholder="Enter your last name"
+            placeholder={t('inquiry.lastNamePlaceholder')}
             autoComplete="family-name"
             required
             value={last}
@@ -71,13 +70,13 @@ const InquiryForm = () => {
         </div>
         <div className="iq-field">
           <label className="iq-label" htmlFor="iq-email">
-            Email
+            {t('inquiry.email')}
           </label>
           <input
             className="iq-input"
             id="iq-email"
             type="email"
-            placeholder="Enter your email"
+            placeholder={t('inquiry.emailPlaceholder')}
             autoComplete="email"
             required
             value={email}
@@ -86,10 +85,10 @@ const InquiryForm = () => {
         </div>
         <div className="iq-field">
           <label className="iq-label" htmlFor="iq-phone">
-            Contact Details
+            {t('inquiry.phone')}
           </label>
           <div className="iq-phone-wrap">
-            <button type="button" className="iq-cc" aria-label="Country code">
+            <button type="button" className="iq-cc" aria-label={t('inquiry.countryCodeAria')}>
               +1
               <ChevronDownIcon size={10} />
             </button>
@@ -97,7 +96,7 @@ const InquiryForm = () => {
               className="iq-input iq-phone-input"
               id="iq-phone"
               type="tel"
-              placeholder="Enter your contact number"
+              placeholder={t('inquiry.phonePlaceholder')}
               autoComplete="tel"
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
@@ -106,12 +105,12 @@ const InquiryForm = () => {
         </div>
         <div className="iq-field iq-field-full">
           <label className="iq-label" htmlFor="iq-message">
-            Message
+            {t('inquiry.message')}
           </label>
           <textarea
             className="iq-input iq-textarea"
             id="iq-message"
-            placeholder="Enter your message"
+            placeholder={t('inquiry.messagePlaceholder')}
             required
             value={message}
             onChange={(e) => setMessage(e.target.value)}
@@ -121,7 +120,7 @@ const InquiryForm = () => {
 
       <div className="iq-footer">
         <button type="submit" className="iq-submit">
-          Send a Message
+          {t('inquiry.submit')}
           <span className="ico" aria-hidden="true">
             <svg
               width={14}

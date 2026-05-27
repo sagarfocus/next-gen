@@ -1,6 +1,10 @@
 import { useParams, Navigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import DetailNarrative from '@/components/DetailNarrative';
-import { INDUSTRY_DETAIL_ENTRIES, findIndustryDetail } from '@/content/industries/details.data';
+import {
+  INDUSTRY_SLUGS,
+  useIndustryDetail,
+} from '@/content/industries/details.data';
 import Hero from './Hero';
 import Body from './Body';
 import FAQ from './FAQ';
@@ -15,16 +19,17 @@ const truncate = (s: string, n: number): string =>
 
 const IndustryDetail = () => {
   const { slug } = useParams<{ slug: string }>();
-  const entry = slug ? findIndustryDetail(slug) : undefined;
+  const { t } = useTranslation('industries');
+  const entry = useIndustryDetail(slug);
 
   if (!entry) {
     return <Navigate to="/industries" replace />;
   }
 
-  const indexInGroup = INDUSTRY_DETAIL_ENTRIES.findIndex((d) => d.slug === entry.slug);
-  const numLabel = `${String(indexInGroup + 1).padStart(2, '0')} / ${String(INDUSTRY_DETAIL_ENTRIES.length).padStart(2, '0')}`;
+  const indexInGroup = INDUSTRY_SLUGS.findIndex((s) => s === entry.slug);
+  const numLabel = `${String(indexInGroup + 1).padStart(2, '0')} / ${String(INDUSTRY_SLUGS.length).padStart(2, '0')}`;
 
-  const narrative = buildIndustryNarrative(entry);
+  const narrative = buildIndustryNarrative(entry, t);
 
   const breadcrumb = buildBreadcrumbList([
     { name: 'Home', path: '/' },
@@ -35,7 +40,7 @@ const IndustryDetail = () => {
   return (
     <main className="ow-detail-page">
       <Seo
-        title={`${entry.label} Marketing — Healthcare Patient Acquisition`}
+        title={t('detailPage.seoTitle', { label: entry.label })}
         description={truncate(entry.description, 160)}
         path={`/industries/detail/${entry.slug}`}
         schema={[serviceSchema(entry), faqSchema(entry), breadcrumb]}

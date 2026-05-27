@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import Hero from './Hero';
 import Chart from './Chart';
 import Phases from './Phases';
@@ -21,27 +22,30 @@ const SERVICE_SCHEMA = {
   },
 };
 
-const BREADCRUMB_SCHEMA = buildBreadcrumbList([
-  { name: 'Home', path: '/' },
-  { name: 'Growth Plan' },
-]);
+const GrowthPlan = () => {
+  const { t } = useTranslation('pages');
+  const breadcrumbSchema = buildBreadcrumbList([
+    { name: 'Home', path: '/' },
+    { name: t('pages:growthPlan.breadcrumb.current') },
+  ]);
 
-const GrowthPlan = () => (
-  <>
-    <Seo
-      title="The 12-Month Healthcare Growth Plan — Four Phases, One Chart"
-      description="A growth plan you can read at a glance — four phases, twelve months, one trajectory benchmarked against your starting line. Engineered for healthcare practices."
-      path="/growth-plan"
-      schema={[SERVICE_SCHEMA, BREADCRUMB_SCHEMA]}
-    />
+  return (
+    <>
+      <Seo
+        title={t('pages:growthPlan.seo.title')}
+        description={t('pages:growthPlan.seo.description')}
+        path="/growth-plan"
+        schema={[SERVICE_SCHEMA, breadcrumbSchema]}
+      />
 
-    <Hero />
-    <Chart />
-    <Phases />
-    <Quarters />
-    <Commitments />
-    <Closing />
-  </>
-);
+      <Hero />
+      <Chart />
+      <Phases />
+      <Quarters />
+      <Commitments />
+      <Closing />
+    </>
+  );
+};
 
 export default GrowthPlan;

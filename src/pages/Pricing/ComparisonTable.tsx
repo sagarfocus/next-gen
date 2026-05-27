@@ -1,5 +1,6 @@
 import { Fragment } from 'react';
-import { GROUPS } from '@/content/pricing/comparison';
+import { useTranslation } from 'react-i18next';
+import { useGroups } from '@/content/pricing/comparison';
 
 const CheckCell = () => (
   <span className="pr-cell-check">
@@ -21,41 +22,41 @@ const CheckCell = () => (
 const DashCell = () => <span className="pr-cell-dash">-</span>;
 
 const ComparisonTable = () => {
+  const { t } = useTranslation('pricing');
+  const groups = useGroups();
+
   return (
     <section className="pr-compare" aria-labelledby="pr-cmp-title">
       <div className="container-shell">
         <div className="pr-section-head">
-          <span className="pr-section-eyebrow">Feature Comparison</span>
+          <span className="pr-section-eyebrow">{t('comparison.eyebrow')}</span>
           <h2 id="pr-cmp-title" className="pr-section-h2">
-            See exactly what each tier includes.
+            {t('comparison.title')}
           </h2>
-          <p className="pr-section-sub">
-            Side-by-side breakdown across all features - from foundational SEO to enterprise-grade
-            infrastructure and dedicated development teams.
-          </p>
+          <p className="pr-section-sub">{t('comparison.subtitle')}</p>
         </div>
 
         <div className="pr-compare-wrap">
           <table className="pr-table">
             <thead>
               <tr>
-                <th>Feature</th>
+                <th>{t('comparison.featureHeader')}</th>
                 <th>
-                  <span className="col-name">Starter Care</span>
-                  <span className="col-price">$5,000 / mo</span>
+                  <span className="col-name">{t('comparison.starterName')}</span>
+                  <span className="col-price">{t('comparison.starterPrice')}</span>
                 </th>
                 <th className="is-featured">
-                  <span className="col-name">Growth Pro</span>
-                  <span className="col-price">$10,000 / mo</span>
+                  <span className="col-name">{t('comparison.growthName')}</span>
+                  <span className="col-price">{t('comparison.growthPrice')}</span>
                 </th>
                 <th>
-                  <span className="col-name">Scale Elite</span>
-                  <span className="col-price">Custom</span>
+                  <span className="col-name">{t('comparison.scaleName')}</span>
+                  <span className="col-price">{t('comparison.scalePrice')}</span>
                 </th>
               </tr>
             </thead>
             <tbody>
-              {GROUPS.map((group) => (
+              {groups.map((group) => (
                 <Fragment key={group.label}>
                   <tr className="is-divider">
                     <td colSpan={4}>

@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import Breadcrumb from '@/components/Breadcrumb';
 import type { BlogPostData } from '@/content/blog/posts';
 import { PLACEHOLDER_IMAGE as imgDefault } from '@/lib/placeholderImage';
@@ -5,21 +6,23 @@ import { COLORS, FEATURE_IMAGES, toneForPost, initialsOf } from './data';
 
 /* ─── Tone-coloured category pill ─── */
 const CategoryPill = ({ post }: { post: BlogPostData }) => {
-  const t = toneForPost(post);
+  const { t } = useTranslation('blog');
+  const tone = toneForPost(post);
   return (
     <span
       className="inline-flex items-center gap-2 rounded-full font-mono font-bold tracking-[0.18em] uppercase px-3 py-1.5 text-[11px]"
-      style={{ background: t.soft, color: t.hex }}
+      style={{ background: tone.soft, color: tone.hex }}
     >
-      <span className="w-1.5 h-1.5 rounded-full" style={{ background: t.hex }} aria-hidden="true" />
-      {post.catLabel}
+      <span className="w-1.5 h-1.5 rounded-full" style={{ background: tone.hex }} aria-hidden="true" />
+      {t(`posts.${post.slug}.catLabel`, post.catLabel)}
     </span>
   );
 };
 
 /* ─── Section: Hero ─── */
 const Hero = ({ post }: { post: BlogPostData }) => {
-  const t = toneForPost(post);
+  const { t } = useTranslation('blog');
+  const tone = toneForPost(post);
   const brief = post.takeaways[0];
   const supporting = post.takeaways[1];
   const cover = FEATURE_IMAGES[post.cat] ?? imgDefault;
@@ -27,7 +30,12 @@ const Hero = ({ post }: { post: BlogPostData }) => {
   return (
     <section className="ph-page-head">
       <div className="container-shell">
-        <Breadcrumb items={[{ label: 'Blog', to: '/blog' }, { label: post.catLabel }]} />
+        <Breadcrumb
+          items={[
+            { label: 'Blog', to: '/blog' },
+            { label: t(`posts.${post.slug}.catLabel`, post.catLabel) },
+          ]}
+        />
 
         <div className="mt-8 grid lg:grid-cols-12 gap-x-12 gap-y-12">
           <div className="lg:col-span-7">
@@ -36,13 +44,13 @@ const Hero = ({ post }: { post: BlogPostData }) => {
               className="mt-6 font-extrabold leading-[1.02] tracking-[-0.034em] text-[clamp(34px,5vw,68px)]"
               style={{ color: COLORS.navy }}
             >
-              {post.title}
+              {t(`posts.${post.slug}.title`, post.title)}
             </h1>
             <p
               className="mt-7 text-[18px] leading-[1.65] max-w-[60ch]"
               style={{ color: COLORS.body }}
             >
-              {post.excerpt}
+              {t(`posts.${post.slug}.excerpt`, post.excerpt)}
             </p>
 
             <div
@@ -52,13 +60,13 @@ const Hero = ({ post }: { post: BlogPostData }) => {
               <div className="flex items-center gap-3">
                 <span
                   className="inline-grid place-items-center w-9 h-9 rounded-full font-mono text-[12px] font-bold"
-                  style={{ background: t.soft, color: t.hex }}
+                  style={{ background: tone.soft, color: tone.hex }}
                   aria-hidden="true"
                 >
                   {initialsOf(post.author)}
                 </span>
                 <span>
-                  By <strong style={{ color: COLORS.navy }}>{post.author}</strong>
+                  {t('post.by')} <strong style={{ color: COLORS.navy }}>{post.author}</strong>
                 </span>
               </div>
               <span className="opacity-30">·</span>
@@ -79,14 +87,14 @@ const Hero = ({ post }: { post: BlogPostData }) => {
             >
               <span
                 className="absolute top-0 left-0 right-0 h-1"
-                style={{ background: t.hex }}
+                style={{ background: tone.hex }}
                 aria-hidden="true"
               />
               <div
                 className="font-mono text-[11px] tracking-[0.22em] uppercase font-bold"
-                style={{ color: t.hex }}
+                style={{ color: tone.hex }}
               >
-                Story brief
+                {t('post.storyBrief')}
               </div>
               <h2
                 className="mt-3 text-[20px] font-extrabold tracking-[-0.018em] leading-[1.18]"
@@ -106,10 +114,10 @@ const Hero = ({ post }: { post: BlogPostData }) => {
               )}
               <div
                 className="mt-6 pt-5 border-t flex items-center gap-2 text-[10.5px] uppercase tracking-[0.20em] font-bold"
-                style={{ borderColor: 'rgba(26, 36, 56, 0.10)', color: t.hex }}
+                style={{ borderColor: 'rgba(26, 36, 56, 0.10)', color: tone.hex }}
               >
-                <span className="w-1.5 h-1.5 rounded-full" style={{ background: t.hex }} />
-                {post.takeaways.length} key takeaways below
+                <span className="w-1.5 h-1.5 rounded-full" style={{ background: tone.hex }} />
+                {post.takeaways.length} {t('post.keyTakeawaysSuffix')}
               </div>
             </div>
           </div>
@@ -142,7 +150,7 @@ const Hero = ({ post }: { post: BlogPostData }) => {
             }}
           >
             <span className="font-mono text-[10.5px] tracking-[0.18em] uppercase text-white font-bold">
-              Editorial
+              {t('post.editorial')}
             </span>
           </div>
         </div>

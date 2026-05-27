@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import Hero from './Hero';
 import Journey from './Journey';
 import FrictionMap from './FrictionMap';
@@ -22,28 +23,31 @@ const SERVICE_SCHEMA = {
   },
 };
 
-const BREADCRUMB_SCHEMA = buildBreadcrumbList([
-  { name: 'Home', path: '/' },
-  { name: 'Patient Experience' },
-]);
+const PatientExperience = () => {
+  const { t } = useTranslation('pages');
+  const breadcrumbSchema = buildBreadcrumbList([
+    { name: 'Home', path: '/' },
+    { name: t('pages:patientExperience.breadcrumb.current') },
+  ]);
 
-const PatientExperience = () => (
-  <>
-    <Seo
-      title="Patient Experience & Journey Design for Healthcare Practices"
-      description="Map the patient journey from a 2 a.m. Google search to a follow-up text a week after the visit. Friction map, touchpoint design, and operations review for clinics."
-      path="/patient-experience"
-      schema={[SERVICE_SCHEMA, BREADCRUMB_SCHEMA]}
-    />
+  return (
+    <>
+      <Seo
+        title={t('pages:patientExperience.seo.title')}
+        description={t('pages:patientExperience.seo.description')}
+        path="/patient-experience"
+        schema={[SERVICE_SCHEMA, breadcrumbSchema]}
+      />
 
-    <Hero />
-    <Journey />
-    <FrictionMap />
-    <Touchpoints />
-    <Metrics />
-    <Process />
-    <Closing />
-  </>
-);
+      <Hero />
+      <Journey />
+      <FrictionMap />
+      <Touchpoints />
+      <Metrics />
+      <Process />
+      <Closing />
+    </>
+  );
+};
 
 export default PatientExperience;

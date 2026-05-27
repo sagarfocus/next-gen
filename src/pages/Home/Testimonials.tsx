@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 import type { CSSProperties } from 'react';
+import { useTranslation } from 'react-i18next';
 import { ChevronRightIcon } from '@/components/icons';
-import { HOME_TESTIMONIALS, HOME_TESTIMONIALS_HEAD } from '@/content/home/testimonials';
+import { useHomeTestimonials, useHomeTestimonialsHead } from '@/content/home/testimonials';
 
 const QuoteMark = () => (
   <span className="testi-mark" aria-hidden="true">
@@ -36,6 +37,9 @@ const ChevronLeft = () => (
 const ChevronRight = () => <ChevronRightIcon size={18} strokeWidth={2} />;
 
 const Testimonials = () => {
+  const { t } = useTranslation('home');
+  const head = useHomeTestimonialsHead();
+  const testimonials = useHomeTestimonials();
   const trackRef = useRef<HTMLDivElement>(null);
   const barRef = useRef<HTMLDivElement>(null);
   const [prevDisabled, setPrevDisabled] = useState(true);
@@ -90,17 +94,17 @@ const Testimonials = () => {
     <section className="testi-section" id="testimonials" aria-labelledby="testi-title">
       <div className="container-shell">
         <div className="testi-head">
-          <span className="testi-eyebrow">{HOME_TESTIMONIALS_HEAD.eyebrow}</span>
+          <span className="testi-eyebrow">{head.eyebrow}</span>
           <h2 id="testi-title" className="testi-h2">
-            {HOME_TESTIMONIALS_HEAD.title}
+            {head.title}
           </h2>
-          <p className="testi-sub">{HOME_TESTIMONIALS_HEAD.sub}</p>
+          <p className="testi-sub">{head.sub}</p>
         </div>
 
         <div className="testi-track-wrap">
           <div className="testi-track" ref={trackRef}>
-            {HOME_TESTIMONIALS.map(({ initials, text, name, title }) => (
-              <article key={name} className="testi-card">
+            {testimonials.map(({ key, initials, text, name, title }) => (
+              <article key={key} className="testi-card">
                 <QuoteMark />
                 <p className="testi-text">{text}</p>
                 <div className="testi-author">
@@ -118,13 +122,13 @@ const Testimonials = () => {
           </div>
         </div>
 
-        <div className="testi-nav" role="group" aria-label="Testimonial slider navigation">
+        <div className="testi-nav" role="group" aria-label={t('testimonials.nav.groupLabel')}>
           <button
             type="button"
             className="nav-chev prev"
             onClick={handlePrev}
             disabled={prevDisabled}
-            aria-label="Previous testimonial"
+            aria-label={t('testimonials.nav.prev')}
           >
             <ChevronLeft />
           </button>
@@ -136,7 +140,7 @@ const Testimonials = () => {
             className="nav-chev next"
             onClick={handleNext}
             disabled={nextDisabled}
-            aria-label="Next testimonial"
+            aria-label={t('testimonials.nav.next')}
           >
             <ChevronRight />
           </button>

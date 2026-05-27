@@ -1,4 +1,5 @@
 import '../../styles/metaads.css';
+import { useTranslation } from 'react-i18next';
 import Seo from '@/components/Seo';
 import Hero from './Hero';
 import TrustBar from './TrustBar';
@@ -77,11 +78,12 @@ const BREADCRUMB_SCHEMA = buildBreadcrumbList([
 ]);
 
 const MetaAds = () => {
+  const { t } = useTranslation('pages');
   return (
     <>
       <Seo
-        title="Meta Ads for Healthcare — Facebook, Instagram & WhatsApp"
-        description="Healthcare-only Meta Ads. Compliant Facebook, Instagram, Messenger, and WhatsApp campaigns with Conversions API and server-side tracking. Free 2-week audit."
+        title={t('metaAds.seo.title')}
+        description={t('metaAds.seo.description')}
         path="/meta-ads"
         schema={[SERVICE_SCHEMA, FAQ_SCHEMA, BREADCRUMB_SCHEMA]}
       />

@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import jayPhoto from '@/assets/jay-1.webp';
 
 /* -----------------------------------------------------------
@@ -7,70 +8,70 @@ import jayPhoto from '@/assets/jay-1.webp';
    healthcare niches.
    ----------------------------------------------------------- */
 
-const CREDS = [
-  { num: '12+', label: 'years in healthcare marketing' },
-  { num: '200+', label: 'Texas practices served' },
-  { num: '87', label: 'audits delivered this quarter' },
-  { num: '$14M+', label: 'in attributable patient revenue' },
-];
+interface Stat {
+  num: string;
+  label: string;
+}
 
-const Strategist = () => (
-  <section className="fga-strategist" aria-labelledby="fga-strat-title">
-    <div className="container-shell">
-      <div className="fga-strat-grid">
-        <figure className="fga-strat-fig">
-          <img
-            src={jayPhoto}
-            alt="Jay Dahal, founder and senior growth strategist who runs every Free Growth Audit"
-            className="fga-strat-photo"
-            width={520}
-            height={620}
-            loading="lazy"
-            decoding="async"
-          />
-          <figcaption className="fga-strat-stamp">
-            <span>JAY DAHAL</span>
-            <span>· Senior strategist ·</span>
-          </figcaption>
-        </figure>
+const Strategist = () => {
+  const { t } = useTranslation('pages');
+  const creds = t('pages:freeGrowthAudit.strategist.creds', { returnObjects: true }) as string[];
+  const stats = t('pages:freeGrowthAudit.strategist.stats', { returnObjects: true }) as Stat[];
+  return (
+    <section className="fga-strategist" aria-labelledby="fga-strat-title">
+      <div className="container-shell">
+        <div className="fga-strat-grid">
+          <figure className="fga-strat-fig">
+            <img
+              src={jayPhoto}
+              alt={t('pages:freeGrowthAudit.strategist.imgAlt')}
+              className="fga-strat-photo"
+              width={520}
+              height={620}
+              loading="lazy"
+              decoding="async"
+            />
+            <figcaption className="fga-strat-stamp">
+              <span>{t('pages:freeGrowthAudit.strategist.stampName')}</span>
+              <span>{t('pages:freeGrowthAudit.strategist.stampRole')}</span>
+            </figcaption>
+          </figure>
 
-        <div className="fga-strat-body">
-          <span className="fga-section-tag">Who runs your audit</span>
-          <h2 id="fga-strat-title" className="fga-section-h2">
-            A senior strategist. Not a sales rep with a template.
-          </h2>
-          <p className="fga-strat-lede">
-            Every audit is run end-to-end by Jay or one of two senior strategists with 8+ years in
-            healthcare growth. No junior account exec, no AI-generated boilerplate, no white-label
-            outsource. You get a person who has actually grown clinics like yours.
-          </p>
+          <div className="fga-strat-body">
+            <span className="fga-section-tag">{t('pages:freeGrowthAudit.strategist.tag')}</span>
+            <h2 id="fga-strat-title" className="fga-section-h2">
+              {t('pages:freeGrowthAudit.strategist.title')}
+            </h2>
+            <p className="fga-strat-lede">{t('pages:freeGrowthAudit.strategist.lede')}</p>
 
-          <ul className="fga-strat-quotes">
-            <li>
-              <span aria-hidden="true">&ldquo;</span>I will tell you to keep your current agency if
-              the data says you should. The PDF ships either way.
-            </li>
-          </ul>
+            <ul className="fga-strat-quotes">
+              <li>
+                <span aria-hidden="true">&ldquo;</span>
+                {t('pages:freeGrowthAudit.strategist.quote')}
+              </li>
+            </ul>
 
-          <div className="fga-strat-creds">
-            <span className="fga-strat-cred">CPA</span>
-            <span className="fga-strat-cred">CTC certified</span>
-            <span className="fga-strat-cred">HIPAA-trained</span>
-            <span className="fga-strat-cred">Google Ads + GA4 certified</span>
+            <div className="fga-strat-creds">
+              {creds.map((c) => (
+                <span key={c} className="fga-strat-cred">
+                  {c}
+                </span>
+              ))}
+            </div>
+
+            <dl className="fga-strat-stats">
+              {stats.map((s) => (
+                <div key={s.label} className="fga-strat-stat">
+                  <dt>{s.num}</dt>
+                  <dd>{s.label}</dd>
+                </div>
+              ))}
+            </dl>
           </div>
-
-          <dl className="fga-strat-stats">
-            {CREDS.map((c) => (
-              <div key={c.label} className="fga-strat-stat">
-                <dt>{c.num}</dt>
-                <dd>{c.label}</dd>
-              </div>
-            ))}
-          </dl>
         </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 export default Strategist;

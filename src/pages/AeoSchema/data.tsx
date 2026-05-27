@@ -1,3 +1,5 @@
+import type { ReactNode } from 'react';
+
 export const COLORS = {
   navy: '#1A2438',
   navy2: '#2D3748',
@@ -12,70 +14,36 @@ export const COLORS = {
   paper: '#FAFAF8',
 };
 
-export const STATS = [
-  { v: '12', l: 'Schema types implemented' },
-  { v: '88%', l: 'AI Overview eligibility' },
-  { v: '100%', l: 'Validation pass rate' },
-];
-
+export type ShiftKey = 'answerEngine' | 'underwriting' | 'editorial';
 export interface Shift {
-  n: string;
-  headline: string;
-  body: string;
+  key: ShiftKey;
 }
-
 export const SHIFTS: Shift[] = [
-  {
-    n: '01',
-    headline: 'Search is becoming an answer engine.',
-    body: 'Generative results now resolve a third of branded health queries before the user ever sees the blue links. The practice cited inside the answer wins; the rest disappear.',
-  },
-  {
-    n: '02',
-    headline: 'Schema is the underwriting layer.',
-    body: 'AI engines need structured assertions about who you are, what you do, and where. Without that, the model defaults to whichever competitor stated it more clearly.',
-  },
-  {
-    n: '03',
-    headline: 'Editorial structure outranks copy.',
-    body: 'Question-led headings, source-backed claims, and clean entity markup outperform unstructured prose on every conversational query we have benchmarked.',
-  },
+  { key: 'answerEngine' },
+  { key: 'underwriting' },
+  { key: 'editorial' },
 ];
 
+export type GroupKey = 'entity' | 'content' | 'operations';
 export interface SchemaGroup {
-  num: string;
-  group: string;
-  tag: string;
-  description: string;
+  key: GroupKey;
   types: string[];
   tone: { hex: string; soft: string };
 }
 
 export const GROUPS: SchemaGroup[] = [
   {
-    num: '01',
-    group: 'Entity',
-    tag: 'Who · Where',
-    description:
-      'Who you are, where you are, and how you are related to other entities in the practice.',
+    key: 'entity',
     types: ['Organization', 'MedicalClinic', 'Physician', 'LocalBusiness'],
     tone: { hex: '#576DB5', soft: 'rgba(87, 109, 181, 0.14)' },
   },
   {
-    num: '02',
-    group: 'Content',
-    tag: 'Claims · Answers',
-    description:
-      'What you are saying about clinical topics. The substrate AI engines extract answers from.',
+    key: 'content',
     types: ['MedicalCondition', 'MedicalProcedure', 'FAQPage', 'Article'],
     tone: { hex: '#B38B6D', soft: 'rgba(179, 139, 109, 0.16)' },
   },
   {
-    num: '03',
-    group: 'Operations',
-    tag: 'When · How',
-    description:
-      'Practical signals that determine whether you appear in time-sensitive or insurance-led queries.',
+    key: 'operations',
     types: ['OpeningHours', 'AcceptedInsurance', 'AreaServed', 'Review'],
     tone: { hex: '#5A8F5A', soft: 'rgba(143, 188, 143, 0.18)' },
   },
@@ -125,26 +93,14 @@ const IconSourced = () => (
   </svg>
 );
 
+export type ReadinessKey = 'validated' | 'answerable' | 'sourced';
 export interface Readiness {
-  k: string;
-  d: string;
-  icon: React.ReactNode;
+  key: ReadinessKey;
+  icon: ReactNode;
 }
 
 export const READINESS: Readiness[] = [
-  {
-    k: 'Validated',
-    d: 'Every page passes Rich Results test with zero errors and zero warnings on entity-level properties.',
-    icon: <IconValidated />,
-  },
-  {
-    k: 'Answerable',
-    d: 'Every service page leads with a phrased patient question and answers it above the fold in three sentences or fewer.',
-    icon: <IconAnswerable />,
-  },
-  {
-    k: 'Sourced',
-    d: 'Editorial pieces include linkable, attributable sources. AI engines prefer practices that show their work.',
-    icon: <IconSourced />,
-  },
+  { key: 'validated', icon: <IconValidated /> },
+  { key: 'answerable', icon: <IconAnswerable /> },
+  { key: 'sourced', icon: <IconSourced /> },
 ];

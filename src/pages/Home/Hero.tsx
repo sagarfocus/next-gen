@@ -1,5 +1,6 @@
 import type { ReactNode, ReactElement } from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { MotionButton, Parallax } from '@/lib/motion';
 import { ArrowIcon } from '@/components/icons';
 
@@ -9,7 +10,14 @@ interface HeroProps {
 
 interface FloatingPill {
   slot: 'f1' | 'f2' | 'f3' | 'f4' | 'f5' | 'f6';
-  label: string;
+  /** Translation key under `home:hero.pills`. */
+  i18nKey:
+    | 'seoLocal'
+    | 'paidMedia'
+    | 'branding'
+    | 'automation'
+    | 'webDesign'
+    | 'content';
   icon: ReactElement;
 }
 
@@ -109,18 +117,19 @@ const ChatIcon = () => (
 );
 
 const FLOATING_PILLS: FloatingPill[] = [
-  { slot: 'f1', label: 'SEO & Local', icon: <SearchIcon /> },
-  { slot: 'f2', label: 'Paid Media', icon: <ChartIcon /> },
-  { slot: 'f3', label: 'Branding', icon: <StarIcon /> },
-  { slot: 'f4', label: 'Automation', icon: <SettingsIcon /> },
-  { slot: 'f5', label: 'Web Design', icon: <LayoutIcon /> },
-  { slot: 'f6', label: 'Content', icon: <ChatIcon /> },
+  { slot: 'f1', i18nKey: 'seoLocal', icon: <SearchIcon /> },
+  { slot: 'f2', i18nKey: 'paidMedia', icon: <ChartIcon /> },
+  { slot: 'f3', i18nKey: 'branding', icon: <StarIcon /> },
+  { slot: 'f4', i18nKey: 'automation', icon: <SettingsIcon /> },
+  { slot: 'f5', i18nKey: 'webDesign', icon: <LayoutIcon /> },
+  { slot: 'f6', i18nKey: 'content', icon: <ChatIcon /> },
 ];
 
 interface HubBubble {
   slot: 'b1' | 'b2' | 'b3' | 'b4' | 'b5';
   tone: 'fb' | 'ig' | 'wa' | 'li' | 'em';
-  ariaLabel: string;
+  /** Translation key under `common:social`. */
+  socialKey: 'facebook' | 'instagram' | 'whatsapp' | 'linkedin' | 'email';
   icon: ReactElement;
 }
 
@@ -174,14 +183,16 @@ const EmailIcon = () => (
 );
 
 const HUB_BUBBLES: HubBubble[] = [
-  { slot: 'b1', tone: 'fb', ariaLabel: 'Facebook', icon: <FacebookIcon /> },
-  { slot: 'b2', tone: 'ig', ariaLabel: 'Instagram', icon: <InstagramIcon /> },
-  { slot: 'b3', tone: 'wa', ariaLabel: 'WhatsApp', icon: <WhatsAppIcon /> },
-  { slot: 'b4', tone: 'li', ariaLabel: 'LinkedIn', icon: <LinkedInIcon /> },
-  { slot: 'b5', tone: 'em', ariaLabel: 'Email', icon: <EmailIcon /> },
+  { slot: 'b1', tone: 'fb', socialKey: 'facebook', icon: <FacebookIcon /> },
+  { slot: 'b2', tone: 'ig', socialKey: 'instagram', icon: <InstagramIcon /> },
+  { slot: 'b3', tone: 'wa', socialKey: 'whatsapp', icon: <WhatsAppIcon /> },
+  { slot: 'b4', tone: 'li', socialKey: 'linkedin', icon: <LinkedInIcon /> },
+  { slot: 'b5', tone: 'em', socialKey: 'email', icon: <EmailIcon /> },
 ];
 
 const Hero = ({ children }: HeroProps) => {
+  const { t } = useTranslation(['home', 'common']);
+
   return (
     <section className="hero-section" aria-labelledby="hero-title">
       <div className="hero-bg-stack" aria-hidden="true">
@@ -194,37 +205,30 @@ const Hero = ({ children }: HeroProps) => {
           <div className="hero-content">
             <div className="hero-eyebrow reveal d1">
               <span className="hero-pulse" aria-hidden="true" />
-              Healthcare Growth Partner
+              {t('home:hero.eyebrow')}
             </div>
 
             <h1 id="hero-title" className="hero-title reveal d2">
-              We Market Healthcare.
+              {t('home:hero.titleLine1')}
               <br />
-              <span className="accent-text">Relentlessly.</span>
+              <span className="accent-text">{t('home:hero.titleAccent')}</span>
             </h1>
 
-            <p className="hero-lede reveal d3">
-              SEO, paid ads, branding, content, and websites built for clinics, medspas, urgent care
-              centers, and healthcare brands that want measurable growth.
-            </p>
+            <p className="hero-lede reveal d3">{t('home:hero.lede')}</p>
 
             <div className="hero-cta-row reveal d4">
               <MotionButton to="/free-growth-audit" className="m-btn-cta hero-mbtn">
-                Get a Free Growth Audit
+                {t('home:hero.ctaPrimary')}
                 <ArrowIcon strokeWidth={2} />
               </MotionButton>
 
               <Link to="/our-work" className="link-secondary">
-                See Our Work
+                {t('home:hero.ctaSecondary')}
                 <ArrowIcon size={14} strokeWidth={2} />
               </Link>
             </div>
           </div>
 
-          {/* RIGHT - simpler N+ orbit (moved here from Services). The
-              warm cream gradient backdrop + dashed rings come from
-              .hero-svc-orbit-wrap so the page keeps the same warm
-              feel the orbital area had on the Services hero. */}
           <Parallax
             as="div"
             speed={0.04}
@@ -233,28 +237,26 @@ const Hero = ({ children }: HeroProps) => {
           >
             <div className="svc-orbit" aria-hidden="true">
               <div className="svc-orbit-hub">
-                {/* Floating social bubbles - drift inside the circle behind
-                    the central N+ mark. Pure decoration, aria-hidden. */}
-                {HUB_BUBBLES.map(({ slot, tone, ariaLabel, icon }) => (
+                {HUB_BUBBLES.map(({ slot, tone, socialKey, icon }) => (
                   <span
                     key={slot}
                     className={`hub-bubble ${slot} t-${tone}`}
-                    aria-label={ariaLabel}
+                    aria-label={t(`common:social.${socialKey}`)}
                   >
                     {icon}
                   </span>
                 ))}
                 <div className="svc-orbit-hub-inner">
                   <div className="svc-orbit-hub-mark">N+</div>
-                  <span className="svc-orbit-hub-name">TheNextGen</span>
-                  <span className="svc-orbit-hub-tag">Healthcare</span>
+                  <span className="svc-orbit-hub-name">{t('home:hero.hubName')}</span>
+                  <span className="svc-orbit-hub-tag">{t('home:hero.hubTag')}</span>
                 </div>
               </div>
 
-              {FLOATING_PILLS.map(({ slot, label, icon }) => (
+              {FLOATING_PILLS.map(({ slot, i18nKey, icon }) => (
                 <span key={slot} className={`svc-float ${slot}`}>
                   <span className="tag-ico">{icon}</span>
-                  {label}
+                  {t(`home:hero.pills.${i18nKey}`)}
                 </span>
               ))}
             </div>

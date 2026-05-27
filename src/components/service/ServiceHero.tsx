@@ -1,5 +1,6 @@
 import type { ReactElement, ReactNode } from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { ArrowIcon } from '../icons';
 
 interface ServiceHeroProps {
@@ -57,7 +58,8 @@ const ServiceHero = ({
   rankBadge,
   mainCard,
 }: ServiceHeroProps) => {
-  const root = crumbRoot ?? { label: 'Services', href: '/services' };
+  const { t } = useTranslation('common');
+  const root = crumbRoot ?? { label: t('components.serviceHero.rootLabel'), href: '/services' };
   return (
     <section className="sv-hero">
       <div className="container-shell">
@@ -72,11 +74,11 @@ const ServiceHero = ({
             <p className="sv-hero-lede">{lede}</p>
             <div className="sv-hero-ctas">
               <a href="#audit" className="sv-btn-primary">
-                Get Free Audit
+                {t('components.serviceHero.getFreeAudit')}
                 <ArrowIcon />
               </a>
               <a href="#how" className="sv-btn-ghost">
-                See how it works
+                {t('components.serviceHero.seeHowItWorks')}
                 <ArrowDiag />
               </a>
             </div>

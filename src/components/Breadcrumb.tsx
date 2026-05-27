@@ -1,5 +1,6 @@
 import { Fragment } from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { ChevronRightIcon } from './icons';
 
 export interface BreadcrumbItem {
@@ -16,16 +17,20 @@ interface BreadcrumbProps {
 // Path-aware breadcrumb. New callers pass `items` (each can be a link or label).
 // Legacy callers passing only `current` (and optionally `section`) keep working
 // as Home > Resources > current.
-const Breadcrumb = ({ current, items, section = 'Resources' }: BreadcrumbProps) => {
-  const trail: BreadcrumbItem[] = items ? items : [{ label: section }, { label: current ?? '' }];
+const Breadcrumb = ({ current, items, section }: BreadcrumbProps) => {
+  const { t } = useTranslation('common');
+  const fallbackSection = section ?? t('breadcrumb.defaultSection');
+  const trail: BreadcrumbItem[] = items
+    ? items
+    : [{ label: fallbackSection }, { label: current ?? '' }];
 
   const lastIdx = trail.length - 1;
 
   return (
-    <nav className="crumb" aria-label="Breadcrumb">
+    <nav className="crumb" aria-label={t('common.breadcrumb')}>
       <ol className="crumb-list">
         <li>
-          <Link to="/">Home</Link>
+          <Link to="/">{t('breadcrumb.home')}</Link>
         </li>
         {trail.map((item, idx) => {
           const isLast = idx === lastIdx;

@@ -1,15 +1,14 @@
 import type { ReactElement } from 'react';
+import { useTranslation } from 'react-i18next';
 
 interface Step {
-  title: string;
-  bullets: string[];
+  key: 'discover' | 'define' | 'ideate' | 'execute' | 'measure';
   icon: ReactElement;
 }
 
 const STEPS: Step[] = [
   {
-    title: 'Discover',
-    bullets: ['Stakeholder interviews', 'Patient journey map', 'Competitor audit', 'Goal setting'],
+    key: 'discover',
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -26,8 +25,7 @@ const STEPS: Step[] = [
     ),
   },
   {
-    title: 'Define',
-    bullets: ['Persona & ICP', 'Channel priority', 'KPI framework', 'Risk register'],
+    key: 'define',
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -45,8 +43,7 @@ const STEPS: Step[] = [
     ),
   },
   {
-    title: 'Ideate',
-    bullets: ['Creative concepts', 'Funnel design', 'Offer crafting', 'Test plan'],
+    key: 'ideate',
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -63,8 +60,7 @@ const STEPS: Step[] = [
     ),
   },
   {
-    title: 'Execute',
-    bullets: ['Asset production', 'Channel launch', 'Daily monitoring', 'Rapid iteration'],
+    key: 'execute',
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -80,8 +76,7 @@ const STEPS: Step[] = [
     ),
   },
   {
-    title: 'Measure',
-    bullets: ['Weekly dashboards', 'ROI attribution', 'Retro & learnings', 'Scale plan'],
+    key: 'measure',
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -98,30 +93,33 @@ const STEPS: Step[] = [
 ];
 
 const EngagementProcess = () => {
+  const { t } = useTranslation('pages');
   return (
     <section className="cs-process">
       <div className="container-shell">
         <div className="pr-head">
-          <div className="cs-eyebrow">Engagement Process</div>
-          <h2>How every case study gets built</h2>
-          <p>
-            Five tight phases shape every engagement on this page. The same playbook scales from a
-            six-week pilot to a full-year retainer.
-          </p>
+          <div className="cs-eyebrow">{t('caseStudies.process.eyebrow')}</div>
+          <h2>{t('caseStudies.process.title')}</h2>
+          <p>{t('caseStudies.process.sub')}</p>
         </div>
 
         <div className="pr-grid">
-          {STEPS.map((step) => (
-            <div key={step.title} className="pr-step">
-              <div className="pr-circle">{step.icon}</div>
-              <h3>{step.title}</h3>
-              <ul>
-                {step.bullets.map((b) => (
-                  <li key={b}>{b}</li>
-                ))}
-              </ul>
-            </div>
-          ))}
+          {STEPS.map((step) => {
+            const bullets = t(`caseStudies.process.steps.${step.key}.bullets`, {
+              returnObjects: true,
+            }) as string[];
+            return (
+              <div key={step.key} className="pr-step">
+                <div className="pr-circle">{step.icon}</div>
+                <h3>{t(`caseStudies.process.steps.${step.key}.title`)}</h3>
+                <ul>
+                  {bullets.map((b) => (
+                    <li key={b}>{b}</li>
+                  ))}
+                </ul>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>

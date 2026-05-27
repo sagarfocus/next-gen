@@ -1,4 +1,6 @@
+import { useMemo } from 'react';
 import type { ReactElement, ReactNode } from 'react';
+import { useTranslation } from 'react-i18next';
 import { UsersIcon } from '@/components/icons';
 
 export interface IncludeCard {
@@ -9,37 +11,18 @@ export interface IncludeCard {
   icon: ReactElement;
 }
 
-export const CARDS: IncludeCard[] = [
+interface CardSpec {
+  i18nKey: 'team' | 'launch' | 'hipaa';
+  icon: ReactElement;
+}
+
+const CARD_SPECS: readonly CardSpec[] = [
   {
-    tag: 'Full-Stack Team',
-    title: 'An entire growth department.',
-    text: (
-      <>
-        Dedicated Ads Manager, SEO Strategist, Medical Content Writer, and Social Media Manager -
-        not isolated freelancers.
-      </>
-    ),
-    bullets: [
-      'Senior practitioners only',
-      'Healthcare-fluent from day one',
-      'Real analytics infrastructure',
-    ],
+    i18nKey: 'team',
     icon: <UsersIcon size={22} strokeWidth={1.8} />,
   },
   {
-    tag: '30-Day Launch Sprint',
-    title: 'Tangible results in month one.',
-    text: (
-      <>
-        Technical audit, CRM/EHR integration, HIPAA-compliant call tracking, AI chatbot deployment,
-        and first campaign launches - all in 30 days.
-      </>
-    ),
-    bullets: [
-      'Structured onboarding flow',
-      'Operational improvements visible',
-      'First wave of campaigns live',
-    ],
+    i18nKey: 'launch',
     icon: (
       <svg
         width={22}
@@ -56,15 +39,7 @@ export const CARDS: IncludeCard[] = [
     ),
   },
   {
-    tag: 'HIPAA Infrastructure',
-    title: 'Compliance built in, not billed extra.',
-    text: (
-      <>
-        BAAs signed at signup, encrypted servers, secure data routing - full HIPAA compliance with
-        zero hidden fees.
-      </>
-    ),
-    bullets: ['BAAs included by default', 'Encrypted data infrastructure', 'See case studies'],
+    i18nKey: 'hipaa',
     icon: (
       <svg
         width={22}
@@ -82,3 +57,24 @@ export const CARDS: IncludeCard[] = [
     ),
   },
 ];
+
+/** React hook for the "What your investment includes" cards. */
+export function useIncludeCards(): readonly IncludeCard[] {
+  const { t } = useTranslation('pricing');
+  return useMemo(
+    () =>
+      CARD_SPECS.map((spec) => {
+        const base = `includes.cards.${spec.i18nKey}`;
+        const bulletsRaw = t(`${base}.bullets`, { returnObjects: true }) as unknown;
+        const bullets = Array.isArray(bulletsRaw) ? (bulletsRaw as string[]) : [];
+        return {
+          tag: t(`${base}.tag`),
+          title: t(`${base}.title`),
+          text: t(`${base}.text`),
+          bullets,
+          icon: spec.icon,
+        };
+      }),
+    [t]
+  );
+}

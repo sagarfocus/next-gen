@@ -1,29 +1,50 @@
+import { useTranslation } from 'react-i18next';
+
 const DataBand = () => {
-  const totalSetup = '~5 hrs';
-  const totalSaves = '30+ hrs/wk';
+  const { t } = useTranslation(['automation']);
   return (
-    <section className="atx-databand" aria-label="Library metadata">
+    <section className="atx-databand" aria-label={t('automation:templates.page.dataBand.ariaLabel')}>
       <div className="container-shell">
         <ul className="atx-databand-list">
           <li className="atx-databand-item">
-            <span className="atx-databand-label">Workflows</span>
-            <span className="atx-databand-value">06</span>
+            <span className="atx-databand-label">
+              {t('automation:templates.page.dataBand.workflows')}
+            </span>
+            <span className="atx-databand-value">
+              {t('automation:templates.page.dataBand.workflowsValue')}
+            </span>
           </li>
           <li className="atx-databand-item">
-            <span className="atx-databand-label">Total setup</span>
-            <span className="atx-databand-value">{totalSetup}</span>
+            <span className="atx-databand-label">
+              {t('automation:templates.page.dataBand.totalSetup')}
+            </span>
+            <span className="atx-databand-value">
+              {t('automation:templates.page.dataBand.totalSetupValue')}
+            </span>
           </li>
           <li className="atx-databand-item">
-            <span className="atx-databand-label">Combined savings</span>
-            <span className="atx-databand-value">{totalSaves}</span>
+            <span className="atx-databand-label">
+              {t('automation:templates.page.dataBand.combinedSavings')}
+            </span>
+            <span className="atx-databand-value">
+              {t('automation:templates.page.dataBand.combinedSavingsValue')}
+            </span>
           </li>
           <li className="atx-databand-item">
-            <span className="atx-databand-label">Platform</span>
-            <span className="atx-databand-value">N8N · self-hosted</span>
+            <span className="atx-databand-label">
+              {t('automation:templates.page.dataBand.platform')}
+            </span>
+            <span className="atx-databand-value">
+              {t('automation:templates.page.dataBand.platformValue')}
+            </span>
           </li>
           <li className="atx-databand-item">
-            <span className="atx-databand-label">Compliance modes</span>
-            <span className="atx-databand-value">3</span>
+            <span className="atx-databand-label">
+              {t('automation:templates.page.dataBand.complianceModes')}
+            </span>
+            <span className="atx-databand-value">
+              {t('automation:templates.page.dataBand.complianceModesValue')}
+            </span>
           </li>
         </ul>
       </div>

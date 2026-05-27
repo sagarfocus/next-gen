@@ -1,85 +1,77 @@
-const Modules = () => (
-  <>
-    <div className="ph2-section-bar">
-      <span className="lbl">/ 02</span>
-      <span className="title">Eight modules deployed in parallel.</span>
-      <span className="meta">Track A · Strategy &nbsp;/&nbsp; Track B · Build</span>
-    </div>
+import { useTranslation } from 'react-i18next';
 
-    <div className="ph2-modules">
-      <article className="ph2-mod">
-        <span className="ph2-mod-num">A · 01</span>
-        <h3 className="ph2-mod-title">Service keyword map</h3>
-        <p className="ph2-mod-text">
-          Demand and difficulty scored per service line, mapped to the page that will own it.
-        </p>
-        <div className="ph2-mod-foot">Strategy</div>
-      </article>
-      <article className="ph2-mod accent">
-        <span className="ph2-mod-num">B · 01</span>
-        <h3 className="ph2-mod-title">AI chatbot &amp; intake</h3>
-        <p className="ph2-mod-text">
-          Conversational triage on the site, with handoff to the front desk and a structured record
-          at the end.
-        </p>
-        <div className="ph2-mod-foot">Build</div>
-      </article>
-      <article className="ph2-mod">
-        <span className="ph2-mod-num">A · 02</span>
-        <h3 className="ph2-mod-title">Competitive positioning</h3>
-        <p className="ph2-mod-text">
-          The single sentence that separates your clinic from every other clinic on the SERP - and
-          the proof to back it.
-        </p>
-        <div className="ph2-mod-foot">Strategy</div>
-      </article>
-      <article className="ph2-mod sage">
-        <span className="ph2-mod-num">B · 02</span>
-        <h3 className="ph2-mod-title">Call tracking</h3>
-        <p className="ph2-mod-text">
-          Dynamic numbers per channel. Every inbound call attributed to the campaign that produced
-          it.
-        </p>
-        <div className="ph2-mod-foot">Build</div>
-      </article>
+const Modules = () => {
+  const { t } = useTranslation(['pages']);
+  const items = t('pages:phases.phase2.modules.items', { returnObjects: true }) as Record<
+    string,
+    { num: string; title: string; text: string }
+  >;
+  const footStrategy = t('pages:phases.phase2.modules.footStrategy');
+  const footBuild = t('pages:phases.phase2.modules.footBuild');
+  return (
+    <>
+      <div className="ph2-section-bar">
+        <span className="lbl">{t('pages:phases.phase2.modules.label')}</span>
+        <span className="title">{t('pages:phases.phase2.modules.title')}</span>
+        <span
+          className="meta"
+          dangerouslySetInnerHTML={{ __html: t('pages:phases.phase2.modules.meta') }}
+        />
+      </div>
 
-      <article className="ph2-mod">
-        <span className="ph2-mod-num">A · 03</span>
-        <h3 className="ph2-mod-title">Patient journey</h3>
-        <p className="ph2-mod-text">
-          Touchpoints from first impression to retained patient - each one owned by a specific
-          channel and metric.
-        </p>
-        <div className="ph2-mod-foot">Strategy</div>
-      </article>
-      <article className="ph2-mod">
-        <span className="ph2-mod-num">B · 03</span>
-        <h3 className="ph2-mod-title">Digital intake forms</h3>
-        <p className="ph2-mod-text">
-          HIPAA-aware forms wired to your EMR / CRM, replacing whatever your front-desk team is
-          rekeying today.
-        </p>
-        <div className="ph2-mod-foot">Build</div>
-      </article>
-      <article className="ph2-mod sage">
-        <span className="ph2-mod-num">A · 04</span>
-        <h3 className="ph2-mod-title">Editorial calendar</h3>
-        <p className="ph2-mod-text">
-          90 days of healthcare content, sequenced to compound on the keyword map and the personas.
-        </p>
-        <div className="ph2-mod-foot">Strategy</div>
-      </article>
-      <article className="ph2-mod accent">
-        <span className="ph2-mod-num">B · 04</span>
-        <h3 className="ph2-mod-title">Analytics dashboard</h3>
-        <p className="ph2-mod-text">
-          A single board: pipeline, cost per booked patient, channel attribution. Updated in real
-          time.
-        </p>
-        <div className="ph2-mod-foot">Build</div>
-      </article>
-    </div>
-  </>
-);
+      <div className="ph2-modules">
+        <article className="ph2-mod">
+          <span className="ph2-mod-num">{items.keywordMap.num}</span>
+          <h3 className="ph2-mod-title">{items.keywordMap.title}</h3>
+          <p className="ph2-mod-text">{items.keywordMap.text}</p>
+          <div className="ph2-mod-foot">{footStrategy}</div>
+        </article>
+        <article className="ph2-mod accent">
+          <span className="ph2-mod-num">{items.chatbot.num}</span>
+          <h3 className="ph2-mod-title">{items.chatbot.title}</h3>
+          <p className="ph2-mod-text">{items.chatbot.text}</p>
+          <div className="ph2-mod-foot">{footBuild}</div>
+        </article>
+        <article className="ph2-mod">
+          <span className="ph2-mod-num">{items.positioning.num}</span>
+          <h3 className="ph2-mod-title">{items.positioning.title}</h3>
+          <p className="ph2-mod-text">{items.positioning.text}</p>
+          <div className="ph2-mod-foot">{footStrategy}</div>
+        </article>
+        <article className="ph2-mod sage">
+          <span className="ph2-mod-num">{items.callTracking.num}</span>
+          <h3 className="ph2-mod-title">{items.callTracking.title}</h3>
+          <p className="ph2-mod-text">{items.callTracking.text}</p>
+          <div className="ph2-mod-foot">{footBuild}</div>
+        </article>
+
+        <article className="ph2-mod">
+          <span className="ph2-mod-num">{items.journey.num}</span>
+          <h3 className="ph2-mod-title">{items.journey.title}</h3>
+          <p className="ph2-mod-text">{items.journey.text}</p>
+          <div className="ph2-mod-foot">{footStrategy}</div>
+        </article>
+        <article className="ph2-mod">
+          <span className="ph2-mod-num">{items.intake.num}</span>
+          <h3 className="ph2-mod-title">{items.intake.title}</h3>
+          <p className="ph2-mod-text">{items.intake.text}</p>
+          <div className="ph2-mod-foot">{footBuild}</div>
+        </article>
+        <article className="ph2-mod sage">
+          <span className="ph2-mod-num">{items.editorial.num}</span>
+          <h3 className="ph2-mod-title">{items.editorial.title}</h3>
+          <p className="ph2-mod-text">{items.editorial.text}</p>
+          <div className="ph2-mod-foot">{footStrategy}</div>
+        </article>
+        <article className="ph2-mod accent">
+          <span className="ph2-mod-num">{items.analytics.num}</span>
+          <h3 className="ph2-mod-title">{items.analytics.title}</h3>
+          <p className="ph2-mod-text">{items.analytics.text}</p>
+          <div className="ph2-mod-foot">{footBuild}</div>
+        </article>
+      </div>
+    </>
+  );
+};
 
 export default Modules;

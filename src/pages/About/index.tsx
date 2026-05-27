@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import AboutHero from './AboutHero';
 import ServicesSpectrum from './ServicesSpectrum';
 import Genesis from './Genesis';
@@ -22,11 +23,13 @@ const BREADCRUMB_SCHEMA = buildBreadcrumbList([
 ]);
 
 const About = () => {
+  const { t } = useTranslation('about');
+
   return (
     <>
       <Seo
-        title="About TheNextGen — Healthcare-Only Marketing Agency in Texas"
-        description="Healthcare-only marketing team behind 200+ Texas practice partnerships. Our methodology, infrastructure, principles, and how we hold every channel accountable to revenue."
+        title={t('seo.title')}
+        description={t('seo.description')}
         path="/about"
         schema={BREADCRUMB_SCHEMA}
       />

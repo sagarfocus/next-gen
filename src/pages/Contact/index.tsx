@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import ContactHero from './ContactHero';
 import QuoteWizard from './QuoteWizard';
 import ContactInfo from './ContactInfo';
@@ -10,11 +11,13 @@ const BREADCRUMB_SCHEMA = buildBreadcrumbList([
 ]);
 
 const Contact = () => {
+  const { t } = useTranslation('contact');
+
   return (
     <>
       <Seo
-        title="Contact TheNextGen — Healthcare Marketing in Irving, Texas"
-        description="Tell us about your practice — we respond within 4 business hours with a custom roadmap. Calls, audits and quotes for clinics, medspas, urgent care & ERs."
+        title={t('seo.title')}
+        description={t('seo.description')}
         path="/contact"
         schema={BREADCRUMB_SCHEMA}
       />

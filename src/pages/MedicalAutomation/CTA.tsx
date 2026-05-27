@@ -1,7 +1,18 @@
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { ArrowIcon } from '@/components/icons';
 
+interface StatItem {
+  num: string;
+  unit?: string;
+  lbl: string;
+}
+
 const CTA = () => {
+  const { t } = useTranslation('pages');
+  const stats = t('pages:medicalAutomation.cta.stats', {
+    returnObjects: true,
+  }) as StatItem[];
   return (
     <section className="mau-cta-section" id="audit">
       <div className="container-shell">
@@ -9,24 +20,17 @@ const CTA = () => {
           <div className="mau-cta-left">
             <div className="mau-cta-eyebrow">
               <span className="dot" aria-hidden="true" />
-              Free workflow audit · You keep the report
+              {t('pages:medicalAutomation.cta.eyebrow')}
             </div>
-            <h2 className="mau-cta-title">
-              See exactly where your clinic is paying staff to copy-paste.
-            </h2>
-            <p className="mau-cta-desc">
-              A short working session where we map every system that touches a patient,
-              score the three highest-yield workflows for your practice, and deliver a
-              one-page automation plan with projected hours recovered. Whether you build
-              with us or anyone else — you walk away with the plan.
-            </p>
+            <h2 className="mau-cta-title">{t('pages:medicalAutomation.cta.title')}</h2>
+            <p className="mau-cta-desc">{t('pages:medicalAutomation.cta.desc')}</p>
             <div className="mau-cta-ctas">
               <Link to="/free-growth-audit" className="sl-btn-primary">
-                Book my audit
+                {t('pages:medicalAutomation.cta.ctaPrimary')}
                 <ArrowIcon />
               </Link>
               <Link to="/services" className="sl-btn-ghost">
-                See all services
+                {t('pages:medicalAutomation.cta.ctaSecondary')}
                 <svg
                   viewBox="0 0 24 24"
                   fill="none"
@@ -43,18 +47,15 @@ const CTA = () => {
           </div>
 
           <div className="mau-cta-right">
-            <div className="mau-cta-stat">
-              <span className="mau-cta-stat-num">−54<em>%</em></span>
-              <span className="mau-cta-stat-lbl">Median no-show drop</span>
-            </div>
-            <div className="mau-cta-stat">
-              <span className="mau-cta-stat-num">$32<em>k</em></span>
-              <span className="mau-cta-stat-lbl">Annual ops saved · yr one</span>
-            </div>
-            <div className="mau-cta-stat">
-              <span className="mau-cta-stat-num">99.8<em>%</em></span>
-              <span className="mau-cta-stat-lbl">Audit pass rate</span>
-            </div>
+            {stats.map((s) => (
+              <div key={s.lbl} className="mau-cta-stat">
+                <span className="mau-cta-stat-num">
+                  {s.num}
+                  {s.unit && <em>{s.unit}</em>}
+                </span>
+                <span className="mau-cta-stat-lbl">{s.lbl}</span>
+              </div>
+            ))}
           </div>
         </div>
       </div>

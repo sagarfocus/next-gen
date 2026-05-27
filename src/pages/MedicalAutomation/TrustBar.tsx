@@ -1,32 +1,21 @@
-interface Badge {
-  name: string;
-}
-
-const BADGES: Badge[] = [
-  { name: 'HIPAA-aware build pipeline' },
-  { name: 'BAA on every downstream tool' },
-  { name: 'HL7 + FHIR integrations' },
-  { name: 'Athena · Epic · eClinicalWorks · Kareo' },
-  { name: 'Twilio BAA · SendGrid BAA' },
-  { name: 'PHI-redacted AI prompts' },
-  { name: 'Human-in-loop governance' },
-  { name: 'Audit logs · 99.8% pass rate' },
-];
+import { useTranslation } from 'react-i18next';
 
 const TrustBar = () => {
+  const { t } = useTranslation('pages');
+  const badges = t('pages:medicalAutomation.trustBar.badges', { returnObjects: true }) as string[];
   return (
-    <section className="mau-trust" aria-label="Compliance and integration trust signals">
+    <section className="mau-trust" aria-label={t('pages:medicalAutomation.trustBar.lbl')}>
       <div className="container-shell">
         <div className="mau-trust-head">
-          <span className="mau-trust-lbl">Healthcare-only · HIPAA-aware · Audit-ready</span>
+          <span className="mau-trust-lbl">{t('pages:medicalAutomation.trustBar.lbl')}</span>
           <span className="mau-trust-sep" aria-hidden="true" />
-          <span>Reviewed quarterly</span>
+          <span>{t('pages:medicalAutomation.trustBar.reviewed')}</span>
         </div>
         <div className="mau-trust-track">
-          {BADGES.map((b) => (
-            <span key={b.name} className="mau-trust-pill">
+          {badges.map((b) => (
+            <span key={b} className="mau-trust-pill">
               <span className="mau-trust-dot" aria-hidden="true" />
-              {b.name}
+              {b}
             </span>
           ))}
         </div>

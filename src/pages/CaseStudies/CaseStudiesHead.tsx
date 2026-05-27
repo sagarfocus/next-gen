@@ -1,36 +1,27 @@
+import { useTranslation } from 'react-i18next';
 import Breadcrumb from '@/components/Breadcrumb';
 
-interface MetaRow {
-  label: string;
-  value: string;
-}
-
-const META_ROWS: MetaRow[] = [
-  {
-    label: 'Verticals',
-    value: 'ER, Urgent, Aesthetic, Family, Mental Health, Dental',
-  },
-  { label: 'Avg. Result', value: '+78% patient growth' },
-  { label: 'Updated', value: 'May 2026' },
-];
+const META_KEYS = ['verticals', 'avgResult', 'updated'] as const;
 
 const CaseStudiesHead = () => {
+  const { t } = useTranslation('pages');
+
   return (
     <section className="ph-page-head">
       <div className="container-shell">
-        <Breadcrumb current="Case Studies" />
+        <Breadcrumb current={t('caseStudies.head.crumb')} />
         <div className="ph-row">
           <div>
             <div className="ph-eyebrow">
-              <span className="ph-issue">38 partner stories</span>
+              <span className="ph-issue">{t('caseStudies.head.issue')}</span>
             </div>
-            <h1 className="ph-title">Case Studies &amp; Growth Stories.</h1>
+            <h1 className="ph-title">{t('caseStudies.head.title')}</h1>
           </div>
           <div className="ph-meta">
-            {META_ROWS.map((row) => (
-              <div key={row.label} className="ph-meta-row">
-                <strong>{row.label}</strong>
-                <span>{row.value}</span>
+            {META_KEYS.map((key) => (
+              <div key={key} className="ph-meta-row">
+                <strong>{t(`caseStudies.head.meta.${key}.label`)}</strong>
+                <span>{t(`caseStudies.head.meta.${key}.value`)}</span>
               </div>
             ))}
           </div>

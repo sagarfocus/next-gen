@@ -1,3 +1,6 @@
+import { useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
+
 type CellValue = boolean;
 
 export interface FeatureRow {
@@ -10,45 +13,71 @@ export interface FeatureGroup {
   rows: FeatureRow[];
 }
 
-export const GROUPS: FeatureGroup[] = [
+interface RowSpec {
+  i18nKey: string;
+  values: [CellValue, CellValue, CellValue];
+}
+
+interface GroupSpec {
+  i18nKey: 'marketing' | 'automation' | 'scaleSupport' | 'enterprise';
+  rows: readonly RowSpec[];
+}
+
+const GROUP_SPECS: readonly GroupSpec[] = [
   {
-    label: 'Marketing & Acquisition',
+    i18nKey: 'marketing',
     rows: [
-      { feature: 'SEO Services', values: [true, true, true] },
-      { feature: 'Google My Business Management', values: [true, true, true] },
-      { feature: 'Google Ads Management', values: [true, true, true] },
-      { feature: 'Meta / Facebook Ads', values: [true, true, true] },
-      { feature: 'Social Media Content', values: [true, true, true] },
-      { feature: 'Content & Copywriting', values: [true, true, true] },
+      { i18nKey: 'seo', values: [true, true, true] },
+      { i18nKey: 'gmb', values: [true, true, true] },
+      { i18nKey: 'googleAds', values: [true, true, true] },
+      { i18nKey: 'metaAds', values: [true, true, true] },
+      { i18nKey: 'social', values: [true, true, true] },
+      { i18nKey: 'content', values: [true, true, true] },
     ],
   },
   {
-    label: 'Automation & Operations',
+    i18nKey: 'automation',
     rows: [
-      { feature: 'AI Chatbot Setup', values: [true, true, true] },
-      { feature: 'Monthly Strategy Reports', values: [true, true, true] },
-      { feature: 'Advanced AI Call Handling', values: [false, true, true] },
-      { feature: 'Insurance Verification Bots', values: [false, true, true] },
+      { i18nKey: 'chatbot', values: [true, true, true] },
+      { i18nKey: 'reports', values: [true, true, true] },
+      { i18nKey: 'callHandling', values: [false, true, true] },
+      { i18nKey: 'insurance', values: [false, true, true] },
     ],
   },
   {
-    label: 'Scale & Support',
+    i18nKey: 'scaleSupport',
     rows: [
-      { feature: 'Multi-Location Campaigns', values: [false, true, true] },
-      { feature: '24/7 Performance Monitoring', values: [false, true, true] },
-      { feature: 'Dedicated Account Manager', values: [false, true, true] },
-      { feature: 'Priority SLA Response', values: [false, true, true] },
+      { i18nKey: 'multiLocation', values: [false, true, true] },
+      { i18nKey: 'monitoring', values: [false, true, true] },
+      { i18nKey: 'accountManager', values: [false, true, true] },
+      { i18nKey: 'sla', values: [false, true, true] },
     ],
   },
   {
-    label: 'Enterprise Tier',
+    i18nKey: 'enterprise',
     rows: [
-      { feature: 'Custom Software Development', values: [false, false, true] },
-      { feature: 'HIPAA-Compliant API Integrations', values: [false, false, true] },
-      { feature: 'Multi-State Network Management', values: [false, false, true] },
-      { feature: 'Advanced BI Dashboards', values: [false, false, true] },
-      { feature: 'Dedicated Development Team', values: [false, false, true] },
-      { feature: 'White-Glove Onboarding', values: [false, false, true] },
+      { i18nKey: 'customDev', values: [false, false, true] },
+      { i18nKey: 'apis', values: [false, false, true] },
+      { i18nKey: 'multiState', values: [false, false, true] },
+      { i18nKey: 'bi', values: [false, false, true] },
+      { i18nKey: 'devTeam', values: [false, false, true] },
+      { i18nKey: 'onboarding', values: [false, false, true] },
     ],
   },
 ];
+
+/** React hook for the comparison-table groups. */
+export function useGroups(): readonly FeatureGroup[] {
+  const { t } = useTranslation('pricing');
+  return useMemo(
+    () =>
+      GROUP_SPECS.map((group) => ({
+        label: t(`comparison.groups.${group.i18nKey}.label`),
+        rows: group.rows.map((row) => ({
+          feature: t(`comparison.groups.${group.i18nKey}.rows.${row.i18nKey}`),
+          values: row.values,
+        })),
+      })),
+    [t]
+  );
+}

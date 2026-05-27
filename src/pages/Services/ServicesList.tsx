@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { ChevronDownIcon } from '@/components/icons';
-import { SERVICES } from '@/content/services/list';
+import { useServices } from '@/content/services/list';
 
 const CardArrow = () => (
   <span className="svc-card-arrow" aria-hidden="true">
@@ -22,6 +23,8 @@ const CardArrow = () => (
 );
 
 const ServicesList = () => {
+  const { t } = useTranslation('services');
+  const services = useServices();
   const [expanded, setExpanded] = useState(false);
 
   return (
@@ -33,23 +36,20 @@ const ServicesList = () => {
     >
       <div className="container-shell">
         <div className="svc-list-head">
-          <span className="svc-list-eyebrow">Our Services</span>
+          <span className="svc-list-eyebrow">{t('list.indexEyebrow')}</span>
           <h2 id="svc-list-title" className="svc-list-h2">
-            Our Services.
+            {t('list.indexTitle')}
           </h2>
-          <p className="svc-list-sub">
-            Everything your healthcare practice needs to own the digital space - from search
-            visibility to brand identity.
-          </p>
+          <p className="svc-list-sub">{t('list.indexSub')}</p>
           <div className="svc-list-all">
-            <span>12 Capabilities</span>
+            <span>{t('list.indexBadgeLeft')}</span>
             <span className="bar" />
-            <span>Full-Service Coverage</span>
+            <span>{t('list.indexBadgeRight')}</span>
           </div>
         </div>
 
         <div className="svc-cards">
-          {SERVICES.map(({ ariaId, illustration, image, imgFocus, meta, title, sub, to, extra }) => (
+          {services.map(({ ariaId, illustration, image, imgFocus, meta, title, sub, to, extra }) => (
             <Link
               key={ariaId}
               to={to}
@@ -95,7 +95,7 @@ const ServicesList = () => {
             aria-expanded={expanded}
             aria-controls="all-services"
           >
-            {expanded ? 'Show less' : 'See more services'}
+            {expanded ? t('list.showLess') : t('list.seeMore')}
             <span className="ico" aria-hidden="true">
               <ChevronDownIcon size={14} strokeWidth={2.4} />
             </span>

@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { Parallax, AnimatedBackground } from '@/lib/motion';
 import { ArrowIcon } from '@/components/icons';
 import industryImg from '../../assets/nextgen-image/Industryimg.png';
@@ -8,25 +9,24 @@ interface IndustriesHeroProps {
 }
 
 const IndustriesHero = ({ onBook }: IndustriesHeroProps) => {
+  const { t } = useTranslation('industries');
   return (
     <section className="ind-hero" aria-labelledby="ind-title">
       <AnimatedBackground variant="aurora" intensity="subtle" />
       <div className="container-shell">
         <div className="ind-hero-grid">
           <div className="ind-hero-text">
-            <span className="ind-eyebrow">Industries We Serve</span>
+            <span className="ind-eyebrow">{t('hero.eyebrow')}</span>
             <h1 id="ind-title" className="ind-h1">
-              Healthcare marketing tailored to your <span className="accent">specialty</span>.
+              {t('hero.titleLead')}
+              <span className="accent">{t('hero.titleAccent')}</span>
+              {t('hero.titleTrail')}
             </h1>
-            <p className="ind-lede">
-              We don&rsquo;t do generic. From freestanding ERs to MedSpas, we build
-              patient-acquisition systems engineered for the specific dynamics of your vertical -
-              high-acuity urgency, walk-in convenience, or longevity-driven retention.
-            </p>
+            <p className="ind-lede">{t('hero.lede')}</p>
 
             <div className="ind-hero-cta">
               <Link to="/pricing" className="svc-cta-primary">
-                Get an Estimated Quote
+                {t('hero.ctaPrimary')}
                 <span className="ico" aria-hidden="true">
                   <ArrowIcon size={14} />
                 </span>
@@ -38,7 +38,7 @@ const IndustriesHero = ({ onBook }: IndustriesHeroProps) => {
                 aria-haspopup="dialog"
                 aria-controls="bookingModal"
               >
-                Schedule a Call
+                {t('hero.ctaSecondary')}
                 <span className="ico" aria-hidden="true">
                   <svg
                     width={12}
@@ -58,19 +58,19 @@ const IndustriesHero = ({ onBook }: IndustriesHeroProps) => {
             </div>
 
             <div className="ind-trust">
-              <span className="ind-trust-label">Trusted by 200+ Texas Practices</span>
+              <span className="ind-trust-label">{t('hero.trustLabel')}</span>
               <div className="ind-trust-stats">
                 <span className="ind-trust-stat">
                   <span className="ind-trust-stat-num">3+</span>
-                  <span className="ind-trust-stat-label">Specialty Verticals</span>
+                  <span className="ind-trust-stat-label">{t('hero.trust.verticals')}</span>
                 </span>
                 <span className="ind-trust-stat">
                   <span className="ind-trust-stat-num">$10M+</span>
-                  <span className="ind-trust-stat-label">Ad Spend Managed</span>
+                  <span className="ind-trust-stat-label">{t('hero.trust.adSpend')}</span>
                 </span>
                 <span className="ind-trust-stat">
                   <span className="ind-trust-stat-num">3&times;</span>
-                  <span className="ind-trust-stat-label">Avg. ROI Lift</span>
+                  <span className="ind-trust-stat-label">{t('hero.trust.roi')}</span>
                 </span>
               </div>
             </div>
@@ -105,8 +105,8 @@ const IndustriesHero = ({ onBook }: IndustriesHeroProps) => {
                 </svg>
               </span>
               <div className="fc-text">
-                <strong>+312%</strong>
-                <small>Patient leads, 90 days</small>
+                <strong>{t('hero.floatCards.leads.value')}</strong>
+                <small>{t('hero.floatCards.leads.label')}</small>
               </div>
             </div>
 
@@ -126,8 +126,8 @@ const IndustriesHero = ({ onBook }: IndustriesHeroProps) => {
                 </svg>
               </span>
               <div className="fc-text">
-                <strong>HIPAA-Compliant</strong>
-                <small>Across all verticals</small>
+                <strong>{t('hero.floatCards.hipaa.value')}</strong>
+                <small>{t('hero.floatCards.hipaa.label')}</small>
               </div>
             </div>
           </Parallax>

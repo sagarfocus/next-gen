@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import Hero from './Hero';
 import Safeguards from './Safeguards';
 import Specs from './Specs';
@@ -18,20 +19,23 @@ const BREADCRUMB_SCHEMA = buildBreadcrumbList([
   { name: 'Compliance Protocol' },
 ]);
 
-const ComplianceProtocol = () => (
-  <main className="gt-page gt-page-x cp-page-x">
-    <Seo
-      title="Compliance Protocol — HIPAA-Aligned Marketing Infrastructure"
-      description="Every engagement runs on a HIPAA-aligned stack — BAA-covered tools, encrypted intake (AES-256), TLS 1.3 transit, PHI-safe analytics, audited logs. Documentation pack on request."
-      path="/infrastructure/compliance-protocol"
-      schema={[SCHEMA, BREADCRUMB_SCHEMA]}
-    />
+const ComplianceProtocol = () => {
+  const { t } = useTranslation(['pages']);
+  return (
+    <main className="gt-page gt-page-x cp-page-x">
+      <Seo
+        title={t('pages:infrastructure.complianceProtocol.seo.title')}
+        description={t('pages:infrastructure.complianceProtocol.seo.description')}
+        path="/infrastructure/compliance-protocol"
+        schema={[SCHEMA, BREADCRUMB_SCHEMA]}
+      />
 
-    <Hero />
-    <Safeguards />
-    <Specs />
-    <CTA />
-  </main>
-);
+      <Hero />
+      <Safeguards />
+      <Specs />
+      <CTA />
+    </main>
+  );
+};
 
 export default ComplianceProtocol;

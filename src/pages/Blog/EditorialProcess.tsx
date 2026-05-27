@@ -1,11 +1,10 @@
 import type { ReactElement } from 'react';
+import { useTranslation } from 'react-i18next';
 
 interface Step {
   cls: string;
   num: string;
-  duration: string;
-  title: string;
-  text: string;
+  i18nKey: 'research' | 'draft' | 'review' | 'publish';
   icon: ReactElement;
   expand?: boolean;
 }
@@ -14,9 +13,7 @@ const STEPS: Step[] = [
   {
     cls: 's1',
     num: '1',
-    duration: '1 Week',
-    title: 'Research',
-    text: 'We mine our $10M+ in healthcare ad spend data, client dashboards, and HIPAA audit findings to find the patterns most clinics miss - before writing a single word.',
+    i18nKey: 'research',
     icon: (
       <svg
         width={14}
@@ -36,9 +33,7 @@ const STEPS: Step[] = [
   {
     cls: 's2',
     num: '2',
-    duration: '2 Weeks',
-    title: 'Draft & Visuals',
-    text: 'A senior practitioner drafts the article alongside our design team - clean diagrams, real screenshots, and brand-consistent visuals that make complex tactics easy to scan.',
+    i18nKey: 'draft',
     icon: (
       <svg
         width={14}
@@ -59,9 +54,7 @@ const STEPS: Step[] = [
   {
     cls: 's3',
     num: '3',
-    duration: '1–2 Days',
-    title: 'Compliance Review',
-    text: 'Our Head of Compliance reviews every article line-by-line for HIPAA accuracy. We test every recommended tactic against real client funnels before publishing - nothing untested ships.',
+    i18nKey: 'review',
     icon: (
       <svg
         width={14}
@@ -81,9 +74,7 @@ const STEPS: Step[] = [
   {
     cls: 's4',
     num: '4',
-    duration: '1–2 Days',
-    title: 'Publish & Distribute',
-    text: 'We wrap each article with a polished cover, embed it in our newsletter, and notify the 4,000+ healthcare practice managers reading every Tuesday morning - with full source attribution.',
+    i18nKey: 'publish',
     icon: (
       <svg
         width={14}
@@ -104,22 +95,21 @@ const STEPS: Step[] = [
 ];
 
 const EditorialProcess = () => {
+  const { t } = useTranslation('blog');
+
   return (
     <section className="bl-process" aria-labelledby="bl-process-title">
       <div className="container-shell">
         <div className="bl-process-head">
-          <span className="bl-process-eyebrow">Editorial Process</span>
+          <span className="bl-process-eyebrow">{t('editorialProcess.eyebrow')}</span>
           <h2 id="bl-process-title" className="bl-process-h2">
-            How every article gets to your inbox.
+            {t('editorialProcess.title')}
           </h2>
-          <p className="bl-process-sub">
-            Beyond just publishing tactics, we build each piece around real client work - from raw
-            insight to peer-reviewed, HIPAA-checked, practitioner-tested content.
-          </p>
+          <p className="bl-process-sub">{t('editorialProcess.sub')}</p>
 
           <div className="bl-process-range">
-            <span className="bl-process-range-pill">Apr 2026</span>
-            <span className="bl-process-range-pill is-end">May 2026</span>
+            <span className="bl-process-range-pill">{t('editorialProcess.rangeStart')}</span>
+            <span className="bl-process-range-pill is-end">{t('editorialProcess.rangeEnd')}</span>
           </div>
         </div>
 
@@ -127,11 +117,17 @@ const EditorialProcess = () => {
           {STEPS.map((step) => (
             <article key={step.cls} className={`bl-step ${step.cls}`}>
               <div className="bl-step-badge">
-                <span className="bl-step-badge-text">{step.duration}</span>
+                <span className="bl-step-badge-text">
+                  {t(`editorialProcess.steps.${step.i18nKey}.duration`)}
+                </span>
               </div>
               <div className="bl-step-card">
                 {step.expand && (
-                  <button className="bl-step-expand" type="button" aria-label="Expand step">
+                  <button
+                    className="bl-step-expand"
+                    type="button"
+                    aria-label={t('editorialProcess.expandLabel')}
+                  >
                     <svg
                       width={14}
                       height={14}
@@ -155,10 +151,11 @@ const EditorialProcess = () => {
                     {step.icon}
                   </span>
                   <h3 className="bl-step-title">
-                    <span className="bl-step-num">{step.num}</span> {step.title}
+                    <span className="bl-step-num">{step.num}</span>{' '}
+                    {t(`editorialProcess.steps.${step.i18nKey}.title`)}
                   </h3>
                 </div>
-                <p className="bl-step-text">{step.text}</p>
+                <p className="bl-step-text">{t(`editorialProcess.steps.${step.i18nKey}.text`)}</p>
               </div>
             </article>
           ))}

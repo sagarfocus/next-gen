@@ -1,4 +1,5 @@
 import '../../styles/seo.css';
+import { useTranslation } from 'react-i18next';
 import Hero from './Hero';
 import TrustBar from './TrustBar';
 import Capabilities from './Capabilities';
@@ -51,11 +52,12 @@ const BREADCRUMB_SCHEMA = buildBreadcrumbList([
 ]);
 
 const SEO = () => {
+  const { t } = useTranslation('pages');
   return (
     <>
       <Seo
-        title="Healthcare SEO Services — Technical, Local, Content & AEO"
-        description="Technical, on-page, off-page, local, content, and AEO — full-suite SEO built for clinics, surgical groups, and hospital networks. HIPAA-aware tracking, 12-page audit in 5 business days."
+        title={t('seoService.seo.title')}
+        description={t('seoService.seo.description')}
         path="/services/seo"
         schema={[SERVICE_SCHEMA, FAQ_SCHEMA, BREADCRUMB_SCHEMA]}
       />

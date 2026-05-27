@@ -1,3 +1,5 @@
+import { useTranslation } from 'react-i18next';
+
 export interface SpecialtyRow {
   name: string;
   desc: string;
@@ -121,13 +123,14 @@ const SpecialtyIcon = ({ idx, color }: { idx: number; color: string }) => {
  * industry and service templates no longer share a structural rhythm.
  */
 const Specialties = ({ rows }: SpecialtiesProps) => {
+  const { t } = useTranslation('common');
   return (
     <section className="iv-section iv-specialties" aria-labelledby="iv-spec-title">
       <div className="container-shell">
         <header className="iv-section-head">
           <span className="iv-section-num">01</span>
           <h2 id="iv-spec-title" className="iv-section-title">
-            Specialties we serve.
+            {t('components.industrySpecialties.title')}
           </h2>
         </header>
 

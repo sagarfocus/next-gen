@@ -1,10 +1,17 @@
-import { TEMPLATES } from './data';
+import type { ReactElement } from 'react';
+import { useTranslation } from 'react-i18next';
+import { COMPLIANCE_COUNTS } from './data';
 
-const COMPLIANCE_TIERS = [
+interface ComplianceTier {
+  key: 'baa' | 'hipaa' | 'phiFree';
+  count: number;
+  icon: ReactElement;
+}
+
+const TIERS: ComplianceTier[] = [
   {
-    key: 'BAA required',
-    desc: 'Touches PHI directly. Runs only behind a signed Business Associate Agreement with every vendor in the path.',
-    count: TEMPLATES.filter((t) => t.compliance === 'BAA required').length,
+    key: 'baa',
+    count: COMPLIANCE_COUNTS['BAA required'],
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -21,9 +28,8 @@ const COMPLIANCE_TIERS = [
     ),
   },
   {
-    key: 'HIPAA-aware',
-    desc: 'Touches scheduling and messaging metadata — no clinical PHI. Built to respect HIPAA boundaries by design.',
-    count: TEMPLATES.filter((t) => t.compliance === 'HIPAA-aware').length,
+    key: 'hipaa',
+    count: COMPLIANCE_COUNTS['HIPAA-aware'],
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -40,9 +46,8 @@ const COMPLIANCE_TIERS = [
     ),
   },
   {
-    key: 'PHI-free',
-    desc: 'Workflow operates entirely outside the PHI surface. Reviews, social, lead capture — public-facing only.',
-    count: TEMPLATES.filter((t) => t.compliance === 'PHI-free').length,
+    key: 'phiFree',
+    count: COMPLIANCE_COUNTS['PHI-free'],
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -60,35 +65,41 @@ const COMPLIANCE_TIERS = [
   },
 ];
 
-const Compliance = () => (
-  <section className="atx-comp" aria-labelledby="atx-comp-title">
-    <div className="container-shell">
-      <header className="adv-head det-head">
-        <span className="adv-eyebrow">/ 05 &nbsp; Compliance posture</span>
-        <h2 id="atx-comp-title" className="adv-h2">
-          Three modes. One library.
-        </h2>
-        <p className="adv-intro">
-          Every workflow declares its compliance posture up front — so the front desk, the
-          compliance lead, and IT all see the same boundary before anything ships.
-        </p>
-      </header>
-      <div className="atx-comp-grid">
-        {COMPLIANCE_TIERS.map((c) => (
-          <article key={c.key} className="atx-comp-card">
-            <span className="atx-comp-icon">{c.icon}</span>
-            <div className="atx-comp-head">
-              <h3 className="atx-comp-title">{c.key}</h3>
-              <span className="atx-comp-count">
-                {c.count} workflow{c.count === 1 ? '' : 's'}
-              </span>
-            </div>
-            <p className="atx-comp-desc">{c.desc}</p>
-          </article>
-        ))}
+const Compliance = () => {
+  const { t } = useTranslation(['automation']);
+  return (
+    <section className="atx-comp" aria-labelledby="atx-comp-title">
+      <div className="container-shell">
+        <header className="adv-head det-head">
+          <span className="adv-eyebrow">{t('automation:templates.page.compliance.label')}</span>
+          <h2 id="atx-comp-title" className="adv-h2">
+            {t('automation:templates.page.compliance.title')}
+          </h2>
+          <p className="adv-intro">{t('automation:templates.page.compliance.intro')}</p>
+        </header>
+        <div className="atx-comp-grid">
+          {TIERS.map((tier) => (
+            <article key={tier.key} className="atx-comp-card">
+              <span className="atx-comp-icon">{tier.icon}</span>
+              <div className="atx-comp-head">
+                <h3 className="atx-comp-title">
+                  {t(`automation:templates.page.compliance.tiers.${tier.key}.key`)}
+                </h3>
+                <span className="atx-comp-count">
+                  {tier.count === 1
+                    ? t('automation:templates.page.compliance.countSingular', { count: tier.count })
+                    : t('automation:templates.page.compliance.countPlural', { count: tier.count })}
+                </span>
+              </div>
+              <p className="atx-comp-desc">
+                {t(`automation:templates.page.compliance.tiers.${tier.key}.desc`)}
+              </p>
+            </article>
+          ))}
+        </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 export default Compliance;

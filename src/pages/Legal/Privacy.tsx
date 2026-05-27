@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import LegalPage from './LegalPage';
 import type { LegalSection } from './LegalPage';
 import { SITE } from '@/content/site';
@@ -10,122 +11,106 @@ const UL = ({ children }: { children: React.ReactNode }) => (
   <ul style={{ margin: '0 0 14px', paddingLeft: 22 }}>{children}</ul>
 );
 
-const SECTIONS: LegalSection[] = [
-  {
-    heading: 'Who we are',
-    body: (
-      <>
+const Privacy = () => {
+  const { t } = useTranslation(['legal']);
+
+  const collectedItems = t('legal:privacy.sections.informationCollected.items', {
+    returnObjects: true,
+  }) as string[];
+  const useItems = t('legal:privacy.sections.howWeUseIt.items', { returnObjects: true }) as string[];
+  const subItems = t('legal:privacy.sections.subProcessors.items', {
+    returnObjects: true,
+  }) as string[];
+
+  const rightsBody = t('legal:privacy.sections.yourRights.body', { email: SITE.email });
+  const [rightsBefore, rightsAfter] = rightsBody.split(SITE.email);
+
+  const SECTIONS: LegalSection[] = [
+    {
+      heading: t('legal:privacy.sections.whoWeAre.heading'),
+      body: <P>{t('legal:privacy.sections.whoWeAre.body')}</P>,
+    },
+    {
+      heading: t('legal:privacy.sections.informationCollected.heading'),
+      body: (
+        <>
+          <P>{t('legal:privacy.sections.informationCollected.intro')}</P>
+          <UL>
+            {collectedItems.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </UL>
+          <p
+            style={{ margin: '0 0 14px' }}
+            dangerouslySetInnerHTML={{
+              __html: t('legal:privacy.sections.informationCollected.phiNote'),
+            }}
+          />
+        </>
+      ),
+    },
+    {
+      heading: t('legal:privacy.sections.howWeUseIt.heading'),
+      body: (
+        <>
+          <UL>
+            {useItems.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </UL>
+          <P>{t('legal:privacy.sections.howWeUseIt.noSell')}</P>
+        </>
+      ),
+    },
+    {
+      heading: t('legal:privacy.sections.cookies.heading'),
+      body: <P>{t('legal:privacy.sections.cookies.body')}</P>,
+    },
+    {
+      heading: t('legal:privacy.sections.subProcessors.heading'),
+      body: (
+        <>
+          <P>{t('legal:privacy.sections.subProcessors.intro')}</P>
+          <UL>
+            {subItems.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </UL>
+        </>
+      ),
+    },
+    {
+      heading: t('legal:privacy.sections.yourRights.heading'),
+      body: (
         <P>
-          TheNextGen Healthcare Marketing (&ldquo;we,&rdquo; &ldquo;us,&rdquo; or
-          &ldquo;TheNextGen&rdquo;) operates this website and the marketing services described on
-          it. We are a Texas-based agency working exclusively with healthcare organizations.
-        </P>
-      </>
-    ),
-  },
-  {
-    heading: 'Information we collect',
-    body: (
-      <>
-        <P>We collect the minimum information needed to deliver our services:</P>
-        <UL>
-          <li>Contact details you submit through audit, demo, or contact forms.</li>
-          <li>Email addresses provided to the newsletter signup.</li>
-          <li>Standard server logs (IP, user agent, timestamp) for security and analytics.</li>
-          <li>Aggregated, de-identified usage analytics via privacy-respecting tooling.</li>
-        </UL>
-        <P>
-          We do <strong>not</strong> intentionally collect Protected Health Information (PHI). If
-          you contact us about your practice, please omit patient identifiers from the message.
-        </P>
-      </>
-    ),
-  },
-  {
-    heading: 'How we use it',
-    body: (
-      <>
-        <UL>
-          <li>To respond to inquiries and schedule strategy calls.</li>
-          <li>To deliver the newsletter you signed up for.</li>
-          <li>To improve the site, content, and service offerings.</li>
-          <li>
-            To send invoices, contracts, and service communications under an executed engagement.
-          </li>
-        </UL>
-        <P>We do not sell, rent, or trade personal information to third parties.</P>
-      </>
-    ),
-  },
-  {
-    heading: 'Cookies & analytics',
-    body: (
-      <>
-        <P>
-          The site uses first-party cookies for session continuity and a privacy-respecting
-          analytics package to understand which content is useful. You can disable cookies in your
-          browser without losing core site functionality.
-        </P>
-      </>
-    ),
-  },
-  {
-    heading: 'Sub-processors',
-    body: (
-      <>
-        <P>
-          When we engage with clients, we may rely on the following categories of sub-processors.
-          Each is covered by a written agreement (and, where PHI is in scope, a BAA):
-        </P>
-        <UL>
-          <li>Cloud hosting and CDN (e.g., Vercel, Cloudflare).</li>
-          <li>Email and CRM tooling (e.g., HubSpot, Postmark).</li>
-          <li>Analytics and dashboarding platforms.</li>
-        </UL>
-      </>
-    ),
-  },
-  {
-    heading: 'Your rights',
-    body: (
-      <>
-        <P>
-          You can request access to, correction of, or deletion of any personal information you have
-          provided. Email{' '}
+          {rightsBefore}
           <a href={`mailto:${SITE.email}`} style={{ color: '#576DB5' }}>
             {SITE.email}
-          </a>{' '}
-          and we will respond within 10 business days.
+          </a>
+          {rightsAfter}
         </P>
-      </>
-    ),
-  },
-  {
-    heading: 'Changes to this policy',
-    body: (
-      <>
-        <P>
-          We may update this policy as our services evolve. Material changes will be flagged at the
-          top of this page for at least 30 days before taking effect.
-        </P>
-      </>
-    ),
-  },
-];
+      ),
+    },
+    {
+      heading: t('legal:privacy.sections.changes.heading'),
+      body: <P>{t('legal:privacy.sections.changes.body')}</P>,
+    },
+  ];
 
-const Privacy = () => (
-  <LegalPage
-    eyebrow="Legal · Privacy"
-    title="Privacy Policy"
-    summary="How TheNextGen Healthcare Marketing collects, uses, and protects information when you visit this site or engage us as a marketing partner."
-    effectiveDate="January 1, 2026"
-    reviewedDate="May 1, 2026"
-    contact={{ email: SITE.email }}
-    sections={SECTIONS}
-    breadcrumb="Privacy"
-    metaDescription="Privacy Policy for TheNextGen Healthcare Marketing - what we collect, how we use it, sub-processors, and your rights."
-    canonicalPath="/privacy"
-  />
-);
+  return (
+    <LegalPage
+      eyebrow={t('legal:privacy.eyebrow')}
+      title={t('legal:privacy.title')}
+      summary={t('legal:privacy.summary')}
+      effectiveDate={t('legal:privacy.effectiveDate')}
+      reviewedDate={t('legal:privacy.reviewedDate')}
+      contact={{ email: SITE.email }}
+      sections={SECTIONS}
+      breadcrumb={t('legal:privacy.breadcrumb')}
+      metaDescription={t('legal:privacy.metaDescription')}
+      canonicalPath="/privacy"
+    />
+  );
+};
 
 export default Privacy;

@@ -1,7 +1,11 @@
-import { PRINCIPLES } from '@/content/about/principles';
+import { useTranslation } from 'react-i18next';
+import { usePrinciples } from '@/content/about/principles';
 import vendorImg from '@/assets/nextgen-image/Vendorimg.png';
 
 const Genesis = () => {
+  const { t } = useTranslation('about');
+  const principles = usePrinciples();
+
   return (
     <section className="ab-genesis" aria-labelledby="ab-gen-title">
       <div className="container-shell">
@@ -15,24 +19,15 @@ const Genesis = () => {
           </div>
 
           <div className="ab-gen-text">
-            <span className="ab-gen-eyebrow">Why We Exist</span>
+            <span className="ab-gen-eyebrow">{t('genesis.eyebrow')}</span>
             <h2 id="ab-gen-title" className="ab-gen-h2">
-              Transcending the vendor relationship.
+              {t('genesis.title')}
             </h2>
-            <p>
-              Traditional agencies were <strong>actively harming high-volume clinics</strong>.
-              Driving thousands of inquiries to Freestanding ERs and Urgent Cares while
-              inadvertently crushing the front desk. Marketing was &ldquo;working,&rdquo; but the
-              clinic was failing to process the volume.
-            </p>
-            <p>
-              So we became <strong>operational integrators</strong>. We don&rsquo;t just run Google
-              Ads - we build the AI chatbots that answer them. We don&rsquo;t just do Local SEO - we
-              build the digital intake forms that process the patients who find you.
-            </p>
+            <p dangerouslySetInnerHTML={{ __html: t('genesis.p1') }} />
+            <p dangerouslySetInnerHTML={{ __html: t('genesis.p2') }} />
 
             <div className="ab-gen-principles">
-              {PRINCIPLES.map((p) => (
+              {principles.map((p) => (
                 <div key={p.title} className="ab-gen-principle">
                   <div className="ab-gen-principle-head">
                     <span className="ab-gen-principle-ico" aria-hidden="true">

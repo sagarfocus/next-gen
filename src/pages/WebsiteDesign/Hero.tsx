@@ -1,36 +1,36 @@
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { ArrowIcon } from '@/components/icons';
 
 const Hero = () => {
+  const { t } = useTranslation('pages');
+  const bullets = t('websiteDesign.hero.bullets', { returnObjects: true }) as string[];
+
   return (
     <section className="wd-hero">
       <div className="container-shell">
         <div className="wd-hero-grid">
           <div>
             <div className="wd-hero-crumb">
-              <Link to="/services">Services</Link>
+              <Link to="/services">{t('websiteDesign.hero.breadcrumbServices')}</Link>
               <span className="sep">/</span>
-              <span className="cur">Website Design &amp; Development</span>
+              <span className="cur">{t('websiteDesign.hero.breadcrumbCurrent')}</span>
             </div>
             <span className="wd-hero-eyebrow">
-              <span className="dot" /> Custom builds · Healthcare-only · HIPAA-aware
+              <span className="dot" /> {t('websiteDesign.hero.eyebrow')}
             </span>
             <h1 className="wd-hero-title">
-              Websites that book <em>patients, not just clicks.</em>
+              {t('websiteDesign.hero.titleLine')} <em>{t('websiteDesign.hero.titleAccent')}</em>
             </h1>
-            <p className="wd-hero-lede">
-              We design and build fast, accessible, conversion-first websites for healthcare
-              practices. Strategy, UX, design, code, content, SEO, and care plans — all under
-              one roof, all measured against the same number: booked appointments.
-            </p>
+            <p className="wd-hero-lede">{t('websiteDesign.hero.lede')}</p>
 
             <div className="wd-hero-ctas">
               <Link to="/contact" className="sl-btn-primary">
-                Get my free audit
+                {t('websiteDesign.hero.ctaPrimary')}
                 <ArrowIcon />
               </Link>
               <a href="#process" className="sl-btn-ghost">
-                See how we build
+                {t('websiteDesign.hero.ctaSecondary')}
                 <svg
                   viewBox="0 0 24 24"
                   fill="none"
@@ -46,24 +46,14 @@ const Hero = () => {
             </div>
 
             <ul className="wd-hero-bullets">
-              <li>
-                <span className="wd-hero-check" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={3} strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
-                </span>
-                Sub-2-second LCP and WCAG 2.2 AA accessibility, written into the contract
-              </li>
-              <li>
-                <span className="wd-hero-check" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={3} strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
-                </span>
-                Your code, your CMS, your domain — full ownership at handover
-              </li>
-              <li>
-                <span className="wd-hero-check" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={3} strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
-                </span>
-                Built-in SEO, schema, and analytics from day one
-              </li>
+              {bullets.map((b) => (
+                <li key={b}>
+                  <span className="wd-hero-check" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={3} strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
+                  </span>
+                  {b}
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -88,20 +78,20 @@ const Hero = () => {
             </div>
 
             <div className="wd-hero-card c1">
-              <span className="lbl">LCP</span>
+              <span className="lbl">{t('websiteDesign.hero.card1Lbl')}</span>
               <span className="val">1.4<em>s</em></span>
               <span className="dlt">−62%</span>
             </div>
 
             <div className="wd-hero-card c2">
-              <span className="lbl">CVR</span>
+              <span className="lbl">{t('websiteDesign.hero.card2Lbl')}</span>
               <span className="val">9.6<em>%</em></span>
               <span className="dlt">+88%</span>
             </div>
 
             <div className="wd-hero-tag t1">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.2}><circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" /></svg>
-              Lighthouse 98
+              {t('websiteDesign.hero.tag1')}
             </div>
           </div>
         </div>

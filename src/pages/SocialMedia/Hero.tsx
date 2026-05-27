@@ -1,38 +1,37 @@
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { ArrowIcon } from '@/components/icons';
 
 const Hero = () => {
+  const { t } = useTranslation('pages');
+  const bullets = t('socialMedia.hero.bullets', { returnObjects: true }) as string[];
+  const stories = t('socialMedia.hero.stories', { returnObjects: true }) as string[];
+
   return (
     <section className="sm-hero">
       <div className="container-shell">
         <div className="sm-hero-grid">
           <div>
             <div className="sm-hero-crumb">
-              <Link to="/services">Services</Link>
+              <Link to="/services">{t('socialMedia.hero.breadcrumbServices')}</Link>
               <span className="sep">/</span>
-              <span className="cur">Social Media Marketing</span>
+              <span className="cur">{t('socialMedia.hero.breadcrumbCurrent')}</span>
             </div>
             <span className="sm-hero-eyebrow">
-              <span className="dot" /> Meta Business Partner · Healthcare-only
+              <span className="dot" /> {t('socialMedia.hero.eyebrow')}
             </span>
             <h1 className="sm-hero-title">
-              Social media that builds <em>trust between the click and the visit.</em>
+              {t('socialMedia.hero.titleLine')} <em>{t('socialMedia.hero.titleAccent')}</em>
             </h1>
-            <p className="sm-hero-lede">
-              Instagram, Facebook, LinkedIn, TikTok, YouTube Shorts, and
-              Pinterest - run by clinicians-turned-content-producers who know
-              the difference between a 510(k) post and a board complaint.
-              HIPAA-aware moderation, clinical review on every post, named
-              creative lead.
-            </p>
+            <p className="sm-hero-lede">{t('socialMedia.hero.lede')}</p>
 
             <div className="sm-hero-ctas">
               <Link to="/contact" className="sl-btn-primary">
-                Book the cadence call
+                {t('socialMedia.hero.ctaPrimary')}
                 <ArrowIcon />
               </Link>
               <a href="#platforms" className="sl-btn-ghost">
-                See platforms
+                {t('socialMedia.hero.ctaSecondary')}
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.4} strokeLinecap="round" strokeLinejoin="round">
                   <line x1="7" y1="17" x2="17" y2="7" />
                   <polyline points="7 7 17 7 17 17" />
@@ -41,24 +40,14 @@ const Hero = () => {
             </div>
 
             <ul className="sm-hero-bullets">
-              <li>
-                <span className="sm-hero-check" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={3} strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
-                </span>
-                Two channels run deep beats four run shallow
-              </li>
-              <li>
-                <span className="sm-hero-check" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={3} strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
-                </span>
-                Clinical reviewer on every post
-              </li>
-              <li>
-                <span className="sm-hero-check" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={3} strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
-                </span>
-                Quarterly shot list - 1 hour on camera
-              </li>
+              {bullets.map((b) => (
+                <li key={b}>
+                  <span className="sm-hero-check" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={3} strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
+                  </span>
+                  {b}
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -75,7 +64,7 @@ const Hero = () => {
                 </div>
 
                 <div className="sm-hero-stories">
-                  {['Tour', 'Reels', 'Care', 'Team', 'Q&A'].map((s) => (
+                  {stories.map((s) => (
                     <div key={s} className="sm-hero-story">
                       <div className="ring" />
                       <span>{s}</span>
@@ -88,13 +77,13 @@ const Hero = () => {
                     <span className="sm-hero-post-avatar" />
                     <div>
                       <span className="sm-hero-post-name">yourclinic.health</span>
-                      <span className="sm-hero-post-loc">Yourtown · Sponsored</span>
+                      <span className="sm-hero-post-loc">{t('socialMedia.hero.postLocation')}</span>
                     </div>
                   </div>
                   <div className="sm-hero-post-media">
                     <div className="sm-hero-post-overlay">
-                      <span className="sm-hero-post-eyebrow">REEL · 28s</span>
-                      <span className="sm-hero-post-h">3 questions to ask before booking a dermatologist</span>
+                      <span className="sm-hero-post-eyebrow">{t('socialMedia.hero.postEyebrow')}</span>
+                      <span className="sm-hero-post-h">{t('socialMedia.hero.postHeadline')}</span>
                     </div>
                     <div className="sm-hero-post-play">
                       <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4" /></svg>
@@ -107,7 +96,7 @@ const Hero = () => {
                     <span className="act-r"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z" /></svg></span>
                   </div>
                   <div className="sm-hero-post-stats">
-                    <span><strong>12.4K</strong> views · <strong>847</strong> likes</span>
+                    <span><strong>{t('socialMedia.hero.postViews')}</strong> views · <strong>{t('socialMedia.hero.postLikes')}</strong> likes</span>
                   </div>
                 </article>
               </div>
@@ -115,11 +104,11 @@ const Hero = () => {
 
             <div className="sm-hero-tag t1">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.2}><polyline points="23 6 13.5 15.5 8.5 10.5 1 18" /><polyline points="17 6 23 6 23 12" /></svg>
-              ER 5.8%
+              {t('socialMedia.hero.tag1')}
             </div>
             <div className="sm-hero-tag t2">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.2}><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" /></svg>
-              312% reach lift
+              {t('socialMedia.hero.tag2')}
             </div>
           </div>
         </div>

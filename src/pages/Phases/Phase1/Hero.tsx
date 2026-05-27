@@ -1,44 +1,41 @@
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
-const Hero = () => (
-  <>
-    <Link to="/about#methodology" className="ph1-crumb">
-      <span aria-hidden="true">←</span> Back to Methodology
-    </Link>
+const Hero = () => {
+  const { t } = useTranslation(['pages']);
+  return (
+    <>
+      <Link to="/about#methodology" className="ph1-crumb">
+        <span aria-hidden="true">←</span> {t('pages:phases.phase1.hero.back')}
+      </Link>
 
-    <div className="ph1-meta-row">
-      <span>Phase</span>
-      <span>Discovery &amp; Audit</span>
-      <span>Week 01 - 02</span>
-      <span>Deliverable: Audit Report</span>
-    </div>
-
-    <section className="ph1-hero">
-      <div>
-        <h2 className="ph1-bignum">
-          0<em>1</em>
-        </h2>
+      <div className="ph1-meta-row">
+        <span>{t('pages:phases.phase1.hero.meta.phase')}</span>
+        <span>{t('pages:phases.phase1.hero.meta.name')}</span>
+        <span>{t('pages:phases.phase1.hero.meta.week')}</span>
+        <span>{t('pages:phases.phase1.hero.meta.deliverable')}</span>
       </div>
-      <div>
-        <h1 className="ph1-h1">
-          Discovery &amp; <br />
-          Technical Audit.
-        </h1>
-        <p className="ph1-lede">
-          A two-week forensic of every search, ad, and front-desk surface your clinic owns. We
-          don&rsquo;t guess where patients are leaking - we measure it, then we hand you a
-          prioritized scorecard with the exact dollar value of each fix.
-        </p>
-        <div className="ph1-tags">
-          <span className="ph1-tag">Technical SEO</span>
-          <span className="ph1-tag">Local Search</span>
-          <span className="ph1-tag">Paid Media</span>
-          <span className="ph1-tag">CRO</span>
-          <span className="ph1-tag">Front-desk Ops</span>
+
+      <section className="ph1-hero">
+        <div>
+          <h2 className="ph1-bignum">
+            0<em>1</em>
+          </h2>
         </div>
-      </div>
-    </section>
-  </>
-);
+        <div>
+          <h1 className="ph1-h1">{t('pages:phases.phase1.hero.title')}</h1>
+          <p className="ph1-lede">{t('pages:phases.phase1.hero.lede')}</p>
+          <div className="ph1-tags">
+            <span className="ph1-tag">{t('pages:phases.phase1.hero.tags.technicalSeo')}</span>
+            <span className="ph1-tag">{t('pages:phases.phase1.hero.tags.localSearch')}</span>
+            <span className="ph1-tag">{t('pages:phases.phase1.hero.tags.paidMedia')}</span>
+            <span className="ph1-tag">{t('pages:phases.phase1.hero.tags.cro')}</span>
+            <span className="ph1-tag">{t('pages:phases.phase1.hero.tags.frontDesk')}</span>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+};
 
 export default Hero;

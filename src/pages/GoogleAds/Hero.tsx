@@ -1,37 +1,36 @@
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { ArrowIcon } from '@/components/icons';
 
 const Hero = () => {
+  const { t } = useTranslation('pages');
+  const bullets = t('googleAds.hero.bullets', { returnObjects: true }) as string[];
+
   return (
     <section className="ga-hero">
       <div className="container-shell">
         <div className="ga-hero-grid">
           <div>
             <div className="ga-hero-crumb">
-              <Link to="/services">Services</Link>
+              <Link to="/services">{t('googleAds.hero.breadcrumbServices')}</Link>
               <span className="sep">/</span>
-              <span className="cur">Google Ads</span>
+              <span className="cur">{t('googleAds.hero.breadcrumbCurrent')}</span>
             </div>
             <span className="ga-hero-eyebrow">
-              <span className="dot" /> Google Partner · Healthcare-only
+              <span className="dot" /> {t('googleAds.hero.eyebrow')}
             </span>
             <h1 className="ga-hero-title">
-              Google Ads that fills <em>chairs, not just clicks.</em>
+              {t('googleAds.hero.titleLine')} <em>{t('googleAds.hero.titleAccent')}</em>
             </h1>
-            <p className="ga-hero-lede">
-              Search, Performance Max, Display, YouTube, Shopping, and Local
-              Services Ads - run by a healthcare-only PPC team that treats
-              your budget like it&rsquo;s their own. HIPAA-aware tracking,
-              live ROAS dashboard, named lead.
-            </p>
+            <p className="ga-hero-lede">{t('googleAds.hero.lede')}</p>
 
             <div className="ga-hero-ctas">
               <Link to="/free-growth-audit" className="sl-btn-primary">
-                Get a free account audit
+                {t('googleAds.hero.ctaPrimary')}
                 <ArrowIcon />
               </Link>
               <a href="#campaign-types" className="sl-btn-ghost">
-                See campaign types
+                {t('googleAds.hero.ctaSecondary')}
                 <svg
                   viewBox="0 0 24 24"
                   fill="none"
@@ -47,24 +46,14 @@ const Hero = () => {
             </div>
 
             <ul className="ga-hero-bullets">
-              <li>
-                <span className="ga-hero-check" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={3} strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
-                </span>
-                30-minute audit, no slide deck
-              </li>
-              <li>
-                <span className="ga-hero-check" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={3} strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
-                </span>
-                HIPAA-aware conversion tracking
-              </li>
-              <li>
-                <span className="ga-hero-check" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={3} strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
-                </span>
-                Month-to-month after a 90-day ramp
-              </li>
+              {bullets.map((b) => (
+                <li key={b}>
+                  <span className="ga-hero-check" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={3} strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
+                  </span>
+                  {b}
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -76,7 +65,7 @@ const Hero = () => {
                 <span className="dot g" />
                 <div className="ga-hero-mock-url">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}><rect x="3" y="4" width="18" height="14" rx="2" /><line x1="3" y1="9" x2="21" y2="9" /></svg>
-                  ads.google.com — Performance overview
+                  {t('googleAds.hero.dashboardTitle')}
                 </div>
               </div>
 

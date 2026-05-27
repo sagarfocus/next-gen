@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { ArrowIcon } from '@/components/icons';
-import type { StackGroupExt } from './data';
+import type { StackGroup } from './data';
 
 /* ---------- LAYOUT PRIMITIVE ---------- */
 export const Section = ({
@@ -115,95 +116,102 @@ export const ToolTile = ({
   use: string;
   idx: number;
   category: string;
-}) => (
-  <div className="relative h-full w-full rounded-[18px] overflow-hidden bg-heading isolate">
-    <span
-      aria-hidden="true"
-      className="absolute -top-16 -left-12 w-56 h-56 rounded-full opacity-25"
-      style={{ background: 'radial-gradient(circle at 50% 50%, #8FBC8F 0%, transparent 60%)' }}
-    />
-    <span
-      aria-hidden="true"
-      className="absolute -bottom-20 -right-16 w-64 h-64 rounded-full opacity-20"
-      style={{ background: 'radial-gradient(circle at 50% 50%, #B38B6D 0%, transparent 60%)' }}
-    />
-    <span
-      aria-hidden="true"
-      className="absolute inset-0 opacity-[0.06]"
-      style={{
-        backgroundImage:
-          'linear-gradient(0deg, #fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)',
-        backgroundSize: '32px 32px',
-      }}
-    />
+}) => {
+  const { t } = useTranslation('pages');
+  return (
+    <div className="relative h-full w-full rounded-[18px] overflow-hidden bg-heading isolate">
+      <span
+        aria-hidden="true"
+        className="absolute -top-16 -left-12 w-56 h-56 rounded-full opacity-25"
+        style={{ background: 'radial-gradient(circle at 50% 50%, #8FBC8F 0%, transparent 60%)' }}
+      />
+      <span
+        aria-hidden="true"
+        className="absolute -bottom-20 -right-16 w-64 h-64 rounded-full opacity-20"
+        style={{ background: 'radial-gradient(circle at 50% 50%, #B38B6D 0%, transparent 60%)' }}
+      />
+      <span
+        aria-hidden="true"
+        className="absolute inset-0 opacity-[0.06]"
+        style={{
+          backgroundImage:
+            'linear-gradient(0deg, #fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)',
+          backgroundSize: '32px 32px',
+        }}
+      />
 
-    <div className="relative z-10 h-full p-6 sm:p-7 flex flex-col justify-between">
-      <div className="flex items-start justify-between gap-4">
-        <span className="w-14 h-14 rounded-[12px] bg-white/[0.08] backdrop-blur border border-white/15 grid place-items-center text-white font-mono font-bold text-[15px] tracking-[0.04em]">
-          {mark}
-        </span>
-        <div className="flex flex-col items-end gap-1.5">
-          <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/[0.08] backdrop-blur border border-white/15 text-[9.5px] uppercase tracking-[0.22em] font-bold text-accent-soft">
-            <span className="h-1 w-1 rounded-full bg-accent-soft" />
-            synced
+      <div className="relative z-10 h-full p-6 sm:p-7 flex flex-col justify-between">
+        <div className="flex items-start justify-between gap-4">
+          <span className="w-14 h-14 rounded-[12px] bg-white/[0.08] backdrop-blur border border-white/15 grid place-items-center text-white font-mono font-bold text-[15px] tracking-[0.04em]">
+            {mark}
           </span>
-          <span className="font-mono text-[9.5px] text-white/45 tracking-[0.22em] uppercase">
-            {category} · 0{idx + 1}
-          </span>
+          <div className="flex flex-col items-end gap-1.5">
+            <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/[0.08] backdrop-blur border border-white/15 text-[9.5px] uppercase tracking-[0.22em] font-bold text-accent-soft">
+              <span className="h-1 w-1 rounded-full bg-accent-soft" />
+              {t('pages:healthcareGrowthEngine.stack.syncedLabel')}
+            </span>
+            <span className="font-mono text-[9.5px] text-white/45 tracking-[0.22em] uppercase">
+              {category} · 0{idx + 1}
+            </span>
+          </div>
         </div>
-      </div>
 
-      <div className="flex flex-col gap-2">
-        <div className="flex items-center gap-2.5">
-          <span className="h-1.5 w-14 bg-accent-soft/70 rounded-full" />
-          <span className="h-1.5 flex-1 bg-white/15 rounded-full" />
+        <div className="flex flex-col gap-2">
+          <div className="flex items-center gap-2.5">
+            <span className="h-1.5 w-14 bg-accent-soft/70 rounded-full" />
+            <span className="h-1.5 flex-1 bg-white/15 rounded-full" />
+          </div>
+          <div className="flex items-center gap-2.5">
+            <span className="h-1.5 w-9 bg-white/40 rounded-full" />
+            <span className="h-1.5 flex-1 bg-white/15 rounded-full" />
+          </div>
+          <div className="flex items-center gap-2.5">
+            <span className="h-1.5 w-20 bg-white/25 rounded-full" />
+            <span className="h-1.5 w-6 bg-line/70 rounded-full" />
+          </div>
+          <div className="flex items-end gap-1.5 mt-3 h-12">
+            {[40, 65, 50, 80, 55, 90, 70].map((h, i) => (
+              <span
+                key={i}
+                className={`flex-1 rounded-t-sm ${i === 5 ? 'bg-accent-soft' : 'bg-white/20'}`}
+                style={{ height: `${h}%` }}
+              />
+            ))}
+          </div>
         </div>
-        <div className="flex items-center gap-2.5">
-          <span className="h-1.5 w-9 bg-white/40 rounded-full" />
-          <span className="h-1.5 flex-1 bg-white/15 rounded-full" />
-        </div>
-        <div className="flex items-center gap-2.5">
-          <span className="h-1.5 w-20 bg-white/25 rounded-full" />
-          <span className="h-1.5 w-6 bg-line/70 rounded-full" />
-        </div>
-        <div className="flex items-end gap-1.5 mt-3 h-12">
-          {[40, 65, 50, 80, 55, 90, 70].map((h, i) => (
-            <span
-              key={i}
-              className={`flex-1 rounded-t-sm ${i === 5 ? 'bg-accent-soft' : 'bg-white/20'}`}
-              style={{ height: `${h}%` }}
-            />
-          ))}
-        </div>
-      </div>
 
-      <div>
-        <div className="text-white font-extrabold text-[22px] tracking-[-0.02em] leading-tight">
-          {name}
+        <div>
+          <div className="text-white font-extrabold text-[22px] tracking-[-0.02em] leading-tight">
+            {name}
+          </div>
+          <div className="text-white/65 text-[12.5px] leading-[1.5] mt-1.5 max-w-[34ch]">{use}</div>
         </div>
-        <div className="text-white/65 text-[12.5px] leading-[1.5] mt-1.5 max-w-[34ch]">{use}</div>
       </div>
     </div>
-  </div>
-);
+  );
+};
 
 export const StackCard = ({
   group,
   idx,
   total,
 }: {
-  group: StackGroupExt;
+  group: StackGroup;
   idx: number;
   total: number;
 }) => {
+  const { t } = useTranslation('pages');
   const [active, setActive] = useState(0);
+  const label = t(`pages:healthcareGrowthEngine.stack.groups.${group.key}.label`);
+  const tagline = t(`pages:healthcareGrowthEngine.stack.groups.${group.key}.tagline`);
+  const ariaLabel = `${label} ${t('pages:healthcareGrowthEngine.stack.toolsAriaSuffix')}`;
 
   return (
     <article className="snap-start shrink-0 w-[300px] sm:w-[340px] lg:w-[380px] bg-bg border border-line-faint rounded-[22px] overflow-hidden flex flex-col transition-all duration-300 hover:border-line hover:shadow-[0_28px_56px_-28px_rgba(10,20,38,0.28)]">
       <div className="relative aspect-[4/5] bg-bg-soft overflow-hidden">
-        {group.tools.map((t, i) => (
+        {group.tools.map((tool, i) => (
           <div
-            key={t.name}
+            key={tool.toolKey}
             className={`absolute inset-2 transition-all duration-500 ease-out ${
               i === active
                 ? 'opacity-100 translate-y-0 scale-100'
@@ -211,7 +219,15 @@ export const StackCard = ({
             }`}
             aria-hidden={i !== active}
           >
-            <ToolTile name={t.name} mark={t.mark} use={t.use} idx={i} category={group.label} />
+            <ToolTile
+              name={tool.name}
+              mark={tool.mark}
+              use={t(
+                `pages:healthcareGrowthEngine.stack.groups.${group.key}.tools.${tool.toolKey}`
+              )}
+              idx={i}
+              category={label}
+            />
           </div>
         ))}
 
@@ -226,17 +242,17 @@ export const StackCard = ({
         </span>
         <div className="flex flex-col min-w-0">
           <span className="text-heading text-[13px] font-bold uppercase tracking-[0.18em]">
-            {group.label}
+            {label}
           </span>
-          <span className="text-muted text-[11.5px] leading-tight truncate">{group.tagline}</span>
+          <span className="text-muted text-[11.5px] leading-tight truncate">{tagline}</span>
         </div>
       </div>
 
-      <ul role="tablist" aria-label={`${group.label} tools`} className="flex flex-col p-2">
-        {group.tools.map((t, i) => {
+      <ul role="tablist" aria-label={ariaLabel} className="flex flex-col p-2">
+        {group.tools.map((tool, i) => {
           const isActive = i === active;
           return (
-            <li key={t.name}>
+            <li key={tool.toolKey}>
               <button
                 type="button"
                 role="tab"
@@ -255,14 +271,14 @@ export const StackCard = ({
                       : 'bg-heading text-white'
                   }`}
                 >
-                  {t.mark}
+                  {tool.mark}
                 </span>
                 <span
                   className={`text-[14px] font-semibold tracking-[-0.005em] flex-1 ${
                     isActive ? 'text-white' : 'text-heading'
                   }`}
                 >
-                  {t.name}
+                  {tool.name}
                 </span>
                 <span
                   className={`shrink-0 transition-all ${

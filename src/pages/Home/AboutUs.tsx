@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 import aboutImg1 from '../../assets/nextgen-image/Abooutimg1.png';
 import aboutImg2 from '../../assets/nextgen-image/Aboutimg2.png';
@@ -58,16 +59,18 @@ const TargetIcon = () => (
 );
 
 const AboutUs = () => {
+  const { t } = useTranslation('home');
+
   return (
     <section className="ah-section" id="about-us" aria-labelledby="ah-title">
       <div className="container-shell">
-        <span className="ah-eyebrow">About Us</span>
+        <span className="ah-eyebrow">{t('aboutUs.eyebrow')}</span>
 
         {/* ROW 1 - Title left, trust meta above paragraph on right */}
         <div className="ah-intro">
           <div className="ah-intro-left">
             <h2 id="ah-title" className="ah-title">
-              Built for the healthcare practices ready to grow.
+              {t('aboutUs.title')}
             </h2>
           </div>
           <div className="ah-intro-right">
@@ -78,15 +81,11 @@ const AboutUs = () => {
                 <span className="ah-avatar" />
               </div>
               <div className="ah-intro-stat">
-                <span className="ah-intro-stat-num">200+</span>
-                <span className="ah-intro-stat-lbl">Partner Practices</span>
+                <span className="ah-intro-stat-num">{t('aboutUs.partnerStat.value')}</span>
+                <span className="ah-intro-stat-lbl">{t('aboutUs.partnerStat.label')}</span>
               </div>
             </div>
-            <p className="ah-intro-text">
-              We help healthcare practices grow faster with marketing systems built specifically for
-              clinics, medspas, and wellness brands - HIPAA-aware, ROI-tracked, and engineered to
-              compound month over month so your patient pipeline never goes quiet.
-            </p>
+            <p className="ah-intro-text">{t('aboutUs.introText')}</p>
           </div>
         </div>
 
@@ -100,15 +99,12 @@ const AboutUs = () => {
               <span className="ah-feature-icon" aria-hidden="true">
                 <LeafIcon />
               </span>
-              <h3 className="ah-feature-title">Healthcare Growth Engine</h3>
-              <p className="ah-feature-desc">
-                Integrated SEO, paid media, and automation - every channel optimized for patient
-                acquisition and retention.
-              </p>
+              <h3 className="ah-feature-title">{t('aboutUs.feature.title')}</h3>
+              <p className="ah-feature-desc">{t('aboutUs.feature.desc')}</p>
               <Link
                 to="/healthcare-growth-engine"
                 className="ah-feature-arrow"
-                aria-label="Learn more about the Healthcare Growth Engine"
+                aria-label={t('aboutUs.feature.ariaLabel')}
               >
                 <ArrowIcon size={14} strokeWidth={2} />
               </Link>
@@ -119,11 +115,11 @@ const AboutUs = () => {
             <div className="ah-img ah-img-hero">
               <img src={aboutImg2} alt="" width={1448} height={1086} loading="lazy" decoding="async" />
               <div className="ah-float-stat" aria-hidden="false">
-                <span className="ah-float-stat-num">120+</span>
-                <span className="ah-float-stat-lbl">Programs Launched</span>
+                <span className="ah-float-stat-num">{t('aboutUs.floatStat.value')}</span>
+                <span className="ah-float-stat-lbl">{t('aboutUs.floatStat.label')}</span>
               </div>
               <Link to="/about" className="ah-float-link">
-                Learn More
+                {t('aboutUs.learnMore')}
                 <span className="ah-float-link-ico" aria-hidden="true">
                   <ArrowIcon size={14} strokeWidth={2} />
                 </span>
@@ -135,21 +131,16 @@ const AboutUs = () => {
         {/* ROW 3 - Collaboration block */}
         <div className="ah-collab">
           <div className="ah-collab-left">
-            <h3 className="ah-collab-title">Collaborate to build a patient-first growth system.</h3>
-            <p className="ah-collab-text">
-              We embed inside your team so strategy, execution, and reporting move as one. Every
-              decision is grounded in patient data and real revenue impact - not vanity metrics.
-            </p>
+            <h3 className="ah-collab-title">{t('aboutUs.collab.title')}</h3>
+            <p className="ah-collab-text">{t('aboutUs.collab.text')}</p>
             <div className="ah-pillars">
               <article className="ah-pillar">
                 <span className="ah-pillar-icon" aria-hidden="true">
                   <ShieldIcon />
                 </span>
                 <div className="ah-pillar-body">
-                  <h4 className="ah-pillar-title">Built With Expert Strategy</h4>
-                  <p className="ah-pillar-desc">
-                    Senior healthcare strategists owning every roadmap.
-                  </p>
+                  <h4 className="ah-pillar-title">{t('aboutUs.collab.pillars.strategy.title')}</h4>
+                  <p className="ah-pillar-desc">{t('aboutUs.collab.pillars.strategy.desc')}</p>
                 </div>
               </article>
               <article className="ah-pillar">
@@ -157,10 +148,8 @@ const AboutUs = () => {
                   <TargetIcon />
                 </span>
                 <div className="ah-pillar-body">
-                  <h4 className="ah-pillar-title">Focused on Revenue</h4>
-                  <p className="ah-pillar-desc">
-                    Appointments, retention, and patient lifetime value.
-                  </p>
+                  <h4 className="ah-pillar-title">{t('aboutUs.collab.pillars.revenue.title')}</h4>
+                  <p className="ah-pillar-desc">{t('aboutUs.collab.pillars.revenue.desc')}</p>
                 </div>
               </article>
             </div>
@@ -170,11 +159,11 @@ const AboutUs = () => {
             <div className="ah-img ah-img-hero">
               <img src={aboutImg3} alt="" width={1254} height={1254} loading="lazy" decoding="async" />
               <div className="ah-float-quote">
-                <h4 className="ah-float-quote-title">Collaboration is the Key of Success</h4>
-                <p className="ah-float-quote-text">Embedded growth partners - not vendors.</p>
+                <h4 className="ah-float-quote-title">{t('aboutUs.collab.quote.title')}</h4>
+                <p className="ah-float-quote-text">{t('aboutUs.collab.quote.text')}</p>
               </div>
               <Link to="/about" className="ah-cta">
-                More About Us
+                {t('aboutUs.collab.cta')}
                 <span className="ah-cta-ico" aria-hidden="true">
                   <ArrowIcon size={14} strokeWidth={2} />
                 </span>

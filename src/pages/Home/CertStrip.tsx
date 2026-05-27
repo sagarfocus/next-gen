@@ -1,5 +1,6 @@
 import { Fragment } from 'react';
 import type { ReactElement } from 'react';
+import { useTranslation } from 'react-i18next';
 
 const GoogleIcon = () => (
   <svg width={12} height={12} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -97,45 +98,50 @@ const SeparatorIcon = () => (
 );
 
 interface CertDefinition {
-  name: string;
+  /** Translation key under `home:certStrip.items`. */
+  i18nKey: 'hipaa' | 'google' | 'meta' | 'seo' | 'paidAds' | 'webDesign';
   /** Tone class - `g` Google blue, `m` Meta tan, `h` HIPAA sage, `b` navy, `o` gold. */
   tone: 'g' | 'm' | 'h' | 'b' | 'o';
   Icon: () => ReactElement;
 }
 
 const CERTS: CertDefinition[] = [
-  { name: 'HIPAA Aware', tone: 'h', Icon: HipaaIcon },
-  { name: 'Google Certified', tone: 'g', Icon: GoogleIcon },
-  { name: 'Meta Certified', tone: 'm', Icon: MetaIcon },
-  { name: 'SEO', tone: 'b', Icon: SeoIcon },
-  { name: 'Paid Ads', tone: 'o', Icon: PaidAdsIcon },
-  { name: 'Website Design', tone: 'g', Icon: WebDesignIcon },
+  { i18nKey: 'hipaa', tone: 'h', Icon: HipaaIcon },
+  { i18nKey: 'google', tone: 'g', Icon: GoogleIcon },
+  { i18nKey: 'meta', tone: 'm', Icon: MetaIcon },
+  { i18nKey: 'seo', tone: 'b', Icon: SeoIcon },
+  { i18nKey: 'paidAds', tone: 'o', Icon: PaidAdsIcon },
+  { i18nKey: 'webDesign', tone: 'g', Icon: WebDesignIcon },
 ];
 
-const TrackBlock = ({ keyPrefix }: { keyPrefix: string }) => (
-  <>
-    {CERTS.map(({ name, tone, Icon }, i) => (
-      <Fragment key={`${keyPrefix}-${i}`}>
-        <span className="cert-item">
-          <span className={`cert-ico ${tone}`}>
-            <Icon />
+const TrackBlock = ({ keyPrefix }: { keyPrefix: string }) => {
+  const { t } = useTranslation('home');
+  return (
+    <>
+      {CERTS.map(({ i18nKey, tone, Icon }, i) => (
+        <Fragment key={`${keyPrefix}-${i}`}>
+          <span className="cert-item">
+            <span className={`cert-ico ${tone}`}>
+              <Icon />
+            </span>
+            {t(`certStrip.items.${i18nKey}`)}
           </span>
-          {name}
-        </span>
-        <span className="cert-sep" aria-hidden="true">
-          <SeparatorIcon />
-        </span>
-      </Fragment>
-    ))}
-  </>
-);
+          <span className="cert-sep" aria-hidden="true">
+            <SeparatorIcon />
+          </span>
+        </Fragment>
+      ))}
+    </>
+  );
+};
 
 const CertStrip = () => {
+  const { t } = useTranslation('home');
   return (
-    <div className="certs reveal d5" aria-label="Capabilities and compliance">
+    <div className="certs reveal d5" aria-label={t('certStrip.ariaLabel')}>
       <div className="certs-label">
         <span className="dot" aria-hidden="true" />
-        Trusted &amp; Certified
+        {t('certStrip.label')}
       </div>
       <div className="certs-pill">
         <div className="certs-track animate-marquee" aria-hidden="true">

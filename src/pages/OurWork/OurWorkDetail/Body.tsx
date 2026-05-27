@@ -1,31 +1,41 @@
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import DetailSectionHead from '@/components/DetailSectionHead';
 import { ArrowIcon } from '@/components/icons';
 import { type DetailEntry } from '../details.data';
-import { KIND_BODY_INTRO } from './data';
+import { kindGroupKey } from './data';
 
 const Body = ({ entry }: { entry: DetailEntry }) => {
-  const lede = entry.longBody[0] ?? '';
-  const restParas = entry.longBody.slice(1);
+  const { t } = useTranslation('pages');
+  const groupKey = kindGroupKey(entry.kind);
+
+  const longBody = t(`ourWork.${groupKey}.${entry.slug}.longBody`, {
+    returnObjects: true,
+    defaultValue: entry.longBody,
+  }) as string[];
+  const lede = longBody[0] ?? '';
+  const restParas = longBody.slice(1);
+
   return (
     <section className="ow-detail-body" aria-labelledby="ow-detail-body-title">
       <div className="container-shell">
         <DetailSectionHead
           id="ow-detail-body-title"
-          eyebrow="The work in depth"
-          title="What it looked like inside the engagement."
-          intro={KIND_BODY_INTRO[entry.kind](entry)}
+          eyebrow={t('ourWork.detail.body.eyebrow')}
+          title={t('ourWork.detail.body.title')}
+          intro={t(`ourWork.detail.body.intro.${entry.kind}`)}
         />
 
-        {/* Bottom: image card left, image + text + CTA right */}
         <div className="ow-body-grid">
           <article className="ow-body-card-left">
             <img src={entry.img} alt="" loading="lazy" decoding="async" />
             <div className="ow-body-card-overlay">
-              <h3 className="ow-body-card-overlay-title">Inside the engagement.</h3>
-              <p className="ow-body-card-overlay-text">{entry.blurb}</p>
+              <h3 className="ow-body-card-overlay-title">{t('ourWork.detail.body.cardTitle')}</h3>
+              <p className="ow-body-card-overlay-text">
+                {t(`ourWork.${groupKey}.${entry.slug}.blurb`, entry.blurb)}
+              </p>
               <Link to={entry.ctaTo} className="ow-body-overlay-btn">
-                Discover
+                {t('ourWork.detail.body.discover')}
                 <ArrowIcon size={12} />
               </Link>
             </div>
@@ -46,7 +56,7 @@ const Body = ({ entry }: { entry: DetailEntry }) => {
                 <p className="ow-body-stack-text">{lede}</p>
               )}
               <Link to={entry.ctaTo} className="ow-body-cta-pill">
-                {entry.ctaText}
+                {t(`ourWork.${groupKey}.${entry.slug}.ctaText`, entry.ctaText)}
                 <span className="ow-body-cta-ico" aria-hidden="true">
                   <ArrowIcon size={14} />
                 </span>

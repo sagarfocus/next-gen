@@ -1,13 +1,29 @@
+import { useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
+
 export interface MetaRow {
   label: string;
   value: string;
 }
 
-export const META_ROWS: MetaRow[] = [
-  {
-    label: 'Sections',
-    value: 'Getting Started · Pricing · Services · Compliance · Reporting',
-  },
-  { label: 'Updated', value: 'May 2026' },
-  { label: 'Avg. response', value: 'Under 4 hours' },
-];
+/** React hook for the FAQ head meta rows. */
+export function useMetaRows(): readonly MetaRow[] {
+  const { t } = useTranslation('pages');
+  return useMemo(
+    () => [
+      {
+        label: t('faq.head.meta.sectionsLabel'),
+        value: t('faq.head.meta.sectionsValue'),
+      },
+      {
+        label: t('faq.head.meta.updatedLabel'),
+        value: t('faq.head.meta.updatedValue'),
+      },
+      {
+        label: t('faq.head.meta.responseLabel'),
+        value: t('faq.head.meta.responseValue'),
+      },
+    ],
+    [t]
+  );
+}

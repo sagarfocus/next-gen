@@ -1,19 +1,21 @@
 import { useState } from 'react';
 import type { FormEvent } from 'react';
+import { useTranslation } from 'react-i18next';
 import { ArrowIcon } from '@/components/icons';
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 const BlogNewsletter = () => {
+  const { t } = useTranslation('blog');
   const [email, setEmail] = useState('');
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!EMAIL_RE.test(email.trim())) {
-      alert('Please enter a valid email.');
+      alert(t('newsletter.invalidEmail'));
       return;
     }
-    alert('Subscribed! Look for the next issue Tuesday morning.');
+    alert(t('newsletter.success'));
     setEmail('');
   };
 
@@ -23,32 +25,27 @@ const BlogNewsletter = () => {
         <div className="bl-news-card">
           <div className="bl-news-grid">
             <div>
-              <span className="bl-news-eyebrow">Subscribe</span>
+              <span className="bl-news-eyebrow">{t('newsletter.eyebrow')}</span>
               <h2 id="bl-news-title" className="bl-news-h2">
-                Get healthcare growth tactics in your inbox.
+                {t('newsletter.title')}
               </h2>
-              <p className="bl-news-text">
-                One field-tested patient acquisition tactic, HIPAA update, or case study every
-                Tuesday morning. Read by 4,000+ practice managers across Texas. No fluff, no spam.
-              </p>
+              <p className="bl-news-text">{t('newsletter.text')}</p>
             </div>
 
             <form className="bl-news-form" onSubmit={handleSubmit} noValidate>
               <input
                 type="email"
-                placeholder="Enter your work email"
+                placeholder={t('newsletter.placeholder')}
                 autoComplete="email"
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
               <button type="submit">
-                Subscribe
+                {t('newsletter.submit')}
                 <ArrowIcon size={14} />
               </button>
-              <p className="bl-news-disclaimer">
-                Unsubscribe anytime. We never share email addresses.
-              </p>
+              <p className="bl-news-disclaimer">{t('newsletter.disclaimer')}</p>
             </form>
           </div>
         </div>

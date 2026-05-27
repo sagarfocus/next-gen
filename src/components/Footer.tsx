@@ -1,10 +1,20 @@
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import logoSrc from '../assets/the-nextgen-logo.png';
 import { SITE } from '../content/site';
-import { FOOTER_COMPANY, FOOTER_LEGAL, FOOTER_SERVICES } from '../content/navigation';
+import {
+  useFooterCompany,
+  useFooterLegal,
+  useFooterServices,
+} from '../content/navigation';
 import { ArrowIcon } from './icons';
 
 const Footer = () => {
+  const { t } = useTranslation(['common', 'navigation']);
+  const FOOTER_SERVICES = useFooterServices();
+  const FOOTER_COMPANY = useFooterCompany();
+  const FOOTER_LEGAL = useFooterLegal();
+
   const handleNewsletterSubmit: React.FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
     const data = new FormData(e.currentTarget);
@@ -24,7 +34,11 @@ const Footer = () => {
         <div className="ft-grid">
           {/* Brand block */}
           <div className="ft-brand-block flex flex-col gap-[22px] max-w-[360px]">
-            <Link to="/" className="inline-block" aria-label={`${SITE.name} - Home`}>
+            <Link
+              to="/"
+              className="inline-block"
+              aria-label={t('navigation:aria.homeLogo', { name: SITE.name })}
+            >
               <img
                 src={logoSrc}
                 alt={SITE.name}
@@ -33,14 +47,14 @@ const Footer = () => {
               />
             </Link>
             <p className="text-[14px] leading-[1.65] text-body m-0 max-w-[38ch]">
-              {SITE.description}
+              {t('common:brand.description')}
             </p>
-            <div className="flex gap-2.5 mt-1" aria-label="Social media">
+            <div className="flex gap-2.5 mt-1" aria-label={t('common:footer.socialAriaLabel')}>
               <a
                 href={SITE.social.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Instagram"
+                aria-label={t('common:social.instagram')}
                 className="ft-social-link"
               >
                 <svg
@@ -63,7 +77,7 @@ const Footer = () => {
                 href={SITE.social.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Facebook"
+                aria-label={t('common:social.facebook')}
                 className="ft-social-link"
               >
                 <svg
@@ -84,7 +98,7 @@ const Footer = () => {
                 href={SITE.social.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="LinkedIn"
+                aria-label={t('common:social.linkedin')}
                 className="ft-social-link"
               >
                 <svg
@@ -108,7 +122,7 @@ const Footer = () => {
 
           {/* Services column */}
           <div className="flex flex-col gap-[18px]">
-            <h4 className="ft-h">Services</h4>
+            <h4 className="ft-h">{t('common:footer.servicesHeading')}</h4>
             <ul className="list-none m-0 p-0 flex flex-col gap-[11px]">
               {FOOTER_SERVICES.map((link) => (
                 <li key={link.to}>
@@ -122,7 +136,7 @@ const Footer = () => {
 
           {/* Company column */}
           <div className="flex flex-col gap-[18px]">
-            <h4 className="ft-h">Company</h4>
+            <h4 className="ft-h">{t('common:footer.companyHeading')}</h4>
             <ul className="list-none m-0 p-0 flex flex-col gap-[11px]">
               {FOOTER_COMPANY.map((link) => (
                 <li key={link.to}>
@@ -136,7 +150,7 @@ const Footer = () => {
 
           {/* Contact + Newsletter */}
           <div className="flex flex-col gap-[18px]">
-            <h4 className="ft-h">Contact</h4>
+            <h4 className="ft-h">{t('common:footer.contactHeading')}</h4>
             <ul className="list-none m-0 p-0 flex flex-col gap-[11px]">
               <li>
                 <a
@@ -147,7 +161,7 @@ const Footer = () => {
                 >
                   {SITE.address.street}
                   <br />
-                  {`${SITE.address.city}, ${SITE.address.region} ${SITE.address.postalCode}`}
+                  {`${SITE.address.city}, ${SITE.address.region} ${SITE.address.postalCode}`}
                 </a>
               </li>
               <li>
@@ -164,25 +178,25 @@ const Footer = () => {
 
             <div className="mt-2 pt-[22px] border-t border-line-faint">
               <p className="text-[14px] font-bold text-heading m-0 mb-1.5 tracking-[-0.01em]">
-                Get weekly marketing tips
+                {t('common:newsletter.title')}
               </p>
               <p className="text-[12.5px] text-muted m-0 mb-3.5 leading-[1.5]">
-                Healthcare growth insights, delivered to your inbox.
+                {t('common:newsletter.description')}
               </p>
               <form
                 className="ft-form"
                 onSubmit={handleNewsletterSubmit}
-                aria-label="Newsletter signup"
+                aria-label={t('common:newsletter.ariaLabel')}
               >
                 <input
                   type="email"
                   name="email"
-                  placeholder="Your email address"
+                  placeholder={t('common:newsletter.placeholder')}
                   autoComplete="email"
                   required
                 />
                 <button type="submit">
-                  Subscribe
+                  {t('common:newsletter.submit')}
                   <ArrowIcon size={11} />
                 </button>
               </form>
@@ -193,7 +207,10 @@ const Footer = () => {
         {/* Bottom row */}
         <div className="ft-bottom-row">
           <span>
-            &copy; {SITE.copyrightYear} {SITE.legalName}. All rights reserved.
+            {t('common:footer.copyright', {
+              year: SITE.copyrightYear,
+              name: SITE.legalName,
+            })}
           </span>
           <div className="flex gap-[22px] flex-wrap">
             {FOOTER_LEGAL.map((link) => (

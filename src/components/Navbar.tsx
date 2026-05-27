@@ -1,16 +1,37 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import logoSrc from '../assets/the-nextgen-logo.png';
 import { SITE } from '../content/site';
-import { NAV_PRIMARY, NAV_RESOURCES } from '../content/navigation';
+import { useNavPrimary, useNavResources } from '../content/navigation';
 import { ChevronDownIcon } from './icons';
+import { SUPPORTED_LANGUAGES, LANGUAGE_LABELS, type SupportedLanguage } from '../i18n';
 
 const Navbar = () => {
+  const { t, i18n } = useTranslation(['navigation', 'common']);
+  const NAV_PRIMARY = useNavPrimary();
+  const NAV_RESOURCES = useNavResources();
+
   const [resourcesOpen, setResourcesOpen] = useState(false);
+  const [langOpen, setLangOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const resourcesRef = useRef<HTMLDivElement>(null);
+  const langRef = useRef<HTMLDivElement>(null);
   const location = useLocation();
+
+  const currentLang: SupportedLanguage = (
+    SUPPORTED_LANGUAGES as readonly string[]
+  ).includes(i18n.resolvedLanguage ?? '')
+    ? (i18n.resolvedLanguage as SupportedLanguage)
+    : 'en';
+
+  const changeLanguage = (lng: SupportedLanguage) => {
+    if (lng !== currentLang) {
+      void i18n.changeLanguage(lng);
+    }
+    setLangOpen(false);
+  };
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 4);
@@ -36,6 +57,24 @@ const Navbar = () => {
       document.removeEventListener('keydown', onKey);
     };
   }, [resourcesOpen]);
+
+  useEffect(() => {
+    if (!langOpen) return;
+    const onClick = (e: MouseEvent) => {
+      if (langRef.current && !langRef.current.contains(e.target as Node)) {
+        setLangOpen(false);
+      }
+    };
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setLangOpen(false);
+    };
+    document.addEventListener('mousedown', onClick);
+    document.addEventListener('keydown', onKey);
+    return () => {
+      document.removeEventListener('mousedown', onClick);
+      document.removeEventListener('keydown', onKey);
+    };
+  }, [langOpen]);
 
   // Close mobile menu on route change
   useEffect(() => {
@@ -63,10 +102,14 @@ const Navbar = () => {
         <div className="container-shell">
           <nav
             className="grid grid-cols-[auto_1fr_auto] items-center gap-3 sm:gap-8 h-16 sm:h-[78px]"
-            aria-label="Primary"
+            aria-label={t('navigation:aria.primary')}
           >
             {/* Logo */}
-            <Link to="/" className="flex items-center" aria-label={`${SITE.name} - Home`}>
+            <Link
+              to="/"
+              className="flex items-center"
+              aria-label={t('navigation:aria.homeLogo', { name: SITE.name })}
+            >
               <img
                 src={logoSrc}
                 alt={SITE.name}
@@ -93,7 +136,7 @@ const Navbar = () => {
                   aria-expanded={resourcesOpen}
                   onClick={() => setResourcesOpen((o) => !o)}
                 >
-                  Resources
+                  {t('navigation:resources.label')}
                   <ChevronDownIcon strokeWidth={3} />
                 </button>
 
@@ -118,32 +161,68 @@ const Navbar = () => {
 
             {/* Right cluster: language + account */}
             <div className="flex items-center gap-2 justify-self-end">
+              <div ref={langRef} className="nav-dropdown relative">
+                <button
+                  type="button"
+                  className="nav-pill hidden sm:inline-flex"
+                  aria-label={t('common:language.changeLanguage')}
+                  aria-haspopup="listbox"
+                  aria-expanded={langOpen}
+                  onClick={() => setLangOpen((o) => !o)}
+                >
+                  <svg
+                    className="text-line"
+                    width={16}
+                    height={16}
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth={1.7}
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    aria-hidden="true"
+                  >
+                    <circle cx="12" cy="12" r="10" />
+                    <line x1="2" y1="12" x2="22" y2="12" />
+                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                  </svg>
+                  {LANGUAGE_LABELS[currentLang].short}
+                  <ChevronDownIcon size={11} className="text-muted" />
+                </button>
+
+                {langOpen && (
+                  <div
+                    className="nav-dropdown-panel hidden sm:block"
+                    role="listbox"
+                    style={{
+                      right: 0,
+                      left: 'auto',
+                      minWidth: '160px',
+                    }}
+                  >
+                    {SUPPORTED_LANGUAGES.map((lng) => (
+                      <button
+                        key={lng}
+                        type="button"
+                        className="nav-dropdown-item w-full text-left"
+                        role="option"
+                        aria-selected={lng === currentLang}
+                        onClick={() => changeLanguage(lng)}
+                      >
+                        <span className="nav-dropdown-label">
+                          {LANGUAGE_LABELS[lng].short} — {LANGUAGE_LABELS[lng].long}
+                        </span>
+                      </button>
+                    ))}
+                  </div>
+                )}
+              </div>
+
               <button
                 type="button"
-                className="nav-pill hidden sm:inline-flex"
-                aria-label="Change language"
+                className="nav-icon-btn hidden sm:grid"
+                aria-label={t('navigation:aria.accountAriaLabel')}
               >
-                <svg
-                  className="text-line"
-                  width={16}
-                  height={16}
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth={1.7}
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <circle cx="12" cy="12" r="10" />
-                  <line x1="2" y1="12" x2="22" y2="12" />
-                  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
-                </svg>
-                EN
-                <ChevronDownIcon size={11} className="text-muted" />
-              </button>
-
-              <button type="button" className="nav-icon-btn hidden sm:grid" aria-label="Account">
                 <svg
                   width={18}
                   height={18}
@@ -164,7 +243,11 @@ const Navbar = () => {
               <button
                 type="button"
                 className="nav-icon-btn lg:hidden"
-                aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
+                aria-label={
+                  mobileOpen
+                    ? t('navigation:aria.closeMenu')
+                    : t('navigation:aria.openMenu')
+                }
                 aria-expanded={mobileOpen}
                 aria-controls="mobile-menu"
                 onClick={() => setMobileOpen((o) => !o)}
@@ -207,10 +290,7 @@ const Navbar = () => {
         </div>
       </header>
 
-      {/* Mobile menu drawer - rendered as a SIBLING of <header> (not inside).
-          The header has a backdrop-filter which would otherwise scope our
-          `position: fixed` drawer to the header's bounding box, hiding the
-          menu items entirely. */}
+      {/* Mobile menu drawer */}
       {mobileOpen && (
         <div
           id="mobile-menu"
@@ -220,9 +300,8 @@ const Navbar = () => {
           }}
           role="dialog"
           aria-modal="true"
-          aria-label="Main menu"
+          aria-label={t('navigation:aria.mainMenu')}
         >
-          {/* Hairline divider that sits exactly under the navbar so the bar reads as separate */}
           <div
             aria-hidden="true"
             className="absolute left-0 right-0 top-[72px] sm:top-[96px] h-px"
@@ -261,7 +340,7 @@ const Navbar = () => {
 
             <div>
               <div className="text-[11px] uppercase tracking-[0.22em] font-bold text-muted mb-2">
-                Resources
+                {t('navigation:resources.label')}
               </div>
               <ul className="flex flex-col list-none m-0 p-0">
                 {NAV_RESOURCES.map((r) => (
@@ -278,6 +357,26 @@ const Navbar = () => {
                   </li>
                 ))}
               </ul>
+            </div>
+
+            {/* Mobile language switcher */}
+            <div>
+              <div className="text-[11px] uppercase tracking-[0.22em] font-bold text-muted mb-2">
+                {t('common:language.selectLanguage')}
+              </div>
+              <div className="flex gap-2">
+                {SUPPORTED_LANGUAGES.map((lng) => (
+                  <button
+                    key={lng}
+                    type="button"
+                    onClick={() => changeLanguage(lng)}
+                    className={`nav-pill${lng === currentLang ? ' is-active' : ''}`}
+                    aria-pressed={lng === currentLang}
+                  >
+                    {LANGUAGE_LABELS[lng].short} — {LANGUAGE_LABELS[lng].long}
+                  </button>
+                ))}
+              </div>
             </div>
           </div>
         </div>

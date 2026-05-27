@@ -1,162 +1,91 @@
+import type { ReactNode } from 'react';
 import imgSeo from '../../assets/nextgen-image/Seoimg.png';
 import imgAutomation from '../../assets/nextgen-image/Medicalautomationimg.png';
 import imgPaid from '../../assets/nextgen-image/Paidmediaimg.png';
 import { SITE } from '@/content/site';
 
 /* ---------- TYPES ---------- */
+export type ChannelKey = 'seo' | 'paid' | 'automation';
 export interface Channel {
   n: string;
-  tag: string;
-  title: string;
-  body: string;
-  bullets: string[];
+  key: ChannelKey;
   img: string;
   href: string;
 }
 
+export type StageKey = 'measure' | 'prioritise' | 'operate' | 'compound';
 export interface Stage {
   n: string;
-  k: string;
-  cadence: string;
-  d: string;
-  icon: React.ReactNode;
+  key: StageKey;
+  icon: ReactNode;
 }
 
+export type OutcomeKey = 'programs' | 'patientGrowth' | 'costPerVisit' | 'timeToLift';
 export interface Outcome {
-  v: string; // legacy/SR display
-  num: number; // animated target
+  key: OutcomeKey;
+  v: string;
+  num: number;
   prefix: string;
   suffix: string;
-  l: string;
-  sub: string;
-  vs: string;
 }
 
+export type PackageKey = 'foundation' | 'operate' | 'compound';
 export interface PackageItem {
-  title: string;
-  cadence: string;
-  items: string[];
+  key: PackageKey;
 }
 
+export type FaqKey = 'difference' | 'contract' | 'cost' | 'speed' | 'ehr';
 export interface FaqEntry {
-  q: string;
-  a: string;
+  key: FaqKey;
   defaultOpen?: boolean;
 }
 
+export type PulseKey = 'bookedVisits' | 'cpv' | 'recallRecovery';
+export interface PulseItem {
+  key: PulseKey;
+  v: string;
+  dir: 'up' | 'down';
+}
+
+export type MetaKey = 'channels' | 'cycle' | 'reporting' | 'coverage';
+
+export type StackGroupKey =
+  | 'analytics'
+  | 'acquisition'
+  | 'automation'
+  | 'clinical'
+  | 'frontDesk'
+  | 'reputation'
+  | 'content';
+
 export interface StackTool {
-  name: string;
   mark: string;
+  toolKey: string;
+  name: string;
 }
+
 export interface StackGroup {
-  label: string;
-  icon: React.ReactNode;
+  key: StackGroupKey;
+  icon: ReactNode;
   tools: StackTool[];
-}
-export interface StackGroupExt extends StackGroup {
-  tagline: string;
-  tools: (StackTool & { use: string })[];
 }
 
 /* ---------- DATA ---------- */
-export const HEAD_META = [
-  { label: 'Channels', value: 'SEO · Paid · Automation' },
-  { label: 'Cycle', value: 'Daily ops · weekly review' },
-  { label: 'Reporting', value: 'Live dashboard' },
-  { label: 'Coverage', value: '200+ U.S. practices' },
+export const HEAD_META_KEYS: MetaKey[] = ['channels', 'cycle', 'reporting', 'coverage'];
+
+export const HERO_PULSE: PulseItem[] = [
+  { key: 'bookedVisits', v: '+78%', dir: 'up' },
+  { key: 'cpv', v: '−38%', dir: 'down' },
+  { key: 'recallRecovery', v: '+22%', dir: 'up' },
 ];
 
-export const HERO_PULSE = [
-  { k: 'Booked visits', v: '+78%', dir: 'up' as const },
-  { k: 'CPV', v: '−38%', dir: 'down' as const },
-  { k: 'Recall recovery', v: '+22%', dir: 'up' as const },
-];
-
-export const TRUST_BADGES = [
-  'Google Partner',
-  'Meta Business Partner',
-  'HIPAA-aware workflows',
-  'GA4 · GSC · GBP certified',
-  'EHR & PMS integrations',
-  'SOC-2 vendor stack',
-];
-
-export const GAP_ROWS: { topic: string; agency: string; engine: string }[] = [
-  {
-    topic: 'Goal',
-    agency: 'Impressions, clicks, vanity dashboards.',
-    engine: 'Booked appointments, net new patients, LTV.',
-  },
-  {
-    topic: 'Cadence',
-    agency: 'Monthly report. Quarterly review.',
-    engine: 'Daily ops, weekly Loom, live dashboard.',
-  },
-  {
-    topic: 'Team',
-    agency: 'Junior account manager — channel silos.',
-    engine: 'One growth lead. One number. Full-stack pod.',
-  },
-  {
-    topic: 'Reporting',
-    agency: 'Slide decks. Screenshots. Lagging metrics.',
-    engine: 'Funnel-level instrumentation. Live attribution.',
-  },
-  {
-    topic: 'Spend',
-    agency: 'Flat retainer regardless of return.',
-    engine: 'Quarterly re-forecast. Spend tilts to what pays back.',
-  },
-  {
-    topic: 'Exit',
-    agency: 'Locked-in 12 months. Data hostage.',
-    engine: 'Month-to-month. Your accounts, your dashboards, your data.',
-  },
-];
+export const GAP_ROW_KEYS = ['goal', 'cadence', 'team', 'reporting', 'spend', 'exit'] as const;
+export type GapRowKey = (typeof GAP_ROW_KEYS)[number];
 
 export const CHANNELS: Channel[] = [
-  {
-    n: '01',
-    tag: 'Discovery',
-    title: 'SEO & Local Search',
-    body: 'Technical SEO, local pack dominance, schema, and clinical content that ranks for the searches your patients actually run.',
-    bullets: [
-      'Local pack engineering',
-      'Service-area cluster maps',
-      'Schema + entity SEO',
-      'GBP optimisation',
-    ],
-    img: imgSeo,
-    href: '/services/seo',
-  },
-  {
-    n: '02',
-    tag: 'Demand',
-    title: 'Paid Media',
-    body: 'Google Ads and Meta tuned for booked appointments — not impressions, not clicks, not vanity. Every dollar tied to a visit.',
-    bullets: [
-      'Google Ads (Search + PMax)',
-      'Meta lead campaigns',
-      'Geo + service segmentation',
-      'Offline conversion tracking',
-    ],
-    img: imgPaid,
-    href: '/services/google-ads',
-  },
-  {
-    n: '03',
-    tag: 'Retention',
-    title: 'Automation & AI',
-    body: 'Recall, reactivation, intake, and review flows running quietly inside the systems your clinic already uses every day.',
-    bullets: [
-      'EHR + PMS automations',
-      'AI front-desk assist',
-      'Review & reputation flows',
-      'Recall + reactivation',
-    ],
-    img: imgAutomation,
-    href: '/automation',
-  },
+  { n: '01', key: 'seo', img: imgSeo, href: '/services/seo' },
+  { n: '02', key: 'paid', img: imgPaid, href: '/services/google-ads' },
+  { n: '03', key: 'automation', img: imgAutomation, href: '/automation' },
 ];
 
 const IconMeasure = () => (
@@ -222,34 +151,10 @@ const IconCompound = () => (
 );
 
 export const STAGES: Stage[] = [
-  {
-    n: '01',
-    k: 'Measure',
-    cadence: 'Days 1–7',
-    d: 'Read-only access to GA4, GSC, GBP, ad accounts, and the CRM. We map the funnel before we touch anything.',
-    icon: <IconMeasure />,
-  },
-  {
-    n: '02',
-    k: 'Prioritise',
-    cadence: 'Days 7–14',
-    d: 'One scorecard. Every channel scored, every fix priced. The top five ship inside the first 30 days.',
-    icon: <IconPriority />,
-  },
-  {
-    n: '03',
-    k: 'Operate',
-    cadence: 'Daily',
-    d: 'Daily ops on every active channel. Weekly Loom + live dashboard. One growth lead, one number.',
-    icon: <IconOperate />,
-  },
-  {
-    n: '04',
-    k: 'Compound',
-    cadence: 'Quarterly',
-    d: 'Quarterly re-forecasts. Spend tilts to what is paying back. Every line item re-earns its place.',
-    icon: <IconCompound />,
-  },
+  { n: '01', key: 'measure', icon: <IconMeasure /> },
+  { n: '02', key: 'prioritise', icon: <IconPriority /> },
+  { n: '03', key: 'operate', icon: <IconOperate /> },
+  { n: '04', key: 'compound', icon: <IconCompound /> },
 ];
 
 const IconStackAnalytics = () => (
@@ -358,180 +263,98 @@ const IconStackContent = () => (
   </svg>
 );
 
-export const STACK_GROUPS: StackGroupExt[] = [
+export const STACK_GROUPS: StackGroup[] = [
   {
-    label: 'Analytics',
+    key: 'analytics',
     icon: <IconStackAnalytics />,
-    tagline: 'Read every funnel surface in one place — no more cross-tab guessing.',
     tools: [
-      { name: 'GA4', mark: 'GA', use: 'Behavioural events, conversions, attribution.' },
-      { name: 'Search Console', mark: 'SC', use: 'Indexation, impressions, ranking drift.' },
-      { name: 'Looker Studio', mark: 'LS', use: 'Live dashboards shipped to the C-suite.' },
-      { name: 'Hotjar', mark: 'HJ', use: 'Session recordings on the booking funnel.' },
+      { name: 'GA4', mark: 'GA', toolKey: 'ga4' },
+      { name: 'Search Console', mark: 'SC', toolKey: 'searchConsole' },
+      { name: 'Looker Studio', mark: 'LS', toolKey: 'lookerStudio' },
+      { name: 'Hotjar', mark: 'HJ', toolKey: 'hotjar' },
     ],
   },
   {
-    label: 'Acquisition',
+    key: 'acquisition',
     icon: <IconStackAcquisition />,
-    tagline: 'Every channel where a patient searches — instrumented for booked visits, not clicks.',
     tools: [
-      { name: 'Google Ads', mark: 'GA', use: 'Search + Performance Max for high-intent terms.' },
-      { name: 'Meta Ads', mark: 'MA', use: 'Lead campaigns for service-line expansion.' },
-      { name: 'GBP', mark: 'GB', use: 'Local pack dominance + review velocity.' },
-      { name: 'Bing', mark: 'BG', use: 'Microsoft Audience for the 35+ demographic.' },
+      { name: 'Google Ads', mark: 'GA', toolKey: 'googleAds' },
+      { name: 'Meta Ads', mark: 'MA', toolKey: 'metaAds' },
+      { name: 'GBP', mark: 'GB', toolKey: 'gbp' },
+      { name: 'Bing', mark: 'BG', toolKey: 'bing' },
     ],
   },
   {
-    label: 'Automation',
+    key: 'automation',
     icon: <IconStackAutomation />,
-    tagline: 'Recall, intake, and review flows running quietly inside the systems you already use.',
     tools: [
-      { name: 'Zapier', mark: 'ZP', use: 'Cross-tool orchestration across 800+ apps.' },
-      { name: 'HubSpot', mark: 'HS', use: 'Patient CRM, sequences, and lifecycle stages.' },
-      { name: 'Twilio', mark: 'TW', use: 'Two-way SMS for confirmations + reactivation.' },
-      { name: 'Birdeye', mark: 'BE', use: 'Automated review requests after every visit.' },
+      { name: 'Zapier', mark: 'ZP', toolKey: 'zapier' },
+      { name: 'HubSpot', mark: 'HS', toolKey: 'hubspot' },
+      { name: 'Twilio', mark: 'TW', toolKey: 'twilio' },
+      { name: 'Birdeye', mark: 'BE', toolKey: 'birdeye' },
     ],
   },
   {
-    label: 'Clinical',
+    key: 'clinical',
     icon: <IconStackEhr />,
-    tagline: 'EHR and PMS integrations that move data — not replace your stack.',
     tools: [
-      { name: 'Epic', mark: 'EP', use: 'FHIR-based read access for booking attribution.' },
-      { name: 'Athena', mark: 'AT', use: 'Visit data sync for closed-loop reporting.' },
-      { name: 'NextGen', mark: 'NG', use: 'Appointment + outcome tracking pipeline.' },
-      { name: 'Dentrix', mark: 'DX', use: 'Dental PMS recall + reactivation flows.' },
+      { name: 'Epic', mark: 'EP', toolKey: 'epic' },
+      { name: 'Athena', mark: 'AT', toolKey: 'athena' },
+      { name: 'NextGen', mark: 'NG', toolKey: 'nextgen' },
+      { name: 'Dentrix', mark: 'DX', toolKey: 'dentrix' },
     ],
   },
   {
-    label: 'Front Desk',
+    key: 'frontDesk',
     icon: <IconStackFrontDesk />,
-    tagline: 'Calls, scheduling, and intake routed without dropping a single new-patient lead.',
     tools: [
-      { name: 'Twilio', mark: 'TW', use: 'Programmable voice + SMS for missed-call recovery.' },
-      { name: 'Calendly', mark: 'CL', use: 'Self-serve booking with provider availability sync.' },
-      { name: 'Zoom Phone', mark: 'ZM', use: 'Cloud PBX with recording + transcription.' },
-      { name: 'Klara', mark: 'KL', use: 'HIPAA-secure patient messaging + intake.' },
+      { name: 'Twilio', mark: 'TW', toolKey: 'twilio' },
+      { name: 'Calendly', mark: 'CL', toolKey: 'calendly' },
+      { name: 'Zoom Phone', mark: 'ZM', toolKey: 'zoomPhone' },
+      { name: 'Klara', mark: 'KL', toolKey: 'klara' },
     ],
   },
   {
-    label: 'Reputation',
+    key: 'reputation',
     icon: <IconStackReputation />,
-    tagline: 'Review volume and velocity that compounds local-pack ranking month over month.',
     tools: [
-      { name: 'Birdeye', mark: 'BE', use: 'Multi-location review aggregation + alerts.' },
-      { name: 'Podium', mark: 'PD', use: 'SMS-first review requests post-visit.' },
-      { name: 'GBP Reviews', mark: 'GR', use: 'Native Google review velocity tracking.' },
-      { name: 'Yelp', mark: 'YP', use: 'Service-line reputation in niche verticals.' },
+      { name: 'Birdeye', mark: 'BE', toolKey: 'birdeye' },
+      { name: 'Podium', mark: 'PD', toolKey: 'podium' },
+      { name: 'GBP Reviews', mark: 'GR', toolKey: 'gbpReviews' },
+      { name: 'Yelp', mark: 'YP', toolKey: 'yelp' },
     ],
   },
   {
-    label: 'Content',
+    key: 'content',
     icon: <IconStackContent />,
-    tagline: 'Authority content that ranks for the searches your patients actually run.',
     tools: [
-      { name: 'WordPress', mark: 'WP', use: 'Headless CMS for clinical content velocity.' },
-      { name: 'Webflow', mark: 'WF', use: 'Marketing site builds with live attribution.' },
-      { name: 'Surfer', mark: 'SF', use: 'SERP-driven topic + entity optimisation.' },
-      { name: 'Frase', mark: 'FR', use: 'Brief generation tuned to clinical intent.' },
+      { name: 'WordPress', mark: 'WP', toolKey: 'wordpress' },
+      { name: 'Webflow', mark: 'WF', toolKey: 'webflow' },
+      { name: 'Surfer', mark: 'SF', toolKey: 'surfer' },
+      { name: 'Frase', mark: 'FR', toolKey: 'frase' },
     ],
   },
 ];
 
 export const OUTCOMES: Outcome[] = [
-  {
-    v: '120+',
-    num: 120,
-    prefix: '',
-    suffix: '+',
-    sub: 'programs',
-    l: 'Growth programs launched',
-    vs: 'across 31 U.S. states',
-  },
-  {
-    v: '+78%',
-    num: 78,
-    prefix: '+',
-    suffix: '%',
-    sub: 'year one',
-    l: 'Avg. patient growth',
-    vs: 'vs. 12% industry baseline',
-  },
-  {
-    v: '−38%',
-    num: 38,
-    prefix: '−',
-    suffix: '%',
-    sub: 'paid',
-    l: 'Cost per booked visit',
-    vs: 'vs. prior 6-mo. baseline',
-  },
-  {
-    v: '14 d',
-    num: 14,
-    prefix: '',
-    suffix: ' d',
-    sub: 'go-live',
-    l: 'From signed to first lift',
-    vs: 'median across last 24 clients',
-  },
+  { key: 'programs', v: '120+', num: 120, prefix: '', suffix: '+' },
+  { key: 'patientGrowth', v: '+78%', num: 78, prefix: '+', suffix: '%' },
+  { key: 'costPerVisit', v: '−38%', num: 38, prefix: '−', suffix: '%' },
+  { key: 'timeToLift', v: '14 d', num: 14, prefix: '', suffix: ' d' },
 ];
 
 export const PACKAGE: PackageItem[] = [
-  {
-    title: 'Foundation',
-    cadence: 'Weeks 1–2',
-    items: [
-      'Funnel + attribution audit',
-      'Scorecard across 9 surfaces',
-      'Prioritised 30-day plan',
-      'Tracking + tagging rebuild',
-    ],
-  },
-  {
-    title: 'Operate',
-    cadence: 'Every week',
-    items: [
-      'Daily channel ops',
-      'Weekly Loom walkthrough',
-      'Live dashboard updates',
-      'One growth lead, on call',
-    ],
-  },
-  {
-    title: 'Compound',
-    cadence: 'Every quarter',
-    items: [
-      'Re-forecast + spend reshape',
-      'New experiments queued',
-      'Retention & LTV review',
-      'Executive board readout',
-    ],
-  },
+  { key: 'foundation' },
+  { key: 'operate' },
+  { key: 'compound' },
 ];
 
 export const FAQS: FaqEntry[] = [
-  {
-    q: 'How is this different from hiring an agency?',
-    a: 'An agency sells channels and reports. The engine sells outcomes — booked visits and patient LTV — across SEO, paid, and automation as one system, with one growth lead accountable to one number.',
-    defaultOpen: true,
-  },
-  {
-    q: 'Do you require a 12-month contract?',
-    a: 'No. We work month-to-month after the first 30 days. Your accounts, your dashboards, your data — all yours from day one. If we are not earning our keep, you walk.',
-  },
-  {
-    q: 'What does it cost to run?',
-    a: 'Engagements start at $2,500/month for single-location clinics and scale with channels, geographies, and media spend. Pricing is fixed monthly — no hourly billing, no surprise line items.',
-  },
-  {
-    q: 'How fast do we see results?',
-    a: 'Most clinics see the first measurable lift inside 14 days from tracking fixes and front-desk recovery. SEO compounding lands in the 3–6 month window. Paid is tuned weekly from day one.',
-  },
-  {
-    q: 'Will you work with our existing EHR / PMS / CRM?',
-    a: 'Yes. We integrate with the systems your clinic already runs — Epic, Athena, NextGen, Dentrix, HubSpot, and most modern PMS / CRM stacks via native APIs, Zapier, or Make.',
-  },
+  { key: 'difference', defaultOpen: true },
+  { key: 'contract' },
+  { key: 'cost' },
+  { key: 'speed' },
+  { key: 'ehr' },
 ];
 
 export const SCHEMA = {

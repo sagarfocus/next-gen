@@ -1,38 +1,62 @@
+import { useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
+
 export interface RecoveryLink {
   to: string;
   label: string;
   hint: string;
 }
 
-export const POPULAR_DESTINATIONS: RecoveryLink[] = [
-  { to: '/', label: 'Home', hint: 'Start from the top of the site.' },
-  { to: '/services', label: 'All services', hint: 'Every growth lever, one page.' },
-  { to: '/case-studies', label: 'Case studies', hint: 'Real engagements, verified numbers.' },
-  { to: '/free-growth-audit', label: 'Free growth audit', hint: '30 minutes, no slide deck.' },
+interface LinkSpec {
+  to: string;
+  i18nKey: string;
+}
+
+const DESTINATION_SPECS: readonly LinkSpec[] = [
+  { to: '/', i18nKey: 'home' },
+  { to: '/services', i18nKey: 'services' },
+  { to: '/case-studies', i18nKey: 'caseStudies' },
+  { to: '/free-growth-audit', i18nKey: 'freeAudit' },
 ];
 
-export const POPULAR_SERVICES: RecoveryLink[] = [
-  {
-    to: '/services/seo',
-    label: 'SEO Services',
-    hint: 'Technical, on-page, local, AEO - one team.',
-  },
-  {
-    to: '/services/google-ads',
-    label: 'Google Ads',
-    hint: 'Search · PMax · YouTube · LSA - one team.',
-  },
-  {
-    to: '/services/website-design-dev',
-    label: 'Website design',
-    hint: 'Fast, on-brand, HIPAA-aware.',
-  },
-  { to: '/medical-automation', label: 'Medical automation', hint: 'Reclaim front-desk hours.' },
+const SERVICE_SPECS: readonly LinkSpec[] = [
+  { to: '/services/seo', i18nKey: 'seo' },
+  { to: '/services/google-ads', i18nKey: 'googleAds' },
+  { to: '/services/website-design-dev', i18nKey: 'website' },
+  { to: '/medical-automation', i18nKey: 'automation' },
 ];
 
-export const POPULAR_READS: RecoveryLink[] = [
-  { to: '/blog', label: 'The blog', hint: 'Field-tested tactics, weekly.' },
-  { to: '/healthcare-news', label: 'Healthcare news', hint: 'Curated weekly editorial brief.' },
-  { to: '/faq', label: 'FAQ', hint: 'Answers to the questions we get most.' },
-  { to: '/contact', label: 'Talk to us', hint: 'A real reply within a business day.' },
+const READ_SPECS: readonly LinkSpec[] = [
+  { to: '/blog', i18nKey: 'blog' },
+  { to: '/healthcare-news', i18nKey: 'news' },
+  { to: '/faq', i18nKey: 'faq' },
+  { to: '/contact', i18nKey: 'contact' },
 ];
+
+const buildLinks = (
+  specs: readonly LinkSpec[],
+  t: (key: string) => string
+): RecoveryLink[] =>
+  specs.map((spec) => ({
+    to: spec.to,
+    label: t(`notFound.recovery.links.${spec.i18nKey}.label`),
+    hint: t(`notFound.recovery.links.${spec.i18nKey}.hint`),
+  }));
+
+/** React hook for the "Popular destinations" column. */
+export function usePopularDestinations(): readonly RecoveryLink[] {
+  const { t } = useTranslation('pages');
+  return useMemo(() => buildLinks(DESTINATION_SPECS, t), [t]);
+}
+
+/** React hook for the "Most-visited services" column. */
+export function usePopularServices(): readonly RecoveryLink[] {
+  const { t } = useTranslation('pages');
+  return useMemo(() => buildLinks(SERVICE_SPECS, t), [t]);
+}
+
+/** React hook for the "Read · Watch · Ask" column. */
+export function usePopularReads(): readonly RecoveryLink[] {
+  const { t } = useTranslation('pages');
+  return useMemo(() => buildLinks(READ_SPECS, t), [t]);
+}

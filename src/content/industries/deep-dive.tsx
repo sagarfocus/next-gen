@@ -1,4 +1,6 @@
 import type { ReactElement } from 'react';
+import { useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 import { ClockIcon } from '@/components/icons';
 
 export interface SubCard {
@@ -50,113 +52,132 @@ const HeartIcon = () => (
   </svg>
 );
 
-export const BLOCKS: IndustryBlock[] = [
-  {
-    id: 'emergency-room',
-    num: '01',
-    badge: 'High Acuity',
-    iconClass: 'ind-block-icon cta-blue',
-    icon: <ERIcon />,
-    title: <>Freestanding ERs (FSEDs)</>,
-    desc: 'High-acuity patient acquisition where every minute matters. Built for visibility, urgency, and trust at the moment of crisis.',
-    tags: ['Trauma', 'Local Pack', 'Geofencing'],
-    subs: [
+/** React hook for the deep-dive industry blocks — live-translates on language change. */
+export function useIndustryDeepDiveBlocks(): IndustryBlock[] {
+  const { t } = useTranslation('industries');
+  return useMemo(
+    () => [
       {
-        num: '/01',
-        category: 'Visibility',
-        title: 'Zero-Click Maps',
-        text: 'Dominating the Local Pack for immediate visibility when seconds matter.',
+        id: 'emergency-room',
+        num: '01',
+        badge: t('deepDive.blocks.emergencyRoom.badge'),
+        iconClass: 'ind-block-icon cta-blue',
+        icon: <ERIcon />,
+        title: <>{t('deepDive.blocks.emergencyRoom.title')}</>,
+        desc: t('deepDive.blocks.emergencyRoom.desc'),
+        tags: [
+          t('deepDive.blocks.emergencyRoom.tags.trauma'),
+          t('deepDive.blocks.emergencyRoom.tags.localPack'),
+          t('deepDive.blocks.emergencyRoom.tags.geofencing'),
+        ],
+        subs: [
+          {
+            num: '/01',
+            category: t('deepDive.blocks.emergencyRoom.subs.visibility.category'),
+            title: t('deepDive.blocks.emergencyRoom.subs.visibility.title'),
+            text: t('deepDive.blocks.emergencyRoom.subs.visibility.text'),
+          },
+          {
+            num: '/02',
+            category: t('deepDive.blocks.emergencyRoom.subs.searchIntent.category'),
+            title: t('deepDive.blocks.emergencyRoom.subs.searchIntent.title'),
+            text: t('deepDive.blocks.emergencyRoom.subs.searchIntent.text'),
+          },
+          {
+            num: '/03',
+            category: t('deepDive.blocks.emergencyRoom.subs.capture.category'),
+            title: t('deepDive.blocks.emergencyRoom.subs.capture.title'),
+            text: t('deepDive.blocks.emergencyRoom.subs.capture.text'),
+          },
+          {
+            num: '/04',
+            category: t('deepDive.blocks.emergencyRoom.subs.reputation.category'),
+            title: t('deepDive.blocks.emergencyRoom.subs.reputation.title'),
+            text: t('deepDive.blocks.emergencyRoom.subs.reputation.text'),
+          },
+        ],
       },
       {
-        num: '/02',
-        category: 'Search Intent',
-        title: 'High-Acuity Keywords',
-        text: 'Bidding on trauma and severe symptom searches with dedicated landing pages.',
+        id: 'urgent-care',
+        num: '02',
+        badge: t('deepDive.blocks.urgentCare.badge'),
+        iconClass: 'ind-block-icon',
+        icon: <ClockIcon size={26} strokeWidth={1.7} />,
+        title: <>{t('deepDive.blocks.urgentCare.title')}</>,
+        desc: t('deepDive.blocks.urgentCare.desc'),
+        tags: [
+          t('deepDive.blocks.urgentCare.tags.volume'),
+          t('deepDive.blocks.urgentCare.tags.reviews'),
+          t('deepDive.blocks.urgentCare.tags.waitTimes'),
+        ],
+        subs: [
+          {
+            num: '/01',
+            category: t('deepDive.blocks.urgentCare.subs.throughput.category'),
+            title: t('deepDive.blocks.urgentCare.subs.throughput.title'),
+            text: t('deepDive.blocks.urgentCare.subs.throughput.text'),
+          },
+          {
+            num: '/02',
+            category: t('deepDive.blocks.urgentCare.subs.trust.category'),
+            title: t('deepDive.blocks.urgentCare.subs.trust.title'),
+            text: t('deepDive.blocks.urgentCare.subs.trust.text'),
+          },
+          {
+            num: '/03',
+            category: t('deepDive.blocks.urgentCare.subs.convenience.category'),
+            title: t('deepDive.blocks.urgentCare.subs.convenience.title'),
+            text: t('deepDive.blocks.urgentCare.subs.convenience.text'),
+          },
+          {
+            num: '/04',
+            category: t('deepDive.blocks.urgentCare.subs.coverage.category'),
+            title: t('deepDive.blocks.urgentCare.subs.coverage.title'),
+            text: t('deepDive.blocks.urgentCare.subs.coverage.text'),
+          },
+        ],
       },
       {
-        num: '/03',
-        category: 'Capture',
-        title: 'Competitor Geofencing',
-        text: 'Capturing overflow from saturated urgent cares with geo-targeted messaging.',
-      },
-      {
-        num: '/04',
-        category: 'Reputation',
-        title: 'Trust at First Click',
-        text: 'Authority signals and social proof for crisis-moment decision-making.',
+        id: 'wellness',
+        num: '03',
+        badge: t('deepDive.blocks.wellness.badge'),
+        iconClass: 'ind-block-icon tan',
+        icon: <HeartIcon />,
+        title: <>{t('deepDive.blocks.wellness.title')}</>,
+        desc: t('deepDive.blocks.wellness.desc'),
+        tags: [
+          t('deepDive.blocks.wellness.tags.highLtv'),
+          t('deepDive.blocks.wellness.tags.socialLed'),
+          t('deepDive.blocks.wellness.tags.retention'),
+        ],
+        subs: [
+          {
+            num: '/01',
+            category: t('deepDive.blocks.wellness.subs.acquisition.category'),
+            title: t('deepDive.blocks.wellness.subs.acquisition.title'),
+            text: t('deepDive.blocks.wellness.subs.acquisition.text'),
+          },
+          {
+            num: '/02',
+            category: t('deepDive.blocks.wellness.subs.nurture.category'),
+            title: t('deepDive.blocks.wellness.subs.nurture.title'),
+            text: t('deepDive.blocks.wellness.subs.nurture.text'),
+          },
+          {
+            num: '/03',
+            category: t('deepDive.blocks.wellness.subs.retention.category'),
+            title: t('deepDive.blocks.wellness.subs.retention.title'),
+            text: t('deepDive.blocks.wellness.subs.retention.text'),
+          },
+          {
+            num: '/04',
+            category: t('deepDive.blocks.wellness.subs.brand.category'),
+            title: t('deepDive.blocks.wellness.subs.brand.title'),
+            text: t('deepDive.blocks.wellness.subs.brand.text'),
+          },
+        ],
       },
     ],
-  },
-  {
-    id: 'urgent-care',
-    num: '02',
-    badge: 'Walk-In Volume',
-    iconClass: 'ind-block-icon',
-    icon: <ClockIcon size={26} strokeWidth={1.7} />,
-    title: <>Urgent Care &amp; Walk-in Clinics</>,
-    desc: 'Convenience-driven patient acquisition built for high-volume throughput, transparency, and reputation at scale.',
-    tags: ['Volume', 'Reviews', 'Wait Times'],
-    subs: [
-      {
-        num: '/01',
-        category: 'Throughput',
-        title: 'Volume Optimization',
-        text: 'Scaling patient acquisition efficiently without sacrificing quality of care.',
-      },
-      {
-        num: '/02',
-        category: 'Trust',
-        title: 'Reputation Management',
-        text: 'Automated review generation that builds trust at scale across every location.',
-      },
-      {
-        num: '/03',
-        category: 'Convenience',
-        title: 'Wait-Time Marketing',
-        text: 'Promoting transparency to win convenience-driven patients over competitors.',
-      },
-      {
-        num: '/04',
-        category: 'Coverage',
-        title: 'Multi-Location SEO',
-        text: 'Hyper-local content per location with consistent NAP citations across directories.',
-      },
-    ],
-  },
-  {
-    id: 'wellness',
-    num: '03',
-    badge: 'Longevity',
-    iconClass: 'ind-block-icon tan',
-    icon: <HeartIcon />,
-    title: <>Wellness &amp; Longevity Clinics</>,
-    desc: 'High-LTV patient acquisition for elective and aesthetic services, with retention systems built around recurring revenue.',
-    tags: ['High LTV', 'Social-Led', 'Retention'],
-    subs: [
-      {
-        num: '/01',
-        category: 'Acquisition',
-        title: 'Lead Generation',
-        text: 'Capturing high-intent prospects via social media with conversion-focused funnels.',
-      },
-      {
-        num: '/02',
-        category: 'Nurture',
-        title: 'Automated Nurture',
-        text: 'Building trust through educational email sequences that convert leads to bookings.',
-      },
-      {
-        num: '/03',
-        category: 'Retention',
-        title: 'LTV Maximization',
-        text: 'Focusing on recurring revenue and patient retention beyond first treatment.',
-      },
-      {
-        num: '/04',
-        category: 'Brand',
-        title: 'Aesthetic Branding',
-        text: 'Visual identity and content systems that signal premium, transformative outcomes.',
-      },
-    ],
-  },
-];
+    [t]
+  );
+}

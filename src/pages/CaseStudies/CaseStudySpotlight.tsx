@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import erImg from '@/assets/nextgen-image/Erofwhiterockimg.jpg';
 import patientImg from '@/assets/nextgen-image/Patientgrowthimg.png';
 import logo from '@/assets/the-nextgen-logo.png';
@@ -63,16 +64,23 @@ const ScreenIcon = () => (
   </svg>
 );
 
+const SOLUTION_KEYS = [
+  ['audited', 'rebuilt'],
+  ['tightened', 'tuned'],
+  ['rewrote', 'trained'],
+] as const;
+
 const CaseStudySpotlight = () => {
+  const { t } = useTranslation('pages');
   return (
     <section className="cs-spotlight" aria-labelledby="cs-spotlight-title">
       <div className="container-shell">
         <article className="cssp-card">
           <header className="cssp-head">
             <div className="cssp-head-text">
-              <span className="cssp-tag">CASE STUDY</span>
+              <span className="cssp-tag">{t('caseStudies.spotlight.tag')}</span>
               <h2 id="cs-spotlight-title" className="cssp-title">
-                Local SEO and Paid Search Drove Record Patient Acquisition Across Three ER Locations
+                {t('caseStudies.spotlight.title')}
               </h2>
             </div>
             <div className="cssp-head-logo" aria-hidden="true">
@@ -83,88 +91,55 @@ const CaseStudySpotlight = () => {
           <div className="cssp-body">
             <div className="cssp-row cssp-row-challenge">
               <div className="cssp-media">
-                <img src={erImg} alt="Freestanding emergency room facility" />
+                <img src={erImg} alt={t('caseStudies.spotlight.erImgAlt')} />
               </div>
               <div className="cssp-copy">
-                <h3 className="cssp-h">CHALLENGE</h3>
-                <p>
-                  Dallas Metro ER, a three-location freestanding emergency network, was outranked by
-                  large hospital systems in branded search. Patient volume was steady but
-                  acquisition cost per visit was rising every quarter, GBP profiles were unverified
-                  at two of three locations, and location pages took 6.4s to load on mobile — so
-                  they had effectively stopped trusting paid search as a channel.
-                </p>
+                <h3 className="cssp-h">{t('caseStudies.spotlight.challengeHeading')}</h3>
+                <p>{t('caseStudies.spotlight.challengeBody')}</p>
               </div>
             </div>
 
             <div className="cssp-row cssp-row-solution">
-              <h3 className="cssp-h">SOLUTION</h3>
+              <h3 className="cssp-h">{t('caseStudies.spotlight.solutionHeading')}</h3>
               <div className="cssp-sol-grid">
-                <div className="cssp-sol-item">
-                  <p>
-                    <strong>Audited</strong> the full local search and paid acquisition stack to
-                    identify the highest-leverage gaps across all three locations.
-                  </p>
-                  <p>
-                    <strong>Rebuilt</strong> three location landing pages around the high-acuity
-                    patient decision moment with sub-1.5s mobile load times.
-                  </p>
-                </div>
-                <div className="cssp-sol-item">
-                  <p>
-                    <strong>Tightened</strong> the keyword set from 480 broad terms to 64 high-intent
-                    search queries that actually drove ER walk-ins.
-                  </p>
-                  <p>
-                    <strong>Tuned</strong> radius bid modifiers to 1.5 / 3 / 5-mile ROAS bands so
-                    paid spend chased only profitable geography.
-                  </p>
-                </div>
-                <div className="cssp-sol-item">
-                  <p>
-                    <strong>Rewrote</strong> the GBP service catalog and Q&amp;A per location so
-                    each profile matched the actual demand pattern in its neighborhood.
-                  </p>
-                  <p>
-                    <strong>Trained</strong> the in-house intake team on call-tracking so every
-                    booked visit could be attributed back to a specific keyword and page.
-                  </p>
-                </div>
+                {SOLUTION_KEYS.map((group, idx) => (
+                  <div key={idx} className="cssp-sol-item">
+                    {group.map((key) => (
+                      <p key={key}>
+                        <strong>{t(`caseStudies.spotlight.solutionItems.${key}Strong`)}</strong>
+                        {t(`caseStudies.spotlight.solutionItems.${key}Rest`)}
+                      </p>
+                    ))}
+                  </div>
+                ))}
               </div>
             </div>
 
             <div className="cssp-row cssp-row-results">
               <div className="cssp-results-copy">
-                <h3 className="cssp-h">RESULTS</h3>
-                <p>
-                  The new channels drove record visit volume for Q3 and Q4, contributing to a
-                  network-best six months and the highest ROAS the leadership team had seen on any
-                  marketing line item.
-                </p>
-                <p>
-                  After the six-month sprint the network reinvested in expanding both paid search
-                  and the local-content engine across two additional service categories.
-                </p>
+                <h3 className="cssp-h">{t('caseStudies.spotlight.resultsHeading')}</h3>
+                <p>{t('caseStudies.spotlight.resultsBody1')}</p>
+                <p>{t('caseStudies.spotlight.resultsBody2')}</p>
                 <ul className="cssp-stats-row">
                   <li>
                     <ArrowUp />
                     <div>
                       <strong>45%</strong>
-                      <span>YoY patient visit increase</span>
+                      <span>{t('caseStudies.spotlight.stats.visits')}</span>
                     </div>
                   </li>
                   <li>
                     <SearchIcon />
                     <div>
                       <strong>14%</strong>
-                      <span>of new visits from paid search</span>
+                      <span>{t('caseStudies.spotlight.stats.paidSearch')}</span>
                     </div>
                   </li>
                   <li>
                     <MailIcon />
                     <div>
                       <strong>5%</strong>
-                      <span>of new visits from email</span>
+                      <span>{t('caseStudies.spotlight.stats.email')}</span>
                     </div>
                   </li>
                 </ul>
@@ -175,16 +150,16 @@ const CaseStudySpotlight = () => {
                     <ArrowUp />
                   </span>
                   <strong>45%</strong>
-                  <em>Patient visits (YoY)</em>
+                  <em>{t('caseStudies.spotlight.stats.visitsLabel')}</em>
                 </div>
                 <div className="cssp-results-stat">
                   <strong>620%</strong>
                   <em>
-                    <ScreenIcon /> 6-month ROAS
+                    <ScreenIcon /> {t('caseStudies.spotlight.stats.roasLabel')}
                   </em>
                 </div>
                 <div className="cssp-results-photo">
-                  <img src={patientImg} alt="Patient growth dashboard review" />
+                  <img src={patientImg} alt={t('caseStudies.spotlight.patientImgAlt')} />
                 </div>
               </div>
             </div>

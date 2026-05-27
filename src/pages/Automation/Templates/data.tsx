@@ -1,4 +1,6 @@
+import { useMemo } from 'react';
 import type { ReactNode } from 'react';
+import { useTranslation } from 'react-i18next';
 import patientVerificationImg from '@/assets/nextgen-image/Patientverificationimg.png';
 import smsEmailImg from '@/assets/nextgen-image/Smsemailimg.png';
 import reviewCollectionImg from '@/assets/nextgen-image/Reviewcollectionimg.png';
@@ -17,6 +19,7 @@ export type Compliance = 'HIPAA-aware' | 'PHI-free' | 'BAA required';
 export interface Template {
   num: string;
   cat: Category;
+  i18nKey: string;
   title: string;
   blurb: string;
   nodes: string;
@@ -30,104 +33,105 @@ export interface Template {
   detailPath: string;
 }
 
-export const TEMPLATES: Template[] = [
+/** Static (non-translatable) template metadata. */
+interface TemplateMeta {
+  num: string;
+  cat: Category;
+  i18nKey: string;
+  nodes: string;
+  tone: Tone;
+  compliance: Compliance;
+  img: string;
+  detailPath: string;
+}
+
+const TEMPLATE_META: TemplateMeta[] = [
   {
     num: '01',
     cat: 'Intake',
-    title: 'Patient intake & insurance verification.',
-    blurb:
-      'A pre-visit packet that captures consent, demographics, and eligibility before the patient walks in — front desk untouched.',
+    i18nKey: 'patientIntake',
     nodes: '7 nodes · N8N',
-    pull: 'Front desk untouched.',
     tone: 'peri',
-    effort: '~45 min setup',
-    saves: 'Saves 6–9 hrs/week',
     compliance: 'BAA required',
     img: patientVerificationImg,
-    imgAlt: 'Patient intake and insurance verification workflow illustration.',
     detailPath: '/automation/templates/patient-intake',
   },
   {
     num: '02',
     cat: 'Reminders',
-    title: 'SMS + email reminder cadence.',
-    blurb:
-      'A two-channel cadence that lifts show rate without spam — opt-in respected, quiet hours enforced, ICS attached.',
+    i18nKey: 'reminderCadence',
     nodes: '8 nodes · N8N',
-    pull: '40% fewer no-shows.',
     tone: 'sage',
-    effort: '~30 min setup',
-    saves: 'Saves 4–6 hrs/week',
     compliance: 'HIPAA-aware',
     img: smsEmailImg,
-    imgAlt: 'SMS and email reminder cadence workflow illustration.',
     detailPath: '/automation/templates/reminder-cadence',
   },
   {
     num: '03',
     cat: 'Reviews',
-    title: 'Sentiment-routed review collection.',
-    blurb:
-      'Happy patients land on Google; unhappy patients land in your inbox first. Reputation engine that compounds, never embarrasses.',
+    i18nKey: 'reviewCollection',
     nodes: '8 nodes · N8N',
-    pull: 'Reputation runs itself.',
     tone: 'copper',
-    effort: '~40 min setup',
-    saves: '5× review velocity',
     compliance: 'PHI-free',
     img: reviewCollectionImg,
-    imgAlt: 'Sentiment-routed review collection workflow illustration.',
     detailPath: '/automation/templates/review-collection',
   },
   {
     num: '04',
     cat: 'Insurance',
-    title: 'Real-time eligibility bot.',
-    blurb:
-      'Verifies coverage before the appointment — clearinghouse → CRM → front desk dashboard, all in under thirty seconds.',
+    i18nKey: 'eligibilityBot',
     nodes: '9 nodes · N8N',
-    pull: 'Verified before the door.',
     tone: 'charcoal',
-    effort: '~60 min setup',
-    saves: 'Saves 8–12 hrs/week',
     compliance: 'BAA required',
     img: realtimeEligibilityImg,
-    imgAlt: 'Real-time insurance eligibility bot workflow illustration.',
     detailPath: '/automation/templates/eligibility-bot',
   },
   {
     num: '05',
     cat: 'AI',
-    title: 'GPT chatbot for lead capture.',
-    blurb:
-      'A scoped GPT assistant that qualifies leads, routes by intent, and books — without ever inventing a clinical answer.',
+    i18nKey: 'gptChatbot',
     nodes: '10 nodes · N8N',
-    pull: 'Qualifies while you sleep.',
     tone: 'peri',
-    effort: '~75 min setup',
-    saves: '24/7 lead capture',
     compliance: 'PHI-free',
     img: gptBotImg,
-    imgAlt: 'GPT chatbot for lead capture workflow illustration.',
     detailPath: '/automation/templates/gpt-chatbot',
   },
   {
     num: '06',
     cat: 'Social',
-    title: 'Daily AI social auto-poster.',
-    blurb:
-      'A daily content drip across LinkedIn, Instagram, and X — sourced from your blog, captioned on-brand, scheduled around your calendar.',
+    i18nKey: 'socialAutoPoster',
     nodes: '9 nodes · N8N',
-    pull: 'Set once, ship daily.',
     tone: 'copper',
-    effort: '~50 min setup',
-    saves: '3 hrs/week creative',
     compliance: 'PHI-free',
     img: dailyAiSocialImg,
-    imgAlt: 'Daily AI social auto-poster workflow illustration.',
     detailPath: '/automation/templates/social-auto-poster',
   },
 ];
+
+/** React hook returning the fully-translated template list. */
+export const useTemplates = (): Template[] => {
+  const { t } = useTranslation(['automation']);
+  return useMemo(
+    () =>
+      TEMPLATE_META.map((m) => ({
+        num: m.num,
+        cat: m.cat,
+        i18nKey: m.i18nKey,
+        title: t(`automation:templates.page.templateBlurbs.${m.i18nKey}.title`),
+        blurb: t(`automation:templates.page.templateBlurbs.${m.i18nKey}.blurb`),
+        pull: t(`automation:templates.page.templateBlurbs.${m.i18nKey}.pull`),
+        effort: t(`automation:templates.page.templateBlurbs.${m.i18nKey}.effort`),
+        saves: t(`automation:templates.page.templateBlurbs.${m.i18nKey}.saves`),
+        imgAlt: t(`automation:templates.page.templateBlurbs.${m.i18nKey}.imgAlt`),
+        nodes: m.nodes,
+        tone: m.tone,
+        compliance: m.compliance,
+        img: m.img,
+        detailPath: m.detailPath,
+      })),
+    [t]
+  );
+};
 
 export const FILTERS: Array<'All' | Category> = [
   'All',
@@ -142,21 +146,31 @@ export const FILTERS: Array<'All' | Category> = [
 const ORIGIN =
   typeof window !== 'undefined' ? window.location.origin : 'https://thenextgenhealth.com';
 
+/** Static schema (English) — used for JSON-LD outside the React tree. */
 export const TEMPLATES_SCHEMA = {
   '@context': 'https://schema.org',
   '@type': 'ItemList',
   name: 'Healthcare automation template library',
   description:
     'Six healthcare-grade workflow automations covering patient intake, reminders, reviews, insurance verification, lead capture, and social posting.',
-  numberOfItems: TEMPLATES.length,
-  itemListElement: TEMPLATES.map((t, i) => ({
+  numberOfItems: TEMPLATE_META.length,
+  itemListElement: TEMPLATE_META.map((m, i) => ({
     '@type': 'ListItem',
     position: i + 1,
-    name: t.title.replace(/\.$/, ''),
-    description: `${t.cat} workflow - ${t.nodes}. ${t.saves}. ${t.compliance}.`,
-    url: `${ORIGIN}/automation/templates#tpl-${t.num}`,
+    name: m.i18nKey,
+    description: `${m.cat} workflow - ${m.nodes}. ${m.compliance}.`,
+    url: `${ORIGIN}/automation/templates#tpl-${m.num}`,
   })),
 };
+
+/** Static counts by compliance — used by the Compliance section. */
+export const COMPLIANCE_COUNTS: Record<Compliance, number> = TEMPLATE_META.reduce(
+  (acc, m) => {
+    acc[m.compliance] += 1;
+    return acc;
+  },
+  { 'HIPAA-aware': 0, 'PHI-free': 0, 'BAA required': 0 } as Record<Compliance, number>
+);
 
 /* ---------- Per-category illustration (Swiss minimal SVG, brand colors) ---------- */
 export const CategoryArt = ({ cat }: { cat: Category }): ReactNode => {
@@ -384,92 +398,30 @@ export const CategoryArt = ({ cat }: { cat: Category }): ReactNode => {
   }
 };
 
-export const STATS = [
-  {
-    id: '01',
-    label: 'Library size',
-    value: '06',
-    desc: 'Workflows covering the six moments most clinics leak hours into every week.',
-    tone: 'gold' as const,
-  },
-  {
-    id: '02',
-    label: 'Median payback',
-    value: '< 14 d',
-    desc: 'Most clinics see the first workflow pay back its setup time inside two weeks.',
-    tone: 'sage' as const,
-  },
-  {
-    id: '03',
-    label: 'Combined value',
-    value: '30+ hrs/wk',
-    desc: 'The library at full deployment recovers more than thirty front-desk hours per week.',
-    tone: 'ink' as const,
-  },
-];
+/** Static, non-translatable keys for stat / step iteration. */
+export const STAT_KEYS = ['s1', 's2', 's3'] as const;
+export const STAT_META: Record<
+  (typeof STAT_KEYS)[number],
+  { id: string; value: string; tone: 'gold' | 'sage' | 'ink' }
+> = {
+  s1: { id: '01', value: '06', tone: 'gold' },
+  s2: { id: '02', value: '< 14 d', tone: 'sage' },
+  s3: { id: '03', value: '30+ hrs/wk', tone: 'ink' },
+};
 
-export const HOW_STEPS = [
-  {
-    num: '01',
-    title: 'Browse',
-    desc: 'Pick the workflow that maps to the hour-leak you want to plug first — by category, compliance posture, or ROI.',
-  },
-  {
-    num: '02',
-    title: 'Import',
-    desc: 'Drop the spec into your N8N instance — every node is documented, every credential slot is labelled.',
-  },
-  {
-    num: '03',
-    title: 'Customise',
-    desc: 'Swap in your CRM, your scheduler, your messaging stack. Brand the patient-facing surfaces with your voice.',
-  },
-  {
-    num: '04',
-    title: 'Ship',
-    desc: 'Run a 24-hour pilot, then turn the workflow on for the front desk. Most workflows pay back inside two weeks.',
-  },
-];
+export const HOW_STEP_KEYS = ['s1', 's2', 's3', 's4'] as const;
+export const HOW_STEP_NUMS: Record<(typeof HOW_STEP_KEYS)[number], string> = {
+  s1: '01',
+  s2: '02',
+  s3: '03',
+  s4: '04',
+};
 
-export const WHO_FOR = [
-  {
-    label: 'Front-desk lead',
-    desc: 'You want every patient touchpoint logged, reminded, and reviewed — without owning a new tool yourself.',
-  },
-  {
-    label: 'Operations director',
-    desc: 'You want the hour-leaks closed and the SOP documented in one place every clinic can audit.',
-  },
-  {
-    label: 'Marketing lead',
-    desc: 'You want the review engine running, the lead capture qualifying, and the social feed shipping — daily, automatically.',
-  },
-];
+export const WHO_FOR_KEYS = ['w1', 'w2', 'w3'] as const;
 
-export const PROMISES = [
-  'Every workflow is yours to keep — no retainer, no usage cap.',
-  'Every spec is documented in plain language, not just node-soup.',
-  'Every compliance posture is declared up front, before deploy.',
-  'Every workflow ships with an SOP your team can audit.',
-];
-
-export const RELATED = [
-  {
-    to: '/automation',
-    cat: 'Overview',
-    title: 'Automation, end-to-end.',
-    desc: 'How the library, the custom builds, and the ops layer all hook together.',
-  },
-  {
-    to: '/automation/more-info',
-    cat: 'Process',
-    title: 'How we build automations.',
-    desc: 'The discovery → spec → ship cadence we follow for every workflow that leaves the studio.',
-  },
-  {
-    to: '/free-growth-audit',
-    cat: 'Audit',
-    title: 'The free growth audit.',
-    desc: 'A five-day audit that surfaces the hour-leaks your library will close first.',
-  },
-];
+export const RELATED_KEYS = ['r1', 'r2', 'r3'] as const;
+export const RELATED_LINKS: Record<(typeof RELATED_KEYS)[number], string> = {
+  r1: '/automation',
+  r2: '/automation/more-info',
+  r3: '/free-growth-audit',
+};

@@ -1,37 +1,36 @@
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { ArrowIcon } from '@/components/icons';
 
 const Hero = () => {
+  const { t } = useTranslation('pages');
+  const bullets = t('analytics.hero.bullets', { returnObjects: true }) as string[];
+
   return (
     <section className="an-hero">
       <div className="container-shell">
         <div className="an-hero-grid">
           <div>
             <div className="an-hero-crumb">
-              <Link to="/services">Services</Link>
+              <Link to="/services">{t('analytics.hero.breadcrumbServices')}</Link>
               <span className="sep">/</span>
-              <span className="cur">Analytics &amp; Reporting</span>
+              <span className="cur">{t('analytics.hero.breadcrumbCurrent')}</span>
             </div>
             <span className="an-hero-eyebrow">
-              <span className="dot" /> BAA-covered stack · Healthcare-only
+              <span className="dot" /> {t('analytics.hero.eyebrow')}
             </span>
             <h1 className="an-hero-title">
-              One dashboard. <em>One number you can defend.</em>
+              {t('analytics.hero.titleLine')} <em>{t('analytics.hero.titleAccent')}</em>
             </h1>
-            <p className="an-hero-lede">
-              We unify Google Ads, Meta, GA4, Search Console, GBP, CRM, EHR, call tracking, and your
-              booking system into a single live dashboard - with HIPAA-aware tracking, multi-touch
-              attribution, and the one number leadership has been asking for: did the marketing pay
-              off?
-            </p>
+            <p className="an-hero-lede">{t('analytics.hero.lede')}</p>
 
             <div className="an-hero-ctas">
               <Link to="/free-growth-audit" className="sl-btn-primary">
-                Request dashboard audit
+                {t('analytics.hero.ctaPrimary')}
                 <ArrowIcon />
               </Link>
               <a href="#sources" className="sl-btn-ghost">
-                See data sources
+                {t('analytics.hero.ctaSecondary')}
                 <svg
                   viewBox="0 0 24 24"
                   fill="none"
@@ -47,51 +46,23 @@ const Hero = () => {
             </div>
 
             <ul className="an-hero-bullets">
-              <li>
-                <span className="an-hero-check" aria-hidden="true">
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth={3}
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <polyline points="20 6 9 17 4 12" />
-                  </svg>
-                </span>
-                10+ source systems, one source of truth
-              </li>
-              <li>
-                <span className="an-hero-check" aria-hidden="true">
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth={3}
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <polyline points="20 6 9 17 4 12" />
-                  </svg>
-                </span>
-                Booked revenue attribution per channel
-              </li>
-              <li>
-                <span className="an-hero-check" aria-hidden="true">
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth={3}
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <polyline points="20 6 9 17 4 12" />
-                  </svg>
-                </span>
-                PHI-free · BAA-covered · audit-ready
-              </li>
+              {bullets.map((b) => (
+                <li key={b}>
+                  <span className="an-hero-check" aria-hidden="true">
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth={3}
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg>
+                  </span>
+                  {b}
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -101,9 +72,9 @@ const Hero = () => {
                 <span className="dot r" />
                 <span className="dot y" />
                 <span className="dot g" />
-                <span className="title">Healthcare Growth · Q4 2026</span>
+                <span className="title">{t('analytics.hero.dashboardTitle')}</span>
                 <span className="live">
-                  <span className="ping" /> Live
+                  <span className="ping" /> {t('analytics.hero.live')}
                 </span>
               </div>
 
@@ -199,14 +170,14 @@ const Hero = () => {
                 <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
                 <polyline points="17 6 23 6 23 12" />
               </svg>
-              4.2× ROAS
+              {t('analytics.hero.tag1')}
             </div>
             <div className="an-hero-tag t2">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.2}>
                 <path d="M9 12l2 2 4-4" />
                 <circle cx="12" cy="12" r="10" />
               </svg>
-              HIPAA-safe
+              {t('analytics.hero.tag2')}
             </div>
           </div>
         </div>

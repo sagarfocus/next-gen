@@ -1,3 +1,5 @@
+import { useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 import IndustryHero from '@/components/industry/IndustryHero';
 import Specialties from '@/components/industry/Specialties';
 import Playbook from '@/components/industry/Playbook';
@@ -23,255 +25,219 @@ import snapBooking from '../../../assets/nextgen-image/Perlocationlandingimg.png
 import snapRecall from '../../../assets/nextgen-image/Recallinimg.png';
 import snapDental from '../../../assets/nextgen-image/specialtydepthimg.png';
 
-const BREADCRUMB_SCHEMA = buildBreadcrumbList([
-  { name: 'Home', path: '/' },
-  { name: 'Industries', path: '/industries' },
-  { name: 'Clinics' },
-]);
-
-const FAQS: ServiceFAQItem[] = [
-  {
-    q: 'We have multiple locations under one brand - should each have its own marketing footprint?',
-    a: "Yes. Each clinic gets its own Google Business Profile, a per-location landing page with that clinic's photos, providers, and insurance list, and a per-location review program. Google penalizes duplicate location pages, and patients can't tell which clinic is closest if they all look identical.",
-  },
-  {
-    q: 'How do you handle providers who come and go?',
-    a: "Provider bios live in a central directory with structured data. When someone joins, we publish a bio, wire the schema, and roll them into the next month's content calendar. When someone leaves, we redirect their page to a relevant service line within 24 hours so SEO authority doesn't leak.",
-  },
-  {
-    q: 'What about referral relationships with specialists?',
-    a: 'Specialist referral pages are a separate content track. We build provider-to-provider trust pages, attend referral events with you, and instrument referral attribution back to the originating clinic - so you know which relationships actually drive volume.',
-  },
-  {
-    q: 'How do you stay HIPAA-safe when reporting?',
-    a: 'Dashboards never show PHI. We aggregate to the location and service-line level, strip identifiers before any data leaves your site, and only use BAA-covered tooling downstream. Your CTO can hand the dashboard to legal without redaction.',
-  },
-  {
-    q: 'Can we start with one location and scale up?',
-    a: 'That is the most common pattern. We pick the location with the most ambiguous performance, win it, then template the wins across the network. The system is built to scale to 100+ locations without rebuilding the foundation.',
-  },
-];
-
-const RELATED: RelatedServiceLink[] = [
-  {
-    to: '/services/seo',
-    name: 'SEO Services',
-    blurb: 'Win the map pack and organic SERPs in every catchment area your clinics serve.',
-    tag: 'Strategy',
-  },
-  {
-    to: '/services/google-business-profile',
-    name: 'Google Business Profile',
-    blurb: 'Profile management across every clinic location, run from one console.',
-    tag: 'Operations',
-  },
-  {
-    to: '/case-studies/primary-care-seo-roi',
-    name: 'Primary care SEO ROI · case study',
-    blurb: 'The full engagement, the levers, and the numbers - read the case study.',
-    tag: 'Proof',
-  },
-];
-
-const Illustration = (
-  <img src={clinicsHero} alt="Family practice clinic" loading="eager" decoding="async" />
-);
-
-const QUICK_STATS: QuickStat[] = [
-  {
-    num: (
-      <>
-        +85<em>%</em>
-      </>
-    ),
-    label: 'New patient inquiries',
-  },
-  {
-    num: (
-      <>
-        4<em>×</em>
-      </>
-    ),
-    label: 'Provider listings ranked',
-  },
-  {
-    num: (
-      <>
-        92<em>%</em>
-      </>
-    ),
-    label: 'Retention rate',
-  },
-];
-
-const SPECIALTIES: SpecialtyRow[] = [
-  {
-    name: 'Family practice',
-    desc: 'Local search and recall systems for general primary-care offices.',
-  },
-  {
-    name: 'Cardiology',
-    desc: 'Specialist-referral pages, condition deep-dives, and reputation systems.',
-  },
-  { name: 'Dental', desc: 'Multi-location GBP, treatment SEO, and review automation.' },
-  {
-    name: 'Pediatrics',
-    desc: 'Family-tailored content, vaccine schedules, and parent-targeted ads.',
-  },
-  {
-    name: 'Dermatology',
-    desc: 'Procedure-page SEO, before/after libraries, and elective lead capture.',
-  },
-  {
-    name: 'Multi-specialty groups',
-    desc: 'Provider directories, hub-and-spoke SEO, and unified analytics.',
-  },
-];
-
-const STEPS: PlayStep[] = [
-  {
-    name: 'Provider & location audit',
-    body: 'Every site, every listing, every clinician page reviewed against demand in the catchment area.',
-  },
-  {
-    name: 'Foundation reset',
-    body: 'GBP rebuild, schema, provider bios, and insurance/service pages shipped first.',
-  },
-  {
-    name: 'Acquisition stack',
-    body: 'Search + paid layered by intent, with per-location attribution to the booking.',
-  },
-  {
-    name: 'Retention engine',
-    body: 'Recall, referral, and review programs running quietly in the background every month.',
-  },
-];
-
-const SNAPSHOTS: Snapshot[] = [
-  {
-    image: snapBooking,
-    label: 'Per-location landing',
-    caption:
-      'Each clinic ships with its own location page, photos, providers, insurance list, and booking flow.',
-  },
-  {
-    image: snapRecall,
-    label: 'Recall in motion',
-    caption:
-      'Automated recall and referral sequences run quietly in the background every single month.',
-  },
-  {
-    image: snapDental,
-    label: 'Specialty depth',
-    caption:
-      'Provider directories and treatment SEO stacked deep enough to win competitive metros.',
-  },
-];
-
-const PRINCIPLES: Principle[] = [
-  {
-    title: 'Per-location attribution',
-    body: 'Every metric is tied to a specific clinic, never to a network average. You see which location is moving and which is flat - the moment it happens.',
-    accent: '#576DB5',
-  },
-  {
-    title: 'HIPAA-clean dashboards',
-    body: 'No PHI ever leaves your tracking layer. Reporting aggregates to the location and service line so legal can read the same view your CTO does.',
-    accent: '#8FBC8F',
-  },
-  {
-    title: 'Provider directories as authority',
-    body: 'Bios, schema, and referral pages run together as a system - not loose pages. When a provider moves, the redirects and ranking equity move with them.',
-    accent: '#B38B6D',
-  },
-];
-
-const STATS: BigNumber[] = [
-  {
-    num: (
-      <>
-        +85<em>%</em>
-      </>
-    ),
-    label: 'NEW INQUIRIES',
-    caption: 'YoY lift across the first six months of engagement.',
-  },
-  {
-    num: (
-      <>
-        $1.2M<em>+</em>
-      </>
-    ),
-    label: 'ADDED REVENUE',
-    caption: 'Average added annual revenue per multi-location group.',
-  },
-  {
-    num: (
-      <>
-        4<em>×</em>
-      </>
-    ),
-    label: 'LISTINGS RANKED',
-    caption: 'Top-3 Map Pack across the four largest local terms.',
-  },
-  {
-    num: (
-      <>
-        92<em>%</em>
-      </>
-    ),
-    label: 'RECALL RATE',
-    caption: 'Automated recall/referral programs running month over month.',
-  },
-];
-
-const SCHEMA = {
-  '@context': 'https://schema.org',
-  '@type': 'Service',
-  name: 'Clinics & Multi-Specialty Practices - Marketing',
-  serviceType: 'Healthcare Marketing',
-  provider: { '@id': `${SITE.url}#organization` },
-  audience: 'Family practices, multi-specialty groups, clinical networks',
-};
-
-const FAQ_SCHEMA = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: FAQS.map((f) => ({
-    '@type': 'Question',
-    name: f.q,
-    acceptedAnswer: { '@type': 'Answer', text: f.a },
-  })),
-};
-
 const Clinics = () => {
+  const { t } = useTranslation(['pages', 'common']);
+  const base = 'pages:industriesPages.clinics';
+
+  const BREADCRUMB_SCHEMA = useMemo(
+    () =>
+      buildBreadcrumbList([
+        { name: 'Home', path: '/' },
+        { name: 'Industries', path: '/industries' },
+        { name: 'Clinics' },
+      ]),
+    []
+  );
+
+  const QUICK_STATS: QuickStat[] = [
+    {
+      num: (
+        <>
+          +85<em>%</em>
+        </>
+      ),
+      label: t(`${base}.hero.quickStats.inquiries`),
+    },
+    {
+      num: (
+        <>
+          4<em>×</em>
+        </>
+      ),
+      label: t(`${base}.hero.quickStats.listings`),
+    },
+    {
+      num: (
+        <>
+          92<em>%</em>
+        </>
+      ),
+      label: t(`${base}.hero.quickStats.retention`),
+    },
+  ];
+
+  const SPECIALTIES: SpecialtyRow[] = [
+    { name: t(`${base}.specialties.familyPractice.name`), desc: t(`${base}.specialties.familyPractice.desc`) },
+    { name: t(`${base}.specialties.cardiology.name`), desc: t(`${base}.specialties.cardiology.desc`) },
+    { name: t(`${base}.specialties.dental.name`), desc: t(`${base}.specialties.dental.desc`) },
+    { name: t(`${base}.specialties.pediatrics.name`), desc: t(`${base}.specialties.pediatrics.desc`) },
+    { name: t(`${base}.specialties.dermatology.name`), desc: t(`${base}.specialties.dermatology.desc`) },
+    { name: t(`${base}.specialties.multiSpecialty.name`), desc: t(`${base}.specialties.multiSpecialty.desc`) },
+  ];
+
+  const STEPS: PlayStep[] = [
+    { name: t(`${base}.steps.audit.name`), body: t(`${base}.steps.audit.body`) },
+    { name: t(`${base}.steps.foundation.name`), body: t(`${base}.steps.foundation.body`) },
+    { name: t(`${base}.steps.acquisition.name`), body: t(`${base}.steps.acquisition.body`) },
+    { name: t(`${base}.steps.retention.name`), body: t(`${base}.steps.retention.body`) },
+  ];
+
+  const SNAPSHOTS: Snapshot[] = [
+    {
+      image: snapBooking,
+      label: t(`${base}.snapshots.items.booking.label`),
+      caption: t(`${base}.snapshots.items.booking.caption`),
+    },
+    {
+      image: snapRecall,
+      label: t(`${base}.snapshots.items.recall.label`),
+      caption: t(`${base}.snapshots.items.recall.caption`),
+    },
+    {
+      image: snapDental,
+      label: t(`${base}.snapshots.items.depth.label`),
+      caption: t(`${base}.snapshots.items.depth.caption`),
+    },
+  ];
+
+  const PRINCIPLES: Principle[] = [
+    {
+      title: t(`${base}.principles.items.attribution.title`),
+      body: t(`${base}.principles.items.attribution.body`),
+      accent: '#576DB5',
+    },
+    {
+      title: t(`${base}.principles.items.dashboards.title`),
+      body: t(`${base}.principles.items.dashboards.body`),
+      accent: '#8FBC8F',
+    },
+    {
+      title: t(`${base}.principles.items.directories.title`),
+      body: t(`${base}.principles.items.directories.body`),
+      accent: '#B38B6D',
+    },
+  ];
+
+  const STATS: BigNumber[] = [
+    {
+      num: (
+        <>
+          +85<em>%</em>
+        </>
+      ),
+      label: t(`${base}.stats.inquiries.label`),
+      caption: t(`${base}.stats.inquiries.caption`),
+    },
+    {
+      num: (
+        <>
+          $1.2M<em>+</em>
+        </>
+      ),
+      label: t(`${base}.stats.revenue.label`),
+      caption: t(`${base}.stats.revenue.caption`),
+    },
+    {
+      num: (
+        <>
+          4<em>×</em>
+        </>
+      ),
+      label: t(`${base}.stats.listings.label`),
+      caption: t(`${base}.stats.listings.caption`),
+    },
+    {
+      num: (
+        <>
+          92<em>%</em>
+        </>
+      ),
+      label: t(`${base}.stats.recall.label`),
+      caption: t(`${base}.stats.recall.caption`),
+    },
+  ];
+
+  const FAQS: ServiceFAQItem[] = [
+    { q: t(`${base}.faq.items.locations.q`), a: t(`${base}.faq.items.locations.a`) },
+    { q: t(`${base}.faq.items.providers.q`), a: t(`${base}.faq.items.providers.a`) },
+    { q: t(`${base}.faq.items.referrals.q`), a: t(`${base}.faq.items.referrals.a`) },
+    { q: t(`${base}.faq.items.hipaa.q`), a: t(`${base}.faq.items.hipaa.a`) },
+    { q: t(`${base}.faq.items.scale.q`), a: t(`${base}.faq.items.scale.a`) },
+  ];
+
+  const RELATED: RelatedServiceLink[] = [
+    {
+      to: '/services/seo',
+      name: t(`${base}.related.items.seo.name`),
+      blurb: t(`${base}.related.items.seo.blurb`),
+      tag: t(`${base}.related.items.seo.tag`),
+    },
+    {
+      to: '/services/google-business-profile',
+      name: t(`${base}.related.items.gbp.name`),
+      blurb: t(`${base}.related.items.gbp.blurb`),
+      tag: t(`${base}.related.items.gbp.tag`),
+    },
+    {
+      to: '/case-studies/primary-care-seo-roi',
+      name: t(`${base}.related.items.caseStudy.name`),
+      blurb: t(`${base}.related.items.caseStudy.blurb`),
+      tag: t(`${base}.related.items.caseStudy.tag`),
+    },
+  ];
+
+  const SCHEMA = {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: 'Clinics & Multi-Specialty Practices - Marketing',
+    serviceType: 'Healthcare Marketing',
+    provider: { '@id': `${SITE.url}#organization` },
+    audience: 'Family practices, multi-specialty groups, clinical networks',
+  };
+
+  const FAQ_SCHEMA = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: FAQS.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  };
+
+  const Illustration = (
+    <img src={clinicsHero} alt={t(`${base}.hero.imageAlt`)} loading="eager" decoding="async" />
+  );
+
   return (
     <>
       <Seo
-        title="Clinic Marketing — Multi-Location Patient Acquisition for Healthcare Practices"
-        description="From single-location family practices to multi-location specialty networks — search, paid, and retention systems built for clinical reality."
+        title={t(`${base}.seo.title`)}
+        description={t(`${base}.seo.description`)}
         path="/industries/clinics"
         schema={[SCHEMA, FAQ_SCHEMA, BREADCRUMB_SCHEMA]}
       />
 
       <IndustryHero
-        tag="Clinical"
+        tag={t(`${base}.hero.tag`)}
         title={
           <>
-            Patient flow for clinics, <em>engineered.</em>
+            {t(`${base}.hero.titleLead`)}
+            <em>{t(`${base}.hero.titleEm`)}</em>
           </>
         }
-        lede="From single-location family practices to multi-location specialty networks - search, paid, and retention systems built for clinical reality."
+        lede={t(`${base}.hero.lede`)}
         illustration={Illustration}
         quickStats={QUICK_STATS}
       />
       <Specialties rows={SPECIALTIES} />
       <IndustrySnapshots
         items={SNAPSHOTS}
-        eyebrow="In practice"
+        eyebrow={t(`${base}.snapshots.eyebrow`)}
         title={
           <>
-            What clinic engagements <em>actually ship.</em>
+            {t(`${base}.snapshots.titleLead`)}
+            <em>{t(`${base}.snapshots.titleEm`)}</em>
           </>
         }
       />
@@ -282,27 +248,28 @@ const Clinics = () => {
         sectionNum="04"
         title={
           <>
-            How we work for <em>clinic networks.</em>
+            {t(`${base}.principles.titleLead`)}
+            <em>{t(`${base}.principles.titleEm`)}</em>
           </>
         }
-        intro="Three operating principles that show up in every clinic engagement - they keep multi-location work from sliding back into single-location habits."
+        intro={t(`${base}.principles.intro`)}
       />
       <ServiceFAQ
         items={FAQS}
-        serviceName="Clinics & Multi-Specialty Practices - Marketing"
-        title="How clinic owners size up a multi-location engagement."
+        serviceName={t(`${base}.faq.serviceName`)}
+        title={t(`${base}.faq.title`)}
         sectionNum="05"
       />
       <RelatedServices
         items={RELATED}
         sectionNum="06"
-        title="Pair the playbook with the right levers."
-        intro="Clinic networks compound when these three layers run together - Local SEO for discovery, GBP for the front door, and proof from a peer engagement."
+        title={t(`${base}.related.title`)}
+        intro={t(`${base}.related.intro`)}
       />
       <IndustryCTA
-        tag="Talk to us"
-        title={<>Ready to scale the clinic, the right way?</>}
-        body="A 30-minute call. We audit your current setup and share the closest case study from this library - whether you sign with us or not."
+        tag={t(`${base}.cta.tag`)}
+        title={<>{t(`${base}.cta.title`)}</>}
+        body={t(`${base}.cta.body`)}
       />
     </>
   );

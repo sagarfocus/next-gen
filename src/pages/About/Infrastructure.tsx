@@ -1,30 +1,30 @@
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { ArrowIcon, CheckIcon } from '@/components/icons';
-import { CARDS } from '@/content/about/infrastructure';
+import { useInfraCards } from '@/content/about/infrastructure';
 
 const Infrastructure = () => {
+  const { t } = useTranslation('about');
+  const cards = useInfraCards();
+
   return (
     <section id="infrastructure" className="ab-infra" aria-labelledby="ab-infra-title">
       <div className="container-shell">
         <div className="ab-infra-head">
-          <span className="ab-infra-eyebrow">The Infrastructure You Hire</span>
+          <span className="ab-infra-eyebrow">{t('infrastructure.eyebrow')}</span>
           <h2 id="ab-infra-title" className="ab-infra-h2">
-            An entire department, integrated into your clinic.
+            {t('infrastructure.title')}
           </h2>
-          <p className="ab-infra-sub">
-            When you partner with us, you aren&rsquo;t getting a single freelancer. You are
-            integrating an entire department of specialized medical growth experts into your clinic
-            operations.
-          </p>
+          <p className="ab-infra-sub">{t('infrastructure.subtitle')}</p>
         </div>
 
         <div className="ab-infra-grid">
-          {CARDS.map((card) => (
+          {cards.map((card) => (
             <Link
               key={card.tag}
               to={card.to}
               className={`ab-infra-card${card.featured ? ' is-featured' : ''}`}
-              aria-label={`${card.tag} - read more`}
+              aria-label={t('infrastructure.ariaLabel', { tag: card.tag })}
             >
               <span className="ab-infra-icon" aria-hidden="true">
                 {card.icon}
@@ -43,7 +43,7 @@ const Infrastructure = () => {
                 ))}
               </ul>
               <span className="ab-infra-cta" aria-hidden="true">
-                Learn more
+                {t('infrastructure.learnMore')}
                 <ArrowIcon size={14} />
               </span>
             </Link>

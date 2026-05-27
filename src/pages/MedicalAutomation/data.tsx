@@ -1,149 +1,61 @@
 import type { JSX } from 'react';
 import { SITE } from '@/content/site';
 
-export const HEAD_META = [
-  { label: 'Stack', value: 'N8N · HL7 · FHIR' },
-  { label: 'Coverage', value: 'Intake → Recall' },
-  { label: 'Compliance', value: 'HIPAA + BAA' },
-  { label: 'Updated', value: 'May 2026' },
-];
-
 export type WorkflowKey = 'intake' | 'reminder' | 'review' | 'insurance' | 'triage' | 'recall';
 
-export const WORKFLOWS: {
-  n: string;
-  key: WorkflowKey;
-  trigger: string;
-  name: string;
-  outcome: string;
-  meta: string;
-}[] = [
-  {
-    n: '01',
-    key: 'intake',
-    trigger: 'Form submitted',
-    name: 'Patient Intake',
-    outcome: 'EHR record live',
-    meta: '< 90 sec',
-  },
-  {
-    n: '02',
-    key: 'insurance',
-    trigger: 'Slot booked',
-    name: 'Insurance Verify',
-    outcome: 'Copay surfaced',
-    meta: 'Real-time',
-  },
-  {
-    n: '03',
-    key: 'reminder',
-    trigger: '24h before visit',
-    name: 'Adaptive Reminder',
-    outcome: 'Confirmed / rebooked',
-    meta: '3-touch ladder',
-  },
-  {
-    n: '04',
-    key: 'triage',
-    trigger: 'After-hours ping',
-    name: 'AI Triage',
-    outcome: 'Routed or booked',
-    meta: '24/7',
-  },
-  {
-    n: '05',
-    key: 'review',
-    trigger: 'Visit complete',
-    name: 'Review Capture',
-    outcome: 'Public review',
-    meta: 'Sentiment-routed',
-  },
-  {
-    n: '06',
-    key: 'recall',
-    trigger: 'Recall date hits',
-    name: 'Recall + Wellness',
-    outcome: 'Patient re-booked',
-    meta: 'EHR-driven',
-  },
+export const WORKFLOWS: { n: string; key: WorkflowKey }[] = [
+  { n: '01', key: 'intake' },
+  { n: '02', key: 'insurance' },
+  { n: '03', key: 'reminder' },
+  { n: '04', key: 'triage' },
+  { n: '05', key: 'review' },
+  { n: '06', key: 'recall' },
 ];
 
 export type CoverageKey = 'front' | 'billing' | 'marketing' | 'clinical';
 
 export const COVERAGE: {
-  area: string;
   key: CoverageKey;
   low: number;
   high: number;
-  one: string;
 }[] = [
-  { area: 'Front Desk', key: 'front', low: 8, high: 14, one: 'Confirmations · reminders · intake' },
-  { area: 'Billing', key: 'billing', low: 4, high: 9, one: 'Eligibility · copay · denial triage' },
-  { area: 'Marketing', key: 'marketing', low: 5, high: 12, one: 'Reviews · recall · lead routing' },
-  { area: 'Clinical', key: 'clinical', low: 2, high: 6, one: 'Triage · pre-visit · chart routing' },
+  { key: 'front', low: 8, high: 14 },
+  { key: 'billing', low: 4, high: 9 },
+  { key: 'marketing', low: 5, high: 12 },
+  { key: 'clinical', low: 2, high: 6 },
 ];
 
 export type StackKey = 'engine' | 'integrations' | 'ai' | 'reporting';
 
-export const STACK: { tag: string; key: StackKey; tools: string[] }[] = [
-  { tag: 'Workflow Engine', key: 'engine', tools: ['N8N', 'BAA hosting', 'Audit logs'] },
-  {
-    tag: 'Integrations',
-    key: 'integrations',
-    tools: ['HL7 · FHIR', 'Twilio BAA', 'Athena · Epic'],
-  },
-  { tag: 'AI Layer', key: 'ai', tools: ['HIPAA gateway', 'Redacted prompts', 'Human-in-loop'] },
-  {
-    tag: 'Reporting',
-    key: 'reporting',
-    tools: ['Live dashboard', 'Weekly digest', 'Per-flow ROI'],
-  },
+export const STACK: { key: StackKey }[] = [
+  { key: 'engine' },
+  { key: 'integrations' },
+  { key: 'ai' },
+  { key: 'reporting' },
 ];
 
-export const METRICS = [
-  { value: 54, suffix: '%', k: 'No-show drop', d: 'After adaptive reminder ladder.' },
-  {
-    value: 32,
-    prefix: '$',
-    suffix: 'k',
-    k: 'Annual ops saved',
-    d: 'Hours-to-dollars per clinic, year one.',
-  },
-  { value: 90, prefix: '< ', suffix: 's', k: 'Intake → EHR', d: 'Form to provider-ready chart.' },
-  {
-    value: 99.8,
-    suffix: '%',
-    decimals: 1,
-    k: 'Audit pass rate',
-    d: 'Runs that pass compliance review.',
-  },
+export type MetricKey = 'noShow' | 'savings' | 'intake' | 'audit';
+
+export const METRICS: {
+  key: MetricKey;
+  value: number;
+  prefix?: string;
+  suffix?: string;
+  decimals?: number;
+}[] = [
+  { key: 'noShow', value: 54, suffix: '%' },
+  { key: 'savings', value: 32, prefix: '$', suffix: 'k' },
+  { key: 'intake', value: 90, prefix: '< ', suffix: 's' },
+  { key: 'audit', value: 99.8, suffix: '%', decimals: 1 },
 ];
 
 export type ProcessKey = 'audit' | 'pilot' | 'scale' | 'govern';
 
-export const PROCESS: { n: string; key: ProcessKey; k: string; week: string; d: string }[] = [
-  { n: '01', key: 'audit', k: 'Audit', week: 'Week 1', d: 'Map every system touching a patient.' },
-  {
-    n: '02',
-    key: 'pilot',
-    k: 'Pilot',
-    week: 'Week 2–3',
-    d: 'Ship one workflow live, EHR-connected.',
-  },
-  {
-    n: '03',
-    key: 'scale',
-    k: 'Scale',
-    week: 'Week 4–8',
-    d: 'Roll the remaining five into production.',
-  },
-  {
-    n: '04',
-    key: 'govern',
-    k: 'Govern',
-    week: 'Quarterly',
-    d: 'Audit logs, payer drift, EHR upgrades.',
-  },
+export const PROCESS: { n: string; key: ProcessKey }[] = [
+  { n: '01', key: 'audit' },
+  { n: '02', key: 'pilot' },
+  { n: '03', key: 'scale' },
+  { n: '04', key: 'govern' },
 ];
 
 /* ---------------- ICONS ---------------- */

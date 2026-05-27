@@ -1,4 +1,6 @@
+import { useMemo } from 'react';
 import type { ReactElement } from 'react';
+import { useTranslation } from 'react-i18next';
 
 export interface TrustCardData {
   featured?: boolean;
@@ -44,34 +46,45 @@ const ShieldCheckIcon = () => (
   </svg>
 );
 
-export const TRUST_CARDS: TrustCardData[] = [
+interface CardConfig {
+  featured?: boolean;
+  ariaId: string;
+  icon: ReactElement;
+  to: string;
+  key: 'reputation' | 'hipaaWeb';
+}
+
+const CARD_CONFIG: CardConfig[] = [
   {
     featured: true,
     ariaId: 'trust-1',
     icon: <StarShieldIcon />,
-    tag: 'Patient Trust',
-    title: 'Reputation Management',
-    text: 'Active monitoring and response across Google, Healthgrades, and Vitals - turning patient feedback into a competitive advantage.',
-    bullets: [
-      'Review monitoring & response automation',
-      'Sentiment analysis dashboards',
-      'HIPAA-compliant response templates',
-      'Multi-platform reputation scoring',
-    ],
     to: '/reviews-reputation',
+    key: 'reputation',
   },
   {
     ariaId: 'trust-2',
     icon: <ShieldCheckIcon />,
-    tag: 'Compliance',
-    title: 'HIPAA-Compliant Web Design',
-    text: 'Secure, accessible websites engineered for the healthcare standard - encrypted forms, BAA-ready hosting, and ADA accessibility.',
-    bullets: [
-      'SSL encryption & secure form handling',
-      'BAA-ready hosting infrastructure',
-      'WCAG 2.1 AA accessibility compliance',
-      'Annual security audits & updates',
-    ],
     to: '/hipaa-compliance',
+    key: 'hipaaWeb',
   },
 ];
+
+/** React hook for the Trust Infrastructure cards — live-translates. */
+export function useTrustCards(): readonly TrustCardData[] {
+  const { t } = useTranslation('services');
+  return useMemo(
+    () =>
+      CARD_CONFIG.map((c) => ({
+        ...(c.featured ? { featured: true } : {}),
+        ariaId: c.ariaId,
+        icon: c.icon,
+        to: c.to,
+        tag: t(`trust.cards.${c.key}.tag`),
+        title: t(`trust.cards.${c.key}.title`),
+        text: t(`trust.cards.${c.key}.text`),
+        bullets: t(`trust.cards.${c.key}.bullets`, { returnObjects: true }) as string[],
+      })),
+    [t]
+  );
+}

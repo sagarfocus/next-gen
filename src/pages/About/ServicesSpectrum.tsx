@@ -1,22 +1,23 @@
-import { PILLARS } from '@/content/about/services-spectrum';
+import { useTranslation } from 'react-i18next';
+import { usePillars } from '@/content/about/services-spectrum';
 
 const ServicesSpectrum = () => {
+  const { t } = useTranslation('about');
+  const pillars = usePillars();
+
   return (
     <section className="ab-spectrum" aria-labelledby="ab-spec-title">
       <div className="container-shell">
         <div className="ab-spec-head">
-          <span className="ab-spec-eyebrow">What We Do</span>
+          <span className="ab-spec-eyebrow">{t('spectrum.eyebrow')}</span>
           <h2 id="ab-spec-title" className="ab-spec-h2">
-            From digital patient acquisition to operational automation.
+            {t('spectrum.title')}
           </h2>
-          <p className="ab-spec-sub">
-            We cover every aspect of clinical growth - the full spectrum of healthcare marketing
-            under one operating system.
-          </p>
+          <p className="ab-spec-sub">{t('spectrum.subtitle')}</p>
         </div>
 
         <div className="ab-spec-split">
-          {PILLARS.map((pillar) => (
+          {pillars.map((pillar) => (
             <article key={pillar.tag} className="ab-spec-pillar">
               <div className="ab-spec-pillar-art" aria-hidden="true">
                 {pillar.image ? (

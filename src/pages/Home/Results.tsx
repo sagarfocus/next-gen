@@ -1,43 +1,11 @@
 import { memo } from 'react';
 import { CountUp } from '@/lib/motion';
 import { ArrowIcon } from '@/components/icons';
-
-interface SmallStat {
-  tag: string;
-  value: number;
-  prefix?: string;
-  suffix: string;
-  decimals?: number;
-  label: string;
-  ariaLabel: string;
-}
-
-const SMALL_STATS: SmallStat[] = [
-  {
-    tag: 'Emergency Room',
-    value: 47,
-    suffix: '%',
-    label: 'Increase in walk-in patients in six months.',
-    ariaLabel: '47% increase in walk-in patients - Emergency Room',
-  },
-  {
-    tag: 'Urgent Care',
-    value: 2.8,
-    suffix: '×',
-    decimals: 1,
-    label: 'Return on ad spend in the first quarter.',
-    ariaLabel: '2.8x return on ad spend - Urgent Care',
-  },
-  {
-    tag: 'MedSpa Network',
-    value: 1.2,
-    prefix: '$',
-    suffix: 'M',
-    decimals: 1,
-    label: 'Revenue generated from Facebook ads in 12 months.',
-    ariaLabel: '$1.2M revenue generated - MedSpa Network',
-  },
-];
+import {
+  useHomeResultsFeatured,
+  useHomeResultsHead,
+  useHomeResultsSmallStats,
+} from '@/content/home/results';
 
 const StatFeaturedArt = memo(() => (
   <div className="stat-art" aria-hidden="true">
@@ -337,31 +305,30 @@ const StatFeaturedArt = memo(() => (
 StatFeaturedArt.displayName = 'StatFeaturedArt';
 
 const Results = () => {
+  const head = useHomeResultsHead();
+  const featured = useHomeResultsFeatured();
+  const smallStats = useHomeResultsSmallStats();
+
   return (
     <section className="results-section" id="results" aria-labelledby="results-title">
       <div className="container-shell">
         <div className="results-head">
-          <span className="results-eyebrow">Proof of Work</span>
+          <span className="results-eyebrow">{head.eyebrow}</span>
           <h2 id="results-title" className="results-h2">
-            Real results.
+            {head.title}
           </h2>
-          <p className="results-sub">
-            We don&rsquo;t just talk - we deliver measurable outcomes for healthcare practices.
-          </p>
+          <p className="results-sub">{head.sub}</p>
         </div>
 
         <div className="stats-grid">
           {/* Big featured dark card */}
-          <article className="stat-featured" aria-label="312% increase in Instagram leads - MedSpa">
+          <article className="stat-featured" aria-label={featured.ariaLabel}>
             <StatFeaturedArt />
-            <span className="stat-tag">MedSpa</span>
+            <span className="stat-tag">{featured.tag}</span>
             <p className="stat-num">
-              <CountUp to={312} suffix="%" duration={2.0} />
+              <CountUp to={featured.value} suffix={featured.suffix} duration={featured.duration} />
             </p>
-            <p className="stat-label">
-              Increase in Instagram leads in 90&nbsp;days - from a single optimized funnel and
-              creative refresh.
-            </p>
+            <p className="stat-label">{featured.label}</p>
             <span className="stat-arrow" aria-hidden="true">
               <ArrowIcon size={16} strokeWidth={1.8} />
             </span>
@@ -369,8 +336,8 @@ const Results = () => {
 
           {/* Right column - 3 stacked cards */}
           <div className="stats-right">
-            {SMALL_STATS.map(({ tag, value, prefix, suffix, decimals, label, ariaLabel }) => (
-              <article key={tag} className="stat-card" aria-label={ariaLabel}>
+            {smallStats.map(({ key, tag, value, prefix, suffix, decimals, label, ariaLabel }) => (
+              <article key={key} className="stat-card" aria-label={ariaLabel}>
                 <span className="stat-tag">{tag}</span>
                 <p className="stat-num">
                   <CountUp

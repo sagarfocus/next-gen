@@ -1,33 +1,33 @@
-import { STATS } from '@/content/pricing/roi-stats';
+import { useTranslation } from 'react-i18next';
+import { useStats } from '@/content/pricing/roi-stats';
 
 const AutomationROI = () => {
+  const { t } = useTranslation('pricing');
+  const stats = useStats();
+
   return (
     <section className="pr-roi" aria-labelledby="pr-roi-title">
       <div className="container-shell">
         <div className="pr-roi-grid">
           <div className="pr-roi-text">
-            <span className="pr-roi-eyebrow">Quantifying Automation ROI</span>
+            <span className="pr-roi-eyebrow">{t('roi.eyebrow')}</span>
             <h2 id="pr-roi-title" className="pr-roi-h2">
-              Our retainer pays for itself.
+              {t('roi.title')}
             </h2>
             <p>
-              Don&rsquo;t evaluate just the cost of SEO or PPC - factor in the operational savings
-              from our AI automation suite.{' '}
-              <strong>
-                Front-desk turnover, missed calls, manual insurance verification, intake
-                transcription
-              </strong>{' '}
-              - our Clinic Growth OS eliminates these inefficiencies.
+              {t('roi.p1Before')}
+              <strong>{t('roi.p1Bold')}</strong>
+              {t('roi.p1After')}
             </p>
             <p>
-              By saving 15+ staff hours weekly and recovering tens of thousands in lost revenue from
-              missed appointments, traditional SEO/PPC agencies become{' '}
-              <strong>fundamentally obsolete</strong>.
+              {t('roi.p2Before')}
+              <strong>{t('roi.p2Bold')}</strong>
+              {t('roi.p2After')}
             </p>
           </div>
 
           <div className="pr-roi-stats">
-            {STATS.map((stat) => (
+            {stats.map((stat) => (
               <div key={stat.label} className="pr-stat">
                 <span className="pr-stat-icon" aria-hidden="true">
                   {stat.icon}

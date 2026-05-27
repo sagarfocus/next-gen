@@ -1,32 +1,23 @@
-interface Badge {
-  name: string;
-}
-
-const BADGES: Badge[] = [
-  { name: 'HIPAA-aware intake' },
-  { name: 'BAA on every CRM' },
-  { name: 'COI-insured field crews' },
-  { name: 'Background-checked ambassadors' },
-  { name: 'OSHA-trained event ops' },
-  { name: 'Photo + media release pipeline' },
-  { name: '0 safety incidents · 6+ years' },
-  { name: '320+ activations / year' },
-];
+import { useTranslation } from 'react-i18next';
 
 const TrustBar = () => {
+  const { t } = useTranslation('pages');
+  const badges = t('pages:onsiteFieldMarketing.trustBar.badges', {
+    returnObjects: true,
+  }) as string[];
   return (
-    <section className="ofm-trust" aria-label="Certifications and trust signals">
+    <section className="ofm-trust" aria-label={t('pages:onsiteFieldMarketing.trustBar.lbl')}>
       <div className="container-shell">
         <div className="ofm-trust-head">
-          <span className="ofm-trust-lbl">Field-trained · Healthcare-only · Insured</span>
+          <span className="ofm-trust-lbl">{t('pages:onsiteFieldMarketing.trustBar.lbl')}</span>
           <span className="ofm-trust-sep" aria-hidden="true" />
-          <span>Audited quarterly</span>
+          <span>{t('pages:onsiteFieldMarketing.trustBar.audited')}</span>
         </div>
         <div className="ofm-trust-track">
-          {BADGES.map((b) => (
-            <span key={b.name} className="ofm-trust-pill">
+          {badges.map((b) => (
+            <span key={b} className="ofm-trust-pill">
               <span className="ofm-trust-dot" aria-hidden="true" />
-              {b.name}
+              {b}
             </span>
           ))}
         </div>

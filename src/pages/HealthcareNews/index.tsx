@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import NewsHead from './NewsHead';
 import NewsHeroGrid from './NewsHeroGrid';
 import NewsThreeColumn from './NewsThreeColumn';
@@ -19,20 +20,18 @@ const NEWS_SCHEMA = {
   inLanguage: 'en-US',
 };
 
-// Note: prior breadcrumb used "Resources → /blog" at position 2, but
-// /healthcare-news isn't a child of /blog (there is no /resources route).
-// Corrected to a direct Home → Healthcare News crumb that matches the URL.
 const BREADCRUMB_SCHEMA = buildBreadcrumbList([
   { name: 'Home', path: '/' },
   { name: 'Healthcare News' },
 ]);
 
 const HealthcareNews = () => {
+  const { t } = useTranslation('pages');
   return (
     <>
       <Seo
-        title="Healthcare News & HIPAA Industry Updates — Weekly Brief"
-        description="Weekly editorial brief covering healthcare research, compliance, telehealth, AI operations, and patient-acquisition marketing — from the TheNextGen team."
+        title={t('healthcareNews.seo.indexTitle')}
+        description={t('healthcareNews.seo.indexDescription')}
         path="/healthcare-news"
         schema={[NEWS_SCHEMA, BREADCRUMB_SCHEMA]}
       />

@@ -1,4 +1,5 @@
 import '../../styles/googleads.css';
+import { useTranslation } from 'react-i18next';
 import Hero from './Hero';
 import TrustBar from './TrustBar';
 import CampaignTypes from './CampaignTypes';
@@ -53,11 +54,12 @@ const BREADCRUMB_SCHEMA = buildBreadcrumbList([
 ]);
 
 const GoogleAds = () => {
+  const { t } = useTranslation('pages');
   return (
     <>
       <Seo
-        title="Healthcare Google Ads Management — HIPAA-Aware PPC"
-        description="Search, PMax, Display, YouTube, and Local Services Ads run by a healthcare-only PPC team. HIPAA-aware tracking, 30-minute audit, month-to-month after a 90-day ramp."
+        title={t('googleAds.seo.title')}
+        description={t('googleAds.seo.description')}
         path="/services/google-ads"
         schema={[SERVICE_SCHEMA, FAQ_SCHEMA, BREADCRUMB_SCHEMA]}
       />

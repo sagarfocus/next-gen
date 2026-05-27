@@ -1,3 +1,4 @@
+import type { TFunction } from 'i18next';
 import type { NarrativeBlock } from '@/components/DetailNarrative';
 import {
   ENGAGEMENT_DETAILS,
@@ -9,37 +10,14 @@ import {
 } from '../details.data';
 import { SITE } from '@/content/site';
 
-export const KIND_BODY_INTRO: Record<DetailKind, (entry: DetailEntry) => string> = {
-  engagement: () =>
-    'Three paragraphs that map the challenge, the rebuild, and the outcome — written by the strategist who shipped the work.',
-  industry: () =>
-    'The patient psychology, the regulatory edges, and the funnel mechanics that make this vertical its own discipline.',
-  capability: () =>
-    'How this discipline runs inside the Focus growth operating system — and why it compounds when the other five run alongside it.',
-};
+/** Maps DetailKind → top-level key under `ourWork.*` in pages.json that contains
+ *  the per-slug entry translations. */
+export const kindGroupKey = (kind: DetailKind): 'engagements' | 'industries' | 'capabilities' =>
+  kind === 'engagement' ? 'engagements' : kind === 'industry' ? 'industries' : 'capabilities';
 
-export const KIND_FAQ_INTRO: Record<DetailKind, string> = {
-  engagement:
-    'The same questions every leadership team raises about an engagement like this — answered up front so the discovery call moves faster.',
-  industry:
-    'Recurring questions from practice owners and growth leads in this vertical — answered before the first conversation.',
-  capability:
-    'Common questions about how this discipline runs, how it is reported, and how it integrates with the rest of the stack.',
-};
-
-export const KIND_RELATED_INTRO: Record<DetailKind, string> = {
-  engagement:
-    'Three sibling engagements from the same quarter — different verticals, same operating cadence.',
-  industry:
-    'Other healthcare verticals running the same growth operating system, tuned to their patient psychology.',
-  capability: 'The other disciplines this capability shares a calendar and growth lead with.',
-};
-
-export const PAREN_TYPE_LABEL: Record<DetailKind, string> = {
-  engagement: 'Engagement',
-  industry: 'Industry',
-  capability: 'Capability',
-};
+/** Live-translated entry title — falls back to the original English. */
+export const localizedEntryTitle = (entry: DetailEntry, t: TFunction): string =>
+  t(`ourWork.${kindGroupKey(entry.kind)}.${entry.slug}.title`, entry.title);
 
 export const KIND_GROUP: Record<DetailKind, DetailEntry[]> = {
   engagement: ENGAGEMENT_DETAILS,
@@ -47,52 +25,46 @@ export const KIND_GROUP: Record<DetailKind, DetailEntry[]> = {
   capability: CAPABILITY_DETAILS,
 };
 
-export const KIND_LABEL_PLURAL: Record<DetailKind, string> = {
-  engagement: 'Engagements',
-  industry: 'Industries',
-  capability: 'Capabilities',
-};
-
-const ABOUT_HEADLINE: Record<DetailKind, (entry: DetailEntry) => string> = {
-  engagement: (e) => `${e.title}, a focused engagement built around healthcare growth.`,
-  industry: (e) => `${e.title} marketing, built around the verticals patients actually search for.`,
-  capability: (e) =>
-    `${e.title.replace(/\.$/, '')} — a discipline inside the Focus growth operating system.`,
-};
-
-const APPROACH_HEADLINE: Record<DetailKind, (entry: DetailEntry) => string> = {
-  engagement: () => 'Our unique approach is what sets the outcome apart.',
-  industry: (e) => `How we ship growth for ${e.title.toLowerCase()} — and what sets it apart.`,
-  capability: () => 'Our unique approach is what sets this discipline apart.',
-};
-
 export const buildNarrativeBlocks = (
-  entry: DetailEntry
+  entry: DetailEntry,
+  t: TFunction
 ): { about: NarrativeBlock; approach: NarrativeBlock } => {
+  const groupKey = kindGroupKey(entry.kind);
+  const localizedTitle = localizedEntryTitle(entry, t);
+
   const aboutBody =
-    entry.longBody[0] ||
-    entry.description ||
-    'A healthcare growth engagement engineered around revenue-accountable outcomes, not vanity metrics.';
+    t(`ourWork.${groupKey}.${entry.slug}.longBody.0`, { defaultValue: '' }) ||
+    t(`ourWork.${groupKey}.${entry.slug}.description`, entry.description) ||
+    t('ourWork.detail.narrative.fallbackAboutBody');
   const approachBody =
-    entry.longBody[1] ||
-    entry.longBody[0] ||
-    entry.description ||
-    'A documented, repeatable playbook that puts patients first and ties every dollar of spend back to chair-time and revenue.';
+    t(`ourWork.${groupKey}.${entry.slug}.longBody.1`, { defaultValue: '' }) ||
+    aboutBody ||
+    t('ourWork.detail.narrative.fallbackApproachBody');
+
+  const aboutHeadline = t(`ourWork.detail.narrative.aboutHeadline.${entry.kind}`, {
+    title: localizedTitle,
+  });
+  const approachHeadline = t(`ourWork.detail.narrative.approachHeadline.${entry.kind}`, {
+    title: localizedTitle,
+  });
+
   return {
     about: {
-      eyebrow: `About this ${entry.kind}`,
-      title: ABOUT_HEADLINE[entry.kind](entry),
+      eyebrow: `${t('ourWork.detail.narrative.aboutEyebrowPrefix')} ${t(
+        `ourWork.detail.kindLabels.${entry.kind}`
+      ).toLowerCase()}`,
+      title: aboutHeadline,
       body: aboutBody,
-      ctaText: 'Learn more',
+      ctaText: t('ourWork.detail.narrative.learnMore'),
       ctaTo: '/our-work',
       image: entry.img,
       imageAlt: '',
     },
     approach: {
-      eyebrow: 'Our approach',
-      title: APPROACH_HEADLINE[entry.kind](entry),
+      eyebrow: t('ourWork.detail.narrative.approachEyebrow'),
+      title: approachHeadline,
       body: approachBody,
-      ctaText: 'About page',
+      ctaText: t('ourWork.detail.narrative.aboutPage'),
       ctaTo: '/about',
       image: entry.img,
       imageAlt: '',

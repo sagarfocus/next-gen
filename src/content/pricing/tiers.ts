@@ -1,3 +1,7 @@
+import { useMemo } from 'react';
+import type { TFunction } from 'i18next';
+import { useTranslation } from 'react-i18next';
+
 export interface Tier {
   featured?: boolean;
   badge?: string;
@@ -16,73 +20,57 @@ export interface Tier {
   notes?: string[];
 }
 
-export const TIERS: Tier[] = [
-  {
-    name: 'Starter Care',
-    amount: '$5,000',
-    period: '/ month',
-    tagline: 'Perfect for elective procedures and high-research patient journeys.',
-    bestFor: 'Single-location clinics ready to build their digital foundation.',
-    ctaLabel: 'Get Started',
-    ctaHref: '/contact',
-    includesLabel: 'Package Includes',
-    includes: [
-      'Advanced SEO (Technical · On-Page · Local · AEO)',
-      'Google My Business Management',
-      'Google Ads (Search + PMax) & Meta Campaigns',
-      'AI Chatbot & Call Tracking Setup',
-      'Monthly Strategy & Performance Reports',
-      'Content Creation & Social Media',
+const readList = (t: TFunction, key: string): string[] => {
+  const raw = t(key, { returnObjects: true }) as unknown;
+  return Array.isArray(raw) ? (raw as string[]) : [];
+};
+
+/** React hook for the three pricing tiers. */
+export function useTiers(): readonly Tier[] {
+  const { t } = useTranslation('pricing');
+  return useMemo(
+    () => [
+      {
+        name: t('tiers.starter.name'),
+        amount: t('tiers.starter.amount'),
+        period: t('tiers.starter.period'),
+        tagline: t('tiers.starter.tagline'),
+        bestFor: t('tiers.starter.bestFor'),
+        ctaLabel: t('tiers.starter.ctaLabel'),
+        ctaHref: '/contact',
+        includesLabel: t('tiers.starter.includesLabel'),
+        includes: readList(t, 'tiers.starter.includes'),
+        notLabel: t('tiers.starter.notLabel'),
+        notIncluded: readList(t, 'tiers.starter.notIncluded'),
+      },
+      {
+        featured: true,
+        badge: t('tiers.growth.badge'),
+        name: t('tiers.growth.name'),
+        amount: t('tiers.growth.amount'),
+        period: t('tiers.growth.period'),
+        tagline: t('tiers.growth.tagline'),
+        bestFor: t('tiers.growth.bestFor'),
+        ctaLabel: t('tiers.growth.ctaLabel'),
+        ctaHref: '/contact',
+        includesLabel: t('tiers.growth.includesLabel'),
+        includes: readList(t, 'tiers.growth.includes'),
+        notLabel: t('tiers.growth.notLabel'),
+        notIncluded: readList(t, 'tiers.growth.notIncluded'),
+      },
+      {
+        name: t('tiers.scale.name'),
+        amount: t('tiers.scale.amount'),
+        tagline: t('tiers.scale.tagline'),
+        bestFor: t('tiers.scale.bestFor'),
+        ctaLabel: t('tiers.scale.ctaLabel'),
+        ctaHref: '/contact',
+        includesLabel: t('tiers.scale.includesLabel'),
+        includes: readList(t, 'tiers.scale.includes'),
+        notesLabel: t('tiers.scale.notesLabel'),
+        notes: readList(t, 'tiers.scale.notes'),
+      },
     ],
-    notLabel: 'Not Included',
-    notIncluded: [
-      'Advanced AI call handling',
-      'Multi-location campaigns',
-      'Custom software development',
-    ],
-  },
-  {
-    featured: true,
-    badge: 'Most Popular',
-    name: 'Growth Pro',
-    amount: '$10,000',
-    period: '/ month',
-    tagline: 'High-acuity, rapid-response systems for immediate-need facilities.',
-    bestFor: 'Clinics ready to scale acquisition fast.',
-    ctaLabel: 'Get Started',
-    ctaHref: '/contact',
-    includesLabel: 'Everything in Starter, plus',
-    includes: [
-      'Full-channel Google Ads (Search · PMax · YouTube · LSA)',
-      'Advanced AI Call Handling & Triage',
-      'Real-Time Insurance Verification Bots',
-      'Priority Support & Rapid SLA Response',
-      'Multi-Location Campaign Orchestration',
-      '24/7 Performance Monitoring',
-      'Dedicated Account Manager',
-    ],
-    notLabel: 'Not Included',
-    notIncluded: ['Custom software development', 'Multi-state network management'],
-  },
-  {
-    name: 'Scale Elite',
-    amount: 'Custom',
-    tagline: 'Comprehensive growth engine for large healthcare networks.',
-    bestFor: 'Multi-location teams needing advanced automation.',
-    ctaLabel: 'Get Started',
-    ctaHref: '/contact',
-    includesLabel: 'Everything in Pro, plus',
-    includes: [
-      'Custom Software Development',
-      'HIPAA-Compliant API Integrations',
-      'Multi-State Network Management',
-      'Advanced Analytics & BI Dashboards',
-      'Custom Automation Workflows',
-      'White-Glove Onboarding',
-      'Dedicated Development Team',
-      'Enterprise SLA & Support',
-    ],
-    notesLabel: 'Pricing Notes',
-    notes: ['Custom-scoped per network size', 'Dedicated implementation lead'],
-  },
-];
+    [t]
+  );
+}

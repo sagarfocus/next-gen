@@ -1,5 +1,6 @@
-import { Fragment, useRef, useState } from 'react';
+import { Fragment, useMemo, useRef, useState } from 'react';
 import type { ReactElement } from 'react';
+import { useTranslation } from 'react-i18next';
 import { ArrowIcon, ClockIcon } from '@/components/icons';
 
 interface Choice {
@@ -217,87 +218,6 @@ const ICON_ARROW_LEFT = (
   </svg>
 );
 
-const FACILITY_CHOICES: Choice[] = [
-  {
-    value: 'Freestanding ER',
-    label: 'Freestanding ER',
-    meta: 'High-acuity / trauma',
-    icon: ICON_BOLT,
-  },
-  { value: 'Urgent Care', label: 'Urgent Care', meta: 'Walk-in volume', icon: ICON_CLOCK },
-  {
-    value: 'Wellness Clinic',
-    label: 'Wellness Clinic',
-    meta: 'Aesthetic / longevity',
-    icon: ICON_HEART,
-  },
-  {
-    value: 'Multi-Specialty',
-    label: 'Multi-Specialty',
-    meta: 'Combined practice',
-    icon: ICON_GRID,
-  },
-];
-
-const SCALE_CHOICES: Choice[] = [
-  { value: '1 Location', label: '1 Location', meta: 'Single-site practice', icon: ICON_PIN },
-  { value: '2 - 5 Locations', label: '2 – 5 Locations', meta: 'Small group', icon: ICON_PIN },
-  {
-    value: '6 - 10 Locations',
-    label: '6 – 10 Locations',
-    meta: 'Mid-size network',
-    icon: ICON_PIN,
-  },
-  { value: '10+ Locations', label: '10+ Locations', meta: 'Enterprise', icon: ICON_PIN },
-];
-
-const BUDGET_CHOICES: Choice[] = [
-  { value: 'Under $5,000', label: 'Under $5,000', meta: 'Starter budget', icon: ICON_DOLLAR },
-  { value: '$5,000 - $15,000', label: '$5K – $15K', meta: 'Growth phase', icon: ICON_DOLLAR },
-  { value: '$15,000 - $50,000', label: '$15K – $50K', meta: 'Scale', icon: ICON_DOLLAR },
-  { value: '$50,000+', label: '$50,000+', meta: 'Enterprise', icon: ICON_DOLLAR },
-];
-
-const GOAL_CHOICES: Choice[] = [
-  {
-    value: 'Increase Call Volume',
-    label: 'Increase Call Volume',
-    meta: 'More patient inquiries',
-    icon: ICON_PHONE,
-  },
-  {
-    value: 'Reduce Front-Desk Load',
-    label: 'Reduce Front-Desk Load',
-    meta: 'AI intake automation',
-    icon: ICON_LOCK,
-  },
-  {
-    value: 'Improve Map Rankings',
-    label: 'Improve Map Rankings',
-    meta: 'Local pack visibility',
-    icon: ICON_MAP,
-  },
-  {
-    value: 'Automate Reviews',
-    label: 'Automate Reviews',
-    meta: 'Reputation management',
-    icon: ICON_STAR,
-  },
-  {
-    value: 'Implement AI Scheduling',
-    label: 'AI Scheduling',
-    meta: 'Automated booking',
-    icon: ICON_CALENDAR,
-  },
-  {
-    value: 'Lower Cost Per Acquisition',
-    label: 'Lower Cost Per Acquisition',
-    meta: 'Better ROI on spend',
-    icon: ICON_CHART,
-  },
-];
-
-const STEP_LABELS = ['Facility', 'Scale', 'Budget', 'Goals', 'Contact'];
 const TOTAL_STEPS = 5;
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -325,6 +245,7 @@ const ChoiceButton = ({
 );
 
 const QuoteWizard = () => {
+  const { t } = useTranslation('contact');
   const [step, setStep] = useState(1);
   const [submitted, setSubmitted] = useState(false);
   const [data, setData] = useState<FormData>({
@@ -336,6 +257,149 @@ const QuoteWizard = () => {
     email: '',
   });
   const sectionRef = useRef<HTMLDivElement>(null);
+
+  const stepLabels = useMemo(
+    () => [
+      t('quote.stepLabels.facility'),
+      t('quote.stepLabels.scale'),
+      t('quote.stepLabels.budget'),
+      t('quote.stepLabels.goals'),
+      t('quote.stepLabels.contact'),
+    ],
+    [t]
+  );
+
+  const facilityChoices: Choice[] = useMemo(
+    () => [
+      {
+        value: 'Freestanding ER',
+        label: t('quote.steps.facility.choices.fser.label'),
+        meta: t('quote.steps.facility.choices.fser.meta'),
+        icon: ICON_BOLT,
+      },
+      {
+        value: 'Urgent Care',
+        label: t('quote.steps.facility.choices.urgent.label'),
+        meta: t('quote.steps.facility.choices.urgent.meta'),
+        icon: ICON_CLOCK,
+      },
+      {
+        value: 'Wellness Clinic',
+        label: t('quote.steps.facility.choices.wellness.label'),
+        meta: t('quote.steps.facility.choices.wellness.meta'),
+        icon: ICON_HEART,
+      },
+      {
+        value: 'Multi-Specialty',
+        label: t('quote.steps.facility.choices.multi.label'),
+        meta: t('quote.steps.facility.choices.multi.meta'),
+        icon: ICON_GRID,
+      },
+    ],
+    [t]
+  );
+
+  const scaleChoices: Choice[] = useMemo(
+    () => [
+      {
+        value: '1 Location',
+        label: t('quote.steps.scale.choices.single.label'),
+        meta: t('quote.steps.scale.choices.single.meta'),
+        icon: ICON_PIN,
+      },
+      {
+        value: '2 - 5 Locations',
+        label: t('quote.steps.scale.choices.small.label'),
+        meta: t('quote.steps.scale.choices.small.meta'),
+        icon: ICON_PIN,
+      },
+      {
+        value: '6 - 10 Locations',
+        label: t('quote.steps.scale.choices.mid.label'),
+        meta: t('quote.steps.scale.choices.mid.meta'),
+        icon: ICON_PIN,
+      },
+      {
+        value: '10+ Locations',
+        label: t('quote.steps.scale.choices.enterprise.label'),
+        meta: t('quote.steps.scale.choices.enterprise.meta'),
+        icon: ICON_PIN,
+      },
+    ],
+    [t]
+  );
+
+  const budgetChoices: Choice[] = useMemo(
+    () => [
+      {
+        value: 'Under $5,000',
+        label: t('quote.steps.budget.choices.under5k.label'),
+        meta: t('quote.steps.budget.choices.under5k.meta'),
+        icon: ICON_DOLLAR,
+      },
+      {
+        value: '$5,000 - $15,000',
+        label: t('quote.steps.budget.choices.growth.label'),
+        meta: t('quote.steps.budget.choices.growth.meta'),
+        icon: ICON_DOLLAR,
+      },
+      {
+        value: '$15,000 - $50,000',
+        label: t('quote.steps.budget.choices.scale.label'),
+        meta: t('quote.steps.budget.choices.scale.meta'),
+        icon: ICON_DOLLAR,
+      },
+      {
+        value: '$50,000+',
+        label: t('quote.steps.budget.choices.enterprise.label'),
+        meta: t('quote.steps.budget.choices.enterprise.meta'),
+        icon: ICON_DOLLAR,
+      },
+    ],
+    [t]
+  );
+
+  const goalChoices: Choice[] = useMemo(
+    () => [
+      {
+        value: 'Increase Call Volume',
+        label: t('quote.steps.goals.choices.callVolume.label'),
+        meta: t('quote.steps.goals.choices.callVolume.meta'),
+        icon: ICON_PHONE,
+      },
+      {
+        value: 'Reduce Front-Desk Load',
+        label: t('quote.steps.goals.choices.frontDesk.label'),
+        meta: t('quote.steps.goals.choices.frontDesk.meta'),
+        icon: ICON_LOCK,
+      },
+      {
+        value: 'Improve Map Rankings',
+        label: t('quote.steps.goals.choices.maps.label'),
+        meta: t('quote.steps.goals.choices.maps.meta'),
+        icon: ICON_MAP,
+      },
+      {
+        value: 'Automate Reviews',
+        label: t('quote.steps.goals.choices.reviews.label'),
+        meta: t('quote.steps.goals.choices.reviews.meta'),
+        icon: ICON_STAR,
+      },
+      {
+        value: 'Implement AI Scheduling',
+        label: t('quote.steps.goals.choices.scheduling.label'),
+        meta: t('quote.steps.goals.choices.scheduling.meta'),
+        icon: ICON_CALENDAR,
+      },
+      {
+        value: 'Lower Cost Per Acquisition',
+        label: t('quote.steps.goals.choices.cpa.label'),
+        meta: t('quote.steps.goals.choices.cpa.meta'),
+        icon: ICON_CHART,
+      },
+    ],
+    [t]
+  );
 
   const setSingle = (key: 'facility' | 'scale' | 'budget') => (value: string) => {
     setData((d) => ({ ...d, [key]: value }));
@@ -372,14 +436,14 @@ const QuoteWizard = () => {
   };
 
   const counter = String(step).padStart(2, '0');
-  const nextLabel = step === TOTAL_STEPS ? 'Submit Quote Request' : 'Continue';
+  const nextLabel = step === TOTAL_STEPS ? t('quote.actions.submit') : t('quote.actions.continue');
 
   return (
     <section ref={sectionRef} className="ct-quote" aria-labelledby="quote-title">
       <div className="container-shell">
         <div className="ct-quote-card reveal d3">
-          <div className="ct-progress" aria-label="Quote progress">
-            {STEP_LABELS.map((label, i) => {
+          <div className="ct-progress" aria-label={t('quote.progressAria')}>
+            {stepLabels.map((label, i) => {
               const stepNum = i + 1;
               const cls = [
                 'ct-progress-step',
@@ -402,16 +466,13 @@ const QuoteWizard = () => {
 
           {/* STEP 1: Facility */}
           <div className={`ct-step${step === 1 ? ' is-active' : ''}`}>
-            <span className="ct-step-tag">Step 01 - Facility Type</span>
+            <span className="ct-step-tag">{t('quote.steps.facility.tag')}</span>
             <h2 id="quote-title" className="ct-step-title">
-              Which type of facility do you operate?
+              {t('quote.steps.facility.title')}
             </h2>
-            <p className="ct-step-sub">
-              Each specialty has its own patient psychology and acquisition dynamics. We&rsquo;ll
-              match you with the right playbook.
-            </p>
+            <p className="ct-step-sub">{t('quote.steps.facility.sub')}</p>
             <div className="ct-choices cols-4" role="radiogroup">
-              {FACILITY_CHOICES.map((c) => (
+              {facilityChoices.map((c) => (
                 <ChoiceButton
                   key={c.value}
                   choice={c}
@@ -424,14 +485,11 @@ const QuoteWizard = () => {
 
           {/* STEP 2: Scale */}
           <div className={`ct-step${step === 2 ? ' is-active' : ''}`}>
-            <span className="ct-step-tag">Step 02 - Scale Metrics</span>
-            <h2 className="ct-step-title">How many physical locations do you operate?</h2>
-            <p className="ct-step-sub">
-              Scale changes everything - from local SEO strategy to multi-location reputation
-              systems.
-            </p>
+            <span className="ct-step-tag">{t('quote.steps.scale.tag')}</span>
+            <h2 className="ct-step-title">{t('quote.steps.scale.title')}</h2>
+            <p className="ct-step-sub">{t('quote.steps.scale.sub')}</p>
             <div className="ct-choices cols-4" role="radiogroup">
-              {SCALE_CHOICES.map((c) => (
+              {scaleChoices.map((c) => (
                 <ChoiceButton
                   key={c.value}
                   choice={c}
@@ -444,14 +502,11 @@ const QuoteWizard = () => {
 
           {/* STEP 3: Budget */}
           <div className={`ct-step${step === 3 ? ' is-active' : ''}`}>
-            <span className="ct-step-tag">Step 03 - Financial Qualifier</span>
-            <h2 className="ct-step-title">Current or projected monthly ad spend?</h2>
-            <p className="ct-step-sub">
-              This helps us scope the right channel mix and forecast realistic patient acquisition
-              velocity for your practice.
-            </p>
+            <span className="ct-step-tag">{t('quote.steps.budget.tag')}</span>
+            <h2 className="ct-step-title">{t('quote.steps.budget.title')}</h2>
+            <p className="ct-step-sub">{t('quote.steps.budget.sub')}</p>
             <div className="ct-choices cols-4" role="radiogroup">
-              {BUDGET_CHOICES.map((c) => (
+              {budgetChoices.map((c) => (
                 <ChoiceButton
                   key={c.value}
                   choice={c}
@@ -464,14 +519,11 @@ const QuoteWizard = () => {
 
           {/* STEP 4: Goals */}
           <div className={`ct-step${step === 4 ? ' is-active' : ''}`}>
-            <span className="ct-step-tag">Step 04 - Primary Objectives</span>
-            <h2 className="ct-step-title">What are your main growth objectives?</h2>
-            <p className="ct-step-sub">
-              Select all that apply - we&rsquo;ll prioritize the right tactics in your custom
-              roadmap.
-            </p>
+            <span className="ct-step-tag">{t('quote.steps.goals.tag')}</span>
+            <h2 className="ct-step-title">{t('quote.steps.goals.title')}</h2>
+            <p className="ct-step-sub">{t('quote.steps.goals.sub')}</p>
             <div className="ct-choices cols-3" role="group">
-              {GOAL_CHOICES.map((c) => (
+              {goalChoices.map((c) => (
                 <ChoiceButton
                   key={c.value}
                   choice={c}
@@ -484,22 +536,19 @@ const QuoteWizard = () => {
 
           {/* STEP 5: Contact */}
           <div className={`ct-step${step === 5 ? ' is-active' : ''}`}>
-            <span className="ct-step-tag">Step 05 - Your Contact</span>
-            <h2 className="ct-step-title">Where should we send your custom roadmap?</h2>
-            <p className="ct-step-sub">
-              We&rsquo;ll send your tailored growth plan and pricing within 4 business hours -
-              straight to your inbox.
-            </p>
+            <span className="ct-step-tag">{t('quote.steps.contact.tag')}</span>
+            <h2 className="ct-step-title">{t('quote.steps.contact.title')}</h2>
+            <p className="ct-step-sub">{t('quote.steps.contact.sub')}</p>
             <div className="ct-fields">
               <div className="ct-field">
                 <label className="ct-label" htmlFor="ct-name">
-                  Full Name <span className="req">*</span>
+                  {t('quote.steps.contact.nameLabel')} <span className="req">{t('quote.steps.contact.required')}</span>
                 </label>
                 <input
                   className="ct-input"
                   id="ct-name"
                   type="text"
-                  placeholder="Dr. Jane Smith"
+                  placeholder={t('quote.steps.contact.namePlaceholder')}
                   autoComplete="name"
                   value={data.name}
                   onChange={(e) => setData((d) => ({ ...d, name: e.target.value }))}
@@ -507,13 +556,13 @@ const QuoteWizard = () => {
               </div>
               <div className="ct-field">
                 <label className="ct-label" htmlFor="ct-email">
-                  Work Email <span className="req">*</span>
+                  {t('quote.steps.contact.emailLabel')} <span className="req">{t('quote.steps.contact.required')}</span>
                 </label>
                 <input
                   className="ct-input"
                   id="ct-email"
                   type="email"
-                  placeholder="jane@yourpractice.com"
+                  placeholder={t('quote.steps.contact.emailPlaceholder')}
                   autoComplete="email"
                   value={data.email}
                   onChange={(e) => setData((d) => ({ ...d, email: e.target.value }))}
@@ -538,18 +587,15 @@ const QuoteWizard = () => {
                 <polyline points="20 6 9 17 4 12" />
               </svg>
             </div>
-            <h3>Your roadmap is on the way.</h3>
-            <p>
-              We&rsquo;ve received your details and will respond within 4 business hours with a
-              custom marketing plan tailored to your practice.
-            </p>
+            <h3>{t('quote.success.title')}</h3>
+            <p>{t('quote.success.body')}</p>
           </div>
 
           {/* Action footer */}
           {!submitted && (
             <div className="ct-actions">
               <span className="ct-step-counter">
-                <strong>{counter}</strong> / 05 Steps
+                <strong>{counter}</strong> {t('quote.actions.stepsSuffix')}
               </span>
               <div className="ct-actions-buttons">
                 <button
@@ -559,7 +605,7 @@ const QuoteWizard = () => {
                   onClick={handleBack}
                 >
                   {ICON_ARROW_LEFT}
-                  Back
+                  {t('quote.actions.back')}
                 </button>
                 <button type="button" className="ct-next" disabled={!isValid} onClick={handleNext}>
                   <span>{nextLabel}</span>

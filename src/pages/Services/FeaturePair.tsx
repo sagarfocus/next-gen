@@ -1,5 +1,10 @@
 import { Link } from 'react-router-dom';
-import { ROW_1, ROW_2, type PairCard } from '@/content/services/feature-pairs';
+import { useTranslation } from 'react-i18next';
+import {
+  useFeaturePairsRow1,
+  useFeaturePairsRow2,
+  type PairCard,
+} from '@/content/services/feature-pairs';
 
 const PairArrow = () => (
   <svg
@@ -18,47 +23,49 @@ const PairArrow = () => (
   </svg>
 );
 
-const renderCard = ({ ariaId, bg, tag, title, desc, to }: PairCard) => (
-  <Link key={ariaId} to={to} className="pair-card" aria-labelledby={ariaId}>
-    <div className="pair-bg">{bg}</div>
-    <div className="pair-overlay" />
-    <span className="reg-w tl" />
-    <span className="reg-w tr" />
-    <div className="pair-content">
-      <span className="pair-tag">{tag}</span>
-      <div className="pair-bottom">
-        <h3 id={ariaId} className="pair-title">
-          {title}
-        </h3>
-        <p className="pair-desc">{desc}</p>
-        <span className="pair-cta">
-          Learn More
-          <PairArrow />
-        </span>
-      </div>
-    </div>
-  </Link>
-);
-
 const FeaturePair = () => {
+  const { t } = useTranslation('services');
+  const row1 = useFeaturePairsRow1();
+  const row2 = useFeaturePairsRow2();
+  const learnMore = t('featurePairs.learnMore');
+
+  const renderCard = ({ ariaId, bg, tag, title, desc, to }: PairCard) => (
+    <Link key={ariaId} to={to} className="pair-card" aria-labelledby={ariaId}>
+      <div className="pair-bg">{bg}</div>
+      <div className="pair-overlay" />
+      <span className="reg-w tl" />
+      <span className="reg-w tr" />
+      <div className="pair-content">
+        <span className="pair-tag">{tag}</span>
+        <div className="pair-bottom">
+          <h3 id={ariaId} className="pair-title">
+            {title}
+          </h3>
+          <p className="pair-desc">{desc}</p>
+          <span className="pair-cta">
+            {learnMore}
+            <PairArrow />
+          </span>
+        </div>
+      </div>
+    </Link>
+  );
+
   return (
     <section className="pair-section" id="local-aeo" aria-labelledby="pair-title">
       <div className="container-shell">
         <div className="pair-head">
-          <span className="pair-eyebrow">Local SEO &amp; Visibility</span>
+          <span className="pair-eyebrow">{t('featurePairs.indexEyebrow')}</span>
           <h2 id="pair-title" className="pair-h2">
-            Own your local search - from map pack to AI Overviews.
+            {t('featurePairs.indexTitle')}
           </h2>
-          <p className="pair-sub">
-            A four-pillar approach to local search visibility, structured data, and AI-driven
-            discovery for your healthcare practice.
-          </p>
+          <p className="pair-sub">{t('featurePairs.indexSub')}</p>
         </div>
 
         <div className="pair-grid" style={{ marginBottom: 'clamp(20px, 2.5vw, 32px)' }}>
-          {ROW_1.map(renderCard)}
+          {row1.map(renderCard)}
         </div>
-        <div className="pair-grid">{ROW_2.map(renderCard)}</div>
+        <div className="pair-grid">{row2.map(renderCard)}</div>
       </div>
     </section>
   );

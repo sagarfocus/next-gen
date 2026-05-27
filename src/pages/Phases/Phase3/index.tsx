@@ -1,4 +1,5 @@
 import '../../../styles/phase3.css';
+import { useTranslation } from 'react-i18next';
 import Hero from './Hero';
 import Body from './Body';
 import Arc from './Arc';
@@ -35,26 +36,29 @@ const BREADCRUMB_SCHEMA = buildBreadcrumbList([
   { name: 'Phase 3 — Launch & Accelerate' },
 ]);
 
-const Phase3 = () => (
-  <main className="ph3-root">
-    <Seo
-      title="Phase 3: Launch & Accelerate — Day 01 to Day 30 Live Ops"
-      description="Thirty days from kickoff to a compounding patient-acquisition pipeline — launch, optimization, and the channel handoffs that compound through year one."
-      path="/methodology/phase-3"
-      schema={[SERVICE_SCHEMA, BREADCRUMB_SCHEMA]}
-    />
+const Phase3 = () => {
+  const { t } = useTranslation(['pages']);
+  return (
+    <main className="ph3-root">
+      <Seo
+        title={t('pages:phases.phase3.seo.title')}
+        description={t('pages:phases.phase3.seo.description')}
+        path="/methodology/phase-3"
+        schema={[SERVICE_SCHEMA, BREADCRUMB_SCHEMA]}
+      />
 
-    <div className="ph3-wrap">
-      <Hero />
-      <Body />
-      <Arc />
-      <Stats />
-      <Timeline />
-      <Channels />
-      <Handoff />
-      <End />
-    </div>
-  </main>
-);
+      <div className="ph3-wrap">
+        <Hero />
+        <Body />
+        <Arc />
+        <Stats />
+        <Timeline />
+        <Channels />
+        <Handoff />
+        <End />
+      </div>
+    </main>
+  );
+};
 
 export default Phase3;

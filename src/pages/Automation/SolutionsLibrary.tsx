@@ -1,15 +1,14 @@
 import type { ReactElement } from 'react';
+import { useTranslation } from 'react-i18next';
 
 interface Solution {
-  title: string;
-  desc: string;
+  key: string;
   icon: ReactElement;
 }
 
 const SOLUTIONS: Solution[] = [
   {
-    title: 'AI Chatbot',
-    desc: 'GPT-powered patient qualification and lead capture, 24/7.',
+    key: 'aiChatbot',
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -29,8 +28,7 @@ const SOLUTIONS: Solution[] = [
     ),
   },
   {
-    title: 'Patient Intake',
-    desc: 'From form to EHR record in seconds, with insurance pre-checked.',
+    key: 'patientIntake',
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -47,8 +45,7 @@ const SOLUTIONS: Solution[] = [
     ),
   },
   {
-    title: 'Review Collection',
-    desc: 'Sentiment-routed Google review requests that protect your reputation.',
+    key: 'reviewCollection',
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -63,8 +60,7 @@ const SOLUTIONS: Solution[] = [
     ),
   },
   {
-    title: 'Appointment Reminders',
-    desc: '24h and 2h SMS + email reminders that cut no-shows by up to 40%.',
+    key: 'appointmentReminders',
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -81,8 +77,7 @@ const SOLUTIONS: Solution[] = [
     ),
   },
   {
-    title: 'Insurance Verification',
-    desc: 'Real-time eligibility, copay lookup, and pre-auth submission.',
+    key: 'insuranceVerification',
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -98,8 +93,7 @@ const SOLUTIONS: Solution[] = [
     ),
   },
   {
-    title: 'Patient Recall Campaigns',
-    desc: 'Automated win-back sequences for lapsed and overdue patients.',
+    key: 'patientRecall',
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -116,8 +110,7 @@ const SOLUTIONS: Solution[] = [
     ),
   },
   {
-    title: 'Social Media Posting',
-    desc: 'AI-generated captions auto-posted to Facebook and Instagram daily.',
+    key: 'socialPosting',
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -133,8 +126,7 @@ const SOLUTIONS: Solution[] = [
     ),
   },
   {
-    title: 'Reporting Dashboards',
-    desc: 'Live dashboards that pull from Ads, GA4, and your CRM in one place.',
+    key: 'reportingDashboards',
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -154,32 +146,32 @@ const SOLUTIONS: Solution[] = [
 ];
 
 const SolutionsLibrary = () => {
+  const { t } = useTranslation(['automation']);
   return (
     <section className="solutions" aria-labelledby="sol-title">
       <div className="container-shell">
         <div className="sol-head reveal">
           <div className="sol-head-left">
-            <div className="section-eyebrow">Solution library</div>
+            <div className="section-eyebrow">{t('automation:solutionsLibrary.eyebrow')}</div>
             <h2 className="section-title" id="sol-title">
-              Explore all automation solutions
+              {t('automation:solutionsLibrary.title')}
             </h2>
           </div>
-          <p className="sol-sub">
-            Detailed guides for each automation workflow we offer. Pick a category to see the full
-            template, setup steps, and integration map.
-          </p>
+          <p className="sol-sub">{t('automation:solutionsLibrary.subtitle')}</p>
         </div>
 
         <div className="sol-grid reveal d2">
           {SOLUTIONS.map((sol) => (
-            <article key={sol.title} className="sol-card">
+            <article key={sol.key} className="sol-card">
               <div className="sol-card-top">
                 <span className="sol-icon" aria-hidden="true">
                   {sol.icon}
                 </span>
               </div>
-              <h3 className="sol-title">{sol.title}</h3>
-              <p className="sol-desc">{sol.desc}</p>
+              <h3 className="sol-title">
+                {t(`automation:solutionsLibrary.items.${sol.key}.title`)}
+              </h3>
+              <p className="sol-desc">{t(`automation:solutionsLibrary.items.${sol.key}.desc`)}</p>
             </article>
           ))}
         </div>

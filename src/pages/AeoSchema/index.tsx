@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import Hero from './Hero';
 import Shifts from './Shifts';
 import Coverage from './Coverage';
@@ -27,26 +28,29 @@ const SERVICE_SCHEMA = {
   },
 };
 
-const BREADCRUMB_SCHEMA = buildBreadcrumbList([
-  { name: 'Home', path: '/' },
-  { name: 'AEO & Schema' },
-]);
+const AeoSchema = () => {
+  const { t } = useTranslation('pages');
+  const breadcrumbSchema = buildBreadcrumbList([
+    { name: 'Home', path: '/' },
+    { name: t('pages:aeoSchema.breadcrumb.current') },
+  ]);
 
-const AeoSchema = () => (
-  <>
-    <Seo
-      title="AEO & Schema Markup for Healthcare — Get Cited in AI Overviews"
-      description="Schema markup and editorial structure built for AI Overviews, voice search, and conversational query surfaces. A working programme, not a one-time SEO retrofit."
-      path="/aeo-schema"
-      schema={[SERVICE_SCHEMA, BREADCRUMB_SCHEMA]}
-    />
+  return (
+    <>
+      <Seo
+        title={t('pages:aeoSchema.seo.title')}
+        description={t('pages:aeoSchema.seo.description')}
+        path="/aeo-schema"
+        schema={[SERVICE_SCHEMA, breadcrumbSchema]}
+      />
 
-    <Hero />
-    <Shifts />
-    <Coverage />
-    <ReadinessCriteria />
-    <Closing />
-  </>
-);
+      <Hero />
+      <Shifts />
+      <Coverage />
+      <ReadinessCriteria />
+      <Closing />
+    </>
+  );
+};
 
 export default AeoSchema;

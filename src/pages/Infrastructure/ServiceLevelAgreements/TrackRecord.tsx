@@ -1,44 +1,52 @@
+import { useTranslation } from 'react-i18next';
 import { RECORDS } from './data';
 
-const TrackRecord = () => (
-  <section className="slax-record">
-    <div className="gt-shell">
-      <header className="gtx-sec-head">
-        <span className="gtx-eyebrow">
-          <span className="gtx-eyebrow-dot" aria-hidden="true" />
-          Track Record
-        </span>
-        <h2 className="gtx-sec-title">
-          The numbers we <em>held to.</em>
-        </h2>
-        <p className="gtx-sec-sub">
-          Trailing 12 months across the active book of healthcare engagements. Independently
-          verified as part of our annual security review.
+const TrackRecord = () => {
+  const { t } = useTranslation(['pages']);
+  return (
+    <section className="slax-record">
+      <div className="gt-shell">
+        <header className="gtx-sec-head">
+          <span className="gtx-eyebrow">
+            <span className="gtx-eyebrow-dot" aria-hidden="true" />
+            {t('pages:infrastructure.serviceLevelAgreements.trackRecord.eyebrow')}
+          </span>
+          <h2 className="gtx-sec-title">
+            {t('pages:infrastructure.serviceLevelAgreements.trackRecord.title')}{' '}
+            <em>{t('pages:infrastructure.serviceLevelAgreements.trackRecord.titleEm')}</em>
+          </h2>
+          <p className="gtx-sec-sub">
+            {t('pages:infrastructure.serviceLevelAgreements.trackRecord.sub')}
+          </p>
+        </header>
+
+        <div className="slax-record-grid">
+          {RECORDS.map((r, i) => {
+            const base = `pages:infrastructure.serviceLevelAgreements.trackRecord.items.${r.i18nKey}`;
+            return (
+              <article
+                key={r.i18nKey}
+                className={`slax-record-card ${i === 0 ? 'is-feature' : ''}`}
+              >
+                <span className="slax-record-eyebrow">{t(`${base}.eyebrow`)}</span>
+                <div className="slax-record-num">{t(`${base}.value`)}</div>
+                <div className={`slax-record-delta is-${r.delta}`}>
+                  {r.delta === 'up' && <span aria-hidden="true">↑ </span>}
+                  {r.delta === 'down' && <span aria-hidden="true">↓ </span>}
+                  {t(`${base}.target`)}
+                </div>
+                <p className="slax-record-note">{t(`${base}.note`)}</p>
+              </article>
+            );
+          })}
+        </div>
+
+        <p className="slax-record-footnote">
+          {t('pages:infrastructure.serviceLevelAgreements.trackRecord.footnote')}
         </p>
-      </header>
-
-      <div className="slax-record-grid">
-        {RECORDS.map((r, i) => (
-          <article key={r.eyebrow} className={`slax-record-card ${i === 0 ? 'is-feature' : ''}`}>
-            <span className="slax-record-eyebrow">{r.eyebrow}</span>
-            <div className="slax-record-num">{r.value}</div>
-            <div className={`slax-record-delta is-${r.delta}`}>
-              {r.delta === 'up' && <span aria-hidden="true">↑ </span>}
-              {r.delta === 'down' && <span aria-hidden="true">↓ </span>}
-              {r.target}
-            </div>
-            <p className="slax-record-note">{r.note}</p>
-          </article>
-        ))}
       </div>
-
-      <p className="slax-record-footnote">
-        Methodology: medians computed across all qualifying incidents in the trailing 12-month
-        window. Uptime measured by independent third-party monitor. Zero compliance escalations
-        covers all HIPAA-covered engagements.
-      </p>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 export default TrackRecord;

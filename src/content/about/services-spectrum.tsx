@@ -1,4 +1,6 @@
+import { useMemo } from 'react';
 import type { ReactElement } from 'react';
+import { useTranslation } from 'react-i18next';
 import whatWeDoImg from '@/assets/nextgen-image/whatwedoimg.png';
 import whatWeDoImg1 from '@/assets/nextgen-image/whatwedoimg1.png';
 
@@ -19,12 +21,128 @@ export interface Pillar {
   metric: { value: string; label: string };
 }
 
-export const PILLARS: Pillar[] = [
+interface FeatureSpec {
+  i18nKey: string;
+  icon: ReactElement;
+}
+
+interface PillarSpec {
+  i18nKey: 'acquisition' | 'infrastructure';
+  icon: ReactElement;
+  art: ReactElement;
+  image?: string;
+  features: readonly FeatureSpec[];
+}
+
+const ACQUISITION_FEATURES: readonly FeatureSpec[] = [
   {
-    tag: 'Digital Acquisition',
-    title: 'Patient Acquisition Channels',
+    i18nKey: 'mapPack',
+    icon: (
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth={1.8}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z" />
+        <circle cx="12" cy="10" r="3" />
+      </svg>
+    ),
+  },
+  {
+    i18nKey: 'paidMedia',
+    icon: (
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth={1.8}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+      </svg>
+    ),
+  },
+  {
+    i18nKey: 'funnels',
+    icon: (
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth={1.8}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <circle cx="18" cy="5" r="3" />
+        <circle cx="6" cy="12" r="3" />
+        <circle cx="18" cy="19" r="3" />
+        <line x1="8.59" y1="13.51" x2="15.42" y2="17.49" />
+        <line x1="15.41" y1="6.51" x2="8.59" y2="10.49" />
+      </svg>
+    ),
+  },
+];
+
+const INFRA_FEATURES: readonly FeatureSpec[] = [
+  {
+    i18nKey: 'websiteDesign',
+    icon: (
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth={1.8}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <rect x="2" y="3" width="20" height="14" rx="2" />
+        <line x1="8" y1="21" x2="16" y2="21" />
+        <line x1="12" y1="17" x2="12" y2="21" />
+      </svg>
+    ),
+  },
+  {
+    i18nKey: 'brand',
+    icon: (
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth={1.8}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <path d="M12 2l2.3 5.3L20 9l-4 4.2L17 20l-5-2.8L7 20l1-6.8L4 9l5.7-1.7L12 2z" />
+      </svg>
+    ),
+  },
+  {
+    i18nKey: 'analytics',
+    icon: (
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth={1.8}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <line x1="18" y1="20" x2="18" y2="10" />
+        <line x1="12" y1="20" x2="12" y2="4" />
+        <line x1="6" y1="20" x2="6" y2="14" />
+      </svg>
+    ),
+  },
+];
+
+const PILLAR_SPECS: readonly PillarSpec[] = [
+  {
+    i18nKey: 'acquisition',
     image: whatWeDoImg,
-    text: 'Get found by patients actively searching for care in your area - and convert that intent into booked appointments across every channel that moves the needle.',
     icon: (
       <svg
         width={26}
@@ -72,68 +190,11 @@ export const PILLARS: Pillar[] = [
         </g>
       </svg>
     ),
-    features: [
-      {
-        icon: (
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth={1.8}
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z" />
-            <circle cx="12" cy="10" r="3" />
-          </svg>
-        ),
-        title: 'Own the Local Map Pack',
-        desc: 'Rank in Google\'s top-3 local results for high-intent searches like "urgent care near me" - where 76% of bookings come from.',
-      },
-      {
-        icon: (
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth={1.8}
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
-          </svg>
-        ),
-        title: 'HIPAA-Aware Paid Media',
-        desc: 'Google Ads, Meta, and YouTube campaigns engineered for healthcare - compliant tracking, real ROAS, no wasted spend.',
-      },
-      {
-        icon: (
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth={1.8}
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <circle cx="18" cy="5" r="3" />
-            <circle cx="6" cy="12" r="3" />
-            <circle cx="18" cy="19" r="3" />
-            <line x1="8.59" y1="13.51" x2="15.42" y2="17.49" />
-            <line x1="15.41" y1="6.51" x2="8.59" y2="10.49" />
-          </svg>
-        ),
-        title: 'Multi-Channel Patient Funnels',
-        desc: 'Connect search, social, email, and SMS into one measurable acquisition system that follows the patient journey end-to-end.',
-      },
-    ],
-    metric: { value: '4.1×', label: 'Median ROAS across healthcare clients' },
+    features: ACQUISITION_FEATURES,
   },
   {
-    tag: 'Infrastructure & Brand',
-    title: 'Operational Foundation',
+    i18nKey: 'infrastructure',
     image: whatWeDoImg1,
-    text: 'The foundation every modern practice needs - a HIPAA-compliant website, a trusted clinical brand, and analytics that prove what works.',
     icon: (
       <svg
         width={26}
@@ -216,60 +277,35 @@ export const PILLARS: Pillar[] = [
         </g>
       </svg>
     ),
-    features: [
-      {
-        icon: (
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth={1.8}
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <rect x="2" y="3" width="20" height="14" rx="2" />
-            <line x1="8" y1="21" x2="16" y2="21" />
-            <line x1="12" y1="17" x2="12" y2="21" />
-          </svg>
-        ),
-        title: 'Booking-First Website Design',
-        desc: 'HIPAA-compliant, conversion-engineered medical websites where every page leads patients toward a scheduled appointment.',
-      },
-      {
-        icon: (
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth={1.8}
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <path d="M12 2l2.3 5.3L20 9l-4 4.2L17 20l-5-2.8L7 20l1-6.8L4 9l5.7-1.7L12 2z" />
-          </svg>
-        ),
-        title: 'Healthcare Brand Identity',
-        desc: 'Visual identity, voice, and tone systems built to read as competent and current across signage, screen, and exam room.',
-      },
-      {
-        icon: (
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth={1.8}
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <line x1="18" y1="20" x2="18" y2="10" />
-            <line x1="12" y1="20" x2="12" y2="4" />
-            <line x1="6" y1="20" x2="6" y2="14" />
-          </svg>
-        ),
-        title: 'Revenue-Tied Analytics',
-        desc: 'Real-time dashboards that connect every marketing dollar to booked visits, payer mix, and patient lifetime value.',
-      },
-    ],
-    metric: { value: '+38%', label: 'Average lift in booking completion' },
+    features: INFRA_FEATURES,
   },
 ];
+
+/** React hook for the About services-spectrum pillars. */
+export function usePillars(): readonly Pillar[] {
+  const { t } = useTranslation('about');
+  return useMemo(
+    () =>
+      PILLAR_SPECS.map((spec) => {
+        const base = `spectrum.pillars.${spec.i18nKey}`;
+        return {
+          tag: t(`${base}.tag`),
+          title: t(`${base}.title`),
+          text: t(`${base}.text`),
+          icon: spec.icon,
+          art: spec.art,
+          image: spec.image,
+          features: spec.features.map((f) => ({
+            icon: f.icon,
+            title: t(`${base}.features.${f.i18nKey}.title`),
+            desc: t(`${base}.features.${f.i18nKey}.desc`),
+          })),
+          metric: {
+            value: t(`${base}.metricValue`),
+            label: t(`${base}.metricLabel`),
+          },
+        };
+      }),
+    [t]
+  );
+}

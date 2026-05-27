@@ -1,5 +1,6 @@
 import type { ReactElement } from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import NewsThumb from './NewsThumb';
 import { ArrowIcon } from '@/components/icons';
 import { newsBySlug } from './news.data';
@@ -9,119 +10,27 @@ const imgFor = (path: string) => {
   return newsBySlug(slug)?.img;
 };
 
-interface LatestItem {
-  to: string;
-  cat: string;
-  title: string;
-  meta: string;
-}
+const LATEST = [
+  { to: '/healthcare-news/mayo-wearable-heart-monitor', key: 'mayo' },
+  { to: '/healthcare-news/mental-health-coverage-expansion', key: 'mental' },
+  { to: '/healthcare-news/rural-clinics-shared-ehr', key: 'rural' },
+  { to: '/healthcare-news/dental-online-bookings-growth', key: 'dental' },
+  { to: '/healthcare-news/ai-pharmacy-inventory', key: 'pharma' },
+] as const;
 
-interface FeaturedItem {
-  to: string;
-  cat: string;
-  title: string;
-  meta: string;
-}
+const FEATURED_ITEMS = [
+  { to: '/healthcare-news/texas-clinic-n8n-workflows', key: 'n8n' },
+  { to: '/healthcare-news/hipaa-pitfalls-2026', key: 'hipaa' },
+  { to: '/healthcare-news/marketing-stack-standardization', key: 'stack' },
+] as const;
 
-interface PopularItem {
-  to: string;
-  num: string;
-  cat: string;
-  title: string;
-  meta: string;
-}
-
-const LATEST: LatestItem[] = [
-  {
-    to: '/healthcare-news/mayo-wearable-heart-monitor',
-    cat: 'Research',
-    title: 'Mayo Clinic pilots wearable heart-monitor program for high-risk patients',
-    meta: 'Apr 27 · 5 min read',
-  },
-  {
-    to: '/healthcare-news/mental-health-coverage-expansion',
-    cat: 'Insurance',
-    title: 'Major carriers expand mental-health coverage following parity ruling',
-    meta: 'Apr 26 · 6 min read',
-  },
-  {
-    to: '/healthcare-news/rural-clinics-shared-ehr',
-    cat: 'Operations',
-    title: 'Rural clinics partner on shared EHR system to reduce admin overhead',
-    meta: 'Apr 26 · 4 min read',
-  },
-  {
-    to: '/healthcare-news/dental-online-bookings-growth',
-    cat: 'Marketing',
-    title: 'Dental practices report 22% growth in online bookings year-over-year',
-    meta: 'Apr 25 · 5 min read',
-  },
-  {
-    to: '/healthcare-news/ai-pharmacy-inventory',
-    cat: 'Pharmacy',
-    title: 'National chains roll out AI-powered inventory forecasting to cut waste',
-    meta: 'Apr 24 · 4 min read',
-  },
-];
-
-const FEATURED_ITEMS: FeaturedItem[] = [
-  {
-    to: '/healthcare-news/texas-clinic-n8n-workflows',
-    cat: 'Case Study',
-    title: 'How a Texas clinic recaptured 18 hours/week with three N8N workflows',
-    meta: 'Apr 26 · 7 min read',
-  },
-  {
-    to: '/healthcare-news/hipaa-pitfalls-2026',
-    cat: 'Compliance',
-    title: 'Five HIPAA pitfalls every healthcare marketer should know in 2026',
-    meta: 'Apr 25 · 9 min read',
-  },
-  {
-    to: '/healthcare-news/marketing-stack-standardization',
-    cat: 'Tech Stack',
-    title: 'The marketing stack modern practices are quietly standardizing on',
-    meta: 'Apr 23 · 8 min read',
-  },
-];
-
-const POPULAR: PopularItem[] = [
-  {
-    to: '/healthcare-news/patient-reviews-search-weight',
-    num: '01',
-    cat: 'Reputation',
-    title: 'Why patient reviews carry 3× more weight in the 2026 search ranking',
-    meta: '5,213 reads',
-  },
-  {
-    to: '/healthcare-news/ai-front-desks-rise',
-    num: '02',
-    cat: 'Operations',
-    title: 'Inside the rise of AI-powered front desks - and what they replace',
-    meta: '4,082 reads',
-  },
-  {
-    to: '/healthcare-news/compliant-email-drips',
-    num: '03',
-    cat: 'Email',
-    title: 'Compliant email drips that actually convert patients (with examples)',
-    meta: '3,648 reads',
-  },
-  {
-    to: '/healthcare-news/medspa-roas-2026',
-    num: '04',
-    cat: 'Paid Ads',
-    title: 'What healthy ROAS actually looks like for med-spas in 2026',
-    meta: '3,201 reads',
-  },
-  {
-    to: '/healthcare-news/ehr-sms-no-show-reduction',
-    num: '05',
-    cat: 'Automation',
-    title: 'How EHR-connected SMS reminders are cutting no-shows by 40%',
-    meta: '2,945 reads',
-  },
-];
+const POPULAR = [
+  { to: '/healthcare-news/patient-reviews-search-weight', num: '01', key: 'reviews' },
+  { to: '/healthcare-news/ai-front-desks-rise', num: '02', key: 'frontDesks' },
+  { to: '/healthcare-news/compliant-email-drips', num: '03', key: 'email' },
+  { to: '/healthcare-news/medspa-roas-2026', num: '04', key: 'medspa' },
+  { to: '/healthcare-news/ehr-sms-no-show-reduction', num: '05', key: 'sms' },
+] as const;
 
 const FEATURED_MAIN_TO = '/healthcare-news/texas-clinic-n8n-workflows';
 
@@ -160,6 +69,7 @@ const ColumnHead = ({
 );
 
 const NewsThreeColumn = () => {
+  const { t } = useTranslation('pages');
   return (
     <section className="three-col">
       <div className="container-shell">
@@ -167,25 +77,31 @@ const NewsThreeColumn = () => {
           {/* COL 1: Latest */}
           <div className="tc-col">
             <ColumnHead
-              title="Latest News"
+              title={t('healthcareNews.threeCol.latest')}
               to="/blog"
-              linkLabel="All"
+              linkLabel={t('healthcareNews.threeCol.all')}
               icon={<ArrowIcon strokeWidth={2.2} />}
             />
             {LATEST.map((item) => (
               <Link key={item.to} className="latest-item" to={item.to}>
                 <div className="latest-img">
                   <NewsThumb
-                    category={item.cat}
+                    category={t(`healthcareNews.threeCol.latestItems.${item.key}.cat`)}
                     seed={`latest-${item.to}`}
                     aspect="square"
                     image={imgFor(item.to)}
                   />
                 </div>
                 <div>
-                  <span className="latest-cat">{item.cat}</span>
-                  <h3 className="latest-title">{item.title}</h3>
-                  <div className="latest-meta">{item.meta}</div>
+                  <span className="latest-cat">
+                    {t(`healthcareNews.threeCol.latestItems.${item.key}.cat`)}
+                  </span>
+                  <h3 className="latest-title">
+                    {t(`healthcareNews.threeCol.latestItems.${item.key}.title`)}
+                  </h3>
+                  <div className="latest-meta">
+                    {t(`healthcareNews.threeCol.latestItems.${item.key}.meta`)}
+                  </div>
                 </div>
               </Link>
             ))}
@@ -194,46 +110,51 @@ const NewsThreeColumn = () => {
           {/* COL 2: Featured */}
           <div className="tc-col">
             <ColumnHead
-              title="Featured News"
+              title={t('healthcareNews.threeCol.featured')}
               to="/case-studies"
-              linkLabel="All"
+              linkLabel={t('healthcareNews.threeCol.all')}
               icon={<ArrowIcon strokeWidth={2.2} />}
             />
 
             <Link className="featured-main" to={FEATURED_MAIN_TO}>
               <div className="featured-main-img">
                 <NewsThumb
-                  category="Long Read · Practice Operations"
+                  category={t('healthcareNews.threeCol.featuredMain.cat')}
                   seed="featured-main-long-read"
                   aspect="landscape"
-                  caption="Long Read · Practice Operations"
+                  caption={t('healthcareNews.threeCol.featuredMain.cat')}
                   image={imgFor(FEATURED_MAIN_TO)}
                 />
               </div>
-              <span className="featured-item-cat">Long Read · Practice Operations</span>
+              <span className="featured-item-cat">
+                {t('healthcareNews.threeCol.featuredMain.cat')}
+              </span>
               <h3 className="featured-main-title">
-                The real cost of manual patient intake - and how clinics are cutting it in half
+                {t('healthcareNews.threeCol.featuredMain.title')}
               </h3>
-              <p className="featured-main-desc">
-                An eight-week investigation across 60 clinics reveals where front-desk hours
-                actually go, and which automation patterns deliver measurable ROI within the first
-                quarter.
-              </p>
+              <p className="featured-main-desc">{t('healthcareNews.threeCol.featuredMain.desc')}</p>
               <div className="hg-byline">
                 <span>
-                  By <strong>Marcus Reyes</strong>
+                  {t('healthcareNews.threeCol.featuredMain.byPrefix')}{' '}
+                  <strong>{t('healthcareNews.threeCol.featuredMain.author')}</strong>
                 </span>
                 <span className="dot" />
-                <span>Apr 28 · 12 min</span>
+                <span>{t('healthcareNews.threeCol.featuredMain.meta')}</span>
               </div>
             </Link>
 
             <div className="featured-list">
               {FEATURED_ITEMS.map((item) => (
                 <Link key={item.to} className="featured-item" to={item.to}>
-                  <span className="featured-item-cat">{item.cat}</span>
-                  <h4 className="featured-item-title">{item.title}</h4>
-                  <div className="featured-item-meta">{item.meta}</div>
+                  <span className="featured-item-cat">
+                    {t(`healthcareNews.threeCol.featuredItems.${item.key}.cat`)}
+                  </span>
+                  <h4 className="featured-item-title">
+                    {t(`healthcareNews.threeCol.featuredItems.${item.key}.title`)}
+                  </h4>
+                  <div className="featured-item-meta">
+                    {t(`healthcareNews.threeCol.featuredItems.${item.key}.meta`)}
+                  </div>
                 </Link>
               ))}
             </div>
@@ -241,14 +162,25 @@ const NewsThreeColumn = () => {
 
           {/* COL 3: Most Popular */}
           <div className="tc-col">
-            <ColumnHead title="Most Popular" to="/blog" linkLabel="Trending" icon={<TrendIcon />} />
+            <ColumnHead
+              title={t('healthcareNews.threeCol.popular')}
+              to="/blog"
+              linkLabel={t('healthcareNews.threeCol.trending')}
+              icon={<TrendIcon />}
+            />
             {POPULAR.map((item) => (
               <Link key={item.to} className="pop-item" to={item.to}>
                 <span className="pop-num">{item.num}</span>
                 <div>
-                  <span className="pop-cat">{item.cat}</span>
-                  <h3 className="pop-title">{item.title}</h3>
-                  <div className="pop-meta">{item.meta}</div>
+                  <span className="pop-cat">
+                    {t(`healthcareNews.threeCol.popularItems.${item.key}.cat`)}
+                  </span>
+                  <h3 className="pop-title">
+                    {t(`healthcareNews.threeCol.popularItems.${item.key}.title`)}
+                  </h3>
+                  <div className="pop-meta">
+                    {t(`healthcareNews.threeCol.popularItems.${item.key}.meta`)}
+                  </div>
                 </div>
               </Link>
             ))}

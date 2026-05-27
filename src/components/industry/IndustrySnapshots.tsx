@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react';
+import { useTranslation } from 'react-i18next';
 
 export interface Snapshot {
   image: string;
@@ -12,12 +13,14 @@ interface IndustrySnapshotsProps {
   title?: ReactNode;
 }
 
-const IndustrySnapshots = ({ items, eyebrow = 'In practice', title }: IndustrySnapshotsProps) => {
+const IndustrySnapshots = ({ items, eyebrow, title }: IndustrySnapshotsProps) => {
+  const { t } = useTranslation('common');
+  const resolvedEyebrow = eyebrow ?? t('components.industrySnapshots.defaultEyebrow');
   return (
     <section className="iv-section iv-snapshots" aria-labelledby="iv-snap-title">
       <div className="container-shell">
         <header className="iv-snap-head">
-          <span className="iv-snap-eyebrow">{eyebrow}</span>
+          <span className="iv-snap-eyebrow">{resolvedEyebrow}</span>
           <h2 id="iv-snap-title" className="iv-snap-title">
             {title}
           </h2>

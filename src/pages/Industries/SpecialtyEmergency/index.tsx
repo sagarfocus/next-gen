@@ -1,3 +1,5 @@
+import { useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 import IndustryHero from '@/components/industry/IndustryHero';
 import Specialties from '@/components/industry/Specialties';
 import Playbook from '@/components/industry/Playbook';
@@ -23,258 +25,219 @@ import snapFreestanding from '../../../assets/nextgen-image/Freestandingerimg.pn
 import snapSpecialty from '../../../assets/nextgen-image/Specialdeepdiveimg.png';
 import emergencyHero from '../../../assets/nextgen-image/specialtyemergencyerimg.png';
 
-const BREADCRUMB_SCHEMA = buildBreadcrumbList([
-  { name: 'Home', path: '/' },
-  { name: 'Industries', path: '/industries' },
-  { name: 'Specialty & Emergency' },
-]);
-
-const FAQS: ServiceFAQItem[] = [
-  {
-    q: 'How do we compete with hospital systems on emergency keywords?',
-    a: 'Hospital systems usually spend big on broad branded queries. We win on the long tail: condition-plus-symptom queries, neighborhood-plus-ER queries, and wait-time queries. The hospital can\'t outbid us on every "abdominal pain ER Plano" search - and that\'s where booked visits actually come from.',
-  },
-  {
-    q: 'Is HIPAA risk higher for ER and urgent-care ads?',
-    a: 'Yes - because intent itself reveals condition. We strip URL parameters that leak symptom data, deploy server-side conversion APIs that never ship PHI to ad networks, and use BAA-covered tooling on every step. Compliance is the gate every campaign passes through before launch.',
-  },
-  {
-    q: 'What about wait-time pages - do they actually move bookings?',
-    a: 'They are the highest-converting page type on most urgent-care sites we audit. Real-time wait calls, geo-routing to the nearest clinic, and a single-tap "drive to this location" link consistently outperform a generic location page on booking rate.',
-  },
-  {
-    q: 'How fast can you launch for a new facility opening?',
-    a: 'Six weeks from kickoff for a single freestanding ER or urgent-care location: GBP rebuild, schema deployment, paid launch, wait-time page, review pipeline. Multi-location systems take 10–12 weeks because we sequence rollouts to avoid competing with yourself.',
-  },
-  {
-    q: 'Do you handle EmergencyMedicalService schema?',
-    a: 'Yes. Schema is one of the few free-and-instant ways to qualify in the Local Pack for high-acuity searches. We deploy EmergencyMedicalService, MedicalSpecialty, and condition-specific markup at the page and location level.',
-  },
-];
-
-const RELATED: RelatedServiceLink[] = [
-  {
-    to: '/hipaa-compliance',
-    name: 'HIPAA Compliance',
-    blurb: 'The compliance posture that makes high-acuity marketing safe to scale.',
-    tag: 'Foundation',
-  },
-  {
-    to: '/aeo-schema',
-    name: 'AEO & Schema',
-    blurb: 'EmergencyMedicalService markup that wins Local Pack on acuity queries.',
-    tag: 'Strategy',
-  },
-  {
-    to: '/case-studies/er-network-patient-growth',
-    name: 'Freestanding ER · case study',
-    blurb: 'Dallas-metro ER engagement - visits, revenue, and the playbook behind both.',
-    tag: 'Proof',
-  },
-];
-
-const Illustration = (
-  <img src={emergencyHero} alt="Emergency room interior" loading="eager" decoding="async" />
-);
-
-const QUICK_STATS: QuickStat[] = [
-  {
-    num: (
-      <>
-        +120<em>%</em>
-      </>
-    ),
-    label: 'ER visits',
-  },
-  {
-    num: (
-      <>
-        4.2<em>×</em>
-      </>
-    ),
-    label: 'Emergency leads',
-  },
-  {
-    num: (
-      <>
-        99.8<em>%</em>
-      </>
-    ),
-    label: 'Compliance posture',
-  },
-];
-
-const SPECIALTIES: SpecialtyRow[] = [
-  {
-    name: 'Freestanding ERs',
-    desc: 'Trauma-search dominance, surge response, and competitor overflow capture.',
-  },
-  {
-    name: 'Urgent care',
-    desc: 'Volume-driven acquisition with wait-time pages and reputation systems.',
-  },
-  {
-    name: 'Orthopedics',
-    desc: 'Condition-page SEO, referral programs, and high-LTV elective campaigns.',
-  },
-  {
-    name: 'Oncology',
-    desc: 'HIPAA-safe nurturing flows, second-opinion funnels, and trial recruitment.',
-  },
-  {
-    name: 'Cardiology specialty',
-    desc: 'Procedure pages, physician directories, and primary-care referral hubs.',
-  },
-  {
-    name: 'Radiology / imaging',
-    desc: 'Service-line pages, payer & referral content, and walk-in acquisition.',
-  },
-];
-
-const STEPS: PlayStep[] = [
-  {
-    name: 'Volume, payer & compliance audit',
-    body: 'Specialty volume, payer mix, compliance posture, and current visibility reviewed end to end.',
-  },
-  {
-    name: 'Compliance framework',
-    body: 'HIPAA-safe tracking, ad-copy review, and consent flows shipped before anything goes live.',
-  },
-  {
-    name: 'Visibility & capture',
-    body: 'Local Pack dominance, ER landing pages, and specialty SEO running across the catchment area.',
-  },
-  {
-    name: 'Optimization & governance',
-    body: 'Weekly bid tuning, monthly retro, quarterly clinical-governance review.',
-  },
-];
-
-const SNAPSHOTS: Snapshot[] = [
-  {
-    image: snapUrgent,
-    label: 'Wait-time pages',
-    caption:
-      'Real-time wait calls, geo-routing, and single-tap navigation that consistently outperform generic location pages.',
-  },
-  {
-    image: snapFreestanding,
-    label: 'Freestanding ER launches',
-    caption:
-      'Six-week launch sequence - GBP, schema, paid, wait-time page, and review pipeline ready for opening day.',
-  },
-  {
-    image: snapSpecialty,
-    label: 'Specialty deep-dives',
-    caption:
-      "Condition-plus-symptom long-tail SEO and EmergencyMedicalService schema the hospital can't outbid.",
-  },
-];
-
-const PRINCIPLES: Principle[] = [
-  {
-    title: 'Compliance-first launches',
-    body: 'HIPAA review, server-side conversions, and BAA-covered tooling go in before a single paid dollar ships. Compliance is the gate every campaign passes through, not a cleanup pass.',
-    accent: '#576DB5',
-  },
-  {
-    title: 'Acuity-aware audiences',
-    body: "We compete on condition-plus-symptom long-tail searches the hospital can't outbid - and tune creative for the moment a patient is choosing where to go right now.",
-    accent: '#B38B6D',
-  },
-  {
-    title: 'Wait-time as conversion engine',
-    body: "Real-time wait pages, geo-routing to the nearest location, and single-tap navigation outperform generic location pages on booking rate every audit we've run.",
-    accent: '#8FBC8F',
-  },
-];
-
-const STATS: BigNumber[] = [
-  {
-    num: (
-      <>
-        +120<em>%</em>
-      </>
-    ),
-    label: 'ER VISITS',
-    caption: 'Lift in qualified ER visits from organic + paid combined.',
-  },
-  {
-    num: (
-      <>
-        4.2<em>×</em>
-      </>
-    ),
-    label: 'EMERGENCY LEADS',
-    caption: 'Year-over-year growth in qualified high-acuity inquiries.',
-  },
-  {
-    num: (
-      <>
-        −35<em>%</em>
-      </>
-    ),
-    label: 'COST PER ACQUISITION',
-    caption: 'Reduction through audience layering and landing-page optimization.',
-  },
-  {
-    num: (
-      <>
-        99.8<em>%</em>
-      </>
-    ),
-    label: 'COMPLIANCE POSTURE',
-    caption: 'HIPAA + marketing-rule conformance across active campaigns.',
-  },
-];
-
-const SCHEMA = {
-  '@context': 'https://schema.org',
-  '@type': 'Service',
-  name: 'Specialty & Emergency Care - Marketing',
-  serviceType: 'Healthcare Marketing',
-  provider: { '@id': `${SITE.url}#organization` },
-  audience: 'ERs, urgent care, specialty practices, high-acuity providers',
-};
-
-const FAQ_SCHEMA = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: FAQS.map((f) => ({
-    '@type': 'Question',
-    name: f.q,
-    acceptedAnswer: { '@type': 'Answer', text: f.a },
-  })),
-};
-
 const SpecialtyEmergency = () => {
+  const { t } = useTranslation(['pages', 'common']);
+  const base = 'pages:industriesPages.specialtyEmergency';
+
+  const BREADCRUMB_SCHEMA = useMemo(
+    () =>
+      buildBreadcrumbList([
+        { name: 'Home', path: '/' },
+        { name: 'Industries', path: '/industries' },
+        { name: 'Specialty & Emergency' },
+      ]),
+    []
+  );
+
+  const QUICK_STATS: QuickStat[] = [
+    {
+      num: (
+        <>
+          +120<em>%</em>
+        </>
+      ),
+      label: t(`${base}.hero.quickStats.visits`),
+    },
+    {
+      num: (
+        <>
+          4.2<em>×</em>
+        </>
+      ),
+      label: t(`${base}.hero.quickStats.leads`),
+    },
+    {
+      num: (
+        <>
+          99.8<em>%</em>
+        </>
+      ),
+      label: t(`${base}.hero.quickStats.compliance`),
+    },
+  ];
+
+  const SPECIALTIES: SpecialtyRow[] = [
+    { name: t(`${base}.specialties.freestandingEr.name`), desc: t(`${base}.specialties.freestandingEr.desc`) },
+    { name: t(`${base}.specialties.urgentCare.name`), desc: t(`${base}.specialties.urgentCare.desc`) },
+    { name: t(`${base}.specialties.orthopedics.name`), desc: t(`${base}.specialties.orthopedics.desc`) },
+    { name: t(`${base}.specialties.oncology.name`), desc: t(`${base}.specialties.oncology.desc`) },
+    { name: t(`${base}.specialties.cardiology.name`), desc: t(`${base}.specialties.cardiology.desc`) },
+    { name: t(`${base}.specialties.radiology.name`), desc: t(`${base}.specialties.radiology.desc`) },
+  ];
+
+  const STEPS: PlayStep[] = [
+    { name: t(`${base}.steps.audit.name`), body: t(`${base}.steps.audit.body`) },
+    { name: t(`${base}.steps.compliance.name`), body: t(`${base}.steps.compliance.body`) },
+    { name: t(`${base}.steps.visibility.name`), body: t(`${base}.steps.visibility.body`) },
+    { name: t(`${base}.steps.optimization.name`), body: t(`${base}.steps.optimization.body`) },
+  ];
+
+  const SNAPSHOTS: Snapshot[] = [
+    {
+      image: snapUrgent,
+      label: t(`${base}.snapshots.items.waitTime.label`),
+      caption: t(`${base}.snapshots.items.waitTime.caption`),
+    },
+    {
+      image: snapFreestanding,
+      label: t(`${base}.snapshots.items.launches.label`),
+      caption: t(`${base}.snapshots.items.launches.caption`),
+    },
+    {
+      image: snapSpecialty,
+      label: t(`${base}.snapshots.items.depth.label`),
+      caption: t(`${base}.snapshots.items.depth.caption`),
+    },
+  ];
+
+  const PRINCIPLES: Principle[] = [
+    {
+      title: t(`${base}.principles.items.compliance.title`),
+      body: t(`${base}.principles.items.compliance.body`),
+      accent: '#576DB5',
+    },
+    {
+      title: t(`${base}.principles.items.acuity.title`),
+      body: t(`${base}.principles.items.acuity.body`),
+      accent: '#B38B6D',
+    },
+    {
+      title: t(`${base}.principles.items.waitTime.title`),
+      body: t(`${base}.principles.items.waitTime.body`),
+      accent: '#8FBC8F',
+    },
+  ];
+
+  const STATS: BigNumber[] = [
+    {
+      num: (
+        <>
+          +120<em>%</em>
+        </>
+      ),
+      label: t(`${base}.stats.visits.label`),
+      caption: t(`${base}.stats.visits.caption`),
+    },
+    {
+      num: (
+        <>
+          4.2<em>×</em>
+        </>
+      ),
+      label: t(`${base}.stats.leads.label`),
+      caption: t(`${base}.stats.leads.caption`),
+    },
+    {
+      num: (
+        <>
+          −35<em>%</em>
+        </>
+      ),
+      label: t(`${base}.stats.cpa.label`),
+      caption: t(`${base}.stats.cpa.caption`),
+    },
+    {
+      num: (
+        <>
+          99.8<em>%</em>
+        </>
+      ),
+      label: t(`${base}.stats.compliance.label`),
+      caption: t(`${base}.stats.compliance.caption`),
+    },
+  ];
+
+  const FAQS: ServiceFAQItem[] = [
+    { q: t(`${base}.faq.items.hospital.q`), a: t(`${base}.faq.items.hospital.a`) },
+    { q: t(`${base}.faq.items.hipaa.q`), a: t(`${base}.faq.items.hipaa.a`) },
+    { q: t(`${base}.faq.items.waitTime.q`), a: t(`${base}.faq.items.waitTime.a`) },
+    { q: t(`${base}.faq.items.launch.q`), a: t(`${base}.faq.items.launch.a`) },
+    { q: t(`${base}.faq.items.schema.q`), a: t(`${base}.faq.items.schema.a`) },
+  ];
+
+  const RELATED: RelatedServiceLink[] = [
+    {
+      to: '/hipaa-compliance',
+      name: t(`${base}.related.items.hipaa.name`),
+      blurb: t(`${base}.related.items.hipaa.blurb`),
+      tag: t(`${base}.related.items.hipaa.tag`),
+    },
+    {
+      to: '/aeo-schema',
+      name: t(`${base}.related.items.aeo.name`),
+      blurb: t(`${base}.related.items.aeo.blurb`),
+      tag: t(`${base}.related.items.aeo.tag`),
+    },
+    {
+      to: '/case-studies/er-network-patient-growth',
+      name: t(`${base}.related.items.caseStudy.name`),
+      blurb: t(`${base}.related.items.caseStudy.blurb`),
+      tag: t(`${base}.related.items.caseStudy.tag`),
+    },
+  ];
+
+  const SCHEMA = {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: 'Specialty & Emergency Care - Marketing',
+    serviceType: 'Healthcare Marketing',
+    provider: { '@id': `${SITE.url}#organization` },
+    audience: 'ERs, urgent care, specialty practices, high-acuity providers',
+  };
+
+  const FAQ_SCHEMA = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: FAQS.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  };
+
+  const Illustration = (
+    <img src={emergencyHero} alt={t(`${base}.hero.imageAlt`)} loading="eager" decoding="async" />
+  );
+
   return (
     <>
       <Seo
-        title="Freestanding ER & Urgent Care Marketing — High-Acuity Acquisition"
-        description="Compliance-aware, urgency-first marketing built for ERs, urgent care, and specialty practices that need scale and speed."
+        title={t(`${base}.seo.title`)}
+        description={t(`${base}.seo.description`)}
         path="/industries/specialty-emergency"
         schema={[SCHEMA, FAQ_SCHEMA, BREADCRUMB_SCHEMA]}
       />
 
       <IndustryHero
-        tag="Acuity"
+        tag={t(`${base}.hero.tag`)}
         title={
           <>
-            High-acuity acquisition for <em>specialty care.</em>
+            {t(`${base}.hero.titleLead`)}
+            <em>{t(`${base}.hero.titleEm`)}</em>
           </>
         }
-        lede="Compliance-aware, urgency-first marketing built for ERs, urgent care, and specialty practices that need scale and speed."
+        lede={t(`${base}.hero.lede`)}
         illustration={Illustration}
         quickStats={QUICK_STATS}
       />
       <Specialties rows={SPECIALTIES} />
       <IndustrySnapshots
         items={SNAPSHOTS}
-        eyebrow="In practice"
+        eyebrow={t(`${base}.snapshots.eyebrow`)}
         title={
           <>
-            The high-acuity stack, <em>in real deployment.</em>
+            {t(`${base}.snapshots.titleLead`)}
+            <em>{t(`${base}.snapshots.titleEm`)}</em>
           </>
         }
       />
@@ -285,27 +248,28 @@ const SpecialtyEmergency = () => {
         sectionNum="04"
         title={
           <>
-            How we work for <em>high-acuity care.</em>
+            {t(`${base}.principles.titleLead`)}
+            <em>{t(`${base}.principles.titleEm`)}</em>
           </>
         }
-        intro="Three operating principles that make the difference between high-acuity marketing that scales and high-acuity marketing that gets pulled offline."
+        intro={t(`${base}.principles.intro`)}
       />
       <ServiceFAQ
         items={FAQS}
-        serviceName="Specialty & Emergency Care - Marketing"
-        title="What ER and urgent-care operators ask first."
+        serviceName={t(`${base}.faq.serviceName`)}
+        title={t(`${base}.faq.title`)}
         sectionNum="05"
       />
       <RelatedServices
         items={RELATED}
         sectionNum="06"
-        title="The compliance and intent layer that scales acuity."
-        intro="High-acuity marketing only works when compliance, schema, and proof move together. Here is the order we sequence them in."
+        title={t(`${base}.related.title`)}
+        intro={t(`${base}.related.intro`)}
       />
       <IndustryCTA
-        tag="Talk to us"
-        title={<>Ready to capture every search that matters?</>}
-        body="A 30-minute call. We'll audit your compliance posture and current visibility, and share the closest case study - whether you sign with us or not."
+        tag={t(`${base}.cta.tag`)}
+        title={<>{t(`${base}.cta.title`)}</>}
+        body={t(`${base}.cta.body`)}
       />
     </>
   );

@@ -1,3 +1,5 @@
+import { useTranslation } from 'react-i18next';
+
 export interface PlayStep {
   name: string;
   body: string;
@@ -8,6 +10,7 @@ interface PlaybookProps {
 }
 
 const Playbook = ({ steps }: PlaybookProps) => {
+  const { t } = useTranslation('common');
   return (
     <section className="iv-section iv-playbook" aria-labelledby="iv-play-title">
       <div className="container-shell">
@@ -15,13 +18,11 @@ const Playbook = ({ steps }: PlaybookProps) => {
           <header className="iv-playbook-head">
             <span className="iv-section-num">02</span>
             <h2 id="iv-play-title" className="iv-section-title">
-              The playbook,
+              {t('components.industryPlaybook.titlePart1')}
               <br />
-              <em>step by step.</em>
+              <em>{t('components.industryPlaybook.titleEm')}</em>
             </h2>
-            <p className="iv-playbook-sub">
-              The same shape every engagement - tuned for this vertical.
-            </p>
+            <p className="iv-playbook-sub">{t('components.industryPlaybook.sub')}</p>
           </header>
 
           <ol className="iv-playbook-steps">

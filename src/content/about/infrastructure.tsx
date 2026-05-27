@@ -1,4 +1,6 @@
+import { useMemo } from 'react';
 import type { ReactElement } from 'react';
+import { useTranslation } from 'react-i18next';
 import { ClockIcon, UsersIcon } from '@/components/icons';
 
 export interface InfraCard {
@@ -11,31 +13,22 @@ export interface InfraCard {
   to: string;
 }
 
-export const CARDS: InfraCard[] = [
+interface InfraSpec {
+  featured?: boolean;
+  i18nKey: 'growthTeam' | 'compliance' | 'sla';
+  icon: ReactElement;
+  to: string;
+}
+
+const INFRA_SPECS: readonly InfraSpec[] = [
   {
     featured: true,
-    tag: 'The Growth Team',
-    title: 'Dedicated specialists driving patient volume.',
-    text: 'A senior, healthcare-fluent team focused entirely on driving qualified patient volume to your facility - integrated into your operations.',
-    bullets: [
-      'Dedicated Ads Manager',
-      'SEO & AEO Strategist',
-      'Medical Content Writer',
-      'Social Media Manager',
-    ],
+    i18nKey: 'growthTeam',
     to: '/infrastructure/growth-team',
     icon: <UsersIcon />,
   },
   {
-    tag: 'Compliance Protocol',
-    title: 'Built around healthcare data security.',
-    text: 'We understand the regulatory environment of healthcare. Our infrastructure is engineered around data security from day one.',
-    bullets: [
-      'BAA Readiness & Execution',
-      'Strict HIPAA Data Routing',
-      'Encrypted Patient Intake',
-      'Secure Cloud Architecture',
-    ],
+    i18nKey: 'compliance',
     to: '/infrastructure/compliance-protocol',
     icon: (
       <svg
@@ -54,16 +47,31 @@ export const CARDS: InfraCard[] = [
     ),
   },
   {
-    tag: 'Service Level Agreements',
-    title: 'Rapid response is a clinical necessity.',
-    text: 'In the medical sector, response time matters. We document guaranteed SLAs so you always know what to expect.',
-    bullets: [
-      'Under 4 Hours for Critical Updates',
-      '24/7 Uptime Monitoring',
-      'Real-Time Dashboard Access',
-      'Documented Escalation Paths',
-    ],
+    i18nKey: 'sla',
     to: '/infrastructure/service-level-agreements',
     icon: <ClockIcon size={26} strokeWidth={1.7} />,
   },
 ];
+
+/** React hook for the infrastructure cards. */
+export function useInfraCards(): readonly InfraCard[] {
+  const { t } = useTranslation('about');
+  return useMemo(
+    () =>
+      INFRA_SPECS.map((spec) => {
+        const base = `infrastructure.cards.${spec.i18nKey}`;
+        const bulletsRaw = t(`${base}.bullets`, { returnObjects: true }) as unknown;
+        const bullets = Array.isArray(bulletsRaw) ? (bulletsRaw as string[]) : [];
+        return {
+          featured: spec.featured,
+          tag: t(`${base}.tag`),
+          title: t(`${base}.title`),
+          text: t(`${base}.text`),
+          bullets,
+          icon: spec.icon,
+          to: spec.to,
+        };
+      }),
+    [t]
+  );
+}

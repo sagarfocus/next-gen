@@ -1,47 +1,39 @@
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 import jayPhoto from '../../assets/jay-1.webp';
 import { ArrowIcon } from '@/components/icons';
-import { FOUNDER_CREDS } from '@/content/about/team';
+import { useFounderCreds } from '@/content/about/team';
 
 const Team = () => {
+  const { t } = useTranslation('about');
+  const creds = useFounderCreds();
+
   return (
     <section className="ab-team" aria-labelledby="ab-team-title">
       <div className="container-shell">
         <div className="ab-team-head">
-          <span className="ab-team-eyebrow">Leadership</span>
+          <span className="ab-team-eyebrow">{t('team.eyebrow')}</span>
           <h2 id="ab-team-title" className="ab-team-h2">
-            A small team that does big work for healthcare.
+            {t('team.title')}
           </h2>
-          <p className="ab-team-sub">
-            No overstaffed account managers. No outsourced execution. Every account is run by senior
-            practitioners who have actually grown a clinic.
-          </p>
+          <p className="ab-team-sub">{t('team.subtitle')}</p>
         </div>
 
         <article className="ab-founder">
           <div className="ab-founder-portrait">
-            <img src={jayPhoto} alt="Jay Dahal" width={128} height={192} loading="lazy" decoding="async" />
+            <img src={jayPhoto} alt={t('team.founder.name')} width={128} height={192} loading="lazy" decoding="async" />
           </div>
 
           <div className="ab-founder-body">
-            <span className="ab-founder-tag">Founder &amp; CEO</span>
-            <h3 className="ab-founder-name">Jay Dahal</h3>
-            <p className="ab-founder-role">15 years in healthcare growth marketing</p>
-            <blockquote className="ab-founder-quote">
-              Healthcare marketing isn&rsquo;t about being clever. It&rsquo;s about being specific -
-              specific to the specialty, specific to the patient, specific to the moment of
-              decision.
-            </blockquote>
-            <p className="ab-founder-bio">
-              Jay started his career running marketing for a regional urgent care chain before
-              founding TheNextGen in 2019. He&rsquo;s spoken at AAFP and AHCA conferences,
-              contributed to industry publications on compliant patient acquisition, and personally
-              consults on every major account.
-            </p>
+            <span className="ab-founder-tag">{t('team.founder.tag')}</span>
+            <h3 className="ab-founder-name">{t('team.founder.name')}</h3>
+            <p className="ab-founder-role">{t('team.founder.role')}</p>
+            <blockquote className="ab-founder-quote">{t('team.founder.quote')}</blockquote>
+            <p className="ab-founder-bio">{t('team.founder.bio')}</p>
             <div className="ab-founder-footer">
               <div className="ab-founder-creds">
-                {FOUNDER_CREDS.map((c) => (
+                {creds.map((c) => (
                   <span key={c} className="ab-founder-cred">
                     {c}
                   </span>
@@ -53,7 +45,7 @@ const Team = () => {
 
         <div className="ab-team-cta-wrap">
           <Link to="/team" className="ab-team-cta">
-            See all teams
+            {t('team.cta')}
             <ArrowIcon />
           </Link>
         </div>

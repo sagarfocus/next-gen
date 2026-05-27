@@ -1,24 +1,18 @@
+import type { ReactNode } from 'react';
+
+export type PillarKey = 'administrative' | 'physical' | 'technical';
+
 export interface Pillar {
   num: string;
-  tag: string;
-  description: string;
-  items: string[];
+  key: PillarKey;
   tone: 'sage' | 'tan' | 'periwinkle';
-  icon: React.ReactNode;
+  icon: ReactNode;
 }
 
 export const PILLARS: Pillar[] = [
   {
     num: '01',
-    tag: 'Administrative',
-    description:
-      'Policies, people, and process - the human layer that keeps the technical work honest.',
-    items: [
-      'Workforce training (annual + on hire)',
-      'Access controls and provisioning',
-      'Documented policies, versioned',
-      'Incident response plan',
-    ],
+    key: 'administrative',
     tone: 'sage',
     icon: (
       <svg
@@ -41,15 +35,7 @@ export const PILLARS: Pillar[] = [
   },
   {
     num: '02',
-    tag: 'Physical',
-    description:
-      'Where data lives, who walks past it, and how it gets disposed of when its job is done.',
-    items: [
-      'BAA-covered data centres',
-      'Hardware disposal log',
-      'Workstation policy',
-      'Visitor and tenant controls',
-    ],
+    key: 'physical',
     tone: 'tan',
     icon: (
       <svg
@@ -70,15 +56,7 @@ export const PILLARS: Pillar[] = [
   },
   {
     num: '03',
-    tag: 'Technical',
-    description:
-      'The cryptography, access controls, and logging that protect every signal that moves.',
-    items: [
-      'End-to-end encryption (TLS 1.3 / AES-256)',
-      'MFA enforced across all tools',
-      'Audit and access logging',
-      'Automatic session timeout',
-    ],
+    key: 'technical',
     tone: 'periwinkle',
     icon: (
       <svg
@@ -99,18 +77,16 @@ export const PILLARS: Pillar[] = [
   },
 ];
 
+export type CoverageKey = 'website' | 'adPlatforms' | 'emailSms' | 'analytics' | 'reviewsSocial';
+
 export interface CoverageRow {
-  area: string;
-  inScope: string;
-  outScope: string;
-  icon: React.ReactNode;
+  key: CoverageKey;
+  icon: ReactNode;
 }
 
 export const COVERAGE: CoverageRow[] = [
   {
-    area: 'Website',
-    inScope: 'HIPAA-aware forms, BAA-covered hosting, secure file transfer.',
-    outScope: 'Treating the website as a long-term PHI store.',
+    key: 'website',
     icon: (
       <svg
         width={20}
@@ -129,9 +105,7 @@ export const COVERAGE: CoverageRow[] = [
     ),
   },
   {
-    area: 'Ad Platforms',
-    inScope: 'Server-side conversions with hashed, salted identifiers.',
-    outScope: 'Sharing PHI in custom audiences or CRM imports.',
+    key: 'adPlatforms',
     icon: (
       <svg
         width={20}
@@ -151,9 +125,7 @@ export const COVERAGE: CoverageRow[] = [
     ),
   },
   {
-    area: 'Email & SMS',
-    inScope: 'BAA-covered providers, opt-in receipts, encrypted at rest.',
-    outScope: 'Treatment-specific content without explicit consent.',
+    key: 'emailSms',
     icon: (
       <svg
         width={20}
@@ -172,9 +144,7 @@ export const COVERAGE: CoverageRow[] = [
     ),
   },
   {
-    area: 'Analytics',
-    inScope: 'IP truncation, PHI-free URLs, consent-aware tag firing.',
-    outScope: 'Page-level event tracking on clinical content.',
+    key: 'analytics',
     icon: (
       <svg
         width={20}
@@ -194,9 +164,7 @@ export const COVERAGE: CoverageRow[] = [
     ),
   },
   {
-    area: 'Reviews & Social',
-    inScope: 'Sentiment-routed response flows that never solicit PHI.',
-    outScope: 'Responding to a public review with patient detail.',
+    key: 'reviewsSocial',
     icon: (
       <svg
         width={20}
@@ -215,38 +183,18 @@ export const COVERAGE: CoverageRow[] = [
   },
 ];
 
+export type LoopStepKey = 'scope' | 'replace' | 'train' | 'verify';
+
 export interface LoopStep {
   num: string;
-  label: string;
-  title: string;
-  body: string;
+  key: LoopStepKey;
 }
 
 export const STEPS: LoopStep[] = [
-  {
-    num: '01',
-    label: 'Scope',
-    title: 'Map the surface.',
-    body: 'Every system that touches a patient inquiry, charted into a plain-language data flow diagram shared with your team.',
-  },
-  {
-    num: '02',
-    label: 'Replace',
-    title: 'Migrate non-compliant tools.',
-    body: 'Hosting, email, forms, file transfer, analytics - swapped to BAA-covered alternatives without disrupting operations.',
-  },
-  {
-    num: '03',
-    label: 'Train',
-    title: 'Roll out to staff.',
-    body: 'Workforce training across clinical and ops staff. Quarterly refreshers. Sign-offs retained for the auditor.',
-  },
-  {
-    num: '04',
-    label: 'Verify',
-    title: 'Annual external review.',
-    body: 'Penetration test, policy audit, and a remediation register that closes every finding inside 60 days.',
-  },
+  { num: '01', key: 'scope' },
+  { num: '02', key: 'replace' },
+  { num: '03', key: 'train' },
+  { num: '04', key: 'verify' },
 ];
 
 export const SCHEMA = {

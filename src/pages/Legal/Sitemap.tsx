@@ -1,8 +1,10 @@
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import Breadcrumb from '@/components/Breadcrumb';
 import Seo from '@/components/Seo';
 import { buildBreadcrumbList } from '@/lib/schema';
 import { SITE } from '@/content/site';
+import { ROUTES } from '@/lib/routes';
 
 interface SitemapLink {
   to: string;
@@ -14,125 +16,147 @@ interface SitemapGroup {
   links: SitemapLink[];
 }
 
-const GROUPS: SitemapGroup[] = [
-  {
-    title: 'Primary navigation',
-    links: [
-      { to: '/', label: 'Home' },
-      { to: '/about', label: 'About' },
-      { to: '/team', label: 'Team' },
-      { to: '/our-work', label: 'Our work' },
-      { to: '/pricing', label: 'Pricing' },
-      { to: '/contact', label: 'Contact' },
-      { to: '/free-growth-audit', label: 'Free growth audit' },
-      { to: '/faq', label: 'FAQ' },
-    ],
-  },
-  {
-    title: 'Services',
-    links: [
-      { to: '/services', label: 'All services' },
-      { to: '/services/seo', label: 'SEO Services' },
-      { to: '/services/google-ads', label: 'Google Ads' },
-      { to: '/services/google-business-profile', label: 'Google Business Profile' },
-      { to: '/services/social-media-marketing', label: 'Social media marketing' },
-      { to: '/services/website-design-dev', label: 'Website design & development' },
-      { to: '/services/email-drip-campaigns', label: 'Email drip campaigns' },
-      { to: '/services/content-copywriting', label: 'Content & copywriting' },
-      { to: '/services/brand-identity-design', label: 'Brand identity & design' },
-      { to: '/services/analytics-reporting', label: 'Analytics & reporting' },
-    ],
-  },
-  {
-    title: 'Specialty services',
-    links: [
-      { to: '/healthcare-content', label: 'Healthcare content' },
-      { to: '/meta-ads', label: 'Meta Ads' },
-      { to: '/hipaa-compliance', label: 'HIPAA compliance' },
-      { to: '/reviews-reputation', label: 'Reviews & reputation' },
-      { to: '/patient-experience', label: 'Patient experience' },
-      { to: '/citation-building', label: 'Citation building' },
-      { to: '/hyper-local-content', label: 'Hyper-local content' },
-      { to: '/aeo-schema', label: 'AEO & schema' },
-      { to: '/onsite-field-marketing', label: 'Onsite & field marketing' },
-      { to: '/medical-automation', label: 'Medical automation' },
-    ],
-  },
-  {
-    title: 'Industries',
-    links: [
-      { to: '/industries', label: 'All industries' },
-      { to: '/industries/clinics', label: 'Clinics & multi-specialty' },
-      { to: '/industries/medspas', label: 'MedSpas & aesthetics' },
-      { to: '/industries/specialty-emergency', label: 'Specialty & emergency' },
-    ],
-  },
-  {
-    title: 'Methodology',
-    links: [
-      { to: '/growth-plan', label: 'Growth plan' },
-      { to: '/methodology/phase-1', label: 'Phase 1 - Diagnose' },
-      { to: '/methodology/phase-2', label: 'Phase 2 - Build' },
-      { to: '/methodology/phase-3', label: 'Phase 3 - Scale' },
-    ],
-  },
-  {
-    title: 'Automation',
-    links: [
-      { to: '/automation', label: 'Automation overview' },
-      { to: '/automation/more-info', label: 'Automation deep dive' },
-      { to: '/automation/templates', label: 'Automation templates' },
-    ],
-  },
-  {
-    title: 'Infrastructure',
-    links: [
-      { to: '/infrastructure/growth-team', label: 'Growth team structure' },
-      { to: '/infrastructure/compliance-protocol', label: 'Compliance protocol' },
-      { to: '/infrastructure/service-level-agreements', label: 'Service level agreements' },
-    ],
-  },
-  {
-    title: 'Resources',
-    links: [
-      { to: '/blog', label: 'Blog' },
-      { to: '/case-studies', label: 'Case studies' },
-      { to: '/healthcare-news', label: 'Healthcare news' },
-    ],
-  },
-  {
-    title: 'Legal',
-    links: [
-      { to: '/privacy', label: 'Privacy policy' },
-      { to: '/terms', label: 'Terms of use' },
-      { to: '/accessibility', label: 'Accessibility statement' },
-      { to: '/sitemap', label: 'Sitemap' },
-    ],
-  },
-];
-
-const SITEMAP_SCHEMA = {
-  '@context': 'https://schema.org',
-  '@type': 'WebPage',
-  name: `Sitemap · ${SITE.name}`,
-  url: `${SITE.url}/sitemap`,
-  description:
-    'Full site index for TheNextGen Healthcare Marketing — services, industries, methodology, automation, infrastructure, and resources.',
-  isPartOf: { '@id': `${SITE.url}#website` },
-  about: { '@id': `${SITE.url}#organization` },
-};
-
 const BREADCRUMB_SCHEMA = buildBreadcrumbList([
   { name: 'Home', path: '/' },
   { name: 'Sitemap' },
 ]);
 
 const Sitemap = () => {
+  const { t } = useTranslation(['legal']);
+
+  const SITEMAP_SCHEMA = {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: `${t('legal:sitemap.title')} · ${SITE.name}`,
+    url: `${SITE.url}/sitemap`,
+    description: t('legal:sitemap.schemaDescription'),
+    isPartOf: { '@id': `${SITE.url}#website` },
+    about: { '@id': `${SITE.url}#organization` },
+  };
+
+  const GROUPS: SitemapGroup[] = [
+    {
+      title: t('legal:sitemap.sections.primary'),
+      links: [
+        { to: ROUTES.home, label: t('legal:sitemap.links.home') },
+        { to: ROUTES.about.index, label: t('legal:sitemap.links.about') },
+        { to: ROUTES.team, label: t('legal:sitemap.links.team') },
+        { to: ROUTES.ourWork.index, label: t('legal:sitemap.links.ourWork') },
+        { to: ROUTES.pricing, label: t('legal:sitemap.links.pricing') },
+        { to: ROUTES.contact, label: t('legal:sitemap.links.contact') },
+        { to: ROUTES.freeGrowthAudit, label: t('legal:sitemap.links.freeGrowthAudit') },
+        { to: ROUTES.faq, label: t('legal:sitemap.links.faq') },
+      ],
+    },
+    {
+      title: t('legal:sitemap.sections.services'),
+      links: [
+        { to: ROUTES.services.index, label: t('legal:sitemap.links.servicesIndex') },
+        { to: ROUTES.services.seo, label: t('legal:sitemap.links.seo') },
+        { to: ROUTES.services.googleAds, label: t('legal:sitemap.links.googleAds') },
+        {
+          to: ROUTES.services.googleBusinessProfile,
+          label: t('legal:sitemap.links.googleBusinessProfile'),
+        },
+        { to: ROUTES.services.socialMediaMarketing, label: t('legal:sitemap.links.socialMedia') },
+        { to: ROUTES.services.websiteDesignDev, label: t('legal:sitemap.links.websiteDesign') },
+        { to: ROUTES.services.emailDripCampaigns, label: t('legal:sitemap.links.emailCampaigns') },
+        {
+          to: ROUTES.services.contentCopywriting,
+          label: t('legal:sitemap.links.contentCopywriting'),
+        },
+        { to: ROUTES.services.brandIdentityDesign, label: t('legal:sitemap.links.branding') },
+        { to: ROUTES.services.analyticsReporting, label: t('legal:sitemap.links.analytics') },
+      ],
+    },
+    {
+      title: t('legal:sitemap.sections.specialtyServices'),
+      links: [
+        { to: ROUTES.healthcareContent, label: t('legal:sitemap.links.healthcareContent') },
+        { to: ROUTES.metaAds, label: t('legal:sitemap.links.metaAds') },
+        { to: ROUTES.hipaaCompliance, label: t('legal:sitemap.links.hipaaCompliance') },
+        { to: ROUTES.reviewsReputation, label: t('legal:sitemap.links.reviewsReputation') },
+        { to: ROUTES.patientExperience, label: t('legal:sitemap.links.patientExperience') },
+        { to: ROUTES.citationBuilding, label: t('legal:sitemap.links.citationBuilding') },
+        { to: ROUTES.hyperLocalContent, label: t('legal:sitemap.links.hyperLocalContent') },
+        { to: ROUTES.aeoSchema, label: t('legal:sitemap.links.aeoSchema') },
+        {
+          to: ROUTES.onsiteFieldMarketing,
+          label: t('legal:sitemap.links.onsiteFieldMarketing'),
+        },
+        { to: ROUTES.medicalAutomation, label: t('legal:sitemap.links.medicalAutomation') },
+      ],
+    },
+    {
+      title: t('legal:sitemap.sections.industries'),
+      links: [
+        { to: ROUTES.industries.index, label: t('legal:sitemap.links.industriesIndex') },
+        { to: ROUTES.industries.clinics, label: t('legal:sitemap.links.clinics') },
+        { to: ROUTES.industries.medspas, label: t('legal:sitemap.links.medspas') },
+        {
+          to: ROUTES.industries.specialtyEmergency,
+          label: t('legal:sitemap.links.specialtyEmergency'),
+        },
+      ],
+    },
+    {
+      title: t('legal:sitemap.sections.methodology'),
+      links: [
+        { to: ROUTES.growthPlan, label: t('legal:sitemap.links.growthPlan') },
+        { to: ROUTES.methodology.phase1, label: t('legal:sitemap.links.phase1') },
+        { to: ROUTES.methodology.phase2, label: t('legal:sitemap.links.phase2') },
+        { to: ROUTES.methodology.phase3, label: t('legal:sitemap.links.phase3') },
+      ],
+    },
+    {
+      title: t('legal:sitemap.sections.automation'),
+      links: [
+        { to: ROUTES.automation.index, label: t('legal:sitemap.links.automationOverview') },
+        { to: ROUTES.automation.moreInfo, label: t('legal:sitemap.links.automationMoreInfo') },
+        { to: ROUTES.automation.templates, label: t('legal:sitemap.links.automationTemplates') },
+      ],
+    },
+    {
+      title: t('legal:sitemap.sections.infrastructure'),
+      links: [
+        {
+          to: ROUTES.infrastructure.growthTeam,
+          label: t('legal:sitemap.links.growthTeam'),
+        },
+        {
+          to: ROUTES.infrastructure.complianceProtocol,
+          label: t('legal:sitemap.links.complianceProtocol'),
+        },
+        {
+          to: ROUTES.infrastructure.serviceLevelAgreements,
+          label: t('legal:sitemap.links.serviceLevelAgreements'),
+        },
+      ],
+    },
+    {
+      title: t('legal:sitemap.sections.resources'),
+      links: [
+        { to: ROUTES.blog.index, label: t('legal:sitemap.links.blog') },
+        { to: ROUTES.caseStudies.index, label: t('legal:sitemap.links.caseStudies') },
+        { to: ROUTES.healthcareNews.index, label: t('legal:sitemap.links.healthcareNews') },
+      ],
+    },
+    {
+      title: t('legal:sitemap.sections.legal'),
+      links: [
+        { to: ROUTES.privacy, label: t('legal:sitemap.links.privacy') },
+        { to: ROUTES.terms, label: t('legal:sitemap.links.terms') },
+        { to: ROUTES.accessibility, label: t('legal:sitemap.links.accessibility') },
+        { to: ROUTES.sitemap, label: t('legal:sitemap.links.sitemap') },
+      ],
+    },
+  ];
+
   return (
     <main style={{ paddingBottom: 'clamp(72px, 9vw, 120px)' }}>
       <Seo
-        title="Sitemap — Every Page on TheNextGen, in One Place"
-        description="Full site index for TheNextGen Healthcare Marketing — services, industries, methodology, automation, infrastructure, and resources."
+        title={t('legal:sitemap.seo.title')}
+        description={t('legal:sitemap.seo.description')}
         path="/sitemap"
         schema={[SITEMAP_SCHEMA, BREADCRUMB_SCHEMA]}
       />
@@ -142,9 +166,12 @@ const Sitemap = () => {
         style={{ padding: 'clamp(56px, 7vw, 96px) 0 clamp(32px, 4vw, 48px)' }}
       >
         <div className="container-shell">
-          <Breadcrumb items={[{ label: 'Sitemap' }]} section="Sitemap" />
+          <Breadcrumb
+            items={[{ label: t('legal:sitemap.eyebrow') }]}
+            section={t('legal:sitemap.eyebrow')}
+          />
           <div style={{ maxWidth: 720 }}>
-            <span className="results-eyebrow">Sitemap</span>
+            <span className="results-eyebrow">{t('legal:sitemap.eyebrow')}</span>
             <h1
               id="sm-title"
               style={{
@@ -156,7 +183,7 @@ const Sitemap = () => {
                 margin: '6px 0 14px',
               }}
             >
-              Every page on TheNextGen, in one place.
+              {t('legal:sitemap.heading')}
             </h1>
             <p
               style={{
@@ -167,15 +194,13 @@ const Sitemap = () => {
                 maxWidth: '64ch',
               }}
             >
-              The full site index - services, industries, methodology, automation, infrastructure,
-              and resources. Useful for navigation, share-able for stakeholders, and indexed for
-              search engines.
+              {t('legal:sitemap.lede')}
             </p>
           </div>
         </div>
       </section>
 
-      <section aria-label="Sitemap groups">
+      <section aria-label={t('legal:sitemap.ariaGroups')}>
         <div className="container-shell">
           <div
             style={{

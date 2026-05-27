@@ -1,4 +1,5 @@
 import '../../styles/googlebusinessprofile.css';
+import { useTranslation } from 'react-i18next';
 import Hero from './Hero';
 import TrustBar from './TrustBar';
 import Optimization from './Optimization';
@@ -55,11 +56,12 @@ const BREADCRUMB_SCHEMA = buildBreadcrumbList([
 ]);
 
 const GoogleBusinessProfile = () => {
+  const { t } = useTranslation('pages');
   return (
     <>
       <Seo
-        title="Google Business Profile Management for Multi-Location Healthcare"
-        description="Win the Local Pack across every clinic location — GBP optimization, citations, reviews, posts, and photos. Multi-location console with HIPAA-safe review responses."
+        title={t('googleBusinessProfile.seo.title')}
+        description={t('googleBusinessProfile.seo.description')}
         path="/services/google-business-profile"
         schema={[SERVICE_SCHEMA, FAQ_SCHEMA, BREADCRUMB_SCHEMA]}
       />

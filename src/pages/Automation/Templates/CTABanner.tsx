@@ -1,34 +1,35 @@
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { ArrowIcon } from '@/components/icons';
 
-const CTABanner = () => (
-  <section className="atx-cta" aria-labelledby="atx-cta-title">
-    <div className="container-shell">
-      <div className="atx-cta-frame">
-        <div className="atx-cta-copy">
-          <span className="atx-cta-eyebrow">
-            <span className="atx-eyebrow-dot" />
-            Need one we have not built?
-          </span>
-          <h2 id="atx-cta-title" className="atx-cta-h2">
-            Book a 15-minute build session.
-          </h2>
-          <p className="atx-cta-text">
-            Free, no pitch. We scope the workflow on the call and ship the spec the same week —
-            yours to keep, agency or not.
-          </p>
-        </div>
-        <div className="atx-cta-actions">
-          <Link to="/free-growth-audit" className="atx-btn atx-btn-primary">
-            Book the session <ArrowIcon size={14} />
-          </Link>
-          <Link to="/automation" className="atx-btn atx-btn-ghost">
-            Back to Automation
-          </Link>
+const CTABanner = () => {
+  const { t } = useTranslation(['automation']);
+  return (
+    <section className="atx-cta" aria-labelledby="atx-cta-title">
+      <div className="container-shell">
+        <div className="atx-cta-frame">
+          <div className="atx-cta-copy">
+            <span className="atx-cta-eyebrow">
+              <span className="atx-eyebrow-dot" />
+              {t('automation:templates.page.ctaBanner.eyebrow')}
+            </span>
+            <h2 id="atx-cta-title" className="atx-cta-h2">
+              {t('automation:templates.page.ctaBanner.title')}
+            </h2>
+            <p className="atx-cta-text">{t('automation:templates.page.ctaBanner.text')}</p>
+          </div>
+          <div className="atx-cta-actions">
+            <Link to="/free-growth-audit" className="atx-btn atx-btn-primary">
+              {t('automation:templates.page.ctaBanner.ctaPrimary')} <ArrowIcon size={14} />
+            </Link>
+            <Link to="/automation" className="atx-btn atx-btn-ghost">
+              {t('automation:templates.page.ctaBanner.ctaSecondary')}
+            </Link>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 export default CTABanner;

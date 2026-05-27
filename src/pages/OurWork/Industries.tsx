@@ -1,9 +1,11 @@
 import { Link } from 'react-router-dom';
 import { useEffect, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { INDUSTRY_DETAILS, INDUSTRY_ICONS, detailHref } from './details.data';
 import { ArrowIcon } from '@/components/icons';
 
 const Industries = () => {
+  const { t } = useTranslation('pages');
   const sectionRef = useRef<HTMLElement>(null);
   const trackRef = useRef<HTMLUListElement>(null);
   const [progress, setProgress] = useState(0);
@@ -64,15 +66,11 @@ const Industries = () => {
       <div className="ow-ind-sticky">
         <div className="container-shell">
           <header className="ow-ind-head">
-            <span className="ow-section-tag">Industries we serve</span>
+            <span className="ow-section-tag">{t('ourWork.industriesSection.eyebrow')}</span>
             <h2 id="ow-ind-title" className="ow-section-h2">
-              The clinics this work has shipped for.
+              {t('ourWork.industriesSection.title')}
             </h2>
-            <p className="ow-ind-lede">
-              Single-location practices, multi-site networks, and everything between. Scroll to
-              explore - every vertical has its own pricing model, regulatory edge, and patient
-              journey.
-            </p>
+            <p className="ow-ind-lede">{t('ourWork.industriesSection.lede')}</p>
           </header>
         </div>
 
@@ -80,6 +78,7 @@ const Industries = () => {
           <ul ref={trackRef} className="ow-ind-track">
             {INDUSTRY_DETAILS.map((it, i) => {
               const isOpen = i === active;
+              const localizedTitle = t(`ourWork.industries.${it.slug}.title`, it.title);
               return (
                 <li
                   key={it.slug}
@@ -89,7 +88,9 @@ const Industries = () => {
                   <Link
                     to={detailHref(it.kind, it.slug)}
                     className="ow-ind-card-btn"
-                    aria-label={`Read more about ${it.title}`}
+                    aria-label={t('ourWork.industriesSection.readMoreAria', {
+                      title: localizedTitle,
+                    })}
                   >
                     <div className="ow-ind-card-media" aria-hidden="true">
                       <img src={it.img} alt="" loading="lazy" />
@@ -105,10 +106,12 @@ const Industries = () => {
                       </span>
                     </div>
                     <div className="ow-ind-card-bottom">
-                      <h3 className="ow-ind-card-title">{it.title}</h3>
-                      <p className="ow-ind-card-blurb">{it.blurb}</p>
+                      <h3 className="ow-ind-card-title">{localizedTitle}</h3>
+                      <p className="ow-ind-card-blurb">
+                        {t(`ourWork.industries.${it.slug}.blurb`, it.blurb)}
+                      </p>
                       <span className="ow-ind-card-cta">
-                        View details
+                        {t('ourWork.industriesSection.viewDetails')}
                         <ArrowIcon size={14} />
                       </span>
                     </div>
@@ -126,8 +129,13 @@ const Industries = () => {
                 {String(active + 1).padStart(2, '0')}{' '}
                 <em>/ {String(INDUSTRY_DETAILS.length).padStart(2, '0')}</em>
               </span>
-              <span className="ow-ind-progress-name">{INDUSTRY_DETAILS[active].title}</span>
-              <span className="ow-ind-progress-hint">Scroll to advance →</span>
+              <span className="ow-ind-progress-name">
+                {t(
+                  `ourWork.industries.${INDUSTRY_DETAILS[active].slug}.title`,
+                  INDUSTRY_DETAILS[active].title
+                )}
+              </span>
+              <span className="ow-ind-progress-hint">{t('ourWork.industriesSection.scrollHint')}</span>
             </div>
             <div className="ow-ind-progress-rail">
               <div className="ow-ind-progress-fill" style={{ width: `${progress * 100}%` }} />

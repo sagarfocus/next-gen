@@ -1,37 +1,36 @@
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { ArrowIcon } from '@/components/icons';
 
 const Hero = () => {
+  const { t } = useTranslation('pages');
+  const bullets = t('emailCampaigns.hero.bullets', { returnObjects: true }) as string[];
+
   return (
     <section className="em-hero">
       <div className="container-shell">
         <div className="em-hero-grid">
           <div>
             <div className="em-hero-crumb">
-              <Link to="/services">Services</Link>
+              <Link to="/services">{t('emailCampaigns.hero.breadcrumbServices')}</Link>
               <span className="sep">/</span>
-              <span className="cur">Email Drip Campaigns</span>
+              <span className="cur">{t('emailCampaigns.hero.breadcrumbCurrent')}</span>
             </div>
             <span className="em-hero-eyebrow">
-              <span className="dot" /> BAA-covered ESPs · Healthcare-only
+              <span className="dot" /> {t('emailCampaigns.hero.eyebrow')}
             </span>
             <h1 className="em-hero-title">
-              Email that brings <em>patients back to the chair.</em>
+              {t('emailCampaigns.hero.titleLine')} <em>{t('emailCampaigns.hero.titleAccent')}</em>
             </h1>
-            <p className="em-hero-lede">
-              Welcome flows, post-visit follow-up, recall reminders, win-back
-              drips, referral asks, and newsletters - run on BAA-covered
-              ESPs, segmented by treatment history, attributed to booked
-              revenue. Owned by you, operated by us, never a one-off send.
-            </p>
+            <p className="em-hero-lede">{t('emailCampaigns.hero.lede')}</p>
 
             <div className="em-hero-ctas">
               <Link to="/contact" className="sl-btn-primary">
-                Map your drip engine
+                {t('emailCampaigns.hero.ctaPrimary')}
                 <ArrowIcon />
               </Link>
               <a href="#flows" className="sl-btn-ghost">
-                See flow types
+                {t('emailCampaigns.hero.ctaSecondary')}
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.4} strokeLinecap="round" strokeLinejoin="round">
                   <line x1="7" y1="17" x2="17" y2="7" />
                   <polyline points="7 7 17 7 17 17" />
@@ -40,24 +39,14 @@ const Hero = () => {
             </div>
 
             <ul className="em-hero-bullets">
-              <li>
-                <span className="em-hero-check" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={3} strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
-                </span>
-                BAA signed with every ESP we use
-              </li>
-              <li>
-                <span className="em-hero-check" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={3} strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
-                </span>
-                4 flows live inside 21 days
-              </li>
-              <li>
-                <span className="em-hero-check" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={3} strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
-                </span>
-                Booked revenue attributed per send
-              </li>
+              {bullets.map((b) => (
+                <li key={b}>
+                  <span className="em-hero-check" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={3} strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
+                  </span>
+                  {b}
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -135,11 +124,11 @@ const Hero = () => {
 
             <div className="em-hero-tag-pill t1">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.2}><polyline points="23 6 13.5 15.5 8.5 10.5 1 18" /><polyline points="17 6 23 6 23 12" /></svg>
-              68% open
+              {t('emailCampaigns.hero.tag1')}
             </div>
             <div className="em-hero-tag-pill t2">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.2}><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.96.37 1.9.74 2.79a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.89.37 1.83.62 2.79.74A2 2 0 0 1 22 16.92z" /></svg>
-              47+ bookings / mo
+              {t('emailCampaigns.hero.tag2')}
             </div>
           </div>
         </div>

@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import Hero from './Hero';
 import StatsRail from './StatsRail';
 import Compare from './Compare';
@@ -32,43 +33,46 @@ import {
      Google's helpful-content systems do not flag mismatches.
    ============================================================ */
 
-const BREADCRUMB_SCHEMA = buildBreadcrumbList([
-  { name: 'Home', path: '/' },
-  { name: 'Free Growth Audit' },
-]);
+const FreeGrowthAudit = () => {
+  const { t } = useTranslation('pages');
+  const breadcrumbSchema = buildBreadcrumbList([
+    { name: t('pages:freeGrowthAudit.breadcrumb.home'), path: '/' },
+    { name: t('pages:freeGrowthAudit.breadcrumb.current') },
+  ]);
 
-const FreeGrowthAudit = () => (
-  <main className="fga-page">
-    <Seo
-      title="Free Healthcare Growth Audit — 5-Day Visibility, Funnel & Paid Review"
-      description="Free healthcare marketing audit for dental, med spa, urgent care & specialty practices. Senior strategist delivers a 12-page PDF + ranked 90-day plan in 5 business days. No credit card."
-      path="/free-growth-audit"
-      schema={[
-        WEBPAGE_SCHEMA,
-        SERVICE_SCHEMA,
-        HOWTO_SCHEMA,
-        FAQ_SCHEMA,
-        BREADCRUMB_SCHEMA,
-      ]}
-    />
+  return (
+    <main className="fga-page">
+      <Seo
+        title={t('pages:freeGrowthAudit.seo.title')}
+        description={t('pages:freeGrowthAudit.seo.description')}
+        path="/free-growth-audit"
+        schema={[
+          WEBPAGE_SCHEMA,
+          SERVICE_SCHEMA,
+          HOWTO_SCHEMA,
+          FAQ_SCHEMA,
+          breadcrumbSchema,
+        ]}
+      />
 
-    <Hero />
-    <StatsRail />
-    <Bento />
-    <SampleReport />
-    <Timeline />
-    <WhoFor />
-    <Compare />
-    <Outcomes />
-    <Strategist />
-    <Hipaa />
-    <FAQ />
-    <Pact />
-    <Closing />
+      <Hero />
+      <StatsRail />
+      <Bento />
+      <SampleReport />
+      <Timeline />
+      <WhoFor />
+      <Compare />
+      <Outcomes />
+      <Strategist />
+      <Hipaa />
+      <FAQ />
+      <Pact />
+      <Closing />
 
-    {/* Hidden accent color helper so unused TS constant survives the build */}
-    <span hidden data-accent={TAILWIND_ACCENT} />
-  </main>
-);
+      {/* Hidden accent color helper so unused TS constant survives the build */}
+      <span hidden data-accent={TAILWIND_ACCENT} />
+    </main>
+  );
+};
 
 export default FreeGrowthAudit;

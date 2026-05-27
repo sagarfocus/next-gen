@@ -1,14 +1,10 @@
 import { useParams, Navigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import Breadcrumb from '@/components/Breadcrumb';
 import Seo from '@/components/Seo';
 import { buildBreadcrumbList } from '@/lib/schema';
 import { SITE } from '@/content/site';
 import { NEWS_ARTICLES, newsBySlug, CATEGORY_TONES, type NewsArticle } from './news.data';
-
-/* ============================================================
-   HEALTHCARE-NEWS — single-article detail page (hero-only).
-   Tone-coded hero with story-brief card and full-bleed cover.
-   ============================================================ */
 
 const COLORS = {
   navy: '#1A2438',
@@ -21,27 +17,39 @@ const truncate = (s: string, n: number): string =>
   s.length <= n ? s : `${s.slice(0, n - 1).trimEnd()}…`;
 
 /* ─── Tone-coloured category pill ─── */
-const CategoryPill = ({ article, size = 'md' }: { article: NewsArticle; size?: 'sm' | 'md' }) => {
-  const t = CATEGORY_TONES[article.category];
+const CategoryPill = ({
+  article,
+  size = 'md',
+}: {
+  article: NewsArticle;
+  size?: 'sm' | 'md';
+}) => {
+  const { t } = useTranslation('pages');
+  const tone = CATEGORY_TONES[article.category];
   const pad = size === 'sm' ? 'px-2.5 py-1 text-[10.5px]' : 'px-3 py-1.5 text-[11px]';
   return (
     <span
       className={`inline-flex items-center gap-2 rounded-full font-mono font-bold tracking-[0.18em] uppercase ${pad}`}
-      style={{ background: t.soft, color: t.hex }}
+      style={{ background: tone.soft, color: tone.hex }}
     >
-      <span className="w-1.5 h-1.5 rounded-full" style={{ background: t.hex }} aria-hidden="true" />
-      {article.category}
+      <span className="w-1.5 h-1.5 rounded-full" style={{ background: tone.hex }} aria-hidden="true" />
+      {t(`healthcareNews.categoryLabels.${article.category}`, article.category)}
     </span>
   );
 };
 
 /* ─── Section 01 · HERO ─── */
 const Hero = ({ article }: { article: NewsArticle }) => {
-  const t = CATEGORY_TONES[article.category];
+  const { t } = useTranslation('pages');
+  const tone = CATEGORY_TONES[article.category];
+  const localizedTitle = t(`healthcareNews.articles.${article.slug}.title`, article.title);
+  const localizedLede = t(`healthcareNews.articles.${article.slug}.lede`, article.lede);
+  const localizedDate = t(`healthcareNews.articles.${article.slug}.date`, article.date);
+  const localizedReadTime = t(`healthcareNews.articles.${article.slug}.readTime`, article.readTime);
   return (
     <section className="ph-page-head">
       <div className="container-shell">
-        <Breadcrumb current={article.title.slice(0, 48) + (article.title.length > 48 ? '…' : '')} />
+        <Breadcrumb current={localizedTitle.slice(0, 48) + (localizedTitle.length > 48 ? '…' : '')} />
 
         <div className="mt-8 grid lg:grid-cols-12 gap-x-12 gap-y-12">
           <div className="lg:col-span-7">
@@ -50,13 +58,13 @@ const Hero = ({ article }: { article: NewsArticle }) => {
               className="mt-6 font-extrabold leading-[1.02] tracking-[-0.034em] text-[clamp(34px,5vw,68px)]"
               style={{ color: COLORS.navy }}
             >
-              {article.title}
+              {localizedTitle}
             </h1>
             <p
               className="mt-7 text-[18px] leading-[1.65] max-w-[60ch]"
               style={{ color: COLORS.body }}
             >
-              {article.lede}
+              {localizedLede}
             </p>
 
             {/* Byline meta row */}
@@ -67,7 +75,7 @@ const Hero = ({ article }: { article: NewsArticle }) => {
               <div className="flex items-center gap-3">
                 <span
                   className="inline-grid place-items-center w-9 h-9 rounded-full font-mono text-[12px] font-bold"
-                  style={{ background: t.soft, color: t.hex }}
+                  style={{ background: tone.soft, color: tone.hex }}
                   aria-hidden="true"
                 >
                   {article.author
@@ -77,13 +85,14 @@ const Hero = ({ article }: { article: NewsArticle }) => {
                     .slice(0, 2)}
                 </span>
                 <span>
-                  By <strong style={{ color: COLORS.navy }}>{article.author}</strong>
+                  {t('healthcareNews.detail.byPrefix')}{' '}
+                  <strong style={{ color: COLORS.navy }}>{article.author}</strong>
                 </span>
               </div>
               <span className="opacity-30">·</span>
-              <span>{article.date}</span>
+              <span>{localizedDate}</span>
               <span className="opacity-30">·</span>
-              <span>{article.readTime}</span>
+              <span>{localizedReadTime}</span>
             </div>
           </div>
 
@@ -98,14 +107,14 @@ const Hero = ({ article }: { article: NewsArticle }) => {
             >
               <span
                 className="absolute top-0 left-0 right-0 h-1"
-                style={{ background: t.hex }}
+                style={{ background: tone.hex }}
                 aria-hidden="true"
               />
               <div
                 className="font-mono text-[11px] tracking-[0.22em] uppercase font-bold"
-                style={{ color: t.hex }}
+                style={{ color: tone.hex }}
               >
-                Story brief
+                {t('healthcareNews.detail.storyBrief')}
               </div>
               <h2
                 className="mt-3 text-[20px] font-extrabold tracking-[-0.018em] leading-[1.18]"
@@ -120,10 +129,10 @@ const Hero = ({ article }: { article: NewsArticle }) => {
               )}
               <div
                 className="mt-6 pt-5 border-t flex items-center gap-2 text-[10.5px] uppercase tracking-[0.20em] font-bold"
-                style={{ borderColor: 'rgba(26, 36, 56, 0.10)', color: t.hex }}
+                style={{ borderColor: 'rgba(26, 36, 56, 0.10)', color: tone.hex }}
               >
-                <span className="w-1.5 h-1.5 rounded-full" style={{ background: t.hex }} />
-                {article.takeaways.length} key takeaways below
+                <span className="w-1.5 h-1.5 rounded-full" style={{ background: tone.hex }} />
+                {article.takeaways.length} {t('healthcareNews.detail.keyTakeawaysSuffix')}
               </div>
             </div>
           </div>
@@ -156,7 +165,7 @@ const Hero = ({ article }: { article: NewsArticle }) => {
             }}
           >
             <span className="font-mono text-[10.5px] tracking-[0.18em] uppercase text-white font-bold">
-              Editorial
+              {t('healthcareNews.detail.editorial')}
             </span>
           </div>
         </div>
@@ -166,6 +175,7 @@ const Hero = ({ article }: { article: NewsArticle }) => {
 };
 
 const NewsDetail = () => {
+  const { t } = useTranslation('pages');
   const { slug } = useParams<{ slug: string }>();
   const article = slug ? newsBySlug(slug) : undefined;
 
@@ -173,11 +183,19 @@ const NewsDetail = () => {
     return <Navigate to="/healthcare-news" replace />;
   }
 
+  const localizedTitle = t(`healthcareNews.articles.${article.slug}.title`, article.title);
+  const localizedLede = t(`healthcareNews.articles.${article.slug}.lede`, article.lede);
+  const localizedDate = t(`healthcareNews.articles.${article.slug}.date`, article.date);
+  const localizedSection = t(
+    `healthcareNews.categoryLabels.${article.category}`,
+    article.category
+  );
+
   const articleSchema = {
     '@context': 'https://schema.org',
     '@type': 'NewsArticle',
-    headline: article.title,
-    description: article.lede,
+    headline: localizedTitle,
+    description: localizedLede,
     url: `${SITE.url}/healthcare-news/${article.slug}`,
     datePublished: article.date,
     dateModified: article.date,
@@ -187,33 +205,35 @@ const NewsDetail = () => {
       '@type': 'WebPage',
       '@id': `${SITE.url}/healthcare-news/${article.slug}`,
     },
-    articleSection: article.category,
+    articleSection: localizedSection,
     inLanguage: 'en-US',
   };
 
   const breadcrumbSchema = buildBreadcrumbList([
     { name: 'Home', path: '/' },
     { name: 'Healthcare News', path: '/healthcare-news' },
-    { name: article.title },
+    { name: localizedTitle },
   ]);
 
   return (
     <>
       <Seo
-        title={article.title}
-        description={truncate(article.lede, 160)}
+        title={localizedTitle}
+        description={truncate(localizedLede, 160)}
         path={`/healthcare-news/${article.slug}`}
         type="article"
         article={{
           publishedTime: article.date,
           modifiedTime: article.date,
           author: article.author,
-          section: article.category,
+          section: localizedSection,
         }}
         schema={[articleSchema, breadcrumbSchema]}
       />
 
       <Hero article={article} />
+      {/* Hidden marker so we keep the localized read time available to assistive tech if needed */}
+      <span hidden>{localizedDate}</span>
     </>
   );
 };

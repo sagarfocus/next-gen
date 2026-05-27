@@ -1,26 +1,25 @@
+import { useTranslation } from 'react-i18next';
+
+interface DayItem {
+  d: string;
+  t: string;
+  n: string;
+}
+
 const Timeline = () => {
-  const days: { d: string; t: string; n: string }[] = [
-    { d: 'DAY 0', t: 'You apply', n: 'Two-minute form. URL, baseline numbers, your focus.' },
-    { d: 'DAY 1', t: 'We accept', n: 'Email within an hour. Audit folder shared with you.' },
-    { d: 'DAY 3', t: 'Deep audit', n: 'Site, GBP, ad accounts, competitors - under the hood.' },
-    { d: 'DAY 5', t: 'The call', n: 'A 45-minute walk-through. Recorded. Plan PDF in hand.' },
-    {
-      d: 'DAY 5+',
-      t: 'You decide',
-      n: 'Run the plan yourself, hire any agency - no pitch from us.',
-    },
-  ];
+  const { t } = useTranslation('pages');
+  const days = t('pages:freeGrowthAudit.timeline.days', { returnObjects: true }) as DayItem[];
   return (
     <section className="fga-timeline-section" aria-labelledby="fga-timeline-title">
       <div className="container-shell">
         <header className="fga-section-head">
-          <span className="fga-section-tag">The five days</span>
+          <span className="fga-section-tag">{t('pages:freeGrowthAudit.timeline.tag')}</span>
           <h2 id="fga-timeline-title" className="fga-section-h2">
-            Five calendar days. From form fill to finished plan.
+            {t('pages:freeGrowthAudit.timeline.title')}
           </h2>
         </header>
 
-        <ol className="fga-timeline" aria-label="Audit timeline">
+        <ol className="fga-timeline" aria-label={t('pages:freeGrowthAudit.timeline.aria')}>
           {days.map((step, i) => (
             <li key={step.d} className={`fga-tl-item${i === days.length - 1 ? ' is-last' : ''}`}>
               <div className="fga-tl-marker" aria-hidden="true">

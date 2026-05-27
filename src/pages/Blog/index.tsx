@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import BlogHero from './BlogHero';
 import EditorialProcess from './EditorialProcess';
 import ArticleGrid from './ArticleGrid';
@@ -24,11 +25,13 @@ const BREADCRUMB_SCHEMA = buildBreadcrumbList([
 ]);
 
 const Blog = () => {
+  const { t } = useTranslation('blog');
+
   return (
     <>
       <Seo
-        title="Healthcare Marketing Blog — Practitioner-Written Tactics"
-        description="Field-tested healthcare marketing insights, HIPAA compliance updates, patient acquisition tactics, and case studies — written by the TheNextGen team."
+        title={t('seo.indexTitle')}
+        description={t('seo.indexDescription')}
         path="/blog"
         schema={[BLOG_SCHEMA, BREADCRUMB_SCHEMA]}
       />

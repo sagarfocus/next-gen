@@ -1,10 +1,13 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import BookingModal from '@/components/BookingModal';
 import { ArrowIcon } from '@/components/icons';
-import { TRUST_CARDS } from '@/content/services/trust';
+import { useTrustCards } from '@/content/services/trust';
 
 const TrustInfrastructure = () => {
+  const { t } = useTranslation('services');
+  const trustCards = useTrustCards();
   const [bookingOpen, setBookingOpen] = useState(false);
 
   return (
@@ -13,15 +16,11 @@ const TrustInfrastructure = () => {
         <div className="trust-grid">
           {/* LEFT - sticky header */}
           <div className="trust-head">
-            <span className="trust-eyebrow">Trust &amp; Infrastructure</span>
+            <span className="trust-eyebrow">{t('trust.infraEyebrow')}</span>
             <h2 id="trust-title" className="trust-h2">
-              Built on the same standards as your practice.
+              {t('trust.infraTitle')}
             </h2>
-            <p className="trust-sub">
-              Your digital presence must convey the same level of clinical excellence and security
-              as your physical facility - engineered for trust, accessibility, and compliance from
-              day one.
-            </p>
+            <p className="trust-sub">{t('trust.infraSub')}</p>
             <button
               type="button"
               className="trust-cta"
@@ -30,7 +29,7 @@ const TrustInfrastructure = () => {
               aria-expanded={bookingOpen}
               aria-controls="bookingModal"
             >
-              Talk to a specialist
+              {t('trust.ctaLabel')}
               <span className="ico" aria-hidden="true">
                 <svg
                   width={12}
@@ -51,7 +50,7 @@ const TrustInfrastructure = () => {
 
           {/* RIGHT - 2 cards */}
           <div className="trust-cards">
-            {TRUST_CARDS.map(({ featured, ariaId, icon, tag, title, text, bullets, to }) => (
+            {trustCards.map(({ featured, ariaId, icon, tag, title, text, bullets, to }) => (
               <Link
                 key={ariaId}
                 to={to}

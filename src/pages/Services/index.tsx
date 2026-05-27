@@ -1,11 +1,12 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import ServicesHero from './ServicesHero';
 import WhoWeServe from './WhoWeServe';
 import ServicesList from './ServicesList';
 import Process from './Process';
 import TrustInfrastructure from './TrustInfrastructure';
 import Pillars from './Pillars';
-import { CUSTOM_SOFTWARE_PANES, AUTOMATION_PANES } from '@/content/services/pillars';
+import { useCustomSoftwarePanes, useAutomationPanes } from '@/content/services/pillars';
 import FeaturePair from './FeaturePair';
 import ServicesFAQ from './ServicesFAQ';
 import CTABanner from './CTABanner';
@@ -51,15 +52,19 @@ const BREADCRUMB_SCHEMA = buildBreadcrumbList([
 ]);
 
 const Services = () => {
+  const { t } = useTranslation('services');
   const [bookingOpen, setBookingOpen] = useState(false);
   const openBooking = () => setBookingOpen(true);
   const closeBooking = () => setBookingOpen(false);
 
+  const customSoftwarePanes = useCustomSoftwarePanes();
+  const automationPanes = useAutomationPanes();
+
   return (
     <>
       <Seo
-        title="Healthcare Marketing Services — SEO, Ads, Websites & Automation"
-        description="Full-service healthcare marketing for clinics, medspas, urgent care and ERs. SEO, Google Ads, websites, branding, content, email, and HIPAA-aware automation."
+        title={t('indexSeo.title')}
+        description={t('indexSeo.description')}
         path="/services"
         schema={[SERVICES_HUB_SCHEMA, BREADCRUMB_SCHEMA]}
       />
@@ -72,18 +77,18 @@ const Services = () => {
       <Pillars
         id="custom-software"
         ariaTitleId="pillar-1-title"
-        eyebrow="Engineering"
-        title={<>Custom Software &amp; Vibe Coding.</>}
-        sub="Tailored systems built on top of your marketing engine - from patient portals to API integrations that move clinical data securely."
-        panes={CUSTOM_SOFTWARE_PANES}
+        eyebrow={t('pillars.customSoftware.eyebrow')}
+        title={t('pillars.customSoftware.title')}
+        sub={t('pillars.customSoftware.sub')}
+        panes={customSoftwarePanes}
       />
       <Pillars
         id="automation-ai"
         ariaTitleId="pillar-2-title"
-        eyebrow="Automation"
-        title={<>Automation &amp; AI for Clinical Workflows.</>}
-        sub="Intelligent systems that handle routine clinical operations - freeing your staff to focus on patients, not paperwork."
-        panes={AUTOMATION_PANES}
+        eyebrow={t('pillars.automation.eyebrow')}
+        title={t('pillars.automation.title')}
+        sub={t('pillars.automation.sub')}
+        panes={automationPanes}
       />
       <FeaturePair />
       <ServicesFAQ onBook={openBooking} />

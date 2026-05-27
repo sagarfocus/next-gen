@@ -1,4 +1,5 @@
 import { useParams } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { CASE_STUDIES, findCaseStudy } from '../caseStudies.data';
 import type { CaseStudy } from '../caseStudies.data';
 import Hero from './Hero';
@@ -16,6 +17,7 @@ interface DetailProps {
 }
 
 const Detail = ({ study }: DetailProps) => {
+  const { t } = useTranslation('pages');
   const idx = CASE_STUDIES.findIndex((c) => c.id === study.id);
   const next = CASE_STUDIES[(idx + 1) % CASE_STUDIES.length];
   const prev = CASE_STUDIES[(idx - 1 + CASE_STUDIES.length) % CASE_STUDIES.length];
@@ -23,11 +25,14 @@ const Detail = ({ study }: DetailProps) => {
   const total = CASE_STUDIES.length;
   const ordinal = String(idx + 1).padStart(2, '0');
 
+  const localizedName = t(`caseStudies.studies.${study.id}.name`, study.name);
+  const localizedBrief = t(`caseStudies.studies.${study.id}.brief`, study.brief);
+
   return (
     <main className="csd" id="csd-top">
       <Seo
-        title={`${study.name} — Healthcare Marketing Case Study`}
-        description={truncate(study.brief, 160)}
+        title={`${localizedName} — ${t('caseStudies.detail.breadcrumb')}`}
+        description={truncate(localizedBrief, 160)}
         path={`/case-studies/${study.id}`}
         type="article"
         schema={[buildSchema(study), buildBreadcrumbSchema(study)]}

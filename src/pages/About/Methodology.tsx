@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
-import { PHASES } from '@/content/about/methodology';
+import { usePhases } from '@/content/about/methodology';
 
 const PhaseArrow = () => (
   <span className="phase-arrow" aria-hidden="true">
@@ -21,22 +22,24 @@ const PhaseArrow = () => (
 );
 
 const Methodology = () => {
+  const { t } = useTranslation('about');
+  const phases = usePhases();
+
   return (
     <section className="method-section" id="methodology" aria-labelledby="method-title">
       <div className="container-shell">
         <div className="method-head">
-          <span className="method-eyebrow">Methodology</span>
+          <span className="method-eyebrow">{t('methodology.eyebrow')}</span>
           <h2 id="method-title" className="method-h2">
-            The Clinic Growth&nbsp;OS: <span className="accent-text">Our Methodology</span>.
+            {t('methodology.titleStart')}&nbsp;
+            <span className="accent-text">{t('methodology.titleAccent')}</span>
+            {t('methodology.titleEnd')}
           </h2>
-          <p className="method-sub">
-            We don&rsquo;t just generate leads - we build predictable patient acquisition systems
-            that scale with your practice.
-          </p>
+          <p className="method-sub">{t('methodology.subtitle')}</p>
         </div>
 
         <div className="phase-grid">
-          {PHASES.map(({ num, phase, title, body, foot, href, image }, i) => (
+          {phases.map(({ num, phase, title, body, foot, href, image }, i) => (
             <Link key={num} to={href} className="phase-card" aria-labelledby={`phase-${i + 1}`}>
               <img
                 className="phase-bg"

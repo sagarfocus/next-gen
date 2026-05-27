@@ -1,9 +1,7 @@
-export const HEAD_META = [
-  { label: 'Coverage', value: 'Google · Yelp · Healthgrades · Zocdoc' },
-  { label: 'Frequency', value: 'Daily monitoring' },
-  { label: 'Response', value: 'Inside 4 hours' },
-  { label: 'Updated', value: 'May 2026' },
-];
+import type { ReactNode } from 'react';
+
+export const HEAD_META_KEYS = ['coverage', 'frequency', 'response', 'updated'] as const;
+export type HeadMetaKey = (typeof HEAD_META_KEYS)[number];
 
 /* ─── Flow icons (4 steps) ─── */
 const IconDetect = () => (
@@ -62,40 +60,37 @@ const IconReport = () => (
   </svg>
 );
 
+export type FlowKey = 'detect' | 'sort' | 'respond' | 'report';
+
 export interface FlowStep {
   n: string;
-  k: string;
-  d: string;
-  icon: React.ReactNode;
+  key: FlowKey;
+  icon: ReactNode;
   tone: { hex: string; soft: string };
 }
 
 export const FLOW: FlowStep[] = [
   {
     n: '01',
-    k: 'Detect',
-    d: 'Daily sweep across rated channels. Sentiment classified before triage.',
+    key: 'detect',
     icon: <IconDetect />,
     tone: { hex: '#5A8F5A', soft: 'rgba(143, 188, 143, 0.18)' },
   },
   {
     n: '02',
-    k: 'Sort',
-    d: 'Promoters routed to public review. Detractors routed to private resolution.',
+    key: 'sort',
     icon: <IconSort />,
     tone: { hex: '#B38B6D', soft: 'rgba(179, 139, 109, 0.18)' },
   },
   {
     n: '03',
-    k: 'Respond',
-    d: 'On-brand replies inside four hours, compliant with HIPAA non-disclosure.',
+    key: 'respond',
     icon: <IconRespond />,
     tone: { hex: '#576DB5', soft: 'rgba(87, 109, 181, 0.16)' },
   },
   {
     n: '04',
-    k: 'Report',
-    d: 'Weekly digest with theme analysis. Operational issues flagged to clinic leadership.',
+    key: 'report',
     icon: <IconReport />,
     tone: { hex: '#2D3748', soft: 'rgba(45, 55, 72, 0.10)' },
   },
@@ -149,70 +144,46 @@ const IconZocdoc = () => (
   </svg>
 );
 
+export type ChannelKey = 'google' | 'yelp' | 'healthgrades' | 'zocdoc';
+
 export interface ChannelEntry {
-  name: string;
-  focus: string;
-  d: string;
-  icon: React.ReactNode;
+  key: ChannelKey;
+  icon: ReactNode;
   tone: { hex: string; soft: string };
 }
 
 export const CHANNELS: ChannelEntry[] = [
   {
-    name: 'Google',
-    focus: 'Local Pack lift',
-    d: 'Highest-weight channel for local search ranking. The flagship of any reputation programme.',
+    key: 'google',
     icon: <IconGoogle />,
     tone: { hex: '#576DB5', soft: 'rgba(87, 109, 181, 0.14)' },
   },
   {
-    name: 'Yelp',
-    focus: 'Brand search',
-    d: 'Skews older patient cohorts. Important for indemnity insurance-led decisions.',
+    key: 'yelp',
     icon: <IconYelp />,
     tone: { hex: '#B33A2B', soft: 'rgba(179, 58, 43, 0.12)' },
   },
   {
-    name: 'Healthgrades',
-    focus: 'Trust signal',
-    d: 'Indexed prominently in branded SERPs. Often the second result in a doctor name search.',
+    key: 'healthgrades',
     icon: <IconHealthgrades />,
     tone: { hex: '#5A8F5A', soft: 'rgba(143, 188, 143, 0.18)' },
   },
   {
-    name: 'Zocdoc',
-    focus: 'Booking velocity',
-    d: 'Conversion-stage channel. Reviews here translate directly into appointment bookings.',
+    key: 'zocdoc',
     icon: <IconZocdoc />,
     tone: { hex: '#B38B6D', soft: 'rgba(179, 139, 109, 0.18)' },
   },
 ];
 
+export type OutcomeKey = 'rating' | 'volume' | 'sla' | 'localPack';
+
 export interface Outcome {
-  v: string;
-  k: string;
-  d: string;
+  key: OutcomeKey;
 }
 
 export const OUTCOMES: Outcome[] = [
-  {
-    v: '★4.9',
-    k: 'Median rating',
-    d: 'Across retained practices after 6 months of structured collection.',
-  },
-  {
-    v: '+72',
-    k: 'Reviews / qtr',
-    d: 'Median new reviews per quarter once the collection flow is live.',
-  },
-  {
-    v: '<4h',
-    k: 'Response SLA',
-    d: 'Median first-response time across all monitored review channels.',
-  },
-  {
-    v: '+28%',
-    k: 'Local Pack',
-    d: 'Lift in Local Pack appearance for the top 20 service queries.',
-  },
+  { key: 'rating' },
+  { key: 'volume' },
+  { key: 'sla' },
+  { key: 'localPack' },
 ];

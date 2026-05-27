@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import Hero from './Hero';
 import Tiers from './Tiers';
 import Escalation from './Escalation';
@@ -19,21 +20,24 @@ const BREADCRUMB_SCHEMA = buildBreadcrumbList([
   { name: 'Service Level Agreements' },
 ]);
 
-const ServiceLevelAgreements = () => (
-  <main className="gt-page gt-page-x sla-page-x">
-    <Seo
-      title="Service Level Agreements — Healthcare Marketing SLA Commitments"
-      description="Severity tiers, response targets, 24/7 monitoring, and escalation paths — documented before the first dollar moves. Under 15-min SEV-0 acknowledgement, 99.9% uptime target."
-      path="/infrastructure/service-level-agreements"
-      schema={[SCHEMA, BREADCRUMB_SCHEMA]}
-    />
+const ServiceLevelAgreements = () => {
+  const { t } = useTranslation(['pages']);
+  return (
+    <main className="gt-page gt-page-x sla-page-x">
+      <Seo
+        title={t('pages:infrastructure.serviceLevelAgreements.seo.title')}
+        description={t('pages:infrastructure.serviceLevelAgreements.seo.description')}
+        path="/infrastructure/service-level-agreements"
+        schema={[SCHEMA, BREADCRUMB_SCHEMA]}
+      />
 
-    <Hero />
-    <Tiers />
-    <Escalation />
-    <TrackRecord />
-    <CTA />
-  </main>
-);
+      <Hero />
+      <Tiers />
+      <Escalation />
+      <TrackRecord />
+      <CTA />
+    </main>
+  );
+};
 
 export default ServiceLevelAgreements;

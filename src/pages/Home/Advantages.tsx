@@ -1,49 +1,36 @@
+import { useTranslation } from 'react-i18next';
 import { CountUp } from '@/lib/motion';
 import advantagesImg from '../../assets/nextgen-image/Ouradvantageimg1.png';
 
+type StatKey = 'retention' | 'practices' | 'leadTime';
+type CardKey = 'underOneRoof' | 'dedicatedLead' | 'fixedPricing' | 'hipaaSpecialists';
+
 interface AdvantageStat {
+  key: StatKey;
   value: number;
   suffix?: string;
   prefix?: string;
-  label: string;
 }
 
 interface AdvantageCard {
-  title: string;
-  desc: string;
+  key: CardKey;
   icon: 'hand' | 'price' | 'manager' | 'shield';
 }
 
 const STATS: AdvantageStat[] = [
-  { value: 98, suffix: '%', label: 'Client retention rate' },
-  { value: 200, suffix: '+', label: 'Healthcare practices grown' },
-  { value: 30, prefix: '≤', suffix: ' Days', label: 'To first qualified leads' },
+  { key: 'retention', value: 98, suffix: '%' },
+  { key: 'practices', value: 200, suffix: '+' },
+  { key: 'leadTime', value: 30, prefix: '≤', suffix: ' Days' },
 ];
 
 const CARDS_LEFT: AdvantageCard[] = [
-  {
-    icon: 'hand',
-    title: 'Everything under one roof',
-    desc: 'SEO, paid media, content, automation, and reporting - one team, one source of truth. No vendor stitching, no finger-pointing across agencies.',
-  },
-  {
-    icon: 'manager',
-    title: 'Your dedicated growth lead',
-    desc: 'A single accountable strategist who owns your roadmap, runs weekly reviews, and is reachable when patient volume needs to move now - not next sprint.',
-  },
+  { key: 'underOneRoof', icon: 'hand' },
+  { key: 'dedicatedLead', icon: 'manager' },
 ];
 
 const CARDS_RIGHT: AdvantageCard[] = [
-  {
-    icon: 'price',
-    title: 'Fixed pricing & clear timelines',
-    desc: 'Transparent monthly plans with milestones you can map to your board. No surprise invoices, no buried retainer creep - what you sign is what you pay.',
-  },
-  {
-    icon: 'shield',
-    title: 'HIPAA-aware specialists',
-    desc: 'Every campaign, pixel, and intake form is built by healthcare-trained operators using BAA-ready stacks and server-side tracking. Compliance is the default, not an afterthought.',
-  },
+  { key: 'fixedPricing', icon: 'price' },
+  { key: 'hipaaSpecialists', icon: 'shield' },
 ];
 
 const Icon = ({ name }: { name: AdvantageCard['icon'] }) => {
@@ -93,27 +80,25 @@ const Icon = ({ name }: { name: AdvantageCard['icon'] }) => {
 };
 
 const Advantages = () => {
+  const { t } = useTranslation('home');
   return (
     <section className="adv-section" id="advantages" aria-labelledby="adv-title">
       <div className="container-shell">
         <div className="adv-head">
-          <span className="adv-eyebrow">Our Advantages</span>
+          <span className="adv-eyebrow">{t('advantages.eyebrow')}</span>
           <h2 id="adv-title" className="adv-h2">
-            One partner for healthcare growth.
+            {t('advantages.title')}
           </h2>
-          <p className="adv-intro">
-            SEO, paid media, automation, and reporting under one roof - so your team has one
-            accountable partner, not five disconnected vendors.
-          </p>
+          <p className="adv-intro">{t('advantages.intro')}</p>
         </div>
 
         <div className="adv-stats">
           {STATS.map((s) => (
-            <div key={s.label} className="adv-stat">
+            <div key={s.key} className="adv-stat">
               <p className="adv-stat-num">
                 <CountUp to={s.value} prefix={s.prefix} suffix={s.suffix} duration={1.8} />
               </p>
-              <p className="adv-stat-label">{s.label}</p>
+              <p className="adv-stat-label">{t(`advantages.stats.${s.key}`)}</p>
             </div>
           ))}
         </div>
@@ -121,12 +106,12 @@ const Advantages = () => {
         <div className="adv-grid">
           <div className="adv-col adv-col--left">
             {CARDS_LEFT.map((c) => (
-              <article key={c.title} className="adv-card">
+              <article key={c.key} className="adv-card">
                 <span className="adv-card-icon" aria-hidden="true">
                   <Icon name={c.icon} />
                 </span>
-                <h3 className="adv-card-title">{c.title}</h3>
-                <p className="adv-card-desc">{c.desc}</p>
+                <h3 className="adv-card-title">{t(`advantages.cards.${c.key}.title`)}</h3>
+                <p className="adv-card-desc">{t(`advantages.cards.${c.key}.desc`)}</p>
               </article>
             ))}
           </div>
@@ -139,12 +124,12 @@ const Advantages = () => {
 
           <div className="adv-col adv-col--right">
             {CARDS_RIGHT.map((c) => (
-              <article key={c.title} className="adv-card">
+              <article key={c.key} className="adv-card">
                 <span className="adv-card-icon" aria-hidden="true">
                   <Icon name={c.icon} />
                 </span>
-                <h3 className="adv-card-title">{c.title}</h3>
-                <p className="adv-card-desc">{c.desc}</p>
+                <h3 className="adv-card-title">{t(`advantages.cards.${c.key}.title`)}</h3>
+                <p className="adv-card-desc">{t(`advantages.cards.${c.key}.desc`)}</p>
               </article>
             ))}
           </div>

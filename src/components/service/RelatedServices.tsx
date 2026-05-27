@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { ArrowIcon } from '../icons';
 
 export interface RelatedServiceLink {
@@ -17,18 +18,23 @@ interface RelatedServicesProps {
 
 const RelatedServices = ({
   sectionNum = '06',
-  title = 'Pair this with another lever.',
-  intro = 'These services compound when run together - pick the next layer that matches your bottleneck.',
+  title,
+  intro,
   items,
 }: RelatedServicesProps) => {
+  const { t } = useTranslation('common');
+  const resolvedTitle = title ?? t('components.relatedServices.defaultTitle');
+  const resolvedIntro = intro ?? t('components.relatedServices.defaultIntro');
   return (
     <section className="sv-section sv-related" aria-labelledby="sv-related-title">
       <div className="container-shell">
         <div className="sv-sec-head">
           <div>
-            <div className="sv-sec-num">{sectionNum} - Related services</div>
+            <div className="sv-sec-num">
+              {sectionNum} - {t('components.relatedServices.sectionLabel')}
+            </div>
             <h2 id="sv-related-title" className="sv-sec-title">
-              {title}
+              {resolvedTitle}
             </h2>
           </div>
           <p
@@ -40,7 +46,7 @@ const RelatedServices = ({
               margin: 0,
             }}
           >
-            {intro}
+            {resolvedIntro}
           </p>
         </div>
 
@@ -123,7 +129,7 @@ const RelatedServices = ({
                   color: '#576DB5',
                 }}
               >
-                Explore <ArrowIcon size={14} strokeWidth={2} />
+                {t('components.relatedServices.explore')} <ArrowIcon size={14} strokeWidth={2} />
               </span>
             </Link>
           ))}

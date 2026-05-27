@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import Hero from './Hero';
 import Story from './Story';
 import Pillars from './Pillars';
@@ -14,27 +15,30 @@ import { SCHEMA } from './data';
    coverage cards, 4-step compliance loop, image CTA card.
    ============================================================ */
 
-const BREADCRUMB_SCHEMA = buildBreadcrumbList([
-  { name: 'Home', path: '/' },
-  { name: 'HIPAA Compliance' },
-]);
+const HipaaCompliance = () => {
+  const { t } = useTranslation('pages');
+  const breadcrumbSchema = buildBreadcrumbList([
+    { name: t('pages:hipaaCompliance.breadcrumb.home'), path: '/' },
+    { name: t('pages:hipaaCompliance.breadcrumb.current') },
+  ]);
 
-const HipaaCompliance = () => (
-  <main className="gt-page gt-page-x hcp-page">
-    <Seo
-      title="HIPAA-Compliant Healthcare Marketing — BAA-Covered Toolchain"
-      description="HIPAA-aware marketing across forms, hosting, ad platforms, and analytics. 100% BAA-covered toolchain, annual external review, last independent audit Mar 2026."
-      path="/hipaa-compliance"
-      schema={[SCHEMA, BREADCRUMB_SCHEMA]}
-    />
+  return (
+    <main className="gt-page gt-page-x hcp-page">
+      <Seo
+        title={t('pages:hipaaCompliance.seo.title')}
+        description={t('pages:hipaaCompliance.seo.description')}
+        path="/hipaa-compliance"
+        schema={[SCHEMA, breadcrumbSchema]}
+      />
 
-    <Hero />
-    <Story />
-    <Pillars />
-    <Coverage />
-    <Loop />
-    <CTA />
-  </main>
-);
+      <Hero />
+      <Story />
+      <Pillars />
+      <Coverage />
+      <Loop />
+      <CTA />
+    </main>
+  );
+};
 
 export default HipaaCompliance;

@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react';
 import type { CSSProperties } from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import SectionHead from './SectionHead';
 import { ArrowIcon } from '../icons';
 
@@ -19,6 +20,7 @@ interface CaseStudiesProps {
 }
 
 const CaseStudies = ({ cases }: CaseStudiesProps) => {
+  const { t } = useTranslation('common');
   const [index, setIndex] = useState(0);
   const [visibleCount, setVisibleCount] = useState(3);
   const [cardWidth, setCardWidth] = useState(0);
@@ -89,17 +91,18 @@ const CaseStudies = ({ cases }: CaseStudiesProps) => {
     <section className="sv-section sv-cases">
       <div className="container-shell">
         <SectionHead
-          num="05 - Case studies"
+          num={t('components.caseStudies.sectionNum')}
           title={
             <>
-              Six recent <em>engagements.</em>
+              {t('components.caseStudies.titlePart1')}{' '}
+              <em>{t('components.caseStudies.titleEm')}</em>
             </>
           }
           meta={
             <>
-              Swipe or
+              {t('components.caseStudies.metaLine1')}
               <br />
-              click through
+              {t('components.caseStudies.metaLine2')}
             </>
           }
         />
@@ -125,11 +128,11 @@ const CaseStudies = ({ cases }: CaseStudiesProps) => {
                   <span className="sv-cs-sector">{c.sector}</span>
                   <h3 className="sv-cs-name">{c.name}</h3>
                   <div className="sv-cs-block">
-                    <strong>Problem</strong>
+                    <strong>{t('components.caseStudies.problemLabel')}</strong>
                     {c.problem}
                   </div>
                   <div className="sv-cs-block">
-                    <strong>Result</strong>
+                    <strong>{t('components.caseStudies.resultLabel')}</strong>
                     {c.result}
                   </div>
                 </article>
@@ -142,7 +145,7 @@ const CaseStudies = ({ cases }: CaseStudiesProps) => {
               type="button"
               className="sv-cs-btn"
               data-dir="prev"
-              aria-label="Previous"
+              aria-label={t('components.caseStudies.prevAriaLabel')}
               onClick={() => go(-1)}
               disabled={index <= 0}
             >
@@ -167,7 +170,7 @@ const CaseStudies = ({ cases }: CaseStudiesProps) => {
               type="button"
               className="sv-cs-btn"
               data-dir="next"
-              aria-label="Next"
+              aria-label={t('components.caseStudies.nextAriaLabel')}
               onClick={() => go(1)}
               disabled={index >= maxIndex}
             >
@@ -177,7 +180,7 @@ const CaseStudies = ({ cases }: CaseStudiesProps) => {
 
           <div className="sv-cs-cta-row">
             <Link to="/case-studies" className="sv-cs-cta">
-              View all case studies
+              {t('components.caseStudies.viewAllCases')}
               <ArrowIcon />
             </Link>
           </div>

@@ -1,36 +1,37 @@
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { ArrowIcon } from '@/components/icons';
 
 const Hero = () => {
+  const { t } = useTranslation('pages');
+  const bullets = t('branding.hero.bullets', { returnObjects: true }) as string[];
+
   return (
     <section className="br-hero">
       <div className="container-shell">
         <div className="br-hero-grid">
           <div>
             <div className="br-hero-crumb">
-              <Link to="/services">Services</Link>
+              <Link to="/services">{t('branding.hero.breadcrumbServices')}</Link>
               <span className="sep">/</span>
-              <span className="cur">Brand Identity &amp; Design</span>
+              <span className="cur">{t('branding.hero.breadcrumbCurrent')}</span>
             </div>
             <span className="br-hero-eyebrow">
-              <span className="dot" /> Design-led · Healthcare-only
+              <span className="dot" /> {t('branding.hero.eyebrow')}
             </span>
             <h1 className="br-hero-title">
-              A brand that <em>earns trust</em> the moment a patient sees it.
+              {t('branding.hero.titleLine')} <em>{t('branding.hero.titleAccent')}</em>{' '}
+              {t('branding.hero.titleAfter')}
             </h1>
-            <p className="br-hero-lede">
-              Identity, voice, system, application - built around how patients should feel in the
-              waiting room, not how the logo looks on a moodboard. Clinically honest, warmly human,
-              and pressure-tested against the marketing campaigns it has to power.
-            </p>
+            <p className="br-hero-lede">{t('branding.hero.lede')}</p>
 
             <div className="br-hero-ctas">
               <Link to="/contact" className="sl-btn-primary">
-                Pressure-test your brand
+                {t('branding.hero.ctaPrimary')}
                 <ArrowIcon />
               </Link>
               <a href="#deliverables" className="sl-btn-ghost">
-                See deliverables
+                {t('branding.hero.ctaSecondary')}
                 <svg
                   viewBox="0 0 24 24"
                   fill="none"
@@ -46,57 +47,29 @@ const Hero = () => {
             </div>
 
             <ul className="br-hero-bullets">
-              <li>
-                <span className="br-hero-check" aria-hidden="true">
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth={3}
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <polyline points="20 6 9 17 4 12" />
-                  </svg>
-                </span>
-                Tested on live ads + booking flow before sign-off
-              </li>
-              <li>
-                <span className="br-hero-check" aria-hidden="true">
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth={3}
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <polyline points="20 6 9 17 4 12" />
-                  </svg>
-                </span>
-                You own every source file. Figma + Illustrator.
-              </li>
-              <li>
-                <span className="br-hero-check" aria-hidden="true">
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth={3}
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <polyline points="20 6 9 17 4 12" />
-                  </svg>
-                </span>
-                Phased rollout · no clinic ever closes for a brand update
-              </li>
+              {bullets.map((b) => (
+                <li key={b}>
+                  <span className="br-hero-check" aria-hidden="true">
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth={3}
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg>
+                  </span>
+                  {b}
+                </li>
+              ))}
             </ul>
           </div>
 
           <div className="br-hero-mock" aria-hidden="true">
             <div className="br-hero-board">
-              <div className="br-hero-board-tag">Brand system · v1.0</div>
+              <div className="br-hero-board-tag">{t('branding.hero.boardTag')}</div>
 
               <div className="br-hero-mark">
                 <div className="br-hero-monogram">
@@ -146,8 +119,8 @@ const Hero = () => {
                   </svg>
                 </div>
                 <div>
-                  <span className="kicker">Patient promise</span>
-                  <span className="copy">Care that knows your name before you say it.</span>
+                  <span className="kicker">{t('branding.hero.patientPromiseLabel')}</span>
+                  <span className="copy">{t('branding.hero.patientPromiseCopy')}</span>
                 </div>
               </div>
             </div>
@@ -156,14 +129,14 @@ const Hero = () => {
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.2}>
                 <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
               </svg>
-              +62% brand recall
+              {t('branding.hero.tag1')}
             </div>
             <div className="br-hero-tag t2">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.2}>
                 <path d="M9 12l2 2 4-4" />
                 <circle cx="12" cy="12" r="10" />
               </svg>
-              A+ trust score
+              {t('branding.hero.tag2')}
             </div>
           </div>
         </div>

@@ -1,7 +1,18 @@
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { ArrowIcon } from '@/components/icons';
 
+interface StatItem {
+  num: string;
+  unit?: string;
+  lbl: string;
+}
+
 const CTA = () => {
+  const { t } = useTranslation('pages');
+  const stats = t('pages:onsiteFieldMarketing.cta.stats', {
+    returnObjects: true,
+  }) as StatItem[];
   return (
     <section className="ofm-cta-section" id="audit">
       <div className="container-shell">
@@ -9,23 +20,17 @@ const CTA = () => {
           <div className="ofm-cta-left">
             <div className="ofm-cta-eyebrow">
               <span className="dot" aria-hidden="true" />
-              Free territory walk · You keep the plan
+              {t('pages:onsiteFieldMarketing.cta.eyebrow')}
             </div>
-            <h2 className="ofm-cta-title">
-              Doors open faster when someone is there to open them.
-            </h2>
-            <p className="ofm-cta-desc">
-              We will not staff a single booth without a territory plan and a defined ROAS
-              target. Book the walk, walk away with a written one-page plan and the projected
-              cost per qualified lead — pilot only if the math holds up.
-            </p>
+            <h2 className="ofm-cta-title">{t('pages:onsiteFieldMarketing.cta.title')}</h2>
+            <p className="ofm-cta-desc">{t('pages:onsiteFieldMarketing.cta.desc')}</p>
             <div className="ofm-cta-ctas">
               <Link to="/contact" className="sl-btn-primary">
-                Book the walk
+                {t('pages:onsiteFieldMarketing.cta.ctaPrimary')}
                 <ArrowIcon />
               </Link>
               <Link to="/services" className="sl-btn-ghost">
-                See all services
+                {t('pages:onsiteFieldMarketing.cta.ctaSecondary')}
                 <svg
                   viewBox="0 0 24 24"
                   fill="none"
@@ -42,18 +47,15 @@ const CTA = () => {
           </div>
 
           <div className="ofm-cta-right">
-            <div className="ofm-cta-stat">
-              <span className="ofm-cta-stat-num">4.1<em>×</em></span>
-              <span className="ofm-cta-stat-lbl">Avg field ROAS · trailing 12 mo</span>
-            </div>
-            <div className="ofm-cta-stat">
-              <span className="ofm-cta-stat-num">$68</span>
-              <span className="ofm-cta-stat-lbl">Median cost per qualified lead</span>
-            </div>
-            <div className="ofm-cta-stat">
-              <span className="ofm-cta-stat-num">320<em>+</em></span>
-              <span className="ofm-cta-stat-lbl">Activations run / year</span>
-            </div>
+            {stats.map((s) => (
+              <div key={s.lbl} className="ofm-cta-stat">
+                <span className="ofm-cta-stat-num">
+                  {s.num}
+                  {s.unit && <em>{s.unit}</em>}
+                </span>
+                <span className="ofm-cta-stat-lbl">{s.lbl}</span>
+              </div>
+            ))}
           </div>
         </div>
       </div>

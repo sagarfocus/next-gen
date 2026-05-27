@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import Hero from './Hero';
 import FailureModes from './FailureModes';
 import Directories from './Directories';
@@ -27,26 +28,29 @@ const SERVICE_SCHEMA = {
   },
 };
 
-const BREADCRUMB_SCHEMA = buildBreadcrumbList([
-  { name: 'Home', path: '/' },
-  { name: 'Citation Building' },
-]);
+const CitationBuilding = () => {
+  const { t } = useTranslation('pages');
+  const breadcrumbSchema = buildBreadcrumbList([
+    { name: 'Home', path: '/' },
+    { name: t('pages:citationBuilding.breadcrumb.current') },
+  ]);
 
-const CitationBuilding = () => (
-  <>
-    <Seo
-      title="Healthcare Citation Building — NAP Consistency for Local Pack Ranking"
-      description="A citation programme that consolidates your name, address, and phone into one authoritative record across the healthcare directories search engines actually weight."
-      path="/citation-building"
-      schema={[SERVICE_SCHEMA, BREADCRUMB_SCHEMA]}
-    />
+  return (
+    <>
+      <Seo
+        title={t('pages:citationBuilding.seo.title')}
+        description={t('pages:citationBuilding.seo.description')}
+        path="/citation-building"
+        schema={[SERVICE_SCHEMA, breadcrumbSchema]}
+      />
 
-    <Hero />
-    <FailureModes />
-    <Directories />
-    <Process />
-    <Closing />
-  </>
-);
+      <Hero />
+      <FailureModes />
+      <Directories />
+      <Process />
+      <Closing />
+    </>
+  );
+};
 
 export default CitationBuilding;

@@ -1,7 +1,10 @@
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { ArrowIcon } from '@/components/icons';
 
 const CTA = () => {
+  const { t } = useTranslation('pages');
+
   return (
     <section className="seo-cta-section" id="audit">
       <div className="container-shell">
@@ -9,23 +12,17 @@ const CTA = () => {
           <div className="seo-cta-left">
             <div className="seo-cta-eyebrow">
               <span className="dot" aria-hidden="true" />
-              Free SEO audit · 5 business days
+              {t('seoService.cta.eyebrow')}
             </div>
-            <h2 className="seo-cta-title">
-              Get a 12-page audit of your practice&rsquo;s SEO.
-            </h2>
-            <p className="seo-cta-desc">
-              Submit your website. We&rsquo;ll send back a technical, on-page,
-              local, and AEO read-out - plus the three highest-leverage moves
-              you could make this quarter. Whether you sign with us or not.
-            </p>
+            <h2 className="seo-cta-title">{t('seoService.cta.title')}</h2>
+            <p className="seo-cta-desc">{t('seoService.cta.desc')}</p>
             <div className="seo-cta-ctas">
               <Link to="/free-growth-audit" className="sl-btn-primary">
-                Request my audit
+                {t('seoService.cta.ctaPrimary')}
                 <ArrowIcon />
               </Link>
               <Link to="/pricing" className="sl-btn-ghost">
-                See pricing
+                {t('seoService.cta.ctaSecondary')}
                 <svg
                   viewBox="0 0 24 24"
                   fill="none"
@@ -44,15 +41,15 @@ const CTA = () => {
           <div className="seo-cta-right">
             <div className="seo-cta-stat">
               <span className="seo-cta-stat-num">+62<em>%</em></span>
-              <span className="seo-cta-stat-lbl">Avg. bookings lift · 6 mo</span>
+              <span className="seo-cta-stat-lbl">{t('seoService.cta.stat1Lbl')}</span>
             </div>
             <div className="seo-cta-stat">
               <span className="seo-cta-stat-num">94<em>%</em></span>
-              <span className="seo-cta-stat-lbl">Client retention</span>
+              <span className="seo-cta-stat-lbl">{t('seoService.cta.stat2Lbl')}</span>
             </div>
             <div className="seo-cta-stat">
               <span className="seo-cta-stat-num">5<em>d</em></span>
-              <span className="seo-cta-stat-lbl">Audit turnaround</span>
+              <span className="seo-cta-stat-lbl">{t('seoService.cta.stat3Lbl')}</span>
             </div>
           </div>
         </div>

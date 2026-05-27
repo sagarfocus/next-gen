@@ -1,26 +1,31 @@
-const Stats = () => (
-  <section className="ph3-stats" aria-label="Outcomes at day 30">
-    <div className="ph3-stat">
-      <div className="num">
-        30<em>d</em>
+import { useTranslation } from 'react-i18next';
+
+const Stats = () => {
+  const { t } = useTranslation(['pages']);
+  return (
+    <section className="ph3-stats" aria-label={t('pages:phases.phase3.stats.ariaLabel')}>
+      <div className="ph3-stat">
+        <div className="num">
+          30<em>d</em>
+        </div>
+        <div className="lbl">{t('pages:phases.phase3.stats.launchWindow')}</div>
       </div>
-      <div className="lbl">Launch window</div>
-    </div>
-    <div className="ph3-stat">
-      <div className="num">04</div>
-      <div className="lbl">Live channels</div>
-    </div>
-    <div className="ph3-stat">
-      <div className="num">
-        100<em>%</em>
+      <div className="ph3-stat">
+        <div className="num">04</div>
+        <div className="lbl">{t('pages:phases.phase3.stats.liveChannels')}</div>
       </div>
-      <div className="lbl">Calls attributed</div>
-    </div>
-    <div className="ph3-stat">
-      <div className="num">01</div>
-      <div className="lbl">Source-of-truth dashboard</div>
-    </div>
-  </section>
-);
+      <div className="ph3-stat">
+        <div className="num">
+          100<em>%</em>
+        </div>
+        <div className="lbl">{t('pages:phases.phase3.stats.callsAttributed')}</div>
+      </div>
+      <div className="ph3-stat">
+        <div className="num">01</div>
+        <div className="lbl">{t('pages:phases.phase3.stats.sourceOfTruth')}</div>
+      </div>
+    </section>
+  );
+};
 
 export default Stats;

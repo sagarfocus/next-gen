@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import Hero from './Hero';
 import Pillars from './Pillars';
 import About from './About';
@@ -27,22 +28,25 @@ const BREADCRUMB_SCHEMA = buildBreadcrumbList([
   { name: 'Playbook' },
 ]);
 
-const MoreInfo = () => (
-  <main className="amih" id="amih-top">
-    <Seo
-      title="Healthcare Automation Playbook — HIPAA-Safe Workflow Guide"
-      description="A practitioner's guide to deploying patient-facing automation without breaking compliance, scope, or front-desk sanity — written by the team behind 200+ live clinical workflows."
-      path="/automation/more-info"
-      schema={[SERVICE_SCHEMA, BREADCRUMB_SCHEMA]}
-    />
+const MoreInfo = () => {
+  const { t } = useTranslation(['automation']);
+  return (
+    <main className="amih" id="amih-top">
+      <Seo
+        title={t('automation:moreInfo.seo.title')}
+        description={t('automation:moreInfo.seo.description')}
+        path="/automation/more-info"
+        schema={[SERVICE_SCHEMA, BREADCRUMB_SCHEMA]}
+      />
 
-    <Hero />
-    <Pillars />
-    <About />
-    <Solutions />
-    <Process />
-    <CTA />
-  </main>
-);
+      <Hero />
+      <Pillars />
+      <About />
+      <Solutions />
+      <Process />
+      <CTA />
+    </main>
+  );
+};
 
 export default MoreInfo;

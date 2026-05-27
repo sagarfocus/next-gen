@@ -1,4 +1,6 @@
+import { useMemo } from 'react';
 import type { ReactElement } from 'react';
+import { useTranslation } from 'react-i18next';
 
 /**
  * Home page — "Industries We Serve" section content.
@@ -6,7 +8,7 @@ import type { ReactElement } from 'react';
  * Eight specialty cards (left list) and six floating tags (right SVG visual)
  * each carry their own glyph. The large inline SVG diagram (orbits, hub,
  * data nodes) stays in `src/pages/Home/Industries.tsx` — it's bespoke art,
- * not data.
+ * not data. Display strings come from i18n via the hooks exported below.
  */
 
 const PlusIcon = () => (
@@ -137,6 +139,20 @@ const StethoscopeIcon = () => (
   </svg>
 );
 
+type SpecialtyKey =
+  | 'er'
+  | 'urgentCare'
+  | 'medspa'
+  | 'dental'
+  | 'chiro'
+  | 'mental'
+  | 'primary'
+  | 'pediatrics';
+
+type TagKey = 'er' | 'urgentCare' | 'medspa' | 'dental' | 'mental' | 'pediatrics';
+
+type PillarKey = 'cost' | 'competition' | 'compliance';
+
 export interface HomeIndustryTag {
   slot: 't1' | 't2' | 't3' | 't4' | 't5' | 't6';
   name: string;
@@ -144,89 +160,131 @@ export interface HomeIndustryTag {
 }
 
 export interface HomeIndustrySpecialty {
+  key: SpecialtyKey;
   name: string;
   meta: string;
   tone: 'sage' | 'periwinkle' | 'clay';
   icon: ReactElement;
 }
 
-export const HOME_INDUSTRY_SPECIALTIES: readonly HomeIndustrySpecialty[] = [
-  {
-    name: 'Emergency Rooms',
-    meta: '24/7 high-acuity acquisition',
-    tone: 'sage',
-    icon: <PlusIcon />,
-  },
-  {
-    name: 'Urgent Care',
-    meta: 'Walk-in volume vs. health systems',
-    tone: 'periwinkle',
-    icon: <ClockIcon />,
-  },
-  {
-    name: 'MedSpas & Aesthetics',
-    meta: 'Social + targeted Meta campaigns',
-    tone: 'clay',
-    icon: <SparkleIcon />,
-  },
-  { name: 'Dental Practices', meta: 'Locally-optimized growth', tone: 'sage', icon: <ToothIcon /> },
-  {
-    name: 'Chiropractic',
-    meta: 'Recurring local patient flow',
-    tone: 'periwinkle',
-    icon: <SpineIcon />,
-  },
-  {
-    name: 'Mental Health',
-    meta: 'Discreet, demographic-driven',
-    tone: 'clay',
-    icon: <BrainIcon />,
-  },
-  {
-    name: 'Primary Care',
-    meta: 'Service-area patient demand',
-    tone: 'sage',
-    icon: <StethoscopeIcon />,
-  },
-  {
-    name: 'Pediatrics',
-    meta: 'Family-tailored growth strategy',
-    tone: 'periwinkle',
-    icon: <BabyFaceIcon />,
-  },
+interface SpecialtyStatic {
+  key: SpecialtyKey;
+  tone: 'sage' | 'periwinkle' | 'clay';
+  icon: ReactElement;
+}
+
+const HOME_INDUSTRY_SPECIALTIES_STATIC: readonly SpecialtyStatic[] = [
+  { key: 'er', tone: 'sage', icon: <PlusIcon /> },
+  { key: 'urgentCare', tone: 'periwinkle', icon: <ClockIcon /> },
+  { key: 'medspa', tone: 'clay', icon: <SparkleIcon /> },
+  { key: 'dental', tone: 'sage', icon: <ToothIcon /> },
+  { key: 'chiro', tone: 'periwinkle', icon: <SpineIcon /> },
+  { key: 'mental', tone: 'clay', icon: <BrainIcon /> },
+  { key: 'primary', tone: 'sage', icon: <StethoscopeIcon /> },
+  { key: 'pediatrics', tone: 'periwinkle', icon: <BabyFaceIcon /> },
 ];
 
-export const HOME_INDUSTRY_TAGS: readonly HomeIndustryTag[] = [
-  { slot: 't1', name: 'Emergency Room', icon: <PlusIcon /> },
-  { slot: 't2', name: 'Urgent Care', icon: <ClockIcon /> },
-  { slot: 't3', name: 'MedSpa', icon: <SparkleIcon /> },
-  { slot: 't4', name: 'Dental', icon: <ToothIcon /> },
-  { slot: 't5', name: 'Mental Health', icon: <BrainIcon /> },
-  { slot: 't6', name: 'Pediatrics', icon: <BabyFaceIcon /> },
+interface TagStatic {
+  slot: HomeIndustryTag['slot'];
+  key: TagKey;
+  icon: ReactElement;
+}
+
+const HOME_INDUSTRY_TAGS_STATIC: readonly TagStatic[] = [
+  { slot: 't1', key: 'er', icon: <PlusIcon /> },
+  { slot: 't2', key: 'urgentCare', icon: <ClockIcon /> },
+  { slot: 't3', key: 'medspa', icon: <SparkleIcon /> },
+  { slot: 't4', key: 'dental', icon: <ToothIcon /> },
+  { slot: 't5', key: 'mental', icon: <BrainIcon /> },
+  { slot: 't6', key: 'pediatrics', icon: <BabyFaceIcon /> },
 ];
 
-export const HOME_INDUSTRY_PILLARS: readonly string[] = [
-  'Patient Acquisition Costs',
-  'Competitive Dynamics',
-  'Compliance Requirements',
-];
+const PILLAR_KEYS: readonly PillarKey[] = ['cost', 'competition', 'compliance'];
 
-export const HOME_INDUSTRY_COPY = {
-  eyebrow: 'Industries',
-  title: 'Industries We Serve',
-  lead: 'Specialized marketing for every type of healthcare facility - because an ER and a MedSpa require fundamentally different growth strategies.',
-  pillarsLabel: 'Every vertical varies on',
-  // `<strong>Clinic Growth OS</strong>` rendered separately in the section
-  // (so its inline emphasis is preserved). The rest of the strap copy:
-  strapBefore: 'Clinic Growth OS',
-  strapAfter:
-    ' adapts to every clinical reality - from same-day appointment slots to 6-month elective procedure pipelines. Industry-specific playbooks, not a generic strategy.',
-} as const;
+/** React hook for the eight specialty cards. */
+export function useHomeIndustrySpecialties(): readonly HomeIndustrySpecialty[] {
+  const { t } = useTranslation('home');
+  return useMemo(
+    () =>
+      HOME_INDUSTRY_SPECIALTIES_STATIC.map((s) => ({
+        key: s.key,
+        name: t(`industries.specialties.${s.key}.name`),
+        meta: t(`industries.specialties.${s.key}.meta`),
+        tone: s.tone,
+        icon: s.icon,
+      })),
+    [t]
+  );
+}
 
-export const HOME_INDUSTRY_STATS = [
-  { label: 'campaigns launched', num: '500+' },
-  { label: 'ad spend managed', num: '$10M+' },
+/** React hook for the six floating tags in the SVG visual. */
+export function useHomeIndustryTags(): readonly HomeIndustryTag[] {
+  const { t } = useTranslation('home');
+  return useMemo(
+    () =>
+      HOME_INDUSTRY_TAGS_STATIC.map((tag) => ({
+        slot: tag.slot,
+        name: t(`industries.tags.${tag.key}`),
+        icon: tag.icon,
+      })),
+    [t]
+  );
+}
+
+/** React hook for the three "varies on" pillars. */
+export function useHomeIndustryPillars(): readonly string[] {
+  const { t } = useTranslation('home');
+  return useMemo(() => PILLAR_KEYS.map((k) => t(`industries.pillars.${k}`)), [t]);
+}
+
+export interface HomeIndustryCopy {
+  eyebrow: string;
+  title: string;
+  lead: string;
+  pillarsLabel: string;
+  strapBefore: string;
+  strapAfter: string;
+}
+
+/** React hook for the section's static copy strings. */
+export function useHomeIndustryCopy(): HomeIndustryCopy {
+  const { t } = useTranslation('home');
+  return useMemo(
+    () => ({
+      eyebrow: t('industries.eyebrow'),
+      title: t('industries.title'),
+      lead: t('industries.lead'),
+      pillarsLabel: t('industries.pillarsLabel'),
+      strapBefore: t('industries.strap.brand'),
+      strapAfter: t('industries.strap.after'),
+    }),
+    [t]
+  );
+}
+
+export interface HomeIndustryStat {
+  key: 'campaigns' | 'adSpend' | 'roi';
+  label: string;
+  num: string;
+}
+
+const HOME_INDUSTRY_STATS_STATIC: readonly { key: HomeIndustryStat['key']; num: string }[] = [
+  { key: 'campaigns', num: '500+' },
+  { key: 'adSpend', num: '$10M+' },
   // The third stat's number uses the `&times;` JSX entity (rendered as ×).
-  // We render that in the section file directly so the `&times;` survives.
-  { label: 'average ROI', num: '3×' },
-] as const;
+  { key: 'roi', num: '3×' },
+];
+
+/** React hook for the three numeric stats above the specialty list. */
+export function useHomeIndustryStats(): readonly HomeIndustryStat[] {
+  const { t } = useTranslation('home');
+  return useMemo(
+    () =>
+      HOME_INDUSTRY_STATS_STATIC.map((s) => ({
+        key: s.key,
+        label: t(`industries.stats.${s.key}`),
+        num: s.num,
+      })),
+    [t]
+  );
+}

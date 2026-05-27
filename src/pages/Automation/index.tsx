@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import AutomationHero from './AutomationHero';
 import WhatIsAutomation from './WhatIsAutomation';
 import SolutionsLibrary from './SolutionsLibrary';
@@ -30,6 +31,7 @@ const BREADCRUMB_SCHEMA = buildBreadcrumbList([
 ]);
 
 const Automation = () => {
+  const { t } = useTranslation(['automation']);
   const [bookingOpen, setBookingOpen] = useState(false);
   const openBooking = () => setBookingOpen(true);
   const closeBooking = () => setBookingOpen(false);
@@ -37,8 +39,8 @@ const Automation = () => {
   return (
     <>
       <Seo
-        title="Healthcare Automation Library — Free HIPAA-Aware Workflows"
-        description="Save your front desk 20+ hours a week. Drop-in workflows for patient intake, reminders, reviews, insurance verification, and AI chat — HIPAA-aware, free, live in under an hour."
+        title={t('automation:seo.title')}
+        description={t('automation:seo.description')}
         path="/automation"
         schema={[SERVICE_SCHEMA, BREADCRUMB_SCHEMA]}
       />

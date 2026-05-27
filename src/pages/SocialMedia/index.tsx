@@ -1,4 +1,5 @@
 import '../../styles/socialmedia.css';
+import { useTranslation } from 'react-i18next';
 import Hero from './Hero';
 import TrustBar from './TrustBar';
 import Platforms from './Platforms';
@@ -48,11 +49,12 @@ const BREADCRUMB_SCHEMA = buildBreadcrumbList([
 ]);
 
 const SocialMedia = () => {
+  const { t } = useTranslation('pages');
   return (
     <>
       <Seo
-        title="Healthcare Social Media Marketing — Instagram, TikTok, LinkedIn"
-        description="Instagram, Facebook, LinkedIn, TikTok, YouTube Shorts. Run by clinicians-turned-content-producers with HIPAA-aware moderation and clinical review on every post."
+        title={t('socialMedia.seo.title')}
+        description={t('socialMedia.seo.description')}
         path="/services/social-media-marketing"
         schema={[SERVICE_SCHEMA, FAQ_SCHEMA, BREADCRUMB_SCHEMA]}
       />

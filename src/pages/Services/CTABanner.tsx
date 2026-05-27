@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { ArrowIcon } from '@/components/icons';
 interface CTABannerProps {
   onBook: () => void;
@@ -11,6 +12,7 @@ const PlusMark = ({ size = 14 }: { size?: number }) => (
 );
 
 const CTABanner = ({ onBook }: CTABannerProps) => {
+  const { t } = useTranslation('services');
   return (
     <section className="cta-banner-section" aria-labelledby="cta-title">
       <div className="container-shell">
@@ -34,14 +36,11 @@ const CTABanner = ({ onBook }: CTABannerProps) => {
           </span>
 
           <div className="cta-inner">
-            <span className="cta-eyebrow">Ready to Grow?</span>
+            <span className="cta-eyebrow">{t('cta.eyebrow')}</span>
             <h2 id="cta-title" className="cta-h2">
-              Let&rsquo;s build your <em>patient pipeline</em>.
+              {t('cta.titleLine')} <em>{t('cta.titleAccent')}</em>.
             </h2>
-            <p className="cta-text">
-              Get a free strategy session with a healthcare growth specialist. We&rsquo;ll audit
-              your funnel, map your opportunity, and show you exactly where to start.
-            </p>
+            <p className="cta-text">{t('cta.text')}</p>
             <div className="cta-row">
               <button
                 type="button"
@@ -50,7 +49,7 @@ const CTABanner = ({ onBook }: CTABannerProps) => {
                 aria-haspopup="dialog"
                 aria-controls="bookingModal"
               >
-                Book a Free Consultation Call
+                {t('cta.button')}
                 <ArrowIcon strokeWidth={2.2} />
               </button>
             </div>

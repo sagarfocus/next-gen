@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { ArrowIcon } from '../icons';
 
 export type ServiceCTAVariant = 'panel' | 'band' | 'editorial';
@@ -27,27 +28,32 @@ interface ServiceCTAProps {
 
 const ServiceCTA = ({
   variant = 'panel',
-  eyebrow = 'Free audit · No commitment',
-  title = "Let's make this work.",
-  description = "A 30-minute call. We'll audit your current setup and share the closest case study from this library - whether you sign with us or not.",
+  eyebrow,
+  title,
+  description,
   primaryTo = '/contact',
-  primaryLabel = 'Book strategy call',
+  primaryLabel,
   secondaryTo,
   secondaryLabel,
   bullets,
 }: ServiceCTAProps) => {
+  const { t } = useTranslation('common');
+  const resolvedEyebrow = eyebrow ?? t('components.serviceCTA.defaultEyebrow');
+  const resolvedTitle = title ?? t('components.serviceCTA.defaultTitle');
+  const resolvedDescription = description ?? t('components.serviceCTA.defaultDescription');
+  const resolvedPrimaryLabel = primaryLabel ?? t('components.serviceCTA.defaultPrimaryLabel');
   if (variant === 'band') {
     return (
       <section className="sv-cta sv-cta--band" id="audit">
         <div className="container-shell">
           <div className="sv-cta-band">
             <div>
-              <span className="sv-cta-band-eyebrow">{eyebrow}</span>
-              <h2 className="sv-cta-band-title">{title}</h2>
-              <p className="sv-cta-band-sub">{description}</p>
+              <span className="sv-cta-band-eyebrow">{resolvedEyebrow}</span>
+              <h2 className="sv-cta-band-title">{resolvedTitle}</h2>
+              <p className="sv-cta-band-sub">{resolvedDescription}</p>
             </div>
             <Link to={primaryTo} className="sv-cta-band-btn">
-              {primaryLabel}
+              {resolvedPrimaryLabel}
               <ArrowIcon size={14} />
             </Link>
           </div>
@@ -62,12 +68,12 @@ const ServiceCTA = ({
         <div className="container-shell">
           <div className="sv-cta-editorial">
             <div>
-              <span className="sv-cta-editorial-eyebrow">{eyebrow}</span>
-              <h2 className="sv-cta-editorial-h">{title}</h2>
+              <span className="sv-cta-editorial-eyebrow">{resolvedEyebrow}</span>
+              <h2 className="sv-cta-editorial-h">{resolvedTitle}</h2>
             </div>
             <div className="sv-cta-editorial-aside">
               <p style={{ margin: 0, fontSize: 14.5, lineHeight: 1.6, color: '#4A5568' }}>
-                {description}
+                {resolvedDescription}
               </p>
               {bullets && bullets.length ? (
                 <div>
@@ -81,7 +87,7 @@ const ServiceCTA = ({
               ) : null}
               <div className="sv-cta-editorial-actions">
                 <Link to={primaryTo}>
-                  {primaryLabel}
+                  {resolvedPrimaryLabel}
                   <ArrowIcon size={14} />
                 </Link>
                 {secondaryTo && secondaryLabel ? (
@@ -100,11 +106,11 @@ const ServiceCTA = ({
     <section className="sv-cta" id="audit">
       <div className="container-shell">
         <div className="sv-cta-panel">
-          <div className="sv-cta-eyebrow">{eyebrow}</div>
-          <h2 className="sv-cta-title">{title}</h2>
-          <p className="sv-cta-desc">{description}</p>
+          <div className="sv-cta-eyebrow">{resolvedEyebrow}</div>
+          <h2 className="sv-cta-title">{resolvedTitle}</h2>
+          <p className="sv-cta-desc">{resolvedDescription}</p>
           <Link to={primaryTo} className="sv-btn-primary">
-            {primaryLabel}
+            {resolvedPrimaryLabel}
             <ArrowIcon size={14} />
           </Link>
         </div>

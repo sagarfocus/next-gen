@@ -1,37 +1,38 @@
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { ArrowIcon } from '@/components/icons';
 
 const Hero = () => {
+  const { t } = useTranslation('pages');
+  const bullets = t('googleBusinessProfile.hero.bullets', { returnObjects: true }) as string[];
+
   return (
     <section className="gb-hero">
       <div className="container-shell">
         <div className="gb-hero-grid">
           <div>
             <div className="gb-hero-crumb">
-              <Link to="/services">Services</Link>
+              <Link to="/services">{t('googleBusinessProfile.hero.breadcrumbServices')}</Link>
               <span className="sep">/</span>
-              <span className="cur">Google Business Profile</span>
+              <span className="cur">{t('googleBusinessProfile.hero.breadcrumbCurrent')}</span>
             </div>
             <span className="gb-hero-eyebrow">
-              <span className="dot" /> Google Verified · Healthcare-only
+              <span className="dot" /> {t('googleBusinessProfile.hero.eyebrow')}
             </span>
             <h1 className="gb-hero-title">
-              Win the <em>Local Pack</em> in every catchment area you serve.
+              {t('googleBusinessProfile.hero.titleLine')}{' '}
+              <em>{t('googleBusinessProfile.hero.titleAccent')}</em>{' '}
+              {t('googleBusinessProfile.hero.titleAfter')}
             </h1>
-            <p className="gb-hero-lede">
-              78% of local clicks land on the top-3 Google Map results. We engineer your Google
-              Business Profile, citations, reviews, posts, and photo cadence to put your clinic - or
-              every clinic in your network - at the top. HIPAA-aware moderation, multi- location
-              console, named local lead.
-            </p>
+            <p className="gb-hero-lede">{t('googleBusinessProfile.hero.lede')}</p>
 
             <div className="gb-hero-ctas">
               <Link to="/free-growth-audit" className="sl-btn-primary">
-                Request the GBP audit
+                {t('googleBusinessProfile.hero.ctaPrimary')}
                 <ArrowIcon />
               </Link>
               <a href="#optimization" className="sl-btn-ghost">
-                See what we optimize
+                {t('googleBusinessProfile.hero.ctaSecondary')}
                 <svg
                   viewBox="0 0 24 24"
                   fill="none"
@@ -47,51 +48,23 @@ const Hero = () => {
             </div>
 
             <ul className="gb-hero-bullets">
-              <li>
-                <span className="gb-hero-check" aria-hidden="true">
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth={3}
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <polyline points="20 6 9 17 4 12" />
-                  </svg>
-                </span>
-                Multi-location console · one team, every clinic
-              </li>
-              <li>
-                <span className="gb-hero-check" aria-hidden="true">
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth={3}
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <polyline points="20 6 9 17 4 12" />
-                  </svg>
-                </span>
-                HIPAA-safe review responses
-              </li>
-              <li>
-                <span className="gb-hero-check" aria-hidden="true">
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth={3}
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <polyline points="20 6 9 17 4 12" />
-                  </svg>
-                </span>
-                Map-pack movement by week 4
-              </li>
+              {bullets.map((b) => (
+                <li key={b}>
+                  <span className="gb-hero-check" aria-hidden="true">
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth={3}
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg>
+                  </span>
+                  {b}
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -110,7 +83,7 @@ const Hero = () => {
                   <circle cx="11" cy="11" r="8" />
                   <line x1="21" y1="21" x2="16.65" y2="16.65" />
                 </svg>
-                <span>urgent care near me</span>
+                <span>{t('googleBusinessProfile.hero.mapQuery')}</span>
               </div>
 
               <div className="gb-hero-map">
@@ -132,8 +105,8 @@ const Hero = () => {
 
               <div className="gb-hero-results">
                 <div className="gb-hero-results-head">
-                  <span>Top 3 results</span>
-                  <span className="filter">Open now</span>
+                  <span>{t('googleBusinessProfile.hero.topResults')}</span>
+                  <span className="filter">{t('googleBusinessProfile.hero.filterOpen')}</span>
                 </div>
                 <ul className="gb-hero-result-list">
                   <li className="gb-hero-result active">
@@ -216,14 +189,14 @@ const Hero = () => {
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.2}>
                 <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
               </svg>
-              4.9 stars · 487 reviews
+              {t('googleBusinessProfile.hero.tag1')}
             </div>
             <div className="gb-hero-tag t2">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.2}>
                 <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
                 <polyline points="17 6 23 6 23 12" />
               </svg>
-              #1 in Local Pack
+              {t('googleBusinessProfile.hero.tag2')}
             </div>
           </div>
         </div>

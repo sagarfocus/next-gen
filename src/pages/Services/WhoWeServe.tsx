@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
-import { CARDS } from '@/content/services/who-we-serve';
+import { useTranslation } from 'react-i18next';
+import { useServeCards } from '@/content/services/who-we-serve';
 
 const CardArrow = () => (
   <span className="serve-arrow" aria-hidden="true">
@@ -20,22 +21,22 @@ const CardArrow = () => (
 );
 
 const WhoWeServe = () => {
+  const { t } = useTranslation('services');
+  const cards = useServeCards();
+
   return (
     <section className="serve-section" id="who-we-serve" aria-labelledby="serve-title">
       <div className="container-shell">
         <div className="serve-head">
-          <span className="serve-eyebrow">Who We Serve</span>
+          <span className="serve-eyebrow">{t('whoWeServe.indexEyebrow')}</span>
           <h2 id="serve-title" className="serve-h2">
-            Built for healthcare practices that want to lead.
+            {t('whoWeServe.indexTitle')}
           </h2>
-          <p className="serve-sub">
-            We exclusively serve healthcare practices that want to dominate their market - from solo
-            medspas to multi-location networks.
-          </p>
+          <p className="serve-sub">{t('whoWeServe.indexSub')}</p>
         </div>
 
         <div className="serve-grid">
-          {CARDS.map(({ ariaId, image, imgPosition, tag, title, desc, points, accent, to, stat, cta }) => (
+          {cards.map(({ ariaId, image, imgPosition, tag, title, desc, points, accent, to, stat, cta }) => (
             <Link
               key={ariaId}
               to={to}

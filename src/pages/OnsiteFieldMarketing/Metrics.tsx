@@ -1,25 +1,37 @@
-import { METRICS } from './data';
+import { useTranslation, Trans } from 'react-i18next';
+
+interface MetricItem {
+  v: string;
+  unit?: string;
+  k: string;
+  d: string;
+}
 
 const Metrics = () => {
+  const { t } = useTranslation('pages');
+  const items = t('pages:onsiteFieldMarketing.metrics.items', {
+    returnObjects: true,
+  }) as MetricItem[];
   return (
     <section className="sl-section ofm-met-section" id="results">
       <div className="container-shell">
         <div className="sl-sec-head">
           <div>
-            <div className="sl-sec-num">05 - What the dashboard reads</div>
+            <div className="sl-sec-num">{t('pages:onsiteFieldMarketing.metrics.secNum')}</div>
             <h2 className="sl-sec-title">
-              The numbers we&rsquo;re <em>actually paid on.</em>
+              {t('pages:onsiteFieldMarketing.metrics.titleLine1')}{' '}
+              <em>{t('pages:onsiteFieldMarketing.metrics.titleAccent')}</em>
             </h2>
           </div>
           <div className="sl-sec-meta">
-            Median across DFW
+            {t('pages:onsiteFieldMarketing.metrics.secMeta1')}
             <br />
-            healthcare cohorts · 2025
+            {t('pages:onsiteFieldMarketing.metrics.secMeta2')}
           </div>
         </div>
 
         <div className="ofm-met-grid">
-          {METRICS.map((m) => (
+          {items.map((m) => (
             <article key={m.k} className="ofm-met-card">
               <div className="ofm-met-num">
                 {m.v}
@@ -32,10 +44,10 @@ const Metrics = () => {
         </div>
 
         <p className="ofm-met-note">
-          <strong>How we report.</strong> Every metric on this page comes from the same
-          dashboard your team logs into daily — sourced from CRM, intake tablets, and QR
-          scans. We don&rsquo;t blend in industry averages, and we don&rsquo;t show you
-          numbers we can&rsquo;t reproduce on demand.
+          <Trans
+            i18nKey="pages:onsiteFieldMarketing.metrics.note"
+            components={{ strong: <strong /> }}
+          />
         </p>
       </div>
     </section>

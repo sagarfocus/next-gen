@@ -1,63 +1,21 @@
 import type { JSX } from 'react';
 
-export const HEAD_META = [
-  { label: 'Scope', value: 'Pre-visit to follow-up' },
-  { label: 'Lens', value: 'Patient & operations' },
-  { label: 'Toolkit', value: 'Map · Audit · Pilot' },
-  { label: 'Updated', value: 'May 2026' },
-];
+export const HEAD_META_KEYS = ['scope', 'lens', 'toolkit', 'updated'] as const;
+export type HeadMetaKey = (typeof HEAD_META_KEYS)[number];
 
 export type StageKey = 'search' | 'decide' | 'book' | 'visit' | 'followup';
 
 export const JOURNEY: {
   n: string;
   key: StageKey;
-  stage: string;
-  moment: string;
-  note: string;
   /** Typical drop-off risk before intervention, 0-100. Drives the small bar inside the node. */
   risk: number;
 }[] = [
-  {
-    n: '01',
-    key: 'search',
-    stage: 'Search',
-    moment: 'Looking for help',
-    note: 'The patient is at their most uncertain. Reading reviews, comparing addresses, scanning for confidence cues.',
-    risk: 22,
-  },
-  {
-    n: '02',
-    key: 'decide',
-    stage: 'Decide',
-    moment: 'Choosing a provider',
-    note: 'Visiting your website, comparing two finalists, often on a phone, often late at night.',
-    risk: 31,
-  },
-  {
-    n: '03',
-    key: 'book',
-    stage: 'Book',
-    moment: 'Securing a slot',
-    note: 'Friction here costs more than any other point. Two-tap booking versus a six-field form is a 4× gap.',
-    risk: 38,
-  },
-  {
-    n: '04',
-    key: 'visit',
-    stage: 'Visit',
-    moment: 'In the building',
-    note: 'On-site experience folds back into reviews and recall. The website cannot save a difficult front desk.',
-    risk: 12,
-  },
-  {
-    n: '05',
-    key: 'followup',
-    stage: 'Follow-up',
-    moment: 'After they leave',
-    note: 'Empathetic check-in is the highest-leverage retention touchpoint. Wellness > sales.',
-    risk: 18,
-  },
+  { n: '01', key: 'search', risk: 22 },
+  { n: '02', key: 'decide', risk: 31 },
+  { n: '03', key: 'book', risk: 38 },
+  { n: '04', key: 'visit', risk: 12 },
+  { n: '05', key: 'followup', risk: 18 },
 ];
 
 export const FRICTION = [
@@ -68,79 +26,38 @@ export const FRICTION = [
   { stage: 'Follow-up', before: 18, after: 6, delta: '-12pt' },
 ];
 
-export const TOUCHPOINTS: { tag: string; key: StageKey; list: string[] }[] = [
-  {
-    tag: 'Discovery',
-    key: 'search',
-    list: ['Local search visibility', 'Map Pack presence', 'Review surface'],
-  },
-  { tag: 'Decision', key: 'decide', list: ['Pricing clarity', 'Provider bios', 'Booking pathway'] },
-  { tag: 'Booking', key: 'book', list: ['Mobile flow', 'Insurance check', 'Confirmation cadence'] },
-  {
-    tag: 'Visit',
-    key: 'visit',
-    list: ['Pre-visit forms', 'Wait time signals', 'Post-visit recap'],
-  },
-  {
-    tag: 'Follow-up',
-    key: 'followup',
-    list: ['Recall reminders', 'Wellness nurtures', 'Review request'],
-  },
+export const TOUCHPOINTS: { key: StageKey }[] = [
+  { key: 'search' },
+  { key: 'decide' },
+  { key: 'book' },
+  { key: 'visit' },
+  { key: 'followup' },
 ];
 
-export const METRICS = [
-  {
-    value: 8.4,
-    suffix: '%',
-    decimals: 1,
-    k: 'Booking CVR',
-    d: 'Median conversion rate once the booking pathway is redesigned around two-tap.',
-  },
-  {
-    value: 62,
-    prefix: '−',
-    suffix: '%',
-    k: 'Drop-off',
-    d: 'Reduction in mid-booking abandonment after pre-visit form streamlining.',
-  },
-  {
-    value: 34,
-    prefix: '+',
-    suffix: '%',
-    k: 'Repeat visits',
-    d: 'Patient return rate over twelve months after follow-up cadence is installed.',
-  },
-  {
-    value: 48,
-    prefix: '−',
-    suffix: '%',
-    k: 'No-shows',
-    d: 'Reduction in no-show rate after structured pre-visit and confirmation flow.',
-  },
+export type MetricKey = 'cvr' | 'dropoff' | 'repeats' | 'noshows';
+
+export const METRICS: {
+  key: MetricKey;
+  value: number;
+  prefix?: string;
+  suffix?: string;
+  decimals?: number;
+}[] = [
+  { key: 'cvr', value: 8.4, suffix: '%', decimals: 1 },
+  { key: 'dropoff', value: 62, prefix: '−', suffix: '%' },
+  { key: 'repeats', value: 34, prefix: '+', suffix: '%' },
+  { key: 'noshows', value: 48, prefix: '−', suffix: '%' },
 ];
 
-export const PROCESS = [
-  {
-    n: '01',
-    key: 'map' as const,
-    k: 'Map',
-    cycle: 'Week 1',
-    d: "Working session with your clinical and front-desk leads. We rebuild the journey from a real patient's perspective and surface every friction point.",
-  },
-  {
-    n: '02',
-    key: 'audit' as const,
-    k: 'Audit',
-    cycle: 'Week 1–2',
-    d: 'A forensic audit of each surface: SERPs, GBP, site, booking flow, intake forms, no-show cadence, review loop. Findings ranked by friction impact.',
-  },
-  {
-    n: '03',
-    key: 'pilot' as const,
-    k: 'Pilot',
-    cycle: 'Week 3–6',
-    d: 'A single highest-leverage fix shipped end-to-end. Pre/post metrics on the same dashboard the practice uses every day.',
-  },
+export type ProcessKey = 'map' | 'audit' | 'pilot';
+
+export const PROCESS: {
+  n: string;
+  key: ProcessKey;
+}[] = [
+  { n: '01', key: 'map' },
+  { n: '02', key: 'audit' },
+  { n: '03', key: 'pilot' },
 ];
 
 /* ---------------- ICONS ---------------- */

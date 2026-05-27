@@ -1,7 +1,9 @@
 import { Link, useLocation } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { ArrowIcon } from '@/components/icons';
 
 const Hero = () => {
+  const { t } = useTranslation('pages');
   const location = useLocation();
 
   return (
@@ -11,7 +13,7 @@ const Hero = () => {
     >
       <div className="container-shell">
         <div style={{ maxWidth: 760 }}>
-          <span className="results-eyebrow">Error 404</span>
+          <span className="results-eyebrow">{t('notFound.hero.eyebrow')}</span>
           <h1
             id="nf-title"
             style={{
@@ -23,7 +25,7 @@ const Hero = () => {
               margin: '8px 0 16px',
             }}
           >
-            We couldn&rsquo;t find that page.
+            {t('notFound.hero.title')}
           </h1>
           <p
             style={{
@@ -34,14 +36,13 @@ const Hero = () => {
               maxWidth: '60ch',
             }}
           >
-            The address{' '}
+            {t('notFound.hero.bodyBefore')}
             <code
               style={{ background: 'rgba(45,55,72,0.06)', padding: '2px 8px', borderRadius: 6 }}
             >
               {location.pathname}
-            </code>{' '}
-            doesn&rsquo;t match a live route on TheNextGen. Pick a destination below - or jump
-            straight to a free growth audit.
+            </code>
+            {t('notFound.hero.bodyAfter')}
           </p>
           <div
             style={{
@@ -52,7 +53,7 @@ const Hero = () => {
             }}
           >
             <Link to="/" className="btn-primary">
-              Back to home <ArrowIcon size={13} strokeWidth={2} />
+              {t('notFound.hero.primary')} <ArrowIcon size={13} strokeWidth={2} />
             </Link>
             <Link
               to="/free-growth-audit"
@@ -68,7 +69,7 @@ const Hero = () => {
                 fontSize: 14,
               }}
             >
-              Start a free audit <ArrowIcon size={13} strokeWidth={2} />
+              {t('notFound.hero.secondary')} <ArrowIcon size={13} strokeWidth={2} />
             </Link>
           </div>
         </div>

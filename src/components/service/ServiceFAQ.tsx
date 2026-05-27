@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 export interface ServiceFAQItem {
   q: string;
@@ -22,11 +23,14 @@ const pad = (n: number) => String(n + 1).padStart(2, '0');
 
 const ServiceFAQ = ({
   sectionNum = '05',
-  title = 'Questions we hear most.',
+  title,
   meta,
   items,
   serviceName,
 }: ServiceFAQProps) => {
+  const { t } = useTranslation('common');
+  const resolvedTitle = title ?? t('components.serviceFAQ.defaultTitle');
+  const resolvedMeta = meta ?? t('components.serviceFAQ.defaultMeta');
   const [open, setOpen] = useState<string | null>(`${sectionNum}.01`);
 
   const toggle = (id: string) => {
@@ -36,7 +40,7 @@ const ServiceFAQ = ({
   const faqSchema = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
-    name: `${serviceName} - frequently asked questions`,
+    name: t('components.serviceFAQ.faqSchemaName', { serviceName }),
     mainEntity: items.map((qa) => ({
       '@type': 'Question',
       name: qa.q,
@@ -52,20 +56,21 @@ const ServiceFAQ = ({
       <div className="container-shell">
         <div className="sl-sec-head">
           <div>
-            <div className="sl-sec-num">{sectionNum} - Common questions</div>
+            <div className="sl-sec-num">
+              {sectionNum} - {t('components.serviceFAQ.sectionLabel')}
+            </div>
             <h2 id={`svfaq-${sectionNum}-title`} className="sl-sec-title">
-              {title}
+              {resolvedTitle}
             </h2>
           </div>
-          {meta ? (
-            <div className="sl-sec-meta">{meta}</div>
-          ) : (
-            <div className="sl-sec-meta">
-              More on the
-              <br />
-              resources page
-            </div>
-          )}
+          <div className="sl-sec-meta">
+            {resolvedMeta.split('\n').map((line, i, arr) => (
+              <span key={i}>
+                {line}
+                {i < arr.length - 1 ? <br /> : null}
+              </span>
+            ))}
+          </div>
         </div>
 
         <div className="sl-faq-list">

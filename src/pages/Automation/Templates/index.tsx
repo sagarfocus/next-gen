@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import Hero from './Hero';
 import DataBand from './DataBand';
 import TLDR from './TLDR';
@@ -15,7 +16,7 @@ import CTABanner from './CTABanner';
 import Related from './Related';
 import Seo from '@/components/Seo';
 import { buildBreadcrumbList } from '@/lib/schema';
-import { TEMPLATES, TEMPLATES_SCHEMA, type Category } from './data';
+import { useTemplates, TEMPLATES_SCHEMA, type Category } from './data';
 
 /* ============================================================
    AUTOMATION · TEMPLATES — Swiss editorial library page.
@@ -30,17 +31,19 @@ const BREADCRUMB_SCHEMA = buildBreadcrumbList([
 ]);
 
 const Templates = () => {
+  const { t } = useTranslation(['automation']);
+  const templates = useTemplates();
   const [filter, setFilter] = useState<'All' | Category>('All');
   const visible = useMemo(
-    () => (filter === 'All' ? TEMPLATES : TEMPLATES.filter((t) => t.cat === filter)),
-    [filter]
+    () => (filter === 'All' ? templates : templates.filter((tpl) => tpl.cat === filter)),
+    [filter, templates]
   );
 
   return (
     <main className="atx" id="atx-top">
       <Seo
-        title="Free Healthcare Automation Templates — Six N8N Workflows, HIPAA-Vetted"
-        description="Six healthcare-grade automation templates shipped as N8N specs — patient intake, reminders, reviews, insurance verification, AI chat, social posting. HIPAA-vetted, free to keep."
+        title={t('automation:templates.page.seoTitle')}
+        description={t('automation:templates.page.seoDescription')}
         path="/automation/templates"
         schema={[TEMPLATES_SCHEMA, BREADCRUMB_SCHEMA]}
       />

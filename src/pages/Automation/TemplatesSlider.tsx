@@ -1,21 +1,16 @@
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react';
 import type { CSSProperties, KeyboardEvent, ReactElement, TouchEvent } from 'react';
+import { useTranslation } from 'react-i18next';
 import { ArrowIcon, ChevronRightIcon, ClockIcon } from '@/components/icons';
 
 interface Template {
-  desc: string;
-  tags: string[];
-  title: string;
-  nodes: string;
+  key: string;
   icon: ReactElement;
 }
 
 const TEMPLATES: Template[] = [
   {
-    desc: 'Auto-collect patient info via webhook, verify insurance, create EHR records, log to Google Sheets, and send confirmation emails plus Slack alerts - all without front-desk involvement.',
-    tags: ['Intake', 'Insurance', 'EHR'],
-    title: 'Patient Intake Automation',
-    nodes: '7 nodes · N8N workflow',
+    key: 'patientIntake',
     icon: (
       <svg
         width={22}
@@ -35,17 +30,11 @@ const TEMPLATES: Template[] = [
     ),
   },
   {
-    desc: 'Automated 24-hour and 2-hour SMS plus email reminders via Twilio. Cuts no-show rates by up to 40% with zero staff effort and pulls everything from your existing calendar.',
-    tags: ['SMS', 'Reminders', 'No-Shows'],
-    title: 'Appointment Reminder & No-Show Recovery',
-    nodes: '8 nodes · N8N workflow',
+    key: 'appointmentReminder',
     icon: <ClockIcon size={22} />,
   },
   {
-    desc: 'Sentiment-based routing: happy patients receive a Google review request, others get a private feedback form. Reputation management runs itself, no manual triage needed.',
-    tags: ['Reviews', 'Reputation', 'Google'],
-    title: 'Google Review Collection',
-    nodes: '8 nodes · N8N workflow',
+    key: 'reviewCollection',
     icon: (
       <svg
         width={22}
@@ -62,10 +51,7 @@ const TEMPLATES: Template[] = [
     ),
   },
   {
-    desc: 'Real-time eligibility checks, copay and deductible lookup, automatic pre-auth submission, and Slack alerts to front desk and billing - every patient verified before they walk in.',
-    tags: ['Insurance', 'Billing', 'Verification'],
-    title: 'Insurance Verification Bot',
-    nodes: '9 nodes · N8N workflow',
+    key: 'insuranceVerification',
     icon: (
       <svg
         width={22}
@@ -83,10 +69,7 @@ const TEMPLATES: Template[] = [
     ),
   },
   {
-    desc: 'A GPT-powered chatbot qualifies leads, extracts contact info, creates CRM entries, and pings Slack the moment a high-priority patient lands on your site - no human intervention required.',
-    tags: ['AI', 'Chatbot', 'Lead Gen'],
-    title: 'AI Chatbot Lead Capture',
-    nodes: '10 nodes · N8N workflow',
+    key: 'aiChatbot',
     icon: (
       <svg
         width={22}
@@ -105,10 +88,7 @@ const TEMPLATES: Template[] = [
     ),
   },
   {
-    desc: 'AI-generated captions from your content calendar auto-posted to Facebook and Instagram daily, with team notifications and a reviewable queue. Set it once, ship every day.',
-    tags: ['Social Media', 'AI Content', 'Marketing'],
-    title: 'Social Media Auto-Poster',
-    nodes: '9 nodes · N8N workflow',
+    key: 'socialAutoPoster',
     icon: (
       <svg
         width={22}
@@ -153,6 +133,7 @@ const DownloadIcon = () => (
 const visibleForWidth = (w: number) => (w <= 1024 ? 1 : 2);
 
 const TemplatesSlider = () => {
+  const { t } = useTranslation(['automation']);
   const [index, setIndex] = useState(0);
   const [visible, setVisible] = useState(() =>
     typeof window === 'undefined' ? 2 : visibleForWidth(window.innerWidth)
@@ -218,6 +199,11 @@ const TemplatesSlider = () => {
   const ratio = maxIndex === 0 ? 1 : index / maxIndex;
   const fillWidth = `${minFill + span * ratio}%`;
 
+  const tagsForTemplate = (key: string): string[] => {
+    const value = t(`automation:templatesSlider.items.${key}.tags`, { returnObjects: true });
+    return Array.isArray(value) ? (value as string[]) : [];
+  };
+
   return (
     <section className="templates" id="templates" aria-labelledby="tpl-title">
       <div className="container-shell">
@@ -238,16 +224,13 @@ const TemplatesSlider = () => {
                   <polyline points="20 6 9 17 4 12" />
                 </svg>
               </span>
-              100% Free - No Signup Required
+              {t('automation:templatesSlider.freePill')}
             </span>
             <h2 className="section-title" id="tpl-title">
-              Plug-and-Play N8N Templates
+              {t('automation:templatesSlider.title')}
             </h2>
           </div>
-          <p className="right reveal d2">
-            Download ready-to-import JSON workflow files. Each template is a complete automation -
-            just connect your credentials and activate.
-          </p>
+          <p className="right reveal d2">{t('automation:templatesSlider.subtitle')}</p>
         </div>
 
         <div
@@ -259,13 +242,15 @@ const TemplatesSlider = () => {
           <div className="slider-track-wrap" onTouchStart={onTouchStart} onTouchEnd={onTouchEnd}>
             <div className="slider-track" ref={trackRef}>
               {TEMPLATES.map((tpl, i) => (
-                <article key={tpl.title} ref={i === 0 ? cardRef : undefined} className="tpl-card">
+                <article key={tpl.key} ref={i === 0 ? cardRef : undefined} className="tpl-card">
                   <div className="tpl-quote" aria-hidden="true">
                     <QuoteIcon />
                   </div>
-                  <p className="tpl-desc">{tpl.desc}</p>
+                  <p className="tpl-desc">
+                    {t(`automation:templatesSlider.items.${tpl.key}.desc`)}
+                  </p>
                   <div className="tpl-tags">
-                    {tpl.tags.map((tag) => (
+                    {tagsForTemplate(tpl.key).map((tag) => (
                       <span key={tag} className="tpl-tag">
                         {tag}
                       </span>
@@ -274,12 +259,16 @@ const TemplatesSlider = () => {
                   <div className="tpl-author">
                     <div className="tpl-icon">{tpl.icon}</div>
                     <div className="tpl-author-meta">
-                      <h3 className="tpl-title">{tpl.title}</h3>
-                      <span className="tpl-nodes">{tpl.nodes}</span>
+                      <h3 className="tpl-title">
+                        {t(`automation:templatesSlider.items.${tpl.key}.title`)}
+                      </h3>
+                      <span className="tpl-nodes">
+                        {t(`automation:templatesSlider.items.${tpl.key}.nodes`)}
+                      </span>
                     </div>
                   </div>
                   <a href="#" className="tpl-dl">
-                    Download JSON Template
+                    {t('automation:templatesSlider.downloadJson')}
                     <DownloadIcon />
                   </a>
                 </article>
@@ -297,7 +286,7 @@ const TemplatesSlider = () => {
                 className="slider-btn slider-prev"
                 onClick={() => go(-1)}
                 disabled={index <= 0}
-                aria-label="Previous templates"
+                aria-label={t('automation:templatesSlider.prevAria')}
               >
                 <svg
                   width={16}
@@ -317,7 +306,7 @@ const TemplatesSlider = () => {
                 className="slider-btn slider-next"
                 onClick={() => go(1)}
                 disabled={index >= maxIndex}
-                aria-label="Next templates"
+                aria-label={t('automation:templatesSlider.nextAria')}
               >
                 <ChevronRightIcon size={16} />
               </button>
@@ -326,9 +315,9 @@ const TemplatesSlider = () => {
         </div>
 
         <div className="templates-foot reveal d4">
-          <p>Need a custom workflow for your specific EHR or practice?</p>
+          <p>{t('automation:templatesSlider.footQuestion')}</p>
           <a href="/contact" className="au-btn au-btn-primary">
-            Request Custom Template
+            {t('automation:templatesSlider.footCta')}
             <ArrowIcon size={13} />
           </a>
         </div>

@@ -1,4 +1,7 @@
+import { useMemo } from 'react';
 import type { ReactNode } from 'react';
+import { useTranslation } from 'react-i18next';
+import enPages from '@/locales/en/pages.json';
 
 export interface FAQItem {
   num: string;
@@ -14,279 +17,348 @@ export interface FAQCategory {
   items: FAQItem[];
 }
 
-export const CATEGORIES: FAQCategory[] = [
+/**
+ * Static English fallback for module-level uses (e.g. JSON-LD schema
+ * generation that runs outside React). Mirrors the structure produced
+ * by `useFAQCategories`, but answers are rendered as plain strings.
+ */
+type EnFaqCategories = typeof enPages.faq.categories;
+
+const renderEnAnswer = (item: Record<string, unknown>): string => {
+  const segments = [
+    item.aBefore,
+    item.aBold,
+    item.aMid,
+    item.aBold1,
+    item.aMid1,
+    item.aBold2,
+    item.aMid2,
+    item.aBold3,
+    item.aAfter,
+    item.a,
+    item.p1Before,
+    item.p1Bold,
+    item.p1Bold1,
+    item.p1Mid,
+    item.p1Bold2,
+    item.p1After,
+    item.p1,
+    item.p2,
+  ];
+  const text = segments.filter((s): s is string => typeof s === 'string').join('');
+  if (Array.isArray(item.list)) return `${text} ${(item.list as string[]).join(' ')}`.trim();
+  return text;
+};
+
+const CATEGORY_KEY_MAP: ReadonlyArray<{
+  id: string;
+  num: string;
+  key: keyof EnFaqCategories;
+  itemKeys: ReadonlyArray<{ num: string; key: string }>;
+}> = [
   {
     id: 'cat-01',
     num: '01',
-    title: 'Getting Started',
-    navLabel: 'Getting Started',
-    items: [
-      {
-        num: '01.01',
-        q: 'How long does onboarding take from signed contract to first campaign live?',
-        a: (
-          <>
-            <p>
-              For most clinics, you&rsquo;ll go from signed contract to first campaign live in{' '}
-              <strong>10&ndash;14 business days</strong>. Week one is discovery (audit +
-              interviews), week two is asset production and account setup, and we usually launch the
-              first campaign by day 12.
-            </p>
-            <p>
-              Practices with already-running ad accounts and a healthy GBP often get there faster -
-              sometimes in as little as a week.
-            </p>
-          </>
-        ),
-      },
-      {
-        num: '01.02',
-        q: 'What do you need from me before we kick off?',
-        a: (
-          <>
-            <p>
-              We&rsquo;ll send a structured onboarding questionnaire. The essentials we need from
-              your side:
-            </p>
-            <ul>
-              <li>
-                Admin access to Google Business Profile, Google Ads, Meta Ads, and your website CMS
-              </li>
-              <li>
-                One stakeholder for our weekly 30-minute check-in (clinical or operational lead)
-              </li>
-              <li>Brand assets - logo, colors, fonts - even if rough</li>
-              <li>Last 12 months of performance data, where available</li>
-            </ul>
-          </>
-        ),
-      },
-      {
-        num: '01.03',
-        q: 'Do you offer a free consultation before signing?',
-        a: (
-          <p>
-            Yes. Every prospective partner gets a free <strong>30-minute strategy call</strong> plus
-            a high-level audit of your current funnel. You&rsquo;ll walk away with three concrete
-            recommendations whether you sign with us or not.
-          </p>
-        ),
-      },
-      {
-        num: '01.04',
-        q: 'Which states and regions do you serve?',
-        a: (
-          <p>
-            We work with healthcare practices across all 50 US states. Our deepest local-SEO
-            experience is in Texas, Florida, California, New York, Illinois, and Arizona, but our
-            playbook adapts to any local market.
-          </p>
-        ),
-      },
+    key: 'gettingStarted',
+    itemKeys: [
+      { num: '01.01', key: 'onboarding' },
+      { num: '01.02', key: 'prep' },
+      { num: '01.03', key: 'consult' },
+      { num: '01.04', key: 'regions' },
     ],
   },
   {
     id: 'cat-02',
     num: '02',
-    title: 'Pricing & Engagement',
-    navLabel: 'Pricing & Engagement',
-    items: [
-      {
-        num: '02.01',
-        q: 'How much does a typical engagement cost?',
-        a: (
-          <>
-            <p>
-              Our retainers start at <strong>$2,500/month</strong> for solo practitioners on a
-              single channel and scale up to <strong>$15K+/month</strong> for multi-location
-              specialty groups running full-stack programs.
-            </p>
-            <p>Ad spend is separate and goes directly to the platforms. We never mark it up.</p>
-          </>
-        ),
-      },
-      {
-        num: '02.02',
-        q: 'Are contracts month-to-month or fixed term?',
-        a: (
-          <p>
-            The standard agreement is a <strong>3-month minimum commitment</strong> followed by a
-            rolling month-to-month cadence with 30-day notice on either side. SEO-only retainers
-            default to 6 months because the channel needs that runway to show real signal.
-          </p>
-        ),
-      },
-      {
-        num: '02.03',
-        q: "What's included in the base retainer?",
-        a: (
-          <>
-            <p>Strategy, execution, and reporting on the channels in your scope. That includes:</p>
-            <ul>
-              <li>Weekly 30-minute partner check-in</li>
-              <li>Monthly performance report with attribution</li>
-              <li>Live dashboard access (24/7)</li>
-              <li>Creative production within agreed asset volume</li>
-              <li>Up to two automation templates from our N8N library</li>
-            </ul>
-          </>
-        ),
-      },
-      {
-        num: '02.04',
-        q: 'Are there setup or onboarding fees?',
-        a: (
-          <p>
-            For standard retainers, no. We absorb onboarding into the first month. Larger custom
-            builds - full website rebuilds, multi-location SEO migrations - carry a separate scoped
-            fee disclosed upfront.
-          </p>
-        ),
-      },
+    key: 'pricing',
+    itemKeys: [
+      { num: '02.01', key: 'cost' },
+      { num: '02.02', key: 'contracts' },
+      { num: '02.03', key: 'included' },
+      { num: '02.04', key: 'setup' },
     ],
   },
   {
     id: 'cat-03',
     num: '03',
-    title: 'Services & Capabilities',
-    navLabel: 'Services',
-    items: [
-      {
-        num: '03.01',
-        q: 'Which services do you provide in-house versus outsourced?',
-        a: (
-          <>
-            <p>
-              Everything is handled in-house: SEO, paid media, social, content, branding, web
-              design, email automation, and analytics. We do not white-label other agencies.
-            </p>
-            <p>
-              The only exception is video production, where we partner with two vetted local
-              studios.
-            </p>
-          </>
-        ),
-      },
-      {
-        num: '03.02',
-        q: 'Do you handle creative and design too?',
-        a: (
-          <p>
-            Yes. Every retainer includes design hours scaled to your channel mix - landing pages, ad
-            creative, social graphics, email templates. We can also take on full brand identity,
-            website redesigns, and print collateral as scoped projects.
-          </p>
-        ),
-      },
-      {
-        num: '03.03',
-        q: 'Can your automations integrate with my existing EHR?',
-        a: (
-          <>
-            <p>
-              If your EHR exposes a documented API or webhook layer - Athena, Epic via API,
-              eClinicalWorks, DrChrono, AdvancedMD, NextGen, Kareo - yes. For systems without API
-              access, we use form bridges and structured CSV imports as the fallback.
-            </p>
-            <p>
-              Tell us which EHR you run on the discovery call and we&rsquo;ll confirm the exact
-              integration path before signing.
-            </p>
-          </>
-        ),
-      },
+    key: 'services',
+    itemKeys: [
+      { num: '03.01', key: 'inhouse' },
+      { num: '03.02', key: 'creative' },
+      { num: '03.03', key: 'ehr' },
     ],
   },
   {
     id: 'cat-04',
     num: '04',
-    title: 'Compliance & Privacy',
-    navLabel: 'Compliance & Privacy',
-    items: [
-      {
-        num: '04.01',
-        q: 'Are you HIPAA-compliant, and do you sign Business Associate Agreements?',
-        a: (
-          <p>
-            Yes. We operate as a HIPAA-aware Business Associate and execute a <strong>BAA</strong>{' '}
-            at the start of every engagement that touches PHI. All staff complete annual HIPAA
-            training, and access controls are role-based with audit logging.
-          </p>
-        ),
-      },
-      {
-        num: '04.02',
-        q: 'How do you handle protected health information (PHI)?',
-        a: (
-          <>
-            <p>
-              We minimize PHI exposure by default. Marketing systems are kept in non-PHI
-              environments wherever possible. When PHI must flow - appointment confirmations, intake
-              forms, recall messaging - it travels through encrypted channels into BAA-covered tools
-              (Twilio Healthcare, HIPAA-aware Mailchimp, AWS HIPAA-eligible services).
-            </p>
-            <p>
-              Our internal access is least-privilege. Only the team members directly working on your
-              account see anything, and access is revoked the day a teammate rolls off.
-            </p>
-          </>
-        ),
-      },
-      {
-        num: '04.03',
-        q: 'What happens to my data if we end the engagement?',
-        a: (
-          <p>
-            You own everything. On exit we hand over the full asset library - accounts, creative
-            files, dashboards, automation JSONs, content drafts - and purge our copies within 30
-            days unless you ask us to retain them. The BAA continues to govern any residual PHI.
-          </p>
-        ),
-      },
+    key: 'compliance',
+    itemKeys: [
+      { num: '04.01', key: 'baa' },
+      { num: '04.02', key: 'phi' },
+      { num: '04.03', key: 'offboard' },
     ],
   },
   {
     id: 'cat-05',
     num: '05',
-    title: 'Reporting & Results',
-    navLabel: 'Reporting & Results',
-    items: [
-      {
-        num: '05.01',
-        q: 'How often will I see reporting?',
-        a: (
-          <p>
-            Three layers: <strong>live dashboards</strong> available 24/7, a{' '}
-            <strong>weekly Loom video</strong> walking you through the moves we made and what they
-            did, and a <strong>monthly written report</strong> covering attribution, ROAS, and the
-            next 30-day plan.
-          </p>
-        ),
-      },
-      {
-        num: '05.02',
-        q: 'Which KPIs do you track by default?',
-        a: (
-          <p>
-            For most clinics: cost-per-acquisition (CPA), patient lifetime value (LTV), booked
-            appointments by source, no-show rate, return on ad spend (ROAS), and organic traffic by
-            intent cluster. We tailor the dashboard to your clinical specialties and revenue model
-            in week one.
-          </p>
-        ),
-      },
-      {
-        num: '05.03',
-        q: "What if results don't show up after a few months?",
-        a: (
-          <p>
-            We define success milestones together in week one and review them every 30 days. If we
-            miss two consecutive months on a critical milestone, we run a structured root-cause
-            review at our cost - and either reset the plan, restructure the retainer, or end the
-            engagement cleanly. We don&rsquo;t keep partners on a contract that isn&rsquo;t working.
-          </p>
-        ),
-      },
+    key: 'reporting',
+    itemKeys: [
+      { num: '05.01', key: 'cadence' },
+      { num: '05.02', key: 'kpis' },
+      { num: '05.03', key: 'noResults' },
     ],
   },
 ];
+
+/**
+ * Static fallback (English) — usable outside React. Used to build
+ * the FAQPage JSON-LD schema at module-load time.
+ */
+export const CATEGORIES: readonly FAQCategory[] = CATEGORY_KEY_MAP.map((cat) => {
+  const catNode = enPages.faq.categories[cat.key] as {
+    title: string;
+    navLabel: string;
+    items: Record<string, { q: string } & Record<string, unknown>>;
+  };
+  return {
+    id: cat.id,
+    num: cat.num,
+    title: catNode.title,
+    navLabel: catNode.navLabel,
+    items: cat.itemKeys.map(({ num, key }) => {
+      const itemNode = catNode.items[key];
+      return {
+        num,
+        q: itemNode.q,
+        a: renderEnAnswer(itemNode),
+      };
+    }),
+  };
+});
+
+/**
+ * React hook for the FAQ list. Live-translates on language change.
+ * Pulls from the `pages:faq.categories.*` tree.
+ */
+export function useFAQCategories(): readonly FAQCategory[] {
+  const { t } = useTranslation('pages');
+  return useMemo(
+    () => [
+      {
+        id: 'cat-01',
+        num: '01',
+        title: t('faq.categories.gettingStarted.title'),
+        navLabel: t('faq.categories.gettingStarted.navLabel'),
+        items: [
+          {
+            num: '01.01',
+            q: t('faq.categories.gettingStarted.items.onboarding.q'),
+            a: (
+              <>
+                <p>
+                  {t('faq.categories.gettingStarted.items.onboarding.p1Before')}
+                  <strong>{t('faq.categories.gettingStarted.items.onboarding.p1Bold')}</strong>
+                  {t('faq.categories.gettingStarted.items.onboarding.p1After')}
+                </p>
+                <p>{t('faq.categories.gettingStarted.items.onboarding.p2')}</p>
+              </>
+            ),
+          },
+          {
+            num: '01.02',
+            q: t('faq.categories.gettingStarted.items.prep.q'),
+            a: (
+              <>
+                <p>{t('faq.categories.gettingStarted.items.prep.p1')}</p>
+                <ul>
+                  {(
+                    t('faq.categories.gettingStarted.items.prep.list', {
+                      returnObjects: true,
+                    }) as string[]
+                  ).map((b) => (
+                    <li key={b}>{b}</li>
+                  ))}
+                </ul>
+              </>
+            ),
+          },
+          {
+            num: '01.03',
+            q: t('faq.categories.gettingStarted.items.consult.q'),
+            a: (
+              <p>
+                {t('faq.categories.gettingStarted.items.consult.aBefore')}
+                <strong>{t('faq.categories.gettingStarted.items.consult.aBold')}</strong>
+                {t('faq.categories.gettingStarted.items.consult.aAfter')}
+              </p>
+            ),
+          },
+          {
+            num: '01.04',
+            q: t('faq.categories.gettingStarted.items.regions.q'),
+            a: <p>{t('faq.categories.gettingStarted.items.regions.a')}</p>,
+          },
+        ],
+      },
+      {
+        id: 'cat-02',
+        num: '02',
+        title: t('faq.categories.pricing.title'),
+        navLabel: t('faq.categories.pricing.navLabel'),
+        items: [
+          {
+            num: '02.01',
+            q: t('faq.categories.pricing.items.cost.q'),
+            a: (
+              <>
+                <p>
+                  {t('faq.categories.pricing.items.cost.p1Before')}
+                  <strong>{t('faq.categories.pricing.items.cost.p1Bold1')}</strong>
+                  {t('faq.categories.pricing.items.cost.p1Mid')}
+                  <strong>{t('faq.categories.pricing.items.cost.p1Bold2')}</strong>
+                  {t('faq.categories.pricing.items.cost.p1After')}
+                </p>
+                <p>{t('faq.categories.pricing.items.cost.p2')}</p>
+              </>
+            ),
+          },
+          {
+            num: '02.02',
+            q: t('faq.categories.pricing.items.contracts.q'),
+            a: (
+              <p>
+                {t('faq.categories.pricing.items.contracts.aBefore')}
+                <strong>{t('faq.categories.pricing.items.contracts.aBold')}</strong>
+                {t('faq.categories.pricing.items.contracts.aAfter')}
+              </p>
+            ),
+          },
+          {
+            num: '02.03',
+            q: t('faq.categories.pricing.items.included.q'),
+            a: (
+              <>
+                <p>{t('faq.categories.pricing.items.included.p1')}</p>
+                <ul>
+                  {(
+                    t('faq.categories.pricing.items.included.list', {
+                      returnObjects: true,
+                    }) as string[]
+                  ).map((b) => (
+                    <li key={b}>{b}</li>
+                  ))}
+                </ul>
+              </>
+            ),
+          },
+          {
+            num: '02.04',
+            q: t('faq.categories.pricing.items.setup.q'),
+            a: <p>{t('faq.categories.pricing.items.setup.a')}</p>,
+          },
+        ],
+      },
+      {
+        id: 'cat-03',
+        num: '03',
+        title: t('faq.categories.services.title'),
+        navLabel: t('faq.categories.services.navLabel'),
+        items: [
+          {
+            num: '03.01',
+            q: t('faq.categories.services.items.inhouse.q'),
+            a: (
+              <>
+                <p>{t('faq.categories.services.items.inhouse.p1')}</p>
+                <p>{t('faq.categories.services.items.inhouse.p2')}</p>
+              </>
+            ),
+          },
+          {
+            num: '03.02',
+            q: t('faq.categories.services.items.creative.q'),
+            a: <p>{t('faq.categories.services.items.creative.a')}</p>,
+          },
+          {
+            num: '03.03',
+            q: t('faq.categories.services.items.ehr.q'),
+            a: (
+              <>
+                <p>{t('faq.categories.services.items.ehr.p1')}</p>
+                <p>{t('faq.categories.services.items.ehr.p2')}</p>
+              </>
+            ),
+          },
+        ],
+      },
+      {
+        id: 'cat-04',
+        num: '04',
+        title: t('faq.categories.compliance.title'),
+        navLabel: t('faq.categories.compliance.navLabel'),
+        items: [
+          {
+            num: '04.01',
+            q: t('faq.categories.compliance.items.baa.q'),
+            a: (
+              <p>
+                {t('faq.categories.compliance.items.baa.aBefore')}
+                <strong>{t('faq.categories.compliance.items.baa.aBold')}</strong>
+                {t('faq.categories.compliance.items.baa.aAfter')}
+              </p>
+            ),
+          },
+          {
+            num: '04.02',
+            q: t('faq.categories.compliance.items.phi.q'),
+            a: (
+              <>
+                <p>{t('faq.categories.compliance.items.phi.p1')}</p>
+                <p>{t('faq.categories.compliance.items.phi.p2')}</p>
+              </>
+            ),
+          },
+          {
+            num: '04.03',
+            q: t('faq.categories.compliance.items.offboard.q'),
+            a: <p>{t('faq.categories.compliance.items.offboard.a')}</p>,
+          },
+        ],
+      },
+      {
+        id: 'cat-05',
+        num: '05',
+        title: t('faq.categories.reporting.title'),
+        navLabel: t('faq.categories.reporting.navLabel'),
+        items: [
+          {
+            num: '05.01',
+            q: t('faq.categories.reporting.items.cadence.q'),
+            a: (
+              <p>
+                {t('faq.categories.reporting.items.cadence.aBefore')}
+                <strong>{t('faq.categories.reporting.items.cadence.aBold1')}</strong>
+                {t('faq.categories.reporting.items.cadence.aMid1')}
+                <strong>{t('faq.categories.reporting.items.cadence.aBold2')}</strong>
+                {t('faq.categories.reporting.items.cadence.aMid2')}
+                <strong>{t('faq.categories.reporting.items.cadence.aBold3')}</strong>
+                {t('faq.categories.reporting.items.cadence.aAfter')}
+              </p>
+            ),
+          },
+          {
+            num: '05.02',
+            q: t('faq.categories.reporting.items.kpis.q'),
+            a: <p>{t('faq.categories.reporting.items.kpis.a')}</p>,
+          },
+          {
+            num: '05.03',
+            q: t('faq.categories.reporting.items.noResults.q'),
+            a: <p>{t('faq.categories.reporting.items.noResults.a')}</p>,
+          },
+        ],
+      },
+    ],
+    [t]
+  );
+}

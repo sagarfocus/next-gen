@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { MotionCard, useReducedMotion } from '@/lib/motion';
-import { HOME_SERVICES, HOME_SERVICES_HEAD } from '@/content/home/services';
+import { useHomeServices, useHomeServicesHead } from '@/content/home/services';
 
 /*
  * Premium scroll-pinned horizontal slider.
@@ -38,6 +38,8 @@ const Services = () => {
   const trackRef = useRef<HTMLDivElement>(null);
   const [pinActive, setPinActive] = useState(false);
   const reduced = useReducedMotion();
+  const head = useHomeServicesHead();
+  const services = useHomeServices();
 
   // GSAP pin + horizontal scroll - desktop, non-touch, non-reduced-motion only.
   // On mobile / reduced motion the native `overflow-x: auto` + scroll-snap on
@@ -115,13 +117,13 @@ const Services = () => {
     >
       <div className="container-shell">
         <div className="services-head">
-          <span className="services-eyebrow">{HOME_SERVICES_HEAD.eyebrow}</span>
+          <span className="services-eyebrow">{head.eyebrow}</span>
           <h2 id="services-title" className="services-h2">
-            {HOME_SERVICES_HEAD.title}
+            {head.title}
           </h2>
           <div className="services-aside">
-            <Link to={HOME_SERVICES_HEAD.allLinkTo} className="all-link">
-              {HOME_SERVICES_HEAD.allLinkText}
+            <Link to={head.allLinkTo} className="all-link">
+              {head.allLinkText}
               <span className="ico" aria-hidden="true">
                 <svg
                   width={14}
@@ -138,14 +140,14 @@ const Services = () => {
                 </svg>
               </span>
             </Link>
-            <p className="services-sub">{HOME_SERVICES_HEAD.sub}</p>
+            <p className="services-sub">{head.sub}</p>
           </div>
         </div>
 
         <div className="services-track-wrap">
           <div className="services-grid" ref={trackRef}>
-            {HOME_SERVICES.map(({ tag, title, sub, ariaLabel, image, imgFocus, to }) => (
-              <MotionCard key={title} naked tilt={4} className="service-card-tilt">
+            {services.map(({ key, tag, title, sub, ariaLabel, image, imgFocus, to }) => (
+              <MotionCard key={key} naked tilt={4} className="service-card-tilt">
                 <Link to={to} className="service-card" aria-label={ariaLabel}>
                   <div className="card-img">
                     <CardArrow />

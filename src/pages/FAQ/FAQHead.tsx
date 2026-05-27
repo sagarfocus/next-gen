@@ -1,25 +1,30 @@
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import Breadcrumb from '@/components/Breadcrumb';
 import { ArrowIcon } from '@/components/icons';
-import { META_ROWS } from '@/content/faq/meta';
-import { CATEGORIES } from '@/content/faq/categories';
-
-const QUESTION_COUNT = CATEGORIES.reduce((sum, c) => sum + c.items.length, 0);
-const SECTION_COUNT = CATEGORIES.length;
+import { useMetaRows } from '@/content/faq/meta';
+import { useFAQCategories } from '@/content/faq/categories';
 
 const FAQHead = () => {
+  const { t } = useTranslation('pages');
+  const categories = useFAQCategories();
+  const metaRows = useMetaRows();
+
+  const questionCount = categories.reduce((sum, c) => sum + c.items.length, 0);
+  const sectionCount = categories.length;
+
   return (
     <section className="ph-page-head">
       <div className="container-shell">
-        <Breadcrumb items={[{ label: 'FAQ' }]} section="FAQ" />
+        <Breadcrumb items={[{ label: t('faq.head.breadcrumb') }]} section={t('faq.head.section')} />
         <div className="ph-row">
           <div>
             <div className="ph-eyebrow">
               <span className="ph-issue">
-                {QUESTION_COUNT} questions · {SECTION_COUNT} sections · Updated monthly
+                {t('faq.head.summary', { questionCount, sectionCount })}
               </span>
             </div>
-            <h1 className="ph-title">Compliance, pricing, onboarding - answered by the team.</h1>
+            <h1 className="ph-title">{t('faq.head.title')}</h1>
             <p
               style={{
                 margin: '18px 0 0',
@@ -29,9 +34,7 @@ const FAQHead = () => {
                 color: '#4A5568',
               }}
             >
-              Every question below comes from a real practice owner - not a generic FAQ template. We
-              refresh this page every month with the questions we hear most often during audits and
-              onboarding.
+              {t('faq.head.lede')}
             </p>
             <div
               style={{
@@ -56,7 +59,7 @@ const FAQHead = () => {
                   letterSpacing: '-0.005em',
                 }}
               >
-                Browse all questions <ArrowIcon size={12} strokeWidth={2.2} />
+                {t('faq.head.browseCta')} <ArrowIcon size={12} strokeWidth={2.2} />
               </a>
               <Link
                 to="/contact"
@@ -72,12 +75,12 @@ const FAQHead = () => {
                   fontWeight: 600,
                 }}
               >
-                Can&rsquo;t find yours? Ask us <ArrowIcon size={12} strokeWidth={2.2} />
+                {t('faq.head.askCta')} <ArrowIcon size={12} strokeWidth={2.2} />
               </Link>
             </div>
           </div>
           <div className="ph-meta">
-            {META_ROWS.map((row) => (
+            {metaRows.map((row) => (
               <div key={row.label} className="ph-meta-row">
                 <strong>{row.label}</strong>
                 <span>{row.value}</span>

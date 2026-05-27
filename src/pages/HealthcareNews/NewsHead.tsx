@@ -1,33 +1,31 @@
+import { useTranslation } from 'react-i18next';
 import Breadcrumb from '@/components/Breadcrumb';
 
-interface MetaRow {
-  label: string;
-  value: string;
-}
-
-const META_ROWS: MetaRow[] = [
-  { label: 'Edition', value: 'Friday, May 1, 2026' },
-  { label: 'Editor', value: 'Aanya Patel' },
-  { label: 'Reading time', value: '11 minutes' },
-];
+const META_KEYS = ['edition', 'editor', 'readingTime'] as const;
 
 const NewsHead = () => {
+  const { t } = useTranslation('pages');
   return (
     <section className="ph-page-head">
       <div className="container-shell">
-        <Breadcrumb items={[{ label: 'Resources', to: '/blog' }, { label: 'Healthcare News' }]} />
+        <Breadcrumb
+          items={[
+            { label: t('healthcareNews.head.crumbResources'), to: '/blog' },
+            { label: t('healthcareNews.head.crumbCurrent') },
+          ]}
+        />
         <div className="ph-row">
           <div>
             <div className="ph-eyebrow">
-              <span className="ph-issue">№ 047 · Weekly Brief</span>
+              <span className="ph-issue">{t('healthcareNews.head.issue')}</span>
             </div>
-            <h1 className="ph-title">Healthcare News &amp; Insights.</h1>
+            <h1 className="ph-title">{t('healthcareNews.head.title')}</h1>
           </div>
           <div className="ph-meta">
-            {META_ROWS.map((row) => (
-              <div key={row.label} className="ph-meta-row">
-                <strong>{row.label}</strong>
-                <span>{row.value}</span>
+            {META_KEYS.map((key) => (
+              <div key={key} className="ph-meta-row">
+                <strong>{t(`healthcareNews.head.meta.${key}.label`)}</strong>
+                <span>{t(`healthcareNews.head.meta.${key}.value`)}</span>
               </div>
             ))}
           </div>

@@ -1,15 +1,20 @@
-import { ROWS, SOCIALS } from '@/content/contact/help';
+import { useTranslation } from 'react-i18next';
+import { useHelpRows, useSocials } from '@/content/contact/help';
 
 const HelpCard = () => {
+  const { t } = useTranslation('contact');
+  const rows = useHelpRows();
+  const socials = useSocials();
+
   return (
     <aside className="ct-help" aria-labelledby="help-title">
-      <span className="ct-help-eyebrow">Hi! We are always here</span>
+      <span className="ct-help-eyebrow">{t('help.eyebrow')}</span>
       <h3 id="help-title" className="ct-help-title">
-        to help you.
+        {t('help.title')}
       </h3>
 
       <div className="ct-help-rows">
-        {ROWS.map((row) => (
+        {rows.map((row) => (
           <a key={row.tag} href={row.href} className="ct-help-row">
             <span className="ct-help-row-ico" aria-hidden="true">
               {row.icon}
@@ -23,9 +28,9 @@ const HelpCard = () => {
       </div>
 
       <div className="ct-help-social">
-        <span className="ct-help-social-label">Connect with us</span>
+        <span className="ct-help-social-label">{t('help.social')}</span>
         <div className="ct-help-social-icons">
-          {SOCIALS.map((s) => (
+          {socials.map((s) => (
             <a
               key={s.label}
               href={s.href}

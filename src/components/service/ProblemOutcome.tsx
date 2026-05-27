@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import SectionHead from './SectionHead';
 import { CheckIcon } from '../icons';
 
@@ -32,21 +33,24 @@ const AlertIcon = () => (
 );
 
 const ProblemOutcome = ({ pains, outcomes }: ProblemOutcomeProps) => {
+  const { t } = useTranslation('common');
   return (
     <section className="sv-section sv-po">
       <div className="container-shell">
         <SectionHead
-          num="01 - Problem → Outcome"
+          num={t('components.problemOutcome.sectionNum')}
           title={
             <>
-              From <em>stuck</em> to scaling.
+              {t('components.problemOutcome.titlePart1')}{' '}
+              <em>{t('components.problemOutcome.titleEm')}</em>{' '}
+              {t('components.problemOutcome.titlePart2')}
             </>
           }
           meta={
             <>
-              Side-by-side
+              {t('components.problemOutcome.metaLine1')}
               <br />
-              before / after
+              {t('components.problemOutcome.metaLine2')}
             </>
           }
         />
@@ -65,8 +69,10 @@ const ProblemOutcome = ({ pains, outcomes }: ProblemOutcomeProps) => {
             ))}
           </ul>
           <div className="sv-po-out">
-            <span className="sv-po-out-eyebrow">After 90 days</span>
-            <h3>Measurable, predictable, repeatable growth.</h3>
+            <span className="sv-po-out-eyebrow">
+              {t('components.problemOutcome.outcomeEyebrow')}
+            </span>
+            <h3>{t('components.problemOutcome.outcomeHeading')}</h3>
             {outcomes.map((o) => (
               <div key={o.label} className="sv-po-out-line">
                 <CheckIcon />

@@ -1,4 +1,6 @@
+import { useMemo } from 'react';
 import type { ReactNode } from 'react';
+import { useTranslation } from 'react-i18next';
 
 export interface PillarPane {
   id: string;
@@ -19,108 +21,58 @@ export interface PillarPane {
   foot: string;
 }
 
-export const CUSTOM_SOFTWARE_PANES: PillarPane[] = [
-  {
-    id: 'p1-1',
-    num: '01',
-    tag: 'Patient Portal',
-    listTitle: 'Custom Patient Portals',
-    listSub: 'Secure portals for intake, records, and telehealth.',
-    detailTitle: 'Custom Patient Portals',
-    detailText:
-      'Secure, branded portals built around your clinical workflows - intake, records access, prescription requests, and telehealth all in one place. Designed to reduce front-desk load while improving patient experience.',
-    bullets: [
-      <>
-        <strong>HIPAA-aware</strong> data handling and BAA-ready hosting
-      </>,
-      <>
-        <strong>Telehealth</strong> sessions with secure video and chat
-      </>,
-      <>
-        <strong>Digital intake</strong> forms with insurance verification
-      </>,
-      <>
-        <strong>Records &amp; results</strong> accessible on any device
-      </>,
-    ],
-    foot: 'Build - Week 4–8',
-  },
-  {
-    id: 'p1-2',
-    num: '02',
-    tag: 'Integrations',
-    listTitle: 'Integrations & APIs',
-    listSub: 'EHR, billing, and analytics integrations via secure APIs.',
-    detailTitle: 'Integrations & APIs',
-    detailText:
-      'Connect your EHR, billing platform, CRM, and analytics stack through secure, well-documented APIs. We engineer reliable data flows that eliminate manual work and keep every system in sync.',
-    bullets: [
-      <>
-        <strong>EHR connectors</strong> for Epic, Cerner, Athena, and more
-      </>,
-      <>
-        <strong>Billing &amp; payments</strong> integrated with claims workflows
-      </>,
-      <>
-        <strong>Analytics piping</strong> from source systems to dashboards
-      </>,
-      <>
-        <strong>Webhook orchestration</strong> with retry &amp; observability
-      </>,
-    ],
-    foot: 'Integration - Week 6–12',
-  },
+interface PaneConfig {
+  id: string;
+  num: string;
+  pillarKey: 'customSoftware' | 'automation';
+  paneKey: 'portal' | 'integrations' | 'intake' | 'scheduling';
+}
+
+const CUSTOM_SOFTWARE_CONFIG: PaneConfig[] = [
+  { id: 'p1-1', num: '01', pillarKey: 'customSoftware', paneKey: 'portal' },
+  { id: 'p1-2', num: '02', pillarKey: 'customSoftware', paneKey: 'integrations' },
 ];
 
-export const AUTOMATION_PANES: PillarPane[] = [
-  {
-    id: 'p2-1',
-    num: '01',
-    tag: 'AI Intake',
-    listTitle: 'AI Intake Automation',
-    listSub: 'Secure, conversational intake that verifies insurance and obtains consent.',
-    detailTitle: 'AI Intake Automation',
-    detailText:
-      'Conversational intake that handles new-patient onboarding 24/7 - verifies insurance eligibility in real time, obtains digital consent, and routes complete records to your EHR before the appointment.',
-    bullets: [
-      <>
-        <strong>Real-time eligibility</strong> checks against major payers
-      </>,
-      <>
-        <strong>Digital consent</strong> with audit-ready signatures
-      </>,
-      <>
-        <strong>Multi-language</strong> support for diverse patient bases
-      </>,
-      <>
-        <strong>EHR sync</strong> - intake lands in the chart, not a PDF
-      </>,
-    ],
-    foot: 'Live - Day 14–21',
-  },
-  {
-    id: 'p2-2',
-    num: '02',
-    tag: 'Scheduling',
-    listTitle: 'Automated Scheduling',
-    listSub: 'Real-time availability and reminders to reduce no-shows.',
-    detailTitle: 'Automated Scheduling',
-    detailText:
-      'Real-time availability surfaces directly on your site, ad landing pages, and Google Business Profile. Smart reminders - SMS, email, and voice - cut no-show rates dramatically without adding staff.',
-    bullets: [
-      <>
-        <strong>Real-time slots</strong> synced to provider calendars
-      </>,
-      <>
-        <strong>Smart reminders</strong> via SMS, email, and voice
-      </>,
-      <>
-        <strong>Self-service rescheduling</strong> reduces phone volume
-      </>,
-      <>
-        <strong>No-show prediction</strong> flags high-risk appointments
-      </>,
-    ],
-    foot: 'Live - Day 7–14',
-  },
+const AUTOMATION_CONFIG: PaneConfig[] = [
+  { id: 'p2-1', num: '01', pillarKey: 'automation', paneKey: 'intake' },
+  { id: 'p2-2', num: '02', pillarKey: 'automation', paneKey: 'scheduling' },
 ];
+
+function paneFromConfig(
+  t: (key: string, opts?: { returnObjects?: boolean }) => string,
+  c: PaneConfig
+): PillarPane {
+  const base = `pillars.${c.pillarKey}.panes.${c.paneKey}`;
+  const bullets = t(`${base}.bullets`, { returnObjects: true }) as unknown as string[];
+  return {
+    id: c.id,
+    num: c.num,
+    tag: t(`${base}.tag`),
+    listTitle: t(`${base}.listTitle`),
+    listSub: t(`${base}.listSub`),
+    detailTitle: t(`${base}.detailTitle`),
+    detailText: t(`${base}.detailText`),
+    bullets: bullets.map((html, i) => (
+      <span key={i} dangerouslySetInnerHTML={{ __html: html }} />
+    )),
+    foot: t(`${base}.foot`),
+  };
+}
+
+/** React hook for the "Custom Software" pillar panes — live-translates. */
+export function useCustomSoftwarePanes(): PillarPane[] {
+  const { t } = useTranslation('services');
+  return useMemo(
+    () => CUSTOM_SOFTWARE_CONFIG.map((c) => paneFromConfig(t, c)),
+    [t]
+  );
+}
+
+/** React hook for the "Automation & AI" pillar panes — live-translates. */
+export function useAutomationPanes(): PillarPane[] {
+  const { t } = useTranslation('services');
+  return useMemo(
+    () => AUTOMATION_CONFIG.map((c) => paneFromConfig(t, c)),
+    [t]
+  );
+}

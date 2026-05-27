@@ -1,29 +1,61 @@
+import { useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
+
 /**
  * Home page — Contact section content.
  *
  * Site-wide contact info (email, phone, social, address parts) lives in
- * `content/site.ts`. This file holds the page-local section copy and the
- * map URLs that are bespoke to the Home → Contact section rendering.
+ * `content/site.ts`. This file holds the page-local section copy (via
+ * hooks) and the map URLs that are bespoke to the Home → Contact section.
  */
 
-export const HOME_CONTACT_HEAD = {
-  eyebrow: 'Visit Us',
-  title: 'Find us in Irving, Texas.',
-  // `we’re` uses U+2019 (right single quote), `Clinic Growth OS`
-  // uses U+00A0 (NBSP) — both preserved from the original JSX entities.
-  sub: 'Stop by the office or reach our team anytime - we’re happy to walk you through the Clinic Growth OS in person or over a call.',
-} as const;
+export interface HomeContactHead {
+  eyebrow: string;
+  title: string;
+  sub: string;
+}
 
-export const HOME_CONTACT_CARD = {
-  mapChip: 'Office Location',
-  headquartersEyebrow: 'Headquarters',
-  cityRegionHeading: 'Irving, TX',
-  hqName: 'TheNextGen HQ',
-  hoursLabel: 'Mon–Fri, 9:00am–6:00pm CT',
-  countryName: 'United States',
-  mapLinkAriaLabel: 'Open location in Google Maps',
-  getDirectionsText: 'Get Directions',
-} as const;
+/** React hook for the section header copy. */
+export function useHomeContactHead(): HomeContactHead {
+  const { t } = useTranslation('home');
+  return useMemo(
+    () => ({
+      eyebrow: t('contactSection.head.eyebrow'),
+      title: t('contactSection.head.title'),
+      sub: t('contactSection.head.sub'),
+    }),
+    [t]
+  );
+}
+
+export interface HomeContactCard {
+  mapChip: string;
+  headquartersEyebrow: string;
+  cityRegionHeading: string;
+  hqName: string;
+  hoursLabel: string;
+  countryName: string;
+  mapLinkAriaLabel: string;
+  getDirectionsText: string;
+}
+
+/** React hook for the right-hand info card copy. */
+export function useHomeContactCard(): HomeContactCard {
+  const { t } = useTranslation('home');
+  return useMemo(
+    () => ({
+      mapChip: t('contactSection.card.mapChip'),
+      headquartersEyebrow: t('contactSection.card.headquartersEyebrow'),
+      cityRegionHeading: t('contactSection.card.cityRegionHeading'),
+      hqName: t('contactSection.card.hqName'),
+      hoursLabel: t('contactSection.card.hoursLabel'),
+      countryName: t('contactSection.card.countryName'),
+      mapLinkAriaLabel: t('contactSection.card.mapLinkAriaLabel'),
+      getDirectionsText: t('contactSection.card.getDirectionsText'),
+    }),
+    [t]
+  );
+}
 
 export const HOME_CONTACT_MAP_URLS = {
   embed:

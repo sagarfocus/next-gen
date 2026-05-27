@@ -1,25 +1,25 @@
 import { useState } from 'react';
-import { FAQ_ITEMS } from './data';
+import { useTranslation } from 'react-i18next';
+import type { FaqItem } from './data';
 
 const FAQ = () => {
+  const { t } = useTranslation('pages');
+  const items = t('pages:freeGrowthAudit.faq.items', { returnObjects: true }) as FaqItem[];
   const [open, setOpen] = useState<number | null>(0);
 
   return (
     <section className="fga-faq" aria-labelledby="fga-faq-title">
       <div className="container-shell">
         <header className="fga-section-head">
-          <span className="fga-section-tag">Common questions</span>
+          <span className="fga-section-tag">{t('pages:freeGrowthAudit.faq.tag')}</span>
           <h2 id="fga-faq-title" className="fga-section-h2">
-            Everything practice owners ask before booking.
+            {t('pages:freeGrowthAudit.faq.title')}
           </h2>
-          <p className="fga-section-lede">
-            If your question isn&rsquo;t here, the answer is almost always &ldquo;yes, and the audit
-            will confirm it.&rdquo; Submit the form and ask in the request notes.
-          </p>
+          <p className="fga-section-lede">{t('pages:freeGrowthAudit.faq.lede')}</p>
         </header>
 
         <ol className="fga-faq-list">
-          {FAQ_ITEMS.map((item, i) => {
+          {items.map((item, i) => {
             const isOpen = open === i;
             return (
               <li key={item.q} className={`fga-faq-item${isOpen ? ' is-open' : ''}`}>

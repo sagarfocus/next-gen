@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { PHASES, TRAJECTORY } from './data';
 
 /* ────────────────────────────────────────────────────────────────────
@@ -27,6 +28,7 @@ const PHASE_FILL: Record<string, string> = {
 };
 
 const TrajectoryChart = () => {
+  const { t } = useTranslation('pages');
   const linePath = TRAJECTORY.map(
     (p, i) => `${i === 0 ? 'M' : 'L'} ${xFor(p.m).toFixed(1)} ${yFor(p.mult).toFixed(1)}`
   ).join(' ');
@@ -38,7 +40,7 @@ const TrajectoryChart = () => {
       viewBox={`0 0 ${ChartWidth} ${ChartHeight}`}
       preserveAspectRatio="xMidYMid meet"
       role="img"
-      aria-label="12-month growth trajectory chart"
+      aria-label={t('pages:growthPlan.chart.ariaLabel')}
       className="w-full h-auto"
     >
       <defs>
@@ -122,7 +124,7 @@ const TrajectoryChart = () => {
               fill="#2D3748"
               letterSpacing="-0.01em"
             >
-              {p.name.toUpperCase()}
+              {t(`pages:growthPlan.chart.phaseLabels.${p.key}`)}
             </text>
           </g>
         );
@@ -140,7 +142,7 @@ const TrajectoryChart = () => {
       />
 
       {/* Annotated points */}
-      {TRAJECTORY.filter((p) => p.label).map((p) => (
+      {TRAJECTORY.filter((p) => p.labelKey).map((p) => (
         <g key={p.m}>
           <circle
             cx={xFor(p.m)}
@@ -167,7 +169,7 @@ const TrajectoryChart = () => {
             fontWeight="600"
             fill="#2D3748"
           >
-            {p.label}
+            {t(`pages:growthPlan.chart.trajectoryLabels.${p.labelKey!}`)}
           </text>
           <text
             x={xFor(p.m)}
@@ -215,48 +217,51 @@ const TrajectoryChart = () => {
   );
 };
 
-const Chart = () => (
-  <section className="border-t border-line-faint bg-bg-alt">
-    <div className="container-shell py-[clamp(48px,7vw,96px)]">
-      <div className="flex items-baseline justify-between mb-8 flex-wrap gap-y-3">
-        <div>
-          <div className="text-line font-mono text-[12px] tracking-[0.24em] uppercase">
-            The Trajectory
+const Chart = () => {
+  const { t } = useTranslation('pages');
+  return (
+    <section className="border-t border-line-faint bg-bg-alt">
+      <div className="container-shell py-[clamp(48px,7vw,96px)]">
+        <div className="flex items-baseline justify-between mb-8 flex-wrap gap-y-3">
+          <div>
+            <div className="text-line font-mono text-[12px] tracking-[0.24em] uppercase">
+              {t('pages:growthPlan.chart.eyebrow')}
+            </div>
+            <h2 className="mt-3 text-heading text-[clamp(22px,2vw,28px)] font-bold tracking-[-0.02em]">
+              {t('pages:growthPlan.chart.titleLine1')}{' '}
+              <span
+                className="bg-clip-text text-transparent"
+                style={{
+                  backgroundImage: 'linear-gradient(90deg, #B38B6D 0%, #8FBC8F 50%, #576DB5 100%)',
+                }}
+              >
+                {t('pages:growthPlan.chart.titleAccent')}
+              </span>
+              {t('pages:growthPlan.chart.titleSuffix')}
+            </h2>
           </div>
-          <h2 className="mt-3 text-heading text-[clamp(22px,2vw,28px)] font-bold tracking-[-0.02em]">
-            Where the practice is at each month, indexed to its{' '}
-            <span
-              className="bg-clip-text text-transparent"
-              style={{
-                backgroundImage: 'linear-gradient(90deg, #B38B6D 0%, #8FBC8F 50%, #576DB5 100%)',
-              }}
-            >
-              own baseline
+          <div className="flex items-baseline gap-6 text-[12px]">
+            <span className="flex items-center gap-2">
+              <span className="inline-block w-3 h-3 bg-cta/20" />{' '}
+              {t('pages:growthPlan.chart.legend.area')}
             </span>
-            .
-          </h2>
+            <span className="flex items-center gap-2">
+              <span className="inline-block w-3 h-px bg-heading/40" />{' '}
+              {t('pages:growthPlan.chart.legend.baseline')}
+            </span>
+          </div>
         </div>
-        <div className="flex items-baseline gap-6 text-[12px]">
-          <span className="flex items-center gap-2">
-            <span className="inline-block w-3 h-3 bg-cta/20" /> Curve area
-          </span>
-          <span className="flex items-center gap-2">
-            <span className="inline-block w-3 h-px bg-heading/40" /> Baseline
-          </span>
+
+        <div className="bg-white border border-line-faint p-4 sm:p-8">
+          <TrajectoryChart />
         </div>
-      </div>
 
-      <div className="bg-white border border-line-faint p-4 sm:p-8">
-        <TrajectoryChart />
+        <p className="mt-5 text-muted text-[13px] leading-[1.6] max-w-[64ch]">
+          {t('pages:growthPlan.chart.footer')}
+        </p>
       </div>
-
-      <p className="mt-5 text-muted text-[13px] leading-[1.6] max-w-[64ch]">
-        Multiplier curve indexed to month-0 patient acquisition cost and booked-visit baselines.
-        Ranges reflect the median across active engagements. Individual outcomes vary with starting
-        position and clinical vertical.
-      </p>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 export default Chart;

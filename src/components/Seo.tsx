@@ -1,4 +1,10 @@
+import { useTranslation } from 'react-i18next';
 import { SITE } from '@/content/site';
+
+const OG_LOCALES: Record<string, string> = {
+  en: 'en_US',
+  es: 'es_ES',
+};
 
 export type SeoSchema = Record<string, unknown> | ReadonlyArray<Record<string, unknown>>;
 
@@ -72,6 +78,9 @@ const Seo = ({
   schema,
   article,
 }: SeoProps) => {
+  const { i18n } = useTranslation();
+  const lang = (i18n.language || 'en').split('-')[0];
+  const ogLocale = OG_LOCALES[lang] ?? OG_LOCALES.en;
   const composedTitle = composeTitle(title, noBrandSuffix);
   const canonicalUrl = path ? absoluteUrl(path) : undefined;
   const resolvedImage = image ?? DEFAULT_IMAGE;
@@ -103,7 +112,7 @@ const Seo = ({
           <meta property="og:image:height" content="630" />
         </>
       ) : null}
-      <meta property="og:locale" content="en_US" />
+      <meta property="og:locale" content={ogLocale} />
 
       {/* Article-only OG fields */}
       {type === 'article' && article?.publishedTime ? (

@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import CaseStudiesHead from './CaseStudiesHead';
 import FeaturedCase from './FeaturedCase';
 import PartnersMarquee from './PartnersMarquee';
@@ -11,9 +12,6 @@ import { buildBreadcrumbList } from '@/lib/schema';
 import { SITE } from '@/content/site';
 import { CASE_STUDIES } from './caseStudies.data';
 
-// Lists every case study currently shipped under /case-studies/:id so
-// the hub schema reflects what's actually on the page. Each item points
-// at its absolute detail URL — no relative paths in JSON-LD.
 const COLLECTION_SCHEMA = {
   '@context': 'https://schema.org',
   '@type': 'CollectionPage',
@@ -42,11 +40,13 @@ const BREADCRUMB_SCHEMA = buildBreadcrumbList([
 ]);
 
 const CaseStudies = () => {
+  const { t } = useTranslation('pages');
+
   return (
     <>
       <Seo
-        title="Healthcare Marketing Case Studies — Real Clinic & MedSpa Results"
-        description="Real engagements, real metrics — case studies from clinics, medspas, urgent care, and freestanding ER networks running on the TheNextGen growth operating system."
+        title={t('caseStudies.seo.indexTitle')}
+        description={t('caseStudies.seo.indexDescription')}
         path="/case-studies"
         schema={[COLLECTION_SCHEMA, BREADCRUMB_SCHEMA]}
       />

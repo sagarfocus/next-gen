@@ -1,4 +1,6 @@
+import { useMemo } from 'react';
 import type { ReactElement } from 'react';
+import { useTranslation } from 'react-i18next';
 
 export interface OrbitPill {
   slot: 'o1' | 'o2' | 'o3' | 'o4' | 'o5' | 'o6';
@@ -107,36 +109,53 @@ const ChatIcon = () => (
   </svg>
 );
 
-export const ORBIT_PILLS: OrbitPill[] = [
-  {
-    slot: 'o1',
-    label: 'SEO & Local',
-    sub: 'Rank higher. Get found locally.',
-    icon: <SearchIcon />,
-  },
-  { slot: 'o2', label: 'Paid Media', sub: 'Targeted campaigns. Measurable.', icon: <ChartIcon /> },
-  { slot: 'o3', label: 'Branding', sub: 'A memorable brand that converts.', icon: <StarIcon /> },
-  { slot: 'o4', label: 'Automation', sub: 'Streamline. Nurture. Scale.', icon: <SettingsIcon /> },
-  {
-    slot: 'o5',
-    label: 'Web Design',
-    sub: 'High-performance sites that convert.',
-    icon: <LayoutIcon />,
-  },
-  { slot: 'o6', label: 'Content', sub: 'Editorial that educates patients.', icon: <ChatIcon /> },
+interface OrbitConfig {
+  slot: OrbitPill['slot'];
+  key: 'seo' | 'paid' | 'branding' | 'automation' | 'web' | 'content';
+  icon: ReactElement;
+}
+
+const ORBIT_CONFIG: OrbitConfig[] = [
+  { slot: 'o1', key: 'seo', icon: <SearchIcon /> },
+  { slot: 'o2', key: 'paid', icon: <ChartIcon /> },
+  { slot: 'o3', key: 'branding', icon: <StarIcon /> },
+  { slot: 'o4', key: 'automation', icon: <SettingsIcon /> },
+  { slot: 'o5', key: 'web', icon: <LayoutIcon /> },
+  { slot: 'o6', key: 'content', icon: <ChatIcon /> },
 ];
 
-export const CAPABILITIES = [
-  'SEO Services',
-  'Google Ads',
-  'Meta Ads',
-  'Social Media Marketing',
-  'Content & Copywriting',
-  'Google Business Profile',
-  'Website Design & Development',
-  'Brand Identity Design',
-  'Brochure & Print',
-  'Strategy & Planning',
-  'Onsite Field Marketing',
-  'Analytics & Reporting',
-];
+/** React hook for the Services hero orbit pills — live-translates. */
+export function useOrbitPills(): readonly OrbitPill[] {
+  const { t } = useTranslation('services');
+  return useMemo(
+    () =>
+      ORBIT_CONFIG.map((o) => ({
+        slot: o.slot,
+        icon: o.icon,
+        label: t(`hero.orbit.${o.key}.label`),
+        sub: t(`hero.orbit.${o.key}.sub`),
+      })),
+    [t]
+  );
+}
+
+const CAPABILITY_KEYS = [
+  'seo',
+  'googleAds',
+  'metaAds',
+  'socialMedia',
+  'content',
+  'gbp',
+  'web',
+  'brand',
+  'print',
+  'strategy',
+  'field',
+  'analytics',
+] as const;
+
+/** React hook for the capability marquee items — live-translates. */
+export function useCapabilities(): readonly string[] {
+  const { t } = useTranslation('services');
+  return useMemo(() => CAPABILITY_KEYS.map((k) => t(`hero.capabilities.${k}`)), [t]);
+}

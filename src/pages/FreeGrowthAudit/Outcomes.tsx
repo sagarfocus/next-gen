@@ -1,45 +1,24 @@
+import { useTranslation } from 'react-i18next';
+
+interface Result {
+  metric: string;
+  metricLabel: string;
+  context: string;
+  practice: string;
+}
+
 const Outcomes = () => {
-  const results: { metric: string; metricLabel: string; context: string; practice: string }[] = [
-    {
-      metric: '+37%',
-      metricLabel: 'Qualified bookings',
-      context:
-        'In 60 days, by rewriting the paid landing flow and adding intake automation flagged in the audit.',
-      practice: 'Med spa · Houston',
-    },
-    {
-      metric: '−$8.4k',
-      metricLabel: 'Wasted spend / mo',
-      context:
-        'Broad-match keyword bleed and overlapping audiences across three ad accounts - cut in the first 30 days.',
-      practice: 'Urgent care · DFW',
-    },
-    {
-      metric: '#1–3',
-      metricLabel: 'Local Pack',
-      context:
-        'GBP review velocity plus a service-area page rebuild moved four service terms into the 3-pack in 11 weeks.',
-      practice: 'Dental · Austin',
-    },
-    {
-      metric: '4.2 → 4.8★',
-      metricLabel: 'Google rating',
-      context:
-        'Replaced manual review asks with the permission-based SMS cadence specified in the 90-day plan.',
-      practice: 'Mental health · San Antonio',
-    },
-  ];
+  const { t } = useTranslation('pages');
+  const results = t('pages:freeGrowthAudit.outcomes.items', { returnObjects: true }) as Result[];
   return (
     <section className="fga-outcomes" aria-labelledby="fga-outcomes-title">
       <div className="container-shell">
         <header className="fga-section-head fga-outcomes-head">
-          <span className="fga-section-tag">Proof, not promises</span>
+          <span className="fga-section-tag">{t('pages:freeGrowthAudit.outcomes.tag')}</span>
           <h2 id="fga-outcomes-title" className="fga-section-h2">
-            Real numbers. Real practices.
+            {t('pages:freeGrowthAudit.outcomes.title')}
           </h2>
-          <p className="fga-outcomes-lede">
-            Healthcare practices that ran the audit themselves - most without ever hiring an agency.
-          </p>
+          <p className="fga-outcomes-lede">{t('pages:freeGrowthAudit.outcomes.lede')}</p>
         </header>
 
         <div className="fga-outcomes-grid">

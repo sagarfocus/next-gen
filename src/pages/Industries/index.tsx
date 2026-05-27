@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import IndustriesHero from './IndustriesHero';
 import IndustriesOverview from './IndustriesOverview';
 import IndustryDeepDive from './IndustryDeepDive';
@@ -39,6 +40,7 @@ const BREADCRUMB_SCHEMA = buildBreadcrumbList([
 ]);
 
 const Industries = () => {
+  const { t } = useTranslation('industries');
   const [bookingOpen, setBookingOpen] = useState(false);
   const openBooking = () => setBookingOpen(true);
   const closeBooking = () => setBookingOpen(false);
@@ -46,8 +48,8 @@ const Industries = () => {
   return (
     <>
       <Seo
-        title="Healthcare Marketing by Specialty — Clinics, MedSpas, Urgent Care, ERs"
-        description="Vertical-specific patient acquisition for clinics, medspas, urgent care, freestanding ERs, dental, mental health and more — built for the dynamics of each specialty."
+        title={t('seo.title')}
+        description={t('seo.description')}
         path="/industries"
         schema={[INDUSTRIES_LIST_SCHEMA, BREADCRUMB_SCHEMA]}
       />

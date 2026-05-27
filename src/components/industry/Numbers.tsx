@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react';
+import { useTranslation } from 'react-i18next';
 
 export interface BigNumber {
   num: ReactNode;
@@ -17,6 +18,7 @@ interface NumbersProps {
  * because the tile grid here is 2×N instead of 1×N.
  */
 const Numbers = ({ stats }: NumbersProps) => {
+  const { t } = useTranslation('common');
   const lead = stats[0];
   const rest = stats.slice(1);
 
@@ -26,14 +28,14 @@ const Numbers = ({ stats }: NumbersProps) => {
         <header className="iv-section-head">
           <span className="iv-section-num">03</span>
           <h2 id="iv-num-title" className="iv-section-title">
-            The numbers we move.
+            {t('components.industryNumbers.title')}
           </h2>
         </header>
 
         <div className="iv-numbers-wall">
           {lead ? (
             <article className="iv-numbers-hero">
-              <span className="iv-num-eyebrow">Headline metric</span>
+              <span className="iv-num-eyebrow">{t('components.industryNumbers.eyebrow')}</span>
               <div>
                 <div className="iv-num-big">{lead.num}</div>
                 <div

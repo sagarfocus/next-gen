@@ -1,3 +1,6 @@
+import { useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
+
 export interface ProcessStep {
   num: string;
   title: string;
@@ -5,36 +8,32 @@ export interface ProcessStep {
   active?: boolean;
 }
 
-export const STEPS: ProcessStep[] = [
-  {
-    num: '/01',
-    title: 'Discovery & Audit',
-    desc: 'We dive into your current marketing, identify gaps, and learn about your patients.',
-  },
-  {
-    num: '/02',
-    title: 'Custom Strategy',
-    desc: 'You get a tailored marketing plan based on real data, not guesswork.',
-  },
-  {
-    num: '/03',
-    title: 'Build & Setup',
-    desc: 'We deploy your tech stack - landing pages, tracking, automation, and dashboards.',
-  },
-  {
-    num: '/04',
-    title: 'Launch',
-    desc: 'We execute campaigns across every channel - search, social, and email.',
-    active: true,
-  },
-  {
-    num: '/05',
-    title: 'Optimize',
-    desc: 'We run A/B tests, analyze results, and refine your campaigns weekly.',
-  },
-  {
-    num: '/06',
-    title: 'Scale',
-    desc: 'When we find what works, we double down to boost your patient volume.',
-  },
+interface StepConfig {
+  num: string;
+  key: 'discovery' | 'strategy' | 'build' | 'launch' | 'optimize' | 'scale';
+  active?: boolean;
+}
+
+const STEP_CONFIG: StepConfig[] = [
+  { num: '/01', key: 'discovery' },
+  { num: '/02', key: 'strategy' },
+  { num: '/03', key: 'build' },
+  { num: '/04', key: 'launch', active: true },
+  { num: '/05', key: 'optimize' },
+  { num: '/06', key: 'scale' },
 ];
+
+/** React hook for the Services page process steps — live-translates. */
+export function useProcessSteps(): readonly ProcessStep[] {
+  const { t } = useTranslation('services');
+  return useMemo(
+    () =>
+      STEP_CONFIG.map((s) => ({
+        num: s.num,
+        title: t(`process.steps.${s.key}.title`),
+        desc: t(`process.steps.${s.key}.desc`),
+        ...(s.active ? { active: true } : {}),
+      })),
+    [t]
+  );
+}

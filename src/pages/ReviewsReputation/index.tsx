@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import Hero from './Hero';
 import Flow from './Flow';
 import Channels from './Channels';
@@ -28,26 +29,29 @@ const SERVICE_SCHEMA = {
   },
 };
 
-const BREADCRUMB_SCHEMA = buildBreadcrumbList([
-  { name: 'Home', path: '/' },
-  { name: 'Reviews & Reputation' },
-]);
+const ReviewsReputation = () => {
+  const { t } = useTranslation('pages');
+  const breadcrumbSchema = buildBreadcrumbList([
+    { name: 'Home', path: '/' },
+    { name: t('pages:reviewsReputation.breadcrumb.current') },
+  ]);
 
-const ReviewsReputation = () => (
-  <>
-    <Seo
-      title="Healthcare Reviews & Reputation Management — HIPAA-Safe Loop"
-      description="A reputation engine that collects, sorts, and replies without exposing PHI — the same loop that lifts Google Local Pack ranking on a 90-day curve."
-      path="/reviews-reputation"
-      schema={[SERVICE_SCHEMA, BREADCRUMB_SCHEMA]}
-    />
+  return (
+    <>
+      <Seo
+        title={t('pages:reviewsReputation.seo.title')}
+        description={t('pages:reviewsReputation.seo.description')}
+        path="/reviews-reputation"
+        schema={[SERVICE_SCHEMA, breadcrumbSchema]}
+      />
 
-    <Hero />
-    <Flow />
-    <Channels />
-    <Outcomes />
-    <Closing />
-  </>
-);
+      <Hero />
+      <Flow />
+      <Channels />
+      <Outcomes />
+      <Closing />
+    </>
+  );
+};
 
 export default ReviewsReputation;

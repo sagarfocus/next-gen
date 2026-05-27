@@ -1,4 +1,5 @@
 import '../../../styles/phase1.css';
+import { useTranslation } from 'react-i18next';
 import Hero from './Hero';
 import Scorecard from './Scorecard';
 import Dimensions from './Dimensions';
@@ -35,25 +36,28 @@ const BREADCRUMB_SCHEMA = buildBreadcrumbList([
   { name: 'Phase 1 — Discovery & Audit' },
 ]);
 
-const Phase1 = () => (
-  <main className="ph1-root">
-    <Seo
-      title="Phase 1: Discovery & Technical Audit — Healthcare Marketing Methodology"
-      description="A two-week forensic of every search, ad, and front-desk surface your clinic owns. We measure where patients are leaking, then hand you a prioritized scorecard."
-      path="/methodology/phase-1"
-      schema={[SERVICE_SCHEMA, BREADCRUMB_SCHEMA]}
-    />
+const Phase1 = () => {
+  const { t } = useTranslation(['pages']);
+  return (
+    <main className="ph1-root">
+      <Seo
+        title={t('pages:phases.phase1.seo.title')}
+        description={t('pages:phases.phase1.seo.description')}
+        path="/methodology/phase-1"
+        schema={[SERVICE_SCHEMA, BREADCRUMB_SCHEMA]}
+      />
 
-    <div className="ph1-wrap">
-      <Hero />
-      <Scorecard />
-      <Dimensions />
-      <Funnel />
-      <Timeline />
-      <Deliverables />
-      <Foot />
-    </div>
-  </main>
-);
+      <div className="ph1-wrap">
+        <Hero />
+        <Scorecard />
+        <Dimensions />
+        <Funnel />
+        <Timeline />
+        <Deliverables />
+        <Foot />
+      </div>
+    </main>
+  );
+};
 
 export default Phase1;

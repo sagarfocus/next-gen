@@ -1,4 +1,5 @@
 import '../../styles/analytics.css';
+import { useTranslation } from 'react-i18next';
 import Hero from './Hero';
 import TrustBar from './TrustBar';
 import DataSources from './DataSources';
@@ -55,11 +56,12 @@ const BREADCRUMB_SCHEMA = buildBreadcrumbList([
 ]);
 
 const Analytics = () => {
+  const { t } = useTranslation('pages');
   return (
     <>
       <Seo
-        title="Healthcare Marketing Analytics & Reporting — HIPAA-Aware Dashboards"
-        description="Unify Google Ads, Meta, GA4, Search Console, GBP, CRM, EHR, call tracking, and booking data into one HIPAA-aware dashboard with multi-touch attribution."
+        title={t('analytics.seo.title')}
+        description={t('analytics.seo.description')}
         path="/services/analytics-reporting"
         schema={[SERVICE_SCHEMA, FAQ_SCHEMA, BREADCRUMB_SCHEMA]}
       />

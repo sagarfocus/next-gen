@@ -1,4 +1,5 @@
 import '../../../styles/phase2.css';
+import { useTranslation } from 'react-i18next';
 import Hero from './Hero';
 import Modules from './Modules';
 import Stack from './Stack';
@@ -32,24 +33,27 @@ const BREADCRUMB_SCHEMA = buildBreadcrumbList([
   { name: 'Phase 2 — Strategy & Build' },
 ]);
 
-const Phase2 = () => (
-  <main className="ph2-root">
-    <Seo
-      title="Phase 2: Strategy & Infrastructure Build — Healthcare Marketing Methodology"
-      description="Two parallel tracks — strategy maps service-specific keywords and persona journeys; the build track wires the infrastructure so every lead becomes a tracked, attributable event."
-      path="/methodology/phase-2"
-      schema={[SERVICE_SCHEMA, BREADCRUMB_SCHEMA]}
-    />
+const Phase2 = () => {
+  const { t } = useTranslation(['pages']);
+  return (
+    <main className="ph2-root">
+      <Seo
+        title={t('pages:phases.phase2.seo.title')}
+        description={t('pages:phases.phase2.seo.description')}
+        path="/methodology/phase-2"
+        schema={[SERVICE_SCHEMA, BREADCRUMB_SCHEMA]}
+      />
 
-    <div className="ph2-wrap">
-      <Hero />
-      <Modules />
-      <Stack />
-      <Gantt />
-    </div>
+      <div className="ph2-wrap">
+        <Hero />
+        <Modules />
+        <Stack />
+        <Gantt />
+      </div>
 
-    <Strip />
-  </main>
-);
+      <Strip />
+    </main>
+  );
+};
 
 export default Phase2;

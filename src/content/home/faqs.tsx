@@ -1,108 +1,142 @@
+import { useMemo } from 'react';
 import type { ReactNode } from 'react';
+import { useTranslation } from 'react-i18next';
+import type { TFunction } from 'i18next';
 
 /**
  * Home page — FAQ section content.
  *
- * `text` must stay in sync with `a` — it feeds schema.org JSON-LD.
- * Edit both together.
+ * `text` must stay in sync with the rendered `a` answer — it feeds the
+ * schema.org JSON-LD payload built in `src/pages/Home/index.tsx`. Edit
+ * both representations in `locales/{en,es}/home.json` together.
  *
  * The accordion display in `src/pages/Home/FAQ.tsx` reads `a` (ReactNode
- * with `<strong>`, en-dashes, etc.). The FAQ_SCHEMA builder in
- * `src/pages/Home/index.tsx` reads `text` (plain string) to produce a
- * byte-identical JSON-LD blob. ReactNode can't be cleanly serialized to
- * plain text, so the two representations are stored side by side.
+ * — some answers include `<strong>` spans). The JSON-LD builder reads
+ * `text` (plain string). The same translations are used to produce both
+ * via the hook below.
  */
 
+type FaqKey = 'results' | 'hipaa' | 'size' | 'monthly' | 'contract';
+
 export interface HomeFaqItem {
+  /** Stable identifier for the React key + JSON lookup. */
+  key: FaqKey;
   /** Display question; also feeds the `Question.name` field in JSON-LD. */
   q: string;
-  /** Rendered answer for the accordion (may include `<strong>`, JSX entities). */
+  /** Rendered answer for the accordion (may include `<strong>`). */
   a: ReactNode;
   /** Plain-text version of `a` for the schema.org `Answer.text` field. */
   text: string;
   defaultOpen?: boolean;
 }
 
-export const HOME_FAQS: readonly HomeFaqItem[] = [
+interface FaqStatic {
+  key: FaqKey;
+  defaultOpen?: boolean;
+  /** Builds the rich (ReactNode) answer from translated fragments. */
+  renderAnswer: (t: TFunction<'home'>) => ReactNode;
+}
+
+const FAQ_STATIC: readonly FaqStatic[] = [
   {
-    q: 'How quickly will I see results from your healthcare marketing?',
-    a: (
-      <>
-        Most clients see <strong>tangible movement within 30 days</strong> - improved Google
-        Business Profile visibility, faster page loads, and the first paid-media leads. Sustained
-        organic growth from SEO typically compounds across months 3&ndash;6 as content, backlinks,
-        and on-page work mature.
-      </>
-    ),
-    text: 'Most clients see tangible movement within 30 days - improved Google Business Profile visibility, faster page loads, and the first paid-media leads. Sustained organic growth from SEO typically compounds across months 3–6 as content, backlinks, and on-page work mature.',
+    key: 'results',
     defaultOpen: true,
-  },
-  {
-    q: 'Are your campaigns and tools HIPAA-aware?',
-    a: (
+    renderAnswer: (t) => (
       <>
-        Yes. We follow HIPAA-aware practices across tracking, ad targeting, intake forms, and
-        reporting - including server-side conversion tracking, compliant pixel use, and BAA-ready
-        vendor selection where applicable. We are not a covered entity, so we work alongside your
-        compliance officer to ensure end-to-end alignment.
+        {t('faq.items.results.aLead')}
+        <strong>{t('faq.items.results.aStrong')}</strong>
+        {t('faq.items.results.aRest')}
       </>
     ),
-    text: 'Yes. We follow HIPAA-aware practices across tracking, ad targeting, intake forms, and reporting - including server-side conversion tracking, compliant pixel use, and BAA-ready vendor selection where applicable. We are not a covered entity, so we work alongside your compliance officer to ensure end-to-end alignment.',
   },
   {
-    q: 'What size practices do you typically work with?',
-    a: (
-      <>
-        From <strong>single-location clinics and medspas</strong> to{' '}
-        <strong>multi-location healthcare networks</strong>. Our methodology scales: smaller
-        practices benefit from the full Clinic Growth OS, while larger networks plug us into
-        existing teams to amplify performance and reporting.
-      </>
-    ),
-    text: 'From single-location clinics and medspas to multi-location healthcare networks. Our methodology scales: smaller practices benefit from the full Clinic Growth OS, while larger networks plug us into existing teams to amplify performance and reporting.',
+    key: 'hipaa',
+    renderAnswer: (t) => <>{t('faq.items.hipaa.a')}</>,
   },
   {
-    q: "What's included in your monthly engagement?",
-    a: (
+    key: 'size',
+    renderAnswer: (t) => (
       <>
-        Strategy, execution, and reporting across SEO, paid media (Google &amp; Meta), social,
-        content, automation, and weekly optimization - plus a dedicated growth lead and a real-time
-        analytics dashboard. Every plan is tailored to your goals; nothing is bolted on.
+        {t('faq.items.size.aLead')}
+        <strong>{t('faq.items.size.aStrong1')}</strong>
+        {t('faq.items.size.aMid')}
+        <strong>{t('faq.items.size.aStrong2')}</strong>
+        {t('faq.items.size.aRest')}
       </>
     ),
-    text: 'Strategy, execution, and reporting across SEO, paid media (Google & Meta), social, content, automation, and weekly optimization - plus a dedicated growth lead and a real-time analytics dashboard. Every plan is tailored to your goals; nothing is bolted on.',
   },
   {
-    q: 'Do I need a long-term contract to work with you?',
-    a: (
+    key: 'monthly',
+    renderAnswer: (t) => <>{t('faq.items.monthly.a')}</>,
+  },
+  {
+    key: 'contract',
+    renderAnswer: (t) => (
       <>
-        No long lock-ins. We recommend a <strong>minimum 90-day engagement</strong> so the system
-        has time to compound, but month-to-month options are available after the initial setup
-        phase. Cancel, downgrade, or scale anytime - no hidden fees.
+        {t('faq.items.contract.aLead')}
+        <strong>{t('faq.items.contract.aStrong')}</strong>
+        {t('faq.items.contract.aRest')}
       </>
     ),
-    text: 'No long lock-ins. We recommend a minimum 90-day engagement so the system has time to compound, but month-to-month options are available after the initial setup phase. Cancel, downgrade, or scale anytime - no hidden fees.',
   },
 ];
 
-export const HOME_FAQ_HEAD = {
-  eyebrow: 'Your Questions, Answered',
-  // The visible h2 uses a line break + accent span; the section component
-  // renders that markup, so the title is split into parts here.
-  titleLine1: 'Frequently',
-  titleLine2Lead: 'Asked',
-  titleLine2Accent: 'Questions',
-  intro:
-    'Everything you need to know about working with TheNextGen - from compliance and reporting to timelines and engagement length.',
-} as const;
+/** React hook returning the FAQ items with translated `q`/`a`/`text`. */
+export function useHomeFaqs(): readonly HomeFaqItem[] {
+  const { t } = useTranslation('home');
+  return useMemo(
+    () =>
+      FAQ_STATIC.map((f) => ({
+        key: f.key,
+        q: t(`faq.items.${f.key}.q`),
+        a: f.renderAnswer(t),
+        text: t(`faq.items.${f.key}.text`),
+        defaultOpen: f.defaultOpen,
+      })),
+    [t]
+  );
+}
 
-export const HOME_FAQ_STILL_CARD = {
-  title: 'Still have questions?',
-  // `there’s` / `you’d` / `we’ll` use U+2019 (right single quote),
-  // preserved from JSX `&rsquo;`.
-  para1:
-    'We understand every clinic is different. If there’s anything you’d like to clarify about pricing, services, or how we’ll fit into your workflow, our team is here to help.',
-  para2:
-    'Reach out anytime - we’ll walk you through every detail to make sure you get the most out of our platform.',
-  ctaText: 'Book a Demo',
-} as const;
+export interface HomeFaqHead {
+  eyebrow: string;
+  titleLine1: string;
+  titleLine2Lead: string;
+  titleLine2Accent: string;
+  intro: string;
+}
+
+/** React hook for the FAQ section head (eyebrow, split-line title, intro). */
+export function useHomeFaqHead(): HomeFaqHead {
+  const { t } = useTranslation('home');
+  return useMemo(
+    () => ({
+      eyebrow: t('faq.head.eyebrow'),
+      titleLine1: t('faq.head.titleLine1'),
+      titleLine2Lead: t('faq.head.titleLine2Lead'),
+      titleLine2Accent: t('faq.head.titleLine2Accent'),
+      intro: t('faq.head.intro'),
+    }),
+    [t]
+  );
+}
+
+export interface HomeFaqStillCard {
+  title: string;
+  para1: string;
+  para2: string;
+  ctaText: string;
+}
+
+/** React hook for the "Still have questions?" card on the left column. */
+export function useHomeFaqStillCard(): HomeFaqStillCard {
+  const { t } = useTranslation('home');
+  return useMemo(
+    () => ({
+      title: t('faq.still.title'),
+      para1: t('faq.still.para1'),
+      para2: t('faq.still.para2'),
+      ctaText: t('faq.still.ctaText'),
+    }),
+    [t]
+  );
+}

@@ -1,3 +1,5 @@
+import type { ReactNode } from 'react';
+
 export const COLORS = {
   navy: '#1A2438',
   body: '#4A5568',
@@ -10,17 +12,11 @@ export const COLORS = {
   mint: '#EBF4DD',
 };
 
-export const STATS = [
-  { v: '47+', l: 'Directories synced' },
-  { v: 'Monthly', l: 'NAP audit cadence' },
-  { v: '< 48 hr', l: 'Drift detection' },
-];
+export type FailureKey = 'dilution' | 'leakage' | 'drift';
 
 export interface FailureMode {
   n: string;
-  title: string;
-  body: string;
-  badge: string;
+  key: FailureKey;
   badgeBg: string;
   badgeColor: string;
 }
@@ -28,70 +24,36 @@ export interface FailureMode {
 export const FAILURE_MODES: FailureMode[] = [
   {
     n: '01',
-    title: 'Ranking dilution',
-    body: 'Search engines treat inconsistent NAP records as separate entities, splitting the authority of a single practice across phantom listings.',
-    badge: 'Authority leak',
+    key: 'dilution',
     badgeBg: 'rgba(212, 175, 124, 0.16)',
     badgeColor: '#8B6B4C',
   },
   {
     n: '02',
-    title: 'Patient leakage',
-    body: 'A wrong suite number on three directories sends one in twelve new patients to the wrong door, then routes their review to the wrong listing.',
-    badge: 'Bookings lost',
+    key: 'leakage',
     badgeBg: 'rgba(220, 70, 70, 0.12)',
     badgeColor: '#B33A2B',
   },
   {
     n: '03',
-    title: 'Compounding drift',
-    body: 'Without monthly verification, directories overwrite each other through automated data feeds. The drift gets worse, not better, with time.',
-    badge: 'Time bomb',
+    key: 'drift',
     badgeBg: 'rgba(143, 188, 143, 0.20)',
     badgeColor: '#3A6B3A',
   },
 ];
 
+export type TierKey = 'anchor' | 'vertical' | 'general';
+
 export interface TierGroup {
   num: string;
-  label: string;
-  tagline: string;
-  entries: { name: string; note: string }[];
+  key: TierKey;
+  entryKeys: string[];
 }
 
 export const TIERS: TierGroup[] = [
-  {
-    num: '01',
-    label: 'Anchor',
-    tagline: 'The three records the algorithm trusts most.',
-    entries: [
-      { name: 'Google Business Profile', note: 'Single highest-weight signal for the Local Pack.' },
-      {
-        name: 'Apple Maps Connect',
-        note: 'Default discovery on iPhone, increasingly tied to Siri intent.',
-      },
-      { name: 'Bing Places', note: 'Powers Cortana, Duck Duck Go and Microsoft 365 surfaces.' },
-    ],
-  },
-  {
-    num: '02',
-    label: 'Vertical',
-    tagline: 'Healthcare-specific surfaces patients defer to.',
-    entries: [
-      { name: 'Healthgrades', note: 'Top branded SERP result for most clinician name queries.' },
-      { name: 'Vitals', note: 'Insurance-led patients defer to it for second opinions.' },
-      { name: 'Zocdoc', note: 'Conversion-stage; appears on booking-intent searches.' },
-    ],
-  },
-  {
-    num: '03',
-    label: 'General',
-    tagline: 'Broad index sources that round out the citation graph.',
-    entries: [
-      { name: 'Yelp', note: 'Skews older cohorts; still indexed prominently.' },
-      { name: 'Foursquare', note: 'Powers map embeds across third-party apps.' },
-    ],
-  },
+  { num: '01', key: 'anchor', entryKeys: ['gbp', 'apple', 'bing'] },
+  { num: '02', key: 'vertical', entryKeys: ['healthgrades', 'vitals', 'zocdoc'] },
+  { num: '03', key: 'general', entryKeys: ['yelp', 'foursquare'] },
 ];
 
 const StepIconAudit = () => (
@@ -140,30 +102,15 @@ const StepIconMonitor = () => (
   </svg>
 );
 
+export type StepKey = 'audit' | 'consolidate' | 'monitor';
+
 export interface Step {
-  k: string;
-  d: string;
-  icon: React.ReactNode;
-  out: string;
+  key: StepKey;
+  icon: ReactNode;
 }
 
 export const PROCESS: Step[] = [
-  {
-    k: 'Audit',
-    d: 'Forensic sweep of 60+ directories. Every variant, duplicate, and dormant listing flagged with a tier-weighted impact score.',
-    icon: <StepIconAudit />,
-    out: 'Remediation register',
-  },
-  {
-    k: 'Consolidate',
-    d: 'Duplicates merged, dormant entries claimed or suppressed, NAP signature standardised across the active set.',
-    icon: <StepIconConsolidate />,
-    out: 'Canonical NAP record',
-  },
-  {
-    k: 'Monitor',
-    d: 'Monthly drift detection with a 48-hour response SLA on any unauthorised change to a Tier 1 or Tier 2 listing.',
-    icon: <StepIconMonitor />,
-    out: 'Live drift dashboard',
-  },
+  { key: 'audit', icon: <StepIconAudit /> },
+  { key: 'consolidate', icon: <StepIconConsolidate /> },
+  { key: 'monitor', icon: <StepIconMonitor /> },
 ];

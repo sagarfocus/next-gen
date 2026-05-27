@@ -1,36 +1,36 @@
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { ArrowIcon } from '@/components/icons';
 
 const Hero = () => {
+  const { t } = useTranslation('pages');
+  const bullets = t('pages:onsiteFieldMarketing.hero.bullets', { returnObjects: true }) as string[];
   return (
     <section className="ofm-hero">
       <div className="container-shell">
         <div className="ofm-hero-grid">
           <div>
             <div className="ofm-hero-crumb">
-              <Link to="/services">Services</Link>
+              <Link to="/services">{t('pages:onsiteFieldMarketing.breadcrumb.services')}</Link>
               <span className="sep">/</span>
-              <span className="cur">Onsite Field Marketing</span>
+              <span className="cur">{t('pages:onsiteFieldMarketing.breadcrumb.current')}</span>
             </div>
             <span className="ofm-hero-eyebrow">
-              <span className="dot" /> In-Person · Healthcare-only · DFW + 4 metros
+              <span className="dot" /> {t('pages:onsiteFieldMarketing.hero.eyebrow')}
             </span>
             <h1 className="ofm-hero-title">
-              Field marketing that books <em>patients on the calendar.</em>
+              {t('pages:onsiteFieldMarketing.hero.titleLine1')}{' '}
+              <em>{t('pages:onsiteFieldMarketing.hero.titleAccent')}</em>
             </h1>
-            <p className="ofm-hero-lede">
-              Booths, referral visits, sponsorships, and door-drops — staffed by trained
-              ambassadors and attributed end-to-end. Healthcare grows where doors open
-              in person; we run the door and put the numbers on a dashboard you can defend.
-            </p>
+            <p className="ofm-hero-lede">{t('pages:onsiteFieldMarketing.hero.lede')}</p>
 
             <div className="ofm-hero-ctas">
               <Link to="/contact" className="sl-btn-primary">
-                Book my field audit
+                {t('pages:onsiteFieldMarketing.hero.ctaPrimary')}
                 <ArrowIcon />
               </Link>
               <a href="#process" className="sl-btn-ghost">
-                See how it works
+                {t('pages:onsiteFieldMarketing.hero.ctaSecondary')}
                 <svg
                   viewBox="0 0 24 24"
                   fill="none"
@@ -46,24 +46,14 @@ const Hero = () => {
             </div>
 
             <ul className="ofm-hero-bullets">
-              <li>
-                <span className="ofm-hero-check" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={3} strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
-                </span>
-                Activated booth in eleven days from signed contract
-              </li>
-              <li>
-                <span className="ofm-hero-check" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={3} strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
-                </span>
-                HIPAA-aware tablet intake with live CRM sync
-              </li>
-              <li>
-                <span className="ofm-hero-check" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={3} strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
-                </span>
-                Zero safety incidents across 320+ activations
-              </li>
+              {bullets.map((b) => (
+                <li key={b}>
+                  <span className="ofm-hero-check" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={3} strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
+                  </span>
+                  {b}
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -81,20 +71,20 @@ const Hero = () => {
             </div>
 
             <div className="ofm-hero-card c1">
-              <span className="lbl">Activations · YTD</span>
-              <span className="val">147</span>
-              <span className="dlt">+34%</span>
+              <span className="lbl">{t('pages:onsiteFieldMarketing.hero.mockCards.c1.lbl')}</span>
+              <span className="val">{t('pages:onsiteFieldMarketing.hero.mockCards.c1.val')}</span>
+              <span className="dlt">{t('pages:onsiteFieldMarketing.hero.mockCards.c1.dlt')}</span>
             </div>
 
             <div className="ofm-hero-card c2">
-              <span className="lbl">Cost / Lead</span>
-              <span className="val">$68</span>
-              <span className="dlt">−28%</span>
+              <span className="lbl">{t('pages:onsiteFieldMarketing.hero.mockCards.c2.lbl')}</span>
+              <span className="val">{t('pages:onsiteFieldMarketing.hero.mockCards.c2.val')}</span>
+              <span className="dlt">{t('pages:onsiteFieldMarketing.hero.mockCards.c2.dlt')}</span>
             </div>
 
             <div className="ofm-hero-tag t1">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.2}><polyline points="23 6 13.5 15.5 8.5 10.5 1 18" /><polyline points="17 6 23 6 23 12" /></svg>
-              ROAS 4.1×
+              {t('pages:onsiteFieldMarketing.hero.mockCards.t1')}
             </div>
           </div>
         </div>

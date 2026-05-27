@@ -1,11 +1,11 @@
 import type { ReactElement } from 'react';
+import { useTranslation } from 'react-i18next';
+
+type PillarKey = 'compliance' | 'ehr' | 'owner';
 
 interface Pillar {
   pos: 0 | 1 | 2;
-  tag: string;
-  name: string;
-  desc: string;
-  list: string[];
+  key: PillarKey;
   icon: ReactElement;
 }
 
@@ -29,87 +29,61 @@ const OwnershipIcon = () => (
 );
 
 const PILLARS: Pillar[] = [
-  {
-    pos: 0,
-    tag: 'Compliance',
-    name: 'HIPAA-aware before it is impressive.',
-    desc:
-      'Every workflow runs on a BAA-covered stack. PHI is redacted before it touches the AI layer. Audit logs are reviewed quarterly. Your compliance officer signs off in writing — not over a beer.',
-    list: [
-      'BAA on every downstream tool',
-      'PHI-redacted prompts on every AI call',
-      'Quarterly audit-log review',
-      'Human-in-loop on clinical decisions',
-    ],
-    icon: <ComplianceIcon />,
-  },
-  {
-    pos: 1,
-    tag: 'EHR-connected',
-    name: 'Wired into the system you already run.',
-    desc:
-      'Athena, Epic, eClinicalWorks, Kareo, NextGen, custom — connected via HL7, FHIR, or the vendor API. The automation lives where your clinic does, not in a parallel universe.',
-    list: [
-      'HL7 + FHIR integrations',
-      'Vendor-specific connectors for the top six EHRs',
-      'Read-only at first, write-back when approved',
-      'No replacement for your EHR. Ever.',
-    ],
-    icon: <ConnectIcon />,
-  },
-  {
-    pos: 2,
-    tag: 'Owner-friendly',
-    name: 'You can run it. You can leave with it.',
-    desc:
-      'No closed-source workflow engine. No proprietary integrations. Documentation in plain English. Migration guide if you ever want to switch — because if the build is good, the contract should not be the reason you stay.',
-    list: [
-      'Open workflow engine (N8N)',
-      'Owner-managed dashboards',
-      'Written runbook for every flow',
-      'Migration export on day one if you want it',
-    ],
-    icon: <OwnershipIcon />,
-  },
+  { pos: 0, key: 'compliance', icon: <ComplianceIcon /> },
+  { pos: 1, key: 'ehr', icon: <ConnectIcon /> },
+  { pos: 2, key: 'owner', icon: <OwnershipIcon /> },
 ];
 
 const WhyUs = () => {
+  const { t } = useTranslation('pages');
   return (
     <section className="sl-section mau-why-section" id="why-us">
       <div className="container-shell">
         <div className="sl-sec-head">
           <div>
-            <div className="sl-sec-num">05 - Why TheNextGen</div>
+            <div className="sl-sec-num">{t('pages:medicalAutomation.whyUs.secNum')}</div>
             <h2 className="sl-sec-title">
-              Three things we won&rsquo;t <em>compromise on.</em>
+              {t('pages:medicalAutomation.whyUs.titleLine1')}{' '}
+              <em>{t('pages:medicalAutomation.whyUs.titleAccent')}</em>
             </h2>
           </div>
           <div className="sl-sec-meta">
-            The other vendors
+            {t('pages:medicalAutomation.whyUs.secMeta1')}
             <br />
-            cut all three
+            {t('pages:medicalAutomation.whyUs.secMeta2')}
           </div>
         </div>
 
         <div className="mau-why-grid">
-          {PILLARS.map((p) => (
-            <article key={p.tag} className="mau-why-card" data-pos={p.pos}>
-              <div className="mau-why-icon">{p.icon}</div>
-              <div className="mau-why-tag">{p.tag}</div>
-              <h3 className="mau-why-name">{p.name}</h3>
-              <p className="mau-why-desc">{p.desc}</p>
-              <ul className="mau-why-list">
-                {p.list.map((item) => (
-                  <li key={item}>
-                    <span className="mau-why-tick" aria-hidden="true">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={3} strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
-                    </span>
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </article>
-          ))}
+          {PILLARS.map((p) => {
+            const list = t(`pages:medicalAutomation.whyUs.items.${p.key}.list`, {
+              returnObjects: true,
+            }) as string[];
+            return (
+              <article key={p.key} className="mau-why-card" data-pos={p.pos}>
+                <div className="mau-why-icon">{p.icon}</div>
+                <div className="mau-why-tag">
+                  {t(`pages:medicalAutomation.whyUs.items.${p.key}.tag`)}
+                </div>
+                <h3 className="mau-why-name">
+                  {t(`pages:medicalAutomation.whyUs.items.${p.key}.name`)}
+                </h3>
+                <p className="mau-why-desc">
+                  {t(`pages:medicalAutomation.whyUs.items.${p.key}.desc`)}
+                </p>
+                <ul className="mau-why-list">
+                  {list.map((item) => (
+                    <li key={item}>
+                      <span className="mau-why-tick" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={3} strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
+                      </span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </article>
+            );
+          })}
         </div>
       </div>
     </section>

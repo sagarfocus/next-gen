@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import TeamHero from './TeamHero';
 import Founder from './Founder';
 import TeamGrid from './TeamGrid';
@@ -12,11 +13,13 @@ const BREADCRUMB_SCHEMA = buildBreadcrumbList([
 ]);
 
 const Team = () => {
+  const { t } = useTranslation('pages');
+
   return (
     <main className="ngt-page">
       <Seo
-        title="Meet the Team — In-House Healthcare Marketing Specialists"
-        description="A nine-person, healthcare-only growth team — SEO, paid media, content, design, code. Texas-headquartered. No freelancers, no junior handoffs."
+        title={t('team.seo.title')}
+        description={t('team.seo.description')}
         path="/team"
         schema={BREADCRUMB_SCHEMA}
       />

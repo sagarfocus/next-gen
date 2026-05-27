@@ -1,4 +1,6 @@
 import type { ReactElement } from 'react';
+import { useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
 import type { NarrativeBlock } from '@/components/DetailNarrative';
 import healthcareImg1 from '../../../assets/nextgen-image/Abooutimg1.png';
 import healthcareImg2 from '../../../assets/nextgen-image/Aboutimg2.png';
@@ -12,45 +14,52 @@ export const VALUE_IMAGES: Record<string, { about: string; approach: string }> =
   'compliance-without-compromise': { about: healthcareImg2, approach: strategyImg },
 };
 
-export const buildValueNarrative = (
-  entry: ValueEntry
-): { about: NarrativeBlock; approach: NarrativeBlock } => {
-  const imgs = VALUE_IMAGES[entry.slug] || { about: healthcareImg1, approach: healthcareImg2 };
-  return {
-    about: {
-      eyebrow: `About this principle`,
-      title: `${entry.title} — a built-in constraint, not a marketing line.`,
-      body:
-        entry.longBody[0] ||
-        entry.lead ||
-        'A foundational principle that shapes every campaign we ship from this studio.',
-      ctaText: 'Learn more',
-      ctaTo: '/about',
-      image: imgs.about,
-      imageAlt: '',
+/** React hook returning a function that builds the narrative blocks for a value entry. */
+export function useBuildValueNarrative() {
+  const { t } = useTranslation('about');
+  return useCallback(
+    (entry: ValueEntry): { about: NarrativeBlock; approach: NarrativeBlock } => {
+      const imgs = VALUE_IMAGES[entry.slug] || { about: healthcareImg1, approach: healthcareImg2 };
+      return {
+        about: {
+          eyebrow: t('valueDetail.narrative.aboutEyebrow'),
+          title: t('valueDetail.narrative.aboutTitle', { title: entry.title }),
+          body:
+            entry.longBody[0] ||
+            entry.lead ||
+            t('valueDetail.narrative.aboutFallback'),
+          ctaText: t('valueDetail.narrative.aboutCta'),
+          ctaTo: '/about',
+          image: imgs.about,
+          imageAlt: '',
+        },
+        approach: {
+          eyebrow: t('valueDetail.narrative.approachEyebrow'),
+          title: t('valueDetail.narrative.approachTitle'),
+          body:
+            entry.longBody[1] ||
+            entry.body ||
+            t('valueDetail.narrative.approachFallback'),
+          ctaText: t('valueDetail.narrative.approachCta'),
+          ctaTo: '/about',
+          image: imgs.approach,
+          imageAlt: '',
+        },
+      };
     },
-    approach: {
-      eyebrow: 'Our approach',
-      title: 'Our unique approach is what sets this principle apart.',
-      body:
-        entry.longBody[1] ||
-        entry.body ||
-        'We treat this principle as a build-time constraint, audited internally on every campaign before it ships.',
-      ctaText: 'About page',
-      ctaTo: '/about',
-      image: imgs.approach,
-      imageAlt: '',
-    },
-  };
-};
+    [t]
+  );
+}
 
-export const BODY_CARD_META: {
-  title: string;
+export interface BodyCardMeta {
+  i18nKey: 'challenge' | 'approach' | 'outcome';
   tone: 'rose' | 'periwinkle' | 'tan';
   icon: ReactElement;
-}[] = [
+}
+
+export const BODY_CARD_META: readonly BodyCardMeta[] = [
   {
-    title: 'The challenge',
+    i18nKey: 'challenge',
     tone: 'rose',
     icon: (
       <svg
@@ -71,7 +80,7 @@ export const BODY_CARD_META: {
     ),
   },
   {
-    title: 'Our approach',
+    i18nKey: 'approach',
     tone: 'periwinkle',
     icon: (
       <svg
@@ -91,7 +100,7 @@ export const BODY_CARD_META: {
     ),
   },
   {
-    title: 'The outcome',
+    i18nKey: 'outcome',
     tone: 'tan',
     icon: (
       <svg

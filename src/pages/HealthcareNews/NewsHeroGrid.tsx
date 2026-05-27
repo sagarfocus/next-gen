@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import NewsThumb from './NewsThumb';
 import { newsBySlug } from './news.data';
 
@@ -9,39 +10,18 @@ const imgFor = (path: string) => {
 
 interface SideArticle {
   to: string;
-  cat: string;
-  title: string;
-  meta: string;
+  key: 'fda' | 'tele' | 'voice' | 'cms';
 }
 
 const SIDE_ARTICLES: SideArticle[] = [
-  {
-    to: '/healthcare-news/fda-glucose-monitor-type2',
-    cat: 'Regulation',
-    title: 'FDA approves first continuous glucose monitor for Type 2 diabetes',
-    meta: 'Apr 30 · 4 min read',
-  },
-  {
-    to: '/healthcare-news/telemedicine-q1-record',
-    cat: 'Telehealth',
-    title: 'Telemedicine visits hit a record high in Q1, led by mental-health specialties',
-    meta: 'Apr 29 · 6 min read',
-  },
-  {
-    to: '/healthcare-news/voice-ai-front-desks',
-    cat: 'AI & Operations',
-    title: 'Hospital network adopts voice-AI front desks across 38 locations',
-    meta: 'Apr 28 · 5 min read',
-  },
-  {
-    to: '/healthcare-news/cms-cardiac-monitoring',
-    cat: 'Policy',
-    title: 'CMS announces expanded reimbursement for at-home cardiac monitoring',
-    meta: 'Apr 27 · 7 min read',
-  },
+  { to: '/healthcare-news/fda-glucose-monitor-type2', key: 'fda' },
+  { to: '/healthcare-news/telemedicine-q1-record', key: 'tele' },
+  { to: '/healthcare-news/voice-ai-front-desks', key: 'voice' },
+  { to: '/healthcare-news/cms-cardiac-monitoring', key: 'cms' },
 ];
 
 const NewsHeroGrid = () => {
+  const { t } = useTranslation('pages');
   return (
     <section className="hn-hero">
       <div className="container-shell">
@@ -52,27 +32,22 @@ const NewsHeroGrid = () => {
                 category="Research"
                 seed="hn-main-research"
                 aspect="landscape"
-                caption="Editorial · Research"
+                caption={t('healthcareNews.heroGrid.mainCaption')}
                 image={imgFor('/healthcare-news/ai-imaging-diagnostic-errors')}
               />
             </div>
-            <span className="hg-cat">Research</span>
-            <h2 className="hg-main-title">
-              AI-driven imaging tool cuts diagnostic errors by 47% in multi-site hospital trial
-            </h2>
-            <p className="hg-main-desc">
-              A 14-month study across nine US hospital networks reports the largest measured drop in
-              radiology misreads of the decade. Researchers credit a hybrid model combining
-              federated learning with structured clinician feedback loops.
-            </p>
+            <span className="hg-cat">{t('healthcareNews.heroGrid.mainCat')}</span>
+            <h2 className="hg-main-title">{t('healthcareNews.heroGrid.mainTitle')}</h2>
+            <p className="hg-main-desc">{t('healthcareNews.heroGrid.mainDesc')}</p>
             <div className="hg-byline">
               <span>
-                By <strong>Aanya Patel</strong>
+                {t('healthcareNews.heroGrid.byPrefix')}{' '}
+                <strong>{t('healthcareNews.heroGrid.mainAuthor')}</strong>
               </span>
               <span className="dot" />
-              <span>May 1, 2026</span>
+              <span>{t('healthcareNews.heroGrid.mainMeta1')}</span>
               <span className="dot" />
-              <span>9 min read</span>
+              <span>{t('healthcareNews.heroGrid.mainMeta2')}</span>
             </div>
           </Link>
 
@@ -81,16 +56,22 @@ const NewsHeroGrid = () => {
               <Link key={article.to} className="hg-side-item" to={article.to}>
                 <div className="hg-side-img">
                   <NewsThumb
-                    category={article.cat}
+                    category={t(`healthcareNews.heroGrid.side.${article.key}.cat`)}
                     seed={`hg-side-${article.to}`}
                     aspect="square"
                     image={imgFor(article.to)}
                   />
                 </div>
                 <div>
-                  <span className="hg-side-cat">{article.cat}</span>
-                  <h3 className="hg-side-title">{article.title}</h3>
-                  <div className="hg-side-meta">{article.meta}</div>
+                  <span className="hg-side-cat">
+                    {t(`healthcareNews.heroGrid.side.${article.key}.cat`)}
+                  </span>
+                  <h3 className="hg-side-title">
+                    {t(`healthcareNews.heroGrid.side.${article.key}.title`)}
+                  </h3>
+                  <div className="hg-side-meta">
+                    {t(`healthcareNews.heroGrid.side.${article.key}.meta`)}
+                  </div>
                 </div>
               </Link>
             ))}

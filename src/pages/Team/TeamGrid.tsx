@@ -1,4 +1,5 @@
-import { memo } from 'react';
+import { memo, useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 import shreePhoto from '../../assets/team-thumbs/shree-gauli.jpg';
 import bikashPhoto from '../../assets/team-thumbs/bikash-neupane.jpg';
 import sonuPhoto from '../../assets/team-thumbs/sagar-dongol.jpg';
@@ -17,68 +18,68 @@ interface Member {
   linkedin: string;
 }
 
-const MEMBERS: Member[] = [
+interface MemberSpec {
+  id: string;
+  name: string;
+  i18nKey: 'shree' | 'bikash' | 'sonu' | 'bijesh' | 'sumit' | 'rahul' | 'bidhitsha' | 'sagar';
+  photo: string;
+  linkedin: string;
+}
+
+const MEMBER_SPECS: readonly MemberSpec[] = [
   {
     id: '02',
     name: 'Shree Gauli',
-    role: 'Sr. Marketing Officer',
-    craft: 'Strategy',
+    i18nKey: 'shree',
     photo: shreePhoto,
     linkedin: 'https://www.linkedin.com/in/gauli/',
   },
   {
     id: '03',
     name: 'Bikash Neupane',
-    role: 'Marketing / IT Project Manager',
-    craft: 'Operations',
+    i18nKey: 'bikash',
     photo: bikashPhoto,
     linkedin: 'https://www.linkedin.com/in/bikash-neupane07/',
   },
   {
     id: '04',
     name: 'Sonu Sagar Dongol',
-    role: 'Paid Ads Specialist / Media Buyer',
-    craft: 'Paid Media',
+    i18nKey: 'sonu',
     photo: sonuPhoto,
     linkedin: 'https://www.linkedin.com/in/dongol526/',
   },
   {
     id: '05',
     name: 'Bijesh Khadgi',
-    role: 'Social Media Manager',
-    craft: 'Social',
+    i18nKey: 'bijesh',
     photo: bijeshPhoto,
     linkedin: 'https://www.linkedin.com/in/bijesh-khadgi-9121a819a/',
   },
   {
     id: '06',
     name: 'Sumit Sharma',
-    role: 'SEO Manager',
-    craft: 'Organic',
+    i18nKey: 'sumit',
     photo: sumitPhoto,
     linkedin: 'https://www.linkedin.com/in/sumitsharma101/',
   },
   {
     id: '07',
     name: 'Rahul Roy',
-    role: 'Content Writer',
-    craft: 'Editorial',
+    i18nKey: 'rahul',
     photo: rahulPhoto,
     linkedin: 'https://www.linkedin.com/in/rahul-roy-485451168/',
   },
   {
     id: '08',
     name: 'Bidhitsha Khadka',
-    role: 'Graphics Designer',
-    craft: 'Design',
+    i18nKey: 'bidhitsha',
     photo: bidhitshaPhoto,
     linkedin: 'https://www.linkedin.com/in/bidhitsha-khadka-852048315/',
   },
   {
     id: '09',
     name: 'Sagar Timalsina',
-    role: 'Software Developer',
-    craft: 'Engineering',
+    i18nKey: 'sagar',
     photo: sagarPhoto,
     linkedin: 'https://www.linkedin.com/in/sagar-timalsina-916909321/',
   },
@@ -93,7 +94,7 @@ const LinkedInGlyph = () => (
   </svg>
 );
 
-const TeamCard = memo(({ member }: { member: Member }) => (
+const TeamCard = memo(({ member, badge, linkedinAria }: { member: Member; badge: string; linkedinAria: string }) => (
   <article className="ngt-card">
     <div className="ngt-card-photo-wrap">
       <img
@@ -105,7 +106,7 @@ const TeamCard = memo(({ member }: { member: Member }) => (
         loading="lazy"
         decoding="async"
       />
-      <span className="ngt-card-badge">NEXTGEN HEALTHCARE</span>
+      <span className="ngt-card-badge">{badge}</span>
     </div>
     <div className="ngt-card-body">
       <span className="ngt-card-craft">{member.craft}</span>
@@ -115,7 +116,7 @@ const TeamCard = memo(({ member }: { member: Member }) => (
           target="_blank"
           rel="noopener noreferrer"
           className="ngt-card-link"
-          aria-label={`${member.name} on LinkedIn`}
+          aria-label={linkedinAria}
         >
           {member.name}
         </a>
@@ -130,36 +131,53 @@ const TeamCard = memo(({ member }: { member: Member }) => (
 TeamCard.displayName = 'TeamCard';
 
 const TeamGrid = () => {
+  const { t } = useTranslation('pages');
+
+  const members: Member[] = useMemo(
+    () =>
+      MEMBER_SPECS.map((spec) => ({
+        id: spec.id,
+        name: spec.name,
+        role: t(`team.grid.members.${spec.i18nKey}.role`),
+        craft: t(`team.grid.members.${spec.i18nKey}.craft`),
+        photo: spec.photo,
+        linkedin: spec.linkedin,
+      })),
+    [t]
+  );
+
   return (
     <section className="ngt-section ngt-grid-sec">
       <div className="container-shell">
         <div className="ngt-mark">
-          <span className="ngt-mark-num">02</span>
-          <span className="ngt-mark-lbl">The Team</span>
+          <span className="ngt-mark-num">{t('team.grid.markNum')}</span>
+          <span className="ngt-mark-lbl">{t('team.grid.markLabel')}</span>
           <span className="ngt-mark-line" />
-          <span className="ngt-mark-meta">08 specialists · 02 – 09</span>
+          <span className="ngt-mark-meta">{t('team.grid.markMeta')}</span>
         </div>
 
         <header className="ngt-grid-head">
           <h2 className="ngt-grid-h2">
-            Eight specialists. <em>One craft each.</em>
+            {t('team.grid.titleStart')} <em>{t('team.grid.titleEm')}</em>
           </h2>
-          <p className="ngt-grid-lede">
-            The people who actually log in on Monday morning — strategy, paid media, organic, code,
-            design, content, social and operations. The work doesn&rsquo;t leave the building.
-          </p>
+          <p className="ngt-grid-lede">{t('team.grid.lede')}</p>
         </header>
 
         <div className="ngt-grid">
-          {MEMBERS.map((m) => (
-            <TeamCard key={m.id} member={m} />
+          {members.map((m) => (
+            <TeamCard
+              key={m.id}
+              member={m}
+              badge={t('team.grid.badge')}
+              linkedinAria={t('team.grid.linkedinAria', { name: m.name })}
+            />
           ))}
         </div>
 
         <footer className="ngt-grid-foot" aria-hidden="true">
-          <span>NEXTGEN HEALTHCARE — IN-HOUSE TEAM</span>
+          <span>{t('team.grid.footLeft')}</span>
           <span className="ngt-grid-foot-line" />
-          <span>08 / 08</span>
+          <span>{t('team.grid.footRight')}</span>
         </footer>
       </div>
     </section>

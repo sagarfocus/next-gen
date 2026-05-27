@@ -1,37 +1,36 @@
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { ArrowIcon } from '@/components/icons';
 
 const Hero = () => {
+  const { t } = useTranslation('pages');
+  const bullets = t('metaAds.hero.bullets', { returnObjects: true }) as string[];
+
   return (
     <section className="ma-hero">
       <div className="container-shell">
         <div className="ma-hero-grid">
           <div>
             <div className="ma-hero-crumb">
-              <Link to="/services">Services</Link>
+              <Link to="/services">{t('metaAds.hero.breadcrumbServices')}</Link>
               <span className="sep">/</span>
-              <span className="cur">Meta Ads</span>
+              <span className="cur">{t('metaAds.hero.breadcrumbCurrent')}</span>
             </div>
             <span className="ma-hero-eyebrow">
-              <span className="dot" /> Meta Business Partner · Healthcare-only
+              <span className="dot" /> {t('metaAds.hero.eyebrow')}
             </span>
             <h1 className="ma-hero-title">
-              Meta Ads that book <em>patients, not just likes.</em>
+              {t('metaAds.hero.titleLine')} <em>{t('metaAds.hero.titleAccent')}</em>
             </h1>
-            <p className="ma-hero-lede">
-              Facebook, Instagram, Messenger, and WhatsApp campaigns built for healthcare
-              practices. Compliant creative, server-side conversions, and a live dashboard
-              that ties every dollar to a booked appointment. No vanity metrics. No spam
-              leads. Real patients.
-            </p>
+            <p className="ma-hero-lede">{t('metaAds.hero.lede')}</p>
 
             <div className="ma-hero-ctas">
               <Link to="/contact" className="sl-btn-primary">
-                Book my free audit
+                {t('metaAds.hero.ctaPrimary')}
                 <ArrowIcon />
               </Link>
               <a href="#process" className="sl-btn-ghost">
-                See how it works
+                {t('metaAds.hero.ctaSecondary')}
                 <svg
                   viewBox="0 0 24 24"
                   fill="none"
@@ -47,24 +46,14 @@ const Hero = () => {
             </div>
 
             <ul className="ma-hero-bullets">
-              <li>
-                <span className="ma-hero-check" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={3} strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
-                </span>
-                Two-week fixed-fee audit — you keep the report
-              </li>
-              <li>
-                <span className="ma-hero-check" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={3} strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
-                </span>
-                Conversions API + server-side tracking, HIPAA-aware
-              </li>
-              <li>
-                <span className="ma-hero-check" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={3} strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
-                </span>
-                Month-to-month after a 90-day ramp
-              </li>
+              {bullets.map((b) => (
+                <li key={b}>
+                  <span className="ma-hero-check" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={3} strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
+                  </span>
+                  {b}
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -81,7 +70,7 @@ const Hero = () => {
                   <div className="ma-hero-phone-avatar">FF</div>
                   <div className="ma-hero-phone-handle">
                     <span className="ma-hero-phone-name">focusfinance.clinic</span>
-                    <span className="ma-hero-phone-sub">Sponsored</span>
+                    <span className="ma-hero-phone-sub">{t('metaAds.hero.sponsored')}</span>
                   </div>
                 </div>
                 <div className="ma-hero-phone-img" />
@@ -94,13 +83,13 @@ const Hero = () => {
             </div>
 
             <div className="ma-hero-card c1">
-              <span className="lbl">Cost / Lead</span>
+              <span className="lbl">{t('metaAds.hero.card1Lbl')}</span>
               <span className="val">$18<em>.40</em></span>
               <span className="dlt">−42%</span>
             </div>
 
             <div className="ma-hero-card c2">
-              <span className="lbl">Bookings</span>
+              <span className="lbl">{t('metaAds.hero.card2Lbl')}</span>
               <span className="val">312</span>
               <span className="dlt">+68%</span>
             </div>

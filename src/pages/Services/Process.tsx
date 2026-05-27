@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useReducedMotion } from '@/lib/motion';
-import { STEPS } from '@/content/services/process';
+import { useProcessSteps } from '@/content/services/process';
 
 /*
  * GSAP is lazy-loaded inside useEffect below, ONLY when:
@@ -13,6 +14,8 @@ import { STEPS } from '@/content/services/process';
  */
 
 const Process = () => {
+  const { t } = useTranslation('services');
+  const steps = useProcessSteps();
   const sectionRef = useRef<HTMLElement | null>(null);
   const pathRef = useRef<SVGPathElement | null>(null);
   const reduced = useReducedMotion();
@@ -46,8 +49,8 @@ const Process = () => {
       path.style.strokeDasharray = `${length}`;
       path.style.strokeDashoffset = `${length}`;
 
-      const steps = section.querySelectorAll<HTMLElement>('.step-circle');
-      steps.forEach((s) => {
+      const stepEls = section.querySelectorAll<HTMLElement>('.step-circle');
+      stepEls.forEach((s) => {
         gsap.set(s, { opacity: 0.55, scale: 0.96 });
       });
 
@@ -70,7 +73,7 @@ const Process = () => {
           0
         );
 
-        steps.forEach((s, i) => {
+        stepEls.forEach((s, i) => {
           tl.to(s, { opacity: 1, scale: 1, duration: 0.9, ease: 'power2.out' }, 0.3 + i * 0.6);
         });
       }, section);
@@ -93,14 +96,11 @@ const Process = () => {
     >
       <div className="container-shell">
         <div className="process-head">
-          <span className="process-eyebrow">Our Process</span>
+          <span className="process-eyebrow">{t('process.indexEyebrow')}</span>
           <h2 id="process-title" className="process-h2">
-            A clear path from audit to scale.
+            {t('process.indexTitle')}
           </h2>
-          <p className="process-intro">
-            A repeatable, data-driven system designed for clinics, medspas, and wellness brands
-            ready to grow predictably.
-          </p>
+          <p className="process-intro">{t('process.indexIntro')}</p>
         </div>
 
         <ol className="process-steps process-steps--curved">
@@ -122,7 +122,7 @@ const Process = () => {
             />
           </svg>
 
-          {STEPS.map(({ num, title, desc, active }) => (
+          {steps.map(({ num, title, desc, active }) => (
             <li key={num} className={`step${active ? ' is-active' : ''}`}>
               <div className="step-circle" aria-hidden="true">
                 <span>

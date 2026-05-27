@@ -1,7 +1,8 @@
 import type { ReactNode } from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { ArrowIcon } from '@/components/icons';
-import { FAQS } from '@/content/pricing/faqs';
+import { usePricingFAQs } from '@/content/pricing/faqs';
 
 const FAQChevron = () => (
   <span className="faq-chev" aria-hidden="true">
@@ -11,41 +12,35 @@ const FAQChevron = () => (
 );
 
 const PricingFAQ = () => {
+  const { t } = useTranslation('pricing');
+  const faqs = usePricingFAQs();
+
   return (
     <section className="faq-section pr-faq" id="pricing-faq" aria-labelledby="pr-faq-title">
       <div className="container-shell">
         <div className="faq-grid">
           <div className="faq-left">
-            <span className="faq-eyebrow">Pricing, Scope &amp; Terms</span>
+            <span className="faq-eyebrow">{t('faqs.eyebrow')}</span>
             <h2 id="pr-faq-title" className="faq-h2">
-              Pricing <br />
-              <span className="accent-text">Questions</span>.
+              {t('faqs.titleStart')} <br />
+              <span className="accent-text">{t('faqs.titleAccent')}</span>
+              {t('faqs.titleEnd')}
             </h2>
-            <p className="faq-intro">
-              What the retainer actually covers, how ad spend works, what you&rsquo;re committing
-              to, and when the math typically pays back - written for the people signing the cheque.
-            </p>
+            <p className="faq-intro">{t('faqs.intro')}</p>
 
             <div className="still-card">
-              <h3>Not sure which tier fits?</h3>
-              <p>
-                Send us your current ad spend, patient LTV, and the one number you&rsquo;d most like
-                to move - we&rsquo;ll recommend Starter, Growth, or Scale on the call. No template
-                proposals.
-              </p>
-              <p>
-                One 30-minute call. You leave with a tier recommendation, an ad-spend range, and a
-                90-day revenue target.
-              </p>
+              <h3>{t('faqs.still.title')}</h3>
+              <p>{t('faqs.still.p1')}</p>
+              <p>{t('faqs.still.p2')}</p>
               <Link to="/contact" className="btn-primary">
-                Get a Tier Recommendation
+                {t('faqs.still.cta')}
                 <ArrowIcon size={14} strokeWidth={2} />
               </Link>
             </div>
           </div>
 
           <div className="faq-right">
-            {FAQS.map(({ q, a, defaultOpen }) => (
+            {faqs.map(({ q, a, defaultOpen }) => (
               <details
                 key={q}
                 className="faq-item"
@@ -69,7 +64,7 @@ const PricingFAQ = () => {
           __html: JSON.stringify({
             '@context': 'https://schema.org',
             '@type': 'FAQPage',
-            mainEntity: FAQS.map(({ q, a }) => ({
+            mainEntity: faqs.map(({ q, a }) => ({
               '@type': 'Question',
               name: q,
               acceptedAnswer: {

@@ -1,45 +1,44 @@
 import { useState } from 'react';
 import type { FormEvent } from 'react';
+import { useTranslation } from 'react-i18next';
 import { ArrowIcon } from '@/components/icons';
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 const NewsletterCard = () => {
+  const { t } = useTranslation('contact');
   const [email, setEmail] = useState('');
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!EMAIL_RE.test(email.trim())) {
-      alert('Please enter a valid email.');
+      alert(t('newsletter.invalidEmail'));
       return;
     }
-    alert('Subscribed! Check your inbox for the next issue.');
+    alert(t('newsletter.success'));
     setEmail('');
   };
 
   return (
     <aside className="ct-newsletter" aria-labelledby="news-title">
-      <span className="ct-form-eyebrow">Our Newsletter</span>
+      <span className="ct-form-eyebrow">{t('newsletter.eyebrow')}</span>
       <h3 id="news-title" className="ct-form-title">
-        Healthcare growth, weekly.
+        {t('newsletter.title')}
       </h3>
-      <p className="ct-form-text">
-        Field-tested patient acquisition tactics, HIPAA updates, and case studies from 200+ Texas
-        practices - delivered every Tuesday morning. No fluff, no spam.
-      </p>
+      <p className="ct-form-text">{t('newsletter.text')}</p>
 
       <form className="ct-news-form" onSubmit={handleSubmit} noValidate>
         <input
           type="email"
           className="ct-news-input"
-          placeholder="Enter your work email"
+          placeholder={t('newsletter.placeholder')}
           autoComplete="email"
           required
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
         <button type="submit" className="ct-news-btn">
-          Subscribe
+          {t('newsletter.submit')}
           <ArrowIcon size={14} />
         </button>
       </form>

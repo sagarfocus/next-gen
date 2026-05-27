@@ -1,4 +1,5 @@
 import type { ReactElement } from 'react';
+import { useTranslation } from 'react-i18next';
 import SectionHead from './SectionHead';
 
 export interface DoCard {
@@ -24,6 +25,7 @@ const ACCENTS = [ToneA, ToneB, ToneC, ToneA, ToneB, ToneD];
  * thin accent rail on each card. Mobile collapses to a single column.
  */
 const WhatWeDo = ({ cards }: WhatWeDoProps) => {
+  const { t } = useTranslation('common');
   const hero = cards[0];
   const rest = cards.slice(1);
 
@@ -31,17 +33,18 @@ const WhatWeDo = ({ cards }: WhatWeDoProps) => {
     <section className="sv-section sv-do sv-do-bento">
       <div className="container-shell">
         <SectionHead
-          num="01 - What we do"
+          num={t('components.whatWeDo.sectionNum')}
           title={
             <>
-              Six ways we <em>move the needle.</em>
+              {t('components.whatWeDo.titlePart1')}{' '}
+              <em>{t('components.whatWeDo.titleEm')}</em>
             </>
           }
           meta={
             <>
-              Every retainer
+              {t('components.whatWeDo.metaLine1')}
               <br />
-              covers all six
+              {t('components.whatWeDo.metaLine2')}
             </>
           }
         />
@@ -97,7 +100,7 @@ const WhatWeDo = ({ cards }: WhatWeDoProps) => {
                     color: ToneC,
                   }}
                 >
-                  Cornerstone capability
+                  {t('components.whatWeDo.cornerstoneLabel')}
                 </span>
                 <div
                   className="bento-icon-slot bento-icon-slot--hero"
@@ -284,7 +287,7 @@ const WhatWeDo = ({ cards }: WhatWeDoProps) => {
                   whiteSpace: 'nowrap',
                 }}
               >
-                Outcome lens
+                {t('components.whatWeDo.outcomeLensLabel')}
               </span>
             </article>
           ) : null}

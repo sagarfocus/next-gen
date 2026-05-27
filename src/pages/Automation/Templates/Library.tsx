@@ -1,93 +1,114 @@
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { ArrowIcon } from '@/components/icons';
 import { type Template } from './data';
 
-const TemplateCard = ({ t, index }: { t: Template; index: number }) => (
-  <li id={`tpl-${t.num}`} className={`atx-card tone-${t.tone}`}>
-    <div className="atx-card-art">
-      <img className="atx-card-img" src={t.img} alt={t.imgAlt} loading="lazy" decoding="async" />
-      <span className="atx-card-num" aria-hidden="true">
-        /{t.num}
-      </span>
-      <span className="atx-card-cat-pill" aria-hidden="true">
-        {t.cat}
-      </span>
-    </div>
-    <div className="atx-card-body">
-      <div className="atx-card-head">
-        <span className="atx-card-mono">
-          FIG. {String(index + 2).padStart(2, '0')} — {t.cat.toUpperCase()}
+const TemplateCard = ({ t: tpl, index }: { t: Template; index: number }) => {
+  const { t } = useTranslation(['automation']);
+  return (
+    <li id={`tpl-${tpl.num}`} className={`atx-card tone-${tpl.tone}`}>
+      <div className="atx-card-art">
+        <img
+          className="atx-card-img"
+          src={tpl.img}
+          alt={tpl.imgAlt}
+          loading="lazy"
+          decoding="async"
+        />
+        <span className="atx-card-num" aria-hidden="true">
+          /{tpl.num}
         </span>
-        <h3 className="atx-card-title">{t.title}</h3>
-        <p className="atx-card-blurb">{t.blurb}</p>
+        <span className="atx-card-cat-pill" aria-hidden="true">
+          {tpl.cat}
+        </span>
       </div>
-
-      <div className="atx-card-specs">
-        <div className="atx-card-spec">
-          <span className="atx-card-spec-label">Build</span>
-          <span className="atx-card-spec-value">{t.nodes}</span>
-        </div>
-        <div className="atx-card-spec">
-          <span className="atx-card-spec-label">Setup</span>
-          <span className="atx-card-spec-value">{t.effort}</span>
-        </div>
-        <div className="atx-card-spec">
-          <span className="atx-card-spec-label">Value</span>
-          <span className="atx-card-spec-value">{t.saves}</span>
-        </div>
-        <div className="atx-card-spec">
-          <span className="atx-card-spec-label">Compliance</span>
-          <span className="atx-card-spec-value">{t.compliance}</span>
-        </div>
-      </div>
-
-      <div className="atx-card-foot">
-        <p className="atx-card-pull">&ldquo;{t.pull}&rdquo;</p>
-        <Link
-          to={t.detailPath ?? '/free-growth-audit'}
-          className="atx-btn atx-btn-primary atx-btn-sm"
-          aria-label={`Get the ${t.title} workflow`}
-        >
-          Get this workflow <ArrowIcon size={14} />
-        </Link>
-      </div>
-    </div>
-  </li>
-);
-
-const Library = ({ visible }: { visible: Template[] }) => (
-  <section className="atx-list" id="atx-list" aria-labelledby="atx-list-title">
-    <div className="container-shell">
-      <header className="adv-head det-head">
-        <span className="adv-eyebrow">/ 03 &nbsp; The library</span>
-        <h2 id="atx-list-title" className="adv-h2">
-          Six workflows. Each one shipped as a spec.
-        </h2>
-        <p className="adv-intro">
-          Browse the library. Every card has its own nodes, compliance posture, and time-saved
-          baseline — pick the one your clinic will actually use first.
-        </p>
-      </header>
-
-      {visible.length === 0 ? (
-        <div className="atx-empty">
-          <span className="atx-empty-icon" aria-hidden="true">
-            ∅
+      <div className="atx-card-body">
+        <div className="atx-card-head">
+          <span className="atx-card-mono">
+            FIG. {String(index + 2).padStart(2, '0')} — {tpl.cat.toUpperCase()}
           </span>
-          <p>
-            No templates in this category yet —{' '}
-            <Link to="/free-growth-audit">request a custom build</Link>.
-          </p>
+          <h3 className="atx-card-title">{tpl.title}</h3>
+          <p className="atx-card-blurb">{tpl.blurb}</p>
         </div>
-      ) : (
-        <ol className="atx-cards">
-          {visible.map((t, i) => (
-            <TemplateCard key={t.num} t={t} index={i} />
-          ))}
-        </ol>
-      )}
-    </div>
-  </section>
-);
+
+        <div className="atx-card-specs">
+          <div className="atx-card-spec">
+            <span className="atx-card-spec-label">
+              {t('automation:templates.page.library.card.build')}
+            </span>
+            <span className="atx-card-spec-value">{tpl.nodes}</span>
+          </div>
+          <div className="atx-card-spec">
+            <span className="atx-card-spec-label">
+              {t('automation:templates.page.library.card.setup')}
+            </span>
+            <span className="atx-card-spec-value">{tpl.effort}</span>
+          </div>
+          <div className="atx-card-spec">
+            <span className="atx-card-spec-label">
+              {t('automation:templates.page.library.card.value')}
+            </span>
+            <span className="atx-card-spec-value">{tpl.saves}</span>
+          </div>
+          <div className="atx-card-spec">
+            <span className="atx-card-spec-label">
+              {t('automation:templates.page.library.card.compliance')}
+            </span>
+            <span className="atx-card-spec-value">{tpl.compliance}</span>
+          </div>
+        </div>
+
+        <div className="atx-card-foot">
+          <p className="atx-card-pull">&ldquo;{tpl.pull}&rdquo;</p>
+          <Link
+            to={tpl.detailPath ?? '/free-growth-audit'}
+            className="atx-btn atx-btn-primary atx-btn-sm"
+            aria-label={t('automation:templates.page.library.card.ctaAria', { title: tpl.title })}
+          >
+            {t('automation:templates.page.library.card.cta')} <ArrowIcon size={14} />
+          </Link>
+        </div>
+      </div>
+    </li>
+  );
+};
+
+const Library = ({ visible }: { visible: Template[] }) => {
+  const { t } = useTranslation(['automation']);
+  return (
+    <section className="atx-list" id="atx-list" aria-labelledby="atx-list-title">
+      <div className="container-shell">
+        <header className="adv-head det-head">
+          <span className="adv-eyebrow">{t('automation:templates.page.library.label')}</span>
+          <h2 id="atx-list-title" className="adv-h2">
+            {t('automation:templates.page.library.title')}
+          </h2>
+          <p className="adv-intro">{t('automation:templates.page.library.intro')}</p>
+        </header>
+
+        {visible.length === 0 ? (
+          <div className="atx-empty">
+            <span className="atx-empty-icon" aria-hidden="true">
+              ∅
+            </span>
+            <p>
+              {t('automation:templates.page.library.emptyText')}
+              <Link to="/free-growth-audit">
+                {t('automation:templates.page.library.emptyLink')}
+              </Link>
+              .
+            </p>
+          </div>
+        ) : (
+          <ol className="atx-cards">
+            {visible.map((tpl, i) => (
+              <TemplateCard key={tpl.num} t={tpl} index={i} />
+            ))}
+          </ol>
+        )}
+      </div>
+    </section>
+  );
+};
 
 export default Library;
