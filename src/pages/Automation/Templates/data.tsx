@@ -27,6 +27,7 @@ export interface Template {
   compliance: Compliance;
   img: string;
   imgAlt: string;
+  detailPath: string;
 }
 
 export const TEMPLATES: Template[] = [
@@ -44,6 +45,7 @@ export const TEMPLATES: Template[] = [
     compliance: 'BAA required',
     img: patientVerificationImg,
     imgAlt: 'Patient intake and insurance verification workflow illustration.',
+    detailPath: '/automation/templates/patient-intake',
   },
   {
     num: '02',
@@ -59,6 +61,7 @@ export const TEMPLATES: Template[] = [
     compliance: 'HIPAA-aware',
     img: smsEmailImg,
     imgAlt: 'SMS and email reminder cadence workflow illustration.',
+    detailPath: '/automation/templates/reminder-cadence',
   },
   {
     num: '03',
@@ -74,6 +77,7 @@ export const TEMPLATES: Template[] = [
     compliance: 'PHI-free',
     img: reviewCollectionImg,
     imgAlt: 'Sentiment-routed review collection workflow illustration.',
+    detailPath: '/automation/templates/review-collection',
   },
   {
     num: '04',
@@ -89,6 +93,7 @@ export const TEMPLATES: Template[] = [
     compliance: 'BAA required',
     img: realtimeEligibilityImg,
     imgAlt: 'Real-time insurance eligibility bot workflow illustration.',
+    detailPath: '/automation/templates/eligibility-bot',
   },
   {
     num: '05',
@@ -104,6 +109,7 @@ export const TEMPLATES: Template[] = [
     compliance: 'PHI-free',
     img: gptBotImg,
     imgAlt: 'GPT chatbot for lead capture workflow illustration.',
+    detailPath: '/automation/templates/gpt-chatbot',
   },
   {
     num: '06',
@@ -119,6 +125,7 @@ export const TEMPLATES: Template[] = [
     compliance: 'PHI-free',
     img: dailyAiSocialImg,
     imgAlt: 'Daily AI social auto-poster workflow illustration.',
+    detailPath: '/automation/templates/social-auto-poster',
   },
 ];
 

@@ -37,6 +37,12 @@ import AeoSchema from './pages/AeoSchema';
 import Automation from './pages/Automation';
 import AutomationMoreInfo from './pages/Automation/MoreInfo';
 import AutomationTemplates from './pages/Automation/Templates';
+import PatientIntakeWorkflow from './pages/Automation/Templates/PatientIntakeWorkflow';
+import ReminderCadenceWorkflow from './pages/Automation/Templates/ReminderCadenceWorkflow';
+import ReviewCollectionWorkflow from './pages/Automation/Templates/ReviewCollectionWorkflow';
+import EligibilityBotWorkflow from './pages/Automation/Templates/EligibilityBotWorkflow';
+import GptChatbotWorkflow from './pages/Automation/Templates/GptChatbotWorkflow';
+import SocialAutoPosterWorkflow from './pages/Automation/Templates/SocialAutoPosterWorkflow';
 import OnsiteFieldMarketing from './pages/OnsiteFieldMarketing';
 import MedicalAutomation from './pages/MedicalAutomation';
 import FreeGrowthAudit from './pages/FreeGrowthAudit';
@@ -123,6 +129,30 @@ const App = () => {
           <Route path="/automation" element={<Automation />} />
           <Route path="/automation/more-info" element={<AutomationMoreInfo />} />
           <Route path="/automation/templates" element={<AutomationTemplates />} />
+          <Route
+            path="/automation/templates/patient-intake"
+            element={<PatientIntakeWorkflow />}
+          />
+          <Route
+            path="/automation/templates/reminder-cadence"
+            element={<ReminderCadenceWorkflow />}
+          />
+          <Route
+            path="/automation/templates/review-collection"
+            element={<ReviewCollectionWorkflow />}
+          />
+          <Route
+            path="/automation/templates/eligibility-bot"
+            element={<EligibilityBotWorkflow />}
+          />
+          <Route
+            path="/automation/templates/gpt-chatbot"
+            element={<GptChatbotWorkflow />}
+          />
+          <Route
+            path="/automation/templates/social-auto-poster"
+            element={<SocialAutoPosterWorkflow />}
+          />
           <Route path="/onsite-field-marketing" element={<OnsiteFieldMarketing />} />
           <Route path="/medical-automation" element={<MedicalAutomation />} />
           <Route path="/free-growth-audit" element={<FreeGrowthAudit />} />

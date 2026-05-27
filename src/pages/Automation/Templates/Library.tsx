@@ -44,7 +44,7 @@ const TemplateCard = ({ t, index }: { t: Template; index: number }) => (
       <div className="atx-card-foot">
         <p className="atx-card-pull">&ldquo;{t.pull}&rdquo;</p>
         <Link
-          to="/free-growth-audit"
+          to={t.detailPath ?? '/free-growth-audit'}
           className="atx-btn atx-btn-primary atx-btn-sm"
           aria-label={`Get the ${t.title} workflow`}
         >
