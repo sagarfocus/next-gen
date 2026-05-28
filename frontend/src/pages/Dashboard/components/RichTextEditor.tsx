@@ -17,7 +17,6 @@ import {
   Code,
   Undo,
   Redo,
-  Type,
   Upload,
   X,
   ExternalLink
@@ -37,7 +36,6 @@ export default function RichTextEditor({
   onChange,
   placeholder = 'Start writing...',
   minHeight = '400px',
-  onImageUpload,
   blogTitle = ''
 }: RichTextEditorProps) {
   const editorRef = useRef<HTMLDivElement>(null);
@@ -644,7 +642,7 @@ export default function RichTextEditor({
         </div>
       )}
 
-      <style jsx>{`
+      <style>{`
         [contenteditable]:empty:before {
           content: attr(data-placeholder);
           color: #94a3b8;

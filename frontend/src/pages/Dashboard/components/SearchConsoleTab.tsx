@@ -5,8 +5,8 @@ import {
   XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer,
 } from 'recharts';
 import {
-  Search, Globe, RefreshCw, Loader2, FileText,
-  ArrowUpRight, ArrowDownRight, Target, BarChart3, MousePointerClick,
+  Search, Globe, RefreshCw, FileText,
+  Target, BarChart3, MousePointerClick,
 } from 'lucide-react';
 import GoogleDataProgressLoader from './GoogleDataProgressLoader';
 
@@ -153,19 +153,6 @@ export default function SearchConsoleTab({ clinicId, isDark = false }: SearchCon
   const iconBg: Record<string, string> = { emerald: 'bg-emerald-500/10', blue: 'bg-blue-500/10', amber: 'bg-amber-500/10', purple: 'bg-purple-500/10' };
   const gradBg: Record<string, string> = { emerald: 'from-emerald-500/10 to-emerald-500/5', blue: 'from-blue-500/10 to-blue-500/5', amber: 'from-amber-500/10 to-amber-500/5', purple: 'from-purple-500/10 to-purple-500/5' };
 
-  const positionBadge = (pos: number) => {
-    const cls = pos <= 3 ? 'bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-400'
-      : pos <= 10 ? 'bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400'
-      : pos <= 20 ? 'bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-400'
-      : 'bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-400';
-    return (
-      <span className={`inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-bold ${cls}`}>
-        {pos <= 10 ? <ArrowUpRight className="h-3 w-3" /> : <ArrowDownRight className="h-3 w-3" />}
-        {pos.toFixed(1)}
-      </span>
-    );
-  };
-
   return (
     <div className="space-y-6">
       {/* Header */}
@@ -280,7 +267,7 @@ export default function SearchConsoleTab({ clinicId, isDark = false }: SearchCon
 }
 
 /* Period Selector */
-function PeriodSelector({ period, onChange, isDark }: { period: Period; onChange: (p: Period) => void; isDark: boolean }) {
+function PeriodSelector({ period, onChange }: { period: Period; onChange: (p: Period) => void; isDark: boolean }) {
   return (
     <div className="inline-flex items-center gap-0.5 p-1 rounded-2xl bg-slate-100/80 dark:bg-slate-800/80 border border-slate-200/60 dark:border-slate-700/60 backdrop-blur-sm">
       {PERIOD_OPTIONS.map(opt => (

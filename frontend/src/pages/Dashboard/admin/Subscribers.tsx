@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, Mail, Calendar, CheckCircle, XCircle } from 'lucide-react';
 
@@ -12,7 +11,6 @@ interface Subscriber {
 }
 
 export default function NewsletterSubscribersPage() {
-  const navigate = useNavigate();
   const [subscribers, setSubscribers] = useState<Subscriber[]>([]);
   const [loading, setLoading] = useState(true);
 

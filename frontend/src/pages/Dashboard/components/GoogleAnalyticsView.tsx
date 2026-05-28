@@ -6,8 +6,8 @@ import {
 } from 'recharts';
 import {
   TrendingUp, Users, Globe, Search, RefreshCw, FileText,
-  ArrowUpRight, ArrowDownRight, BarChart3, MousePointerClick,
-  Eye, Target, Zap, MapPin, Phone, Navigation, ExternalLink,
+  BarChart3, MousePointerClick,
+  Eye, Zap, MapPin, Phone, Navigation, ExternalLink,
 } from 'lucide-react';
 import DashboardLoader from './DashboardLoader';
 
@@ -249,7 +249,6 @@ export default function GoogleAnalyticsView({ clinicId, isDark = false, isClient
     { activeUsers: 0, sessions: 0, pageViews: 0, conversions: 0 },
   );
 
-  const avgBounce = ga4Data.length ? ga4Data.reduce((s, d) => s + d.bounceRate, 0) / ga4Data.length : 0;
   const avgEngagement = ga4Data.length ? ga4Data.reduce((s, d) => s + d.engagementRate, 0) / ga4Data.length : 0;
 
   const scTotals = scData.reduce(

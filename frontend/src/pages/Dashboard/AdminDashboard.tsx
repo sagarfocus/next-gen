@@ -1,15 +1,11 @@
 import { useState, useEffect, useRef, useCallback, Suspense } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { 
-  LayoutDashboard, 
-  Globe, 
-  Database, 
-  Cpu, 
-  ShieldAlert, 
-  Settings, 
+import {
+  LayoutDashboard,
+  Globe,
+  ShieldAlert,
   LogOut,
   Plus,
-  MoreVertical,
   Activity,
   Zap,
   FileText,
@@ -25,7 +21,6 @@ import {
   Trash2,
   Building2,
   Target,
-  Phone,
   DollarSign,
   Calendar,
   User,
@@ -36,7 +31,6 @@ import {
   Eye,
   EyeOff,
   Link2,
-  RefreshCw,
   Sparkles,
   Check,
   Search,
@@ -220,23 +214,6 @@ function StaffManagementSection({
   const premiumClients = searchFilteredUsers.filter((listedUser) => isPremiumClient(listedUser));
   const adminUsers = searchFilteredUsers.filter((listedUser) => listedUser.role === 'admin' || listedUser.role === 'super_admin');
   const freeUsers = searchFilteredUsers.filter((listedUser) => listedUser.role === 'client' && !isPremiumClient(listedUser));
-
-  // Determine which users to display based on active filter
-  const getDisplayedUsers = () => {
-    switch (activeFilter) {
-      case 'premium':
-        return premiumClients;
-      case 'admin':
-        return adminUsers;
-      case 'free':
-        return freeUsers;
-      case 'all':
-      default:
-        return searchFilteredUsers;
-    }
-  };
-
-  const displayedUsers = getDisplayedUsers();
 
   const getPlanPillClasses = (label: string) => {
     if (label === 'Scale Elite') return 'bg-amber-100 dark:bg-amber-900/30 text-amber-800 dark:text-amber-400';
@@ -2016,6 +1993,8 @@ function AdminDashboardContent() {
       }));
     }
   };
+  void handleSaveGmbSelection;
+  void handleManualGmbSync;
 
   useEffect(() => {
     if (!showEditClinicModal || !editingClinic?.id) return;
@@ -3513,7 +3492,6 @@ function ContentForSection(props: {
     user,
     clinics,
     users,
-    leads,
     assignments,
     selectedUser,
     selectedClinic,
@@ -3777,7 +3755,7 @@ function ContentForSection(props: {
               </div>
               <div className="space-y-3">
                 {commandCenterData.topClinics.length > 0 ? (
-                  commandCenterData.topClinics.map((clinic: any, idx: number) => (
+                  commandCenterData.topClinics.map((clinic: any) => (
                     <div key={clinic.clinicId} className="flex items-center justify-between p-3 bg-slate-50 dark:bg-slate-800/50 rounded-xl">
                       <div className="flex-1">
                         <p className="font-medium text-sm">{clinic.name}</p>
@@ -4439,11 +4417,10 @@ function ContentForSection(props: {
 function BlogManagementSection({ 
   addBackgroundTask, 
   updateBackgroundTask 
-}: { 
+}: {
   addBackgroundTask: (type: 'blog' | 'news', message: string) => string;
   updateBackgroundTask: (id: string, status: 'success' | 'error', message: string, details?: string) => void;
 }) {
-  const navigate = useNavigate();
   const [posts, setPosts] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -4832,11 +4809,10 @@ function BlogManagementSection({
 function NewsManagementSection({ 
   addBackgroundTask, 
   updateBackgroundTask 
-}: { 
+}: {
   addBackgroundTask: (type: 'blog' | 'news', message: string) => string;
   updateBackgroundTask: (id: string, status: 'success' | 'error', message: string, details?: string) => void;
 }) {
-  const navigate = useNavigate();
   const [articles, setArticles] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
 

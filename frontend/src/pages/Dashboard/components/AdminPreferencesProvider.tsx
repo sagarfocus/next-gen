@@ -1,4 +1,4 @@
-import { ReactNode, useEffect, useState } from 'react';
+import { useEffect, useState, type ReactNode } from 'react';
 import { AdminContext } from '../lib/admin-context';
 import type { AdminPreferences, AdminTheme } from '../lib/admin-context';
 import type { AdminLanguage } from '../lib/admin-translations';

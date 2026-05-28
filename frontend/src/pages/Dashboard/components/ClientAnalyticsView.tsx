@@ -3,7 +3,7 @@ import {
   LineChart, Line, BarChart, Bar, AreaChart, Area, PieChart, Pie, Cell,
   XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer
 } from 'recharts';
-import { Loader2, Building2, TrendingUp, Users, Globe, MousePointerClick, Eye, BarChart3, Search, DollarSign } from 'lucide-react';
+import { Building2, TrendingUp, Users, Globe, MousePointerClick, Eye, BarChart3, Search, DollarSign } from 'lucide-react';
 import DashboardLoader from './DashboardLoader';
 import AnalyticsDateFilter, { type DateRange, type FilterPreset } from './AnalyticsDateFilter';
 import { useSitePreferences } from './SitePreferencesProvider';

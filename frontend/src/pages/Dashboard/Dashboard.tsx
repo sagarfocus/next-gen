@@ -12,7 +12,6 @@ import {
   Search,
   CreditCard,
   Check,
-  ArrowUpRight,
   Shield,
   Rocket,
   Zap,
@@ -1123,7 +1122,7 @@ function OverviewView({
                   <YAxis fontSize={12} tickFormatter={(v: number) => `${v}%`} />
                   <Tooltip
                     contentStyle={{ borderRadius: '12px', border: '1px solid #e5e7eb' }}
-                    formatter={(value: number | string | undefined, name: string | undefined) => {
+                    formatter={(value: any, name: any) => {
                       if (name === 'Growth %') return [`${value}%`, name];
                       return [value, name];
                     }}

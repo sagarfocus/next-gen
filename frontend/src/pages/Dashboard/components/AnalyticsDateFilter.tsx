@@ -77,7 +77,6 @@ function computeRange(preset: FilterPreset): DateRange {
 export default function AnalyticsDateFilter({
   isDark = false,
   onChange,
-  showCompare = false,
   initialPreset = 'last_week',
 }: AnalyticsDateFilterProps) {
   const [activePreset, setActivePreset] = useState<FilterPreset>(initialPreset);

@@ -7,7 +7,6 @@ import {
   Check,
   Copy,
   X,
-  Image as ImageIcon,
 } from 'lucide-react';
 import RichTextEditor from './RichTextEditor';
 /* ── Shared input class names ────────────────────────────── */

@@ -68,8 +68,6 @@ const FLOAT_FIELDS = new Set<MetricField>([
   'dailyPatientAvg',
 ]);
 
-const INT_FIELDS = METRIC_FIELDS.filter((field) => !FLOAT_FIELDS.has(field));
-
 // Helper functions for calculations
 function calcPercentage(numerator: number, denominator: number): number {
   if (!denominator || denominator === 0) return 0;
@@ -79,11 +77,6 @@ function calcPercentage(numerator: number, denominator: number): number {
 function calcMoney(numerator: number, denominator: number): number {
   if (!denominator || denominator === 0) return 0;
   return Number((numerator / denominator).toFixed(2));
-}
-
-function formatCalcDisplay(value: number, isPercentage: boolean = false): string {
-  if (value === 0) return 'Needs data';
-  return isPercentage ? `${value}%` : `$${value}`;
 }
 
 function calculateAllMetrics(metrics: FormMetrics): Partial<Record<MetricField, number>> {
